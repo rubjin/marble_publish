@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Popup Component
+   ========================================================================== */
+
+/* 팝업 오버레이 (Dimmed) */
+.popupDimmed {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  /* 가이드용 기본 숨김 처리는 guide.html에서 관리 (실제에선 필요시 제어) */
+
+  &.isOpen {
+    display: flex;
+  }
+}
+
+/* 팝업 컨테이너 */
+.popupWrap {
+  position: relative;
+  width: 400px;
+  max-width: 90vw;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 팝업 사이즈 변형 */
+.popupWrap.lg { width: 600px; }
+.popupWrap.sm { width: 320px; }
+
+/* 팝업 헤더 */
+.popupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+
+  .popupTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+  }
+
+  .btnClose {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #111827;
+    }
+
+    /* 닫기 X 아이콘 CSS로 그리기 */
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 2px;
+      background-color: currentColor;
+    }
+
+    &::before { transform: rotate(45deg); }
+    &::after { transform: rotate(-45deg); }
+  }
+}
+
+/* 팝업 바디 (컨텐츠) */
+.popupBody {
+  padding: 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* 팝업 푸터 (버튼 영역) */
+.popupFooter {
+  padding: 20px 24px;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}

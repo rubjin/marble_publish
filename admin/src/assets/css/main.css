@@ -1,0 +1,904 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "KBFG";
+  src: url("../fonts/KBFG.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: "KBFG", sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  flex-shrink: 0;
+}
+.ico svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+.ico.sm {
+  width: 16px;
+  height: 16px;
+}
+.ico.lg {
+  width: 24px;
+  height: 24px;
+}
+.ico.xl {
+  width: 32px;
+  height: 32px;
+}
+.ico.side1 {
+  background-image: url("../images/icon/side_1.svg");
+}
+.ico.side2 {
+  background-image: url("../images/icon/side_2.svg");
+}
+.ico.side3 {
+  background-image: url("../images/icon/side_3.svg");
+}
+.ico.side4 {
+  background-image: url("../images/icon/side_4.svg");
+}
+.ico.side5 {
+  background-image: url("../images/icon/side_5.svg");
+}
+.ico.side6 {
+  background-image: url("../images/icon/side_6.svg");
+}
+.ico.side7 {
+  background-image: url("../images/icon/side_7.svg");
+}
+.ico.sideSub {
+  background-image: url("../images/icon/side_sub.svg");
+}
+
+.bo-wrap {
+  min-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  min-height: 100vh;
+  background-color: #656565;
+}
+
+.boSidebar {
+  width: 260px;
+  color: #fff;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.boMenu {
+  list-style: none;
+  padding: 82px 20px;
+  margin: 0;
+}
+.boMenu li {
+  margin-bottom: 6px;
+}
+.boMenu li.isOpen > a {
+  background-color: #777777;
+  color: #ffffff;
+}
+.boMenu li.isOpen > a .arrow {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.boMenu li.isOpen .boSubMenu {
+  display: block;
+}
+.boMenu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 10px 12px;
+  color: #e5e5e5;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+.boMenu a:hover, .boMenu a.isActive {
+  background-color: #777777;
+  color: #ffffff;
+}
+.boMenu .text {
+  flex: 1;
+}
+.boMenu .arrow {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../images/icon/side_arrow.svg");
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.boMenu .boSubMenu {
+  display: none;
+  list-style: none;
+  margin: 6px 0;
+  padding: 0 0 0 10px;
+}
+.boMenu .boSubMenu li {
+  margin-bottom: 2px;
+}
+.boMenu .boSubMenu a {
+  height: 40px;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  gap: 4px;
+}
+.boMenu .boSubMenu a:hover, .boMenu .boSubMenu a.isActive {
+  background-color: #FFBC00;
+  color: #2F3034;
+  font-weight: 500;
+}
+.bo-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 32px;
+  background-color: #F3F5F6;
+  border-radius: 30px 0 0 0;
+}
+
+.bo-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.bo-content {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+.btn.primary {
+  background-color: #FFCC00;
+  color: #1f2937;
+}
+.btn.primary:hover {
+  background-color: #E6B800;
+}
+.btn.outline {
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  color: #1f2937;
+}
+.btn.outline:hover {
+  background-color: #f3f4f6;
+}
+.btn.sm {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+.btn.md {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+.btn.lg {
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+.btn.full {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+}
+.btn:disabled, .btn.isDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.btn .ico {
+  flex-shrink: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.badge.ongoing {
+  background-color: #FFCC00;
+  color: #1f2937;
+}
+.badge.completed {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+.badge.sm {
+  padding: 2px 6px;
+  font-size: 10px;
+}
+.badge.lg {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.card {
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.card .thumb {
+  width: 100%;
+  height: 160px;
+  background-color: #f3f4f6;
+  object-fit: cover;
+}
+.card .content {
+  padding: 16px;
+}
+.card .title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.card .desc {
+  font-size: 14px;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.tab {
+  display: flex;
+  border-bottom: 1px solid #d1d5db;
+}
+.tab .item {
+  padding: 12px 24px;
+  font-weight: 600;
+  color: #d1d5db;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.tab .item.isActive {
+  color: #1f2937;
+}
+.tab .item.isActive::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #1f2937;
+}
+
+/* ==========================================================================
+   Form Component
+   ========================================================================== */
+.formGroup {
+  margin-bottom: 24px;
+  width: 100%;
+}
+.formGroup:last-child {
+  margin-bottom: 0;
+}
+
+.formLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+.formLabel .required {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.formControlWrap {
+  position: relative;
+  width: 100%;
+}
+.formControlWrap.hasBtn {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.formControlWrap.hasBtn .formControl {
+  flex: 1;
+}
+.formControlWrap.hasBtn .btn {
+  flex-shrink: 0;
+  height: 34px; /* input과 높이 맞춤 */
+  margin: 0; /* md 버튼의 여백 등에 대비 */
+}
+
+.formControl {
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #2F3034;
+  background-color: #fff;
+  border: 1px solid #D5D7DE;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+.formControl::placeholder {
+  color: #9ca3af;
+}
+.formControl:hover {
+  border-color: #9ca3af;
+}
+.formControl:focus {
+  border-color: #FFDC00;
+  box-shadow: 0 0 0 3px rgba(255, 220, 0, 0.2);
+}
+.formControl[readonly] {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+}
+.formControl:disabled, .formControl.isDisabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+}
+.formControl.isError {
+  border-color: #ef4444;
+}
+.formControl.isError:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+textarea.formControl {
+  height: auto;
+  min-height: 120px;
+  padding: 6px 12px;
+  resize: vertical;
+}
+
+select.formControl {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding-right: 40px;
+}
+
+.formErrorMsg {
+  display: block;
+  font-size: 13px;
+  color: #ef4444;
+  margin-top: 6px;
+}
+
+/* Checkbox & Radio */
+.formCheckGroup {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.formCheck {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+.formCheck input[type=checkbox],
+.formCheck input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.formCheck .checkIcon {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  transition: all 0.2s;
+}
+.formCheck .checkIcon::after {
+  content: "";
+  display: none;
+}
+.formCheck input[type=checkbox] + .checkIcon {
+  border-radius: 4px;
+}
+.formCheck input[type=checkbox] + .checkIcon::after {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+.formCheck input[type=radio] + .checkIcon {
+  border-radius: 50%;
+}
+.formCheck input[type=radio] + .checkIcon::after {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.formCheck input:checked + .checkIcon {
+  background-color: #1f2937;
+  border-color: #1f2937;
+}
+.formCheck input:checked + .checkIcon::after {
+  display: block;
+}
+.formCheck input:disabled + .checkIcon {
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+}
+.formCheck input:checked:disabled + .checkIcon {
+  background-color: #d1d5db;
+  border-color: #d1d5db;
+}
+.formCheck .checkLabel {
+  font-size: 14px;
+  color: #374151;
+}
+.formCheck input:disabled ~ .checkLabel {
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Popup Component
+   ========================================================================== */
+/* 팝업 오버레이 (Dimmed) */
+.popupDimmed {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  /* 가이드용 기본 숨김 처리는 guide.html에서 관리 (실제에선 필요시 제어) */
+}
+.popupDimmed.isOpen {
+  display: flex;
+}
+
+/* 팝업 컨테이너 */
+.popupWrap {
+  position: relative;
+  width: 400px;
+  max-width: 90vw;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 팝업 사이즈 변형 */
+.popupWrap.lg {
+  width: 600px;
+}
+
+.popupWrap.sm {
+  width: 320px;
+}
+
+/* 팝업 헤더 */
+.popupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.popupHeader .popupTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+.popupHeader .btnClose {
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  transition: color 0.2s;
+}
+.popupHeader .btnClose:hover {
+  color: #111827;
+}
+.popupHeader .btnClose {
+  /* 닫기 X 아이콘 CSS로 그리기 */
+}
+.popupHeader .btnClose::before, .popupHeader .btnClose::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  background-color: currentColor;
+}
+.popupHeader .btnClose::before {
+  transform: rotate(45deg);
+}
+.popupHeader .btnClose::after {
+  transform: rotate(-45deg);
+}
+
+/* 팝업 바디 (컨텐츠) */
+.popupBody {
+  padding: 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* 팝업 푸터 (버튼 영역) */
+.popupFooter {
+  padding: 20px 24px;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.accordion {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.accordion + .accordion {
+  margin-top: -1px;
+}
+.accordion .accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  transition: background-color 0.2s;
+}
+.accordion .accordionHeader:hover {
+  background-color: #f3f4f6;
+}
+.accordion .accordionHeader .accordionArrow {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.accordion .accordionHeader .accordionArrow svg {
+  width: 100%;
+  height: 100%;
+}
+.accordion .accordionBody {
+  display: none;
+  padding: 20px;
+  border-top: 1px solid #d1d5db;
+  background-color: #ffffff;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1f2937;
+}
+.accordion.isOpen .accordionHeader .accordionArrow {
+  transform: rotate(180deg);
+}
+.accordion.isOpen .accordionBody {
+  display: block;
+}
+
+.tblWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 14px;
+  color: #1f2937;
+}
+.tbl thead th {
+  padding: 12px 16px;
+  background-color: #f3f4f6;
+  border-bottom: 2px solid #d1d5db;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+.tbl tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.15s;
+}
+.tbl tbody tr:hover {
+  background-color: #fafafa;
+}
+.tbl tbody tr:last-child {
+  border-bottom: none;
+}
+.tbl tbody td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+.tbl.tblCenter thead th,
+.tbl.tblCenter tbody td {
+  text-align: center;
+}
+.tbl.tblStriped tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+.tbl.tblBordered {
+  border: 1px solid #d1d5db;
+}
+.tbl.tblBordered thead th,
+.tbl.tblBordered tbody td {
+  border: 1px solid #d1d5db;
+}
+
+.fs28 {
+  font-size: 28px !important;
+  line-height: 1.4;
+}
+
+.fs24 {
+  font-size: 24px !important;
+  line-height: 1.4;
+}
+
+.fs20 {
+  font-size: 20px !important;
+  line-height: 1.45;
+}
+
+.fs18 {
+  font-size: 18px !important;
+  line-height: 1.5;
+}
+
+.fs16 {
+  font-size: 16px !important;
+  line-height: 1.5;
+}
+
+.fs15 {
+  font-size: 15px !important;
+  line-height: 1.5;
+}
+
+.fs14 {
+  font-size: 14px !important;
+  line-height: 1.5;
+}
+
+.fs13 {
+  font-size: 13px !important;
+  line-height: 1.5;
+}
+
+.fs12 {
+  font-size: 12px !important;
+  line-height: 1.5;
+}
+
+.fs10 {
+  font-size: 10px !important;
+  line-height: 1.4;
+}
+
+.fwRegular {
+  font-weight: 400 !important;
+}
+
+.fwMedium {
+  font-weight: 500 !important;
+}
+
+.fwSemibold {
+  font-weight: 600 !important;
+}
+
+.fwBold {
+  font-weight: 700 !important;
+}
+
+.textPrimary {
+  color: #FFCC00 !important;
+}
+
+.textDark {
+  color: #111827 !important;
+}
+
+.textMuted {
+  color: #6b7280 !important;
+}
+
+.textDisabled {
+  color: #9ca3af !important;
+}
+
+.textWhite {
+  color: #ffffff !important;
+}
+
+.titPage {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.35;
+}
+
+.titSection {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+.titSub {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.45;
+}
+
+.titCard {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.bodyLg {
+  font-size: 16px;
+  font-weight: 400;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.bodyMd {
+  font-size: 14px;
+  font-weight: 400;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.bodySm {
+  font-size: 13px;
+  font-weight: 400;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.micro {
+  font-size: 10px;
+  font-weight: 400;
+  color: #9ca3af;
+  line-height: 1.4;
+}
+
+.typoList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.typoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  gap: 20px;
+}
+.typoItem .info {
+  min-width: 180px;
+  flex-shrink: 0;
+}
+.typoItem .info .name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2px;
+}
+.typoItem .info .meta {
+  font-size: 12px;
+  color: #9ca3af;
+  font-family: monospace;
+}
+.typoItem .preview {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #1f2937;
+}

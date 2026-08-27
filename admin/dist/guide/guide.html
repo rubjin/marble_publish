@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI 컴포넌트 스타일 가이드</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    /* html 그리드 오버라이드 - PC 레이아웃 */
+    html { display: block !important; grid-template-columns: none !important; }
+    body { background-color: #f9fafb; padding: 0; margin: 0; min-width: 1200px; }
+
+    /* 스티키 네비게이션 */
+    .guideNav {
+      position: sticky; top: 0; z-index: 100;
+      background-color: #fff; border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .guideNavInner {
+      max-width: 1200px; margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; gap: 0;
+    }
+    .guideNavItem {
+      padding: 16px 24px; font-size: 15px; font-weight: 600;
+      color: #6b7280; white-space: nowrap; cursor: pointer;
+      border-bottom: 3px solid transparent; transition: all 0.2s;
+      background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .guideNavItem:hover { color: #1f2937; background-color: #fefce8; }
+    .guideNavItem.isActive {
+      color: #1f2937; border-bottom-color: #FFDC00;
+    }
+
+    /* 가이드 레이아웃 */
+    .guideWrapper { max-width: 1200px; margin: 0 auto; padding: 40px 40px 80px; }
+    .guideHeader { margin-bottom: 48px; border-bottom: 3px solid rgb(255,188,0); padding-bottom: 24px; }
+    .guideHeader h1 { font-size: 36px; margin: 0 0 12px 0; color: #111; }
+    .guideHeader p { color: #666; margin: 0; font-size: 16px; }
+    .guideSection { margin-bottom: 60px; scroll-margin-top: 70px; }
+    .guideTitle { font-size: 24px; font-weight: bold; margin-bottom: 24px; color: #1f2937; display: flex; align-items: center; }
+    .guideTitle::before { content: ''; display: inline-block; width: 6px; height: 24px; background-color: rgb(255,188,0); margin-right: 12px; border-radius: 3px; }
+
+    /* 가이드 박스 */
+    .guideBox { padding: 30px; border: 1px dashed #d1d5db; border-radius: 8px 8px 0 0; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+    .guideBoxBlock { display: block; }
+
+    /* 사이즈 레이블 */
+    .guideSizeLabel {
+      display: block; font-size: 12px; font-weight: 700; color: #9ca3af;
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .guideSizeGroup { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-end; }
+    .guideSizeItem { display: flex; flex-direction: column; align-items: flex-start; }
+
+    /* 서브 타이틀 */
+    .guideSubtitle {
+      font-size: 16px; font-weight: 600; color: #374151;
+      margin: 28px 0 14px; padding-left: 16px; border-left: 3px solid #FFDC00;
+    }
+
+    /* 코드 블록 */
+    .guideCodeWrap {
+      border: 1px dashed #d1d5db; border-top: none; border-radius: 0 0 8px 8px;
+      overflow: hidden; margin-bottom: 24px;
+    }
+    .guideCodeHeader {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px; background-color: #f3f4f6; border-top: 1px solid #e5e7eb;
+    }
+    .guideCodeToggle {
+      font-size: 13px; font-weight: 600; color: #6b7280;
+      cursor: pointer; background: none; border: none; padding: 6px 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .guideCodeToggle:hover { color: #1f2937; }
+    .guideCodeToggle svg { width: 14px; height: 14px; transition: transform 0.2s; }
+    .guideCodeToggle.isOpen svg { transform: rotate(180deg); }
+    .guideCodeCopy {
+      font-size: 13px; font-weight: 600; color: #6b7280;
+      cursor: pointer; background: none; border: 1px solid #d1d5db;
+      padding: 6px 14px; border-radius: 4px; transition: all 0.2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .guideCodeCopy:hover { background-color: #e5e7eb; color: #1f2937; }
+    .guideCodeCopy.isCopied { background-color: #d1fae5; color: #065f46; border-color: #6ee7b7; }
+    .guideCodeBlock {
+      display: none; padding: 20px 24px; background-color: #1f2937;
+      overflow-x: auto; margin: 0;
+    }
+    .guideCodeBlock.isOpen { display: block; }
+    .guideCodeBlock code {
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 13px; line-height: 1.7; color: #e5e7eb;
+      white-space: pre;
+    }
+
+    /* Full width 버튼 별도 박스 */
+    .guideBoxFullwidth { gap: 10px; }
+    .guideBoxFullwidth .full { display: flex; }
+
+    /* 팝업 가이드 박제(상자 안에 가두기) 래퍼 */
+    .popupPreviewBox {
+      background-color: #f3f4f6;
+      display: block;
+    }
+    .popupPreviewBox .popupDimmed {
+      position: relative !important;
+      display: flex !important;
+      width: 100% !important;
+      height: 400px !important;
+      z-index: 1 !important;
+      margin-bottom: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .popupPreviewBox .popupDimmed:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+  <!-- Syntax Highlighting -->
+  <link rel="stylesheet" href="../assets/css/prism-tomorrow.min.css">
+</head>
+<body>
+
+  <!-- 스티키 네비게이션 -->
+  <nav class="guideNav">
+    <div class="guideNavInner">
+      <button type="button" class="guideNavItem isActive" data-target="sectionButtons">Buttons</button>
+      <button type="button" class="guideNavItem" data-target="sectionIcons">Icons</button>
+      <button type="button" class="guideNavItem" data-target="sectionBadges">Badges</button>
+      <button type="button" class="guideNavItem" data-target="sectionTabs">Tabs</button>
+      <button type="button" class="guideNavItem" data-target="sectionCards">Cards</button>
+      <button type="button" class="guideNavItem" data-target="sectionForms">Forms</button>
+      <button type="button" class="guideNavItem" data-target="sectionPopups">Popups</button>
+      <button type="button" class="guideNavItem" data-target="sectionTypography">Typography</button>
+      <button type="button" class="guideNavItem" data-target="sectionAccordion">Accordion</button>
+      <button type="button" class="guideNavItem" data-target="sectionTable">Table</button>
+    </div>
+  </nav>
+
+  <div class="guideWrapper">
+    <!-- ==================== 1. 버튼 가이드 ==================== -->
+    <section id="sectionButtons" class="guideSection">
+      <h2 class="guideTitle">Buttons (버튼)</h2>
+      <div class="guideBox">
+        <!-- Primary -->
+<button type="button" class="btn primary sm">Primary SM</button>
+<button type="button" class="btn primary md">Primary MD</button>
+<button type="button" class="btn primary lg">Primary LG</button>
+
+<!-- Outline -->
+<button type="button" class="btn outline sm">Outline SM</button>
+<button type="button" class="btn outline md">Outline MD</button>
+<button type="button" class="btn outline lg">Outline LG</button>
+
+<!-- Full Width -->
+<button type="button" class="btn primary full">Primary Full Width</button>
+<button type="button" class="btn outline full">Outline Full Width</button>
+
+<!-- Disabled -->
+<button type="button" class="btn primary" disabled>Disabled (Primary)</button>
+<button type="button" class="btn outline isDisabled">Disabled (Outline)</button>
+
+      </div>
+
+      <h2 class="guideTitle">Icon Buttons (아이콘 버튼)</h2>
+      <div class="guideBox">
+        <!-- Icon Button - Primary -->
+<button type="button" class="btn primary sm">
+  <span class="ico"></span>
+  <span>추가</span>
+</button>
+<button type="button" class="btn primary md">
+  <span class="ico"></span>
+  <span>추가</span>
+</button>
+<button type="button" class="btn primary lg">
+  <span class="ico"></span>
+  <span>추가</span>
+</button>
+
+<!-- Icon Button - Outline -->
+<button type="button" class="btn outline sm">
+  <span class="ico"></span>
+  <span>수정</span>
+</button>
+<button type="button" class="btn outline md">
+  <span class="ico"></span>
+  <span>삭제</span>
+</button>
+<button type="button" class="btn outline md">
+  <span class="ico"></span>
+  <span>다운로드</span>
+</button>
+
+<!-- Icon Only Button -->
+<button type="button" class="btn primary sm">
+  <span class="ico"></span>
+</button>
+<button type="button" class="btn outline sm">
+  <span class="ico"></span>
+</button>
+
+      </div>
+    </section>
+
+    <!-- ==================== 아이콘 가이드 ==================== -->
+    <section id="sectionIcons" class="guideSection">
+      <h2 class="guideTitle">Icons (아이콘)</h2>
+      <div class="guideBox guideSizeGroup" style="background: #949494;">
+        <!-- [D] Size varient : sm lg xl 클래스 추가 -->
+<!-- 16px (Small) -->
+<span class="ico sm"></span>
+
+<!-- 20px (Medium / Default) -->
+<span class="ico"></span>
+
+<!-- 24px (Large) -->
+<span class="ico lg"></span>
+
+<!-- 32px (X-Large) -->
+<span class="ico xl"></span>
+
+
+<span class="ico side1"></span>
+<span class="ico side2"></span>
+<span class="ico side3"></span>
+<span class="ico side4"></span>
+<span class="ico side5"></span>
+<span class="ico side6"></span>
+<span class="ico side7"></span>
+      </div>
+    </section>
+
+    <!-- ==================== 2. 뱃지 가이드 ==================== -->
+    <section id="sectionBadges" class="guideSection">
+      <h2 class="guideTitle">Badges (상태 뱃지)</h2>
+      <div class="guideBox">
+        <!-- Status -->
+<span class="badge ongoing">진행중</span>
+<span class="badge completed">종료</span>
+
+<!-- Size -->
+<span class="badge ongoing sm">진행중 SM</span>
+<span class="badge ongoing lg">진행중 LG</span>
+
+      </div>
+    </section>
+
+    <!-- ==================== 3. 탭 가이드 ==================== -->
+    <section id="sectionTabs" class="guideSection">
+      <h2 class="guideTitle">Tabs (탭 메뉴)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- Tabs -->
+<nav class="tab">
+  <button type="button" class="item isActive">활성화 탭 (Active)</button>
+  <button type="button" class="item">디폴트 탭 (Default)</button>
+</nav>
+
+      </div>
+    </section>
+
+    <!-- ==================== 4. 카드 가이드 ==================== -->
+    <section id="sectionCards" class="guideSection">
+      <h2 class="guideTitle">Cards (카드)</h2>
+      <div class="guideBox" style="background-color: #f3f4f6;">
+        <!-- Card -->
+<!-- <article class="card" style="width: 300px;">
+  <div class="thumb"></div>
+  <div class="content">
+    <span class="badge ongoing">진행중</span>
+    <h2 class="title">카드 타이틀 영역입니다.</h2>
+    <p class="desc">카드 설명 텍스트가 노출되는 영역입니다.</p>
+    <button type="button" class="btn primary">참여하기</button>
+  </div>
+</article> -->
+
+      </div>
+    </section>
+
+    <!-- ==================== 5. 폼 가이드 ==================== -->
+    <section id="sectionForms" class="guideSection">
+      <h2 class="guideTitle">Forms (입력 폼)</h2>
+      <div class="guideBox guideBoxBlock" style="max-width: 600px;">
+        <!-- Text Input -->
+<div class="formGroup">
+  <label class="formLabel">텍스트 입력 <span class="required">*</span></label>
+  <div class="formControlWrap">
+    <input type="text" class="formControl" placeholder="내용을 입력해주세요">
+  </div>
+</div>
+
+<!-- Text Input (Error State) -->
+<div class="formGroup">
+  <label class="formLabel">폼 타이틀<span class="required">*</span></label>
+  <div class="formControlWrap">
+    <input type="email" class="formControl isError" placeholder="placeholder" value="value">
+    <p class="formErrorMsg">유효하지 않은 형식입니다.</p>
+  </div>
+</div>
+
+<!-- Text Input (readonly) -->
+<div class="formGroup">
+  <label class="formLabel">폼 타이틀</label>
+  <div class="formControlWrap">
+    <input type="text" class="formControl" value="readonly" readonly>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="formGroup">
+  <label class="formLabel">상세 내용</label>
+  <div class="formControlWrap">
+    <textarea class="formControl" placeholder="상세 내용을 입력해주세요 (최대 1000자)"></textarea>
+  </div>
+</div>
+
+<!-- Select Box -->
+<div class="formGroup">
+  <label class="formLabel">항목 선택</label>
+  <div class="formControlWrap">
+    <select class="formControl">
+      <option value="">항목을 선택해주세요</option>
+      <option value="1">항목1</option>
+      <option value="2">항목2</option>
+      <option value="3">항목3</option>
+    </select>
+  </div>
+</div>
+
+<!-- Checkbox Group -->
+<div class="formGroup">
+  <label class="formLabel">체크박스 그룹</label>
+  <div class="formCheckGroup">
+    <label class="formCheck">
+      <input type="checkbox" checked>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스1</span>
+    </label>
+    <label class="formCheck">
+      <input type="checkbox">
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스2</span>
+    </label>
+    <label class="formCheck">
+      <input type="checkbox" disabled>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스 (disabled)</span>
+    </label>
+  </div>
+</div>
+
+<!-- Radio Group -->
+<div class="formGroup">
+  <label class="formLabel">라디오 그룹</label>
+  <div class="formCheckGroup">
+    <label class="formCheck">
+      <input type="radio" name="publicState" checked>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">라디오1</span>
+    </label>
+    <label class="formCheck">
+      <input type="radio" name="publicState">
+      <span class="checkIcon"></span>
+      <span class="checkLabel">라디오2</span>
+    </label>
+  </div>
+</div>
+
+<!-- Input + Button Set -->
+<div class="formGroup">
+  <label class="formLabel">인풋 + 버튼</label>
+  <div class="formControlWrap hasBtn">
+    <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
+    <button type="button" class="btn outline md">인증번호 발송</button>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 6. 팝업 가이드 ==================== -->
+    <section id="sectionPopups" class="guideSection">
+      <h2 class="guideTitle">Popups (모달 팝업)</h2>
+      
+      <!-- 팝업 컴포넌트를 강제로 상자 안에 가둬서 보여주는 래퍼 -->
+      <div class="guideBox popupPreviewBox">
+        <!-- Default Modal Popup -->
+<div id="popupBasic" class="popupDimmed">
+  <div class="popupWrap">
+    <div class="popupHeader">
+      <h2 class="popupTitle">팝업 타이틀 (기본)</h2>
+      <button type="button" class="btnClose" aria-label="닫기" onclick="this.closest('.popupDimmed').classList.remove('isOpen')"></button>
+    </div>
+    <div class="popupBody">
+      <p>기본 사이즈 팝업 컨텐츠 영역입니다.</p>
+      <p>여기에 텍스트나 폼 요소 등 다양한 내용을 넣을 수 있습니다.</p>
+    </div>
+    <div class="popupFooter">
+      <button type="button" class="btn outline" onclick="this.closest('.popupDimmed').classList.remove('isOpen')">취소</button>
+      <button type="button" class="btn primary" onclick="this.closest('.popupDimmed').classList.remove('isOpen')">확인</button>
+    </div>
+  </div>
+</div>
+
+<!-- Large Modal Popup -->
+<div id="popupLarge" class="popupDimmed">
+  <div class="popupWrap lg">
+    <div class="popupHeader">
+      <h2 class="popupTitle">팝업 타이틀 (Large)</h2>
+      <button type="button" class="btnClose" aria-label="닫기" onclick="this.closest('.popupDimmed').classList.remove('isOpen')"></button>
+    </div>
+    <div class="popupBody">
+      <p>가로 너비가 넓은(lg) 팝업입니다. 복잡한 표나 폼이 들어갈 때 사용합니다.</p>
+    </div>
+    <div class="popupFooter">
+      <button type="button" class="btn primary" onclick="this.closest('.popupDimmed').classList.remove('isOpen')">확인</button>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </section>
+   
+    <!-- ==================== 7. 아코디언 가이드 ==================== -->
+    <section id="sectionAccordion" class="guideSection">
+      <h2 class="guideTitle">Accordion (아코디언)</h2>
+      <div class="guideBox guideBoxBlock" style="max-width: 700px;">
+        <!-- 기본 아코디언 -->
+<!-- [D] 아코디언 열림 상태: isOpen 클래스 추가 -->
+<div class="accordion isOpen">
+  <button type="button" class="accordionHeader">
+    <span>아코디언 제목 1 (열림)</span>
+    <span class="accordionArrow"></span>
+  </button>
+  <div class="accordionBody">
+    <p>아코디언 내용입니다. 여기에 텍스트, 이미지, 폼 등 다양한 콘텐츠를 넣을 수 있습니다.</p>
+  </div>
+</div>
+<div class="accordion">
+  <button type="button" class="accordionHeader">
+    <span>아코디언 제목 2 (닫힘)</span>
+    <span class="accordionArrow"></span>
+  </button>
+  <div class="accordionBody">
+    <p>두 번째 아코디언의 내용입니다.</p>
+  </div>
+</div>
+<div class="accordion">
+  <button type="button" class="accordionHeader">
+    <span>아코디언 제목 3 (닫힘)</span>
+    <span class="accordionArrow"></span>
+  </button>
+  <div class="accordionBody">
+    <p>세 번째 아코디언의 내용입니다.</p>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 8. 테이블 가이드 ==================== -->
+    <section id="sectionTable" class="guideSection">
+      <h2 class="guideTitle">Table (테이블)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- 기본 테이블 -->
+<div class="tblWrap">
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th>헤더1</th>
+        <th>헤더2</th>
+        <th>헤더3</th>
+        <th>헤더4</th>
+        <th>헤더5</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
+        <td><span class="badge ongoing">진행중</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
+        <td><span class="badge completed">완료</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
+        <td><span class="badge ongoing">진행중</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 줄무늬 + 테두리 테이블 -->
+<div class="tblWrap" style="margin-top: 24px;">
+  <table class="tbl tblStriped tblBordered tblCenter">
+    <thead>
+      <tr>
+        <th>헤더1</th>
+        <th>헤더2</th>
+        <th>헤더3</th>
+        <th>헤더4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 9. 타이포그래피 (폰트 사이즈) 가이드 ==================== -->
+    <section id="sectionTypography" class="guideSection">
+      <h2 class="guideTitle">Typography (폰트 사이즈)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- Font Size & Hierarchy -->
+<div class="typoList">
+  <!-- 28px -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Page Title (28px)</div>
+      <div class="meta">.titPage / .fs28 .fwBold</div>
+    </div>
+    <div class="preview titPage">
+      가나다라마바사 1234567890 AaBbCc
+    </div>
+  </div>
+
+  <!-- 24px -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Section Title (24px)</div>
+      <div class="meta">.titSection / .fs24 .fwBold</div>
+    </div>
+    <div class="preview titSection">
+      가나다라마바사 1234567890 AaBbCc
+    </div>
+  </div>
+
+  <!-- 20px -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Sub Title (20px)</div>
+      <div class="meta">.titSub / .fs20 .fwBold</div>
+    </div>
+    <div class="preview titSub">
+      가나다라마바사 1234567890 AaBbCc
+    </div>
+  </div>
+
+  <!-- 18px -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Card/Modal Title (18px)</div>
+      <div class="meta">.titCard / .fs18 .fwBold</div>
+    </div>
+    <div class="preview titCard">
+      가나다라마바사 1234567890 AaBbCc
+    </div>
+  </div>
+
+  <!-- 16px -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Body Large (16px)</div>
+      <div class="meta">.bodyLg / .fs16</div>
+    </div>
+    <div class="preview bodyLg">
+      가나다라마바사 1234567890 AaBbCc (강조 본문 / 큰 버튼)
+    </div>
+  </div>
+
+  <!-- 15px -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Body Medium (15px)</div>
+      <div class="meta">.fs15</div>
+    </div>
+    <div class="preview fs15">
+      가나다라마바사 1234567890 AaBbCc (입력 폼 / 아코디언)
+    </div>
+  </div>
+
+  <!-- 14px (Default) -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Body Default (14px)</div>
+      <div class="meta">.bodyMd / .fs14</div>
+    </div>
+    <div class="preview bodyMd">
+      가나다라마바사 1234567890 AaBbCc (기본 본문 / 테이블 / 일반 버튼)
+    </div>
+  </div>
+
+  <!-- 13px -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Body Small (13px)</div>
+      <div class="meta">.bodySm / .fs13</div>
+    </div>
+    <div class="preview bodySm">
+      가나다라마바사 1234567890 AaBbCc (보조 안내 / 서브메뉴 / 폼 라벨)
+    </div>
+  </div>
+
+  <!-- 12px -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Caption (12px)</div>
+      <div class="meta">.caption / .fs12</div>
+    </div>
+    <div class="preview caption">
+      가나다라마바사 1234567890 AaBbCc (뱃지 / 부가 설명 / 캡션)
+    </div>
+  </div>
+
+  <!-- 10px -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Micro (10px)</div>
+      <div class="meta">.micro / .fs10</div>
+    </div>
+    <div class="preview micro">
+      가나다라마바사 1234567890 AaBbCc (소형 뱃지 / 마이크로 텍스트)
+    </div>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    
+      // --- 코드 자동 생성 스크립트 ---
+      document.addEventListener('DOMContentLoaded', function() {
+        var boxes = document.querySelectorAll('.guideBox');
+        
+        boxes.forEach(function(box) {
+          if (box.nextElementSibling && box.nextElementSibling.classList.contains('guideCodeWrap')) return;
+          
+          var htmlCode = '';
+          // 1. 네이티브 CSS 선택자를 이용한 탐색 
+          // guideBox 내부에서 레이아웃용 껍데기(wrapper) 클래스 3개(.guideSizeGroup, .guideSizeItem, .guideSizeLabel)를 제외하고 실제 UI 컴포넌트 요소만 가져옵니다.
+          var targets = Array.from(box.querySelectorAll('*:not(.guideSizeGroup):not(.guideSizeItem):not(.guideSizeLabel)'));
+      
+          if (targets.length > 0) {
+            // 2. 중첩 방지 (최상위 컴포넌트만 추출)
+            var filteredTargets = targets.filter(function(t) {
+              var parent = t.parentElement;
+              while(parent && parent !== box) {
+                // 부모가 껍데기(wrapper) 클래스 중 하나인지 확인
+                var isWrapper = parent.matches('.guideSizeGroup, .guideSizeItem, .guideSizeLabel');
+                
+                // 부모가 껍데기가 아니라면(즉, 부모가 실제 렌더링될 타겟 컴포넌트라면)
+                // 현재 요소는 부모 안에 포함된 자식이므로 중첩 렌더링을 막기 위해 제외함
+                if (!isWrapper) return false;
+                
+                parent = parent.parentElement;
+              }
+              return true;
+            });
+            
+            htmlCode = filteredTargets.map(function(t) { return t.outerHTML; }).join('\n');
+          } else {
+            htmlCode = box.innerHTML;
+          }
+          
+          // 공백 및 들여쓰기 정리
+          var lines = htmlCode.split('\n');
+          if (lines.length > 0 && lines[0].trim() === '') lines.shift();
+          if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
+          
+          if (lines.length > 0) {
+             var match = lines[0].match(/^(\s+)/);
+             if (match) {
+               var indent = match[1];
+               var regex = new RegExp('^' + indent, 'gm');
+               htmlCode = lines.join('\n').replace(regex, '');
+             } else {
+               htmlCode = lines.join('\n');
+             }
+          }
+          
+          var wrap = document.createElement('div');
+          wrap.className = 'guideCodeWrap';
+          wrap.innerHTML = 
+            '<div class="guideCodeHeader">' +
+              '<button type="button" class="guideCodeToggle" onclick="toggleCode(this)">' +
+                '<span>코드 보기</span>' +
+              '</button>' +
+              '<button type="button" class="guideCodeCopy" onclick="copyCode(this)">' +
+                '<span>코드 복사</span>' +
+              '</button>' +
+            '</div>' +
+            '<pre class="guideCodeBlock"><code class="language-html"></code></pre>';
+          
+          var codeEl = wrap.querySelector('code');
+          codeEl.textContent = htmlCode;
+          box.parentNode.insertBefore(wrap, box.nextSibling);
+          
+          // 하이라이팅 적용
+          if (window.Prism) {
+            Prism.highlightElement(codeEl);
+          }
+        });
+      });
+      // ----------------------------
+
+      // 코드 보기 토글
+      function toggleCode(btn) {
+        var wrap = btn.closest('.guideCodeWrap');
+        var codeBlock = wrap.querySelector('.guideCodeBlock');
+        btn.classList.toggle('isOpen');
+        codeBlock.classList.toggle('isOpen');
+        if (btn.querySelector('span')) {
+          btn.querySelector('span').textContent = codeBlock.classList.contains('isOpen') ? ' 코드 닫기' : ' 코드 보기';
+        } else {
+          btn.childNodes[2].textContent = codeBlock.classList.contains('isOpen') ? ' 코드 닫기' : ' 코드 보기';
+        }
+      }
+  
+      // 코드 복사
+      function copyCode(btn) {
+        var wrap = btn.closest('.guideCodeWrap');
+        var code = wrap.querySelector('code').textContent;
+        navigator.clipboard.writeText(code).then(function() {
+          btn.classList.add('isCopied');
+          if (btn.querySelector('span')) {
+            btn.querySelector('span').textContent = ' 복사됨';
+          } else {
+            btn.childNodes[2].textContent = ' 복사됨';
+          }
+          setTimeout(function() {
+            btn.classList.remove('isCopied');
+            if (btn.querySelector('span')) {
+              btn.querySelector('span').textContent = ' 복사';
+            } else {
+              btn.childNodes[2].textContent = ' 복사';
+            }
+          }, 2000);
+        });
+      }
+  
+      // 스티키 네비게이션 클릭 -> 컨텐츠 교체 (스크롤 대신 탭 방식)
+      document.querySelectorAll('.guideNavItem').forEach(function(navItem) {
+        navItem.addEventListener('click', function() {
+          // 1. 탭 버튼 활성화 변경
+          document.querySelectorAll('.guideNavItem').forEach(function(item) {
+            item.classList.remove('isActive');
+          });
+          this.classList.add('isActive');
+
+          // 2. 타겟 컨텐츠만 보여주고 나머지는 숨김
+          var targetId = this.getAttribute('data-target');
+          document.querySelectorAll('.guideSection').forEach(function(section) {
+            section.style.display = 'none';
+          });
+          var targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.style.display = 'block';
+          }
+        });
+      });
+  
+      // 초기 렌더링 시: 첫 번째 섹션만 보이게 하고 나머지 숨김 처리
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.guideSection').forEach(function(section, index) {
+          if (index !== 0) {
+            section.style.display = 'none';
+          } else {
+            section.style.display = 'block';
+          }
+        });
+      });
+
+      
+  </script>
+
+  <!-- Syntax Highlighting JS -->
+  <script src="../assets/js/prism.min.js"></script>
+</body>
+</html>

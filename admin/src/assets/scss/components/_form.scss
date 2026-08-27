@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Form Component
+   ========================================================================== */
+
+.formGroup {
+  margin-bottom: 24px;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.formLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+  
+  .required {
+    color: #ef4444;
+    margin-left: 4px;
+  }
+}
+
+.formControlWrap {
+  position: relative;
+  width: 100%;
+
+  &.hasBtn {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    
+    .formControl {
+      flex: 1;
+    }
+    
+    .btn {
+      flex-shrink: 0;
+      height: 34px; /* input과 높이 맞춤 */
+      margin: 0; /* md 버튼의 여백 등에 대비 */
+    }
+  }
+}
+
+.formControl {
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #2F3034;
+  background-color: #fff;
+  border: 1px solid #D5D7DE;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:hover {
+    border-color: #9ca3af;
+  }
+
+  &:focus {
+    border-color: #FFDC00;
+    box-shadow: 0 0 0 3px rgba(255, 220, 0, 0.2);
+  }
+
+  &[readonly] {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    border-color: #e5e7eb;
+    cursor: not-allowed;
+  }
+  &:disabled,
+  &.isDisabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    border-color: #e5e7eb;
+    cursor: not-allowed;
+  }
+
+  &.isError {
+    border-color: #ef4444;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+    }
+  }
+}
+
+textarea.formControl {
+  height: auto;
+  min-height: 120px;
+  padding: 6px 12px;
+  resize: vertical;
+}
+
+select.formControl {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding-right: 40px;
+}
+
+.formErrorMsg {
+  display: block;
+  font-size: 13px;
+  color: #ef4444;
+  margin-top: 6px;
+}
+
+/* Checkbox & Radio */
+.formCheckGroup {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.formCheck {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .checkIcon {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #d1d5db;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    transition: all 0.2s;
+
+    &::after {
+      content: '';
+      display: none;
+    }
+  }
+
+  input[type="checkbox"] + .checkIcon {
+    border-radius: 4px;
+    
+    &::after {
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
+  }
+
+  input[type="radio"] + .checkIcon {
+    border-radius: 50%;
+
+    &::after {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+  }
+
+  input:checked + .checkIcon {
+    background-color: #1f2937;
+    border-color: #1f2937;
+
+    &::after {
+      display: block;
+    }
+  }
+
+  input:disabled + .checkIcon {
+    background-color: #f3f4f6;
+    border-color: #e5e7eb;
+    cursor: not-allowed;
+  }
+
+  input:checked:disabled + .checkIcon {
+    background-color: #d1d5db;
+    border-color: #d1d5db;
+  }
+
+  .checkLabel {
+    font-size: 14px;
+    color: #374151;
+  }
+
+  input:disabled ~ .checkLabel {
+    color: #9ca3af;
+    cursor: not-allowed;
+  }
+}

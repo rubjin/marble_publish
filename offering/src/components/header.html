@@ -1,0 +1,27 @@
+<header class="header" role="banner">
+  {{#back}}
+  <button type="button" class="header__back" aria-label="뒤로가기">
+    <span class="ico ico-back" aria-hidden="true"></span>
+  </button>
+  {{/back}}
+
+  <h1 class="header__title">{{title}}</h1>
+
+  <div class="header__actions">
+    {{#share}}
+    <button type="button" class="header__btn" aria-label="공유하기">
+      <span class="ico ico-share" aria-hidden="true"></span>
+    </button>
+    {{/share}}
+    {{#menu}}
+    <button type="button" class="header__btn" aria-label="메뉴 열기">
+      <span class="ico ico-menu" aria-hidden="true"></span>
+    </button>
+    {{/menu}}
+    {{#close}}
+    <button type="button" class="header__btn" aria-label="닫기">
+      <span class="ico ico-close" aria-hidden="true"></span>
+    </button>
+    {{/close}}
+  </div>
+</header>

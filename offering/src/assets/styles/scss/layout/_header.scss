@@ -1,0 +1,75 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 4px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+
+  &__back {
+    // 터치 영역 최소 44x44 (iOS HIG) / 48x48 (Android Material) 기준 충족
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid #0064ff;
+      outline-offset: -2px;
+    }
+  }
+
+  &__title {
+    flex: 1;
+    margin: 0;
+    padding: 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a; // 배경 흰색 대비 명도 대비 확보 (WCAG AA 4.5:1 이상)
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  &__btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid #0064ff;
+      outline-offset: -2px;
+    }
+  }
+}
+
+.ico {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none; // 아이콘이 버튼 클릭/포커스를 가로채지 않도록
+}
+
+.ico-back  { background-image: url('../../images/icon/ic-back.svg'); }
+.ico-share { background-image: url('../../images/icon/ic-share.svg'); }
+.ico-menu  { background-image: url('../../images/icon/ic-menu.svg'); }

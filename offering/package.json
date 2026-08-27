@@ -1,0 +1,19 @@
+{
+  "name": "offering-publishing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "오퍼링 서비스 퍼블리싱 소스",
+  "scripts": {
+    "sass:watch": "sass --watch src/assets/styles/scss/main.scss:src/assets/styles/css/index.css",
+    "html:watch": "node watch-html.js",
+    "html:build": "node build-once.js",
+    "serve": "browser-sync start --config bs-config.js",
+    "start": "npm-run-all --parallel sass:watch html:watch serve"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "chokidar": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.77.8"
+  }
+}

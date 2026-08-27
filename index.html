@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>퍼블리싱 화면 목록 (Worksheet)</title>
+  <style>
+    body { font-family: 'Pretendard', sans-serif; padding: 30px; background-color: #f8f9fa; color: #333; margin: 0; }
+    .header { 
+      position: sticky; 
+      top: 0; 
+      background-color: #f8f9fa; 
+      z-index: 100; 
+      margin: -30px -30px 30px -30px; 
+      padding: 30px 30px 20px 30px; 
+    }
+    .header h1 { margin: 0 0 10px 0; font-size: 28px; color: #111; }
+    .header p { margin: 0; color: #666; }
+    
+    /* table에서 overflow: hidden을 제거해야 자식인 th의 sticky가 작동합니다. 테두리 둥근 처리는 따로 해결 */
+    table { width: 100%; table-layout: fixed; border-collapse: collapse; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 40px; border-radius: 8px; }
+    th, td { border: 1px solid #eaeaea; padding: 12px 15px; text-align: left; font-size: 14px; }
+    td { padding: 8px 12px;}
+    th { position: sticky; top: 0; z-index: 90; background-color: rgb(255,188,0); color: #fff; font-weight: 600; border-color: rgb(255,204,0); text-align: center; }
+    th:first-child { border-top-left-radius: 8px; }
+    th:last-child { border-top-right-radius: 8px; }
+    tbody tr:hover { background-color: #fefce8; }
+    td.center { text-align: center; }
+
+    a { color: rgb(96,88,76); text-decoration: none; font-weight: 600; word-break: break-word; }
+    a:hover { text-decoration: underline; }
+    
+    .status { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+    .status.done { background-color: #E4F3FE; color: #438EF7; }
+    .status.ing { background-color: #fef3c7; color: #d97706; }
+    .status.wait { background-color: #f3f4f6; color: #6b7280; }
+    
+    .depth1 { font-weight: bold; background-color: #f8fafc; text-align: center; }
+  
+    .dashboard { position: absolute; top: 30px; right: 30px; display: inline-flex; gap: 20px; background: #fff; padding: 12px 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #eaeaea; margin: 0; }
+    .dashboard span { font-size: 14px; font-weight: 500; color: #333; }
+    .dashboard strong { font-size: 16px; margin-left: 4px; }
+    .dashboard .text-done { color: #438EF7; }
+    .dashboard .text-ing { color: #d97706; }
+    .dashboard .text-wait { color: #6b7280; }
+  
+    .tabs { margin-top: 25px; display: flex; gap: 8px; border-bottom: 2px solid #eaeaea; }
+    .tab-btn { padding: 12px 20px; background: none; border: none; font-size: 16px; font-weight: 700; color: #a1a1aa; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+    .tab-btn:hover { color: #555; }
+    .tab-btn.active { color: #111; border-bottom-color: rgb(255,188,0); }
+  </style>
+
+
+</head>
+<body>
+  <div class="header">
+    <h1>프로젝트 퍼블리싱 산출물 (Worksheet)</h1>
+  
+    <div class="dashboard">
+      <span>전체: <strong id="cntTotal">0</strong>건</span>
+      <span>완료: <strong id="cntDone" class="text-done">0</strong>건</span>
+      <span>진행중: <strong id="cntIng" class="text-ing">0</strong>건</span>
+      <span>대기: <strong id="cntWait" class="text-wait">0</strong>건</span>
+      <span>진척률: <strong id="cntProgress" style="color:#d9a400">0</strong>%</span>
+    </div>
+  
+    <div class="tabs">
+      <button type="button" class="tab-btn active" data-target="fo">Front Office (모바일)</button>
+      <button type="button" class="tab-btn" data-target="bo">Back Office (어드민)</button>
+    </div>
+  </div>
+
+  <table>
+    <colgroup>
+      <col style="width: 12%">
+      <col style="width: 15%">
+      <col style="width: 15%">
+      <col style="width: 25%">
+      <col style="width: 78px">
+      <col style="width: calc(100% - 12% - 15% - 15% - 25% - 78px)">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>구분 (1Depth)</th>
+        <th>화면명 (2Depth)</th>
+        <th>화면명 (3Depth)</th>
+        <th>파일 경로 (Link)</th>
+        <th>상태</th>
+        <th>비고</th>
+      </tr>
+    </thead>
+    <tbody id="worksheetBody">
+    </tbody>
+  </table>
+
+
+  <script>
+    const worksheetData = [
+  {
+    "depth1": "FO화면",
+    "pages": [
+      {
+        "depth2": "챌린지 메인",
+        "depth3": "",
+        "link": "src/fo/html/challenge.html",
+        "statusCode": "done",
+        "note": ""
+      },
+      {
+        "depth2": "주식 뷰",
+        "depth3": "",
+        "link": "src/fo/html/stock-view.html",
+        "statusCode": "wait",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "depth1": "가이드",
+    "pages": [
+      {
+        "depth2": "파일 구조 및 문서 규칙",
+        "depth3": "",
+        "link": "admin/src/guide/convention.html",
+        "statusCode": "done",
+        "note": "폴더 구조 및 코딩 컨벤션 안내"
+      },
+      {
+        "depth2": "UI 컴포넌트 가이드",
+        "depth3": "",
+        "link": "admin/src/guide/guide.html",
+        "statusCode": "ing",
+        "note": "버튼, 뱃지, 탭 등 UI 요소 모음"
+      }
+    ]
+  },
+  {
+    "depth1": "공통",
+    "pages": [
+      {
+        "depth2": "",
+        "depth3": "",
+        "link": "admin/src/pages/common.html",
+        "statusCode": "wait",
+        "note": "홈, 고객 관리, 미션 관리, 알림 관리, 관리자 관리"
+      }
+    ]
+  },
+  {
+    "depth1": "로그인",
+    "pages": [
+      {
+        "depth2": "",
+        "depth3": "",
+        "link": "admin/src/pages/login.html",
+        "statusCode": "wait",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "depth1": "어드민 홈",
+    "pages": [
+      {
+        "depth2": "",
+        "depth3": "",
+        "link": "admin/src/pages/mission-home.html",
+        "statusCode": "wait",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "depth1": "고객관리",
+    "pages": [
+      {
+        "depth2": "고객요약 대시보드",
+        "depth3": "",
+        "link": "admin/src/pages/customer-dashboard.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "고객목록",
+        "depth3": "",
+        "link": "admin/src/pages/customer-list.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "고객목록",
+        "depth3": "고객정보",
+        "link": "admin/src/pages/customer-info.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "고객목록",
+        "depth3": "참여내역",
+        "link": "admin/src/pages/customer-participation.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "고객목록",
+        "depth3": "리워드내역",
+        "link": "admin/src/pages/customer-rewards.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "고객목록",
+        "depth3": "알림내역",
+        "link": "admin/src/pages/customer-notifications.html",
+        "statusCode": "wait",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "depth1": "미션관리",
+    "pages": [
+      {
+        "depth2": "미션요약 대시보드",
+        "depth3": "",
+        "link": "admin/src/pages/mission-dashboard.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "미션홈 관리",
+        "depth3": "",
+        "link": "admin/src/pages/mission-home.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "개별 미션홈 관리",
+        "depth3": "",
+        "link": "admin/src/pages/mission-individual-home.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "개별 미션홈 관리",
+        "depth3": "미션정책",
+        "link": "admin/src/pages/mission-policy.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "개별 미션홈 관리",
+        "depth3": "미션수정",
+        "link": "admin/src/pages/mission-home.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "개별 미션홈 관리",
+        "depth3": "미션현황",
+        "link": "admin/src/pages/mission-status.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "개별 미션홈 관리",
+        "depth3": "참여내역",
+        "link": "admin/src/pages/mission-participation.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "개별 미션홈 관리",
+        "depth3": "알림내역",
+        "link": "admin/src/pages/mission-notifications.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "미션등록",
+        "depth3": "",
+        "link": "admin/src/pages/mission-registration.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "미션등록",
+        "depth3": "결재승인(P)",
+        "link": "admin/src/pages/mission-approval.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "미션참여내역",
+        "depth3": "",
+        "link": "admin/src/pages/mission-participation.html",
+        "statusCode": "wait",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "depth1": "리워드 관리",
+    "pages": [
+      {
+        "depth2": "지급현황(리워드별)",
+        "depth3": "",
+        "link": "admin/src/pages/reward-summary.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "지급현황(미션별)",
+        "depth3": "",
+        "link": "admin/src/pages/reward-mission.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "지급오류조회",
+        "depth3": "",
+        "link": "admin/src/pages/reward-error.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "지급상세조회",
+        "depth3": "",
+        "link": "admin/src/pages/reward-detail.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "한도관리",
+        "depth3": "",
+        "link": "admin/src/pages/reward-summary.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "한도관리",
+        "depth3": "한도설정",
+        "link": "admin/src/pages/reward-limit.html",
+        "statusCode": "wait",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "depth1": "통계/분석",
+    "pages": [
+      {
+        "depth2": "종합",
+        "depth3": "",
+        "link": "admin/src/pages/statistics.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "미션분석",
+        "depth3": "대시보드",
+        "link": "admin/src/pages/mission-dashboard.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "미션분석",
+        "depth3": "테이블",
+        "link": "admin/src/pages/mission-table.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "비용분석",
+        "depth3": "대시보드",
+        "link": "admin/src/pages/cost-dashboard.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "비용분석",
+        "depth3": "테이블",
+        "link": "admin/src/pages/cost-table.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "고객분석",
+        "depth3": "대시보드",
+        "link": "admin/src/pages/customer-dashboard.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "고객분석",
+        "depth3": "테이블",
+        "link": "admin/src/pages/customer-table.html",
+        "statusCode": "wait",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "depth1": "업무관리",
+    "pages": [
+      {
+        "depth2": "결재함",
+        "depth3": "목록",
+        "link": "admin/src/pages/approval-list.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "결재함",
+        "depth3": "승인이력(P)",
+        "link": "admin/src/pages/approval-history.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "계정정보",
+        "depth3": "",
+        "link": "admin/src/pages/account-info.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "공지사항",
+        "depth3": "목록",
+        "link": "admin/src/pages/notice-list.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "공지사항",
+        "depth3": "등록(P)",
+        "link": "admin/src/pages/notice-create.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "공지사항",
+        "depth3": "상세/수정(P)",
+        "link": "admin/src/pages/notice-detail.html",
+        "statusCode": "wait",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "depth1": "시스템관리",
+    "pages": [
+      {
+        "depth2": "권한관리",
+        "depth3": "",
+        "link": "admin/src/pages/permission-management.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "사용자관리",
+        "depth3": "목록",
+        "link": "admin/src/pages/user-list.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "사용자관리",
+        "depth3": "사용자 그룹등록(P)",
+        "link": "admin/src/pages/user-group-create.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "사용자관리",
+        "depth3": "사용자 그룹상세(P)",
+        "link": "admin/src/pages/user-group-detail.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "사용자관리",
+        "depth3": "조직검색(P)",
+        "link": "admin/src/pages/organization-search.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "사용자관리",
+        "depth3": "직원검색(P)",
+        "link": "admin/src/pages/employee-search.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "공통코드관리",
+        "depth3": "목록",
+        "link": "admin/src/pages/common-code-list.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "공통코드관리",
+        "depth3": "공통코드 등록(P)",
+        "link": "admin/src/pages/common-code-create.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "공통코드관리",
+        "depth3": "공통코드 상세/수정(P)",
+        "link": "admin/src/pages/common-code-detail.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "설정변경이력",
+        "depth3": "",
+        "link": "admin/src/pages/change-history.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "설정변경이력",
+        "depth3": "변경이력상세(P)",
+        "link": "admin/src/pages/change-history-detail.html",
+        "statusCode": "wait",
+        "note": ""
+      },
+      {
+        "depth2": "접속 이력",
+        "depth3": "",
+        "link": "admin/src/pages/access-history.html",
+        "statusCode": "wait",
+        "note": ""
+      }
+    ]
+  }
+];
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const tbody = document.getElementById('worksheetBody');
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      let currentTab = 'fo'; // 기본 탭: FO
+
+      function renderTable() {
+        let html = '';
+        let total = 0, done = 0, ing = 0, wait = 0;
+        
+        worksheetData.forEach(category => {
+          // 탭에 맞는 페이지들만 필터링
+          let filteredPages = category.pages.filter(page => {
+             if (!page.link) return false;
+             if (currentTab === 'bo') {
+               return page.link.includes('admin/') || page.link.includes('src/bo/');
+             } else {
+               return page.link.includes('offering/') || page.link.includes('src/fo/');
+             }
+          });
+
+          if (filteredPages.length === 0) return;
+
+          // 필터링된 페이지들에 대해 depth2 병합(rowspan) 사전 계산
+          for (let i = 0; i < filteredPages.length; i++) {
+            filteredPages[i].depth2Rowspan = undefined; // 초기화
+          }
+          for (let i = 0; i < filteredPages.length; i++) {
+            if (filteredPages[i].depth2Rowspan !== undefined) continue;
+            let rowspan = 1;
+            for (let j = i + 1; j < filteredPages.length; j++) {
+              if (filteredPages[i].depth2 === filteredPages[j].depth2) {
+                rowspan++;
+                filteredPages[j].depth2Rowspan = 0;
+              } else {
+                break;
+              }
+            }
+            filteredPages[i].depth2Rowspan = rowspan;
+          }
+
+          // HTML 렌더링
+          filteredPages.forEach((page, index) => {
+            // 카운트 집계
+            total++;
+            if (page.statusCode === 'done') done++;
+            else if (page.statusCode === 'ing') ing++;
+            else wait++;
+
+            html += '<tr>';
+            if (index === 0) {
+              html += '<td class="depth1" rowspan="' + filteredPages.length + '">' + category.depth1 + '</td>';
+            }
+            
+            if (page.depth2Rowspan > 0) {
+              let rs = page.depth2Rowspan > 1 ? ' rowspan="' + page.depth2Rowspan + '"' : '';
+              html += '<td' + rs + '>' + (page.depth2 || '') + '</td>';
+            }
+            
+            html += '<td>' + (page.depth3 || '') + '</td>';
+            
+            let linkHtml = page.link ? '<a href="' + page.link + '" target="_blank">' + page.link + '</a>' : '';
+            html += '<td>' + linkHtml + '</td>';
+            
+            const statusMap = { 'done': '완료', 'ing': '진행중', 'wait': '대기' };
+            const sCode = page.statusCode || 'wait';
+            const sText = statusMap[sCode] || '대기';
+            html += '<td class="center"><span class="status ' + sCode + '">' + sText + '</span></td>';
+            
+            html += '<td class="etc">' + (page.note || '') + '</td>';
+            
+            html += '</tr>';
+          });
+        });
+        
+        tbody.innerHTML = html;
+        
+        // 대시보드 업데이트
+        document.getElementById('cntTotal').innerText = total;
+        document.getElementById('cntDone').innerText = done;
+        document.getElementById('cntIng').innerText = ing;
+        document.getElementById('cntWait').innerText = wait;
+        document.getElementById('cntProgress').innerText = total > 0 ? Math.round((done / total) * 100) : 0;
+      }
+
+      // 탭 클릭 이벤트 리스너 등록
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          e.target.classList.add('active');
+          currentTab = e.target.getAttribute('data-target');
+          renderTable();
+        });
+      });
+
+      // 초기 렌더링
+      renderTable();
+
+      // 스티키 헤더 높이 계산 (thead 위치 조정)
+      function updateStickyTop() {
+        const header = document.querySelector('.header');
+        const ths = document.querySelectorAll('th');
+        // header의 실제 높이만큼 th의 top을 설정
+        const headerHeight = header.offsetHeight;
+        ths.forEach(th => {
+          th.style.top = headerHeight + 'px';
+        });
+      }
+      
+      // 처음 로딩 및 창 크기 조절 시 업데이트
+      window.addEventListener('resize', updateStickyTop);
+      setTimeout(updateStickyTop, 100); // 렌더링 직후 높이 계산
+    });
+  </script>
+
+
+</body>
+</html>

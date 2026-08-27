@@ -1,0 +1,11 @@
+.tab {
+  display: flex; border-bottom: 1px solid $gray300;
+  .item {
+    padding: 12px 24px; font-weight: 600; color: $gray300; position: relative;
+    background: none; border: none; cursor: pointer;
+    &.isActive {
+      color: $gray800;
+      &::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background-color: $gray800; }
+    }
+  }
+}

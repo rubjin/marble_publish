@@ -1,0 +1,9 @@
+.card {
+  border: 1px solid $gray300; border-radius: $radiusLg; overflow: hidden; background-color: $white;
+  .thumb {
+    width: 100%; height: 160px; background-color: $gray100; object-fit: cover;
+  }
+  .content { padding: 16px; }
+  .title { font-size: 18px; font-weight: bold; margin-bottom: 8px; @include text-ellipsis; }
+  .desc { font-size: 14px; color: $gray800; margin-bottom: 16px; }
+}
