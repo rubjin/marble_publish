@@ -11,16 +11,16 @@
       top: 0; 
       background-color: #f8f9fa; 
       z-index: 100; 
-      margin: -30px -30px 30px -30px; 
-      padding: 30px 30px 20px 30px; 
+      margin: -30px -30px 20px -30px; 
+      padding: 30px 30px 15px 30px; 
+      border-bottom: 1px solid #eaeaea;
     }
     .header h1 { margin: 0 0 10px 0; font-size: 28px; color: #111; }
     .header p { margin: 0; color: #666; }
     
-    /* table에서 overflow: hidden을 제거해야 자식인 th의 sticky가 작동합니다. 테두리 둥근 처리는 따로 해결 */
     table { width: 100%; table-layout: fixed; border-collapse: collapse; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 40px; border-radius: 8px; }
-    th, td { border: 1px solid #eaeaea; padding: 12px 15px; text-align: left; font-size: 14px; }
-    td { padding: 8px 12px;}
+    th, td { border: 1px solid #eaeaea; padding: 10px 12px; text-align: left; font-size: 13px; }
+    td { padding: 8px 10px;}
     th { position: sticky; top: 0; z-index: 90; background-color: rgb(255,188,0); color: #fff; font-weight: 600; border-color: rgb(255,204,0); text-align: center; }
     th:first-child { border-top-left-radius: 8px; }
     th:last-child { border-top-right-radius: 8px; }
@@ -34,23 +34,70 @@
     .status.done { background-color: #E4F3FE; color: #438EF7; }
     .status.ing { background-color: #fef3c7; color: #d97706; }
     .status.wait { background-color: #f3f4f6; color: #6b7280; }
+    .status.hold { background-color: #fee2e2; color: #dc2626; }
     
-    .depth1 { font-weight: bold; background-color: #f8fafc; text-align: center; }
-  
+    .depth-cell.empty { color: #ccc; }
+    .text-empty { color: #ccc; }
+
     .dashboard { position: absolute; top: 30px; right: 30px; display: inline-flex; gap: 20px; background: #fff; padding: 12px 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #eaeaea; margin: 0; }
     .dashboard span { font-size: 14px; font-weight: 500; color: #333; }
     .dashboard strong { font-size: 16px; margin-left: 4px; }
     .dashboard .text-done { color: #438EF7; }
     .dashboard .text-ing { color: #d97706; }
     .dashboard .text-wait { color: #6b7280; }
+    .dashboard .text-hold { color: #dc2626; }
   
-    .tabs { margin-top: 25px; display: flex; gap: 8px; border-bottom: 2px solid #eaeaea; }
-    .tab-btn { padding: 12px 20px; background: none; border: none; font-size: 16px; font-weight: 700; color: #a1a1aa; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+    .tabs { margin-top: 20px; display: flex; gap: 8px; border-bottom: 2px solid #eaeaea; }
+    .tab-btn { padding: 10px 18px; background: none; border: none; font-size: 15px; font-weight: 700; color: #a1a1aa; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
     .tab-btn:hover { color: #555; }
     .tab-btn.active { color: #111; border-bottom-color: rgb(255,188,0); }
+
+    .toolbar {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toolbar input[type="text"] {
+      padding: 7px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 13px;
+      width: 280px;
+      background: #fff;
+      outline: none;
+    }
+    .toolbar input[type="text"]:focus {
+      border-color: rgb(255,188,0);
+    }
+    .toolbar select {
+      padding: 7px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 13px;
+      background: #fff;
+      cursor: pointer;
+      outline: none;
+    }
+    .toolbar select:focus {
+      border-color: rgb(255,188,0);
+    }
+    .toolbar .count {
+      margin-left: auto;
+      font-size: 13px;
+      color: #666;
+    }
+    .toolbar .count strong {
+      color: #111;
+    }
+
+    .empty-row td {
+      text-align: center;
+      padding: 40px 0;
+      color: #888;
+      font-size: 14px;
+    }
   </style>
-
-
 </head>
 <body>
   <div class="header">
@@ -61,6 +108,7 @@
       <span>완료: <strong id="cntDone" class="text-done">0</strong>건</span>
       <span>진행중: <strong id="cntIng" class="text-ing">0</strong>건</span>
       <span>대기: <strong id="cntWait" class="text-wait">0</strong>건</span>
+      <span>보류: <strong id="cntHold" class="text-hold">0</strong>건</span>
       <span>진척률: <strong id="cntProgress" style="color:#d9a400">0</strong>%</span>
     </div>
   
@@ -68,590 +116,1057 @@
       <button type="button" class="tab-btn active" data-target="fo">Front Office (모바일)</button>
       <button type="button" class="tab-btn" data-target="bo">Back Office (어드민)</button>
     </div>
+
+    <div class="toolbar">
+      <input type="text" id="searchInput" placeholder="검색어 입력">
+      <select id="statusFilter">
+        <option value="">전체 상태</option>
+        <option value="완료">완료</option>
+        <option value="진행중">진행중</option>
+        <option value="대기">대기</option>
+        <option value="보류">보류</option>
+      </select>
+      <span class="count">조회 결과: <strong id="countNum">0</strong>건</span>
+    </div>
   </div>
 
   <table>
     <colgroup>
       <col style="width: 12%">
-      <col style="width: 15%">
-      <col style="width: 15%">
-      <col style="width: 25%">
-      <col style="width: 78px">
-      <col style="width: calc(100% - 12% - 15% - 15% - 25% - 78px)">
+      <col style="width: 16%">
+      <col style="width: 18%">
+      <col style="width: 130px">
+      <col style="width: 80px">
+      <col style="width: 80px">
+      <col style="width: 80px">
+      <col style="width: auto">
     </colgroup>
     <thead>
       <tr>
         <th>구분 (1Depth)</th>
         <th>화면명 (2Depth)</th>
         <th>화면명 (3Depth)</th>
-        <th>파일 경로 (Link)</th>
-        <th>상태</th>
+        <th class="center">화면ID</th>
+        <th class="center">화면종류</th>
+        <th class="center">상태</th>
+        <th class="center">작업자</th>
         <th>비고</th>
       </tr>
     </thead>
-    <tbody id="worksheetBody">
+    <tbody id="tableBody">
     </tbody>
   </table>
 
-
   <script>
-    const worksheetData = [
-  {
-    "depth1": "FO화면",
-    "pages": [
+    const screenListData = [
+      // ========== Front Office (모바일 / 오퍼링) ==========
       {
-        "depth2": "챌린지 메인",
+        "category": "fo",
+        "depth1": "오퍼링",
+        "depth2": "홈",
         "depth3": "",
-        "link": "src/fo/html/challenge.html",
-        "statusCode": "done",
+        "depth4": "",
+        "screenId": "MB_CM_01_001",
+        "screenName": "화면1",
+        "type": "페이지",
+        "status": "완료",
+        "worker": "신수지",
+        "link": "offering/src/dist/CM/MB_CM_01_001.html",
         "note": ""
       },
       {
+        "category": "fo",
+        "depth1": "FO화면",
+        "depth2": "챌린지 메인",
+        "depth3": "",
+        "depth4": "",
+        "screenId": "",
+        "screenName": "챌린지 메인",
+        "type": "페이지",
+        "status": "완료",
+        "worker": "",
+        "link": "src/fo/html/challenge.html",
+        "note": ""
+      },
+      {
+        "category": "fo",
+        "depth1": "FO화면",
         "depth2": "주식 뷰",
         "depth3": "",
+        "depth4": "",
+        "screenId": "",
+        "screenName": "주식 뷰",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "",
         "link": "src/fo/html/stock-view.html",
-        "statusCode": "wait",
         "note": ""
-      }
-    ]
-  },
-  {
-    "depth1": "가이드",
-    "pages": [
+      },
+
+      // ========== Back Office (어드민) ==========
       {
+        "category": "bo",
+        "depth1": "가이드",
         "depth2": "파일 구조 및 문서 규칙",
         "depth3": "",
+        "depth4": "",
+        "screenId": "GUIDE_001",
+        "screenName": "파일 구조 및 문서 규칙",
+        "type": "페이지",
+        "status": "완료",
+        "worker": "주진희",
         "link": "admin/src/guide/convention.html",
-        "statusCode": "done",
         "note": "폴더 구조 및 코딩 컨벤션 안내"
       },
       {
+        "category": "bo",
+        "depth1": "가이드",
         "depth2": "UI 컴포넌트 가이드",
         "depth3": "",
+        "depth4": "",
+        "screenId": "GUIDE_002",
+        "screenName": "UI 컴포넌트 가이드",
+        "type": "페이지",
+        "status": "진행중",
+        "worker": "주진희",
         "link": "admin/src/guide/guide.html",
-        "statusCode": "ing",
         "note": "버튼, 뱃지, 탭 등 UI 요소 모음"
-      }
-    ]
-  },
-  {
-    "depth1": "공통",
-    "pages": [
+      },
       {
-        "depth2": "",
+        "category": "bo",
+        "depth1": "공통",
+        "depth2": "공통 레이아웃",
         "depth3": "",
-        "link": "admin/src/pages/common.html",
-        "statusCode": "wait",
+        "depth4": "",
+        "screenId": "COMM_001",
+        "screenName": "공통 레이아웃",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
+        "link": "admin/src/layout/layout.html",
         "note": "홈, 고객 관리, 미션 관리, 알림 관리, 관리자 관리"
-      }
-    ]
-  },
-  {
-    "depth1": "로그인",
-    "pages": [
+      },
       {
-        "depth2": "",
+        "category": "bo",
+        "depth1": "로그인",
+        "depth2": "로그인",
         "depth3": "",
+        "depth4": "",
+        "screenId": "LOGIN_001",
+        "screenName": "로그인",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/login.html",
-        "statusCode": "wait",
         "note": ""
-      }
-    ]
-  },
-  {
-    "depth1": "어드민 홈",
-    "pages": [
+      },
       {
-        "depth2": "",
+        "category": "bo",
+        "depth1": "어드민 홈",
+        "depth2": "미션홈",
         "depth3": "",
+        "depth4": "",
+        "screenId": "HOME_001",
+        "screenName": "어드민 홈",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-home.html",
-        "statusCode": "wait",
         "note": ""
-      }
-    ]
-  },
-  {
-    "depth1": "고객관리",
-    "pages": [
+      },
       {
+        "category": "bo",
+        "depth1": "고객관리",
         "depth2": "고객요약 대시보드",
         "depth3": "",
+        "depth4": "",
+        "screenId": "CUST_001",
+        "screenName": "고객요약 대시보드",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/customer-dashboard.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "고객관리",
         "depth2": "고객목록",
         "depth3": "",
+        "depth4": "",
+        "screenId": "CUST_002",
+        "screenName": "고객목록",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/customer-list.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "고객관리",
         "depth2": "고객목록",
         "depth3": "고객정보",
+        "depth4": "",
+        "screenId": "CUST_003",
+        "screenName": "고객정보",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/customer-info.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "고객관리",
         "depth2": "고객목록",
         "depth3": "참여내역",
+        "depth4": "",
+        "screenId": "CUST_004",
+        "screenName": "고객 참여내역",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/customer-participation.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "고객관리",
         "depth2": "고객목록",
         "depth3": "리워드내역",
+        "depth4": "",
+        "screenId": "CUST_005",
+        "screenName": "고객 리워드내역",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/customer-rewards.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "고객관리",
         "depth2": "고객목록",
         "depth3": "알림내역",
+        "depth4": "",
+        "screenId": "CUST_006",
+        "screenName": "고객 알림내역",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/customer-notifications.html",
-        "statusCode": "wait",
         "note": ""
-      }
-    ]
-  },
-  {
-    "depth1": "미션관리",
-    "pages": [
+      },
       {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "미션요약 대시보드",
         "depth3": "",
+        "depth4": "",
+        "screenId": "MISS_001",
+        "screenName": "미션요약 대시보드",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-dashboard.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "미션관리",
+        "depth2": "브리핑",
+        "depth3": "오늘의 콕 1분 브리핑",
+        "depth4": "",
+        "screenId": "MISS_002",
+        "screenName": "어드민 오늘의 콕 1분 브리핑",
+        "type": "페이지",
+        "status": "진행중",
+        "worker": "주진희",
+        "link": "admin/src/pages/A/briefing.html",
+        "note": ""
+      },
+      {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "미션홈 관리",
         "depth3": "",
+        "depth4": "",
+        "screenId": "MISS_003",
+        "screenName": "미션홈 관리",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-home.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "개별 미션홈 관리",
         "depth3": "",
+        "depth4": "",
+        "screenId": "MISS_004",
+        "screenName": "개별 미션홈 관리",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-individual-home.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "개별 미션홈 관리",
         "depth3": "미션정책",
+        "depth4": "",
+        "screenId": "MISS_005",
+        "screenName": "미션정책",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-policy.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
-        "depth2": "개별 미션홈 관리",
-        "depth3": "미션수정",
-        "link": "admin/src/pages/mission-home.html",
-        "statusCode": "wait",
-        "note": ""
-      },
-      {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "개별 미션홈 관리",
         "depth3": "미션현황",
+        "depth4": "",
+        "screenId": "MISS_006",
+        "screenName": "미션현황",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-status.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "개별 미션홈 관리",
         "depth3": "참여내역",
+        "depth4": "",
+        "screenId": "MISS_007",
+        "screenName": "개별 참여내역",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-participation.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "개별 미션홈 관리",
         "depth3": "알림내역",
+        "depth4": "",
+        "screenId": "MISS_008",
+        "screenName": "개별 알림내역",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-notifications.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "미션등록",
         "depth3": "",
+        "depth4": "",
+        "screenId": "MISS_009",
+        "screenName": "미션등록",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-registration.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "미션등록",
         "depth3": "결재승인(P)",
+        "depth4": "",
+        "screenId": "MISS_010",
+        "screenName": "결재승인",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-approval.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "미션관리",
         "depth2": "미션참여내역",
         "depth3": "",
+        "depth4": "",
+        "screenId": "MISS_011",
+        "screenName": "미션참여내역",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-participation.html",
-        "statusCode": "wait",
         "note": ""
-      }
-    ]
-  },
-  {
-    "depth1": "리워드 관리",
-    "pages": [
+      },
       {
+        "category": "bo",
+        "depth1": "리워드 관리",
         "depth2": "지급현황(리워드별)",
         "depth3": "",
+        "depth4": "",
+        "screenId": "REW_001",
+        "screenName": "지급현황(리워드별)",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/reward-summary.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "리워드 관리",
         "depth2": "지급현황(미션별)",
         "depth3": "",
+        "depth4": "",
+        "screenId": "REW_002",
+        "screenName": "지급현황(미션별)",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/reward-mission.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "리워드 관리",
         "depth2": "지급오류조회",
         "depth3": "",
+        "depth4": "",
+        "screenId": "REW_003",
+        "screenName": "지급오류조회",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/reward-error.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "리워드 관리",
         "depth2": "지급상세조회",
         "depth3": "",
+        "depth4": "",
+        "screenId": "REW_004",
+        "screenName": "지급상세조회",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/reward-detail.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "리워드 관리",
         "depth2": "한도관리",
         "depth3": "",
+        "depth4": "",
+        "screenId": "REW_005",
+        "screenName": "한도관리",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/reward-summary.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "리워드 관리",
         "depth2": "한도관리",
         "depth3": "한도설정",
+        "depth4": "",
+        "screenId": "REW_006",
+        "screenName": "한도설정",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/reward-limit.html",
-        "statusCode": "wait",
         "note": ""
-      }
-    ]
-  },
-  {
-    "depth1": "통계/분석",
-    "pages": [
+      },
       {
+        "category": "bo",
+        "depth1": "통계/분석",
         "depth2": "종합",
         "depth3": "",
+        "depth4": "",
+        "screenId": "STAT_001",
+        "screenName": "종합",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/statistics.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "통계/분석",
         "depth2": "미션분석",
         "depth3": "대시보드",
+        "depth4": "",
+        "screenId": "STAT_002",
+        "screenName": "미션분석 대시보드",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-dashboard.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "통계/분석",
         "depth2": "미션분석",
         "depth3": "테이블",
+        "depth4": "",
+        "screenId": "STAT_003",
+        "screenName": "미션분석 테이블",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/mission-table.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "통계/분석",
         "depth2": "비용분석",
         "depth3": "대시보드",
+        "depth4": "",
+        "screenId": "STAT_004",
+        "screenName": "비용분석 대시보드",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/cost-dashboard.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "통계/분석",
         "depth2": "비용분석",
         "depth3": "테이블",
+        "depth4": "",
+        "screenId": "STAT_005",
+        "screenName": "비용분석 테이블",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/cost-table.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "통계/분석",
         "depth2": "고객분석",
         "depth3": "대시보드",
+        "depth4": "",
+        "screenId": "STAT_006",
+        "screenName": "고객분석 대시보드",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/customer-dashboard.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "통계/분석",
         "depth2": "고객분석",
         "depth3": "테이블",
+        "depth4": "",
+        "screenId": "STAT_007",
+        "screenName": "고객분석 테이블",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/customer-table.html",
-        "statusCode": "wait",
         "note": ""
-      }
-    ]
-  },
-  {
-    "depth1": "업무관리",
-    "pages": [
+      },
       {
+        "category": "bo",
+        "depth1": "업무관리",
         "depth2": "결재함",
         "depth3": "목록",
+        "depth4": "",
+        "screenId": "TASK_001",
+        "screenName": "결재함 목록",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/approval-list.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "업무관리",
         "depth2": "결재함",
         "depth3": "승인이력(P)",
+        "depth4": "",
+        "screenId": "TASK_002",
+        "screenName": "승인이력",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/approval-history.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "업무관리",
         "depth2": "계정정보",
         "depth3": "",
+        "depth4": "",
+        "screenId": "TASK_003",
+        "screenName": "계정정보",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/account-info.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "업무관리",
         "depth2": "공지사항",
         "depth3": "목록",
+        "depth4": "",
+        "screenId": "TASK_004",
+        "screenName": "공지사항 목록",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/notice-list.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "업무관리",
         "depth2": "공지사항",
         "depth3": "등록(P)",
+        "depth4": "",
+        "screenId": "TASK_005",
+        "screenName": "공지사항 등록",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/notice-create.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "업무관리",
         "depth2": "공지사항",
         "depth3": "상세/수정(P)",
+        "depth4": "",
+        "screenId": "TASK_006",
+        "screenName": "공지사항 상세/수정",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/notice-detail.html",
-        "statusCode": "wait",
         "note": ""
-      }
-    ]
-  },
-  {
-    "depth1": "시스템관리",
-    "pages": [
+      },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "권한관리",
         "depth3": "",
+        "depth4": "",
+        "screenId": "SYS_001",
+        "screenName": "권한관리",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/permission-management.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "사용자관리",
         "depth3": "목록",
+        "depth4": "",
+        "screenId": "SYS_002",
+        "screenName": "사용자 목록",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/user-list.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "사용자관리",
         "depth3": "사용자 그룹등록(P)",
+        "depth4": "",
+        "screenId": "SYS_003",
+        "screenName": "사용자 그룹등록",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/user-group-create.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "사용자관리",
         "depth3": "사용자 그룹상세(P)",
+        "depth4": "",
+        "screenId": "SYS_004",
+        "screenName": "사용자 그룹상세",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/user-group-detail.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "사용자관리",
         "depth3": "조직검색(P)",
+        "depth4": "",
+        "screenId": "SYS_005",
+        "screenName": "조직검색",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/organization-search.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "사용자관리",
         "depth3": "직원검색(P)",
+        "depth4": "",
+        "screenId": "SYS_006",
+        "screenName": "직원검색",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/employee-search.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "공통코드관리",
         "depth3": "목록",
+        "depth4": "",
+        "screenId": "SYS_007",
+        "screenName": "공통코드 목록",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/common-code-list.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "공통코드관리",
         "depth3": "공통코드 등록(P)",
+        "depth4": "",
+        "screenId": "SYS_008",
+        "screenName": "공통코드 등록",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/common-code-create.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "공통코드관리",
         "depth3": "공통코드 상세/수정(P)",
+        "depth4": "",
+        "screenId": "SYS_009",
+        "screenName": "공통코드 상세/수정",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/common-code-detail.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "설정변경이력",
         "depth3": "",
+        "depth4": "",
+        "screenId": "SYS_010",
+        "screenName": "설정변경이력",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/change-history.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "설정변경이력",
         "depth3": "변경이력상세(P)",
+        "depth4": "",
+        "screenId": "SYS_011",
+        "screenName": "변경이력상세",
+        "type": "팝업",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/change-history-detail.html",
-        "statusCode": "wait",
         "note": ""
       },
       {
+        "category": "bo",
+        "depth1": "시스템관리",
         "depth2": "접속 이력",
         "depth3": "",
+        "depth4": "",
+        "screenId": "SYS_012",
+        "screenName": "접속 이력",
+        "type": "페이지",
+        "status": "대기",
+        "worker": "주진희",
         "link": "admin/src/pages/access-history.html",
-        "statusCode": "wait",
         "note": ""
       }
-    ]
-  }
-];
-    
+    ];
+
     document.addEventListener('DOMContentLoaded', () => {
-      const tbody = document.getElementById('worksheetBody');
+      const $ = (sel) => document.querySelector(sel);
+      const tableBody = $('#tableBody');
+      const searchInput = $('#searchInput');
+      const statusFilter = $('#statusFilter');
+      const countNum = $('#countNum');
       const tabBtns = document.querySelectorAll('.tab-btn');
-      let currentTab = 'fo'; // 기본 탭: FO
 
-      function renderTable() {
-        let html = '';
-        let total = 0, done = 0, ing = 0, wait = 0;
-        
-        worksheetData.forEach(category => {
-          // 탭에 맞는 페이지들만 필터링
-          let filteredPages = category.pages.filter(page => {
-             if (!page.link) return false;
-             if (currentTab === 'bo') {
-               return page.link.includes('admin/') || page.link.includes('src/bo/');
-             } else {
-               return page.link.includes('offering/') || page.link.includes('src/fo/');
-             }
+      let currentTab = 'fo'; // 'all', 'fo', 'bo'
+
+      function renderDepthCell(value) {
+        return value
+          ? `<span>${value}</span>`
+          : `<span class="depth-cell empty">-</span>`;
+      }
+
+      function updateDashboard(list) {
+        let total = list.length;
+        let done = 0, ing = 0, wait = 0, hold = 0;
+
+        list.forEach(item => {
+          if (item.status === '완료') done++;
+          else if (item.status === '진행중') ing++;
+          else if (item.status === '보류') hold++;
+          else wait++;
+        });
+
+        $('#cntTotal').textContent = total;
+        $('#cntDone').textContent = done;
+        $('#cntIng').textContent = ing;
+        $('#cntWait').textContent = wait;
+        $('#cntHold').textContent = hold;
+        $('#cntProgress').textContent = total > 0 ? Math.round((done / total) * 100) : 0;
+      }
+
+      function renderRows() {
+        const keyword = searchInput.value.trim().toLowerCase();
+        const statusVal = statusFilter.value;
+
+        // 1. 탭 필터링
+        let tabFiltered = screenListData;
+        if (currentTab !== 'all') {
+          tabFiltered = screenListData.filter(row => {
+            if (currentTab === 'fo') return row.category === 'fo' || (row.link && (row.link.includes('offering/') || row.link.includes('src/fo/')));
+            if (currentTab === 'bo') return row.category === 'bo' || (row.link && row.link.includes('admin/'));
+            return true;
           });
+        }
 
-          if (filteredPages.length === 0) return;
+        // 대시보드는 현재 탭 기준 통계 반영
+        updateDashboard(tabFiltered);
 
-          // 필터링된 페이지들에 대해 depth2 병합(rowspan) 사전 계산
-          for (let i = 0; i < filteredPages.length; i++) {
-            filteredPages[i].depth2Rowspan = undefined; // 초기화
-          }
-          for (let i = 0; i < filteredPages.length; i++) {
-            if (filteredPages[i].depth2Rowspan !== undefined) continue;
-            let rowspan = 1;
-            for (let j = i + 1; j < filteredPages.length; j++) {
-              if (filteredPages[i].depth2 === filteredPages[j].depth2) {
-                rowspan++;
-                filteredPages[j].depth2Rowspan = 0;
+        // 2. 검색 & 상태 필터링
+        let filtered = tabFiltered.filter(row => {
+          const matchKeyword =
+            !keyword ||
+            (row.screenId && row.screenId.toLowerCase().includes(keyword)) ||
+            (row.screenName && row.screenName.toLowerCase().includes(keyword)) ||
+            (row.depth1 && row.depth1.toLowerCase().includes(keyword)) ||
+            (row.depth2 && row.depth2.toLowerCase().includes(keyword)) ||
+            (row.depth3 && row.depth3.toLowerCase().includes(keyword)) ||
+            (row.depth4 && row.depth4.toLowerCase().includes(keyword)) ||
+            (row.type && row.type.toLowerCase().includes(keyword)) ||
+            (row.worker && row.worker.toLowerCase().includes(keyword)) ||
+            (row.link && row.link.toLowerCase().includes(keyword)) ||
+            (row.note && row.note.toLowerCase().includes(keyword));
+
+          const matchStatus = !statusVal || row.status === statusVal;
+          return matchKeyword && matchStatus;
+        });
+
+        countNum.textContent = filtered.length;
+
+        if (filtered.length === 0) {
+          tableBody.innerHTML = `<tr class="empty-row"><td colspan="8">조건에 맞는 화면이 없습니다.</td></tr>`;
+          return;
+        }
+
+        // 3. 동일 셀 합치기(rowspan) 계산
+        for (let i = 0; i < filtered.length; i++) {
+          filtered[i].depth1Rowspan = undefined;
+          filtered[i].depth2Rowspan = undefined;
+        }
+
+        for (let i = 0; i < filtered.length; i++) {
+          // 1Depth 병합 계산
+          if (filtered[i].depth1Rowspan === undefined) {
+            let span1 = 1;
+            for (let j = i + 1; j < filtered.length; j++) {
+              if (filtered[j].depth1 === filtered[i].depth1) {
+                span1++;
+                filtered[j].depth1Rowspan = 0;
               } else {
                 break;
               }
             }
-            filteredPages[i].depth2Rowspan = rowspan;
+            filtered[i].depth1Rowspan = span1;
           }
 
-          // HTML 렌더링
-          filteredPages.forEach((page, index) => {
-            // 카운트 집계
-            total++;
-            if (page.statusCode === 'done') done++;
-            else if (page.statusCode === 'ing') ing++;
-            else wait++;
+          // 2Depth 병합 계산 (동일 1Depth 내에서만)
+          if (filtered[i].depth2Rowspan === undefined) {
+            let span2 = 1;
+            for (let j = i + 1; j < filtered.length; j++) {
+              if (filtered[j].depth1 === filtered[i].depth1 && filtered[j].depth2 && filtered[j].depth2 === filtered[i].depth2) {
+                span2++;
+                filtered[j].depth2Rowspan = 0;
+              } else {
+                break;
+              }
+            }
+            filtered[i].depth2Rowspan = span2;
+          }
+        }
 
-            html += '<tr>';
-            if (index === 0) {
-              html += '<td class="depth1" rowspan="' + filteredPages.length + '">' + category.depth1 + '</td>';
-            }
-            
-            if (page.depth2Rowspan > 0) {
-              let rs = page.depth2Rowspan > 1 ? ' rowspan="' + page.depth2Rowspan + '"' : '';
-              html += '<td' + rs + '>' + (page.depth2 || '') + '</td>';
-            }
-            
-            html += '<td>' + (page.depth3 || '') + '</td>';
-            
-            let linkHtml = page.link ? '<a href="' + page.link + '" target="_blank">' + page.link + '</a>' : '';
-            html += '<td>' + linkHtml + '</td>';
-            
-            const statusMap = { 'done': '완료', 'ing': '진행중', 'wait': '대기' };
-            const sCode = page.statusCode || 'wait';
-            const sText = statusMap[sCode] || '대기';
-            html += '<td class="center"><span class="status ' + sCode + '">' + sText + '</span></td>';
-            
-            html += '<td class="etc">' + (page.note || '') + '</td>';
-            
-            html += '</tr>';
-          });
-        });
-        
-        tbody.innerHTML = html;
-        
-        // 대시보드 업데이트
-        document.getElementById('cntTotal').innerText = total;
-        document.getElementById('cntDone').innerText = done;
-        document.getElementById('cntIng').innerText = ing;
-        document.getElementById('cntWait').innerText = wait;
-        document.getElementById('cntProgress').innerText = total > 0 ? Math.round((done / total) * 100) : 0;
+        const statusClassMap = {
+          '완료': 'done',
+          '진행중': 'ing',
+          '대기': 'wait',
+          '보류': 'hold'
+        };
+
+        tableBody.innerHTML = filtered.map(row => {
+          const linkHref = row.link || '#';
+
+          // 1Depth 셀
+          let depth1Html = '';
+          if (row.depth1Rowspan > 0) {
+            const rs = row.depth1Rowspan > 1 ? ` rowspan="${row.depth1Rowspan}"` : '';
+            depth1Html = `<td class="depth1"${rs}>${row.depth1 || '-'}</td>`;
+          }
+
+          // 2Depth 셀 (순수 텍스트)
+          let depth2Html = '';
+          if (row.depth2Rowspan > 0) {
+            const rs = row.depth2Rowspan > 1 ? ` rowspan="${row.depth2Rowspan}"` : '';
+            const text2 = row.depth2 || (row.depth3 ? '-' : (row.screenName || '-'));
+            depth2Html = `<td${rs}>${text2}</td>`;
+          }
+
+          // 3Depth 셀 (순수 텍스트)
+          let depth3Html = '';
+          if (row.depth3) {
+            depth3Html = `<td>${row.depth3}</td>`;
+          } else {
+            depth3Html = `<td><span class="text-empty">-</span></td>`;
+          }
+
+          // 화면ID 셀 (링크 연결)
+          let screenIdHtml = '';
+          if (row.screenId) {
+            screenIdHtml = row.link 
+              ? `<a href="${linkHref}" target="_blank">${row.screenId}</a>` 
+              : `<span>${row.screenId}</span>`;
+          } else if (row.link) {
+            screenIdHtml = `<a href="${linkHref}" target="_blank">링크</a>`;
+          } else {
+            screenIdHtml = `<span class="text-empty">-</span>`;
+          }
+
+          const isPopup = row.type === '팝업' || 
+            (row.depth3 && row.depth3.includes('(P)')) || 
+            (row.depth2 && row.depth2.includes('(P)')) || 
+            (row.note && row.note.includes('팝업'));
+          const typeText = isPopup ? '팝업' : '페이지';
+          const typeHtml = `<span>${typeText}</span>`;
+          
+          const sClass = statusClassMap[row.status] || 'wait';
+          const statusHtml = `<span class="status ${sClass}">${row.status || '대기'}</span>`;
+          const workerHtml = row.worker ? `<span>${row.worker}</span>` : `<span class="text-empty">-</span>`;
+          const noteHtml = row.note ? `<span>${row.note}</span>` : '';
+
+          return `
+            <tr>
+              ${depth1Html}
+              ${depth2Html}
+              ${depth3Html}
+              <td class="center">${screenIdHtml}</td>
+              <td class="center">${typeHtml}</td>
+              <td class="center">${statusHtml}</td>
+              <td class="center">${workerHtml}</td>
+              <td>${noteHtml}</td>
+            </tr>
+          `;
+        }).join('');
+
+        updateStickyTop();
       }
 
-      // 탭 클릭 이벤트 리스너 등록
+      // 탭 클릭 이벤트
       tabBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
           tabBtns.forEach(b => b.classList.remove('active'));
           e.target.classList.add('active');
           currentTab = e.target.getAttribute('data-target');
-          renderTable();
+          renderRows();
         });
       });
 
-      // 초기 렌더링
-      renderTable();
+      // 검색 & 필터 이벤트
+      searchInput.addEventListener('input', renderRows);
+      statusFilter.addEventListener('change', renderRows);
 
       // 스티키 헤더 높이 계산 (thead 위치 조정)
       function updateStickyTop() {
         const header = document.querySelector('.header');
         const ths = document.querySelectorAll('th');
-        // header의 실제 높이만큼 th의 top을 설정
+        if (!header) return;
         const headerHeight = header.offsetHeight;
         ths.forEach(th => {
           th.style.top = headerHeight + 'px';
         });
       }
-      
-      // 처음 로딩 및 창 크기 조절 시 업데이트
+
       window.addEventListener('resize', updateStickyTop);
-      setTimeout(updateStickyTop, 100); // 렌더링 직후 높이 계산
+
+      // 초기 렌더링
+      renderRows();
+      setTimeout(updateStickyTop, 100);
     });
   </script>
-
-
 </body>
 </html>
