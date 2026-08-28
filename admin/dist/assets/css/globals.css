@@ -355,6 +355,77 @@ body {
   height: 34px; /* input과 높이 맞춤 */
   margin: 0; /* md 버튼의 여백 등에 대비 */
 }
+.formControlWrap .inputPrefix,
+.formControlWrap .inputUnit {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #6b7280;
+  pointer-events: none;
+  line-height: 1;
+}
+.formControlWrap .inputPrefix {
+  left: 12px;
+}
+.formControlWrap .inputUnit {
+  right: 12px;
+}
+.formControlWrap.hasPrefix .formControl {
+  padding-left: 36px;
+}
+.formControlWrap.hasUnit .formControl {
+  padding-right: 36px;
+}
+.formControlWrap.hasPrefix.hasUnit .formControl {
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #D5D7DE;
+  border-radius: 6px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+.inputGroup:focus-within {
+  border-color: #FFDC00;
+  box-shadow: 0 0 0 3px rgba(255, 220, 0, 0.2);
+}
+.inputGroup.isError {
+  border-color: #ef4444;
+}
+.inputGroup.isError:focus-within {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+.inputGroup .inputAddon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  height: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  background-color: #f3f4f6;
+  flex-shrink: 0;
+}
+.inputGroup .inputAddon.prefix {
+  border-right: 1px solid #D5D7DE;
+}
+.inputGroup .inputAddon.suffix {
+  border-left: 1px solid #D5D7DE;
+}
+.inputGroup .formControl {
+  border: none;
+  border-radius: 0;
+  box-shadow: none !important;
+  height: 32px;
+}
 
 .formControl {
   width: 100%;
@@ -407,13 +478,15 @@ textarea.formControl {
 
 select.formControl {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-image: url("../images/icon/arrow-down.svg");
   background-position: right 12px center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
   padding-right: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-
 .formErrorMsg {
   display: block;
   font-size: 13px;
@@ -901,4 +974,495 @@ select.formControl {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #1f2937;
+}
+
+/* ==========================================================================
+   Breadcrumb Component
+   ========================================================================== */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+}
+
+.breadcrumbItem {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  color: #6b7280;
+}
+.breadcrumbItem:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%239ca3af'%3E%3Cpath fill-rule='evenodd' d='M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.breadcrumbItem .breadcrumbLink {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.breadcrumbItem .breadcrumbLink:hover {
+  color: #1f2937;
+  text-decoration: underline;
+}
+.breadcrumbItem.isCurrent, .breadcrumbItem[aria-current=page] {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Segment (Segmented Control) Component
+   ========================================================================== */
+.segment {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  user-select: none;
+  gap: 2px;
+}
+.segment .segmentItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+}
+.segment .segmentItem input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.segment .segmentItem .segmentText {
+  position: relative;
+  z-index: 1;
+}
+.segment .segmentItem:hover {
+  color: #1f2937;
+}
+.segment .segmentItem.isActive, .segment .segmentItem:has(input[type=radio]:checked) {
+  background-color: #ffffff;
+  color: #1f2937;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.segment .segmentItem:disabled, .segment .segmentItem.isDisabled, .segment .segmentItem:has(input[type=radio]:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.segment.sm {
+  padding: 2px;
+  border-radius: 6px;
+}
+.segment.sm .segmentItem {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.segment.lg {
+  padding: 4px;
+  border-radius: 10px;
+}
+.segment.lg .segmentItem {
+  padding: 8px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+.segment.full {
+  display: flex;
+  width: 100%;
+}
+.segment.full .segmentItem {
+  flex: 1;
+}
+
+/* ==========================================================================
+   Toggle (Switch) Component
+   ========================================================================== */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+.toggle input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle .toggleTrack {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  background-color: #d1d5db;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+.toggle .toggleTrack::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toggle .toggleLabel {
+  font-size: 14px;
+  color: #374151;
+}
+.toggle input:checked + .toggleTrack {
+  background-color: #1f2937;
+}
+.toggle input:checked + .toggleTrack::after {
+  transform: translateX(20px);
+}
+.toggle.primary input:checked + .toggleTrack {
+  background-color: #FFCC00;
+}
+.toggle input:focus-visible + .toggleTrack {
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.4);
+}
+.toggle.isDisabled,
+.toggle input:disabled + .toggleTrack,
+.toggle input:disabled ~ .toggleLabel {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.toggle.sm {
+  gap: 6px;
+}
+.toggle.sm .toggleTrack {
+  width: 34px;
+  height: 18px;
+}
+.toggle.sm .toggleTrack::after {
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+}
+.toggle.sm input:checked + .toggleTrack::after {
+  transform: translateX(16px);
+}
+.toggle.sm .toggleLabel {
+  font-size: 12px;
+}
+.toggle.lg {
+  gap: 10px;
+}
+.toggle.lg .toggleTrack {
+  width: 52px;
+  height: 28px;
+}
+.toggle.lg .toggleTrack::after {
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+}
+.toggle.lg input:checked + .toggleTrack::after {
+  transform: translateX(24px);
+}
+.toggle.lg .toggleLabel {
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   Toast Component
+   ========================================================================== */
+.toast {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 280px;
+  max-width: 480px;
+  padding: 12px 16px;
+  background-color: #1f2937;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+  animation: toastFadeIn 0.25s ease-out;
+}
+.toast .toastIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.toast .toastIcon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+.toast .toastMessage {
+  flex: 1;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+.toast .toastClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 6px;
+  transition: opacity 0.2s;
+}
+.toast .toastClose:hover {
+  opacity: 1;
+}
+.toast .toastClose svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+.toast.success {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+.toast.success .toastIcon {
+  color: #059669;
+}
+.toast.error {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+.toast.error .toastIcon {
+  color: #dc2626;
+}
+.toast.warning {
+  background-color: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.toast.warning .toastIcon {
+  color: #d97706;
+}
+.toast.info {
+  background-color: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+.toast.info .toastIcon {
+  color: #2563eb;
+}
+
+.toastContainer {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+.toastContainer .toast {
+  pointer-events: auto;
+}
+.toastContainer.topCenter {
+  top: 30px;
+  bottom: auto;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+.toastContainer.bottomCenter {
+  bottom: 30px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+@keyframes toastFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ==========================================================================
+   Tooltip Component
+   ========================================================================== */
+.tooltipWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.tooltipWrap .tooltipBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  background-color: #e5e7eb;
+  color: #6b7280;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tooltipWrap .tooltipBtn:hover {
+  background-color: #d1d5db;
+  color: #1f2937;
+}
+.tooltipWrap .tooltipBtn svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+.tooltipWrap .tooltipContent {
+  position: absolute;
+  z-index: 200;
+  padding: 8px 12px;
+  background-color: #1f2937;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: nowrap;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.tooltipWrap .tooltipContent::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+}
+.tooltipWrap .tooltipContent, .tooltipWrap.top .tooltipContent {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+}
+.tooltipWrap .tooltipContent::after, .tooltipWrap.top .tooltipContent::after {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: #1f2937;
+}
+.tooltipWrap.bottom .tooltipContent {
+  top: calc(100% + 8px);
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+}
+.tooltipWrap.bottom .tooltipContent::after {
+  bottom: 100%;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: #1f2937;
+}
+.tooltipWrap.left .tooltipContent {
+  right: calc(100% + 8px);
+  left: auto;
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%) translateX(4px);
+}
+.tooltipWrap.left .tooltipContent::after {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left-color: #1f2937;
+}
+.tooltipWrap.right .tooltipContent {
+  left: calc(100% + 8px);
+  right: auto;
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+}
+.tooltipWrap.right .tooltipContent::after {
+  right: 100%;
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right-color: #1f2937;
+}
+.tooltipWrap:hover .tooltipContent, .tooltipWrap:focus-within .tooltipContent, .tooltipWrap.isOpen .tooltipContent {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.tooltipWrap:hover .tooltipContent.top, .tooltipWrap:hover .tooltipContent, .tooltipWrap:focus-within .tooltipContent.top, .tooltipWrap:focus-within .tooltipContent, .tooltipWrap.isOpen .tooltipContent.top, .tooltipWrap.isOpen .tooltipContent {
+  transform: translateX(-50%) translateY(0);
+}
+.tooltipWrap:hover .tooltipContent.bottom, .tooltipWrap:focus-within .tooltipContent.bottom, .tooltipWrap.isOpen .tooltipContent.bottom {
+  transform: translateX(-50%) translateY(0);
+}
+.tooltipWrap:hover .tooltipContent.left, .tooltipWrap:focus-within .tooltipContent.left, .tooltipWrap.isOpen .tooltipContent.left {
+  transform: translateY(-50%) translateX(0);
+}
+.tooltipWrap:hover .tooltipContent.right, .tooltipWrap:focus-within .tooltipContent.right, .tooltipWrap.isOpen .tooltipContent.right {
+  transform: translateY(-50%) translateX(0);
+}
+.tooltipWrap .tooltipContent.multiLine {
+  white-space: normal;
+  min-width: 180px;
+  max-width: 260px;
+  word-break: keep-all;
 }

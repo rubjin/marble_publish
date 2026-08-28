@@ -1,0 +1,47 @@
+<!-- Segment (Button Type - 기본형, 첫 번째 항목 선택) -->
+<div class="segment">
+  <button type="button" class="segmentItem isActive">전체</button>
+  <button type="button" class="segmentItem">일간</button>
+  <button type="button" class="segmentItem">주간</button>
+  <button type="button" class="segmentItem">월간</button>
+</div>
+
+<!-- Segment (Radio Type - 폼 전송형, 첫 번째 항목 선택) -->
+<div class="segment">
+  <label class="segmentItem">
+    <input type="radio" name="missionState" checked>
+    <span class="segmentText">전체</span>
+  </label>
+  <label class="segmentItem">
+    <input type="radio" name="missionState">
+    <span class="segmentText">진행중</span>
+  </label>
+  <label class="segmentItem">
+    <input type="radio" name="missionState">
+    <span class="segmentText">종료</span>
+  </label>
+</div>
+
+<!-- Segment (Size Variants) -->
+<div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <!-- Small -->
+  <div class="segment sm">
+    <button type="button" class="segmentItem isActive">1개월</button>
+    <button type="button" class="segmentItem">3개월</button>
+    <button type="button" class="segmentItem">6개월</button>
+  </div>
+
+  <!-- Medium (Default) -->
+  <div class="segment">
+    <button type="button" class="segmentItem isActive">1개월</button>
+    <button type="button" class="segmentItem">3개월</button>
+    <button type="button" class="segmentItem">6개월</button>
+  </div>
+
+  <!-- Large -->
+  <div class="segment lg">
+    <button type="button" class="segmentItem isActive">1개월</button>
+    <button type="button" class="segmentItem">3개월</button>
+    <button type="button" class="segmentItem">6개월</button>
+  </div>
+</div>

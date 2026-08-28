@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Segment (Segmented Control) Component
+   ========================================================================== */
+
+.segment {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  background-color: $gray100;
+  border-radius: $radiusMd;
+  user-select: none;
+  gap: 2px;
+
+  .segmentItem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    position: relative;
+
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .segmentText {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover {
+      color: $gray800;
+    }
+
+    // Active State (Button & Radio)
+    &.isActive,
+    &:has(input[type="radio"]:checked) {
+      background-color: $white;
+      color: $gray800;
+      font-weight: 700;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    &:disabled,
+    &.isDisabled,
+    &:has(input[type="radio"]:disabled) {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  // Size Variants
+  &.sm {
+    padding: 2px;
+    border-radius: 6px;
+
+    .segmentItem {
+      padding: 4px 10px;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+  }
+
+  &.lg {
+    padding: 4px;
+    border-radius: 10px;
+
+    .segmentItem {
+      padding: 8px 20px;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+  }
+
+  // Full Width
+  &.full {
+    display: flex;
+    width: 100%;
+
+    .segmentItem {
+      flex: 1;
+    }
+  }
+}

@@ -135,6 +135,11 @@
       <button type="button" class="guideNavItem" data-target="sectionTypography">Typography</button>
       <button type="button" class="guideNavItem" data-target="sectionAccordion">Accordion</button>
       <button type="button" class="guideNavItem" data-target="sectionTable">Table</button>
+      <button type="button" class="guideNavItem" data-target="sectionBreadcrumb">Breadcrumb</button>
+      <button type="button" class="guideNavItem" data-target="sectionSegment">Segment</button>
+      <button type="button" class="guideNavItem" data-target="sectionToggle">Toggle</button>
+      <button type="button" class="guideNavItem" data-target="sectionToast">Toast</button>
+      <button type="button" class="guideNavItem" data-target="sectionTooltip">Tooltip</button>
     </div>
   </nav>
 
@@ -375,6 +380,35 @@
     <button type="button" class="btn outline md">인증번호 발송</button>
   </div>
 </div>
+
+<!-- Input with Unit (Suffix - 우측 단위) -->
+<div class="formGroup">
+  <label class="formLabel">금액 / 수량 입력 (우측 단위)</label>
+  <div class="formControlWrap hasUnit">
+    <input type="text" class="formControl" placeholder="0" value="50,000">
+    <span class="inputUnit">원</span>
+  </div>
+</div>
+
+<!-- Input with Prefix (Left - 좌측 접두사) -->
+<div class="formGroup">
+  <label class="formLabel">웹사이트 주소 (좌측 접두사)</label>
+  <div class="formControlWrap hasPrefix">
+    <span class="inputPrefix">https://</span>
+    <input type="text" class="formControl" placeholder="example.com">
+  </div>
+</div>
+
+<!-- Input Group (Box Addon - 박스형 접두/접미사) -->
+<div class="formGroup">
+  <label class="formLabel">박스형 단위 인풋 그룹</label>
+  <div class="inputGroup">
+    <span class="inputAddon prefix">https://</span>
+    <input type="text" class="formControl" placeholder="admin.domain">
+    <span class="inputAddon suffix">.com</span>
+  </div>
+</div>
+
 
       </div>
     </section>
@@ -665,6 +699,279 @@
       </div>
     </section>
 
+    <!-- ==================== 10. 브레드크럼 가이드 ==================== -->
+    <section id="sectionBreadcrumb" class="guideSection">
+      <h2 class="guideTitle">Breadcrumb (브레드크럼)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- Breadcrumb (Default) -->
+<nav class="breadcrumb" aria-label="브레드크럼">
+  <ol class="breadcrumbList">
+    <li class="breadcrumbItem">
+      <a href="#" class="breadcrumbLink">홈</a>
+    </li>
+    <li class="breadcrumbItem">
+      <a href="#" class="breadcrumbLink">뎁스2</a>
+    </li>
+    <li class="breadcrumbItem isCurrent" aria-current="page">
+      현재페이지
+    </li>
+  </ol>
+</nav>
+      </div>
+    </section>
+
+    <!-- ==================== 11. 세그먼트 가이드 ==================== -->
+    <section id="sectionSegment" class="guideSection">
+      <h2 class="guideTitle">Segment (세그먼트)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- Segment (Button Type - 기본형, 첫 번째 항목 선택) -->
+<div class="segment">
+  <button type="button" class="segmentItem isActive">전체</button>
+  <button type="button" class="segmentItem">일간</button>
+  <button type="button" class="segmentItem">주간</button>
+  <button type="button" class="segmentItem">월간</button>
+</div>
+
+<!-- Segment (Radio Type - 폼 전송형, 첫 번째 항목 선택) -->
+<div class="segment">
+  <label class="segmentItem">
+    <input type="radio" name="missionState" checked>
+    <span class="segmentText">전체</span>
+  </label>
+  <label class="segmentItem">
+    <input type="radio" name="missionState">
+    <span class="segmentText">진행중</span>
+  </label>
+  <label class="segmentItem">
+    <input type="radio" name="missionState">
+    <span class="segmentText">종료</span>
+  </label>
+</div>
+
+<!-- Segment (Size Variants) -->
+<div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <!-- Small -->
+  <div class="segment sm">
+    <button type="button" class="segmentItem isActive">1개월</button>
+    <button type="button" class="segmentItem">3개월</button>
+    <button type="button" class="segmentItem">6개월</button>
+  </div>
+
+  <!-- Medium (Default) -->
+  <div class="segment">
+    <button type="button" class="segmentItem isActive">1개월</button>
+    <button type="button" class="segmentItem">3개월</button>
+    <button type="button" class="segmentItem">6개월</button>
+  </div>
+
+  <!-- Large -->
+  <div class="segment lg">
+    <button type="button" class="segmentItem isActive">1개월</button>
+    <button type="button" class="segmentItem">3개월</button>
+    <button type="button" class="segmentItem">6개월</button>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 12. 토글 스위치 가이드 ==================== -->
+    <section id="sectionToggle" class="guideSection">
+      <h2 class="guideTitle">Toggle (토글 스위치)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- 1. Default Toggle (Basic OFF / ON) -->
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+  <label class="toggle">
+    <input type="checkbox">
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">비활성 (OFF)</span>
+  </label>
+
+  <label class="toggle">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">활성 (ON)</span>
+  </label>
+
+  <label class="toggle primary">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Primary 컬러</span>
+  </label>
+</div>
+
+<!-- 2. Sizes (SM / MD / LG) -->
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+  <!-- Small -->
+  <label class="toggle sm">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Small (sm)</span>
+  </label>
+
+  <!-- Medium (Default) -->
+  <label class="toggle">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Medium (기본)</span>
+  </label>
+
+  <!-- Large -->
+  <label class="toggle lg">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Large (lg)</span>
+  </label>
+</div>
+
+<!-- 3. Disabled State -->
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+  <label class="toggle">
+    <input type="checkbox" disabled>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Disabled (OFF)</span>
+  </label>
+
+  <label class="toggle">
+    <input type="checkbox" checked disabled>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Disabled (ON)</span>
+  </label>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 13. 토스트 팝업 가이드 ==================== -->
+    <section id="sectionToast" class="guideSection">
+      <h2 class="guideTitle">Toast (토스트 팝업)</h2>
+      <div class="guideBox guideBoxBlock" style="max-width: 600px;">
+        <!-- 1. 기본 다크 토스트 (Default Dark) -->
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px;">
+  <div class="toast">
+    <span class="toastIcon">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/></svg>
+    </span>
+    <span class="toastMessage">설정이 성공적으로 저장되었습니다.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- 2. 상태별 라이트 토스트 (Variants) -->
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px; margin-top: 16px;">
+  <!-- Success -->
+  <div class="toast success">
+    <span class="toastIcon">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+    </span>
+    <span class="toastMessage">요청이 정상적으로 처리되었습니다.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+
+  <!-- Error -->
+  <div class="toast error">
+    <span class="toastIcon">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd"/></svg>
+    </span>
+    <span class="toastMessage">데이터 저장 중 오류가 발생했습니다.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+
+  <!-- Warning -->
+  <div class="toast warning">
+    <span class="toastIcon">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+    </span>
+    <span class="toastMessage">필수 입력 항목을 다시 확인해 주세요.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+
+  <!-- Info -->
+  <div class="toast info">
+    <span class="toastIcon">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/></svg>
+    </span>
+    <span class="toastMessage">새로운 업데이트 사항이 있습니다.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 14. 툴팁 가이드 ==================== -->
+    <section id="sectionTooltip" class="guideSection">
+      <h2 class="guideTitle">Tooltip (툴팁)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- 1. 기본 아이콘 툴팁 (Top / Bottom / Left / Right) -->
+<div style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap; padding: 40px 20px;">
+  <!-- Top (기본) -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>상단 툴팁</span>
+    <div class="tooltipWrap top">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">상단에 노출되는 설명 툴팁입니다.</div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>하단 툴팁</span>
+    <div class="tooltipWrap bottom">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">하단에 노출되는 설명 툴팁입니다.</div>
+    </div>
+  </div>
+
+  <!-- Left -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>좌측 툴팁</span>
+    <div class="tooltipWrap left">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">좌측 설명 툴팁입니다.</div>
+    </div>
+  </div>
+
+  <!-- Right -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>우측 툴팁</span>
+    <div class="tooltipWrap right">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">우측 설명 툴팁입니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 텍스트 / 버튼 호버 툴팁 및 다중 라인 -->
+<div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap; padding: 10px 20px;">
+  <!-- 버튼 위 툴팁 -->
+  <div class="tooltipWrap top">
+    <button type="button" class="btn outline md">마우스를 올려보세요</button>
+    <div class="tooltipContent" role="tooltip">클릭 시 상세 모달이 열립니다.</div>
+  </div>
+
+  <!-- 다중 라인 설명 툴팁 -->
+  <div class="tooltipWrap bottom">
+    <button type="button" class="btn primary md">안내 정보</button>
+    <div class="tooltipContent multiLine" role="tooltip">
+      최대 3줄까지 입력 가능한 긴 설명 툴팁입니다. 자동 줄바꿈이 적용됩니다.
+    </div>
+  </div>
+</div>
+
+      </div>
+    </section>
+
   </div>
 
   <script>
@@ -811,7 +1118,18 @@
         });
       });
 
-      
+      // 세그먼트 버튼 클릭 인터랙션
+      document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.segment .segmentItem:not(label)');
+        if (!btn) return;
+        var segment = btn.closest('.segment');
+        if (segment) {
+          segment.querySelectorAll('.segmentItem').forEach(function(item) {
+            item.classList.remove('isActive');
+          });
+          btn.classList.add('isActive');
+        }
+      });
   </script>
 
   <!-- Syntax Highlighting JS -->

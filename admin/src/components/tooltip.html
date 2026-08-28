@@ -1,0 +1,55 @@
+<!-- 1. 기본 아이콘 툴팁 (Top / Bottom / Left / Right) -->
+<div style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap; padding: 40px 20px;">
+  <!-- Top (기본) -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>상단 툴팁</span>
+    <div class="tooltipWrap top">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">상단에 노출되는 설명 툴팁입니다.</div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>하단 툴팁</span>
+    <div class="tooltipWrap bottom">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">하단에 노출되는 설명 툴팁입니다.</div>
+    </div>
+  </div>
+
+  <!-- Left -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>좌측 툴팁</span>
+    <div class="tooltipWrap left">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">좌측 설명 툴팁입니다.</div>
+    </div>
+  </div>
+
+  <!-- Right -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>우측 툴팁</span>
+    <div class="tooltipWrap right">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">우측 설명 툴팁입니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 텍스트 / 버튼 호버 툴팁 및 다중 라인 -->
+<div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap; padding: 10px 20px;">
+  <!-- 버튼 위 툴팁 -->
+  <div class="tooltipWrap top">
+    <button type="button" class="btn outline md">마우스를 올려보세요</button>
+    <div class="tooltipContent" role="tooltip">클릭 시 상세 모달이 열립니다.</div>
+  </div>
+
+  <!-- 다중 라인 설명 툴팁 -->
+  <div class="tooltipWrap bottom">
+    <button type="button" class="btn primary md">안내 정보</button>
+    <div class="tooltipContent multiLine" role="tooltip">
+      최대 3줄까지 입력 가능한 긴 설명 툴팁입니다. 자동 줄바꿈이 적용됩니다.
+    </div>
+  </div>
+</div>

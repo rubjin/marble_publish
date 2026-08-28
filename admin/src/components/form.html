@@ -91,3 +91,32 @@
     <button type="button" class="btn outline md">인증번호 발송</button>
   </div>
 </div>
+
+<!-- Input with Unit (Suffix - 우측 단위) -->
+<div class="formGroup">
+  <label class="formLabel">금액 / 수량 입력 (우측 단위)</label>
+  <div class="formControlWrap hasUnit">
+    <input type="text" class="formControl" placeholder="0" value="50,000">
+    <span class="inputUnit">원</span>
+  </div>
+</div>
+
+<!-- Input with Prefix (Left - 좌측 접두사) -->
+<div class="formGroup">
+  <label class="formLabel">웹사이트 주소 (좌측 접두사)</label>
+  <div class="formControlWrap hasPrefix">
+    <span class="inputPrefix">https://</span>
+    <input type="text" class="formControl" placeholder="example.com">
+  </div>
+</div>
+
+<!-- Input Group (Box Addon - 박스형 접두/접미사) -->
+<div class="formGroup">
+  <label class="formLabel">박스형 단위 인풋 그룹</label>
+  <div class="inputGroup">
+    <span class="inputAddon prefix">https://</span>
+    <input type="text" class="formControl" placeholder="admin.domain">
+    <span class="inputAddon suffix">.com</span>
+  </div>
+</div>
+

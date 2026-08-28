@@ -43,6 +43,92 @@
       margin: 0; /* md 버튼의 여백 등에 대비 */
     }
   }
+
+  // 좌측/우측 단위 (내부 텍스트형)
+  .inputPrefix,
+  .inputUnit {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #6b7280;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .inputPrefix {
+    left: 12px;
+  }
+
+  .inputUnit {
+    right: 12px;
+  }
+
+  &.hasPrefix .formControl {
+    padding-left: 36px;
+  }
+
+  &.hasUnit .formControl {
+    padding-right: 36px;
+  }
+
+  &.hasPrefix.hasUnit .formControl {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+
+// 결합형 인풋 그룹 (바깥 박스형 단위 / Prefix-Suffix Addon)
+.inputGroup {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #D5D7DE;
+  border-radius: 6px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+
+  &:focus-within {
+    border-color: #FFDC00;
+    box-shadow: 0 0 0 3px rgba(255, 220, 0, 0.2);
+  }
+
+  &.isError {
+    border-color: #ef4444;
+
+    &:focus-within {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+    }
+  }
+
+  .inputAddon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    height: 32px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    background-color: #f3f4f6;
+    flex-shrink: 0;
+
+    &.prefix {
+      border-right: 1px solid #D5D7DE;
+    }
+
+    &.suffix {
+      border-left: 1px solid #D5D7DE;
+    }
+  }
+
+  .formControl {
+    border: none;
+    border-radius: 0;
+    box-shadow: none !important;
+    height: 32px;
+  }
 }
 
 .formControl {
@@ -103,11 +189,17 @@ textarea.formControl {
 
 select.formControl {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-image: iconUrl('arrow-down.svg');
   background-position: right 12px center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
   padding-right: 40px;
+  @include text-ellipsis;
+
+  &:focus,
+  &.isOpen {
+    
+  }
 }
 
 .formErrorMsg {

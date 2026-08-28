@@ -1,0 +1,129 @@
+/* ==========================================================================
+   Toggle (Switch) Component
+   ========================================================================== */
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  // 트랙 & 핸들러 (기본 MD: 44px x 24px)
+  .toggleTrack {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    background-color: $gray300;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background-color: $white;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  // 라벨 텍스트
+  .toggleLabel {
+    font-size: 14px;
+    color: #374151;
+  }
+
+  // Checked State (ON)
+  input:checked + .toggleTrack {
+    background-color: $gray800;
+
+    &::after {
+      transform: translateX(20px);
+    }
+  }
+
+  // Primary Color Variant
+  &.primary {
+    input:checked + .toggleTrack {
+      background-color: $primary;
+    }
+  }
+
+  // Focus-visible (접근성)
+  input:focus-visible + .toggleTrack {
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.4);
+  }
+
+  // Disabled State
+  &.isDisabled,
+  input:disabled + .toggleTrack,
+  input:disabled ~ .toggleLabel {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // Size Variants
+  &.sm {
+    gap: 6px;
+
+    .toggleTrack {
+      width: 34px;
+      height: 18px;
+
+      &::after {
+        top: 2px;
+        left: 2px;
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    input:checked + .toggleTrack::after {
+      transform: translateX(16px);
+    }
+
+    .toggleLabel {
+      font-size: 12px;
+    }
+  }
+
+  &.lg {
+    gap: 10px;
+
+    .toggleTrack {
+      width: 52px;
+      height: 28px;
+
+      &::after {
+        top: 3px;
+        left: 3px;
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    input:checked + .toggleTrack::after {
+      transform: translateX(24px);
+    }
+
+    .toggleLabel {
+      font-size: 15px;
+    }
+  }
+}
