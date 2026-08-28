@@ -1,26 +1,30 @@
-<!-- ==========================================
-     1. 기본 인풋형 파일 첨부 (Button + Input)
-     ========================================== -->
+<!-- 
+  [D] 파일 첨부 컴포넌트 개발 가이드
+  - 기본형: input[type="file"] 변경 시 .fileUploadInput의 value에 파일명 바인딩
+  - 드롭존: 파일 드래그 시 'isDragOver' 클래스로 테두리/배경 활성화
+  - 파일 목록: .fileList 내부에 .fileItem 동적 렌더링 (파일이 없을 땐 .fileList를 비워두면 자동 숨김)
+-->
+
+<!-- 1. 기본 인풋형 파일 첨부 -->
 <div class="formGroup">
   <label class="formLabel">첨부파일 (기본형)</label>
   <div class="fileUpload">
+    <!-- [D] 선택된 파일명이 들어가는 인풋 -->
     <input type="text" class="formControl fileUploadInput" placeholder="선택된 파일이 없습니다" readonly>
     <label class="btn outline md fileUploadBtn">
       파일 선택
-      <input type="file" onchange="this.closest('.fileUpload').querySelector('.fileUploadInput').value = this.files[0]?.name || ''">
+      <input type="file">
     </label>
   </div>
 </div>
 
-<!-- ==========================================
-     2. 드래그 앤 드롭 파일 첨부 (Dropzone)
-     ========================================== -->
+<!-- 2. 드래그 앤 드롭 파일 첨부 (Dropzone) -->
 <div class="formGroup">
   <label class="formLabel">첨부파일 (드래그 & 드롭)</label>
   
-  <!-- 드롭존 점선 박스 (파일 목록이 내부에 포함되며 컨텐츠에 맞게 유동 높이 조절) -->
+  <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
   <div class="fileDropzone">
-    <!-- 상단 드래그/클릭 영역 -->
+    <!-- 상단 드래그 & 클릭 영역 -->
     <div class="dropzoneHeader">
       <input type="file" multiple>
       <div class="dropzoneIcon">
@@ -30,7 +34,7 @@
       <p class="dropzoneDesc">지원 형식: JPG, PNG, PDF, ZIP (최대 20MB)</p>
     </div>
 
-    <!-- 점선 박스 내부 첨부 파일 리스트 -->
+    <!-- [D] 첨부된 파일 목록 (동적 렌더링 / 파일 없을 시 li 제거) -->
     <ul class="fileList">
       <li class="fileItem">
         <div class="fileInfo">

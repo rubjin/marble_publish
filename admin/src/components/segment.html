@@ -1,13 +1,23 @@
-<!-- Segment (Button Type - 기본형, 첫 번째 항목 선택) -->
+<!-- 
+  [D] 세그먼트 컴포넌트 개발 가이드
+  - 버튼 방식: 선택된 항목에 'isActive' 클래스 추가
+  - 라디오 방식: input에 'checked' 속성 제어
+  - 비활성화: 'isDisabled' 클래스 또는 disabled 속성 추가
+  - 사이즈: 기본(MD), 'sm'(작은 크기), 'lg'(큰 크기), 'full'(가로 100% 꽉 채움)
+-->
+
+<!-- 1. 버튼 방식 (선택 상태: isActive) -->
 <div class="segment">
+  <!-- [D] 선택된 항목: isActive 클래스 추가 -->
   <button type="button" class="segmentItem isActive">전체</button>
   <button type="button" class="segmentItem">일간</button>
   <button type="button" class="segmentItem">주간</button>
   <button type="button" class="segmentItem">월간</button>
 </div>
 
-<!-- Segment (Radio Type - 폼 전송형, 첫 번째 항목 선택) -->
+<!-- 2. 라디오 방식 (선택 상태: input checked) -->
 <div class="segment">
+  <!-- [D] 선택된 항목: input checked 속성 제어 -->
   <label class="segmentItem">
     <input type="radio" name="missionState" checked>
     <span class="segmentText">전체</span>
@@ -22,7 +32,7 @@
   </label>
 </div>
 
-<!-- Segment (Size Variants) -->
+<!-- 3. 사이즈 변형 -->
 <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
   <!-- Small -->
   <div class="segment sm">
