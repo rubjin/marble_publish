@@ -18,41 +18,44 @@
 <div class="formGroup">
   <label class="formLabel">첨부파일 (드래그 & 드롭)</label>
   
-  <!-- 드롭존 영역 -->
+  <!-- 드롭존 점선 박스 (파일 목록이 내부에 포함되며 컨텐츠에 맞게 유동 높이 조절) -->
   <div class="fileDropzone">
-    <input type="file" multiple>
-    <div class="dropzoneIcon">
-      <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+    <!-- 상단 드래그/클릭 영역 -->
+    <div class="dropzoneHeader">
+      <input type="file" multiple>
+      <div class="dropzoneIcon">
+        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      </div>
+      <p class="dropzoneText">파일을 마우스로 끌어오거나 <span class="highlight">클릭하여 업로드</span>하세요</p>
+      <p class="dropzoneDesc">지원 형식: JPG, PNG, PDF, ZIP (최대 20MB)</p>
     </div>
-    <p class="dropzoneText">파일을 마우스로 끌어오거나 <span class="highlight">클릭하여 업로드</span>하세요</p>
-    <p class="dropzoneDesc">지원 형식: JPG, PNG, PDF, ZIP (최대 20MB)</p>
-  </div>
 
-  <!-- 첨부된 파일 리스트 -->
-  <ul class="fileList">
-    <li class="fileItem">
-      <div class="fileInfo">
-        <span class="fileIcon">
-          <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
-        </span>
-        <span class="fileName">2026_이벤트_기획안_v1.2.pdf</span>
-        <span class="fileSize">(1.4 MB)</span>
-      </div>
-      <button type="button" class="fileDelete" aria-label="삭제">
-        <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-      </button>
-    </li>
-    <li class="fileItem">
-      <div class="fileInfo">
-        <span class="fileIcon">
-          <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
-        </span>
-        <span class="fileName">메인_배너_이미지_01.png</span>
-        <span class="fileSize">(840 KB)</span>
-      </div>
-      <button type="button" class="fileDelete" aria-label="삭제">
-        <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-      </button>
-    </li>
-  </ul>
+    <!-- 점선 박스 내부 첨부 파일 리스트 -->
+    <ul class="fileList">
+      <li class="fileItem">
+        <div class="fileInfo">
+          <span class="fileIcon">
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+          </span>
+          <span class="fileName">2026_이벤트_기획안_v1.2.pdf</span>
+          <span class="fileSize">(1.4 MB)</span>
+        </div>
+        <button type="button" class="fileDelete" aria-label="삭제">
+          <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </li>
+      <li class="fileItem">
+        <div class="fileInfo">
+          <span class="fileIcon">
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
+          </span>
+          <span class="fileName">메인_배너_이미지_01.png</span>
+          <span class="fileSize">(840 KB)</span>
+        </div>
+        <button type="button" class="fileDelete" aria-label="삭제">
+          <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </li>
+    </ul>
+  </div>
 </div>

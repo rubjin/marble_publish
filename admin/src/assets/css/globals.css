@@ -1500,17 +1500,26 @@ select.formControl {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 20px;
+  padding: 20px;
   background-color: #f9fafb;
   border: 2px dashed #d1d5db;
   border-radius: 8px;
-  text-align: center;
-  cursor: pointer;
   transition: all 0.2s ease;
+  box-sizing: border-box;
 }
-.fileDropzone input[type=file] {
+.fileDropzone .dropzoneHeader {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.15s;
+}
+.fileDropzone .dropzoneHeader input[type=file] {
   position: absolute;
   top: 0;
   left: 0;
@@ -1520,51 +1529,69 @@ select.formControl {
   cursor: pointer;
   z-index: 1;
 }
-.fileDropzone .dropzoneIcon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 12px;
+.fileDropzone .dropzoneHeader .dropzoneIcon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
   color: #9ca3af;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: color 0.2s;
 }
-.fileDropzone .dropzoneIcon svg {
+.fileDropzone .dropzoneHeader .dropzoneIcon svg {
   width: 100%;
   height: 100%;
   fill: currentColor;
 }
-.fileDropzone .dropzoneText {
-  font-size: 14px;
+.fileDropzone .dropzoneHeader .dropzoneText {
+  font-size: 13px;
   font-weight: 600;
   color: #1f2937;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
-.fileDropzone .dropzoneText .highlight {
+.fileDropzone .dropzoneHeader .dropzoneText .highlight {
   color: #d97706;
   text-decoration: underline;
 }
-.fileDropzone .dropzoneDesc {
+.fileDropzone .dropzoneHeader .dropzoneDesc {
   font-size: 12px;
   color: #9ca3af;
   margin: 0;
+}
+.fileDropzone .fileList {
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  margin: 12px 0 0 0;
+  padding: 12px 0 0 0;
+  border-top: 1px dashed #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.fileDropzone .fileList:empty {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border-top: none;
 }
 .fileDropzone:hover, .fileDropzone.isDragOver {
   background-color: #fefce8;
   border-color: #FFCC00;
 }
-.fileDropzone:hover .dropzoneIcon, .fileDropzone.isDragOver .dropzoneIcon {
+.fileDropzone:hover .dropzoneHeader .dropzoneIcon, .fileDropzone.isDragOver .dropzoneHeader .dropzoneIcon {
   color: #d97706;
 }
 
 .fileList {
   list-style: none;
-  margin: 12px 0 0 0;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   width: 100%;
 }
 
