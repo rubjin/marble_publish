@@ -376,6 +376,7 @@ body {
 }
 .formControlWrap.hasUnit .formControl {
   padding-right: 36px;
+  text-align: right;
 }
 .formControlWrap.hasPrefix.hasUnit .formControl {
   padding-left: 36px;
