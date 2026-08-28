@@ -1,0 +1,93 @@
+<!-- Text Input -->
+<div class="formGroup">
+  <label class="formLabel">텍스트 입력 <span class="required">*</span></label>
+  <div class="formControlWrap">
+    <input type="text" class="formControl" placeholder="내용을 입력해주세요">
+  </div>
+</div>
+
+<!-- Text Input (Error State) -->
+<div class="formGroup">
+  <label class="formLabel">폼 타이틀<span class="required">*</span></label>
+  <div class="formControlWrap">
+    <input type="email" class="formControl isError" placeholder="placeholder" value="value">
+    <p class="formErrorMsg">유효하지 않은 형식입니다.</p>
+  </div>
+</div>
+
+<!-- Text Input (readonly) -->
+<div class="formGroup">
+  <label class="formLabel">폼 타이틀</label>
+  <div class="formControlWrap">
+    <input type="text" class="formControl" value="readonly" readonly>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="formGroup">
+  <label class="formLabel">상세 내용</label>
+  <div class="formControlWrap">
+    <textarea class="formControl" placeholder="상세 내용을 입력해주세요 (최대 1000자)"></textarea>
+  </div>
+</div>
+
+<!-- Select Box -->
+<div class="formGroup">
+  <label class="formLabel">항목 선택</label>
+  <div class="formControlWrap">
+    <select class="formControl">
+      <option value="">항목을 선택해주세요</option>
+      <option value="1">항목1</option>
+      <option value="2">항목2</option>
+      <option value="3">항목3</option>
+    </select>
+  </div>
+</div>
+
+<!-- Checkbox Group -->
+<div class="formGroup">
+  <label class="formLabel">체크박스 그룹</label>
+  <div class="formCheckGroup">
+    <label class="formCheck">
+      <input type="checkbox" checked>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스1</span>
+    </label>
+    <label class="formCheck">
+      <input type="checkbox">
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스2</span>
+    </label>
+    <label class="formCheck">
+      <input type="checkbox" disabled>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스 (disabled)</span>
+    </label>
+  </div>
+</div>
+
+<!-- Radio Group -->
+<div class="formGroup">
+  <label class="formLabel">라디오 그룹</label>
+  <div class="formCheckGroup">
+    <label class="formCheck">
+      <input type="radio" name="publicState" checked>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">라디오1</span>
+    </label>
+    <label class="formCheck">
+      <input type="radio" name="publicState">
+      <span class="checkIcon"></span>
+      <span class="checkLabel">라디오2</span>
+    </label>
+  </div>
+</div>
+
+<!-- Input + Button Set -->
+<div class="formGroup">
+  <label class="formLabel">인풋 + 버튼</label>
+  <div class="formControlWrap hasBtn">
+    <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
+    <button type="button" class="btn outline md">인증번호 발송</button>
+  </div>
+</div>

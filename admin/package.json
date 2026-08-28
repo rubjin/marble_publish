@@ -1,26 +1,19 @@
 {
-  "name": "marble_publish",
+  "name": "admin-publishing",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "어드민 서비스 퍼블리싱 소스",
   "main": "vite.config.js",
   "scripts": {
     "dev": "vite",
     "build": "node build.js",
-    "sass:watch": "sass --watch src/assets/scss/main.scss:src/assets/css/main.css",
-    "sass:build": "sass src/assets/scss/main.scss:src/assets/css/main.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rubjin/marble_publish.git"
+    "sass:watch": "sass --watch src/assets/scss/globals.scss:src/assets/css/globals.css",
+    "sass:build": "sass src/assets/scss/globals.scss:src/assets/css/globals.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/rubjin/marble_publish/issues"
-  },
-  "homepage": "https://github.com/rubjin/marble_publish#readme",
   "devDependencies": {
     "sass": "^1.85.1",
     "vite": "^8.2.2"

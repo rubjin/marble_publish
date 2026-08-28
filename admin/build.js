@@ -33,7 +33,7 @@ function compileSass(srcFile, destFile) {
   }
 }
 
-compileSass('src/assets/scss/main.scss', 'src/assets/css/main.css');
+compileSass('src/assets/scss/globals.scss', 'src/assets/css/globals.css');
 
 // 3. Helper to copy directory recursively
 function copyDirSync(srcDirPath, destDirPath) {
@@ -60,9 +60,9 @@ function copyDirSync(srcDirPath, destDirPath) {
 });
 
 // Also copy compiled CSS to dist
-if (fs.existsSync(path.resolve(SRC_DIR, 'assets/css/main.css'))) {
+if (fs.existsSync(path.resolve(SRC_DIR, 'assets/css/globals.css'))) {
   fs.mkdirSync(path.resolve(DIST_DIR, 'assets/css'), { recursive: true });
-  fs.copyFileSync(path.resolve(SRC_DIR, 'assets/css/main.css'), path.resolve(DIST_DIR, 'assets/css/main.css'));
+  fs.copyFileSync(path.resolve(SRC_DIR, 'assets/css/globals.css'), path.resolve(DIST_DIR, 'assets/css/globals.css'));
 }
 
 // 4. HTML Include Resolver
@@ -88,7 +88,7 @@ function walkHtml(dir) {
   for (const item of list) {
     const fullPath = path.join(dir, item.name);
     if (item.isDirectory()) {
-      if (item.name === 'node_modules' || item.name === '.git' || item.name === 'dist' || item.name === 'components') continue;
+      if (item.name === 'node_modules' || item.name === '.git' || item.name === 'dist' ) continue;
       results = results.concat(walkHtml(fullPath));
     } else if (item.name.endsWith('.html')) {
       results.push(fullPath);
@@ -107,7 +107,9 @@ for (const htmlFile of allHtmlFiles) {
   content = resolveIncludes(content, htmlFile);
 
   // 2) Replace .scss references with .css references for dist
-  content = content.replace(/(href="[^"]*?)scss\/main\.scss(")/g, '$1css/main.css$2');
+  const depth = relativePath.split(path.sep).length - 1;
+  const prefix = depth > 0 ? '../'.repeat(depth) : './';
+  content = content.replace(/href="[^"]*?(?:assets\/)?scss\/(?:globals|main)\.scss"/g, `href="${prefix}assets/css/globals.css"`);
 
   const destPath = path.resolve(DIST_DIR, relativePath);
   fs.mkdirSync(path.dirname(destPath), { recursive: true });

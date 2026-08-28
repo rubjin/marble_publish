@@ -16,7 +16,7 @@ src/
 │   ├── images/            # 화면별 하위 폴더로 구분 (예: offering/A_01_001)
 │   ├── styles/
 │   │   ├── scss/          # 작업 소스 (7-folder 구조)
-│   │   └── css/           # 컴파일 결과물, git 제외, npm run sass:watch로 자동 생성
+│   │   └── css/           # 컴파일 결과물 (npm run sass:watch로 자동 생성)
 │   ├── js/
 │   │   └── common.js      # header/footer 자동 삽입 스크립트 (미리보기 전용)
 │   └── lottie/

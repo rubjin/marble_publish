@@ -35,12 +35,8 @@
   }
 
   // Specific Icons
-  &.side1 { background-image: url('../images/icon/side_1.svg'); } 
-  &.side2 { background-image: url('../images/icon/side_2.svg'); }
-  &.side3 { background-image: url('../images/icon/side_3.svg'); }
-  &.side4 { background-image: url('../images/icon/side_4.svg'); }
-  &.side5 { background-image: url('../images/icon/side_5.svg'); }
-  &.side6 { background-image: url('../images/icon/side_6.svg'); }
-  &.side7 { background-image: url('../images/icon/side_7.svg'); }
-  &.sideSub { background-image: url('../images/icon/side_sub.svg'); }
+  @for $i from 1 through 7 {
+    &.side#{$i} { background-image: iconUrl('side_#{$i}.svg'); }
+  }
+  &.sideSub { background-image: iconUrl('side_sub.svg'); }
 }

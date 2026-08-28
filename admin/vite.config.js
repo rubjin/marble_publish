@@ -2,24 +2,29 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import fs from 'fs';
 
-// 초간단 HTML Include 플러그인 (정규식 기반)
+// 초간단 HTML Include 플러그인 (정규식 기반 - 중첩 include 지원)
+function resolveIncludes(htmlContent) {
+  const regex = /<!--[\s\S]*?-->|<include\s+src="([^"]+)"><\/include>/g;
+  return htmlContent.replace(regex, (match, src) => {
+    // 매칭된 내용이 주석이라면 원본 그대로 통과
+    if (match.startsWith('<!--')) return match;
+    
+    // vite.config.js 파일의 위치(__dirname) 기준으로 경로 탐색
+    const filePath = resolve(__dirname, src);
+    if (fs.existsSync(filePath)) {
+      const nestedContent = fs.readFileSync(filePath, 'utf-8');
+      return resolveIncludes(nestedContent); // 재귀 호출로 중첩된 include까지 모두 치환
+    }
+    console.warn(`[html-include] 파일을 찾을 수 없습니다: ${filePath}`);
+    return match; // 파일이 없으면 원본 그대로 둠
+  });
+}
+
 function htmlIncludePlugin() {
   return {
     name: 'html-include',
     transformIndexHtml(html) {
-      // 주석(<!-- ... -->) 안에 있는 include는 무시하고, 실제 <include> 태그만 파일 내용으로 치환합니다.
-      return html.replace(/<!--[\s\S]*?-->|<include\s+src="([^"]+)"><\/include>/g, (match, src) => {
-        // 매칭된 내용이 주석이라면 원본 그대로 통과
-        if (match.startsWith('<!--')) return match;
-        
-        // vite.config.js 파일의 위치(__dirname) 기준으로 경로 탐색
-        const filePath = resolve(__dirname, src);
-        if (fs.existsSync(filePath)) {
-          return fs.readFileSync(filePath, 'utf-8');
-        }
-        console.warn(`[html-include] 파일을 찾을 수 없습니다: ${filePath}`);
-        return match; // 파일이 없으면 원본 그대로 둠
-      });
+      return resolveIncludes(html);
     },
     handleHotUpdate({ file, server }) {
       if (file.endsWith('.html')) {
@@ -63,6 +68,17 @@ function rootWorksheetPlugin() {
             const mimeMap = { html: 'text/html; charset=utf-8', js: 'application/javascript', css: 'text/css' };
             res.setHeader('Content-Type', mimeMap[ext] || 'text/plain');
             return res.end(fs.readFileSync(offeringFilePath));
+          }
+        }
+
+        // 4. /data/ 경로로 들어온 요청은 상위 data 디렉토리 파일 서빙
+        if (req.url.startsWith('/data/')) {
+          const dataFilePath = resolve(__dirname, '..', req.url.replace(/^\//, '').split('?')[0]);
+          if (fs.existsSync(dataFilePath) && fs.statSync(dataFilePath).isFile()) {
+            const ext = dataFilePath.split('.').pop();
+            const mimeMap = { js: 'application/javascript; charset=utf-8', json: 'application/json; charset=utf-8' };
+            res.setHeader('Content-Type', mimeMap[ext] || 'text/plain');
+            return res.end(fs.readFileSync(dataFilePath));
           }
         }
 

@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>파일 구조 및 문서 규칙</title>
-  <link rel="stylesheet" href="../assets/scss/main.scss">
+  <link rel="stylesheet" href="../assets/scss/globals.scss">
   <style>
     /* html 그리드 오버라이드 - PC 레이아웃 */
     html { display: block !important; grid-template-columns: none !important; }
-    body { background-color: #f9fafb; padding: 0; margin: 0; min-width: 1200px; }
+    body { background-color: #f9fafb; padding: 0; margin: 0; min-width: 1200px; font-family: 'Pretendard', sans-serif; }
     .guideWrapper { max-width: 1200px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
     .guideHeader { margin-bottom: 40px; border-bottom: 2px solid #d9a400; padding-bottom: 20px; }
     .guideHeader h1 { font-size: 32px; margin: 0 0 10px 0; color: #111; }
@@ -44,14 +44,14 @@ admin/
 ├── vite.config.js            # Vite 개발 서버 설정 및 HTML include 플러그인
 └── src/
     ├── assets/               # 정적 자원 및 스타일 소스
-    │   ├── css/              # 컴파일된 CSS (main.css) 및 외부 라이브러리 CSS
+    │   ├── css/              # 컴파일된 CSS (globals.css) 및 외부 라이브러리 CSS
     │   ├── fonts/            # 웹 폰트 (KBFG.woff2 등)
     │   ├── images/           # 이미지 및 아이콘 (SVG 등)
     │   ├── js/               # 공통/유틸 스크립트 (prism.min.js 등)
     │   └── scss/             # SCSS 소스 폴더 (실제 스타일 작업 영역)
     │       ├── base/         # Reset, Variables, Mixins, 공통 기본 스타일
     │       ├── components/   # 버튼, 뱃지, 카드 등 UI 컴포넌트 스타일
-    │       └── main.scss     # 진입점 SCSS
+    │       └── globals.scss     # 진입점 SCSS
     │
     ├── components/           # 재사용 가능한 UI 컴포넌트 HTML 조각
     ├── guide/                # 가이드 문서 (convention.html, guide.html)
