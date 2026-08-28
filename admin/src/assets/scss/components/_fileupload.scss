@@ -1,0 +1,194 @@
+/* ==========================================================================
+   File Upload & Drag & Drop Component
+   ========================================================================== */
+
+// 1. 기본 인풋형 첨부파일 (Button + Input)
+.fileUpload {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+
+  input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    opacity: 0;
+  }
+
+  .fileUploadInput {
+    flex: 1;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  .fileUploadBtn {
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+}
+
+// 2. 드래그 앤 드롭 첨부파일 (Dropzone)
+.fileDropzone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  background-color: #f9fafb;
+  border: 2px dashed #d1d5db;
+  border-radius: $radiusMd;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .dropzoneIcon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+  }
+
+  .dropzoneText {
+    font-size: 14px;
+    font-weight: 600;
+    color: $gray800;
+    margin-bottom: 6px;
+
+    .highlight {
+      color: #d97706;
+      text-decoration: underline;
+    }
+  }
+
+  .dropzoneDesc {
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0;
+  }
+
+  &:hover,
+  &.isDragOver {
+    background-color: #fefce8;
+    border-color: #FFCC00;
+
+    .dropzoneIcon {
+      color: #d97706;
+    }
+  }
+}
+
+// 3. 첨부된 파일 리스트 (공통)
+.fileList {
+  list-style: none;
+  margin: 12px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.fileItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: #f9fafb;
+  }
+
+  .fileInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .fileIcon {
+    width: 16px;
+    height: 16px;
+    color: #6b7280;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+  }
+
+  .fileName {
+    color: $gray800;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .fileSize {
+    color: #9ca3af;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-left: 6px;
+  }
+
+  .fileDelete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    border-radius: 4px;
+    transition: all 0.15s;
+
+    &:hover {
+      background-color: #fee2e2;
+      color: #ef4444;
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+  }
+}

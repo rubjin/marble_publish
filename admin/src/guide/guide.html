@@ -116,7 +116,26 @@
     .popupPreviewBox .popupDimmed:last-child {
       margin-bottom: 0;
     }
+
+    /* 초기 깜빡임 방지: 모든 섹션 기본 숨김 */
+    .guideSection { display: none; }
   </style>
+
+  <!-- 초기 렌더링 시 깜빡임 방지 즉시 실행 스크립트 -->
+  <script>
+    (function() {
+      var hash = window.location.hash ? window.location.hash.replace('#', '') : null;
+      var savedTab = null;
+      try { savedTab = localStorage.getItem('activeGuideTab'); } catch(e) {}
+      var activeId = hash || savedTab || 'sectionButtons';
+      var style = document.createElement('style');
+      style.id = 'guideInitStyle';
+      style.textContent = '#' + activeId + ' { display: block !important; } ' +
+                          '.guideNavItem[data-target="' + activeId + '"] { color: #1f2937 !important; border-bottom-color: #FFDC00 !important; }';
+      document.head.appendChild(style);
+    })();
+  </script>
+
   <!-- Syntax Highlighting -->
   <link rel="stylesheet" href="../assets/css/prism-tomorrow.min.css">
 </head>
@@ -125,7 +144,7 @@
   <!-- 스티키 네비게이션 -->
   <nav class="guideNav">
     <div class="guideNavInner">
-      <button type="button" class="guideNavItem isActive" data-target="sectionButtons">Buttons</button>
+      <button type="button" class="guideNavItem" data-target="sectionButtons">Buttons</button>
       <button type="button" class="guideNavItem" data-target="sectionIcons">Icons</button>
       <button type="button" class="guideNavItem" data-target="sectionBadges">Badges</button>
       <!-- <button type="button" class="guideNavItem" data-target="sectionTabs">Tabs</button> -->
@@ -203,6 +222,12 @@
       <h2 class="guideTitle">Forms (입력 폼)</h2>
       <div class="guideBox guideBoxBlock" style="max-width: 600px;">
         <include src="./src/components/form.html"></include>
+      </div>
+
+      <!-- ==================== 첨부파일 가이드 ==================== -->
+      <h2 class="guideTitle">File Upload (첨부파일 & 드래그앤드롭)</h2>
+      <div class="guideBox guideBoxBlock" style="max-width: 600px;">
+        <include src="./src/components/fileupload.html"></include>
       </div>
     </section>
 
@@ -384,6 +409,10 @@
         var targetSection = document.getElementById(targetId);
         if (!navBtn || !targetSection) return;
 
+        // 초기 깜빡임 방지용 임시 style 요소가 있다면 제거
+        var initStyle = document.getElementById('guideInitStyle');
+        if (initStyle) initStyle.remove();
+
         // 1. 탭 버튼 활성화 변경
         document.querySelectorAll('.guideNavItem').forEach(function(item) {
           item.classList.remove('isActive');
@@ -435,13 +464,43 @@
       // 세그먼트 버튼 클릭 인터랙션
       document.addEventListener('click', function(e) {
         var btn = e.target.closest('.segment .segmentItem:not(label)');
-        if (!btn) return;
-        var segment = btn.closest('.segment');
-        if (segment) {
-          segment.querySelectorAll('.segmentItem').forEach(function(item) {
-            item.classList.remove('isActive');
-          });
-          btn.classList.add('isActive');
+        if (btn) {
+          var segment = btn.closest('.segment');
+          if (segment) {
+            segment.querySelectorAll('.segmentItem').forEach(function(item) {
+              item.classList.remove('isActive');
+            });
+            btn.classList.add('isActive');
+          }
+        }
+
+        // 파일 목록 삭제 버튼 클릭
+        var delBtn = e.target.closest('.fileDelete');
+        if (delBtn) {
+          var item = delBtn.closest('.fileItem');
+          if (item) item.remove();
+        }
+      });
+
+      // 드래그앤드롭 드롭존 인터랙션
+      document.addEventListener('dragover', function(e) {
+        var dropzone = e.target.closest('.fileDropzone');
+        if (dropzone) {
+          e.preventDefault();
+          dropzone.classList.add('isDragOver');
+        }
+      });
+      document.addEventListener('dragleave', function(e) {
+        var dropzone = e.target.closest('.fileDropzone');
+        if (dropzone) {
+          dropzone.classList.remove('isDragOver');
+        }
+      });
+      document.addEventListener('drop', function(e) {
+        var dropzone = e.target.closest('.fileDropzone');
+        if (dropzone) {
+          e.preventDefault();
+          dropzone.classList.remove('isDragOver');
         }
       });
   </script>
