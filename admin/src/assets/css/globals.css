@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+}
+
 @font-face {
   font-family: "KBFG";
   src: url("../fonts/KBFG.woff2") format("woff2");
@@ -863,6 +874,52 @@ select.formControl {
 }
 .formRadioCard.isCompact .cardContent .cardTitle {
   margin-bottom: 0;
+}
+
+/* File Upload Box */
+.fileUploadBox {
+  background-color: #F3F6FD;
+  border-radius: 6px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.fileUploadBox .fileNameLink {
+  color: #2563eb;
+  font-size: 13px;
+  text-decoration: none;
+  word-break: break-all;
+}
+.fileUploadBox .fileNameLink:hover {
+  text-decoration: underline;
+}
+.fileUploadBox .fileDelete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #9ca3af;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 12px;
+  flex-shrink: 0;
+  transition: background-color 0.15s;
+}
+.fileUploadBox .fileDelete::before {
+  content: "×";
+  font-size: 14px;
+  line-height: 1;
+  font-weight: bold;
+  margin-top: -1px;
+}
+.fileUploadBox .fileDelete:hover {
+  background-color: #6b7280;
 }
 
 /* ==========================================================================

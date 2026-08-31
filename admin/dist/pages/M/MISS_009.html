@@ -137,9 +137,10 @@
                   </tr>
                   <!-- 미션상태 * -->
                   <tr>
-                    <th><label class="formLabel" id="missionStatusLabel">미션상태 <span class="required">*</span></label></th>
+                    <th><span class="formLabel">미션상태 <span class="required">*</span></span></th>
                     <td>
-                      <div class="formCheckGroup" role="radiogroup" aria-labelledby="missionStatusLabel">
+                      <fieldset class="formCheckGroup">
+                        <legend class="srOnly">미션상태 선택</legend>
                         <label class="formCheck">
                           <input type="radio" name="MissionStatus" checked>
                           <span class="checkIcon"></span>
@@ -155,14 +156,15 @@
                           <span class="checkIcon"></span>
                           <span class="checkLabel">종료</span>
                         </label>
-                      </div>
+                      </fieldset>
                     </td>
                   </tr>
                   <!-- 승인여부 * -->
                   <tr>
-                    <th><label class="formLabel" id="approvalStatusLabel">승인여부 <span class="required">*</span></label></th>
+                    <th><span class="formLabel">승인여부 <span class="required">*</span></span></th>
                     <td>
-                      <div class="formCheckGroup" role="radiogroup" aria-labelledby="approvalStatusLabel">
+                      <fieldset class="formCheckGroup">
+                        <legend class="srOnly">승인여부 선택</legend>
                         <label class="formCheck">
                           <input type="radio" name="ApprovalStatus" checked>
                           <span class="checkIcon"></span>
@@ -173,14 +175,15 @@
                           <span class="checkIcon"></span>
                           <span class="checkLabel">미승인</span>
                         </label>
-                      </div>
+                      </fieldset>
                     </td>
                   </tr>
                   <!-- 노출여부 * -->
                   <tr>
-                    <th><label class="formLabel" id="exposureStatusLabel">노출여부 <span class="required">*</span></label></th>
+                    <th><span class="formLabel">노출여부 <span class="required">*</span></span></th>
                     <td>
-                      <div class="formCheckGroup" role="radiogroup" aria-labelledby="exposureStatusLabel">
+                      <fieldset class="formCheckGroup">
+                        <legend class="srOnly">노출여부 선택</legend>
                         <label class="formCheck">
                           <input type="radio" name="ExposureStatus" checked>
                           <span class="checkIcon"></span>
@@ -191,7 +194,7 @@
                           <span class="checkIcon"></span>
                           <span class="checkLabel">노출 안함</span>
                         </label>
-                      </div>
+                      </fieldset>
                     </td>
                   </tr>
                   <!-- 대상고객 -->
@@ -205,16 +208,17 @@
                   </tr>
                   <!-- 운영기간 * -->
                   <tr>
-                    <th><label class="formLabel">운영기간 <span class="required">*</span></label></th>
+                    <th><span class="formLabel">운영기간 <span class="required">*</span></span></th>
                     <td>
-                      <div class="formDateRange">
+                      <fieldset class="formDateRange">
+                        <legend class="srOnly">공통 운영기간 설정</legend>
                         <div class="formDatepicker">
-                          <input type="text" class="formControl" value="2026.07.01">
+                          <input type="text" class="formControl" value="2026.07.01" title="운영 시작일">
                           <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
                         </div>
                         <span class="dateSeparator">~</span>
                         <div class="formDatepicker">
-                          <input type="text" class="formControl" value="2026.08.31">
+                          <input type="text" class="formControl" value="2026.08.31" title="운영 종료일">
                           <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
                         </div>
                         <label class="formCheck" style="margin-left: 8px;">
@@ -222,12 +226,12 @@
                           <span class="checkIcon"></span>
                           <span class="checkLabel">미지정</span>
                         </label>
-                      </div>
+                      </fieldset>
                     </td>
                   </tr>
                   <!-- 노출위치 * -->
                   <tr>
-                    <th><label class="formLabel">노출위치 <span class="required">*</span></label></th>
+                    <th><span class="formLabel">노출위치 <span class="required">*</span></span></th>
                     <td>
                       <div class="tagBox">
                         <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
@@ -242,16 +246,17 @@
                   </tr>
                   <!-- 노출기간 * -->
                   <tr>
-                    <th><label class="formLabel">노출기간 <span class="required">*</span></label></th>
+                    <th><span class="formLabel">노출기간 <span class="required">*</span></span></th>
                     <td>
-                      <div class="formDateRange">
+                      <fieldset class="formDateRange">
+                        <legend class="srOnly">노출기간 설정</legend>
                         <div class="formDatepicker">
-                          <input type="text" class="formControl" value="2026.07.01">
+                          <input type="text" class="formControl" value="2026.07.01" title="노출 시작일">
                           <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
                         </div>
                         <span class="dateSeparator">~</span>
                         <div class="formDatepicker">
-                          <input type="text" class="formControl" value="2026.08.31">
+                          <input type="text" class="formControl" value="2026.08.31" title="노출 종료일">
                           <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
                         </div>
                         <label class="formCheck" style="margin-left: 8px;">
@@ -259,15 +264,15 @@
                           <span class="checkIcon"></span>
                           <span class="checkLabel">미지정</span>
                         </label>
-                      </div>
+                      </fieldset>
                     </td>
                   </tr>
                   <!-- 미션유형 선택 * -->
                   <tr>
-                    <th><label class="formLabel">미션유형 선택 <span class="required">*</span></label></th>
+                    <th><label class="formLabel" for="idMissionType">미션유형 선택 <span class="required">*</span></label></th>
                     <td>
                       <div style="display: flex; align-items: center; gap: 12px;">
-                        <select class="formControl" style="width: 200px;">
+                        <select id="idMissionType" class="formControl" style="width: 200px;">
                           <option value="ox">OX퀴즈</option>
                         </select>
                         <span class="formGuideText">OX 퀴즈를 생성하고 관리 합니다.</span>
@@ -307,9 +312,10 @@
                   </tr>
                   <!-- 퀴즈 타입 선택 -->
                   <tr>
-                    <th><label class="formLabel" id="quizTypeLabel">퀴즈 타입 선택</label></th>
+                    <th><span class="formLabel">퀴즈 타입 선택</span></th>
                     <td>
-                      <div class="formRadioCardGroup" role="radiogroup" aria-labelledby="quizTypeLabel">
+                      <fieldset class="formRadioCardGroup">
+                        <legend class="srOnly">퀴즈 타입 선택</legend>
                         <label class="formRadioCard isActive">
                           <input type="radio" name="QuizType" checked>
                           <span class="checkIcon"></span>
@@ -326,7 +332,7 @@
                             <p class="cardDesc">단독화면에 사용되는 퀴즈 레이아웃입니다</p>
                           </div>
                         </label>
-                      </div>
+                      </fieldset>
                     </td>
                   </tr>
                   <!-- 퀴즈 텍스트 -->
@@ -345,9 +351,10 @@
                   </tr>
                   <!-- 정답 선택 -->
                   <tr>
-                    <th><label class="formLabel" id="correctAnswerLabel">정답 선택</label></th>
+                    <th><span class="formLabel">정답 선택</span></th>
                     <td>
-                      <div class="formRadioCardGroup" role="radiogroup" aria-labelledby="correctAnswerLabel">
+                      <fieldset class="formRadioCardGroup">
+                        <legend class="srOnly">정답 선택</legend>
                         <label class="formRadioCard isCompact isActive">
                           <input type="radio" name="CorrectAnswer" checked>
                           <span class="checkIcon"></span>
@@ -362,7 +369,7 @@
                             <strong class="cardTitle">X (오답)</strong>
                           </div>
                         </label>
-                      </div>
+                      </fieldset>
                     </td>
                   </tr>
                   <!-- 정답 메세지 -->
@@ -409,25 +416,73 @@
                   <col>
                 </colgroup>
                 <tbody>
+                  <!-- 파일첨부 -->
                   <tr>
-                    <th>파일첨부</th>
-                    <td>내용2</td>
+                    <th><span class="formLabel">파일첨부</span></th>
+                    <td>
+                      <div class="fileUploadBox">
+                        <a href="#" class="fileNameLink">업로드한 파일명이 출력됩니다(다운로드 가능).jpg(1542byte)</a>
+                        <button type="button" class="fileDelete" aria-label="삭제"></button>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 12px;">
+                        <button type="button" class="btn dark md">파일선택</button>
+                        <span class="formGuideText">※ 첨부파일은 최대 10MB × 1개로 jpg 파일만 등록할 수 있습니다.</span>
+                      </div>
+                    </td>
                   </tr>
+                  <!-- 심의대상 여부 * -->
                   <tr>
-                    <th>심의대상 여부 *</th>
-                    <td>내용2</td>
+                    <th><span class="formLabel">심의대상 여부 <span class="required">*</span></span></th>
+                    <td>
+                      <fieldset class="formCheckGroup">
+                        <legend class="srOnly">심의대상 여부 선택</legend>
+                        <label class="formCheck">
+                          <input type="checkbox" name="DeliberationTarget">
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">대상</span>
+                        </label>
+                        <label class="formCheck">
+                          <input type="checkbox" name="DeliberationTarget" checked>
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">대상아님</span>
+                        </label>
+                      </fieldset>
+                    </td>
                   </tr>
+                  <!-- 심의번호 * -->
                   <tr>
-                    <th>심의번호 *</th>
-                    <td>내용2</td>
+                    <th><label class="formLabel" for="idDeliberationNo">심의번호 <span class="required">*</span></label></th>
+                    <td>
+                      <input type="text" id="idDeliberationNo" class="formControl full" placeholder="심의번호를 입력해주세요.">
+                    </td>
                   </tr>
+                  <!-- 운영기간 * -->
                   <tr>
-                    <th>운영기간 *</th>
-                    <td>내용2</td>
+                    <th><span class="formLabel">운영기간 <span class="required">*</span></span></th>
+                    <td>
+                      <fieldset class="formDateRange">
+                        <legend class="srOnly">운영정보 운영기간 설정</legend>
+                        <div class="formDatepicker">
+                          <input type="text" class="formControl" value="2026.07.01" title="운영 시작일">
+                          <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                        </div>
+                        <span class="dateSeparator">~</span>
+                        <div class="formDatepicker">
+                          <input type="text" class="formControl" value="2026.08.31" title="운영 종료일">
+                          <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                        </div>
+                      </fieldset>
+                    </td>
                   </tr>
+                  <!-- 운영메모 -->
                   <tr>
-                    <th>운영메모</th>
-                    <td>내용2</td>
+                    <th><label class="formLabel" for="idOperationMemo">운영메모</label></th>
+                    <td>
+                      <textarea id="idOperationMemo" class="formControl full" placeholder="운영 시 참고사항 또는 협업 내용을 입력하세요." style="min-height: 80px;"></textarea>
+                      <div style="margin-top: 10px;">
+                        <button type="button" class="btn dark md">메모 등록</button>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -456,21 +511,21 @@
                 <tbody>
                   <tr>
                     <th>등록자</th>
-                    <td>내용2</td>
+                    <td>김국민</td>
                     <th>등록일자</th>
-                    <td>내용2</td>
+                    <td>2026-08-31 10:00:00</td>
                   </tr>
                   <tr>
                     <th>수정자</th>
-                    <td>내용2</td>
+                    <td>김국민</td>
                     <th>수정일자</th>
-                    <td>내용2</td>
+                    <td>2026-08-31 14:30:00</td>
                   </tr>
                   <tr>
                     <th>승인자</th>
-                    <td>내용2</td>
+                    <td>관리자</td>
                     <th>승인일자</th>
-                    <td>내용2</td>
+                    <td>2026-08-31 15:00:00</td>
                   </tr>
                 </tbody>
               </table>

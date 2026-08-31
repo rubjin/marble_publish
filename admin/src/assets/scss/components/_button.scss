@@ -5,20 +5,18 @@
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   background-color: transparent; 
-  padding: 10px 20px; border-radius: $radiusMd; font-weight: 600; font-size: 14px;
+  padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 14px;
   outline: none; border: none; cursor: pointer; user-select: none; line-height: 1; text-decoration: none;
   transition: background-color 0.2s;
   &.primary {
-    background-color: $primary; color: $gray800;
-    &:hover { background-color: $primaryHover; }
+    background-color: #FFC72B; color: #2F3034;
+    // &:hover { background-color: ; }
   }
   &.outline {
-    border: 1px solid $gray300; background-color: $white; color: $gray800;
-    &:hover { background-color: $gray100; }
+    border: 1px solid #DEDEDE; background-color: #ffffff; color: #404046;
   }
   &.dark {
-    background-color: #4b5563; color: #ffffff;
-    &:hover { background-color: #374151; }
+    background-color: #4F535A; color: #ffffff;
   }
   &.sm { padding: 6px 12px; font-size: 12px; border-radius: 6px; }
   &.md { padding: 10px 20px; font-size: 14px; }
