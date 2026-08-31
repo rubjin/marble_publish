@@ -1,6 +1,8 @@
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  background-color: transparent; 
   padding: 10px 20px; border-radius: $radiusMd; font-weight: 600; font-size: 14px;
+  outline: none; border: none; cursor: pointer; user-select: none;
   transition: background-color 0.2s;
   &.primary {
     background-color: $primary; color: $gray800;

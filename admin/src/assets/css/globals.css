@@ -174,6 +174,34 @@ body {
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+.boHeader .headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.boHeader .headerLeft h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+.boHeader .headerLeft .headerDate,
+.boHeader .headerLeft span {
+  font-size: 14px;
+  color: #6b7280;
+}
+.boHeader .headerUtil {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.boHeader .headerUtil .listBar {
+  margin: 0;
+}
+.boHeader .headerUtil .btn {
+  min-width: auto;
 }
 
 .boContent {
@@ -737,6 +765,45 @@ select.formControl {
 }
 .accordion.isOpen .accordionBody {
   display: block;
+}
+
+.tblTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tblTop .tblLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tblTop .tblLeft .tblTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+.tblTop .tblLeft .tblCount {
+  font-size: 13px;
+  color: #6b7280;
+}
+.tblTop .tblLeft .tblCount strong {
+  color: #111827;
+  font-weight: 600;
+}
+.tblTop .tblRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .tblWrap {
@@ -1663,4 +1730,156 @@ select.formControl {
   width: 14px;
   height: 14px;
   fill: currentColor;
+}
+
+/* ==========================================================================
+   List Component (세로 바 리스트 / Bar List)
+   ========================================================================== */
+.listBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.listBar .listBarItem {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+.listBar .listBarItem:not(:first-child)::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background-color: #d1d5db;
+  margin: 0 10px;
+  flex-shrink: 0;
+}
+.listBar .listBarItem .listBarLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.listBar .listBarItem .listBarLink:hover {
+  color: #111827;
+  text-decoration: underline;
+}
+.listBar .listBarItem .label {
+  color: #6b7280;
+  margin-right: 4px;
+}
+.listBar .listBarItem .value {
+  color: #111827;
+  font-weight: 500;
+}
+.listBar.sm .listBarItem {
+  font-size: 12px;
+}
+.listBar.sm .listBarItem:not(:first-child)::before {
+  height: 10px;
+  margin: 0 8px;
+}
+.listBar.lg .listBarItem {
+  font-size: 15px;
+}
+.listBar.lg .listBarItem:not(:first-child)::before {
+  height: 14px;
+  margin: 0 12px;
+}
+.listBar.dark .listBarItem {
+  color: #1f2937;
+}
+.listBar.dark .listBarItem:not(:first-child)::before {
+  background-color: #9ca3af;
+}
+
+.listBarVertical {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+}
+.listBarVertical .listBarItem {
+  position: relative;
+  padding-left: 12px;
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.5;
+}
+.listBarVertical .listBarItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 2px;
+  height: 13px;
+  background-color: #9ca3af;
+  border-radius: 1px;
+}
+.listBarVertical .listBarItem.primary::before,
+.listBarVertical .listBarItem.isPoint::before {
+  background-color: #FFCC00;
+}
+.listBarVertical .listBarItem .title {
+  font-weight: 600;
+  color: #111827;
+  margin-right: 6px;
+}
+.listBarVertical .listBarItem .desc {
+  color: #6b7280;
+}
+.listBarVertical.sm {
+  gap: 6px;
+}
+.listBarVertical.sm .listBarItem {
+  font-size: 12px;
+  padding-left: 10px;
+}
+.listBarVertical.sm .listBarItem::before {
+  top: 4px;
+  width: 2px;
+  height: 10px;
+}
+.listBarVertical.lg {
+  gap: 10px;
+}
+.listBarVertical.lg .listBarItem {
+  font-size: 16px;
+  padding-left: 14px;
+}
+.listBarVertical.lg .listBarItem::before {
+  top: 5px;
+  width: 3px;
+  height: 14px;
+}
+.listBarVertical.boxType {
+  gap: 12px;
+}
+.listBarVertical.boxType .listBarItem {
+  padding: 12px 16px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #9ca3af;
+  border-radius: 4px;
+}
+.listBarVertical.boxType .listBarItem::before {
+  display: none;
+}
+.listBarVertical.boxType .listBarItem.primary,
+.listBarVertical.boxType .listBarItem.isPoint {
+  border-left-color: #FFCC00;
+  background-color: #fffdf0;
+}
+
+.listBar + .listBar,
+.listBar + .listBarVertical,
+.listBarVertical + .listBarVertical,
+.listBarVertical + .listBar {
+  margin-top: 20px;
 }

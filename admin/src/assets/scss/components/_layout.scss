@@ -128,6 +128,40 @@
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .headerDate,
+    span {
+      font-size: 14px;
+      color: #6b7280;
+    }
+  }
+
+  .headerUtil {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .listBar {
+      margin: 0;
+    }
+
+    .btn {
+      min-width: auto;
+    }
+  }
 }
 
 .boContent {
