@@ -39,4 +39,5 @@
     &.side#{$i} { background-image: iconUrl('side_#{$i}.svg'); }
   }
   &.sideSub { background-image: iconUrl('side_sub.svg'); }
+  &.logout { background-image: iconUrl('i_logout.svg'); }
 }

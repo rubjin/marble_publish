@@ -20,35 +20,34 @@
 .breadcrumbItem {
   display: inline-flex;
   align-items: center;
-  font-size: 13px;
-  color: #6b7280;
+  font-size: 14px;
+  color: #666666;
 
   &:not(:last-child)::after {
     content: '';
     display: inline-block;
-    width: 14px;
-    height: 14px;
-    margin-left: 4px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%239ca3af'%3E%3Cpath fill-rule='evenodd' d='M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    width: 24px;
+    height: 24px;
+    background-image: iconUrl('i_breadcrumb_24.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
   }
 
   .breadcrumbLink {
-    color: #6b7280;
+    color: #666666;
     text-decoration: none;
     transition: color 0.15s ease;
 
     &:hover {
-      color: #1f2937;
-      text-decoration: underline;
+      // color: #1f2937;
+      // text-decoration: underline;
     }
   }
 
   &.isCurrent,
   &[aria-current="page"] {
-    color: #1f2937;
-    font-weight: 600;
+    color: #202020;
+    font-weight: 500;
   }
 }

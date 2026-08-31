@@ -10,6 +10,21 @@
 // Common
 body {
   font-family: 'KBFG', sans-serif;
-  color: #333;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #2F3034;
   background-color: #f8f9fa;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

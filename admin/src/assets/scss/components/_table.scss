@@ -57,7 +57,6 @@
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 14px;
-  color: $gray800;
 
   thead {
     th {
@@ -72,23 +71,37 @@
 
   tbody {
     tr {
-      border-bottom: 1px solid $gray200;
+      border-bottom: 1px solid #F0F0F3;
       transition: background-color 0.15s;
-
-      &:hover {
-        background-color: #fafafa;
-      }
-
+      // &:hover {
+      //   background-color: #fafafa;
+      // }
       &:last-child {
         border-bottom: none;
       }
     }
-
-    td {
-      padding: 12px 16px;
+    th, td {
       vertical-align: middle;
+      font-size: 14px;
+    }
+    th {
+      padding: 10px 10px 10px 4px;
+      font-weight: 500;
+      text-align: left;
+      white-space: nowrap;
+      > * {
+        min-height: 34px;
+      }
+    }
+    td {
+      padding: 10px 0;
+      > * {
+        min-height: 34px;
+
+      }
     }
   }
+  .formLabel { margin-bottom: 0; }
 
   // 가운데 정렬
   &.tblCenter {
@@ -99,19 +112,19 @@
   }
 
   // 줄무늬
-  &.tblStriped {
-    tbody tr:nth-child(even) {
-      background-color: #f9fafb;
-    }
-  }
+  // &.tblStriped {
+  //   tbody tr:nth-child(even) {
+  //     background-color: #F0F0F3;
+  //   }
+  // }
 
   // 테두리
   &.tblBordered {
-    border: 1px solid $gray300;
+    border: 1px solid #F0F0F3;
 
     thead th,
     tbody td {
-      border: 1px solid $gray300;
+      border: 1px solid #F0F0F3;
     }
   }
 }

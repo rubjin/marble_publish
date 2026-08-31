@@ -16,7 +16,7 @@
     align-items: center;
     font-size: 13px;
     color: #4b5563;
-    line-height: 1.5;
+    
 
     // 아이템 간 세로 바 (|) 구분선
     &:not(:first-child)::before {
@@ -102,7 +102,7 @@
     padding-left: 12px;
     font-size: 14px;
     color: #374151;
-    line-height: 1.5;
+    
 
     // 항목 좌측 세로 바
     &::before {

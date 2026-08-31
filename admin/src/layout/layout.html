@@ -1,6 +1,99 @@
 <include src="./src/layout/header.html"></include>
 
-<!-- 실제 콘텐츠 -->
-<h2>미션등록</h2>
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<div class="pageHeader">
+  <h2 class="pageTitle">미션등록</h2>
+  <nav class="breadcrumb" aria-label="브레드크럼">
+    <ol class="breadcrumbList">
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">홈</a>
+      </li>
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">미션관리</a>
+      </li>
+      <li class="breadcrumbItem isCurrent" aria-current="page">
+        미션등록
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<!-- ==================== 섹션 1 ==================== -->
+<section class="boSection">
+  <h2 class="sectionTitle">섹션타이틀</h2>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+
+  </div>
+  <!-- 하단 버튼 영역 -->
+  <div class="btnArea">
+    <button type="button" class="btn outline md">취소</button>
+    <button type="button" class="btn primary md">저장</button>
+  </div>
+</section>
+
+<!-- ==================== 섹션 2 ==================== -->
+<section class="boSection">
+  <h2 class="sectionTitle">섹션타이틀</h2>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 타이틀 + 건수 + 버튼 -->
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">테이블타이틀</h3>
+        <span class="tblCount">총 <strong>3</strong>건</span>
+      </div>
+      <div class="tblRight">
+        <div class="btnGroup">
+          <button type="button" class="btn outline sm">추가</button>
+          <button type="button" class="btn outline sm">삭제</button>
+        </div>
+      </div>
+    </div>
+    <!-- 테이블 영역 -->
+    <div class="tblWrap">
+      <table class="tbl tblStriped tblBordered tblCenter">
+        <thead>
+          <tr>
+            <th>헤더1</th>
+            <th>헤더2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>내용1</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>내용1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <!-- 하단 버튼 영역 -->
+  <div class="btnArea">
+    <button type="button" class="btn outline md">초기화</button>
+    <button type="button" class="btn primary md">저장</button>
+  </div>
+</section>
+
+<!-- ==================== 섹션 3 ==================== -->
+<section class="boSection">
+  <h2 class="sectionTitle">섹션타이틀</h2>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+   
+  </div>
+  <!-- 하단 버튼 영역 -->
+  <div class="btnArea">
+    <button type="button" class="btn outline md">취소</button>
+    <button type="button" class="btn primary md">등록</button>
+  </div>
+</section>
 
 <include src="./src/layout/footer.html"></include>

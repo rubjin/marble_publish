@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미션등록 - Admin</title>
+  <link rel="stylesheet" href="../../assets/css/globals.css">
+</head>
+<body>
+  <div class="boWrap">
+    <!-- 좌측 메뉴바 (260px) -->
+    <aside class="boSidebar">
+  <ul class="boMenu">
+    <li>
+      <!-- [D] 메뉴 선택상태 : isisActive 클래스 추가 -->
+      <a href="#" class="isisActive">
+        <span class="ico side1"></span>
+        <span class="text">대시보드</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="ico side2"></span>
+        <span class="text">가입/고객관리</span>
+        <span class="arrow"></span>
+      </a>
+    </li>
+    <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+    <li class="isOpen">
+      <a href="#" class="isActive">
+        <span class="ico side3"></span>
+        <span class="text">미션관리</span>
+        <span class="arrow"></span>
+      </a>
+      <ul class="boSubMenu">
+        <li>
+          <a href="#" class="isActive">
+            <span class="ico sideSub"></span>
+            <span class="text">미션등록</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">
+        <span class="ico side4"></span>
+        <span class="text">리워드관리</span>
+        <span class="arrow"></span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="ico side5"></span>
+        <span class="text">알림관리</span>
+        <span class="arrow"></span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="ico side6"></span>
+        <span class="text">통계/분석</span>
+        <span class="arrow"></span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="ico side7"></span>
+        <span class="text">관리자 관리</span>
+        <span class="arrow"></span>
+      </a>
+    </li>
+  </ul>
+</aside>
+
+    <!-- 우측 콘텐츠 영역 -->
+    <main class="boContainer">
+      <header class="boHeader">
+        <div class="headerLeft">
+          <h1>Admin</h1>
+          <span class="headerDate">2026-06-09 (실시간)</span>
+        </div>
+        <div class="headerUtil">
+          <ul class="listBar">
+            <li class="listBarItem"><span class="label">권한</span><span class="value">관리자</span></li>
+            <li class="listBarItem"><span class="label">이름</span><span class="value">따따따</span></li>
+            <li class="listBarItem"><button type="button" class="btn outline sm">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <div class="boContent">
+
+        <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+        <div class="pageHeader">
+          <h2 class="pageTitle">미션등록</h2>
+          <nav class="breadcrumb" aria-label="브레드크럼">
+            <ol class="breadcrumbList">
+              <li class="breadcrumbItem">
+                <a href="#" class="breadcrumbLink">홈</a>
+              </li>
+              <li class="breadcrumbItem">
+                <a href="#" class="breadcrumbLink">미션관리</a>
+              </li>
+              <li class="breadcrumbItem isCurrent" aria-current="page">
+                미션등록
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <!-- ==================== 섹션 1 :: 공통설정 ==================== -->
+        <section class="boSection">
+          <!-- 하얀 박스 영역 -->
+          <div class="sectionBox">
+            <div class="tblTop">
+              <div class="tblLeft">
+                <h3 class="tblTitle">공통 설정</h3>
+              </div>
+            </div>
+
+            <div class="tblWrap">
+              <table class="tbl">
+                <colgroup>
+                  <col style="width: 155px;">
+                  <col>
+                </colgroup>
+                <tbody>
+                  <!-- 미션 ID -->
+                  <tr>
+                    <th><label class="formLabel" for="idMissionID">미션 ID</label></th>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 8px;">
+                        <input type="text" id="idMissionID" class="formControl" style="width: 200px;" value="TP010504" readonly>
+                        <button type="button" class="btn outline md">찾아보기</button>
+                        <span class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- 미션상태 * -->
+                  <tr>
+                    <th><label class="formLabel" id="missionStatusLabel">미션상태 <span class="required">*</span></label></th>
+                    <td>
+                      <div class="formCheckGroup" role="radiogroup" aria-labelledby="missionStatusLabel">
+                        <label class="formCheck">
+                          <input type="radio" name="MissionStatus" checked>
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">운영중</span>
+                        </label>
+                        <label class="formCheck">
+                          <input type="radio" name="MissionStatus">
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">중단</span>
+                        </label>
+                        <label class="formCheck">
+                          <input type="radio" name="MissionStatus">
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">종료</span>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- 승인여부 * -->
+                  <tr>
+                    <th><label class="formLabel" id="approvalStatusLabel">승인여부 <span class="required">*</span></label></th>
+                    <td>
+                      <div class="formCheckGroup" role="radiogroup" aria-labelledby="approvalStatusLabel">
+                        <label class="formCheck">
+                          <input type="radio" name="ApprovalStatus" checked>
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">승인</span>
+                        </label>
+                        <label class="formCheck">
+                          <input type="radio" name="ApprovalStatus">
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">미승인</span>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- 노출여부 * -->
+                  <tr>
+                    <th><label class="formLabel" id="exposureStatusLabel">노출여부 <span class="required">*</span></label></th>
+                    <td>
+                      <div class="formCheckGroup" role="radiogroup" aria-labelledby="exposureStatusLabel">
+                        <label class="formCheck">
+                          <input type="radio" name="ExposureStatus" checked>
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">노출함</span>
+                        </label>
+                        <label class="formCheck">
+                          <input type="radio" name="ExposureStatus">
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">노출 안함</span>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- 대상고객 -->
+                  <tr>
+                    <th><label class="formLabel" for="idTargetCustomer">대상고객</label></th>
+                    <td>
+                      <select id="idTargetCustomer" class="formControl full">
+                        <option value="">전체고객 대상</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <!-- 운영기간 * -->
+                  <tr>
+                    <th><label class="formLabel">운영기간 <span class="required">*</span></label></th>
+                    <td>
+                      <div class="formDateRange">
+                        <div class="formDatepicker">
+                          <input type="text" class="formControl" value="2026.07.01">
+                          <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                        </div>
+                        <span class="dateSeparator">~</span>
+                        <div class="formDatepicker">
+                          <input type="text" class="formControl" value="2026.08.31">
+                          <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                        </div>
+                        <label class="formCheck" style="margin-left: 8px;">
+                          <input type="checkbox">
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">미지정</span>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- 노출위치 * -->
+                  <tr>
+                    <th><label class="formLabel">노출위치 <span class="required">*</span></label></th>
+                    <td>
+                      <div class="tagBox">
+                        <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+                        <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+                        <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+                        <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+                      </div>
+                      <div style="margin-top: 10px;">
+                        <button type="button" class="btn dark md">화면선택</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- 노출기간 * -->
+                  <tr>
+                    <th><label class="formLabel">노출기간 <span class="required">*</span></label></th>
+                    <td>
+                      <div class="formDateRange">
+                        <div class="formDatepicker">
+                          <input type="text" class="formControl" value="2026.07.01">
+                          <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                        </div>
+                        <span class="dateSeparator">~</span>
+                        <div class="formDatepicker">
+                          <input type="text" class="formControl" value="2026.08.31">
+                          <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                        </div>
+                        <label class="formCheck" style="margin-left: 8px;">
+                          <input type="checkbox">
+                          <span class="checkIcon"></span>
+                          <span class="checkLabel">미지정</span>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- 미션유형 선택 * -->
+                  <tr>
+                    <th><label class="formLabel">미션유형 선택 <span class="required">*</span></label></th>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 12px;">
+                        <select class="formControl" style="width: 200px;">
+                          <option value="ox">OX퀴즈</option>
+                        </select>
+                        <span class="formGuideText">OX 퀴즈를 생성하고 관리 합니다.</span>
+                      </div>
+                      <p class="formNoticeText">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 섹션 2 :: 상세설정 ==================== -->
+        <section class="boSection">
+          <!-- 하얀 박스 영역 -->
+          <div class="sectionBox">
+            <div class="tblTop">
+              <div class="tblLeft">
+                <h3 class="tblTitle">상세 설정</h3>
+              </div>
+            </div>
+
+            <div class="tblWrap">
+              <table class="tbl">
+                <colgroup>
+                  <col style="width: 155px;">
+                  <col>
+                </colgroup>
+                <tbody>
+                  <!-- 미션 타이틀 * -->
+                  <tr>
+                    <th><label class="formLabel" for="idMissionTitle">미션 타이틀 <span class="required">*</span></label></th>
+                    <td>
+                      <input type="text" id="idMissionTitle" class="formControl full" value="OX퀴즈">
+                    </td>
+                  </tr>
+                  <!-- 퀴즈 타입 선택 -->
+                  <tr>
+                    <th><label class="formLabel" id="quizTypeLabel">퀴즈 타입 선택</label></th>
+                    <td>
+                      <div class="formRadioCardGroup" role="radiogroup" aria-labelledby="quizTypeLabel">
+                        <label class="formRadioCard isActive">
+                          <input type="radio" name="QuizType" checked>
+                          <span class="checkIcon"></span>
+                          <div class="cardContent">
+                            <strong class="cardTitle">A-type (화면 본문 삽입형)</strong>
+                            <p class="cardDesc">질문과 정답 버튼만 노출되는 기본형 퀴즈 레이아웃입니다.</p>
+                          </div>
+                        </label>
+                        <label class="formRadioCard">
+                          <input type="radio" name="QuizType">
+                          <span class="checkIcon"></span>
+                          <div class="cardContent">
+                            <strong class="cardTitle">B-type (단독 화면 호출)</strong>
+                            <p class="cardDesc">단독화면에 사용되는 퀴즈 레이아웃입니다</p>
+                          </div>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- 퀴즈 텍스트 -->
+                  <tr>
+                    <th><label class="formLabel" for="idQuizText">퀴즈 텍스트</label></th>
+                    <td>
+                      <textarea id="idQuizText" class="formControl full" placeholder="퀴즈 텍스트를 입력해주세요." style="min-height: 80px;"></textarea>
+                    </td>
+                  </tr>
+                  <!-- 퀴즈 힌트 -->
+                  <tr>
+                    <th><label class="formLabel" for="idQuizHint">퀴즈 힌트</label></th>
+                    <td>
+                      <textarea id="idQuizHint" class="formControl full" placeholder="퀴즈 힌트를 입력해주세요." style="min-height: 80px;"></textarea>
+                    </td>
+                  </tr>
+                  <!-- 정답 선택 -->
+                  <tr>
+                    <th><label class="formLabel" id="correctAnswerLabel">정답 선택</label></th>
+                    <td>
+                      <div class="formRadioCardGroup" role="radiogroup" aria-labelledby="correctAnswerLabel">
+                        <label class="formRadioCard isCompact isActive">
+                          <input type="radio" name="CorrectAnswer" checked>
+                          <span class="checkIcon"></span>
+                          <div class="cardContent">
+                            <strong class="cardTitle">O (정답)</strong>
+                          </div>
+                        </label>
+                        <label class="formRadioCard isCompact">
+                          <input type="radio" name="CorrectAnswer">
+                          <span class="checkIcon"></span>
+                          <div class="cardContent">
+                            <strong class="cardTitle">X (오답)</strong>
+                          </div>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- 정답 메세지 -->
+                  <tr>
+                    <th><label class="formLabel" for="idAnswerMsg">정답 메세지</label></th>
+                    <td>
+                      <textarea id="idAnswerMsg" class="formControl full" placeholder="정답 메세지를 입력해주세요." style="min-height: 70px;"></textarea>
+                    </td>
+                  </tr>
+                  <!-- 오답 메세지 -->
+                  <tr>
+                    <th><label class="formLabel" for="idWrongMsg">오답 메세지</label></th>
+                    <td>
+                      <textarea id="idWrongMsg" class="formControl full" placeholder="오답 메세지를 입력해주세요." style="min-height: 70px;"></textarea>
+                    </td>
+                  </tr>
+                  <!-- 버튼 연결 URL * -->
+                  <tr>
+                    <th><label class="formLabel" for="idBtnUrl">버튼 연결 URL <span class="required">*</span></label></th>
+                    <td>
+                      <input type="text" id="idBtnUrl" class="formControl full" value="http://app.kbsec.com/scr/index.html?id=5181&key=2839&date=2023/08/11">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 섹션 3 :: 운영정보 ==================== -->
+        <section class="boSection">
+          <!-- 하얀 박스 영역 -->
+          <div class="sectionBox">
+            <div class="tblTop">
+              <div class="tblLeft">
+                <h3 class="tblTitle">운영정보</h3>
+              </div>
+            </div>
+
+            <div class="tblWrap">
+              <table class="tbl">
+                <colgroup>
+                  <col style="width: 155px;">
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>파일첨부</th>
+                    <td>내용2</td>
+                  </tr>
+                  <tr>
+                    <th>심의대상 여부 *</th>
+                    <td>내용2</td>
+                  </tr>
+                  <tr>
+                    <th>심의번호 *</th>
+                    <td>내용2</td>
+                  </tr>
+                  <tr>
+                    <th>운영기간 *</th>
+                    <td>내용2</td>
+                  </tr>
+                  <tr>
+                    <th>운영메모</th>
+                    <td>내용2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 섹션 4 :: 관리정보 ==================== -->
+        <section class="boSection">
+          <!-- 하얀 박스 영역 -->
+          <div class="sectionBox">
+            <div class="tblTop">
+              <div class="tblLeft">
+                <h3 class="tblTitle">관리정보</h3>
+              </div>
+            </div>
+
+            <div class="tblWrap">
+              <table class="tbl">
+                <colgroup>
+                  <col style="width: 155px;">
+                  <col>
+                  <col style="width: 155px;">
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>등록자</th>
+                    <td>내용2</td>
+                    <th>등록일자</th>
+                    <td>내용2</td>
+                  </tr>
+                  <tr>
+                    <th>수정자</th>
+                    <td>내용2</td>
+                    <th>수정일자</th>
+                    <td>내용2</td>
+                  </tr>
+                  <tr>
+                    <th>승인자</th>
+                    <td>내용2</td>
+                    <th>승인일자</th>
+                    <td>내용2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 하단 버튼 영역 -->
+        <div class="btnArea pageBottom">
+          <div class="btnGroup">
+            <button type="button" class="btn outline md">목록</button>
+            <button type="button" class="btn outline md">초기화</button>
+          </div>
+          <div class="btnGroup buttonGroupRight">
+            <button type="button" class="btn outline md">임시저장</button>
+            <button type="button" class="btn outline md">승인 요청</button>
+            <button type="button" class="btn primary md">저장</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>

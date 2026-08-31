@@ -1,6 +1,7 @@
 // Layout
 .boWrap {
   min-width: 1280px;
+  max-width: 1920px;
   margin: 0 auto;
   display: flex;
   min-height: 100vh;
@@ -125,7 +126,6 @@
 }
 
 .boHeader {
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -133,19 +133,20 @@
   .headerLeft {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
 
     h1 {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 700;
-      color: #1f2937;
+      color: #1F192F;
       margin: 0;
     }
 
     .headerDate,
     span {
-      font-size: 14px;
-      color: #6b7280;
+      font-size: 12px;
+      font-weight: 500;
+      color: #8D919B;
     }
   }
 
@@ -160,12 +161,86 @@
 
     .btn {
       min-width: auto;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }
 
 .boContent {
   flex: 1;
-  padding: 20px 0;
+  padding: 24px 0;
   overflow-y: auto;
+}
+
+// Page Header (페이지 상단 타이틀 + 우측 브래드크럼)
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+
+  .pageTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F192F;
+    margin: 0;
+    line-height: 30px;
+  }
+}
+
+// Section Layout (하얀 박스 영역 + 하단 버튼 영역)
+.boSection {
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2F3034;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .subText {
+      font-size: 13px;
+      font-weight: 400;
+      color: #6b7280;
+    }
+  }
+
+  // 하얀 박스 영역
+  .sectionBox {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  // 하단 버튼 영역
+  .btnArea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+
+    &.center {
+      justify-content: center;
+    }
+
+    &.between {
+      justify-content: space-between;
+    }
+
+    &.left {
+      justify-content: flex-start;
+    }
+  }
 }

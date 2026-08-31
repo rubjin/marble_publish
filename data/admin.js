@@ -254,9 +254,9 @@ window.adminData = [
     "depth4": "",
     "screenId": "MISS_009",
     "type": "페이지",
-    "status": "대기",
+    "status": "진행중",
     "worker": "",
-    "link": "admin/src/pages/mission-registration.html",
+    "link": "admin/src/pages/M/MISS_009.html",
     "note": ""
   },
   {

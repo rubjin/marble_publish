@@ -1,8 +1,12 @@
+/* ==========================================================================
+   Button Component
+   ========================================================================== */
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   background-color: transparent; 
   padding: 10px 20px; border-radius: $radiusMd; font-weight: 600; font-size: 14px;
-  outline: none; border: none; cursor: pointer; user-select: none;
+  outline: none; border: none; cursor: pointer; user-select: none; line-height: 1; text-decoration: none;
   transition: background-color 0.2s;
   &.primary {
     background-color: $primary; color: $gray800;
@@ -11,6 +15,10 @@
   &.outline {
     border: 1px solid $gray300; background-color: $white; color: $gray800;
     &:hover { background-color: $gray100; }
+  }
+  &.dark {
+    background-color: #4b5563; color: #ffffff;
+    &:hover { background-color: #374151; }
   }
   &.sm { padding: 6px 12px; font-size: 12px; border-radius: 6px; }
   &.md { padding: 10px 20px; font-size: 14px; }
@@ -23,4 +31,22 @@
   .ico {
     flex-shrink: 0;
   }
+}
+
+
+// 페이지 하단버튼
+.pageBottom {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+
+// 버튼 그룹
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.buttonGroupRight {
+  margin-left: auto;
 }

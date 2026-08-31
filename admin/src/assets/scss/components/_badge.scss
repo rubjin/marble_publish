@@ -4,4 +4,7 @@
   &.completed { background-color: $gray100; color: $gray800; }
   &.sm { padding: 2px 6px; font-size: 10px; }
   &.lg { padding: 6px 12px; font-size: 14px; }
+
+  &.account { height: 28px; padding: 0px 11px; 
+    border-radius: 30px; background-color: #E7E9ED; color: #4F535A; line-height: 28px;  }
 }
