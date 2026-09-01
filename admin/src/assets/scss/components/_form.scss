@@ -27,6 +27,13 @@
 .formControlWrap {
   position: relative;
 
+  &.full {
+    width: 100%;
+    input.formControl {
+      width: 100%;
+    }
+  }
+
   &.hasBtn {
     display: inline-flex;
     gap: 6px;

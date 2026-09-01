@@ -148,7 +148,7 @@
       <button type="button" class="guideNavItem" data-target="sectionIcons">Icons</button>
       <button type="button" class="guideNavItem" data-target="sectionBadges">Badges</button>
       <!-- <button type="button" class="guideNavItem" data-target="sectionTabs">Tabs</button> -->
-      <button type="button" class="guideNavItem" data-target="sectionCards">Cards</button>
+      <!-- <button type="button" class="guideNavItem" data-target="sectionCards">Cards</button> -->
       <button type="button" class="guideNavItem" data-target="sectionForms">Forms</button>
       <button type="button" class="guideNavItem" data-target="sectionPopups">Popups</button>
       <button type="button" class="guideNavItem" data-target="sectionTypography">Typography</button>
@@ -163,7 +163,7 @@
     <!-- ==================== 1. 버튼 가이드 ==================== -->
     <section id="sectionButtons" class="guideSection">
       <h2 class="guideTitle">Buttons (버튼)</h2>
-      <div class="guideBox">
+      <div class="guideBox" style="gap: 5px;">
         <include src="./src/components/button.html"></include>
       </div>
 
@@ -171,6 +171,11 @@
       <h2 class="guideTitle">페이지 하단 버튼</h2>
       <div class="guideBox">
         <include src="./src/components/button_case.html"></include>
+      </div>
+
+       <h2 class="guideTitle">페이지 버튼</h2>
+      <div class="guideBox" style="gap: 5px;">
+        <include src="./src/components/button_case2.html"></include>
       </div>
 
        <!-- ==================== 아이콘 버튼 가이드 ==================== -->
@@ -181,48 +186,53 @@
 
       <!-- ==================== 세그먼트 가이드 ==================== -->
       <h2 class="guideTitle">Segment (세그먼트)</h2>
-      <div class="guideBox guideBoxBlock">
+      <div class="guideBox guideBoxBlock" style="background-color: #666;">
         <include src="./src/components/segment.html"></include>
       </div>
 
       <!-- ==================== 토글 스위치 가이드 ==================== -->
-      <h2 class="guideTitle">Toggle (토글 스위치)</h2>
+      <!-- <h2 class="guideTitle">Toggle (토글 스위치)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/toggle.html"></include>
-      </div>
+      </div> -->
 
       <!-- ==================== 탭 가이드 ==================== -->
-      <h2 class="guideTitle">Tabs (탭 메뉴)</h2>
+      <!-- <h2 class="guideTitle">Tabs (탭 메뉴)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/tab.html"></include>
-      </div>
+      </div> -->
     </section>
 
     <!-- ==================== 아이콘 가이드 ==================== -->
     <section id="sectionIcons" class="guideSection">
       <h2 class="guideTitle">Icons (아이콘)</h2>
-      <div class="guideBox guideSizeGroup" style="background: #949494;">
+      <div class="guideBox guideSizeGroup" style="background: #99c4f8;">
         <include src="./src/components/icon.html"></include>
       </div>
+
+      <h2 class="guideTitle">Icons (메뉴 아이콘)</h2>
+      <div class="guideBox guideSizeGroup" style="background: #949494;">
+        <include src="./src/components/icon_menu.html"></include>
+      </div>
+
+    
     </section>
 
     <!-- ==================== 2. 뱃지 가이드 ==================== -->
     <section id="sectionBadges" class="guideSection">
-      <h2 class="guideTitle">Badges (상태 뱃지)</h2>
+      <h2 class="guideTitle">Badges</h2>
       <div class="guideBox">
         <include src="./src/components/badge.html"></include>
       </div>
     </section>
 
-  
-
     <!-- ==================== 4. 카드 가이드 ==================== -->
-    <section id="sectionCards" class="guideSection">
+    <!-- <section id="sectionCards" class="guideSection">
       <h2 class="guideTitle">Cards (카드)</h2>
       <div class="guideBox" style="background-color: #f3f4f6;">
         <include src="./src/components/card.html"></include>
       </div>
-    </section>
+    </section> -->
 
     <!-- ==================== 5. 폼 가이드 ==================== -->
     <section id="sectionForms" class="guideSection">

@@ -24,20 +24,60 @@
     height: 16px;
   }
 
-  &.lg {
+  &.md {
     width: 24px;
     height: 24px;
   }
 
-  &.xl {
-    width: 32px;
-    height: 32px;
+  &.lg {
+    width: 30px;
+    height: 30px;
   }
 
-  // Specific Icons
+  &.xl {
+    width: 36px;
+    height: 36px;
+  }
+
+  // 사이드 메뉴
   @for $i from 1 through 7 {
     &.side#{$i} { background-image: iconUrl('side_#{$i}.svg'); }
   }
   &.sideSub { background-image: iconUrl('side_sub.svg'); }
   &.logout { background-image: iconUrl('i_logout.svg'); }
+
+  &.calendar { background-image: iconUrl('i_calendar_16.svg'); }
+  &.download { background-image: iconUrl('i_download_16.svg'); }
+
+  &.deleteTag { background-image: iconUrl('i_tagDelete_20.svg'); }
+  &.statusIng { background-image: iconUrl('i_status_ing_20.svg'); }
+  &.statusAlarm { background-image: iconUrl('i_status_alarm_20.svg'); }
+  &.statusRate { background-image: iconUrl('i_status_rate_20.svg'); }
+  &.statusAdd { background-image: iconUrl('i_status_new_20.svg'); }
+  &.statusPoint { background-image: iconUrl('i_status_point_20.svg'); }
+  //가이드 확인용
+  &.select { background-image: iconUrl('select_20.svg'); }
+
+  //가이드 확인용
+  &.breadcrumb { background-image: iconUrl('breadcrumb_24.svg'); }
+  &.checkbox { background-image: iconUrl('checkbox_24.svg'); }
+  &.checkboxChecked { background-image: iconUrl('checkbox_24_checked.svg'); }
+  &.radio { background-image: iconUrl('radio_24.svg'); }
+  &.radioChecked { background-image: iconUrl('radio_24_checked.svg'); }
+  &.deleteFile { background-image: iconUrl('i_fileDelete_24.svg'); }
+  
+  &.drag { background-image: iconUrl('i_drag_30.svg'); }
+
+  &.upload { background-image: iconUrl('i_upload_36.svg'); }
+}
+
+.imgIcon {
+  // content: '';
+  // display: inline-block;
+  // width: 24px;
+  // height: 24px;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  
 }

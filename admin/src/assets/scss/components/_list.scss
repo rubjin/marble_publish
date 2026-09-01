@@ -14,8 +14,8 @@
   .listBarItem {
     display: inline-flex;
     align-items: center;
-    font-size: 13px;
-    color: #4b5563;
+    font-size: 15px;
+    color: #4F535A;
     
 
     // 아이템 간 세로 바 (|) 구분선
@@ -23,9 +23,9 @@
       content: '';
       display: inline-block;
       width: 1px;
-      height: 12px;
-      background-color: #d1d5db;
-      margin: 0 10px;
+      height: 16px;
+      background-color: #4F535A;
+      margin: 0 12px;
       flex-shrink: 0;
     }
 
@@ -36,20 +36,20 @@
       transition: color 0.15s ease;
 
       &:hover {
-        color: #111827;
+        color: #2F3034;
         text-decoration: underline;
       }
     }
 
-    // Key-Value 라벨 & 값
+    // 라벨 & 값
     .label {
-      color: #6b7280;
       margin-right: 4px;
+      color: #2F3034;
+      font-weight: 500;
     }
 
     .value {
-      color: #111827;
-      font-weight: 500;
+      color: #4F535A;
     }
   }
 
@@ -77,116 +77,116 @@
   }
 
   // 테마/구분선 색상 변형
-  &.dark {
-    .listBarItem {
-      color: #1f2937;
+  // &.dark {
+  //   .listBarItem {
+  //     color: #1f2937;
 
-      &:not(:first-child)::before {
-        background-color: #9ca3af;
-      }
-    }
-  }
+  //     &:not(:first-child)::before {
+  //       background-color: #9ca3af;
+  //     }
+  //   }
+  // }
 }
 
 // 2. 세로형 세로 바 리스트 (Vertical Bar List)
-.listBarVertical {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 8px;
+// .listBarVertical {
+//   display: flex;
+//   flex-direction: column;
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+//   gap: 8px;
 
-  .listBarItem {
-    position: relative;
-    padding-left: 12px;
-    font-size: 14px;
-    color: #374151;
+//   .listBarItem {
+//     position: relative;
+//     padding-left: 12px;
+//     font-size: 14px;
+//     color: #374151;
     
 
-    // 항목 좌측 세로 바
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 4px;
-      width: 2px;
-      height: 13px;
-      background-color: #9ca3af;
-      border-radius: 1px;
-    }
+//     // 항목 좌측 세로 바
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       left: 0;
+//       top: 4px;
+//       width: 2px;
+//       height: 13px;
+//       background-color: #9ca3af;
+//       border-radius: 1px;
+//     }
 
-    // 포인트/강조 세로 바
-    &.primary::before,
-    &.isPoint::before {
-      background-color: $primary;
-    }
+//     // 포인트/강조 세로 바
+//     &.primary::before,
+//     &.isPoint::before {
+//       background-color: $primary;
+//     }
 
-    .title {
-      font-weight: 600;
-      color: #111827;
-      margin-right: 6px;
-    }
+//     .title {
+//       font-weight: 600;
+//       color: #111827;
+//       margin-right: 6px;
+//     }
 
-    .desc {
-      color: #6b7280;
-    }
-  }
+//     .desc {
+//       color: #6b7280;
+//     }
+//   }
 
-  // 사이즈 변형
-  &.sm {
-    gap: 6px;
+//   // 사이즈 변형
+//   &.sm {
+//     gap: 6px;
 
-    .listBarItem {
-      font-size: 12px;
-      padding-left: 10px;
+//     .listBarItem {
+//       font-size: 12px;
+//       padding-left: 10px;
 
-      &::before {
-        top: 4px;
-        width: 2px;
-        height: 10px;
-      }
-    }
-  }
+//       &::before {
+//         top: 4px;
+//         width: 2px;
+//         height: 10px;
+//       }
+//     }
+//   }
 
-  &.lg {
-    gap: 10px;
+//   &.lg {
+//     gap: 10px;
 
-    .listBarItem {
-      font-size: 16px;
-      padding-left: 14px;
+//     .listBarItem {
+//       font-size: 16px;
+//       padding-left: 14px;
 
-      &::before {
-        top: 5px;
-        width: 3px;
-        height: 14px;
-      }
-    }
-  }
+//       &::before {
+//         top: 5px;
+//         width: 3px;
+//         height: 14px;
+//       }
+//     }
+//   }
 
-  // 박스/알림 카드 형태 세로 바 리스트
-  &.boxType {
-    gap: 12px;
+//   // 박스/알림 카드 형태 세로 바 리스트
+//   &.boxType {
+//     gap: 12px;
 
-    .listBarItem {
-      padding: 12px 16px;
-      background-color: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-left: 4px solid #9ca3af;
-      border-radius: 4px;
+//     .listBarItem {
+//       padding: 12px 16px;
+//       background-color: #f9fafb;
+//       border: 1px solid #e5e7eb;
+//       border-left: 4px solid #9ca3af;
+//       border-radius: 4px;
 
-      &::before {
-        display: none;
-      }
+//       &::before {
+//         display: none;
+//       }
 
-      &.primary,
-      &.isPoint {
-        border-left-color: $primary;
-        background-color: #fffdf0;
-      }
-    }
-  }
-}
+//       &.primary,
+//       &.isPoint {
+//         border-left-color: $primary;
+//         background-color: #fffdf0;
+//       }
+//     }
+//   }
+// }
 
 // 인접 리스트 간격
 .listBar + .listBar,

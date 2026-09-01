@@ -99,34 +99,16 @@
   <label class="formLabel">인풋 + 버튼</label>
   <div class="formControlWrap hasBtn">
     <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
-    <button type="button" class="btn outline md">인증번호 발송</button>
+    <button type="button" class="btn outline">인증번호 발송</button>
   </div>
 </div>
 
 <!-- 9. Input with Unit (우측 단위: hasUnit + .inputUnit) -->
 <div class="formGroup">
   <label class="formLabel">금액 / 수량 입력 (우측 단위)</label>
-  <div class="formControlWrap hasUnit">
+  <div class="formControlWrap full hasUnit">
     <input type="text" class="formControl" placeholder="0" value="50,000">
     <span class="inputUnit">원</span>
   </div>
 </div>
 
-<!-- 10. Input with Prefix (좌측 접두사: hasPrefix + .inputPrefix) -->
-<div class="formGroup">
-  <label class="formLabel">웹사이트 주소 (좌측 접두사)</label>
-  <div class="formControlWrap hasPrefix">
-    <span class="inputPrefix">https://</span>
-    <input type="text" class="formControl" placeholder="example.com">
-  </div>
-</div>
-
-<!-- 11. Box Input Group (박스형 접두/접미사 결합) -->
-<div class="formGroup">
-  <label class="formLabel">박스형 단위 인풋 그룹</label>
-  <div class="inputGroup">
-    <span class="inputAddon prefix">https://</span>
-    <input type="text" class="formControl" placeholder="admin.domain">
-    <span class="inputAddon suffix">.com</span>
-  </div>
-</div>

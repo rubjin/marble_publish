@@ -1,11 +1,17 @@
 /* ==========================================================================
    Button Component
    ========================================================================== */
-
+@mixin btnSm { 
+  min-width: 46px; height: 24px; padding: 0px 12px; font-size: 12px; font-weight: 300; 
+  .ico { width: 16px; height: 16px; }
+}
+@mixin btnLg { 
+  min-width: 100px; height: 40px; padding: 0px 20px; font-size: 16px;
+}
 .btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  background-color: transparent; 
-  padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 14px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  height: 34px; background-color: transparent; 
+  padding: 0px 12px; border-radius: 6px; font-weight: 500; font-size: 14px;
   outline: none; border: none; cursor: pointer; user-select: none; line-height: 1; text-decoration: none;
   transition: background-color 0.2s;
   &.primary {
@@ -13,15 +19,24 @@
     // &:hover { background-color: ; }
   }
   &.outline {
-    border: 1px solid #DEDEDE; background-color: #ffffff; color: #404046;
+    border: 1px solid #D5D7DE; background-color: #ffffff; color: #404046;
+  }
+  &.light {
+    border: 1px solid #D5D7DE; background-color: #F5F5F6; color: #2F3034;
   }
   &.dark {
     background-color: #4F535A; color: #ffffff;
   }
-  &.sm { padding: 6px 12px; font-size: 12px; border-radius: 6px; }
-  &.md { padding: 10px 20px; font-size: 14px; }
-  &.lg { padding: 14px 28px; font-size: 16px; border-radius: 10px; }
-  &.full { width: 100%; padding: 14px 20px; font-size: 16px; }
+  &.danger {
+    border: 1px solid #FF9494; color: #F23F3F;
+  }
+  &.ghost {
+    background-color: transparent;
+  }
+ 
+  &.sm { @include btnSm;}
+  &.lg { @include btnLg; }
+  &.full { width: 100%;}
   &:disabled, &.isDisabled {
     opacity: 0.5; cursor: not-allowed; pointer-events: none;
   }
@@ -31,21 +46,33 @@
   }
 }
 
-
 // 페이지 하단버튼
 .pageBottom {
   width: 100%;
   display: flex;
   align-items: center;
   margin-top: 16px;
+  .btn { @include btnLg; }
 }
 
 // 버튼 그룹
-.buttonGroup {
+.btnGroup {
   display: flex;
   align-items: center;
   gap: 6px;
+  &.sm {
+    gap: 4px;
+    .btn {
+      @include btnSm;
+    }
+  }
+  &.lg {
+    gap: 6px;
+    .btn {
+      @include btnLg;
+    }
+  }
 }
-.buttonGroupRight {
+.btnGroupRight {
   margin-left: auto;
 }

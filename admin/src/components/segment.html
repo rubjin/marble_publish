@@ -7,12 +7,12 @@
 -->
 
 <!-- 1. 버튼 방식 (선택 상태: isActive) -->
+<!-- Small, Large -> sm, lg -->
 <div class="segment">
   <!-- [D] 선택된 항목: isActive 클래스 추가 -->
-  <button type="button" class="segmentItem isActive">전체</button>
-  <button type="button" class="segmentItem">일간</button>
-  <button type="button" class="segmentItem">주간</button>
-  <button type="button" class="segmentItem">월간</button>
+  <button type="button" class="segmentItem isActive">일별 (DAU)</button>
+  <button type="button" class="segmentItem">월별 (MAU)</button>
+  <button type="button" class="segmentItem">서비스 고척도</button>
 </div>
 
 <!-- 2. 라디오 방식 (선택 상태: input checked) -->
@@ -20,38 +20,15 @@
   <!-- [D] 선택된 항목: input checked 속성 제어 -->
   <label class="segmentItem">
     <input type="radio" name="missionState" checked>
-    <span class="segmentText">전체</span>
+    <span class="segmentText">일별 (DAU)</span>
   </label>
   <label class="segmentItem">
     <input type="radio" name="missionState">
-    <span class="segmentText">진행중</span>
+    <span class="segmentText">월별 (MAU)</span>
   </label>
   <label class="segmentItem">
     <input type="radio" name="missionState">
-    <span class="segmentText">종료</span>
+    <span class="segmentText">서비스 고척도</span>
   </label>
 </div>
 
-<!-- 3. 사이즈 변형 -->
-<div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-  <!-- Small -->
-  <div class="segment sm">
-    <button type="button" class="segmentItem isActive">1개월</button>
-    <button type="button" class="segmentItem">3개월</button>
-    <button type="button" class="segmentItem">6개월</button>
-  </div>
-
-  <!-- Medium (Default) -->
-  <div class="segment">
-    <button type="button" class="segmentItem isActive">1개월</button>
-    <button type="button" class="segmentItem">3개월</button>
-    <button type="button" class="segmentItem">6개월</button>
-  </div>
-
-  <!-- Large -->
-  <div class="segment lg">
-    <button type="button" class="segmentItem isActive">1개월</button>
-    <button type="button" class="segmentItem">3개월</button>
-    <button type="button" class="segmentItem">6개월</button>
-  </div>
-</div>

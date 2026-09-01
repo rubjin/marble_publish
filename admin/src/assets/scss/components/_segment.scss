@@ -1,24 +1,25 @@
 /* ==========================================================================
-   Segment (Segmented Control) Component
+   Segment Component
    ========================================================================== */
 
 .segment {
   display: inline-flex;
   align-items: center;
-  padding: 3px;
-  background-color: $gray100;
-  border-radius: $radiusMd;
+  padding: 4px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
   user-select: none;
-  gap: 2px;
+  gap: 4px;
 
   .segmentItem {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 16px;
-    font-size: 13px;
+    height: 26px;
+    padding: 0px 12px;
+    font-size: 12px;
     font-weight: 500;
-    color: #6b7280;
+    color: #6D717B;
     background: transparent;
     border: none;
     border-radius: 6px;
@@ -27,6 +28,7 @@
     transition: all 0.2s ease;
     white-space: nowrap;
     position: relative;
+    line-height: 1;
 
     input[type="radio"] {
       position: absolute;
@@ -40,17 +42,16 @@
       z-index: 1;
     }
 
-    &:hover {
-      color: $gray800;
-    }
+    // &:hover {
+    //   color: $gray800;
+    // }
 
     // Active State (Button & Radio)
     &.isActive,
     &:has(input[type="radio"]:checked) {
-      background-color: $white;
-      color: $gray800;
+      color: #fff;
+      background: #4F535A;
       font-weight: 700;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     &:disabled,
@@ -63,35 +64,35 @@
   }
 
   // Size Variants
-  &.sm {
-    padding: 2px;
-    border-radius: 6px;
+  // &.sm {
+  //   padding: 2px;
+  //   border-radius: 6px;
 
-    .segmentItem {
-      padding: 4px 10px;
-      font-size: 12px;
-      border-radius: 4px;
-    }
-  }
+  //   .segmentItem {
+  //     padding: 4px 10px;
+  //     font-size: 12px;
+  //     border-radius: 4px;
+  //   }
+  // }
 
-  &.lg {
-    padding: 4px;
-    border-radius: 10px;
+  // &.lg {
+  //   padding: 4px;
+  //   border-radius: 10px;
 
-    .segmentItem {
-      padding: 8px 20px;
-      font-size: 14px;
-      border-radius: 8px;
-    }
-  }
+  //   .segmentItem {
+  //     padding: 8px 20px;
+  //     font-size: 14px;
+  //     border-radius: 8px;
+  //   }
+  // }
 
   // Full Width
-  &.full {
-    display: flex;
-    width: 100%;
+  // &.full {
+  //   display: flex;
+  //   width: 100%;
 
-    .segmentItem {
-      flex: 1;
-    }
-  }
+  //   .segmentItem {
+  //     flex: 1;
+  //   }
+  // }
 }
