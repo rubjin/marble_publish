@@ -3,241 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - 공통 레이아웃</title>
+  <title>Admin</title>
   <link rel="stylesheet" href="../assets/css/globals.css">
 </head>
 <body>
   <div class="boWrap">
     <!-- 좌측 메뉴바 (260px) -->
     <aside class="boSidebar">
-  <ul class="boMenu">
-    <li>
-      <!-- [D] 메뉴 선택상태 : isisActive 클래스 추가 -->
-      <a href="#" class="isisActive">
-        <span class="ico side1"></span>
-        <span class="text">대시보드</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side2"></span>
-        <span class="text">가입/고객관리</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-    <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
-    <li class="isOpen">
-      <a href="#" class="isActive">
-        <span class="ico side3"></span>
-        <span class="text">미션관리</span>
-        <span class="arrow"></span>
-      </a>
-      <ul class="boSubMenu">
-        <li>
-          <a href="#" class="isActive">
-            <span class="ico sideSub"></span>
-            <span class="text">미션등록</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side4"></span>
-        <span class="text">리워드관리</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side5"></span>
-        <span class="text">알림관리</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side6"></span>
-        <span class="text">통계/분석</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side7"></span>
-        <span class="text">관리자 관리</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-  </ul>
+  <!-- 상단 로고 -->
+  <div class="sideHeader">
+    <a href="#" class="sideLogo">
+      <span class="logoStar"></span>
+    </a>
+  </div>
+
+  <!-- 즐겨찾기 메뉴 드롭다운 -->
+  <div class="sideFavorite">
+    <div class="formControlWrap full">
+      <select class="formControl full selectFavorite">
+        <option value="">즐겨찾기 메뉴</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 메뉴 리스트 -->
+  <nav class="sideNav">
+    <ul class="boMenu">
+      <li>
+        <a href="#">
+          <span class="text">대시보드</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">가입/고객관리</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+      <li class="isOpen">
+        <a href="#" class="isActive">
+          <span class="text">미션관리</span>
+          <span class="arrow"></span>
+        </a>
+        <ul class="boSubMenu">
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="isActive">
+              <span class="ico sideSub"></span>
+              <span class="text">미션홈관리</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">리워드관리</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">알림관리</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">통계/분석</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">관리자 관리</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 하단 영역 (세션연장/로그아웃 버튼 및 접기 버튼) -->
+  <div class="sideBottom">
+    <div class="sideBtns">
+      <button type="button" class="btnSide">세션연장</button>
+      <button type="button" class="btnSide">로그아웃</button>
+    </div>
+    <button type="button" class="btnFold" aria-label="사이드바 축소/확대">
+      <span class="ico fold"></span>
+    </button>
+  </div>
 </aside>
 
     <!-- 우측 콘텐츠 영역 -->
     <main class="boContainer">
+      <!-- 헤더 -->
       <header class="boHeader">
         <div class="headerLeft">
           <h1>Admin</h1>
           <span class="headerDate">2026-06-09 (실시간)</span>
         </div>
         <div class="headerUtil">
+          <span class="badge account">관리자</span>
           <ul class="listBar">
-            <li class="listBarItem"><span class="label">권한</span><span class="value">관리자</span></li>
-            <li class="listBarItem"><span class="label">이름</span><span class="value">따따따</span></li>
-            <li class="listBarItem"><button type="button" class="btn outline sm">로그아웃</button></li>
+            <li class="listBarItem"><span class="label">김국민</span><span class="value">(KB123456)님</span></li>
+            <li class="listBarItem"><button type="button" class="btn ghost sm">로그아웃<span class="ico logout"></span></button></li>
           </ul>
         </div>
       </header>
       <div class="boContent">
 
-        <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-        <div class="pageHeader">
-          <h2 class="pageTitle">미션등록</h2>
-          <nav class="breadcrumb" aria-label="브레드크럼">
-            <ol class="breadcrumbList">
-              <li class="breadcrumbItem">
-                <a href="#" class="breadcrumbLink">홈</a>
-              </li>
-              <li class="breadcrumbItem">
-                <a href="#" class="breadcrumbLink">미션관리</a>
-              </li>
-              <li class="breadcrumbItem isCurrent" aria-current="page">
-                미션등록
-              </li>
-            </ol>
-          </nav>
+
+
+
+
+
+
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<div class="pageHeader">
+  <h2 class="pageTitle">미션등록</h2>
+  <nav class="breadcrumb" aria-label="브레드크럼">
+    <ol class="breadcrumbList">
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">홈</a>
+      </li>
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">미션관리</a>
+      </li>
+      <li class="breadcrumbItem isCurrent" aria-current="page">
+        미션등록
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<!-- ==================== 섹션 1 ==================== -->
+<section class="boSection">
+  <h2 class="sectionTitle">섹션타이틀</h2>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+
+  </div>
+  <!-- 하단 버튼 영역 -->
+  <div class="btnArea">
+    <button type="button" class="btn outline">취소</button>
+    <button type="button" class="btn primary">저장</button>
+  </div>
+</section>
+
+<!-- ==================== 섹션 2 ==================== -->
+<section class="boSection">
+  <h2 class="sectionTitle">섹션타이틀</h2>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 타이틀 + 건수 + 버튼 -->
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">테이블타이틀</h3>
+        <span class="tblCount">총 <strong>3</strong>건</span>
+      </div>
+      <div class="tblRight">
+        <div class="btnGroup">
+          <button type="button" class="btn outline sm">추가</button>
+          <button type="button" class="btn outline sm">삭제</button>
         </div>
+      </div>
+    </div>
+    <!-- 테이블 영역 -->
+    <div class="tblWrap">
+      <table class="tbl tblStriped tblBordered tblCenter">
+        <thead>
+          <tr>
+            <th>헤더1</th>
+            <th>헤더2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>내용1</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>내용1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-        <!-- ==================== 섹션 1 ==================== -->
-        <section class="boSection">
-          <h2 class="sectionTitle">기본 정보 설정</h2>
-          <!-- 하얀 박스 영역 -->
-          <div class="sectionBox">
-            <div class="formGroup">
-              <label class="formLabel">미션명 <span class="required">*</span></label>
-              <div class="formControlWrap">
-                <input type="text" class="formControl" placeholder="미션명을 입력하세요">
-              </div>
-            </div>
-            <div class="formGroup">
-              <label class="formLabel">미션 카테고리</label>
-              <div class="formControlWrap">
-                <select class="formControl">
-                  <option value="">카테고리를 선택하세요</option>
-                  <option value="1">금융/상식</option>
-                  <option value="2">건강/생활</option>
-                  <option value="3">이벤트</option>
-                </select>
-              </div>
-            </div>
-            <div class="formGroup">
-              <label class="formLabel">미션 설명</label>
-              <div class="formControlWrap">
-                <textarea class="formControl" placeholder="미션에 대한 상세 설명을 입력하세요"></textarea>
-              </div>
-            </div>
-          </div>
-          <!-- 하단 버튼 영역 -->
-          <div class="btnArea">
-            <button type="button" class="btn outline md">취소</button>
-            <button type="button" class="btn primary md">임시저장</button>
-          </div>
-        </section>
+  </div>
+  <!-- 하단 버튼 영역 -->
+  <div class="btnArea">
+    <button type="button" class="btn outline">초기화</button>
+    <button type="button" class="btn primary">저장</button>
+  </div>
+</section>
 
-        <!-- ==================== 섹션 2 ==================== -->
-        <section class="boSection">
-          <h2 class="sectionTitle">상세 조건 및 리워드 설정</h2>
-          <!-- 하얀 박스 영역 -->
-          <div class="sectionBox">
-            <!-- 테이블 상단 타이틀 + 건수 + 버튼 -->
-            <div class="tblTop">
-              <div class="tblLeft">
-                <h3 class="tblTitle">지급 리워드 목록</h3>
-                <span class="tblCount">총 <strong>3</strong>건</span>
-              </div>
-              <div class="tblRight">
-                <div class="btnGroup">
-                  <button type="button" class="btn outline sm">항목 추가</button>
-                  <button type="button" class="btn outline sm">선택 삭제</button>
-                </div>
-              </div>
-            </div>
-            <!-- 테이블 영역 -->
-            <div class="tblWrap">
-              <table class="tbl">
-                <thead>
-                  <tr>
-                    <th style="width: 60px;">NO</th>
-                    <th>리워드 구분</th>
-                    <th>지급 포인트</th>
-                    <th>일일 한도</th>
-                    <th>상태</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>출석체크 기본 보상</td>
-                    <td>10 P</td>
-                    <td>1회</td>
-                    <td><span class="badge ongoing sm">활성</span></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>연속 7일 달성 보상</td>
-                    <td>100 P</td>
-                    <td>1회</td>
-                    <td><span class="badge ongoing sm">활성</span></td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>월간 완주 특별 보상</td>
-                    <td>500 P</td>
-                    <td>1회</td>
-                    <td><span class="badge completed sm">비활성</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- 하단 버튼 영역 -->
-          <div class="btnArea">
-            <button type="button" class="btn outline md">초기화</button>
-            <button type="button" class="btn primary md">저장</button>
-          </div>
-        </section>
-
-        <!-- ==================== 섹션 3 ==================== -->
-        <section class="boSection">
-          <h2 class="sectionTitle">운영 및 노출 설정</h2>
-          <!-- 하얀 박스 영역 -->
-          <div class="sectionBox">
-            <div class="formGroup">
-              <label class="formLabel">노출 기간</label>
-              <div class="formControlWrap formDatepicker">
-                <input type="text" class="formControl" placeholder="YYYY-MM-DD ~ YYYY-MM-DD">
-                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-              </div>
-            </div>
-            <div class="formGroup">
-              <label class="formLabel">실시간 노출 여부</label>
-              <div class="toggleGroup">
-                <label class="toggle">
-                  <input type="checkbox" class="toggleInput" checked>
-                  <span class="toggleSlider"></span>
-                </label>
-                <span class="toggleLabel">사용자 화면에 즉시 노출</span>
-              </div>
-            </div>
-          </div>
-          <!-- 하단 버튼 영역 -->
-          <div class="btnArea">
-            <button type="button" class="btn outline md">취소</button>
-            <button type="button" class="btn primary md">최종 등록</button>
-          </div>
-        </section>
+<!-- ==================== 섹션 3 ==================== -->
+<section class="boSection">
+  <h2 class="sectionTitle">섹션타이틀</h2>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+   
+  </div>
+  <!-- 하단 버튼 영역 -->
+  <div class="btnArea">
+    <button type="button" class="btn outline">취소</button>
+    <button type="button" class="btn primary">등록</button>
+  </div>
+</section>
 
       </div>
     </main>
   </div>
+  <script src="../assets/js/ui.js"></script>
 </body>
 </html>

@@ -148,7 +148,7 @@
       <button type="button" class="guideNavItem" data-target="sectionIcons">Icons</button>
       <button type="button" class="guideNavItem" data-target="sectionBadges">Badges</button>
       <!-- <button type="button" class="guideNavItem" data-target="sectionTabs">Tabs</button> -->
-      <button type="button" class="guideNavItem" data-target="sectionCards">Cards</button>
+      <!-- <button type="button" class="guideNavItem" data-target="sectionCards">Cards</button> -->
       <button type="button" class="guideNavItem" data-target="sectionForms">Forms</button>
       <button type="button" class="guideNavItem" data-target="sectionPopups">Popups</button>
       <button type="button" class="guideNavItem" data-target="sectionTypography">Typography</button>
@@ -163,78 +163,155 @@
     <!-- ==================== 1. 버튼 가이드 ==================== -->
     <section id="sectionButtons" class="guideSection">
       <h2 class="guideTitle">Buttons (버튼)</h2>
-      <div class="guideBox">
-        <!-- Primary -->
+      <div class="guideBox" style="gap: 5px;">
+        <!-- Ghost -->
+<button type="button" class="btn ghost sm">Ghost SM</button>
+<button type="button" class="btn ghost">Ghost Default</button>
+<button type="button" class="btn ghost lg">Ghost LG</button>
+
+<!-- Primary -->
 <button type="button" class="btn primary sm">Primary SM</button>
-<button type="button" class="btn primary md">Primary MD</button>
+<button type="button" class="btn primary">Primary Default</button>
 <button type="button" class="btn primary lg">Primary LG</button>
+
+<!-- Dark -->
+<button type="button" class="btn dark sm">Dark SM</button>
+<button type="button" class="btn dark">Dark Default</button>
+<button type="button" class="btn dark lg">Dark LG</button>
+
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
 
 <!-- Outline -->
 <button type="button" class="btn outline sm">Outline SM</button>
-<button type="button" class="btn outline md">Outline MD</button>
+<button type="button" class="btn outline">Outline Default</button>
 <button type="button" class="btn outline lg">Outline LG</button>
+
+<!-- Light -->
+<button type="button" class="btn light sm">Light SM</button>
+<button type="button" class="btn light">Light Default</button>
+<button type="button" class="btn light lg">Light LG</button>
+
+<!-- Danger -->
+<button type="button" class="btn danger sm">Danger SM</button>
+<button type="button" class="btn danger">Danger Default</button>
+<button type="button" class="btn danger lg">Danger LG</button>
+
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
 
 <!-- Full Width -->
 <button type="button" class="btn primary full">Primary Full Width</button>
 <button type="button" class="btn outline full">Outline Full Width</button>
 
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+
 <!-- Disabled -->
 <button type="button" class="btn primary" disabled>Disabled (Primary)</button>
 <button type="button" class="btn outline isDisabled">Disabled (Outline)</button>
 
+
+
       </div>
 
       <!-- ==================== 아이콘 버튼 가이드 ==================== -->
+      <h2 class="guideTitle">페이지 하단 버튼</h2>
+      <div class="guideBox">
+        <!-- 페이지 하단 버튼 영역 -->
+<div class="btnArea pageBottom">
+  <div class="btnGroup">
+    <button type="button" class="btn outline">목록</button>
+    <button type="button" class="btn outline">초기화</button>
+  </div>
+  <!-- 오른쪽 정렬 버튼 그룹 -->
+  <div class="btnGroup btnGroupRight">
+    <button type="button" class="btn outline">임시저장</button>
+    <button type="button" class="btn outline">승인 요청</button>
+    <button type="button" class="btn primary">저장</button>
+  </div>
+</div>
+
+<!-- 테이블 상단 타이틀 + 건수 + 버튼 -->
+<div class="tblTop">
+  <div class="tblLeft">
+    <h3 class="tblTitle">챌린지 운영 현황</h3>
+    <span class="tblCount">총 <strong>6</strong>건</span>
+  </div>
+  <div class="tblRight">
+    <div class="btnGroup">
+      <button type="button" class="btn outline">챌린지 추가</button>
+      <button type="button" class="btn outline">
+        <span class="ico download"></span>
+        <span>엑셀 다운로드</span>
+      </button>
+    </div>
+  </div>
+</div>
+      </div>
+
+       <h2 class="guideTitle">페이지 버튼</h2>
+      <div class="guideBox" style="gap: 5px;">
+        
+<div class="btnGroup sm">
+  <button type="button" class="btn outline">복사</button>
+  <button type="button" class="btn danger">삭제</button>
+</div>
+
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+
+<button type="button" class="btn outline">찾아보기</button>
+<button type="button" class="btn outline">연결 해제</button>
+
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+
+<button type="button" class="btn dark">화면선택</button>
+<button type="button" class="btn dark">파일선택</button>
+<button type="button" class="btn dark">메모 등록</button>
+<button type="button" class="btn dark">모바일 미리보기</button>
+<button type="button" class="btn dark">+ 단계 추가하기</button>
+<button type="button" class="btn dark">리워드 선택</button>
+
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+
+<button type="button" class="btn light">파일 선택</button>
+<button type="button" class="btn light">메모 등록</button>
+      </div>
+
+       <!-- ==================== 아이콘 버튼 가이드 ==================== -->
       <h2 class="guideTitle">Icon Buttons (아이콘 버튼)</h2>
       <div class="guideBox">
         <!-- Icon Button - Primary -->
-<button type="button" class="btn primary sm">
-  <span class="ico"></span>
-  <span>추가</span>
-</button>
-<button type="button" class="btn primary md">
-  <span class="ico"></span>
-  <span>추가</span>
-</button>
-<button type="button" class="btn primary lg">
-  <span class="ico"></span>
-  <span>추가</span>
-</button>
+
 
 <!-- Icon Button - Outline -->
-<button type="button" class="btn outline sm">
-  <span class="ico"></span>
-  <span>수정</span>
-</button>
-<button type="button" class="btn outline md">
-  <span class="ico"></span>
-  <span>삭제</span>
-</button>
-<button type="button" class="btn outline md">
-  <span class="ico"></span>
-  <span>다운로드</span>
+<button type="button" class="btn outline">
+  <span class="ico download"></span>
+  <span>엑셀 다운로드</span>
 </button>
 
 <!-- Icon Only Button -->
-<button type="button" class="btn primary sm">
+<!-- <button type="button" class="btn primary sm">
   <span class="ico"></span>
-</button>
-<button type="button" class="btn outline sm">
-  <span class="ico"></span>
-</button>
+</button> -->
 
       </div>
 
       <!-- ==================== 세그먼트 가이드 ==================== -->
       <h2 class="guideTitle">Segment (세그먼트)</h2>
-      <div class="guideBox guideBoxBlock">
-        <!-- 1. 버튼 방식 (선택 상태: isActive) -->
+      <div class="guideBox guideBoxBlock" style="background-color: #666;">
+        <!-- 
+  [D] 세그먼트 컴포넌트 개발 가이드
+  - 버튼 방식: 선택된 항목에 'isActive' 클래스 추가
+  - 라디오 방식: input에 'checked' 속성 제어
+  - 비활성화: 'isDisabled' 클래스 또는 disabled 속성 추가
+  - 사이즈: 기본(MD), 'sm'(작은 크기), 'lg'(큰 크기), 'full'(가로 100% 꽉 채움)
+-->
+
+<!-- 1. 버튼 방식 (선택 상태: isActive) -->
+<!-- Small, Large -> sm, lg -->
 <div class="segment">
   <!-- [D] 선택된 항목: isActive 클래스 추가 -->
-  <button type="button" class="segmentItem isActive">전체</button>
-  <button type="button" class="segmentItem">일간</button>
-  <button type="button" class="segmentItem">주간</button>
-  <button type="button" class="segmentItem">월간</button>
+  <button type="button" class="segmentItem isActive">일별 (DAU)</button>
+  <button type="button" class="segmentItem">월별 (MAU)</button>
+  <button type="button" class="segmentItem">서비스 고척도</button>
 </div>
 
 <!-- 2. 라디오 방식 (선택 상태: input checked) -->
@@ -242,130 +319,74 @@
   <!-- [D] 선택된 항목: input checked 속성 제어 -->
   <label class="segmentItem">
     <input type="radio" name="missionState" checked>
-    <span class="segmentText">전체</span>
+    <span class="segmentText">일별 (DAU)</span>
   </label>
   <label class="segmentItem">
     <input type="radio" name="missionState">
-    <span class="segmentText">진행중</span>
+    <span class="segmentText">월별 (MAU)</span>
   </label>
   <label class="segmentItem">
     <input type="radio" name="missionState">
-    <span class="segmentText">종료</span>
+    <span class="segmentText">서비스 고척도</span>
   </label>
 </div>
 
-<!-- 3. 사이즈 변형 -->
-<div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-  <!-- Small -->
-  <div class="segment sm">
-    <button type="button" class="segmentItem isActive">1개월</button>
-    <button type="button" class="segmentItem">3개월</button>
-    <button type="button" class="segmentItem">6개월</button>
-  </div>
-
-  <!-- Medium (Default) -->
-  <div class="segment">
-    <button type="button" class="segmentItem isActive">1개월</button>
-    <button type="button" class="segmentItem">3개월</button>
-    <button type="button" class="segmentItem">6개월</button>
-  </div>
-
-  <!-- Large -->
-  <div class="segment lg">
-    <button type="button" class="segmentItem isActive">1개월</button>
-    <button type="button" class="segmentItem">3개월</button>
-    <button type="button" class="segmentItem">6개월</button>
-  </div>
-</div>
 
       </div>
 
       <!-- ==================== 토글 스위치 가이드 ==================== -->
-      <h2 class="guideTitle">Toggle (토글 스위치)</h2>
+      <!-- <h2 class="guideTitle">Toggle (토글 스위치)</h2>
       <div class="guideBox guideBoxBlock">
-        <!-- 1. 기본 토글 스위치 (ON/OFF 체크박스) -->
-<div style="display: flex; gap: 24px; align-items: center;">
-  <!-- Default (OFF) -->
-  <label class="toggle">
-    <input type="checkbox" class="toggleInput">
-    <span class="toggleSlider"></span>
-  </label>
-
-  <!-- Checked (ON) -->
-  <label class="toggle">
-    <input type="checkbox" class="toggleInput" checked>
-    <span class="toggleSlider"></span>
-  </label>
-
-  <!-- Disabled (OFF) -->
-  <label class="toggle">
-    <input type="checkbox" class="toggleInput" disabled>
-    <span class="toggleSlider"></span>
-  </label>
-
-  <!-- Disabled (ON) -->
-  <label class="toggle">
-    <input type="checkbox" class="toggleInput" checked disabled>
-    <span class="toggleSlider"></span>
-  </label>
-</div>
-
-<!-- 2. 라벨 텍스트 결합형 토글 스위치 -->
-<div style="display: flex; flex-direction: column; gap: 16px; margin-top: 20px;">
-  <div class="toggleGroup">
-    <label class="toggle">
-      <input type="checkbox" class="toggleInput" checked>
-      <span class="toggleSlider"></span>
-    </label>
-    <span class="toggleLabel">미션 실시간 노출 허용</span>
-  </div>
-
-  <div class="toggleGroup">
-    <label class="toggle">
-      <input type="checkbox" class="toggleInput">
-      <span class="toggleSlider"></span>
-    </label>
-    <span class="toggleLabel">마케팅 푸시 자동 발송</span>
-  </div>
-</div>
-
-      </div>
+        <include src="./src/components/toggle.html"></include>
+      </div> -->
 
       <!-- ==================== 탭 가이드 ==================== -->
-      <h2 class="guideTitle">Tabs (탭 메뉴)</h2>
+      <!-- <h2 class="guideTitle">Tabs (탭 메뉴)</h2>
       <div class="guideBox guideBoxBlock">
-        <!-- 
-  [D] 탭 컴포넌트 개발 가이드
-  - 선택된 탭: .item에 'isActive' 클래스 추가
--->
-<nav class="tab">
-  <!-- [D] 활성 상태: isActive 클래스 추가 -->
-  <button type="button" class="item isActive">활성화 탭 (Active)</button>
-  <button type="button" class="item">디폴트 탭 (Default)</button>
-  <button type="button" class="item">세 번째 탭</button>
-</nav>
-
-      </div>
+        <include src="./src/components/tab.html"></include>
+      </div> -->
     </section>
 
     <!-- ==================== 아이콘 가이드 ==================== -->
     <section id="sectionIcons" class="guideSection">
       <h2 class="guideTitle">Icons (아이콘)</h2>
-      <div class="guideBox guideSizeGroup" style="background: #949494;">
+      <div class="guideBox guideSizeGroup" style="background: #99c4f8;">
         <!-- [D] Size varient : sm lg xl 클래스 추가 -->
 <!-- 16px (Small) -->
-<span class="ico sm"></span>
+<span class="ico sm calendar"></span>
+<span class="ico sm download"></span>
 
-<!-- 20px (Medium / Default) -->
-<span class="ico"></span>
+<!-- 20px (Default) -->
+<span class="ico logout"></span>
+<span class="ico deleteTag"></span>
+<span class="ico statusIng"></span>
+<span class="ico statusAlarm"></span>
+<span class="ico statusRate"></span>
+<span class="ico statusAdd"></span>
+<span class="ico statusPoint"></span>
+<span class="ico select"></span>
 
-<!-- 24px (Large) -->
-<span class="ico lg"></span>
+<!-- 24px (Medium) -->
+<span class="ico md breadcrumb"></span>
+<span class="ico md checkbox"></span>
+<span class="ico md checkboxChecked"></span>
+<span class="ico md radio"></span>
+<span class="ico md radioChecked"></span>
+<span class="ico md deleteFile"></span>
 
-<!-- 32px (X-Large) -->
-<span class="ico xl"></span>
+
+<!-- 30px (Large) -->
+<span class="ico lg drag"></span>
+
+<!-- 36px (X-Large) -->
+<span class="ico xl upload"></span>
 
 
+      </div>
+
+      <h2 class="guideTitle">Icons (메뉴 아이콘)</h2>
+      <div class="guideBox guideSizeGroup" style="background: #949494;">
+        <!-- 20px 사이드바 아이콘 -->
 <span class="ico side1"></span>
 <span class="ico side2"></span>
 <span class="ico side3"></span>
@@ -373,49 +394,52 @@
 <span class="ico side5"></span>
 <span class="ico side6"></span>
 <span class="ico side7"></span>
-
+<span class="ico sideSub"></span>
       </div>
+
+    
     </section>
 
     <!-- ==================== 2. 뱃지 가이드 ==================== -->
     <section id="sectionBadges" class="guideSection">
-      <h2 class="guideTitle">Badges (상태 뱃지)</h2>
+      <h2 class="guideTitle">Badges</h2>
       <div class="guideBox">
-        <span class="badge ongoing">진행중</span>
-<span class="badge completed">완료</span>
+        <!-- Status -->
+<!-- <span class="badge ongoing">진행중</span>
+<span class="badge completed">종료</span> -->
 
-<span class="badge ongoing sm">진행중 SM</span>
-<span class="badge completed sm">완료 SM</span>
+<!-- Size -->
+<!-- <span class="badge ongoing sm">진행중 SM</span>
+<span class="badge ongoing lg">진행중 LG</span> -->
+<span class="badge account">관리자</span>
 
-<span class="badge ongoing lg">진행중 LG</span>
-<span class="badge completed lg">완료 LG</span>
+
 
       </div>
     </section>
 
     <!-- ==================== 4. 카드 가이드 ==================== -->
-    <section id="sectionCards" class="guideSection">
+    <!-- <section id="sectionCards" class="guideSection">
       <h2 class="guideTitle">Cards (카드)</h2>
       <div class="guideBox" style="background-color: #f3f4f6;">
-        <!-- Card -->
-<!-- <article class="card" style="width: 300px;">
-  <div class="thumb"></div>
-  <div class="content">
-    <span class="badge ongoing">진행중</span>
-    <h2 class="title">카드 타이틀 영역입니다.</h2>
-    <p class="desc">카드 설명 텍스트가 노출되는 영역입니다.</p>
-    <button type="button" class="btn primary">참여하기</button>
-  </div>
-</article> -->
-
+        <include src="./src/components/card.html"></include>
       </div>
-    </section>
+    </section> -->
 
     <!-- ==================== 5. 폼 가이드 ==================== -->
     <section id="sectionForms" class="guideSection">
       <h2 class="guideTitle">Forms (입력 폼)</h2>
       <div class="guideBox guideBoxBlock" style="max-width: 600px;">
-        <!-- 1. Text Input (기본) -->
+        <!-- 
+  [D] 폼 컴포넌트 개발 가이드
+  - 에러 상태: input/select/textarea에 'isError' 클래스 추가 & 하단 .formErrorMsg 노출
+  - 비활성화 상태: input에 'disabled' 속성 또는 'isDisabled' 클래스 추가
+  - 읽기전용 상태: input에 'readonly' 속성 추가
+  - 단위(Unit): 우측 단위 '.formControlWrap.hasUnit', 좌측 단위 '.formControlWrap.hasPrefix'
+  - 셀렉트 열림/포커스: select에 'isOpen' 클래스 추가 시 상단 화살표로 반전
+-->
+
+<!-- 1. Text Input (기본) -->
 <div class="formGroup">
   <label class="formLabel">텍스트 입력 <span class="required">*</span></label>
   <div class="formControlWrap">
@@ -464,132 +488,133 @@
 </div>
 
 <!-- 6. Checkbox Group -->
-<div class="formGroup">
-  <label class="formLabel">체크박스 그룹</label>
-  <div class="checkboxGroup">
-    <label class="checkbox">
+<fieldset class="formGroup">
+  <legend class="formLabel">체크박스 그룹</legend>
+  <div class="formCheckGroup">
+    <label class="formCheck">
       <input type="checkbox" checked>
-      <span class="customCheck"></span>
-      <span class="labelText">선택항목 A</span>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스1</span>
     </label>
-    <label class="checkbox">
+    <label class="formCheck">
       <input type="checkbox">
-      <span class="customCheck"></span>
-      <span class="labelText">선택항목 B</span>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스2</span>
     </label>
-    <label class="checkbox">
+    <label class="formCheck">
       <input type="checkbox" disabled>
-      <span class="customCheck"></span>
-      <span class="labelText">비활성 항목</span>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스 (disabled)</span>
     </label>
   </div>
-</div>
+</fieldset>
 
 <!-- 7. Radio Group -->
-<div class="formGroup">
-  <label class="formLabel">라디오 그룹</label>
-  <div class="radioGroup">
-    <label class="radio">
-      <input type="radio" name="exampleRadio" checked>
-      <span class="customRadio"></span>
-      <span class="labelText">옵션 1</span>
+<fieldset class="formGroup">
+  <legend class="formLabel">라디오 그룹</legend>
+  <div class="formCheckGroup">
+    <label class="formCheck">
+      <input type="radio" name="publicState" checked>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">라디오1</span>
     </label>
-    <label class="radio">
-      <input type="radio" name="exampleRadio">
-      <span class="customRadio"></span>
-      <span class="labelText">옵션 2</span>
-    </label>
-    <label class="radio">
-      <input type="radio" name="exampleRadio" disabled>
-      <span class="customRadio"></span>
-      <span class="labelText">비활성 옵션</span>
+    <label class="formCheck">
+      <input type="radio" name="publicState">
+      <span class="checkIcon"></span>
+      <span class="checkLabel">라디오2</span>
     </label>
   </div>
-</div>
+</fieldset>
 
-<!-- 8. Input with Unit / Prefix (단위/접두사 결합) -->
+<!-- 8. Input + Button 결합 -->
 <div class="formGroup">
-  <label class="formLabel">금액 입력</label>
-  <div class="formControlWrap hasUnit">
-    <input type="text" class="formControl" placeholder="0" style="text-align: right;">
-    <span class="formUnit">원</span>
-  </div>
-</div>
-
-<!-- 9. Input with Button (버튼 결합 인풋) -->
-<div class="formGroup">
-  <label class="formLabel">검색 / 코드 확인</label>
+  <label class="formLabel">인풋 + 버튼</label>
   <div class="formControlWrap hasBtn">
-    <input type="text" class="formControl" placeholder="코드 또는 검색어 입력">
-    <button type="button" class="btn primary sm">조회</button>
+    <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
+    <button type="button" class="btn outline">인증번호 발송</button>
   </div>
 </div>
 
-<!-- 10. Datepicker Input (달력 아이콘 인풋) -->
+<!-- 9. Input with Unit (우측 단위: hasUnit + .inputUnit) -->
 <div class="formGroup">
-  <label class="formLabel">일정 선택</label>
-  <div class="formControlWrap formDatepicker">
-    <input type="text" class="formControl" placeholder="YYYY-MM-DD">
-    <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+  <label class="formLabel">금액 / 수량 입력 (우측 단위)</label>
+  <div class="formControlWrap full hasUnit">
+    <input type="text" class="formControl" placeholder="0" value="50,000">
+    <span class="inputUnit">원</span>
   </div>
 </div>
+
 
       </div>
 
       <!-- ==================== 첨부파일 가이드 ==================== -->
       <h2 class="guideTitle">File Upload (첨부파일 & 드래그앤드롭)</h2>
       <div class="guideBox guideBoxBlock" style="max-width: 600px;">
-        <!-- File Dropzone -->
-<div class="fileDropzone">
-  <input type="file" class="fileInput" id="fileUploadInput" multiple>
-  <div class="dropzoneContent">
-    <svg class="dropzoneIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-      <polyline points="17 8 12 3 7 8"></polyline>
-      <line x1="12" y1="3" x2="12" y2="15"></line>
-    </svg>
-    <p class="dropzoneText">
-      파일을 마우스로 끌어오거나 <label for="fileUploadInput" class="fileSelectBtn">파일 선택</label>을 클릭하세요
-    </p>
-    <p class="dropzoneSubText">최대 50MB, JPG, PNG, PDF, ZIP 지원</p>
+        <!-- 
+  [D] 파일 첨부 컴포넌트 개발 가이드
+  - 기본형: input[type="file"] 변경 시 .fileUploadInput의 value에 파일명 바인딩
+  - 드롭존: 파일 드래그 시 'isDragOver' 클래스로 테두리/배경 활성화
+  - 파일 목록: .fileList 내부에 .fileItem 동적 렌더링 (파일이 없을 땐 .fileList를 비워두면 자동 숨김)
+-->
+
+<!-- 1. 기본 인풋형 파일 첨부 -->
+<div class="formGroup">
+  <label class="formLabel">첨부파일 (기본형)</label>
+  <div class="fileUpload">
+    <!-- [D] 선택된 파일명이 들어가는 인풋 -->
+    <input type="text" class="formControl fileUploadInput" placeholder="선택된 파일이 없습니다" readonly>
+    <label class="btn outline md fileUploadBtn">
+      파일 선택
+      <input type="file">
+    </label>
   </div>
 </div>
 
-<!-- File List -->
-<ul class="fileList">
-  <li class="fileItem">
-    <div class="fileInfo">
-      <span class="fileIcon">
-        <svg viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
-        </svg>
-      </span>
-      <span class="fileName">신규_이벤트_기획안_최종.pdf</span>
-      <span class="fileSize">2.4 MB</span>
+<!-- 2. 드래그 앤 드롭 파일 첨부 (Dropzone) -->
+<div class="formGroup">
+  <label class="formLabel">첨부파일 (드래그 & 드롭)</label>
+  
+  <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
+  <div class="fileDropzone">
+    <!-- 상단 드래그 & 클릭 영역 -->
+    <div class="dropzoneHeader">
+      <input type="file" multiple>
+      <div class="dropzoneIcon">
+        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      </div>
+      <p class="dropzoneText">파일을 마우스로 끌어오거나 <span class="highlight">클릭하여 업로드</span>하세요</p>
+      <p class="dropzoneDesc">지원 형식: JPG, PNG, PDF, ZIP (최대 20MB)</p>
     </div>
-    <button type="button" class="fileDelete" aria-label="파일 삭제">
-      <svg viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
-      </svg>
-    </button>
-  </li>
-  <li class="fileItem">
-    <div class="fileInfo">
-      <span class="fileIcon">
-        <svg viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
-        </svg>
-      </span>
-      <span class="fileName">메인_배너_디자인_시안.png</span>
-      <span class="fileSize">14.8 MB</span>
-    </div>
-    <button type="button" class="fileDelete" aria-label="파일 삭제">
-      <svg viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
-      </svg>
-    </button>
-  </li>
-</ul>
+
+    <!-- [D] 첨부된 파일 목록 (동적 렌더링 / 파일 없을 시 li 제거) -->
+    <ul class="fileList">
+      <li class="fileItem">
+        <div class="fileInfo">
+          <span class="fileIcon">
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+          </span>
+          <span class="fileName">2026_이벤트_기획안_v1.2.pdf</span>
+          <span class="fileSize">(1.4 MB)</span>
+        </div>
+        <button type="button" class="fileDelete" aria-label="삭제">
+          <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </li>
+      <li class="fileItem">
+        <div class="fileInfo">
+          <span class="fileIcon">
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
+          </span>
+          <span class="fileName">메인_배너_이미지_01.png</span>
+          <span class="fileSize">(840 KB)</span>
+        </div>
+        <button type="button" class="fileDelete" aria-label="삭제">
+          <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
 
       </div>
     </section>
@@ -600,23 +625,44 @@
       
       <!-- 팝업 컴포넌트를 강제로 상자 안에 가둬서 보여주는 래퍼 -->
       <div class="guideBox popupPreviewBox">
-        <!-- 1. 기본 모달 팝업 (Default Modal) -->
-<div class="popupDimmed isOpen" style="position: static;">
-  <div class="popupModal" role="dialog" aria-modal="true" aria-labelledby="popupTitle1" style="box-shadow: none;">
+        <!-- 
+  [D] 모달 팝업 컴포넌트 개발 가이드
+  - 팝업 열기: .popupDimmed에 'isOpen' 클래스 추가
+  - 팝업 닫기: .popupDimmed에서 'isOpen' 클래스 제거
+  - 사이즈: 기본(MD), 'lg'(큰 팝업: .popupWrap.lg)
+-->
+
+<!-- 1. 기본 모달 팝업 (Default) -->
+<!-- [D] 팝업 노출 시: isOpen 클래스 추가 (예: class="popupDimmed isOpen") -->
+<div id="popupBasic" class="popupDimmed">
+  <div class="popupWrap">
     <div class="popupHeader">
-      <h3 class="popupTitle" id="popupTitle1">팝업 타이틀</h3>
-      <button type="button" class="popupCloseBtn" aria-label="닫기">
-        <svg viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
-      </button>
+      <h2 class="popupTitle">팝업 타이틀 (기본)</h2>
+      <button type="button" class="btnClose" aria-label="닫기"></button>
     </div>
     <div class="popupBody">
-      <p>모달 팝업 본문 내용이 출력되는 영역입니다.<br>줄바꿈 텍스트 및 상세 설명을 입력할 수 있습니다.</p>
+      <p>기본 사이즈 팝업 컨텐츠 영역입니다.</p>
+      <p>여기에 텍스트나 폼 요소 등 다양한 내용을 넣을 수 있습니다.</p>
     </div>
     <div class="popupFooter">
-      <button type="button" class="btn outline md">취소</button>
-      <button type="button" class="btn primary md">확인</button>
+      <button type="button" class="btn outline">취소</button>
+      <button type="button" class="btn primary">확인</button>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 대형 모달 팝업 (Large) -->
+<div id="popupLarge" class="popupDimmed">
+  <div class="popupWrap lg">
+    <div class="popupHeader">
+      <h2 class="popupTitle">팝업 타이틀 (Large)</h2>
+      <button type="button" class="btnClose" aria-label="닫기"></button>
+    </div>
+    <div class="popupBody">
+      <p>가로 너비가 넓은(lg) 팝업입니다. 복잡한 표나 폼이 들어갈 때 사용합니다.</p>
+    </div>
+    <div class="popupFooter">
+      <button type="button" class="btn primary">확인</button>
     </div>
   </div>
 </div>
@@ -625,38 +671,69 @@
       <!-- ==================== 토스트 팝업 가이드 ==================== -->
       <h2 class="guideTitle">Toast (토스트 팝업)</h2>
       <div class="guideBox guideBoxBlock" style="max-width: 600px;">
-        <!-- Toast Group -->
-<div class="toastGroup">
-  <!-- Info -->
-  <div class="toast info">
-    <span class="toastIcon">
-      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-    </span>
-    <p class="toastMsg">정보성 안내 메시지입니다.</p>
-  </div>
+        <!-- 
+  [D] 토스트 팝업 컴포넌트 개발 가이드
+  - 테마 타입: 기본(다크), 'success'(성공), 'error'(에러), 'warning'(경고), 'info'(정보)
+  - 위치 고정: .toastContainer(.topCenter, .bottomCenter, .topRight 등) 래퍼 내부에 .toast 노출
+-->
 
+<!-- 1. 기본 다크 토스트 (Default Dark) -->
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px;">
+  <div class="toast">
+    <span class="toastIcon">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/></svg>
+    </span>
+    <span class="toastMessage">설정이 성공적으로 저장되었습니다.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- 2. 상태별 라이트 토스트 (Variants) -->
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px; margin-top: 16px;">
   <!-- Success -->
   <div class="toast success">
     <span class="toastIcon">
-      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
     </span>
-    <p class="toastMsg">요청하신 작업이 성공적으로 처리되었습니다.</p>
-  </div>
-
-  <!-- Warning -->
-  <div class="toast warning">
-    <span class="toastIcon">
-      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
-    </span>
-    <p class="toastMsg">입력하신 정보가 올바른지 다시 확인해주세요.</p>
+    <span class="toastMessage">요청이 정상적으로 처리되었습니다.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
   </div>
 
   <!-- Error -->
   <div class="toast error">
     <span class="toastIcon">
-      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd"/></svg>
     </span>
-    <p class="toastMsg">오류가 발생하여 작업을 완료하지 못했습니다.</p>
+    <span class="toastMessage">데이터 저장 중 오류가 발생했습니다.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+
+  <!-- Warning -->
+  <div class="toast warning">
+    <span class="toastIcon">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+    </span>
+    <span class="toastMessage">필수 입력 항목을 다시 확인해 주세요.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+
+  <!-- Info -->
+  <div class="toast info">
+    <span class="toastIcon">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/></svg>
+    </span>
+    <span class="toastMessage">새로운 업데이트 사항이 있습니다.</span>
+    <button type="button" class="toastClose" aria-label="닫기">
+      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
   </div>
 </div>
 
@@ -665,20 +742,65 @@
       <!-- ==================== 툴팁 가이드 ==================== -->
       <h2 class="guideTitle">Tooltip (툴팁)</h2>
       <div class="guideBox guideBoxBlock">
-        <div style="display: flex; gap: 40px; align-items: center; padding: 40px 20px;">
-  <!-- Top Tooltip -->
-  <div class="tooltipWrap">
-    <button type="button" class="btn outline sm">상단 툴팁 (Top)</button>
-    <div class="tooltip top isOpen">
-      <span>상단에 노출되는 툴팁 도움말입니다.</span>
+        <!-- 
+  [D] 툴팁 컴포넌트 개발 가이드
+  - 방향 제어: .tooltipWrap에 'top'(기본), 'bottom', 'left', 'right' 클래스 부여
+  - 강제 열림 상태: .tooltipWrap에 'isOpen' 클래스 추가 시 호버 없이도 상시 노출
+  - 다중 라인: .tooltipContent에 'multiLine' 클래스 추가
+-->
+
+<!-- 1. 기본 아이콘 툴팁 (방향별: top / bottom / left / right) -->
+<div style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap; padding: 40px 20px;">
+  <!-- Top (기본) -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>상단 툴팁</span>
+    <div class="tooltipWrap top">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">상단에 노출되는 설명 툴팁입니다.</div>
     </div>
   </div>
 
-  <!-- Bottom Tooltip -->
-  <div class="tooltipWrap">
-    <button type="button" class="btn outline sm">하단 툴팁 (Bottom)</button>
-    <div class="tooltip bottom isOpen">
-      <span>하단에 노출되는 툴팁 도움말입니다.</span>
+  <!-- Bottom -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>하단 툴팁</span>
+    <div class="tooltipWrap bottom">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">하단에 노출되는 설명 툴팁입니다.</div>
+    </div>
+  </div>
+
+  <!-- Left -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>좌측 툴팁</span>
+    <div class="tooltipWrap left">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">좌측 설명 툴팁입니다.</div>
+    </div>
+  </div>
+
+  <!-- Right -->
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <span>우측 툴팁</span>
+    <div class="tooltipWrap right">
+      <button type="button" class="tooltipBtn" aria-label="도움말">?</button>
+      <div class="tooltipContent" role="tooltip">우측 설명 툴팁입니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 버튼 툴팁 및 다중 라인 -->
+<div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap; padding: 10px 20px;">
+  <!-- 버튼 위 툴팁 -->
+  <div class="tooltipWrap top">
+    <button type="button" class="btn outline">마우스를 올려보세요</button>
+    <div class="tooltipContent" role="tooltip">클릭 시 상세 모달이 열립니다.</div>
+  </div>
+
+  <!-- [D] 다중 라인 말풍선: multiLine 클래스 추가 -->
+  <div class="tooltipWrap bottom">
+    <button type="button" class="btn primary">안내 정보</button>
+    <div class="tooltipContent multiLine" role="tooltip">
+      최대 3줄까지 입력 가능한 긴 설명 툴팁입니다. 자동 줄바꿈이 적용됩니다.
     </div>
   </div>
 </div>
@@ -686,49 +808,39 @@
       </div>
     </section>
 
+
+   
     <!-- ==================== 7. 아코디언 가이드 ==================== -->
     <section id="sectionAccordion" class="guideSection">
       <h2 class="guideTitle">Accordion (아코디언)</h2>
       <div class="guideBox guideBoxBlock" style="max-width: 700px;">
-        <!-- Accordion Group -->
+        <!-- 기본 아코디언 -->
+<!-- [D] 아코디언 열림 상태: isOpen 클래스 추가 -->
+<div class="accordion isOpen">
+  <button type="button" class="accordionHeader">
+    <span>아코디언 제목 1 (열림)</span>
+    <span class="accordionArrow"></span>
+  </button>
+  <div class="accordionBody">
+    <p>아코디언 내용입니다. 여기에 텍스트, 이미지, 폼 등 다양한 콘텐츠를 넣을 수 있습니다.</p>
+  </div>
+</div>
 <div class="accordion">
-  <!-- Item 1 (열림: isOpen) -->
-  <div class="accordionItem isOpen">
-    <button type="button" class="accordionHeader" aria-expanded="true">
-      <span class="accordionTitle">챌린지 미션 참여 조건은 어떻게 되나요?</span>
-      <span class="accordionArrow"></span>
-    </button>
-    <div class="accordionCollapse">
-      <div class="accordionBody">
-        KB 스타뱅킹 회원이라면 누구나 참여하실 수 있으며, 미션별 상세 조건은 각 미션 상세 페이지에서 확인 가능합니다.
-      </div>
-    </div>
+  <button type="button" class="accordionHeader">
+    <span>아코디언 제목 2 (닫힘)</span>
+    <span class="accordionArrow"></span>
+  </button>
+  <div class="accordionBody">
+    <p>두 번째 아코디언의 내용입니다.</p>
   </div>
-
-  <!-- Item 2 (기본 닫힘) -->
-  <div class="accordionItem">
-    <button type="button" class="accordionHeader" aria-expanded="false">
-      <span class="accordionTitle">리워드 포인트 지급 일정을 알고 싶습니다.</span>
-      <span class="accordionArrow"></span>
-    </button>
-    <div class="accordionCollapse">
-      <div class="accordionBody">
-        미션 완료 즉시 실시간 지급되며, 시스템 처리 상황에 따라 최대 10분 정도 소요될 수 있습니다.
-      </div>
-    </div>
-  </div>
-
-  <!-- Item 3 (기본 닫힘) -->
-  <div class="accordionItem">
-    <button type="button" class="accordionHeader" aria-expanded="false">
-      <span class="accordionTitle">관리자 권한 요청 절차 안내</span>
-      <span class="accordionArrow"></span>
-    </button>
-    <div class="accordionCollapse">
-      <div class="accordionBody">
-        시스템 관리 > 권한 관리 메뉴에서 부서장 승인 후 최종 관리자 권한이 부여됩니다.
-      </div>
-    </div>
+</div>
+<div class="accordion">
+  <button type="button" class="accordionHeader">
+    <span>아코디언 제목 3 (닫힘)</span>
+    <span class="accordionArrow"></span>
+  </button>
+  <div class="accordionBody">
+    <p>세 번째 아코디언의 내용입니다.</p>
   </div>
 </div>
 
@@ -757,20 +869,18 @@
   <table class="tbl">
     <thead>
       <tr>
-        <th style="width: 80px;">NO</th>
-        <th>미션명</th>
-        <th>카테고리</th>
-        <th>작성일</th>
-        <th>상태</th>
-        <th style="width: 120px;">관리</th>
+        <th>헤더1</th>
+        <th>헤더2</th>
+        <th>헤더3</th>
+        <th>헤더4</th>
+        <th>헤더5</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>1</td>
-        <td>오늘의 콕 1분 브리핑 미션</td>
-        <td>금융/상식</td>
-        <td>2026-08-31</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
         <td><span class="badge ongoing">진행중</span></td>
         <td>
           <div class="btnGroup">
@@ -780,10 +890,9 @@
         </td>
       </tr>
       <tr>
-        <td>2</td>
-        <td>KB 걸음수 측정 챌린지 8월</td>
-        <td>건강/생활</td>
-        <td>2026-08-01</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
         <td><span class="badge completed">완료</span></td>
         <td>
           <div class="btnGroup">
@@ -793,10 +902,9 @@
         </td>
       </tr>
       <tr>
-        <td>3</td>
-        <td>출석체크 리워드 이벤트</td>
-        <td>이벤트</td>
-        <td>2026-07-15</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
         <td><span class="badge ongoing">진행중</span></td>
         <td>
           <div class="btnGroup">
@@ -810,13 +918,13 @@
 </div>
 
 <!-- 2. 테이블 상단 (셀렉트 박스 결합) + 줄무늬 & 테두리 테이블 -->
-<div class="tblTop" style="margin-top: 36px;">
+<div class="tblTop">
   <div class="tblLeft">
     <h3 class="tblTitle">고객 목록</h3>
     <span class="tblCount">전체 <strong>1,452</strong>명</span>
   </div>
   <div class="tblRight">
-    <select class="formControl" style="width: 130px; height: 32px; padding: 0 10px; font-size: 13px;">
+    <select class="formControl">
       <option value="10">10개씩 보기</option>
       <option value="20">20개씩 보기</option>
       <option value="50">50개씩 보기</option>
@@ -832,38 +940,36 @@
   <table class="tbl tblStriped tblBordered tblCenter">
     <thead>
       <tr>
-        <th style="width: 60px;">NO</th>
-        <th>회원명</th>
-        <th>계정(ID)</th>
-        <th>휴대폰 번호</th>
-        <th>가입일</th>
-        <th>상태</th>
+        <th>헤더1</th>
+        <th>헤더2</th>
+        <th>헤더3</th>
+        <th>헤더4</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>1</td>
-        <td>김국민</td>
-        <td>kimbank01</td>
-        <td>010-1234-5678</td>
-        <td>2026-08-30</td>
-        <td><span class="badge ongoing sm">정상</span></td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
       </tr>
       <tr>
         <td>2</td>
-        <td>이스타</td>
-        <td>starlee</td>
-        <td>010-9876-5432</td>
-        <td>2026-08-28</td>
-        <td><span class="badge ongoing sm">정상</span></td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
       </tr>
       <tr>
         <td>3</td>
-        <td>박금융</td>
-        <td>parkkb</td>
-        <td>010-5555-6666</td>
-        <td>2026-08-25</td>
-        <td><span class="badge completed sm">휴면</span></td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>내용1</td>
+        <td>내용2</td>
+        <td>내용3</td>
       </tr>
     </tbody>
   </table>
@@ -876,15 +982,17 @@
     <section id="sectionTypography" class="guideSection">
       <h2 class="guideTitle">Typography (폰트 사이즈)</h2>
       <div class="guideBox guideBoxBlock">
-        <div class="typoList">
+        <!-- Font Size & Hierarchy -->
+<p>임시 작성. 수정예정</p>
+<div class="typoList">
   <!-- 28px -->
   <div class="typoItem">
     <div class="info">
       <div class="name">Page Title (28px)</div>
-      <div class="meta">.titPage / .fs28</div>
+      <div class="meta">.titPage / .fs28 .fwBold</div>
     </div>
     <div class="preview titPage">
-      가나다라마바사 1234567890 AaBbCc (대메뉴 / 최상위 타이틀)
+      가나다라마바사 1234567890 AaBbCc
     </div>
   </div>
 
@@ -892,10 +1000,10 @@
   <div class="typoItem">
     <div class="info">
       <div class="name">Section Title (24px)</div>
-      <div class="meta">.titSection / .fs24</div>
+      <div class="meta">.titSection / .fs24 .fwBold</div>
     </div>
     <div class="preview titSection">
-      가나다라마바사 1234567890 AaBbCc (섹션 헤더 타이틀)
+      가나다라마바사 1234567890 AaBbCc
     </div>
   </div>
 
@@ -903,21 +1011,21 @@
   <div class="typoItem">
     <div class="info">
       <div class="name">Sub Title (20px)</div>
-      <div class="meta">.titSub / .fs20</div>
+      <div class="meta">.titSub / .fs20 .fwBold</div>
     </div>
     <div class="preview titSub">
-      가나다라마바사 1234567890 AaBbCc (서브 섹션 타이틀 / 모달 타이틀)
+      가나다라마바사 1234567890 AaBbCc
     </div>
   </div>
 
   <!-- 18px -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Card Title (18px)</div>
-      <div class="meta">.titCard / .fs18</div>
+      <div class="name">Card/Modal Title (18px)</div>
+      <div class="meta">.titCard / .fs18 .fwBold</div>
     </div>
     <div class="preview titCard">
-      가나다라마바사 1234567890 AaBbCc (카드 타이틀 / 강조 소제목)
+      가나다라마바사 1234567890 AaBbCc
     </div>
   </div>
 
@@ -928,18 +1036,29 @@
       <div class="meta">.bodyLg / .fs16</div>
     </div>
     <div class="preview bodyLg">
-      가나다라마바사 1234567890 AaBbCc (강조 본문 / 메인 설명 문구)
+      가나다라마바사 1234567890 AaBbCc (강조 본문 / 큰 버튼)
     </div>
   </div>
 
-  <!-- 14px -->
+  <!-- 15px -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Body Medium (14px)</div>
+      <div class="name">Body Medium (15px)</div>
+      <div class="meta">.fs15</div>
+    </div>
+    <div class="preview fs15">
+      가나다라마바사 1234567890 AaBbCc (입력 폼 / 아코디언)
+    </div>
+  </div>
+
+  <!-- 14px (Default) -->
+  <div class="typoItem">
+    <div class="info">
+      <div class="name">Body Default (14px)</div>
       <div class="meta">.bodyMd / .fs14</div>
     </div>
     <div class="preview bodyMd">
-      가나다라마바사 1234567890 AaBbCc (기본 본문 / 테이블 텍스트)
+      가나다라마바사 1234567890 AaBbCc (기본 본문 / 테이블 / 일반 버튼)
     </div>
   </div>
 
@@ -990,85 +1109,75 @@
 
 <!-- 가로형 바 리스트 (기본) -->
 <ul class="listBar">
-  <li class="listBarItem">항목 1</li>
-  <li class="listBarItem">항목 2</li>
-  <li class="listBarItem">항목 3</li>
-  <li class="listBarItem">항목 4</li>
+  <li class="listBarItem">Default (15px - 기본)</li>
+  <li class="listBarItem">사이즈 Default</li>
+  <li class="listBarItem">사이즈 Default</li>
 </ul>
 
 <!-- 가로형 바 리스트 (링크 형태) -->
 <ul class="listBar">
-  <li class="listBarItem"><a href="#" class="listBarLink">이용약관</a></li>
-  <li class="listBarItem"><a href="#" class="listBarLink">개인정보처리방침</a></li>
-  <li class="listBarItem"><a href="#" class="listBarLink">고객센터</a></li>
-  <li class="listBarItem"><a href="#" class="listBarLink">관리자 문의</a></li>
+  <li class="listBarItem"><a href="#" class="listBarLink">링크 1</a></li>
+  <li class="listBarItem"><a href="#" class="listBarLink">링크 2</a></li>
+  <li class="listBarItem"><a href="#" class="listBarLink">링크 3</a></li>
+  <li class="listBarItem"><a href="#" class="listBarLink">링크 4</a></li>
 </ul>
 
-<!-- 가로형 바 리스트 (Key-Value 메타 정보) -->
+<!-- 가로형 바 리스트 (정보) -->
 <ul class="listBar">
-  <li class="listBarItem"><span class="label">작성자</span><span class="value">홍길동</span></li>
-  <li class="listBarItem"><span class="label">등록일</span><span class="value">2026-08-31</span></li>
-  <li class="listBarItem"><span class="label">조회수</span><span class="value">1,250</span></li>
-  <li class="listBarItem"><span class="label">상태</span><span class="value">승인완료</span></li>
+  <li class="listBarItem"><span class="label">레이블</span><span class="value">내용</span></li>
+  <li class="listBarItem"><span class="label">레이블</span><span class="value">내용</span></li>
+  <li class="listBarItem"><span class="label">레이블</span><span class="value">내용</span></li>
+  <li class="listBarItem"><span class="label">레이블</span><span class="value">내용</span></li>
 </ul>
 
 <!-- 가로형 바 리스트 (사이즈별: SM, MD, LG) -->
-<ul class="listBar sm">
+<!-- <ul class="listBar sm">
   <li class="listBarItem">Small (12px)</li>
-  <li class="listBarItem">작성자: 홍길동</li>
-  <li class="listBarItem">2026-08-31</li>
-</ul>
+  <li class="listBarItem">사이즈 SM</li>
+  <li class="listBarItem">사이즈 SM</li>
+</ul> -->
 
-<ul class="listBar">
-  <li class="listBarItem">Medium (13px - 기본)</li>
-  <li class="listBarItem">작성자: 홍길동</li>
-  <li class="listBarItem">2026-08-31</li>
-</ul>
 
-<ul class="listBar lg">
+
+<!-- <ul class="listBar lg">
   <li class="listBarItem">Large (15px)</li>
-  <li class="listBarItem">작성자: 홍길동</li>
-  <li class="listBarItem">2026-08-31</li>
-</ul>
+  <li class="listBarItem">사이즈 LG</li>
+  <li class="listBarItem">사이즈 LG</li>
+</ul> -->
 
 <!-- ==========================================================================
   2. 세로형 세로 바 리스트 (Vertical Bar List)
   ========================================================================== -->
 
 <!-- 세로형 바 리스트 (기본 & 강조) -->
-<ul class="listBarVertical">
-  <li class="listBarItem">개인정보 보호법 개정안에 따른 보안 정책 업데이트가 완료되었습니다.</li>
-  <li class="listBarItem isPoint">미션 승인 요청 시 필수 서류 첨부 여부를 반드시 확인해 주시기 바랍니다.</li>
-  <li class="listBarItem">시스템 정기 점검은 매주 수요일 02:00 ~ 04:00에 진행됩니다.</li>
-</ul>
+<!-- <ul class="listBarVertical">
+  <li class="listBarItem">앞 리스트</li>
+  <li class="listBarItem isPoint">앞 리스트(포인트)</li>
+</ul> -->
 
 <!-- 세로형 바 리스트 (타이틀 + 설명 조합) -->
-<ul class="listBarVertical">
+<!-- <ul class="listBarVertical">
   <li class="listBarItem">
-    <strong class="title">미션 등록 기준</strong>
-    <span class="desc">등록된 미션은 관리자 승인 후 즉시 사용자에게 노출됩니다.</span>
+    <strong class="title">타이틀</strong>
+    <span class="desc">설명입니다.</span>
   </li>
   <li class="listBarItem isPoint">
-    <strong class="title">리워드 지급 한도</strong>
-    <span class="desc">일일 최대 지급 가능한 리워드는 설정된 예산 한도 내에서만 집행됩니다.</span>
+    <strong class="title">타이틀</strong>
+    <span class="desc">설명입니다.</span>
   </li>
-  <li class="listBarItem">
-    <strong class="title">권한 안내</strong>
-    <span class="desc">승인 권한이 없는 계정은 결재 요청만 가능합니다.</span>
-  </li>
-</ul>
+</ul> -->
 
 <!-- 세로형 바 리스트 (박스/알림형) -->
-<ul class="listBarVertical boxType">
+<!-- <ul class="listBarVertical boxType">
   <li class="listBarItem">
-    <strong class="title">일반 알림</strong>
-    <span class="desc">새로운 관리자 공지사항이 등록되었습니다. 확인 후 업무에 참고하세요.</span>
+    <strong class="title">타이틀</strong>
+    <span class="desc">설명입니다.</span>
   </li>
   <li class="listBarItem isPoint">
-    <strong class="title">중요 안내</strong>
-    <span class="desc">금일 18:00 결재 마감 시간이 예정되어 있으니 미결 문서를 처리해주세요.</span>
+    <strong class="title">타이틀</strong>
+    <span class="desc">설명입니다.</span>
   </li>
-</ul>
+</ul> -->
 
       </div>
     </section>
@@ -1092,7 +1201,19 @@
   </ol>
 </nav>
       </div>
+
+       <h2 class="guideTitle">Progress Bar (진행바)</h2>
+      <div class="guideBox guideBoxBlock">
+        <div class="barPercent">
+  <div class="barPercentTrack">
+    <div class="barPercentFill" style="width: 70%;"></div>
+  </div>
+  <!-- <span class="barPercentValue">70%</span> -->
+</div>
+      </div>
     </section>
+
+   
 
   </div>
 
@@ -1106,3 +1227,4 @@
   <script src="../assets/js/guide.js"></script>
 </body>
 </html>
+

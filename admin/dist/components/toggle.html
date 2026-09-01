@@ -1,17 +1,28 @@
-<!-- 1. Default Toggle (Basic OFF / ON) -->
+<!-- 
+  [D] 토글 스위치 컴포넌트 개발 가이드
+  - ON/OFF 상태: input[type="checkbox"]의 'checked' 속성 제어
+  - 비활성화: input 'disabled' 속성 또는 부모 .toggle에 'isDisabled' 클래스 추가
+  - 테마: 기본(다크), 'primary'(노란색 활성 테마)
+  - 사이즈: 기본(MD), 'sm'(작은 크기), 'lg'(큰 크기)
+-->
+
+<!-- 1. 기본 토글 스위치 -->
 <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+  <!-- [D] OFF 상태 -->
   <label class="toggle">
     <input type="checkbox">
     <span class="toggleTrack"></span>
     <span class="toggleLabel">비활성 (OFF)</span>
   </label>
 
+  <!-- [D] ON 상태: input checked -->
   <label class="toggle">
     <input type="checkbox" checked>
     <span class="toggleTrack"></span>
     <span class="toggleLabel">활성 (ON)</span>
   </label>
 
+  <!-- [D] Primary 테마 컬러 토글 -->
   <label class="toggle primary">
     <input type="checkbox" checked>
     <span class="toggleTrack"></span>
@@ -19,8 +30,8 @@
   </label>
 </div>
 
-<!-- 2. Sizes (SM / MD / LG) -->
-<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+<!-- 2. 사이즈별 변형 (sm, 기본, lg) -->
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-top: 16px;">
   <!-- Small -->
   <label class="toggle sm">
     <input type="checkbox" checked>
@@ -43,14 +54,16 @@
   </label>
 </div>
 
-<!-- 3. Disabled State -->
-<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+<!-- 3. 비활성 (Disabled) 상태 -->
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-top: 16px;">
+  <!-- [D] Disabled OFF -->
   <label class="toggle">
     <input type="checkbox" disabled>
     <span class="toggleTrack"></span>
     <span class="toggleLabel">Disabled (OFF)</span>
   </label>
 
+  <!-- [D] Disabled ON -->
   <label class="toggle">
     <input type="checkbox" checked disabled>
     <span class="toggleTrack"></span>

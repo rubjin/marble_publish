@@ -44,6 +44,7 @@
     &.side#{$i} { background-image: iconUrl('side_#{$i}.svg'); }
   }
   &.sideSub { background-image: iconUrl('side_sub.svg'); }
+  &.fold { background-image: iconUrl('i_fold.svg'); }
   &.logout { background-image: iconUrl('i_logout.svg'); }
 
   &.calendar { background-image: iconUrl('i_calendar_16.svg'); }
@@ -69,6 +70,13 @@
   &.drag { background-image: iconUrl('i_drag_30.svg'); }
 
   &.upload { background-image: iconUrl('i_upload_36.svg'); }
+}
+
+.isActive {
+  .ico {
+    &.sideSub { background-image: iconUrl('side_sub_active.svg'); }
+  }
+  
 }
 
 .imgIcon {

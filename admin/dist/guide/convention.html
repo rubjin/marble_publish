@@ -77,7 +77,7 @@ admin/
         <li><strong>빈 태그 닫기:</strong> <code>&lt;img /&gt;</code>, <code>&lt;input /&gt;</code>, <code>&lt;br /&gt;</code> 등은 React 환경을 고려해 반드시 슬래시로 닫습니다.</li>
         <li><strong>인라인 스타일 금지:</strong> <code>style="..."</code> 속성은 원칙적으로 배제하고 모든 디자인은 CSS로 제어합니다.</li>
         <li><strong>의미론적 마크업:</strong> <code>&lt;div&gt;</code> 남용을 줄이고 <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code> 등을 적극 활용합니다.</li>
-        <li><strong>접근성(A11y):</strong> 버튼 태그에는 항상 <code>type="button"</code>을 명시하고, 스크린 리더용 텍스트는 <code>.a11yHidden</code> 클래스를 사용해 숨김 처리합니다.</li>
+        <li><strong>접근성(A11y):</strong> 버튼 태그에는 항상 <code>type="button"</code>을 명시하고, 스크린 리더용 텍스트는 <code>.srOnly</code> 클래스를 사용해 숨김 처리합니다.</li>
       </ol>
     </section>
 
@@ -92,10 +92,17 @@ admin/
     </section>
 
     <section class="guideSection">
-      <h2 class="guideTitle">5. React 개발팀 인수인계 시 주의사항</h2>
+      <h2 class="guideTitle">5. 개발 연동 상태 클래스 (State Classes)</h2>
+      <p style="margin-bottom: 12px; color: #4b5563; font-size: 14px;">
+        퍼블리싱 산출물은 스크립트 종속성 없이 <strong>클래스 추가/제거</strong>만으로 모든 상태(활성, 에러, 열림 등)를 제어할 수 있도록 설계되었습니다. 마크업 상의 <code>&lt;!-- [D] ... --&gt;</code> 주석을 참고하여 상태를 바인딩하세요.
+      </p>
       <ul class="ruleList">
-        <li>퍼블리싱 결과물의 <code>class</code> 속성은 React 적용 시 모두 <code>className</code>으로 일괄 변경하여 적용해야 합니다.</li>
-        <li>탭, 아코디언 등의 인터랙션은 순수 HTML+CSS 상태 확인을 위해 <code>.isActive</code>를 수동 마크업해 두었습니다. 개발 적용 시 State 값에 따라 토글되도록 연동이 필요합니다.</li>
+        <li><code>.isActive</code> : 탭, 세그먼트, 네비게이션 메뉴 등의 <strong>활성화(선택) 상태</strong></li>
+        <li><code>.isOpen</code> : 아코디언, 모달 팝업, 툴팁 강제 노출, 셀렉트 박스 등의 <strong>열림/펼침 상태</strong></li>
+        <li><code>.isError</code> : 인풋, 셀렉트, 텍스트에어리어의 <strong>유효성 검증 실패(에러) 상태</strong></li>
+        <li><code>.isDragOver</code> : 파일 드롭존 영역에 파일이 <strong>드래그 오버된 상태</strong></li>
+        <li><code>.hasUnit</code> / <code>.hasPrefix</code> / <code>.hasBtn</code> : 인풋 우측 단위, 좌측 접두사, 버튼 결합 레이아웃 제어</li>
+        <li><code>disabled</code> / <code>.isDisabled</code> : 버튼, 폼 요소의 <strong>비활성화 상태</strong></li>
       </ul>
     </section>
 

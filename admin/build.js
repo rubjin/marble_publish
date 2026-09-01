@@ -110,6 +110,7 @@ for (const htmlFile of allHtmlFiles) {
   const depth = relativePath.split(path.sep).length - 1;
   const prefix = depth > 0 ? '../'.repeat(depth) : './';
   content = content.replace(/href="[^"]*?(?:assets\/)?scss\/(?:globals|main)\.scss"/g, `href="${prefix}assets/css/globals.css"`);
+  content = content.replace(/src="[^"]*?(?:assets\/)?js\/ui\.js"/g, `src="${prefix}assets/js/ui.js"`);
 
   const destPath = path.resolve(DIST_DIR, relativePath);
   fs.mkdirSync(path.dirname(destPath), { recursive: true });

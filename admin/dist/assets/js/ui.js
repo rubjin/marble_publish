@@ -110,4 +110,31 @@
     }
   });
 
+  // ==========================================
+  // 3. 사이드바 (Sidebar Collapse & Menu Toggle)
+  // ==========================================
+  // 사이드바 접기/펼치기 토글
+  document.addEventListener('click', function(e) {
+    var foldBtn = e.target.closest('.boSidebar .btnFold');
+    if (foldBtn) {
+      var sidebar = foldBtn.closest('.boSidebar');
+      if (sidebar) {
+        sidebar.classList.toggle('isCollapsed');
+      }
+    }
+  });
+
+  // 1depth 메뉴 아코디언 토글 (서브메뉴가 있는 경우)
+  document.addEventListener('click', function(e) {
+    var menuLink = e.target.closest('.boMenu > li > a');
+    if (menuLink) {
+      var li = menuLink.parentElement;
+      var subMenu = li.querySelector('.boSubMenu');
+      if (subMenu) {
+        e.preventDefault();
+        li.classList.toggle('isOpen');
+      }
+    }
+  });
+
 })();

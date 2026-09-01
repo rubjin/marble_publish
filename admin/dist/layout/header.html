@@ -10,81 +10,112 @@
   <div class="boWrap">
     <!-- 좌측 메뉴바 (260px) -->
     <aside class="boSidebar">
-  <ul class="boMenu">
-    <li>
-      <!-- [D] 메뉴 선택상태 : isisActive 클래스 추가 -->
-      <a href="#" class="isisActive">
-        <span class="ico side1"></span>
-        <span class="text">대시보드</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side2"></span>
-        <span class="text">가입/고객관리</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-    <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
-    <li class="isOpen">
-      <a href="#" class="isActive">
-        <span class="ico side3"></span>
-        <span class="text">미션관리</span>
-        <span class="arrow"></span>
-      </a>
-      <ul class="boSubMenu">
-        <li>
-          <a href="#" class="isActive">
-            <span class="ico sideSub"></span>
-            <span class="text">미션등록</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side4"></span>
-        <span class="text">리워드관리</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side5"></span>
-        <span class="text">알림관리</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side6"></span>
-        <span class="text">통계/분석</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="ico side7"></span>
-        <span class="text">관리자 관리</span>
-        <span class="arrow"></span>
-      </a>
-    </li>
-  </ul>
+  <!-- 상단 로고 -->
+  <div class="sideHeader">
+    <a href="#" class="sideLogo">
+      <span class="logoStar"></span>
+    </a>
+  </div>
+
+  <!-- 즐겨찾기 메뉴 드롭다운 -->
+  <div class="sideFavorite">
+    <div class="formControlWrap full">
+      <select class="formControl full selectFavorite">
+        <option value="">즐겨찾기 메뉴</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 메뉴 리스트 -->
+  <nav class="sideNav">
+    <ul class="boMenu">
+      <li>
+        <a href="#">
+          <span class="text">대시보드</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">가입/고객관리</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+      <li class="isOpen">
+        <a href="#" class="isActive">
+          <span class="text">미션관리</span>
+          <span class="arrow"></span>
+        </a>
+        <ul class="boSubMenu">
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="isActive">
+              <span class="ico sideSub"></span>
+              <span class="text">미션홈관리</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">리워드관리</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">알림관리</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">통계/분석</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="text">관리자 관리</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 하단 영역 (세션연장/로그아웃 버튼 및 접기 버튼) -->
+  <div class="sideBottom">
+    <div class="sideBtns">
+      <button type="button" class="btnSide">세션연장</button>
+      <button type="button" class="btnSide">로그아웃</button>
+    </div>
+    <button type="button" class="btnFold" aria-label="사이드바 축소/확대">
+      <span class="ico fold"></span>
+    </button>
+  </div>
 </aside>
 
     <!-- 우측 콘텐츠 영역 -->
     <main class="boContainer">
+      <!-- 헤더 -->
       <header class="boHeader">
         <div class="headerLeft">
           <h1>Admin</h1>
           <span class="headerDate">2026-06-09 (실시간)</span>
         </div>
         <div class="headerUtil">
+          <span class="badge account">관리자</span>
           <ul class="listBar">
-            <li class="listBarItem"><span class="label">권한</span><span class="value">관리자</span></li>
-            <li class="listBarItem"><span class="label">이름</span><span class="value">따따따</span></li>
-            <li class="listBarItem"><button type="button" class="btn outline sm">로그아웃</button></li>
+            <li class="listBarItem"><span class="label">김국민</span><span class="value">(KB123456)님</span></li>
+            <li class="listBarItem"><button type="button" class="btn ghost sm">로그아웃<span class="ico logout"></span></button></li>
           </ul>
         </div>
       </header>
       <div class="boContent">
+
+
+
+
+
+
