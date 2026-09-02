@@ -1,16 +1,92 @@
-// Variables
-$primary: #FFC72B;
-// $primaryHover: #E6B800;
-$white: #ffffff;
-$gray100: #f3f4f6;
-$gray200: #e5e7eb;
-$gray300: #d1d5db;
-$gray800: #1f2937;
-$radiusSm: 6px;
-$radiusDefault: 6px;
-$radiusMd: 6px;
-$radiusLg: 6px;
+﻿// ==========================================================================
+// 1. Primitive Colors (Palette)
+// ==========================================================================
 
-// Paths
+$color-yellow-400: #FFDC00;
+$color-yellow-500: #FFC72B;
+$color-yellow-alpha: rgba(255, 220, 0, 0.2);
+
+$color-gray-50: #F8F9FA;
+$color-gray-100: #F3F5F6;
+$color-gray-150: #F0F0F3;
+$color-gray-200: #E7E9ED;
+$color-gray-300: #D5D7DE;
+$color-gray-400: #9CA3AF;
+$color-gray-500: #6B7280;
+$color-gray-600: #4F535A;
+$color-gray-700: #404046;
+$color-gray-800: #2F3034;
+$color-gray-900: #1F2937;
+$color-gray-950: #111827;
+
+$color-red-400: #FF9494;
+$color-red-500: #F23F3F;
+$color-red-600: #EF4444;
+$color-red-alpha: rgba(239, 68, 68, 0.2);
+
+$color-white: #FFFFFF;
+$color-transparent: transparent;
+
+// ==========================================================================
+// 2. Semantic Tokens
+// ==========================================================================
+
+// 2.1 Backgrounds
+$bg-primary: $color-yellow-500;
+$bg-white: $color-white;
+$bg-light: $color-gray-100;
+$bg-dark: $color-gray-600;
+$bg-disabled: $color-gray-200;
+$bg-table-header: rgba(243, 245, 246, 0.8);
+
+// 2.2 Text Colors
+$text-primary: $color-gray-800;
+$text-secondary: $color-gray-500;
+$text-tertiary: $color-gray-400;
+$text-inverse: $color-white;
+$text-danger: $color-red-500;
+$text-title: $color-gray-950;
+$text-highlight: $color-gray-900;
+
+// 2.3 Borders
+$border-default: $color-gray-300;
+$border-light: $color-gray-150;
+$border-hover: $color-gray-400;
+$border-active: $color-gray-600;
+$border-danger: $color-red-400;
+$border-dark: #707070;
+
+// 2.4 Focus Rings
+$ring-primary: $color-yellow-alpha;
+$ring-danger: $color-red-alpha;
+
+// ==========================================================================
+// 3. Component Tokens
+// ==========================================================================
+
+// 3.1 Button
+$btn-radius: 6px;
+$btn-height-sm: 24px;
+$btn-height-md: 34px;
+$btn-height-lg: 40px;
+$btn-padding-x-sm: 12px;
+$btn-padding-x-md: 12px;
+$btn-padding-x-lg: 20px;
+$btn-font-size-sm: 12px;
+$btn-font-size-md: 14px;
+$btn-font-size-lg: 16px;
+
+// 3.2 Form
+$form-radius: 6px;
+$form-height: 34px;
+$form-height-sm: 32px;
+$form-padding-y: 6px;
+$form-padding-x: 12px;
+$form-font-size: 14px;
+
+// ==========================================================================
+// 4. Paths
+// ==========================================================================
 $path-images: '../images';
 $path-fonts: '../fonts';
+

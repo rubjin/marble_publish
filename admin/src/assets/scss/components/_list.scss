@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    List Component (세로 바 리스트 / Bar List)
    ========================================================================== */
 
@@ -15,7 +15,7 @@
     display: inline-flex;
     align-items: center;
     font-size: 15px;
-    color: #4F535A;
+    color: $color-gray-600;
     
 
     // 아이템 간 세로 바 (|) 구분선
@@ -24,7 +24,7 @@
       display: inline-block;
       width: 1px;
       height: 16px;
-      background-color: #4F535A;
+      background-color: $bg-dark;
       margin: 0 12px;
       flex-shrink: 0;
     }
@@ -36,7 +36,7 @@
       transition: color 0.15s ease;
 
       &:hover {
-        color: #2F3034;
+        color: $text-primary;
         text-decoration: underline;
       }
     }
@@ -44,12 +44,12 @@
     // 라벨 & 값
     .label {
       margin-right: 4px;
-      color: #2F3034;
+      color: $text-primary;
       font-weight: 500;
     }
 
     .value {
-      color: #4F535A;
+      color: $color-gray-600;
     }
   }
 
@@ -79,10 +79,10 @@
   // 테마/구분선 색상 변형
   // &.dark {
   //   .listBarItem {
-  //     color: #1f2937;
+  //     color: $text-highlight;
 
   //     &:not(:first-child)::before {
-  //       background-color: #9ca3af;
+  //       background-color: $text-tertiary;
   //     }
   //   }
   // }
@@ -101,7 +101,7 @@
 //     position: relative;
 //     padding-left: 12px;
 //     font-size: 14px;
-//     color: #374151;
+//     color: $text-primary;
     
 
 //     // 항목 좌측 세로 바
@@ -112,24 +112,24 @@
 //       top: 4px;
 //       width: 2px;
 //       height: 13px;
-//       background-color: #9ca3af;
+//       background-color: $text-tertiary;
 //       border-radius: 1px;
 //     }
 
 //     // 포인트/강조 세로 바
 //     &.primary::before,
 //     &.isPoint::before {
-//       background-color: $primary;
+//       background-color: $color-yellow-500;
 //     }
 
 //     .title {
 //       font-weight: 600;
-//       color: #111827;
+//       color: $text-title;
 //       margin-right: 6px;
 //     }
 
 //     .desc {
-//       color: #6b7280;
+//       color: $text-secondary;
 //     }
 //   }
 
@@ -171,8 +171,8 @@
 //     .listBarItem {
 //       padding: 12px 16px;
 //       background-color: #f9fafb;
-//       border: 1px solid #e5e7eb;
-//       border-left: 4px solid #9ca3af;
+//       border: 1px solid $border-light;
+//       border-left: 4px solid $color-gray-400;
 //       border-radius: 4px;
 
 //       &::before {
@@ -181,8 +181,8 @@
 
 //       &.primary,
 //       &.isPoint {
-//         border-left-color: $primary;
-//         background-color: #fffdf0;
+//         border-left-color: $color-yellow-500;
+//         background-color: $color-whitedf0;
 //       }
 //     }
 //   }
@@ -195,3 +195,5 @@
 .listBarVertical + .listBar {
   margin-top: 20px;
 }
+
+

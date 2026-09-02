@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Toggle (Switch) Component
    ========================================================================== */
 
@@ -23,7 +23,7 @@
     display: inline-block;
     width: 44px;
     height: 24px;
-    background-color: $gray300;
+    background-color: $color-gray-300;
     border-radius: 9999px;
     transition: background-color 0.2s ease;
     flex-shrink: 0;
@@ -35,7 +35,7 @@
       left: 3px;
       width: 18px;
       height: 18px;
-      background-color: $white;
+      background-color: $color-white;
       border-radius: 50%;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -45,12 +45,12 @@
   // 라벨 텍스트
   .toggleLabel {
     font-size: 14px;
-    color: #374151;
+    color: $text-primary;
   }
 
   // Checked State (ON)
   input:checked + .toggleTrack {
-    background-color: #4F535A;
+    background-color: $bg-dark;
 
     &::after {
       transform: translateX(20px);
@@ -60,7 +60,7 @@
   // Primary Color Variant
   &.primary {
     input:checked + .toggleTrack {
-      background-color: $primary;
+      background-color: $color-yellow-500;
     }
   }
 
@@ -127,3 +127,5 @@
     }
   }
 }
+
+

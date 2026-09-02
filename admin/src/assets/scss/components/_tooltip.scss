@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Tooltip Component
    ========================================================================== */
 
@@ -16,8 +16,8 @@
     height: 18px;
     padding: 0;
     border: none;
-    background-color: #e5e7eb;
-    color: #6b7280;
+    background-color: $color-gray-200;
+    color: $text-secondary;
     border-radius: 50%;
     font-size: 11px;
     font-weight: 700;
@@ -25,8 +25,8 @@
     transition: all 0.2s;
 
     &:hover {
-      background-color: #d1d5db;
-      color: $gray800;
+      background-color: $color-gray-300;
+      color: $color-gray-800;
     }
 
     svg {
@@ -41,8 +41,8 @@
     position: absolute;
     z-index: 200;
     padding: 8px 12px;
-    background-color: $gray800;
-    color: $white;
+    background-color: $color-gray-800;
+    color: $color-white;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.4;
@@ -75,7 +75,7 @@
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      border-top-color: $gray800;
+      border-top-color: $color-gray-800;
     }
   }
 
@@ -91,7 +91,7 @@
       top: auto;
       left: 50%;
       transform: translateX(-50%);
-      border-bottom-color: $gray800;
+      border-bottom-color: $color-gray-800;
     }
   }
 
@@ -107,7 +107,7 @@
       left: 100%;
       top: 50%;
       transform: translateY(-50%);
-      border-left-color: $gray800;
+      border-left-color: $color-gray-800;
     }
   }
 
@@ -124,7 +124,7 @@
       left: auto;
       top: 50%;
       transform: translateY(-50%);
-      border-right-color: $gray800;
+      border-right-color: $color-gray-800;
     }
   }
 
@@ -150,3 +150,5 @@
     word-break: keep-all;
   }
 }
+
+

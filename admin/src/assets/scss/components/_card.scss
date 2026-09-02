@@ -1,11 +1,11 @@
-.card {
-  border: 1px solid $gray300; border-radius: $radiusLg; overflow: hidden; background-color: $white;
+﻿.card {
+  border: 1px solid $color-gray-300; border-radius: 8px; overflow: hidden; background-color: $color-white;
   .thumb {
-    width: 100%; height: 160px; background-color: $gray100; object-fit: cover;
+    width: 100%; height: 160px; background-color: $color-gray-100; object-fit: cover;
   }
   .content { padding: 16px; }
   .title { font-size: 18px; font-weight: bold; margin-bottom: 8px; @include text-ellipsis; }
-  .desc { font-size: 14px; color: $gray800; margin-bottom: 16px; }
+  .desc { font-size: 14px; color: $color-gray-800; margin-bottom: 16px; }
 }
 
 // KPI Statistic Cards (좌측: 타이틀 / 우측: 숫자 & 비교값 정렬)
@@ -26,7 +26,7 @@
 
   .kpiCard {
     background-color: #F8F8F9;
-    border: 1px solid #E5E7EB;
+    border: 1px solid $border-light;
     border-radius: 10px;
     padding: 20px 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -39,7 +39,7 @@
     .kpiTitle {
       font-size: 13px;
       font-weight: 600;
-      color: #4F535A;
+      color: $color-gray-600;
       margin: 0;
       white-space: nowrap;
       padding-top: 2px;
@@ -56,7 +56,7 @@
       .kpiNumber {
         font-size: 20px;
         font-weight: 700;
-        color: #111827;
+        color: $text-title;
         line-height: 1.2;
         white-space: nowrap;
 
@@ -108,8 +108,8 @@
 }
 
 .infoBox {
-  background-color: #ffffff;
-  border: 1px solid #E5E7EB;
+  background-color: $color-white;
+  border: 1px solid $border-light;
   border-radius: 8px;
   padding: 20px 24px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -124,12 +124,12 @@
     justify-content: space-between;
     padding-bottom: 12px;
     margin-bottom: 14px;
-    border-bottom: 1px solid #F0F0F3;
+    border-bottom: 1px solid $border-light;
 
     .infoBoxTitle {
       font-size: 15px;
       font-weight: 700;
-      color: #111827;
+      color: $text-title;
       margin: 0;
     }
   }
@@ -152,20 +152,20 @@
       line-height: 1.4;
 
       .label {
-        color: #6B7280;
+        color: $text-secondary;
         font-weight: 400;
         white-space: nowrap;
       }
 
       .value {
-        color: #111827;
+        color: $text-title;
         font-weight: 600;
         text-align: right;
         white-space: nowrap;
 
         strong {
           font-weight: 700;
-          color: #111827;
+          color: $text-title;
         }
 
         &.point,
@@ -175,7 +175,7 @@
         }
 
         .danger {
-          color: #EF4444;
+          color: $text-danger;
           font-weight: 600;
         }
       }
@@ -189,7 +189,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #F8F8F9;
-  border: 1px solid #E5E7EB;
+  border: 1px solid $border-light;
   border-radius: 10px;
   padding: 20px 28px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -215,7 +215,7 @@
   .statDivider {
     width: 1px;
     height: 44px;
-    background-color: #E5E7EB;
+    background-color: $color-gray-200;
     flex-shrink: 0;
   }
 
@@ -231,7 +231,7 @@
     .statLabel {
       font-size: 13px;
       font-weight: 500;
-      color: #6B7280;
+      color: $text-secondary;
     }
 
     .statValue {
@@ -240,7 +240,7 @@
       gap: 4px;
       font-size: 20px;
       font-weight: 700;
-      color: #111827;
+      color: $text-title;
       line-height: 1.2;
       &.col {
         flex-direction: column;
@@ -251,7 +251,7 @@
       .price {
         font-size: 20px;
         font-weight: 700;
-        color: #111827;
+        color: $text-title;
       }
 
       .unit {
@@ -263,7 +263,7 @@
       .subText {
         font-size: 12px;
         font-weight: 400;
-        color: #6B7280;
+        color: $text-secondary;
       }
 
       .rate {
@@ -300,8 +300,8 @@
     gap: 16px;
 
     .statCard {
-      background-color: #ffffff;
-      border: 1px solid #E5E7EB;
+      background-color: $color-white;
+      border: 1px solid $border-light;
       border-radius: 10px;
       padding: 20px 24px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -330,7 +330,7 @@
 
       .statLabel {
         font-size: 13px;
-        color: #6B7280;
+        color: $text-secondary;
         font-weight: 500;
         margin: 0;
       }
@@ -338,7 +338,7 @@
       .statValue {
         font-size: 15px;
         font-weight: 700;
-        color: #111827;
+        color: $text-title;
 
         .unit {
           font-size: 13px;
@@ -349,7 +349,7 @@
         .subText {
           font-size: 12px;
           font-weight: 400;
-          color: #6B7280;
+          color: $text-secondary;
         }
       }
 
@@ -359,7 +359,7 @@
       //   display: inline-block;
       //   width: 1px;
       //   height: 14px;
-      //   background-color: #D5D7DE;
+      //   background-color: $color-gray-300;
       //   margin-right: 14px;
       //   flex-shrink: 0;
       // }
@@ -393,7 +393,7 @@
         transform: translateY(-50%);
         width: 1px;
         height: 32px;
-        background-color: #E5E7EB;
+        background-color: $color-gray-200;
       }
 
       .statValue {
@@ -442,8 +442,8 @@
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 24px;
-  background-color: #ffffff;
-  border: 1px solid #E5E7EB;
+  background-color: $color-white;
+  border: 1px solid $border-light;
   border-radius: 10px;
   padding: 20px 28px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -464,7 +464,7 @@
       .statusLabel {
         font-size: 13px;
         font-weight: 500;
-        color: #6B7280;
+        color: $text-secondary;
         white-space: nowrap;
       }
 
@@ -481,7 +481,7 @@
       gap: 2px;
       font-size: 24px;
       font-weight: 700;
-      color: #111827;
+      color: $text-title;
       line-height: 1.2;
       white-space: nowrap;
 
@@ -492,15 +492,15 @@
       .unit {
         font-size: 14px;
         font-weight: 500;
-        color: #111827;
+        color: $text-title;
         margin-left: 2px;
       }
 
       &.danger {
-        color: #EF4444;
+        color: $text-danger;
 
         .unit {
-          color: #EF4444;
+          color: $text-danger;
         }
       }
     }
@@ -520,8 +520,8 @@
   margin-bottom: 20px;
 
   .statusCard {
-    background-color: #ffffff;
-    border: 1px solid #E5E7EB;
+    background-color: $color-white;
+    border: 1px solid $border-light;
     border-radius: 10px;
     padding: 18px 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -538,7 +538,7 @@
       .statusLabel {
         font-size: 13px;
         font-weight: 500;
-        color: #6B7280;
+        color: $text-secondary;
         white-space: nowrap;
       }
 
@@ -555,7 +555,7 @@
       gap: 2px;
       font-size: 24px;
       font-weight: 700;
-      color: #111827;
+      color: $text-title;
       line-height: 1.2;
       white-space: nowrap;
 
@@ -566,15 +566,15 @@
       .unit {
         font-size: 14px;
         font-weight: 500;
-        color: #111827;
+        color: $text-title;
         margin-left: 2px;
       }
 
       &.danger {
-        color: #EF4444;
+        color: $text-danger;
 
         .unit {
-          color: #EF4444;
+          color: $text-danger;
         }
       }
     }
@@ -584,3 +584,5 @@
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 }
+
+

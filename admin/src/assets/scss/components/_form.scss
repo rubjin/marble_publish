@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Form Component
    ========================================================================== */
 
@@ -15,11 +15,11 @@
   display: block;
   font-size: 14px;
   font-weight: 500;
-  color: #374151;
+  color: $text-primary;
   margin-bottom: 8px;
   
   .required {
-    color: #ef4444;
+    color: $text-danger;
     margin-left: 4px;
   }
 }
@@ -45,7 +45,7 @@
     
     .btn {
       flex-shrink: 0;
-      height: 34px; /* input과 높이 맞춤 */
+      height: $form-height; /* input과 높이 맞춤 */
       margin: 0; /* md 버튼의 여백 등에 대비 */
     }
   }
@@ -57,7 +57,7 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 14px;
-    color: #6b7280;
+    color: $text-secondary;
     pointer-events: none;
     line-height: 1;
   }
@@ -85,27 +85,27 @@
   }
 }
 
-// 결합형 인풋 그룹 (바깥 박스형 단위 / Prefix-Suffix Addon)
+// Input Group (input + addon)
 .inputGroup {
   display: flex;
   align-items: center;
   width: 100%;
-  border: 1px solid #D5D7DE;
-  border-radius: 6px;
-  background-color: #fff;
+  border: 1px solid $border-default;
+  border-radius: $form-radius;
+  background-color: $bg-white;
   transition: all 0.2s ease-in-out;
   overflow: hidden;
 
   &:focus-within {
     // border-color: #FFDC00;
-    box-shadow: 0 0 0 3px rgba(255, 220, 0, 0.2);
+    box-shadow: 0 0 0 3px $ring-primary;
   }
 
   &.isError {
-    border-color: #ef4444;
+    border-color: $text-danger;
 
     &:focus-within {
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+      box-shadow: 0 0 0 3px $ring-danger;
     }
   }
 
@@ -114,19 +114,19 @@
     align-items: center;
     justify-content: center;
     padding: 0 12px;
-    height: 32px;
+    height: $form-height-sm;
     font-size: 13px;
     font-weight: 500;
-    color: #6b7280;
-    background-color: #f3f4f6;
+    color: $text-secondary;
+    background-color: $bg-light;
     flex-shrink: 0;
 
     &.prefix {
-      border-right: 1px solid #D5D7DE;
+      border-right: 1px solid $border-default;
     }
 
     &.suffix {
-      border-left: 1px solid #D5D7DE;
+      border-left: 1px solid $border-default;
     }
   }
 
@@ -134,7 +134,7 @@
     border: none;
     border-radius: 0;
     box-shadow: none !important;
-    height: 32px;
+    height: $form-height-sm;
   }
 }
 fieldset {
@@ -145,49 +145,49 @@ fieldset {
 }
 .formControl {
   width: 200px;
-  height: 34px;
+  height: $form-height;
   padding: 6px 12px;
   font-size: 14px;
-  color: #2F3034;
-  background-color: #fff;
-  border: 1px solid #D5D7DE;
-  border-radius: 6px;
+  color: $text-primary;
+  background-color: $bg-white;
+  border: 1px solid $border-default;
+  border-radius: $form-radius;
   outline: none;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
 
   &::placeholder {
-    color: #9ca3af;
+    color: $text-tertiary;
   }
 
   &:hover {
-    border-color: #9ca3af;
+    border-color: $text-tertiary;
   }
 
   &:focus {
     // border-color: #FFDC00;
-    box-shadow: 0 0 0 3px rgba(255, 220, 0, 0.2);
+    box-shadow: 0 0 0 3px $ring-primary;
   }
 
   &[readonly] {
-    background-color: #E7E9ED;
-    color: #9ca3af;
-    border-color: #e5e7eb;
+    background-color: $bg-disabled;
+    color: $text-tertiary;
+    border-color: $border-light;
     cursor: not-allowed;
   }
   // &:disabled,
   // &.isDisabled {
-  //   background-color: #E7E9ED;
-  //   color: #9ca3af;
-  //   border-color: #e5e7eb;
+  //   background-color: $bg-disabled;
+  //   color: $text-tertiary;
+  //   border-color: $border-light;
   //   cursor: not-allowed;
   // }
 
   &.isError {
-    border-color: #ef4444;
+    border-color: $text-danger;
     
     &:focus {
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+      box-shadow: 0 0 0 3px $ring-danger;
     }
   }
 
@@ -221,7 +221,7 @@ select.formControl {
 .formErrorMsg {
   display: block;
   font-size: 13px;
-  color: #ef4444;
+  color: $text-danger;
   margin-top: 6px;
 }
 
@@ -251,8 +251,8 @@ select.formControl {
   .checkIcon {
     width: 20px;
     height: 20px;
-    border: 1px solid #d1d5db;
-    background-color: #fff;
+    border: 1px solid $color-gray-300;
+    background-color: $bg-white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -271,7 +271,7 @@ select.formControl {
     &::after {
       width: 10px;
       height: 10px;
-      background-color: #fff;
+      background-color: $bg-white;
       clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     }
   }
@@ -283,13 +283,13 @@ select.formControl {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: $bg-white;
     }
   }
 
   input:checked + .checkIcon {
-    background-color: #1f2937;
-    border-color: #1f2937;
+    background-color: $text-highlight;
+    border-color: $text-highlight;
 
     &::after {
       display: block;
@@ -297,23 +297,23 @@ select.formControl {
   }
 
   input:disabled + .checkIcon {
-    background-color: #f3f4f6;
-    border-color: #e5e7eb;
+    background-color: $bg-light;
+    border-color: $border-light;
     cursor: not-allowed;
   }
 
   input:checked:disabled + .checkIcon {
-    background-color: #d1d5db;
-    border-color: #d1d5db;
+    background-color: $color-gray-300;
+    border-color: $color-gray-300;
   }
 
   .checkLabel {
     font-size: 14px;
-    color: #374151;
+    color: $text-primary;
   }
 
   input:disabled ~ .checkLabel {
-    color: #9ca3af;
+    color: $text-tertiary;
     cursor: not-allowed;
   }
 }
@@ -354,18 +354,18 @@ select.formControl {
   gap: 8px;
 
   .dateSeparator {
-    color: #9ca3af;
+    color: $text-tertiary;
     font-size: 14px;
   }
 }
 
 /* Tag Chip */
 .tagBox {
-  border: 1px solid #D5D7DE;
-  border-radius: 6px;
+  border: 1px solid $border-default;
+  border-radius: $form-radius;
   padding: 12px;
   min-height: 80px;
-  background-color: #fff;
+  background-color: $bg-white;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -381,7 +381,7 @@ select.formControl {
   background-color: #F5F5F6;
   border-radius: 100px;
   font-size: 14px;
-  color: #4F535A;
+  color: $color-gray-600;
   line-height: 1;
 
   .tagDelete {
@@ -397,15 +397,15 @@ select.formControl {
     padding: 0;
     transition: background-color 0.15s;
     // &:hover {
-    //   background-color: #6b7280;
+    //   background-color: $text-secondary;
     // }
   }
 }
 
-/* 도움말 */
+/* ?꾩?留?*/
 .formGuideText {
   font-size: 13px;
-  color: #9ca3af;
+  color: $text-tertiary;
 }
 
 .formNoticeText {
@@ -429,8 +429,8 @@ select.formControl {
   flex: 1;
   min-width: 240px;
   padding: 16px 20px;
-  background-color: #fff;
-  border: 1px solid #D5D7DE;
+  background-color: $bg-white;
+  border: 1px solid $border-default;
   border-radius: 8px;
   cursor: pointer;
   position: relative;
@@ -447,9 +447,9 @@ select.formControl {
   .checkIcon {
     width: 20px;
     height: 20px;
-    border: 1px solid #d1d5db;
+    border: 1px solid $color-gray-300;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: $bg-white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -464,7 +464,7 @@ select.formControl {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: $bg-white;
     }
   }
 
@@ -474,28 +474,28 @@ select.formControl {
     .cardTitle {
       font-size: 14px;
       font-weight: 600;
-      color: #1f2937;
+      color: $text-highlight;
       display: block;
       margin-bottom: 4px;
     }
 
     .cardDesc {
       font-size: 13px;
-      color: #6b7280;
+      color: $text-secondary;
       line-height: 1.4;
       margin: 0;
     }
   }
 
-  // 선택된 상태
+  // ?좏깮???곹깭
   &:has(input:checked),
   &.isActive {
     background-color: #EEF4FF;
     border-color: #ADC8FF;
 
     .checkIcon {
-      background-color: #1f2937;
-      border-color: #1f2937;
+      background-color: $text-highlight;
+      border-color: $text-highlight;
 
       &::after {
         display: block;
@@ -503,7 +503,7 @@ select.formControl {
     }
   }
 
-  // 라디오 카드 (O/X 정답 선택)
+  // ?쇰뵒??移대뱶 (O/X ?뺣떟 ?좏깮)
   &.isCompact {
     padding: 12px 20px;
     align-items: center;
@@ -523,7 +523,7 @@ select.formControl {
 /* File Upload Box */
 .fileUploadBox {
   background-color: #F3F6FD;
-  border-radius: 6px;
+  border-radius: $form-radius;
   padding: 12px 16px;
   display: flex;
   align-items: center;
@@ -548,7 +548,7 @@ select.formControl {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background-color: #9ca3af;
+    background-color: $text-tertiary;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -558,7 +558,7 @@ select.formControl {
     transition: background-color 0.15s;
 
     &::before {
-      content: '×';
+      content: '횞';
       font-size: 14px;
       line-height: 1;
       font-weight: bold;
@@ -566,12 +566,12 @@ select.formControl {
     }
 
     &:hover {
-      background-color: #6b7280;
+      background-color: $text-secondary;
     }
   }
 }
 
-/* Step Course Card (단계별 코스 설정 카드) */
+/* Step Course Card (?④퀎蹂?肄붿뒪 ?ㅼ젙 移대뱶) */
 .stepCardList {
   display: flex;
   flex-direction: column;
@@ -582,7 +582,7 @@ select.formControl {
 
 .stepCard {
   background-color: #FAFAFA;
-  border: 1px solid #D5D7DE;
+  border: 1px solid $border-default;
   border-radius: 8px;
   padding: 16px 20px;
 
@@ -601,7 +601,7 @@ select.formControl {
 
       .stepHandle {
         cursor: grab;
-        color: #9CA3AF;
+        color: $text-tertiary;
         font-size: 16px;
         line-height: 1;
         user-select: none;
@@ -610,7 +610,7 @@ select.formControl {
       .stepTitle {
         font-size: 14px;
         font-weight: 700;
-        color: #1F2937;
+        color: $text-highlight;
         margin: 0;
       }
     }
@@ -637,10 +637,10 @@ select.formControl {
   }
 }
 
-/* Search / Filter Control Box (조회 컨트롤 박스) */
+/* Search / Filter Control Box */
 .searchBox {
-  background-color: #ffffff;
-  border: 1px solid #E5E7EB;
+  background-color: $bg-white;
+  border: 1px solid $border-light;
   border-radius: 10px;
   padding: 20px 24px;
   margin-bottom: 20px;
@@ -666,7 +666,7 @@ select.formControl {
       padding: 10px 12px 10px 0;
       font-size: 14px;
       font-weight: 500;
-      color: #374151;
+      color: $text-primary;
       text-align: left;
       vertical-align: middle;
       white-space: nowrap;
@@ -708,3 +708,6 @@ select.formControl {
     }
   }
 }
+
+
+

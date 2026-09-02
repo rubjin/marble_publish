@@ -1,11 +1,11 @@
-.tab {
-  display: flex; border-bottom: 1px solid $gray300;
+﻿.tab {
+  display: flex; border-bottom: 1px solid $color-gray-300;
   .item {
-    padding: 12px 24px; font-weight: 600; color: $gray300; position: relative;
+    padding: 12px 24px; font-weight: 600; color: $color-gray-300; position: relative;
     background: none; border: none; cursor: pointer;
     &.isActive {
-      color: $gray800;
-      &::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background-color: $gray800; }
+      color: $color-gray-800;
+      &::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background-color: $color-gray-800; }
     }
   }
 }
@@ -17,8 +17,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffffff;
-  border: 1px solid #E5E7EB;
+  background-color: $color-white;
+  border: 1px solid $border-light;
   border-radius: 8px;
   padding: 6px 12px;
   width: 100%;
@@ -40,7 +40,7 @@
       height: 4px;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: #E5E7EB;
+      background-color: $color-gray-200;
       border-radius: 4px;
     }
   }
@@ -51,12 +51,12 @@
     gap: 8px;
     height: 32px;
     padding: 0 12px;
-    background-color: #F3F5F6;
+    background-color: $bg-light;
     border: 1px solid transparent;
     border-radius: 6px;
     font-size: 13px;
     font-weight: 500;
-    color: #6B7280;
+    color: $text-secondary;
     cursor: pointer;
     white-space: nowrap;
     user-select: none;
@@ -65,15 +65,15 @@
     flex-shrink: 0;
 
     &:hover {
-      background-color: #E7E9ED;
+      background-color: $bg-disabled;
       color: #1F192F;
     }
 
     // 홈 고정 탭 (항상 노출)
     &.isHome {
       padding: 0 10px;
-      color: #4F535A;
-      background-color: #F3F5F6;
+      color: $color-gray-600;
+      background-color: $bg-light;
 
       .tabIcon {
         display: inline-flex;
@@ -85,8 +85,8 @@
       }
 
       &.isActive {
-        background-color: #ffffff;
-        border-color: #D5D7DE;
+        background-color: $color-white;
+        border-color: $border-default;
         color: #1F192F;
         font-weight: 700;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -95,8 +95,8 @@
 
     // 활성화된 탭
     &.isActive {
-      background-color: #ffffff;
-      border-color: #D5D7DE;
+      background-color: $color-white;
+      border-color: $border-default;
       color: #1F192F;
       font-weight: 700;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -126,7 +126,7 @@
       border-radius: 50%;
       cursor: pointer;
       padding: 0;
-      color: #9CA3AF;
+      color: $text-tertiary;
       opacity: 0.6;
       transition: all 0.15s ease;
 
@@ -157,15 +157,15 @@
       width: 32px;
       height: 32px;
       background-color: #F8F8F9;
-      border: 1px solid #D5D7DE;
+      border: 1px solid $border-default;
       border-radius: 6px;
       cursor: pointer;
-      color: #4F535A;
+      color: $color-gray-600;
       padding: 0;
       transition: all 0.15s ease;
 
       &:hover {
-        background-color: #E7E9ED;
+        background-color: $bg-disabled;
         color: #1F192F;
         border-color: #BAC0CB;
       }
@@ -180,4 +180,6 @@
     }
   }
 }
+
+
 

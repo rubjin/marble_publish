@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Popup Component
    ========================================================================== */
 
@@ -26,7 +26,7 @@
   position: relative;
   width: 400px;
   max-width: 90vw;
-  background-color: #fff;
+  background-color: $color-white;
   border-radius: 12px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   overflow: hidden;
@@ -45,12 +45,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid $border-light;
 
   .popupTitle {
     font-size: 18px;
     font-weight: 700;
-    color: #111827;
+    color: $text-title;
     margin: 0;
   }
 
@@ -64,11 +64,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #9ca3af;
+    color: $text-tertiary;
     transition: color 0.2s;
 
     &:hover {
-      color: #111827;
+      color: $text-title;
     }
 
     /* 닫기 X 아이콘 CSS로 그리기 */
@@ -85,7 +85,6 @@
     &::after { transform: rotate(-45deg); }
   }
 }
-
 /* 팝업 바디 (컨텐츠) */
 .popupBody {
   padding: 24px;
@@ -100,8 +99,10 @@
 .popupFooter {
   padding: 20px 24px;
   background-color: #f9fafb;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid $border-light;
   display: flex;
   justify-content: flex-end;
   gap: 12px;
 }
+
+

@@ -1,7 +1,7 @@
-// Accordion
+﻿// Accordion
 .accordion {
-  border: 1px solid $gray300;
-  border-radius: $radiusMd;
+  border: 1px solid $color-gray-300;
+  border-radius: 6px;
   overflow: hidden;
 
   & + .accordion {
@@ -13,18 +13,18 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px 20px;
-    background-color: $white;
+    background-color: $color-white;
     cursor: pointer;
     border: none;
     width: 100%;
     text-align: left;
     font-size: 15px;
     font-weight: 600;
-    color: $gray800;
+    color: $color-gray-800;
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: $gray100;
+      background-color: $color-gray-100;
     }
 
     .accordionArrow {
@@ -44,11 +44,11 @@
   .accordionBody {
     display: none;
     padding: 20px;
-    border-top: 1px solid $gray300;
-    background-color: $white;
+    border-top: 1px solid $color-gray-300;
+    background-color: $color-white;
     font-size: 14px;
     line-height: 1.6;
-    color: $gray800;
+    color: $color-gray-800;
   }
 
   &.isOpen {
@@ -62,3 +62,5 @@
     }
   }
 }
+
+

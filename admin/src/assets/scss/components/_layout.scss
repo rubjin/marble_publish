@@ -1,4 +1,4 @@
-// Layout
+﻿// Layout
 .boWrap {
   min-width: 1280px;
   max-width: 1920px;
@@ -12,7 +12,7 @@
 .boSidebar {
   width: 240px;
   background-color: #656565;
-  color: #ffffff;
+  color: $color-white;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -53,12 +53,12 @@
       width: 100%;
       height: 34px;
       padding: 0 32px 0 12px;
-      border: 1px solid #D5D7DE;
+      border: 1px solid $border-default;
       border-radius: 6px;
       font-size: 14px;
       font-weight: 300;
-      color: #2F3034;
-      background-color: #fff;
+      color: $text-primary;
+      background-color: $color-white;
       background-image: iconUrl('select_20.svg');
       background-position: right 12px center;
       background-repeat: no-repeat;
@@ -73,7 +73,7 @@
 
       option {
         background-color: #555555;
-        color: #ffffff;
+        color: $color-white;
       }
     }
   }
@@ -116,7 +116,7 @@
         &:hover,
         &.isActive {
           background-color: #777777;
-          color: #ffffff;
+          color: $color-white;
         }
 
         .ico {
@@ -127,7 +127,7 @@
       &.isOpen {
         > a {
           background-color: #777777;
-          color: #ffffff;
+          color: $color-white;
 
           .arrow {
             transform: rotate(180deg);
@@ -181,19 +181,19 @@
         height: 36px;
         padding: 8px 10px;
         font-size: 14px;
-        color: #ffffff;
+        color: $color-white;
         border-radius: 8px;
         text-decoration: none;
         transition: all 0.15s ease;
 
         &:hover {
           background-color: #777777;
-          color: #ffffff;
+          color: $color-white;
         }
 
         &.isActive {
           background-color: #FFBC00;
-          color: #2F3034;
+          color: $text-primary;
           font-weight: 500;
 
           .ico.sideSub {
@@ -231,7 +231,7 @@
         border-radius: 6px;
         font-size: 13px;
         font-weight: 500;
-        color: #2F3034;
+        color: $text-primary;
         cursor: pointer;
         outline: none;
         display: inline-flex;
@@ -249,7 +249,7 @@
     .btnFold {
       margin-top: 30px;
       padding: 0;
-      color: #fff;
+      color: $color-white;
       font-size: 14px; 
       font-weight: 300;
 
@@ -318,7 +318,7 @@
   flex-direction: column;
   overflow: hidden;
   padding: 32px;
-  background-color: #F3F5F6;
+  background-color: $bg-light;
   border-radius: 30px 0 0 0;
   min-width: 0;
 }
@@ -410,7 +410,7 @@
   .sectionTitle {
     font-size: 18px;
     font-weight: 700;
-    color: #2F3034;
+    color: $text-primary;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
@@ -419,14 +419,14 @@
     .subText {
       font-size: 13px;
       font-weight: 400;
-      color: #6b7280;
+      color: $text-secondary;
     }
   }
 
   // 하얀 박스 영역
   .sectionBox {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
+    background-color: $color-white;
+    border: 1px solid $border-light;
     border-radius: 12px;
     padding: 24px 28px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -453,3 +453,5 @@
     }
   }
 }
+
+

@@ -1,12 +1,12 @@
-.badge {
+﻿.badge {
   display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;
-  &.ongoing { background-color: $primary; color: $gray800; }
-  &.completed { background-color: $gray100; color: $gray800; }
+  &.ongoing { background-color: $color-yellow-500; color: $color-gray-800; }
+  &.completed { background-color: $color-gray-100; color: $color-gray-800; }
   &.sm { padding: 2px 6px; font-size: 10px; }
   &.lg { padding: 6px 12px; font-size: 14px; }
 
   &.account { height: 28px; padding: 0px 11px; 
-    border-radius: 30px; background-color: #E7E9ED; color: #4F535A; line-height: 28px;  }
+    border-radius: 30px; background-color: $bg-disabled; color: $color-gray-600; line-height: 28px;  }
 }
 
 // Status Dot (상태 불릿 텍스트: 운영중/예정/종료)
@@ -16,7 +16,7 @@
   gap: 6px;
   font-size: 14px;
   font-weight: 500;
-  color: #2F3034;
+  color: $text-primary;
   white-space: nowrap;
 
   &::before {
@@ -25,14 +25,14 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #9CA3AF;
+    background-color: $text-tertiary;
   }
 
   &.ing,
   &.ongoing,
   &.success {
     &::before {
-      background-color: #10B981; // 초록
+      background-color: #10B981; // 珥덈줉
     }
   }
 
@@ -40,7 +40,7 @@
   &.pending,
   &.warning {
     &::before {
-      background-color: #F59E0B; // 주황/노랑
+      background-color: #F59E0B; // 二쇳솴/?몃옉
     }
   }
 
@@ -48,7 +48,9 @@
   &.completed,
   &.danger {
     &::before {
-      background-color: #EF4444; // 빨강
+      background-color: $text-danger; // 鍮④컯
     }
   }
 }
+
+

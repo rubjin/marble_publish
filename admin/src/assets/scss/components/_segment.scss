@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Segment Component
    ========================================================================== */
 
@@ -43,14 +43,14 @@
     }
 
     // &:hover {
-    //   color: $gray800;
+    //   color: $color-gray-800;
     // }
 
     // Active State (Button & Radio)
     &.isActive,
     &:has(input[type="radio"]:checked) {
-      color: #fff;
-      background: #4F535A;
+      color: $color-white;
+      background: $bg-dark;
       font-weight: 700;
     }
 
@@ -96,3 +96,5 @@
   //   }
   // }
 }
+
+

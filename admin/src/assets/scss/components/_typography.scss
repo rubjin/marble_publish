@@ -1,4 +1,4 @@
-// Typography & Font Sizes
+﻿// Typography & Font Sizes
 
 // Font Size Classes
 .fs28 { font-size: 28px !important; line-height: 1.4; }
@@ -20,52 +20,52 @@
 .fwBold { font-weight: 700 !important; }
 
 // Text Color Utility
-.textPrimary { color: $primary !important; }
-.textDark { color: #111827 !important; }
-.textMuted { color: #6b7280 !important; }
-.textDisabled { color: #9ca3af !important; }
-.textWhite { color: #ffffff !important; }
+.textPrimary { color: $color-yellow-500 !important; }
+.textDark { color: $text-title !important; }
+.textMuted { color: $text-secondary !important; }
+.textDisabled { color: $text-tertiary !important; }
+.textWhite { color: $color-white !important; }
 
 // Typography Component Scale (Headings & Body)
 .titPage {
   font-size: 28px;
   font-weight: 700;
-  color: #111827;
+  color: $text-title;
   line-height: 1.35;
 }
 
 .titSection {
   font-size: 24px;
   font-weight: 700;
-  color: #1f2937;
+  color: $text-highlight;
   line-height: 1.4;
 }
 
 .titSub {
   font-size: 20px;
   font-weight: 700;
-  color: #1f2937;
+  color: $text-highlight;
   line-height: 1.45;
 }
 
 .titCard {
   font-size: 18px;
   font-weight: 700;
-  color: #1f2937;
+  color: $text-highlight;
   line-height: 1.5;
 }
 
 .bodyLg {
   font-size: 16px;
   font-weight: 400;
-  color: #374151;
+  color: $text-primary;
   line-height: 1.6;
 }
 
 .bodyMd {
   font-size: 14px;
   font-weight: 400;
-  color: #374151;
+  color: $text-primary;
   line-height: 1.6;
 }
 
@@ -79,14 +79,14 @@
 .caption {
   font-size: 12px;
   font-weight: 400;
-  color: #6b7280;
+  color: $text-secondary;
   line-height: 1.5;
 }
 
 .micro {
   font-size: 10px;
   font-weight: 400;
-  color: #9ca3af;
+  color: $text-tertiary;
   line-height: 1.4;
 }
 
@@ -103,8 +103,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+  background-color: $color-white;
+  border: 1px solid $border-light;
   border-radius: 8px;
   gap: 20px;
 
@@ -115,13 +115,13 @@
     .name {
       font-size: 14px;
       font-weight: 700;
-      color: #111827;
+      color: $text-title;
       margin-bottom: 2px;
     }
 
     .meta {
       font-size: 12px;
-      color: #9ca3af;
+      color: $text-tertiary;
       font-family: monospace;
     }
   }
@@ -131,6 +131,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #1f2937;
+    color: $text-highlight;
   }
 }
+
+

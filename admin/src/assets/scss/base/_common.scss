@@ -1,4 +1,4 @@
-// Font
+﻿// Font
 @font-face {
   font-family: 'KBFG Text';
   src: fontUrl('KBFGText-Light.woff2') format('woff2');
@@ -23,8 +23,8 @@ body {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
-  color: #2F3034;
-  background-color: #f8f9fa;
+  color: $text-primary;
+  background-color: $color-gray-50;
 }
 
 .srOnly {
@@ -43,4 +43,6 @@ body {
 .textLeft { text-align: left !important; }
 .textCenter { text-align: center !important; }
 .textRight { text-align: right !important; }
+
+
 

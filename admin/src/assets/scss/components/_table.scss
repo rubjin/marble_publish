@@ -1,4 +1,4 @@
-// Table Component
+﻿// Table Component
 
 // Table Top Header (좌측 타이틀 + 건수 / 우측 버튼그룹)
 .tblTop {
@@ -18,16 +18,16 @@
     .tblTitle {
       font-size: 16px;
       font-weight: 700;
-      color: #111827;
+      color: $text-title;
       margin: 0;
     }
 
     .tblCount {
       font-size: 13px;
-      color: #6b7280;
+      color: $text-secondary;
 
       strong {
-        color: #111827;
+        color: $text-title;
         font-weight: 600;
       }
 
@@ -38,7 +38,7 @@
 
     .tblUnit {
       font-size: 13px;
-      color: #6b7280;
+      color: $text-secondary;
     }
   }
 
@@ -49,12 +49,12 @@
 
     .tblUnit {
       font-size: 13px;
-      color: #6b7280;
+      color: $text-secondary;
     }
 
     .tblGuide {
       font-size: 13px;
-      color: #6b7280;
+      color: $text-secondary;
       margin: 0;
     }
   }
@@ -82,7 +82,7 @@
   thead {
     th {
       padding: 10px 10px;
-      background-color: rgba(243, 245, 246, 0.8);
+      background-color: $bg-table-header;
       font-weight: 600;
       text-align: center;
       white-space: nowrap;
@@ -91,7 +91,7 @@
 
   tbody {
     tr {
-      border-bottom: 1px solid #F0F0F3;
+      border-bottom: 1px solid $border-light;
       transition: background-color 0.15s;
       // &:hover {
       //   background-color: #fafafa;
@@ -133,31 +133,33 @@
 
   // 테두리
   &.tblBordered {
-    border: 1px solid #F0F0F3;
+    border: 1px solid $border-light;
 
     thead th,
     tbody td {
-      border: 1px solid #F0F0F3;
+      border: 1px solid $border-light;
     }
   }
 
   // 상세/관리정보 뷰 테이블
   &.tblView {
-    border-top: 1px solid #707070;
+    border-top: 1px solid $border-dark;
 
     tbody {
       tr {
-        border-bottom: 1px solid #F0F0F3;
+        border-bottom: 1px solid $border-light;
       }
       th {
         padding: 14px 12px;
         font-weight: 500;
-        color: #4F535A;
+        color: $text-secondary;
       }
       td {
         padding: 14px 12px;
-        color: #2F3034;
+        color: $text-primary;
       }
     }
   }
 }
+
+
