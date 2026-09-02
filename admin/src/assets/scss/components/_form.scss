@@ -249,34 +249,56 @@ select.formControl {
   }
 
   .checkIcon {
-    width: 24px;
-    height: 24px;
-    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $color-gray-300;
+    background-color: $bg-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 8px;
     transition: all 0.2s;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+
+    &::after {
+      content: '';
+      display: none;
+    }
   }
 
   input[type="checkbox"] + .checkIcon {
-    background-image: iconUrl('checkbox_24.svg');
+    border-radius: 4px;
+    
+    &::after {
+      width: 10px;
+      height: 10px;
+      background-color: $bg-white;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
   }
 
   input[type="radio"] + .checkIcon {
-    background-image: iconUrl('radio_24.svg');
+    border-radius: 50%;
+
+    &::after {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $bg-white;
+    }
   }
 
-  input[type="checkbox"]:checked + .checkIcon {
-    background-image: iconUrl('checkbox_24_checked.svg');
-  }
+  input:checked + .checkIcon {
+    background-color: $text-highlight;
+    border-color: $text-highlight;
 
-  input[type="radio"]:checked + .checkIcon {
-    background-image: iconUrl('radio_24_checked.svg');
+    &::after {
+      display: block;
+    }
   }
 
   input:disabled + .checkIcon {
-    opacity: 0.5;
+    background-color: $bg-light;
+    border-color: $border-light;
     cursor: not-allowed;
   }
 
@@ -631,9 +653,6 @@ select.formControl {
     border-collapse: collapse;
     border-spacing: 0;
 
-    tr {
-      // border-bottom 제거 (가로라인 없는 형태)
-    }
 
     th {
       width: 110px;
