@@ -5,13 +5,13 @@
   margin: 0 auto;
   display: flex;
   min-height: 100vh;
-  background-color: #656565;
+  background-color: $color-gray-500;
 }
 
 // Sidebar (240px / 64px)
 .boSidebar {
   width: 240px;
-  background-color: #656565;
+  background-color: $color-gray-500;
   color: $color-white;
   flex-shrink: 0;
   display: flex;
@@ -67,12 +67,12 @@
       cursor: pointer;
 
       // &:focus {
-      //   border-color: #FFBC00;
+      //   border-color: $color-yellow-500;
       //   box-shadow: 0 0 0 2px rgba(255, 188, 0, 0.3);
       // }
 
       option {
-        background-color: #555555;
+        background-color: $color-gray-600;
         color: $color-white;
       }
     }
@@ -106,7 +106,7 @@
         gap: 10px;
         height: 40px;
         padding: 8px 12px;
-        color: #e5e5e5;
+        color: $color-gray-200;
         text-decoration: none;
         border-radius: 8px;
         font-size: 14px;
@@ -115,7 +115,7 @@
 
         &:hover,
         &.isActive {
-          background-color: #777777;
+          background-color: $color-gray-500;
           color: $color-white;
         }
 
@@ -126,7 +126,7 @@
 
       &.isOpen {
         > a {
-          background-color: #777777;
+          background-color: $color-gray-500;
           color: $color-white;
 
           .arrow {
@@ -187,12 +187,12 @@
         transition: all 0.15s ease;
 
         &:hover {
-          background-color: #777777;
+          background-color: $color-gray-500;
           color: $color-white;
         }
 
         &.isActive {
-          background-color: #FFBC00;
+          background-color: $color-yellow-500;
           color: $text-primary;
           font-weight: $font-weight-medium;
 
@@ -215,7 +215,7 @@
     gap: 16px;
     .inner {
       padding: 20px 0 0;
-      border-top: 1px solid #737373;
+      border-top: 1px solid $color-gray-500;
     }
 
     .sideBtns {
@@ -226,7 +226,7 @@
         flex: 1;
         height: 34px;
         padding: 0 4px;
-        background-color: #F8F8F9;
+        background-color: $color-gray-50;
         border: none;
         border-radius: 6px;
         font-size: 13px;
@@ -241,7 +241,7 @@
         line-height: 1;
 
         // &:hover {
-        //   background-color: #888888;
+        //   background-color: $color-gray-500;
         // }
       }
     }
@@ -336,7 +336,7 @@
     h1 {
       font-size: 20px;
       font-weight: $font-weight-bold;
-      color: #1F192F;
+      color: $color-gray-900;
       margin: 0;
     }
 
@@ -344,7 +344,7 @@
     span {
       font-size: 12px;
       font-weight: $font-weight-medium;
-      color: #8D919B;
+      color: $color-gray-400;
     }
   }
 
@@ -383,7 +383,7 @@
   .pageTitle {
     font-size: 22px;
     font-weight: $font-weight-bold;
-    color: #1F192F;
+    color: $color-gray-900;
     margin: 0;
     line-height: 30px;
   }
@@ -453,6 +453,8 @@
     }
   }
 }
+
+
 
 
 

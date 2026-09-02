@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: #f9fafb;
+  background-color: $color-gray-50;
   border: 2px dashed $color-gray-300;
   border-radius: 6px;
   transition: all 0.2s ease;
@@ -90,7 +90,7 @@
       margin-bottom: 4px;
 
       .highlight {
-        color: #d97706;
+        color: $text-warning;
         text-decoration: underline;
       }
     }
@@ -125,11 +125,11 @@
 
   &:hover,
   &.isDragOver {
-    background-color: #fefce8;
-    border-color: #FFCC00;
+    background-color: $bg-warning-light;
+    border-color: $color-yellow-500;
 
     .dropzoneHeader .dropzoneIcon {
-      color: #d97706;
+      color: $text-warning;
     }
   }
 }
@@ -157,7 +157,7 @@
   transition: background-color 0.15s;
 
   &:hover {
-    background-color: #f9fafb;
+    background-color: $color-gray-50;
   }
 
   .fileInfo {
@@ -212,7 +212,7 @@
     transition: all 0.15s;
 
     &:hover {
-      background-color: #fee2e2;
+      background-color: $bg-danger-light;
       color: $text-danger;
     }
 
@@ -223,6 +223,7 @@
     }
   }
 }
+
 
 
 

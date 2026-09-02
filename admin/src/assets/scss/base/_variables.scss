@@ -24,6 +24,10 @@ $color-red-500: #F23F3F;
 $color-red-600: #EF4444;
 $color-red-alpha: rgba(239, 68, 68, 0.2);
 
+$color-green-500: #10B981;
+$color-orange-500: #F59E0B;
+$color-blue-500: #2563EB;
+
 $color-white: #FFFFFF;
 $color-transparent: transparent;
 
@@ -38,13 +42,20 @@ $bg-light: $color-gray-100;
 $bg-dark: $color-gray-600;
 $bg-disabled: $color-gray-200;
 $bg-table-header: rgba(243, 245, 246, 0.8);
+$bg-danger-light: #FEE2E2;
+$bg-success-light: #ECFDF5;
+$bg-warning-light: #FEFCE8;
+$bg-info-light: #EFF6FF;
 
 // 2.2 Text Colors
 $text-primary: $color-gray-800;
 $text-secondary: $color-gray-500;
 $text-tertiary: $color-gray-400;
 $text-inverse: $color-white;
-$text-danger: $color-red-500;
+$text-danger: $color-red-600;
+$text-success: $color-green-500;
+$text-warning: $color-orange-500;
+$text-info: $color-blue-500;
 $text-title: $color-gray-950;
 $text-highlight: $color-gray-900;
 
@@ -118,6 +129,7 @@ $z-toast: 9999;
 // ==========================================================================
 $path-images: '../images';
 $path-fonts: '../fonts';
+
 
 
 

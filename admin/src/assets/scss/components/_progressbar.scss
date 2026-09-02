@@ -9,13 +9,13 @@
   flex: 1;
   height: 8px;
   overflow: hidden;
-  background: #EFF4FB;
+  background: $color-gray-100;
   border-radius: 999px;
 }
 
 .barPercentFill {
   height: 100%;
-  background: #FFBC00;
+  background: $color-yellow-500;
   border-radius: inherit;
 }
 
@@ -25,6 +25,7 @@
 //   line-height: 1;
 //   font-weight: $font-weight-semibold;
 // }
+
 
 
 

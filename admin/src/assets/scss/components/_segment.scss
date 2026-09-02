@@ -6,7 +6,7 @@
   display: inline-flex;
   align-items: center;
   padding: 4px;
-  background-color: #f5f5f5;
+  background-color: $color-gray-50;
   border-radius: 6px;
   user-select: none;
   gap: 4px;
@@ -19,7 +19,7 @@
     padding: 0px 12px;
     font-size: 12px;
     font-weight: $font-weight-medium;
-    color: #6D717B;
+    color: $color-gray-500;
     background: transparent;
     border: none;
     border-radius: 6px;
@@ -96,6 +96,7 @@
   //   }
   // }
 }
+
 
 
 

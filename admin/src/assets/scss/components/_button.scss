@@ -31,7 +31,7 @@
   }
   &.dark {
     background-color: $bg-dark; color: $text-inverse;
-    // &:hover { background-color: #777777; }
+    // &:hover { background-color: $color-gray-500; }
   }
   &.danger {
     border: 1px solid $border-danger; color: $text-danger;
@@ -84,6 +84,7 @@
 .btnGroupRight {
   margin-left: auto;
 }
+
 
 
 

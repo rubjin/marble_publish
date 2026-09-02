@@ -90,7 +90,7 @@
   padding: 24px;
   font-size: 15px;
   line-height: 1.6;
-  color: #4b5563;
+  color: $color-gray-600;
   max-height: 60vh;
   overflow-y: auto;
 }
@@ -98,12 +98,13 @@
 /* 팝업 푸터 (버튼 영역) */
 .popupFooter {
   padding: 20px 24px;
-  background-color: #f9fafb;
+  background-color: $color-gray-50;
   border-top: 1px solid $border-light;
   display: flex;
   justify-content: flex-end;
   gap: 12px;
 }
+
 
 
 

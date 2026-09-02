@@ -32,7 +32,7 @@
   &.ongoing,
   &.success {
     &::before {
-      background-color: #10B981; // 珥덈줉
+      background-color: $text-success; // 珥덈줉
     }
   }
 
@@ -40,7 +40,7 @@
   &.pending,
   &.warning {
     &::before {
-      background-color: #F59E0B; // 二쇳솴/?몃옉
+      background-color: $text-warning; // 二쇳솴/?몃옉
     }
   }
 
@@ -52,6 +52,7 @@
     }
   }
 }
+
 
 
 
