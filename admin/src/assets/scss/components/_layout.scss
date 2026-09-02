@@ -371,13 +371,14 @@
   overflow-y: auto;
 }
 
-// Page Header (페이지 상단 타이틀 + 우측 브래드크럼)
+// Page Header (페이지 상단 타이틀 + 우측 브래드크럼 / 정보 & 버튼)
 .pageHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 14px;
   flex-wrap: wrap;
+  gap: 12px;
 
   .pageTitle {
     font-size: 22px;
@@ -385,6 +386,16 @@
     color: #1F192F;
     margin: 0;
     line-height: 30px;
+  }
+
+  .headerRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .listBar {
+      margin: 0;
+    }
   }
 }
 

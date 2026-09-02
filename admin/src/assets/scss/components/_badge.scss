@@ -8,3 +8,47 @@
   &.account { height: 28px; padding: 0px 11px; 
     border-radius: 30px; background-color: #E7E9ED; color: #4F535A; line-height: 28px;  }
 }
+
+// Status Dot (상태 불릿 텍스트: 운영중/예정/종료)
+.statusDot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2F3034;
+  white-space: nowrap;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #9CA3AF;
+  }
+
+  &.ing,
+  &.ongoing,
+  &.success {
+    &::before {
+      background-color: #10B981; // 초록
+    }
+  }
+
+  &.ready,
+  &.pending,
+  &.warning {
+    &::before {
+      background-color: #F59E0B; // 주황/노랑
+    }
+  }
+
+  &.end,
+  &.completed,
+  &.danger {
+    &::before {
+      background-color: #EF4444; // 빨강
+    }
+  }
+}

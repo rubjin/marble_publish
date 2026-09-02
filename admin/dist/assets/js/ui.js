@@ -137,4 +137,42 @@
     }
   });
 
+  // ==========================================
+  // 4. 모달 팝업 (Modal Popup Open/Close)
+  // ==========================================
+  window.openPopup = function(id) {
+    var popup = document.getElementById(id);
+    if (popup) {
+      popup.classList.add('isOpen');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closePopup = function(id) {
+    var popup = typeof id === 'string' ? document.getElementById(id) : (id ? id.closest('.popupDimmed') : null);
+    if (popup) {
+      popup.classList.remove('isOpen');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // 닫기 버튼 및 딤드 영역 클릭 시 닫기 & data-popup 속성으로 열기
+  document.addEventListener('click', function(e) {
+    // 닫기 버튼
+    if (e.target.closest('.popupDimmed .btnClose') || e.target.classList.contains('popupDimmed')) {
+      var popup = e.target.closest('.popupDimmed');
+      if (popup) {
+        window.closePopup(popup);
+      }
+    }
+
+    // 팝업 열기 버튼 (data-popup="popupId" 속성 지원)
+    var openBtn = e.target.closest('[data-popup]');
+    if (openBtn) {
+      var targetId = openBtn.getAttribute('data-popup');
+      window.openPopup(targetId);
+    }
+  });
+
 })();
+

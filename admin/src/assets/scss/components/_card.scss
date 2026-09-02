@@ -7,3 +7,580 @@
   .title { font-size: 18px; font-weight: bold; margin-bottom: 8px; @include text-ellipsis; }
   .desc { font-size: 14px; color: $gray800; margin-bottom: 16px; }
 }
+
+// KPI Statistic Cards (좌측: 타이틀 / 우측: 숫자 & 비교값 정렬)
+.kpiCardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+
+  &.col3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  &.col2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kpiCard {
+    background-color: #F8F8F9;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 20px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 0;
+
+    .kpiTitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4F535A;
+      margin: 0;
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .kpiContent {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      gap: 6px;
+      min-width: 0;
+
+      .kpiNumber {
+        font-size: 20px;
+        font-weight: 700;
+        color: #111827;
+        line-height: 1.2;
+        white-space: nowrap;
+
+        .unit {
+          font-size: 14px;
+          font-weight: 400;
+          color: #4B5563;
+          margin-left: 2px;
+        }
+      }
+
+      .kpiSub {
+        font-size: 12px;
+        color: #8D919B;
+        margin: 0;
+        white-space: nowrap;
+
+        .rate {
+          font-weight: 600;
+
+          &.isUp {
+            color: #DC2626;
+          }
+
+          &.isDown {
+            color: #2563EB;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Information Summary Box Grid (테이블 상단 3개 요약 박스 - 한 라인 배치)
+.infoBoxWrap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.infoBox {
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+
+  .infoBoxHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #F0F0F3;
+
+    .infoBoxTitle {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+  }
+
+  .infoList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    justify-content: space-around;
+
+    .infoListItem {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      line-height: 1.4;
+
+      .label {
+        color: #6B7280;
+        font-weight: 400;
+        white-space: nowrap;
+      }
+
+      .value {
+        color: #111827;
+        font-weight: 600;
+        text-align: right;
+        white-space: nowrap;
+
+        strong {
+          font-weight: 700;
+          color: #111827;
+        }
+
+        &.point,
+        .point {
+          color: #2563EB;
+          font-weight: 700;
+        }
+
+        .danger {
+          color: #EF4444;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+// Summary Statistics Box (테이블 상단 좌/우 통계 요약 박스)
+.summaryStatBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F8F8F9;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 20px 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  margin-bottom: 20px;
+  gap: 32px;
+
+  .statCol {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 36px;
+
+    &.statColLeft {
+      justify-content: flex-start;
+    }
+
+    &.statColRight {
+      justify-content: flex-end;
+    }
+  }
+
+  .statDivider {
+    width: 1px;
+    height: 44px;
+    background-color: #E5E7EB;
+    flex-shrink: 0;
+  }
+
+  .statItem {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+    &.col {
+      flex-direction: column;
+    }
+
+    .statLabel {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6B7280;
+    }
+
+    .statValue {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.2;
+      &.col {
+        flex-direction: column;
+      }
+      strong {
+        font-weight: 700;
+      }
+      .price {
+        font-size: 20px;
+        font-weight: 700;
+        color: #111827;
+      }
+
+      .unit {
+        font-size: 14px;
+        font-weight: 400;
+        color: #4B5563;
+      }
+
+      .subText {
+        font-size: 12px;
+        font-weight: 400;
+        color: #6B7280;
+      }
+
+      .rate {
+        display: inline-flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 2px 6px;
+        border-radius: 4px;
+        margin-left: 4px;
+        line-height: 1.2;
+
+        &.isUp {
+          color: #DC2626;
+          background-color: #FEF2F2;
+        }
+
+        &.isDown {
+          color: #2563EB;
+          background-color: #EFF6FF;
+        }
+      }
+    }
+  }
+
+  // 2개 분할 카드 형태
+  &.splitType {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    gap: 16px;
+
+    .statCard {
+      background-color: #ffffff;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 20px;
+    }
+  }
+
+  // 1줄 인라인 바 형태 (One-Line Inline Bar)
+  &.singleLine {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 14px 24px;
+    gap: 40px;
+    flex-wrap: nowrap;
+
+    .statItem {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+      white-space: nowrap;
+
+      .statLabel {
+        font-size: 13px;
+        color: #6B7280;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      .statValue {
+        font-size: 15px;
+        font-weight: 700;
+        color: #111827;
+
+        .unit {
+          font-size: 13px;
+          font-weight: 400;
+          color: #4B5563;
+        }
+
+        .subText {
+          font-size: 12px;
+          font-weight: 400;
+          color: #6B7280;
+        }
+      }
+
+     
+      // &:not(:first-child)::before {
+      //   content: '';
+      //   display: inline-block;
+      //   width: 1px;
+      //   height: 14px;
+      //   background-color: #D5D7DE;
+      //   margin-right: 14px;
+      //   flex-shrink: 0;
+      // }
+    }
+    .statDivider {
+      height: 14px;
+      margin: 0 -20px;
+    }
+  }
+
+  // 1줄 6분할 컬럼 그리드 형태 (One-Line 6 Columns Grid)
+  &.col6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    padding: 18px 24px;
+
+    .statItem {
+      position: relative;
+      padding-left: 16px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:not(:first-child)::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 32px;
+        background-color: #E5E7EB;
+      }
+
+      .statValue {
+        font-size: 18px;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+
+    .statCol {
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start !important;
+    }
+
+    .statDivider {
+      width: 100%;
+      height: 1px;
+    }
+
+    &.splitType {
+      grid-template-columns: 1fr;
+    }
+
+    &.col6 {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
+      .statItem {
+        padding-left: 0;
+        &::before { display: none; }
+      }
+    }
+
+    &.singleLine {
+      justify-content: flex-start;
+    }
+  }
+}
+
+// Status Summary KPI Bar (5개 핵심 운영 현황 지표 바)
+.statusSummaryBox {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 20px 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  margin-bottom: 20px;
+
+  .statusItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+
+    .statusHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .statusLabel {
+        font-size: 13px;
+        font-weight: 500;
+        color: #6B7280;
+        white-space: nowrap;
+      }
+
+      .ico {
+        width: 20px;
+        height: 20px;
+        opacity: 0.6;
+      }
+    }
+
+    .statusValue {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.2;
+      white-space: nowrap;
+
+      strong {
+        font-weight: 700;
+      }
+
+      .unit {
+        font-size: 14px;
+        font-weight: 500;
+        color: #111827;
+        margin-left: 2px;
+      }
+
+      &.danger {
+        color: #EF4444;
+
+        .unit {
+          color: #EF4444;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+// Status Cards (운영중, 이슈/알림, 참여율, 신규 유입, 연간 지급 포인트 - 각각 독립된 개별 박스)
+.statusCardGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+
+  .statusCard {
+    background-color: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+
+    .statusHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .statusLabel {
+        font-size: 13px;
+        font-weight: 500;
+        color: #6B7280;
+        white-space: nowrap;
+      }
+
+      .ico {
+        width: 20px;
+        height: 20px;
+        opacity: 0.6;
+      }
+    }
+
+    .statusValue {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.2;
+      white-space: nowrap;
+
+      strong {
+        font-weight: 700;
+      }
+
+      .unit {
+        font-size: 14px;
+        font-weight: 500;
+        color: #111827;
+        margin-left: 2px;
+      }
+
+      &.danger {
+        color: #EF4444;
+
+        .unit {
+          color: #EF4444;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}

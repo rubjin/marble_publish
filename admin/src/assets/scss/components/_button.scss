@@ -11,27 +11,35 @@
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 4px;
   height: 34px; background-color: transparent; 
-  padding: 0px 12px; border-radius: 6px; font-weight: 500; font-size: 14px;
+  padding: 0px 12px; border-radius: $radiusDefault; font-weight: 500; font-size: 14px;
   outline: none; border: none; cursor: pointer; user-select: none; line-height: 1; text-decoration: none;
   transition: background-color 0.2s;
   &.primary {
     background-color: #FFC72B; color: #2F3034;
-    // &:hover { background-color: ; }
+    // &:hover { background-color: #FFDC00; }
   }
   &.outline {
     border: 1px solid #D5D7DE; background-color: #ffffff; color: #404046;
+    // &:hover { background-color: rgba(0,0,0,0.08); }
   }
   &.light {
     border: 1px solid #D5D7DE; background-color: #F5F5F6; color: #2F3034;
+    &.isActive {
+      background-color: #4F535A; color: #ffffff; border-color: #4F535A;
+    }
+    // &:hover { background-color: rgba(0,0,0,0.08); }
   }
   &.dark {
     background-color: #4F535A; color: #ffffff;
+    // &:hover { background-color: #777777; }
   }
   &.danger {
     border: 1px solid #FF9494; color: #F23F3F;
+    // &:hover { background-color: rgba(242, 63, 63, 0.08); }
   }
   &.ghost {
     background-color: transparent;
+    // &:hover { background-color: rgba(0,0,0,0.08); }
   }
  
   &.sm { @include btnSm;}

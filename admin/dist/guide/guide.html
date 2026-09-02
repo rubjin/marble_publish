@@ -155,52 +155,61 @@
       <button type="button" class="guideNavItem" data-target="sectionLists">Lists</button>
       <button type="button" class="guideNavItem" data-target="sectionAccordion">Accordion</button>
       <button type="button" class="guideNavItem" data-target="sectionTable">Table</button>
+      <button type="button" class="guideNavItem" data-target="sectionTitle">Title</button>
       <button type="button" class="guideNavItem" data-target="sectionEtc">etc</button>
     </div>
   </nav>
 
   <div class="guideWrapper">
-    <!-- ==================== 1. 버튼 가이드 ==================== -->
+    <!-- ==================== 버튼 가이드 ==================== -->
     <section id="sectionButtons" class="guideSection">
       <h2 class="guideTitle">Buttons (버튼)</h2>
       <div class="guideBox" style="gap: 5px;">
         <!-- Ghost -->
-<button type="button" class="btn ghost sm">Ghost SM</button>
-<button type="button" class="btn ghost">Ghost Default</button>
-<button type="button" class="btn ghost lg">Ghost LG</button>
+<button type="button" class="btn ghost sm">Ghost SM (높이 24px)</button>
+<button type="button" class="btn ghost">Ghost Default (높이 34px)</button>
+<button type="button" class="btn ghost lg">Ghost LG (높이 40px)</button>
+
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
 
 <!-- Primary -->
-<button type="button" class="btn primary sm">Primary SM</button>
-<button type="button" class="btn primary">Primary Default</button>
-<button type="button" class="btn primary lg">Primary LG</button>
+<button type="button" class="btn primary sm">Primary SM (높이 24px)</button>
+<button type="button" class="btn primary">Primary Default (높이 34px)</button>
+<button type="button" class="btn primary lg">Primary LG (높이 40px)</button>
+
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
 
 <!-- Dark -->
-<button type="button" class="btn dark sm">Dark SM</button>
-<button type="button" class="btn dark">Dark Default</button>
-<button type="button" class="btn dark lg">Dark LG</button>
+<button type="button" class="btn dark sm">Dark SM (높이 24px)</button>
+<button type="button" class="btn dark">Dark Default (높이 34px)</button>
+<button type="button" class="btn dark lg">Dark LG (높이 40px)</button>
 
 <div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
 
 <!-- Outline -->
-<button type="button" class="btn outline sm">Outline SM</button>
-<button type="button" class="btn outline">Outline Default</button>
-<button type="button" class="btn outline lg">Outline LG</button>
+<button type="button" class="btn outline sm">Outline SM (높이 24px)</button>
+<button type="button" class="btn outline">Outline Default (높이 34px)</button>
+<button type="button" class="btn outline lg">Outline LG (높이 40px)</button>
+
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
 
 <!-- Light -->
-<button type="button" class="btn light sm">Light SM</button>
-<button type="button" class="btn light">Light Default</button>
-<button type="button" class="btn light lg">Light LG</button>
+<button type="button" class="btn light sm">Light SM (높이 24px)</button>
+<button type="button" class="btn light">Light Default (높이 34px)</button>
+<button type="button" class="btn light lg">Light LG (높이 40px)</button>
+
+<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
 
 <!-- Danger -->
-<button type="button" class="btn danger sm">Danger SM</button>
-<button type="button" class="btn danger">Danger Default</button>
-<button type="button" class="btn danger lg">Danger LG</button>
+<button type="button" class="btn danger sm">Danger SM (높이 24px)</button>
+<button type="button" class="btn danger">Danger Default (높이 34px)</button>
+<button type="button" class="btn danger lg">Danger LG (높이 40px)</button>
 
 <div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
 
 <!-- Full Width -->
-<button type="button" class="btn primary full">Primary Full Width</button>
-<button type="button" class="btn outline full">Outline Full Width</button>
+<button type="button" class="btn primary full">Primary Full Width (100%)</button>
+<button type="button" class="btn outline full">Outline Full Width (100%)</button>
 
 <div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
 
@@ -229,22 +238,7 @@
   </div>
 </div>
 
-<!-- 테이블 상단 타이틀 + 건수 + 버튼 -->
-<div class="tblTop">
-  <div class="tblLeft">
-    <h3 class="tblTitle">챌린지 운영 현황</h3>
-    <span class="tblCount">총 <strong>6</strong>건</span>
-  </div>
-  <div class="tblRight">
-    <div class="btnGroup">
-      <button type="button" class="btn outline">챌린지 추가</button>
-      <button type="button" class="btn outline">
-        <span class="ico download"></span>
-        <span>엑셀 다운로드</span>
-      </button>
-    </div>
-  </div>
-</div>
+
       </div>
 
        <h2 class="guideTitle">페이지 버튼</h2>
@@ -305,7 +299,7 @@
   - 사이즈: 기본(MD), 'sm'(작은 크기), 'lg'(큰 크기), 'full'(가로 100% 꽉 채움)
 -->
 
-<!-- 1. 버튼 방식 (선택 상태: isActive) -->
+<!-- 버튼 방식 (선택 상태: isActive) -->
 <!-- Small, Large -> sm, lg -->
 <div class="segment">
   <!-- [D] 선택된 항목: isActive 클래스 추가 -->
@@ -314,7 +308,7 @@
   <button type="button" class="segmentItem">서비스 고척도</button>
 </div>
 
-<!-- 2. 라디오 방식 (선택 상태: input checked) -->
+<!-- 라디오 방식 (선택 상태: input checked) -->
 <div class="segment">
   <!-- [D] 선택된 항목: input checked 속성 제어 -->
   <label class="segmentItem">
@@ -335,16 +329,98 @@
       </div>
 
       <!-- ==================== 토글 스위치 가이드 ==================== -->
-      <!-- <h2 class="guideTitle">Toggle (토글 스위치)</h2>
+      <h2 class="guideTitle">Toggle (토글 스위치)</h2>
       <div class="guideBox guideBoxBlock">
-        <include src="./src/components/toggle.html"></include>
-      </div> -->
+        <!-- 
+  [D] 토글 스위치 컴포넌트 개발 가이드
+  - ON/OFF 상태: input[type="checkbox"]의 'checked' 속성 제어
+  - 비활성화: input 'disabled' 속성 또는 부모 .toggle에 'isDisabled' 클래스 추가
+  - 테마: 기본(다크), 'primary'(노란색 활성 테마)
+  - 사이즈: 기본(MD), 'sm'(작은 크기), 'lg'(큰 크기)
+-->
+
+<!-- 기본 토글 스위치 -->
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+  <!-- [D] OFF 상태 -->
+  <label class="toggle">
+    <input type="checkbox">
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">비활성 (OFF)</span>
+  </label>
+
+  <!-- [D] ON 상태: input checked -->
+  <label class="toggle">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">활성 (ON)</span>
+  </label>
+
+  <!-- [D] Primary 테마 컬러 토글 -->
+  <label class="toggle primary">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Primary 컬러</span>
+  </label>
+</div>
+
+<!-- 사이즈별 변형 (sm, 기본, lg) -->
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-top: 16px;">
+  <!-- Small -->
+  <label class="toggle sm">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Small (sm)</span>
+  </label>
+
+  <!-- Default -->
+  <label class="toggle">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Default (기본)</span>
+  </label>
+
+  <!-- Large -->
+  <label class="toggle lg">
+    <input type="checkbox" checked>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Large (lg)</span>
+  </label>
+</div>
+
+<!-- 비활성 (Disabled) 상태 -->
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-top: 16px;">
+  <!-- [D] Disabled OFF -->
+  <label class="toggle">
+    <input type="checkbox" disabled>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Disabled (OFF)</span>
+  </label>
+
+  <!-- [D] Disabled ON -->
+  <label class="toggle">
+    <input type="checkbox" checked disabled>
+    <span class="toggleTrack"></span>
+    <span class="toggleLabel">Disabled (ON)</span>
+  </label>
+</div>
+
+      </div>
 
       <!-- ==================== 탭 가이드 ==================== -->
-      <!-- <h2 class="guideTitle">Tabs (탭 메뉴)</h2>
+      <h2 class="guideTitle">Tabs (탭 메뉴)</h2>
       <div class="guideBox guideBoxBlock">
-        <include src="./src/components/tab.html"></include>
-      </div> -->
+        <!-- 
+  [D] 탭 컴포넌트 개발 가이드
+  - 선택된 탭: .item에 'isActive' 클래스 추가
+-->
+<nav class="tab">
+  <!-- [D] 활성 상태: isActive 클래스 추가 -->
+  <button type="button" class="item isActive">활성화 탭 (Active)</button>
+  <button type="button" class="item">디폴트 탭 (Default)</button>
+  <button type="button" class="item">세 번째 탭</button>
+</nav>
+
+      </div>
     </section>
 
     <!-- ==================== 아이콘 가이드 ==================== -->
@@ -396,11 +472,9 @@
 <span class="ico side7"></span>
 <span class="ico sideSub"></span>
       </div>
-
-    
     </section>
 
-    <!-- ==================== 2. 뱃지 가이드 ==================== -->
+    <!-- ==================== 뱃지 가이드 ==================== -->
     <section id="sectionBadges" class="guideSection">
       <h2 class="guideTitle">Badges</h2>
       <div class="guideBox">
@@ -418,15 +492,98 @@
       </div>
     </section>
 
-    <!-- ==================== 4. 카드 가이드 ==================== -->
-    <!-- <section id="sectionCards" class="guideSection">
-      <h2 class="guideTitle">Cards (카드)</h2>
-      <div class="guideBox" style="background-color: #f3f4f6;">
-        <include src="./src/components/card.html"></include>
-      </div>
-    </section> -->
+    <!-- ==================== 카드 가이드 ==================== -->
+    <section id="sectionCards" class="guideSection">
+      <h2 class="guideTitle">Cards (KPI 통계 요약 카드)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- ==========================================================================
+  KPI / 통계 요약 카드 (좌측: 타이틀 / 우측: 금액·수치 & 비교값 정렬)
+  ========================================================================== -->
 
-    <!-- ==================== 5. 폼 가이드 ==================== -->
+<!-- 1. 4단 그리드 (총 예산한도, 지급금액, 잔여한도, 전체 소진율) -->
+<div class="kpiCardGrid">
+  <!-- 1. 총 예산한도 -->
+  <div class="kpiCard">
+    <span class="kpiTitle">총 예산한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>100,000,000</strong><span class="unit">원</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+
+  <!-- 2. 지급금액 -->
+  <div class="kpiCard">
+    <span class="kpiTitle">지급금액</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>50,000,000</strong><span class="unit">원</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+
+  <!-- 3. 잔여한도 -->
+  <div class="kpiCard">
+    <span class="kpiTitle">잔여한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>10,000,000</strong><span class="unit">원</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+
+  <!-- 4. 전체 소진율 -->
+  <div class="kpiCard">
+    <span class="kpiTitle">전체 소진율</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>60</strong><span class="unit">%</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 3단 그리드 예시 (.col3) -->
+<div class="kpiCardGrid col3">
+  <div class="kpiCard">
+    <span class="kpiTitle">총 예산한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>100,000,000</strong><span class="unit">원</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">지급금액</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>50,000,000</strong><span class="unit">원</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">잔여한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>10,000,000</strong><span class="unit">원</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 폼 가이드 ==================== -->
     <section id="sectionForms" class="guideSection">
       <h2 class="guideTitle">Forms (입력 폼)</h2>
       <div class="guideBox guideBoxBlock" style="max-width: 600px;">
@@ -544,6 +701,50 @@
   </div>
 </div>
 
+<!-- 10. Radio Card Group (라디오 카드형 그룹 - 기본형) -->
+<fieldset class="formGroup">
+  <legend class="formLabel">타입 선택 (라디오 카드형)</legend>
+  <div class="formRadioCardGroup">
+    <label class="formRadioCard isActive">
+      <input type="radio" name="cardTypeDemo" checked>
+      <span class="checkIcon"></span>
+      <div class="cardContent">
+        <strong class="cardTitle">A-type (본문 삽입형)</strong>
+        <p class="cardDesc">질문과 버튼만 노출되는 기본형 레이아웃입니다.</p>
+      </div>
+    </label>
+    <label class="formRadioCard">
+      <input type="radio" name="cardTypeDemo">
+      <span class="checkIcon"></span>
+      <div class="cardContent">
+        <strong class="cardTitle">B-type (단독 화면 호출형)</strong>
+        <p class="cardDesc">단독 전체 화면에 사용되는 레이아웃입니다.</p>
+      </div>
+    </label>
+  </div>
+</fieldset>
+
+<!-- 11. Radio Card Group (라디오 카드형 그룹 - Compact형) -->
+<fieldset class="formGroup">
+  <legend class="formLabel">정답 선택 (컴팩트 카드형)</legend>
+  <div class="formRadioCardGroup">
+    <label class="formRadioCard isCompact isActive">
+      <input type="radio" name="compactCardDemo" checked>
+      <span class="checkIcon"></span>
+      <div class="cardContent">
+        <strong class="cardTitle">O (정답)</strong>
+      </div>
+    </label>
+    <label class="formRadioCard isCompact">
+      <input type="radio" name="compactCardDemo">
+      <span class="checkIcon"></span>
+      <div class="cardContent">
+        <strong class="cardTitle">X (오답)</strong>
+      </div>
+    </label>
+  </div>
+</fieldset>
+
 
       </div>
 
@@ -619,7 +820,7 @@
       </div>
     </section>
 
-    <!-- ==================== 6. 팝업 가이드 ==================== -->
+    <!-- ==================== 팝업 가이드 ==================== -->
     <section id="sectionPopups" class="guideSection">
       <h2 class="guideTitle">Popups (모달 팝업)</h2>
       
@@ -807,10 +1008,8 @@
 
       </div>
     </section>
-
-
    
-    <!-- ==================== 7. 아코디언 가이드 ==================== -->
+    <!-- ==================== 아코디언 가이드 ==================== -->
     <section id="sectionAccordion" class="guideSection">
       <h2 class="guideTitle">Accordion (아코디언)</h2>
       <div class="guideBox guideBoxBlock" style="max-width: 700px;">
@@ -847,23 +1046,49 @@
       </div>
     </section>
 
-    <!-- ==================== 8. 테이블 가이드 ==================== -->
+    <!-- ==================== 테이블 가이드 ==================== -->
     <section id="sectionTable" class="guideSection">
-      <h2 class="guideTitle">Table (테이블)</h2>
+      <h2 class="guideTitle">Table (테이블 상단)</h2>
       <div class="guideBox guideBoxBlock">
-        <!-- 1. 테이블 상단 (좌측: 타이틀 & 건수 / 우측: 버튼 그룹) + 기본 테이블 -->
+        <!-- 기본형 (좌측: 타이틀 & 건수 / 우측: 버튼 그룹) -->
 <div class="tblTop">
   <div class="tblLeft">
-    <h3 class="tblTitle">미션 목록</h3>
-    <span class="tblCount">총 <strong>128</strong>건</span>
+    <h3 class="tblTitle">챌린지 운영 현황</h3>
+    <span class="tblCount">총<strong class="count">6</strong>건<span class="tblUnit">(단위 : 원)</span></span>
+    <select class="formControl">
+      <option value="10">10건씩 보기</option>
+      <option value="20">20건씩 보기</option>
+      <option value="50">50건씩 보기</option>
+    </select>
   </div>
   <div class="tblRight">
     <div class="btnGroup">
-      <button type="button" class="btn outline sm">엑셀 다운로드</button>
-      <button type="button" class="btn primary sm">신규 등록</button>
+      <button type="button" class="btn outline">챌린지 추가</button>
+      <button type="button" class="btn outline">
+        <span class="ico download"></span>
+        <span>엑셀 다운로드</span>
+      </button>
     </div>
   </div>
 </div>
+
+
+<!-- 좌측 타이틀 (단위 : 원) + 우측 가이드문구 -->
+<div class="tblTop">
+  <div class="tblLeft">
+    <h3 class="tblTitle">미션별 한도설정</h3>
+    <span class="tblUnit">(단위 : 원)</span>
+  </div>
+  <div class="tblRight">
+    <p class="tblGuide">※ 미션별 한도 합계가 전체 예산을 초과 할 수 없습니다.</p>
+  </div>
+</div>
+
+      </div>
+
+      <h2 class="guideTitle">Table (테이블)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- 테이블 상단 (좌측: 타이틀 & 건수 / 우측: 버튼 그룹) + 기본 테이블 -->
 
 <div class="tblWrap">
   <table class="tbl">
@@ -917,68 +1142,103 @@
   </table>
 </div>
 
-<!-- 2. 테이블 상단 (셀렉트 박스 결합) + 줄무늬 & 테두리 테이블 -->
-<div class="tblTop">
-  <div class="tblLeft">
-    <h3 class="tblTitle">고객 목록</h3>
-    <span class="tblCount">전체 <strong>1,452</strong>명</span>
-  </div>
-  <div class="tblRight">
-    <select class="formControl">
-      <option value="10">10개씩 보기</option>
-      <option value="20">20개씩 보기</option>
-      <option value="50">50개씩 보기</option>
-    </select>
-    <div class="btnGroup">
-      <button type="button" class="btn outline sm">선택 삭제</button>
-      <button type="button" class="btn primary sm">엑셀 다운로드</button>
+
+ <div class="sectionBox">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">관리정보</h3>
     </div>
   </div>
-</div>
 
-<div class="tblWrap">
-  <table class="tbl tblStriped tblBordered tblCenter">
-    <thead>
-      <tr>
-        <th>헤더1</th>
-        <th>헤더2</th>
-        <th>헤더3</th>
-        <th>헤더4</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>내용1</td>
-        <td>내용2</td>
-        <td>내용3</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>내용1</td>
-        <td>내용2</td>
-        <td>내용3</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>내용1</td>
-        <td>내용2</td>
-        <td>내용3</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>내용1</td>
-        <td>내용2</td>
-        <td>내용3</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="tblWrap">
+    <table class="tbl tblView">
+      <colgroup>
+        <col style="width: 140px;">
+        <col>
+        <col style="width: 140px;">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr>
+          <th>등록자</th>
+          <td>김국민</td>
+          <th>등록일자</th>
+          <td>2026.06.15 23:14:17</td>
+        </tr>
+        <tr>
+          <th>수정자</th>
+          <td>김증권</td>
+          <th>수정일자</th>
+          <td>2026.06.20 23:14:17</td>
+        </tr>
+        <tr>
+          <th>승인자</th>
+          <td>박승인(팀장)</td>
+          <th>승인일자</th>
+          <td>2026.06.21 23:14:17</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
       </div>
     </section>
 
-    <!-- ==================== 9. 타이포그래피 (폰트 사이즈) 가이드 ==================== -->
+    <!-- ==================== 타이틀 가이드 ==================== -->
+    <section id="sectionTitle" class="guideSection">
+      <h2 class="guideTitle">Title (타이틀)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<div class="pageHeader">
+  <h2 class="pageTitle">미션등록</h2>
+  <nav class="breadcrumb" aria-label="브레드크럼">
+    <ol class="breadcrumbList">
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">홈</a>
+      </li>
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">미션관리</a>
+      </li>
+      <li class="breadcrumbItem isCurrent" aria-current="page">
+        미션등록
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<!-- 페이지 상단 헤더  -->
+<div class="pageHeader">
+  <h2 class="pageTitle">리워드 한도설정</h2>
+  <div class="headerRight">
+    <ul class="listBar">
+      <li class="listBarItem"><span class="label">작성자</span> : <span class="value">(123456) / 디지털 Biz부</span></li>
+      <li class="listBarItem"><span class="label">저장일시</span> : <span class="value">2026.08.15 10:30</span></li>
+    </ul>
+    <button type="button" class="btn outline" data-popup="popupHistory">변경이력조회</button>
+  </div>
+</div>
+
+<!-- [팝업] 변경이력조회 모달 팝업 -->
+<div id="popupHistory" class="popupDimmed">
+  <div class="popupWrap lg">
+    <div class="popupHeader">
+      <h2 class="popupTitle">변경이력 조회</h2>
+      <button type="button" class="btnClose" aria-label="닫기"></button>
+    </div>
+    <div class="popupBody">
+      팝업 내용들어갑니다.
+    </div>
+    <div class="popupFooter">
+      <button type="button" class="btn primary" onclick="closePopup('popupHistory')">확인</button>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 타이포그래피 (폰트 사이즈) 가이드 ==================== -->
     <section id="sectionTypography" class="guideSection">
       <h2 class="guideTitle">Typography (폰트 사이즈)</h2>
       <div class="guideBox guideBoxBlock">
@@ -1099,7 +1359,7 @@
       </div>
     </section>
 
-    <!-- ==================== 10. 리스트 가이드 ==================== -->
+    <!-- ==================== 리스트 가이드 ==================== -->
     <section id="sectionLists" class="guideSection">
       <h2 class="guideTitle">Lists (세로 바 리스트 / 목록)</h2>
       <div class="guideBox guideBoxBlock">
@@ -1211,9 +1471,625 @@
   <!-- <span class="barPercentValue">70%</span> -->
 </div>
       </div>
-    </section>
 
-   
+      <h2 class="guideTitle">Summary Info Box (테이블 상단 3개 요약 정보 박스)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- ==========================================================================
+  MDI 탭 바 (MDI Tab Bar: 좌측 홈 고정 노출 / 최대 7개 탭 / 우측 전체닫기 아이콘)
+  ========================================================================== -->
+<div class="mdiTabWrap">
+  <ul class="mdiTabList">
+    <!-- 좌측 홈 화면 탭 (항상 고정 노출, 닫기 버튼 없음) -->
+    <li>
+      <button type="button" class="mdiTabItem isHome" title="홈 화면">
+        <span class="tabIcon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.5 6.5L8 2L13.5 6.5V13C13.5 13.5523 13.0523 14 12.5 14H3.5C2.94772 14 2.5 13.5523 2.5 13V6.5Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 14V8.5H10V14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="tabText">홈</span>
+      </button>
+    </li>
+
+    <!-- 페이지 탭 1 (활성화 탭: isActive) -->
+    <li>
+      <div class="mdiTabItem isActive">
+        <span class="tabText">미션등록</span>
+        <button type="button" class="tabClose" aria-label="미션등록 탭 닫기">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 2 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">미션관리</span>
+        <button type="button" class="tabClose" aria-label="미션관리 탭 닫기">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 3 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">챌린지 운영 현황</span>
+        <button type="button" class="tabClose" aria-label="챌린지 운영 현황 탭 닫기">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 4 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">회원 및 계좌조회</span>
+        <button type="button" class="tabClose" aria-label="회원 및 계좌조회 탭 닫기">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 5 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">포인트/리워드 관리</span>
+        <button type="button" class="tabClose" aria-label="포인트/리워드 관리 탭 닫기">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 6 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">통계 및 성과 분석</span>
+        <button type="button" class="tabClose" aria-label="통계 및 성과 분석 탭 닫기">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 7 (최대 7개) -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">공통 시스템 설정</span>
+        <button type="button" class="tabClose" aria-label="공통 시스템 설정 탭 닫기">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <!-- 우측 전체 닫기 버튼 -->
+  <div class="mdiTabActions">
+    <button type="button" class="btnAllClose" title="전체 탭 닫기" aria-label="전체 탭 닫기">
+      <span class="icoAllClose">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+
+<!-- ==========================================================================
+  0. 조회 컨트롤 박스 (3줄 검색 박스 + 하단 초기화/조회 버튼)
+  ========================================================================== -->
+<div class="searchBox">
+  <table class="searchTable">
+    <colgroup>
+      <col style="width: 100px;">
+      <col>
+      <col style="width: 100px;">
+      <col>
+    </colgroup>
+    <tbody>
+      <!-- 1줄: 조회일자 -->
+      <tr>
+        <th><span class="formLabel">조회일자</span></th>
+        <td colspan="3">
+          <div class="formRow">
+            <fieldset class="formDateRange">
+              <legend class="srOnly">조회기간 설정</legend>
+              <div class="formDatepicker">
+                <input type="text" class="formControl" value="2026.07.01" title="조회 시작일">
+                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+              </div>
+              <span class="dateSeparator">~</span>
+              <div class="formDatepicker">
+                <input type="text" class="formControl" value="2026.08.31" title="조회 종료일">
+                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+              </div>
+            </fieldset>
+            <div class="btnGroup sm">
+              <button type="button" class="btn light sm">오늘</button>
+              <button type="button" class="btn light sm">1주일</button>
+              <button type="button" class="btn light sm isActive">1개월</button>
+              <button type="button" class="btn light sm">3개월</button>
+              <button type="button" class="btn light sm">전체</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <!-- 2줄: 유형 및 상태 -->
+      <tr>
+        <th><label class="formLabel" for="searchType">유형</label></th>
+        <td>
+          <div class="formRow">
+            <select id="searchType" class="formControl" style="width: 180px;">
+              <option value="">전체</option>
+              <option value="1">OX퀴즈</option>
+              <option value="2">출석체크</option>
+              <option value="3">설문조사</option>
+              <option value="4">챌린지</option>
+            </select>
+          </div>
+        </td>
+        <th><span class="formLabel">상태</span></th>
+        <td>
+          <div class="formRow">
+            <fieldset class="formCheckGroup">
+              <legend class="srOnly">상태 선택</legend>
+              <label class="formCheck">
+                <input type="radio" name="searchStatus" checked>
+                <span class="checkIcon"></span>
+                <span class="checkLabel">전체</span>
+              </label>
+              <label class="formCheck">
+                <input type="radio" name="searchStatus">
+                <span class="checkIcon"></span>
+                <span class="checkLabel">운영중</span>
+              </label>
+              <label class="formCheck">
+                <input type="radio" name="searchStatus">
+                <span class="checkIcon"></span>
+                <span class="checkLabel">일시중단</span>
+              </label>
+              <label class="formCheck">
+                <input type="radio" name="searchStatus">
+                <span class="checkIcon"></span>
+                <span class="checkLabel">종료</span>
+              </label>
+            </fieldset>
+          </div>
+        </td>
+      </tr>
+      <!-- 3줄: 검색어 -->
+      <tr>
+        <th><label class="formLabel" for="searchKeyword">검색어</label></th>
+        <td colspan="3">
+          <div class="formRow">
+            <select class="formControl" style="width: 140px;">
+              <option value="all">전체</option>
+              <option value="title">미션명</option>
+              <option value="id">미션ID</option>
+              <option value="author">등록자</option>
+            </select>
+            <div class="formControlWrap" style="width: 320px;">
+              <input type="text" id="searchKeyword" class="formControl full" placeholder="검색어를 입력해주세요">
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 박스 하단 초기화 / 조회 버튼 -->
+  <div class="searchBtnArea">
+    <button type="button" class="btn outline">초기화</button>
+    <button type="button" class="btn dark">조회</button>
+  </div>
+</div>
+
+<!-- ==========================================================================
+  1. 테이블 상단 3개 요약 정보 박스 (고객정보 / 포인트·쿠폰 / 룰렛 참여권)
+  ========================================================================== -->
+<div class="infoBoxWrap">
+  <!-- 1. 고객 기본 정보 박스 -->
+  <div class="infoBox">
+    <ul class="infoList">
+      <li class="infoListItem">
+        <span class="label">고객명</span>
+        <span class="value"><strong>김국민</strong></span>
+      </li>
+      <li class="infoListItem">
+        <span class="label">고객번호</span>
+        <span class="value">0123456789</span>
+      </li>
+      <li class="infoListItem">
+        <span class="label">계좌/상품</span>
+        <span class="value">CMA계좌 123-456-789</span>
+      </li>
+      <li class="infoListItem">
+        <span class="label">챌린지 상태</span>
+        <span class="value">진행중</span>
+      </li>
+      <li class="infoListItem">
+        <span class="label">신청일</span>
+        <span class="value">2026/05/06 17:56:05</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 2. 포인트 / 쿠폰 현황 박스 -->
+  <div class="infoBox">
+    <ul class="infoList">
+      <li class="infoListItem">
+        <span class="label">포인트리</span>
+        <span class="value point">100,000</span>
+      </li>
+      <li class="infoListItem">
+        <span class="label">Able포인트</span>
+        <span class="value point">100,000</span>
+      </li>
+      <li class="infoListItem">
+        <span class="label">쿠폰 (펀드/ELS/채권)</span>
+        <span class="value point">(2) / (2) / (2)</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 3. 룰렛 참여권 현황 박스 -->
+  <div class="infoBox">
+    <div class="infoBoxHeader">
+      <h3 class="infoBoxTitle">룰렛 참여권</h3>
+    </div>
+    <ul class="infoList">
+      <li class="infoListItem">
+        <span class="label">지급</span>
+        <span class="value point">100 개</span>
+      </li>
+      <li class="infoListItem">
+        <span class="label">사용</span>
+        <span class="value point">100 개</span>
+      </li>
+      <li class="infoListItem">
+        <span class="label">미사용</span>
+        <span class="value">85 개</span>
+      </li>
+      <li class="infoListItem">
+        <span class="label">소멸</span>
+        <span class="value">5 개</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==========================================================================
+  요약박스
+  ========================================================================== -->
+
+<!-- 타입 A: 한 라인 인라인 바 형태 -->
+<div class="summaryStatBox singleLine">
+  <div class="statItem">
+    <span class="statLabel">미션 총한도 합계</span>
+    <div class="statValue">
+      <strong>80,000,000</strong><span class="unit">원</span>
+    </div>
+  </div>
+
+  <!-- 세로 구분선 -->
+  <div class="statDivider"></div>
+
+  <div class="statItem">
+    <span class="statLabel">리워드 잔여금액</span>
+    <div class="statValue">
+      <strong>20,000,000</strong><span class="unit">원</span>
+    </div>
+  </div>
+</div>
+
+<div class="summaryStatBox singleLine">
+  <div class="statItem">
+    <span class="statLabel">총 지급금액</span>
+    <div class="statValue">
+      <strong>999,999</strong><span class="unit">원</span>
+    </div>
+  </div>
+
+  <!-- 세로 구분선 -->
+  <div class="statDivider"></div>
+
+  <div class="statItem">
+    <span class="statLabel">포인트리</span>
+    <div class="statValue">
+      <strong>1,500</strong><span class="unit">건</span>
+    </div>
+  </div>
+  <div class="statItem">
+    <span class="statLabel">Able포인트</span>
+    <div class="statValue">
+      <strong>1,500</strong><span class="unit">건</span>
+    </div>
+  </div>
+  <div class="statItem">
+    <span class="statLabel">금융상품쿠폰</span>
+    <div class="statValue">
+      <strong>1,500</strong><span class="unit">건</span>
+    </div>
+  </div>
+   <div class="statItem">
+    <span class="statLabel">지급오류</span>
+    <div class="statValue">
+      <a class="statValueLink" href="#">50</a><span class="unit">건</span>
+    </div>
+  </div>
+</div>
+
+<!-- 타입 B: 한 라인 6분할 컬럼 그리드 형태 (One-Line 6 Columns Grid) -->
+<div class="summaryStatBox col6">
+  <div class="statItem">
+    <span class="statLabel">고객수</span>
+    <div class="statValue">
+      <strong>12,450</strong><span class="unit">명</span>
+    </div>
+  </div>
+  <div class="statItem">
+    <span class="statLabel">금액</span>
+    <div class="statValue">
+      <strong>1,280,000,000</strong><span class="unit">원</span>
+    </div>
+  </div>
+  <div class="statItem">
+    <span class="statLabel">잔고</span>
+    <div class="statValue">
+      <strong>540,200,000</strong><span class="unit">원</span>
+      <span class="rate isUp">▲ 12.5%</span>
+    </div>
+  </div>
+  <div class="statItem">
+    <span class="statLabel">달성률</span>
+    <div class="statValue">
+      <strong>85%</strong><span class="subText">(170/200개)</span>
+    </div>
+  </div>
+  <div class="statItem">
+    <span class="statLabel">참여권 갯수</span>
+    <div class="statValue">
+      <strong>3,420</strong><span class="unit">개</span>
+    </div>
+  </div>
+  <div class="statItem">
+    <span class="statLabel">리워드</span>
+    <div class="statValue">
+      <strong>50,000</strong><span class="unit">P</span>
+    </div>
+  </div>
+</div>
+
+<!-- 타입 C: 좌/우 분리 통합 박스형 -->
+<div class="summaryStatBox">
+  <!-- 좌측 영역: 고객수, 금액, 잔고(상승률) -->
+  <div class="statCol statColLeft">
+    <div class="statItem">
+      <span class="statLabel">고객수</span>
+      <div class="statValue">
+        <strong>12,450</strong><span class="unit">명</span>
+      </div>
+    </div>
+    <div class="statItem">
+      <span class="statLabel">금액</span>
+      <div class="statValue">
+        <strong>1,280,000,000</strong><span class="unit">원</span>
+      </div>
+    </div>
+    <div class="statItem">
+      <span class="statLabel">잔고</span>
+      <div class="statValue">
+        <strong>540,200,000</strong><span class="unit">원</span>
+        <span class="rate isUp">▲ 12.5%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 세로 구분선 -->
+  <div class="statDivider"></div>
+
+  <!-- 우측 영역: 달성률(갯수), 참여권 갯수, 리워드 -->
+  <div class="statCol statColRight">
+    <div class="statItem">
+      <span class="statLabel">달성률</span>
+      <div class="statValue">
+        <strong>85%</strong><span class="subText">(170/200개)</span>
+      </div>
+    </div>
+    <div class="statItem">
+      <span class="statLabel">참여권 갯수</span>
+      <div class="statValue">
+        <strong>3,420</strong><span class="unit">개</span>
+      </div>
+    </div>
+    <div class="statItem">
+      <span class="statLabel">리워드</span>
+      <div class="statValue">
+        <strong>50,000</strong><span class="unit">P</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KPI / 통계 요약 카드 (좌측: 타이틀 / 우측: 금액·수치 & 비교값 정렬) -->
+<div class="kpiCardGrid">
+  <!-- 1. 총 예산한도 -->
+  <div class="kpiCard">
+    <span class="kpiTitle">총 예산한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>100,000,000</strong><span class="unit">원</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+
+  <!-- 2. 지급금액 -->
+  <div class="kpiCard">
+    <span class="kpiTitle">지급금액</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>50,000,000</strong><span class="unit">원</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+
+  <!-- 3. 잔여한도 -->
+  <div class="kpiCard">
+    <span class="kpiTitle">잔여한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>10,000,000</strong><span class="unit">원</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+
+  <!-- 4. 전체 소진율 -->
+  <div class="kpiCard">
+    <span class="kpiTitle">전체 소진율</span>
+    <div class="kpiContent">
+      <div class="kpiNumber">
+        <strong>60</strong><span class="unit">%</span>
+      </div>
+      <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+</div>
+
+<!-- 타입 D: 2개 분할 카드형 -->
+<!-- <div class="summaryStatBox splitType">
+  < 좌측 카드: 고객수, 금액, 잔고 --
+  <div class="statCard">
+    <div class="statItem">
+      <span class="statLabel">고객수</span>
+      <div class="statValue">
+        <strong>12,450</strong><span class="unit">명</span>
+      </div>
+    </div>
+    <div class="statItem">
+      <span class="statLabel">금액</span>
+      <div class="statValue">
+        <strong>1,280,000,000</strong><span class="unit">원</span>
+      </div>
+    </div>
+    <div class="statItem">
+      <span class="statLabel">잔고</span>
+      <div class="statValue">
+        <strong>540,200,000</strong><span class="unit">원</span>
+        <span class="rate isUp">▲ 12.5%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 우측 카드: 달성률, 참여권 갯수, 리워드 --
+  <div class="statCard">
+    <div class="statItem">
+      <span class="statLabel">달성률</span>
+      <div class="statValue">
+        <strong>85%</strong><span class="subText">(170/200개)</span>
+      </div>
+    </div>
+    <div class="statItem">
+      <span class="statLabel">참여권 갯수</span>
+      <div class="statValue">
+        <strong>3,420</strong><span class="unit">개</span>
+      </div>
+    </div>
+    <div class="statItem">
+      <span class="statLabel">리워드</span>
+      <div class="statValue">
+        <strong>50,000</strong><span class="unit">P</span>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- ==========================================================================
+  3. 핵심 운영 지표 통계 카드 (운영중, 이슈/알림, 참여율, 신규 유입, 연간 지급 포인트 - 각각 개별 박스)
+  ========================================================================== -->
+<div class="statusCardGrid">
+  <!-- 1. 운영중 -->
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">운영중</span>
+      <span class="ico statusIng"></span>
+    </div>
+    <div class="statusValue">
+      <strong>16</strong><span class="unit">건</span>
+    </div>
+  </div>
+
+  <!-- 2. 이슈/알림 -->
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">이슈/알림</span>
+      <span class="ico statusAlarm"></span>
+    </div>
+    <div class="statusValue danger">
+      <strong>2</strong><span class="unit">건</span>
+    </div>
+  </div>
+
+  <!-- 3. 참여율 -->
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">참여율</span>
+      <span class="ico statusRate"></span>
+    </div>
+    <div class="statusValue">
+      <strong>58.2</strong><span class="unit">%</span>
+    </div>
+  </div>
+
+  <!-- 4. 신규 유입 -->
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">신규 유입</span>
+      <span class="ico statusAdd"></span>
+    </div>
+    <div class="statusValue">
+      <strong>1,200</strong><span class="unit">명</span>
+    </div>
+  </div>
+
+  <!-- 5. 연간 지급 포인트 -->
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">연간 지급 포인트</span>
+      <span class="ico statusPoint"></span>
+    </div>
+    <div class="statusValue">
+      <strong>1,468,000</strong><span class="unit">P</span>
+    </div>
+  </div>
+</div>
+
+<div class="tagBox">
+  <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+  <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+  <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+  <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+</div>
+
+      </div>
+    </section>
 
   </div>
 

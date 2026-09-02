@@ -4,33 +4,160 @@
 
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <div class="pageHeader">
-  <h2 class="pageTitle">미션등록</h2>
+  <h2 class="pageTitle">챌린지 관리</h2>
   <nav class="breadcrumb" aria-label="브레드크럼">
     <ol class="breadcrumbList">
       <li class="breadcrumbItem">
         <a href="#" class="breadcrumbLink">홈</a>
       </li>
       <li class="breadcrumbItem">
-        <a href="#" class="breadcrumbLink">미션관리</a>
+        <a href="#" class="breadcrumbLink">챌린지관리</a>
       </li>
       <li class="breadcrumbItem isCurrent" aria-current="page">
-        미션등록
+        챌린지 운영 현황
       </li>
     </ol>
   </nav>
 </div>
 
-<!-- ==================== 섹션 1 ==================== -->
+<!-- ==================== 섹션 1 :: 챌린지 운영 현황 ==================== -->
 <section class="boSection">
-  <h2 class="sectionTitle">섹션타이틀</h2>
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
+    <!-- 테이블 상단 타이틀 + 건수 + 우측 버튼 -->
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">챌린지 운영 현황</h3>
+        <span class="tblCount" style="color: #2563EB; font-weight: 600;">6건</span>
+      </div>
+      <div class="tblRight">
+        <div class="btnGroup">
+          <button type="button" class="btn dark">챌린지 추가</button>
+          <button type="button" class="btn outline">
+            <span class="ico download"></span>
+            <span>엑셀 다운로드</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
-  </div>
-  <!-- 하단 버튼 영역 -->
-  <div class="btnArea">
-    <button type="button" class="btn outline">취소</button>
-    <button type="button" class="btn primary">저장</button>
+    <!-- 테이블 영역 -->
+    <div class="tblWrap">
+      <table class="tbl">
+        <colgroup>
+          <col style="width: 80px;">
+          <col style="width: 260px;">
+          <col style="width: 140px;">
+          <col style="width: 200px;">
+          <col style="width: 160px;">
+          <col style="width: 120px;">
+          <col style="width: 100px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>순번</th>
+            <th>챌린지 명</th>
+            <th>참여자 수</th>
+            <th>참여율</th>
+            <th>총 지급 포인트</th>
+            <th>상태</th>
+            <th>관리</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="textCenter">1</td>
+            <td class="textLeft">오늘의 콕</td>
+            <td class="textCenter">120,450</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 50%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">3,123,000</td>
+            <td class="textCenter"><span class="statusDot ing">운영중</span></td>
+            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">2</td>
+            <td class="textLeft">주식 꾸준히 모으기 챌린지</td>
+            <td class="textCenter">81,920</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 80%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">10,123,000</td>
+            <td class="textCenter"><span class="statusDot ing">운영중</span></td>
+            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">3</td>
+            <td class="textLeft">투자사랑 산악회 챌린지</td>
+            <td class="textCenter">0</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">0</td>
+            <td class="textCenter"><span class="statusDot ready">예정</span></td>
+            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">4</td>
+            <td class="textLeft">CMA 챌린지</td>
+            <td class="textCenter">31,100</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 35%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">1,564,000</td>
+            <td class="textCenter"><span class="statusDot end">종료</span></td>
+            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">5</td>
+            <td class="textLeft">연금 챌린지</td>
+            <td class="textCenter">14,100</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 60%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">23,17,000</td>
+            <td class="textCenter"><span class="statusDot ing">운영중</span></td>
+            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">6</td>
+            <td class="textLeft">스탁뷰 챌린지</td>
+            <td class="textCenter">0</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">0</td>
+            <td class="textCenter"><span class="statusDot ready">예정</span></td>
+            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -79,20 +206,6 @@
   <div class="btnArea">
     <button type="button" class="btn outline">초기화</button>
     <button type="button" class="btn primary">저장</button>
-  </div>
-</section>
-
-<!-- ==================== 섹션 3 ==================== -->
-<section class="boSection">
-  <h2 class="sectionTitle">섹션타이틀</h2>
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-   
-  </div>
-  <!-- 하단 버튼 영역 -->
-  <div class="btnArea">
-    <button type="button" class="btn outline">취소</button>
-    <button type="button" class="btn primary">등록</button>
   </div>
 </section>
 

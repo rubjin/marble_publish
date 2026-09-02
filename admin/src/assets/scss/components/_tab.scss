@@ -9,3 +9,175 @@
     }
   }
 }
+
+/* ==========================================================================
+   MDI (Multi Document Interface) Tab Bar
+   ========================================================================== */
+.mdiTabWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 6px 12px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  gap: 12px;
+
+  .mdiTabList {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    overflow-x: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #E5E7EB;
+      border-radius: 4px;
+    }
+  }
+
+  .mdiTabItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 32px;
+    padding: 0 12px;
+    background-color: #F3F5F6;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B7280;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    flex-shrink: 0;
+
+    &:hover {
+      background-color: #E7E9ED;
+      color: #1F192F;
+    }
+
+    // 홈 고정 탭 (항상 노출)
+    &.isHome {
+      padding: 0 10px;
+      color: #4F535A;
+      background-color: #F3F5F6;
+
+      .tabIcon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        color: inherit;
+      }
+
+      &.isActive {
+        background-color: #ffffff;
+        border-color: #D5D7DE;
+        color: #1F192F;
+        font-weight: 700;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    // 활성화된 탭
+    &.isActive {
+      background-color: #ffffff;
+      border-color: #D5D7DE;
+      color: #1F192F;
+      font-weight: 700;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+      .tabClose {
+        opacity: 0.8;
+      }
+    }
+
+    .tabText {
+      max-width: 130px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    // 개별 탭 닫기 버튼
+    .tabClose {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      margin-left: 2px;
+      border: none;
+      background: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 0;
+      color: #9CA3AF;
+      opacity: 0.6;
+      transition: all 0.15s ease;
+
+      &:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.08);
+        color: #1F192F;
+      }
+
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  // 우측 액션 영역 (전체닫기 아이콘 버튼)
+  .mdiTabActions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+
+    .btnAllClose {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background-color: #F8F8F9;
+      border: 1px solid #D5D7DE;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #4F535A;
+      padding: 0;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background-color: #E7E9ED;
+        color: #1F192F;
+        border-color: #BAC0CB;
+      }
+
+      .icoAllClose {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+

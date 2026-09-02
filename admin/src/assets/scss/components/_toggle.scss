@@ -50,7 +50,7 @@
 
   // Checked State (ON)
   input:checked + .toggleTrack {
-    background-color: $gray800;
+    background-color: #4F535A;
 
     &::after {
       transform: translateX(20px);

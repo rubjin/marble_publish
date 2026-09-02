@@ -1,0 +1,45 @@
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<div class="pageHeader">
+  <h2 class="pageTitle">미션등록</h2>
+  <nav class="breadcrumb" aria-label="브레드크럼">
+    <ol class="breadcrumbList">
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">홈</a>
+      </li>
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">미션관리</a>
+      </li>
+      <li class="breadcrumbItem isCurrent" aria-current="page">
+        미션등록
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<!-- 페이지 상단 헤더  -->
+<div class="pageHeader">
+  <h2 class="pageTitle">리워드 한도설정</h2>
+  <div class="headerRight">
+    <ul class="listBar">
+      <li class="listBarItem"><span class="label">작성자</span> : <span class="value">(123456) / 디지털 Biz부</span></li>
+      <li class="listBarItem"><span class="label">저장일시</span> : <span class="value">2026.08.15 10:30</span></li>
+    </ul>
+    <button type="button" class="btn outline" data-popup="popupHistory">변경이력조회</button>
+  </div>
+</div>
+
+<!-- [팝업] 변경이력조회 모달 팝업 -->
+<div id="popupHistory" class="popupDimmed">
+  <div class="popupWrap lg">
+    <div class="popupHeader">
+      <h2 class="popupTitle">변경이력 조회</h2>
+      <button type="button" class="btnClose" aria-label="닫기"></button>
+    </div>
+    <div class="popupBody">
+      팝업 내용들어갑니다.
+    </div>
+    <div class="popupFooter">
+      <button type="button" class="btn primary" onclick="closePopup('popupHistory')">확인</button>
+    </div>
+  </div>
+</div>

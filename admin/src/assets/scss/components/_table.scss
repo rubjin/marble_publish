@@ -30,6 +30,15 @@
         color: #111827;
         font-weight: 600;
       }
+
+      .tblUnit {
+        margin-left: 4px;
+      }
+    }
+
+    .tblUnit {
+      font-size: 13px;
+      color: #6b7280;
     }
   }
 
@@ -37,6 +46,17 @@
     display: flex;
     align-items: center;
     gap: 8px;
+
+    .tblUnit {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .tblGuide {
+      font-size: 13px;
+      color: #6b7280;
+      margin: 0;
+    }
   }
 }
 
@@ -61,11 +81,10 @@
 
   thead {
     th {
-      padding: 12px 16px;
-      background-color: $gray100;
-      border-bottom: 2px solid $gray300;
+      padding: 10px 10px;
+      background-color: rgba(243, 245, 246, 0.8);
       font-weight: 600;
-      text-align: left;
+      text-align: center;
       white-space: nowrap;
     }
   }
@@ -119,6 +138,26 @@
     thead th,
     tbody td {
       border: 1px solid #F0F0F3;
+    }
+  }
+
+  // 상세/관리정보 뷰 테이블
+  &.tblView {
+    border-top: 1px solid #707070;
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #F0F0F3;
+      }
+      th {
+        padding: 14px 12px;
+        font-weight: 500;
+        color: #4F535A;
+      }
+      td {
+        padding: 14px 12px;
+        color: #2F3034;
+      }
     }
   }
 }

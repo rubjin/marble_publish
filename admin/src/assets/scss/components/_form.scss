@@ -205,7 +205,7 @@ textarea.formControl {
 
 select.formControl {
   appearance: none;
-  background-image: iconUrl('arrow-down.svg');
+  background-image: iconUrl('select_20.svg');
   background-position: right 12px center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
@@ -567,6 +567,144 @@ select.formControl {
 
     &:hover {
       background-color: #6b7280;
+    }
+  }
+}
+
+/* Step Course Card (단계별 코스 설정 카드) */
+.stepCardList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.stepCard {
+  background-color: #FAFAFA;
+  border: 1px solid #D5D7DE;
+  border-radius: 8px;
+  padding: 16px 20px;
+
+  .stepHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #E5E7EB;
+
+    .stepTitleWrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .stepHandle {
+        cursor: grab;
+        color: #9CA3AF;
+        font-size: 16px;
+        line-height: 1;
+        user-select: none;
+      }
+
+      .stepTitle {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1F2937;
+        margin: 0;
+      }
+    }
+
+    .stepActions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+
+  .tbl {
+    tbody {
+      tr {
+        border-bottom: none;
+      }
+      th {
+        padding: 8px 10px 8px 0;
+      }
+      td {
+        padding: 8px 0;
+      }
+    }
+  }
+}
+
+/* Search / Filter Control Box (조회 컨트롤 박스) */
+.searchBox {
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  box-sizing: border-box;
+
+  .searchTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    tr {
+      border-bottom: 1px solid #F0F0F3;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    th {
+      width: 110px;
+      padding: 10px 12px 10px 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: #374151;
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 10px 12px 10px 0;
+      vertical-align: middle;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .formLabel {
+      margin-bottom: 0;
+    }
+
+    .formRow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+  }
+
+  .searchBtnArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid #F0F0F3;
+
+    .btn {
+      min-width: 80px;
+      height: 36px;
     }
   }
 }
