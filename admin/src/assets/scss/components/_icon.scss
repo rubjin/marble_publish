@@ -49,6 +49,9 @@
 
   &.calendar { background-image: iconUrl('i_calendar_16.svg'); }
   &.download { background-image: iconUrl('i_download_16.svg'); }
+  &.mdiTabHome { background-image: iconUrl('mdi_tab_home.svg'); }
+  &.mdiTabClose { background-image: iconUrl('mdi_tab_close.svg'); }
+
 
   &.deleteTag { background-image: iconUrl('i_tagDelete_20.svg'); }
   &.statusIng { background-image: iconUrl('i_status_ing_20.svg'); }
@@ -70,6 +73,8 @@
   &.drag { background-image: iconUrl('i_drag_30.svg'); }
 
   &.upload { background-image: iconUrl('i_upload_36.svg'); }
+
+  
 }
 
 .isActive {
