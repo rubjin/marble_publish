@@ -45,7 +45,7 @@
     .label {
       margin-right: 4px;
       color: $text-primary;
-      font-weight: 500;
+      font-weight: $font-weight-medium;
     }
 
     .value {
@@ -123,7 +123,7 @@
 //     }
 
 //     .title {
-//       font-weight: 600;
+//       font-weight: $font-weight-semibold;
 //       color: $text-title;
 //       margin-right: 6px;
 //     }
@@ -195,5 +195,7 @@
 .listBarVertical + .listBar {
   margin-top: 20px;
 }
+
+
 
 

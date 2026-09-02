@@ -17,7 +17,7 @@
 
     .tblTitle {
       font-size: 16px;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
       color: $text-title;
       margin: 0;
     }
@@ -28,7 +28,7 @@
 
       strong {
         color: $text-title;
-        font-weight: 600;
+        font-weight: $font-weight-semibold;
       }
 
       .tblUnit {
@@ -83,7 +83,7 @@
     th {
       padding: 10px 10px;
       background-color: $bg-table-header;
-      font-weight: 600;
+      font-weight: $font-weight-semibold;
       text-align: center;
       white-space: nowrap;
     }
@@ -106,7 +106,7 @@
     }
     th {
       padding: 20px 10px 20px 4px;
-      font-weight: 500;
+      font-weight: $font-weight-medium;
       text-align: left;
       white-space: nowrap;
     }
@@ -151,7 +151,7 @@
       }
       th {
         padding: 14px 12px;
-        font-weight: 500;
+        font-weight: $font-weight-medium;
         color: $text-secondary;
       }
       td {
@@ -161,5 +161,7 @@
     }
   }
 }
+
+
 
 

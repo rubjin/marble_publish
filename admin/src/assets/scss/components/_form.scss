@@ -14,7 +14,7 @@
 .formLabel {
   display: block;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   color: $text-primary;
   margin-bottom: 8px;
   
@@ -116,7 +116,7 @@
     padding: 0 12px;
     height: $form-height-sm;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     color: $text-secondary;
     background-color: $bg-light;
     flex-shrink: 0;
@@ -473,7 +473,7 @@ select.formControl {
 
     .cardTitle {
       font-size: 14px;
-      font-weight: 600;
+      font-weight: $font-weight-semibold;
       color: $text-highlight;
       display: block;
       margin-bottom: 4px;
@@ -561,7 +561,7 @@ select.formControl {
       content: '횞';
       font-size: 14px;
       line-height: 1;
-      font-weight: bold;
+      font-weight: $font-weight-bold;
       margin-top: -1px;
     }
 
@@ -609,7 +609,7 @@ select.formControl {
 
       .stepTitle {
         font-size: 14px;
-        font-weight: 700;
+        font-weight: $font-weight-bold;
         color: $text-highlight;
         margin: 0;
       }
@@ -644,7 +644,7 @@ select.formControl {
   border-radius: 10px;
   padding: 20px 24px;
   margin-bottom: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: $shadow-xs;
   width: 100%;
   box-sizing: border-box;
 
@@ -665,7 +665,7 @@ select.formControl {
       width: 110px;
       padding: 10px 12px 10px 0;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: $font-weight-medium;
       color: $text-primary;
       text-align: left;
       vertical-align: middle;
@@ -708,6 +708,8 @@ select.formControl {
     }
   }
 }
+
+
 
 
 

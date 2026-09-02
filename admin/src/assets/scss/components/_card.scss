@@ -4,7 +4,7 @@
     width: 100%; height: 160px; background-color: $color-gray-100; object-fit: cover;
   }
   .content { padding: 16px; }
-  .title { font-size: 18px; font-weight: bold; margin-bottom: 8px; @include text-ellipsis; }
+  .title { font-size: 18px; font-weight: $font-weight-bold; margin-bottom: 8px; @include text-ellipsis; }
   .desc { font-size: 14px; color: $color-gray-800; margin-bottom: 16px; }
 }
 
@@ -29,7 +29,7 @@
     border: 1px solid $border-light;
     border-radius: 10px;
     padding: 20px 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: $shadow-xs;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -38,7 +38,7 @@
 
     .kpiTitle {
       font-size: 13px;
-      font-weight: 600;
+      font-weight: $font-weight-semibold;
       color: $color-gray-600;
       margin: 0;
       white-space: nowrap;
@@ -55,14 +55,14 @@
 
       .kpiNumber {
         font-size: 20px;
-        font-weight: 700;
+        font-weight: $font-weight-bold;
         color: $text-title;
         line-height: 1.2;
         white-space: nowrap;
 
         .unit {
           font-size: 14px;
-          font-weight: 400;
+          font-weight: $font-weight-regular;
           color: #4B5563;
           margin-left: 2px;
         }
@@ -75,7 +75,7 @@
         white-space: nowrap;
 
         .rate {
-          font-weight: 600;
+          font-weight: $font-weight-semibold;
 
           &.isUp {
             color: #DC2626;
@@ -112,7 +112,7 @@
   border: 1px solid $border-light;
   border-radius: 8px;
   padding: 20px 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: $shadow-xs;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -128,7 +128,7 @@
 
     .infoBoxTitle {
       font-size: 15px;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
       color: $text-title;
       margin: 0;
     }
@@ -153,30 +153,30 @@
 
       .label {
         color: $text-secondary;
-        font-weight: 400;
+        font-weight: $font-weight-regular;
         white-space: nowrap;
       }
 
       .value {
         color: $text-title;
-        font-weight: 600;
+        font-weight: $font-weight-semibold;
         text-align: right;
         white-space: nowrap;
 
         strong {
-          font-weight: 700;
+          font-weight: $font-weight-bold;
           color: $text-title;
         }
 
         &.point,
         .point {
           color: #2563EB;
-          font-weight: 700;
+          font-weight: $font-weight-bold;
         }
 
         .danger {
           color: $text-danger;
-          font-weight: 600;
+          font-weight: $font-weight-semibold;
         }
       }
     }
@@ -192,7 +192,7 @@
   border: 1px solid $border-light;
   border-radius: 10px;
   padding: 20px 28px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: $shadow-xs;
   width: 100%;
   margin-bottom: 20px;
   gap: 32px;
@@ -230,7 +230,7 @@
 
     .statLabel {
       font-size: 13px;
-      font-weight: 500;
+      font-weight: $font-weight-medium;
       color: $text-secondary;
     }
 
@@ -239,30 +239,30 @@
       align-items: baseline;
       gap: 4px;
       font-size: 20px;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
       color: $text-title;
       line-height: 1.2;
       &.col {
         flex-direction: column;
       }
       strong {
-        font-weight: 700;
+        font-weight: $font-weight-bold;
       }
       .price {
         font-size: 20px;
-        font-weight: 700;
+        font-weight: $font-weight-bold;
         color: $text-title;
       }
 
       .unit {
         font-size: 14px;
-        font-weight: 400;
+        font-weight: $font-weight-regular;
         color: #4B5563;
       }
 
       .subText {
         font-size: 12px;
-        font-weight: 400;
+        font-weight: $font-weight-regular;
         color: $text-secondary;
       }
 
@@ -270,7 +270,7 @@
         display: inline-flex;
         align-items: center;
         font-size: 12px;
-        font-weight: 600;
+        font-weight: $font-weight-semibold;
         padding: 2px 6px;
         border-radius: 4px;
         margin-left: 4px;
@@ -304,7 +304,7 @@
       border: 1px solid $border-light;
       border-radius: 10px;
       padding: 20px 24px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      box-shadow: $shadow-xs;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -331,24 +331,24 @@
       .statLabel {
         font-size: 13px;
         color: $text-secondary;
-        font-weight: 500;
+        font-weight: $font-weight-medium;
         margin: 0;
       }
 
       .statValue {
         font-size: 15px;
-        font-weight: 700;
+        font-weight: $font-weight-bold;
         color: $text-title;
 
         .unit {
           font-size: 13px;
-          font-weight: 400;
+          font-weight: $font-weight-regular;
           color: #4B5563;
         }
 
         .subText {
           font-size: 12px;
-          font-weight: 400;
+          font-weight: $font-weight-regular;
           color: $text-secondary;
         }
       }
@@ -446,7 +446,7 @@
   border: 1px solid $border-light;
   border-radius: 10px;
   padding: 20px 28px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: $shadow-xs;
   width: 100%;
   margin-bottom: 20px;
 
@@ -463,7 +463,7 @@
 
       .statusLabel {
         font-size: 13px;
-        font-weight: 500;
+        font-weight: $font-weight-medium;
         color: $text-secondary;
         white-space: nowrap;
       }
@@ -480,18 +480,18 @@
       align-items: baseline;
       gap: 2px;
       font-size: 24px;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
       color: $text-title;
       line-height: 1.2;
       white-space: nowrap;
 
       strong {
-        font-weight: 700;
+        font-weight: $font-weight-bold;
       }
 
       .unit {
         font-size: 14px;
-        font-weight: 500;
+        font-weight: $font-weight-medium;
         color: $text-title;
         margin-left: 2px;
       }
@@ -524,7 +524,7 @@
     border: 1px solid $border-light;
     border-radius: 10px;
     padding: 18px 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: $shadow-xs;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -537,7 +537,7 @@
 
       .statusLabel {
         font-size: 13px;
-        font-weight: 500;
+        font-weight: $font-weight-medium;
         color: $text-secondary;
         white-space: nowrap;
       }
@@ -554,18 +554,18 @@
       align-items: baseline;
       gap: 2px;
       font-size: 24px;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
       color: $text-title;
       line-height: 1.2;
       white-space: nowrap;
 
       strong {
-        font-weight: 700;
+        font-weight: $font-weight-bold;
       }
 
       .unit {
         font-size: 14px;
-        font-weight: 500;
+        font-weight: $font-weight-medium;
         color: $text-title;
         margin-left: 2px;
       }
@@ -584,5 +584,7 @@
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 }
+
+
 
 

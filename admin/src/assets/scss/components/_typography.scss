@@ -13,11 +13,11 @@
 .fs10 { font-size: 10px !important; line-height: 1.4; }
 
 // Font Weight Classes
-.fwLight { font-weight: 300 !important; }
-.fwRegular { font-weight: 400 !important; }
-.fwMedium { font-weight: 500 !important; }
-.fwSemibold { font-weight: 600 !important; }
-.fwBold { font-weight: 700 !important; }
+.fwLight { font-weight: $font-weight-light !important; }
+.fwRegular { font-weight: $font-weight-regular !important; }
+.fwMedium { font-weight: $font-weight-medium !important; }
+.fwSemibold { font-weight: $font-weight-semibold !important; }
+.fwBold { font-weight: $font-weight-bold !important; }
 
 // Text Color Utility
 .textPrimary { color: $color-yellow-500 !important; }
@@ -29,63 +29,63 @@
 // Typography Component Scale (Headings & Body)
 .titPage {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   color: $text-title;
   line-height: 1.35;
 }
 
 .titSection {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   color: $text-highlight;
   line-height: 1.4;
 }
 
 .titSub {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   color: $text-highlight;
   line-height: 1.45;
 }
 
 .titCard {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   color: $text-highlight;
   line-height: 1.5;
 }
 
 .bodyLg {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: $font-weight-regular;
   color: $text-primary;
   line-height: 1.6;
 }
 
 .bodyMd {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: $font-weight-regular;
   color: $text-primary;
   line-height: 1.6;
 }
 
 .bodySm {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: $font-weight-regular;
   color: #4b5563;
   line-height: 1.5;
 }
 
 .caption {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: $font-weight-regular;
   color: $text-secondary;
   line-height: 1.5;
 }
 
 .micro {
   font-size: 10px;
-  font-weight: 400;
+  font-weight: $font-weight-regular;
   color: $text-tertiary;
   line-height: 1.4;
 }
@@ -114,7 +114,7 @@
 
     .name {
       font-size: 14px;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
       color: $text-title;
       margin-bottom: 2px;
     }
@@ -134,5 +134,7 @@
     color: $text-highlight;
   }
 }
+
+
 
 

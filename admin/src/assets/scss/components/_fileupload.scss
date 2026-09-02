@@ -85,7 +85,7 @@
 
     .dropzoneText {
       font-size: 13px;
-      font-weight: 600;
+      font-weight: $font-weight-semibold;
       color: $color-gray-800;
       margin-bottom: 4px;
 
@@ -183,7 +183,7 @@
 
   .fileName {
     color: $color-gray-800;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -223,5 +223,7 @@
     }
   }
 }
+
+
 
 

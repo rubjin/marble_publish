@@ -2,26 +2,26 @@
 @font-face {
   font-family: 'KBFG Text';
   src: fontUrl('KBFGText-Light.woff2') format('woff2');
-  font-weight: 300;
+  font-weight: $font-weight-light;
 }
 
 @font-face {
   font-family: 'KBFG Text';
   src: fontUrl('KBFGText-Medium.woff2') format('woff2');
-  font-weight: 500;
+  font-weight: $font-weight-medium;
 }
 
 @font-face {
   font-family: 'KBFG Text';
   src: fontUrl('KBFGText-Bold.woff2') format('woff2');
-  font-weight: 700;
+  font-weight: $font-weight-bold;
 }
 
 // Common
 body {
-  font-family: 'KBFG', sans-serif;
+  font-family: $font-family-base;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: $font-weight-light;
   line-height: 1.5;
   color: $text-primary;
   background-color: $color-gray-50;
@@ -43,6 +43,8 @@ body {
 .textLeft { text-align: left !important; }
 .textCenter { text-align: center !important; }
 .textRight { text-align: right !important; }
+
+
 
 
 

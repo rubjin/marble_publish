@@ -2,7 +2,7 @@
    Button Component
    ========================================================================== */
 @mixin btnSm { 
-  min-width: 46px; height: $btn-height-sm; padding: 0px $btn-padding-x-sm; font-size: $btn-font-size-sm; font-weight: 300; 
+  min-width: 46px; height: $btn-height-sm; padding: 0px $btn-padding-x-sm; font-size: $btn-font-size-sm; font-weight: $font-weight-light; 
   .ico { width: 16px; height: 16px; }
 }
 @mixin btnLg { 
@@ -11,7 +11,7 @@
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 4px;
   height: $btn-height-md; background-color: $color-transparent; 
-  padding: 0px $btn-padding-x-md; border-radius: $btn-radius; font-weight: 500; font-size: $btn-font-size-md;
+  padding: 0px $btn-padding-x-md; border-radius: $btn-radius; font-weight: $font-weight-medium; font-size: $btn-font-size-md;
   outline: none; border: none; cursor: pointer; user-select: none; line-height: 1; text-decoration: none;
   transition: background-color 0.2s;
   &.primary {
@@ -84,4 +84,6 @@
 .btnGroupRight {
   margin-left: auto;
 }
+
+
 

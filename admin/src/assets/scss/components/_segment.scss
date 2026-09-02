@@ -18,7 +18,7 @@
     height: 26px;
     padding: 0px 12px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     color: #6D717B;
     background: transparent;
     border: none;
@@ -51,7 +51,7 @@
     &:has(input[type="radio"]:checked) {
       color: $color-white;
       background: $bg-dark;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
     }
 
     &:disabled,
@@ -96,5 +96,7 @@
   //   }
   // }
 }
+
+
 
 

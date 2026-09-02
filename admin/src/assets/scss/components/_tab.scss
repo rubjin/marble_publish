@@ -1,7 +1,7 @@
 ﻿.tab {
   display: flex; border-bottom: 1px solid $color-gray-300;
   .item {
-    padding: 12px 24px; font-weight: 600; color: $color-gray-300; position: relative;
+    padding: 12px 24px; font-weight: $font-weight-semibold; color: $color-gray-300; position: relative;
     background: none; border: none; cursor: pointer;
     &.isActive {
       color: $color-gray-800;
@@ -55,7 +55,7 @@
     border: 1px solid transparent;
     border-radius: 6px;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     color: $text-secondary;
     cursor: pointer;
     white-space: nowrap;
@@ -88,8 +88,8 @@
         background-color: $color-white;
         border-color: $border-default;
         color: #1F192F;
-        font-weight: 700;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        font-weight: $font-weight-bold;
+        box-shadow: $shadow-sm;
       }
     }
 
@@ -98,8 +98,8 @@
       background-color: $color-white;
       border-color: $border-default;
       color: #1F192F;
-      font-weight: 700;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      font-weight: $font-weight-bold;
+      box-shadow: $shadow-sm;
 
       .tabClose {
         opacity: 0.8;
@@ -180,6 +180,8 @@
     }
   }
 }
+
+
 
 
 

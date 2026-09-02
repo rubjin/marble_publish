@@ -11,7 +11,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
+  z-index: $z-popup-dim;
   align-items: center;
   justify-content: center;
   /* 가이드용 기본 숨김 처리는 guide.html에서 관리 (실제에선 필요시 제어) */
@@ -28,9 +28,9 @@
   max-width: 90vw;
   background-color: $color-white;
   border-radius: 12px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: $shadow-xl;
   overflow: hidden;
-  z-index: 1001;
+  z-index: $z-popup;
   display: flex;
   flex-direction: column;
 }
@@ -49,7 +49,7 @@
 
   .popupTitle {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     color: $text-title;
     margin: 0;
   }
@@ -104,5 +104,7 @@
   justify-content: flex-end;
   gap: 12px;
 }
+
+
 
 

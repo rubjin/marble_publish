@@ -20,7 +20,7 @@
     color: $text-secondary;
     border-radius: 50%;
     font-size: 11px;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     cursor: pointer;
     transition: all 0.2s;
 
@@ -39,16 +39,16 @@
   // 툴팁 말풍선 본체
   .tooltipContent {
     position: absolute;
-    z-index: 200;
+    z-index: $z-tooltip;
     padding: 8px 12px;
     background-color: $color-gray-800;
     color: $color-white;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: $font-weight-regular;
     line-height: 1.4;
     white-space: nowrap;
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: $shadow-md;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -150,5 +150,7 @@
     word-break: keep-all;
   }
 }
+
+
 
 
