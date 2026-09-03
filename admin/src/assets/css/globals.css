@@ -702,7 +702,7 @@ body {
   transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .boContainer > * {
-  min-width: 1040px;
+  min-width: 1016px;
 }
 .boContainer::-webkit-scrollbar {
   width: 8px;
@@ -842,7 +842,7 @@ body {
 .boSection .sectionTitle .subText {
   font-size: 13px;
   font-weight: 400;
-  color: #6B7280;
+  color: #4F535A;
 }
 .boSection .sectionBox {
   background-color: #FFFFFF;
@@ -911,7 +911,7 @@ body {
 }
 .btn.secondary {
   border: 1px solid #F0F0F3;
-  background-color: #F3F5F6;
+  background-color: #F0F0F3;
   color: #2F3034;
 }
 .btn.secondary.isActive {
@@ -935,7 +935,6 @@ body {
   height: 24px;
   padding: 0px 12px;
   font-size: 12px;
-  font-weight: 300;
 }
 .btn.sm .ico {
   width: 16px;
@@ -985,7 +984,6 @@ body {
   height: 24px;
   padding: 0px 12px;
   font-size: 12px;
-  font-weight: 300;
 }
 .btnGroup.sm .btn .ico {
   width: 16px;
@@ -1224,7 +1222,7 @@ body {
   line-height: 1.4;
 }
 .infoBox .infoList .infoListItem .label {
-  color: #6B7280;
+  color: #4F535A;
   font-weight: 400;
   white-space: nowrap;
 }
@@ -1282,7 +1280,6 @@ body {
 .summaryStatBox .statItem {
   display: flex;
   flex-direction: column;
-  width: 100%;
   gap: 4px;
 }
 .summaryStatBox .statItem.col {
@@ -1291,7 +1288,7 @@ body {
 .summaryStatBox .statItem .statLabel {
   font-size: 13px;
   font-weight: 500;
-  color: #6B7280;
+  color: #4F535A;
 }
 .summaryStatBox .statItem .statValue {
   display: flex;
@@ -1308,6 +1305,25 @@ body {
 .summaryStatBox .statItem .statValue strong {
   font-weight: 700;
 }
+.summaryStatBox .statItem .statValue a {
+  color: #2563EB;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.summaryStatBox .statItem .statValue a:hover {
+  color: #2F3034;
+  text-decoration: underline;
+}
+.summaryStatBox .statItem .statValue.danger,
+.summaryStatBox .statItem .statValue .danger {
+  color: #EF4444;
+}
+.summaryStatBox .statItem .statValue.danger strong,
+.summaryStatBox .statItem .statValue.danger a,
+.summaryStatBox .statItem .statValue .danger strong,
+.summaryStatBox .statItem .statValue .danger a {
+  color: #EF4444;
+}
 .summaryStatBox .statItem .statValue .price {
   font-size: 20px;
   font-weight: 700;
@@ -1321,7 +1337,7 @@ body {
 .summaryStatBox .statItem .statValue .subText {
   font-size: 12px;
   font-weight: 400;
-  color: #6B7280;
+  color: #4F535A;
 }
 .summaryStatBox .statItem .statValue .rate {
   display: inline-flex;
@@ -1378,7 +1394,7 @@ body {
 }
 .summaryStatBox.singleLine .statItem .statLabel {
   font-size: 13px;
-  color: #6B7280;
+  color: #4F535A;
   font-weight: 500;
   margin: 0;
 }
@@ -1395,7 +1411,7 @@ body {
 .summaryStatBox.singleLine .statItem .statValue .subText {
   font-size: 12px;
   font-weight: 400;
-  color: #6B7280;
+  color: #4F535A;
 }
 .summaryStatBox.singleLine .statDivider {
   height: 14px;
@@ -1450,7 +1466,7 @@ body {
 .statusSummaryBox .statusItem .statusHeader .statusLabel {
   font-size: 13px;
   font-weight: 500;
-  color: #6B7280;
+  color: #4F535A;
   white-space: nowrap;
 }
 .statusSummaryBox .statusItem .statusHeader .ico {
@@ -1515,7 +1531,7 @@ body {
 .statusCardGrid .statusCard .statusHeader .statusLabel {
   font-size: 13px;
   font-weight: 500;
-  color: #6B7280;
+  color: #4F535A;
   white-space: nowrap;
 }
 .statusCardGrid .statusCard .statusHeader .ico {
@@ -1554,9 +1570,14 @@ body {
   }
 }
 
+.tabWrap {
+  margin-bottom: 14px;
+}
+
 .tab {
   display: flex;
   border-bottom: 1px solid #D5D7DE;
+  font-size: 16px;
 }
 .tab .item {
   padding: 12px 24px;
@@ -1625,7 +1646,7 @@ body {
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
-  color: #6B7280;
+  color: #4F535A;
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
@@ -1770,7 +1791,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   font-size: 14px;
-  color: #6B7280;
+  color: #4F535A;
   pointer-events: none;
   line-height: 1;
 }
@@ -1819,7 +1840,7 @@ body {
   height: 32px;
   font-size: 13px;
   font-weight: 500;
-  color: #6B7280;
+  color: #4F535A;
   background-color: #F3F5F6;
   flex-shrink: 0;
 }
@@ -2139,7 +2160,7 @@ select.formControl {
 .formRadioCard .cardContent .cardDesc {
   font-size: 13px;
   font-weight: 300;
-  color: #6B7280;
+  color: #4F535A;
   line-height: 1.4;
   margin: 0;
 }
@@ -2205,7 +2226,7 @@ select.formControl {
   margin-top: -1px;
 }
 .fileUploadBox .fileDelete:hover {
-  background-color: #6B7280;
+  background-color: #4F535A;
 }
 
 /* Step Course Card (?④퀎蹂?肄붿뒪 ?ㅼ젙 移대뱶) */
@@ -2506,7 +2527,7 @@ select.formControl {
 }
 .tblTop .tblLeft .tblCount {
   font-size: 13px;
-  color: #6B7280;
+  color: #4F535A;
 }
 .tblTop .tblLeft .tblCount strong {
   color: #111827;
@@ -2517,7 +2538,7 @@ select.formControl {
 }
 .tblTop .tblLeft .tblUnit {
   font-size: 13px;
-  color: #6B7280;
+  color: #4F535A;
 }
 .tblTop .tblRight {
   display: flex;
@@ -2526,11 +2547,11 @@ select.formControl {
 }
 .tblTop .tblRight .tblUnit {
   font-size: 13px;
-  color: #6B7280;
+  color: #4F535A;
 }
 .tblTop .tblRight .tblGuide {
   font-size: 13px;
-  color: #6B7280;
+  color: #4F535A;
   margin: 0;
 }
 
@@ -2601,7 +2622,7 @@ select.formControl {
 .tbl.tblView tbody th {
   padding: 14px 12px;
   font-weight: 500;
-  color: #6B7280;
+  color: #4F535A;
 }
 .tbl.tblView tbody td {
   padding: 14px 12px;
@@ -2687,7 +2708,7 @@ select.formControl {
 }
 
 .textMuted {
-  color: #6B7280 !important;
+  color: #4F535A !important;
 }
 
 .textDisabled {
@@ -2750,7 +2771,7 @@ select.formControl {
 .caption {
   font-size: 12px;
   font-weight: 400;
-  color: #6B7280;
+  color: #4F535A;
   line-height: 1.5;
 }
 
@@ -3145,7 +3166,7 @@ select.formControl {
   padding: 0;
   border: none;
   background-color: #E7E9ED;
-  color: #6B7280;
+  color: #4F535A;
   border-radius: 50%;
   font-size: 11px;
   font-weight: 700;
@@ -3411,7 +3432,7 @@ select.formControl {
 .fileItem .fileIcon {
   width: 16px;
   height: 16px;
-  color: #6B7280;
+  color: #4F535A;
   flex-shrink: 0;
 }
 .fileItem .fileIcon svg {
@@ -3471,7 +3492,7 @@ select.formControl {
 .listBar .listBarItem {
   display: inline-flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 14px;
   color: #4F535A;
 }
 .listBar .listBarItem:not(:first-child)::before {
@@ -3498,6 +3519,7 @@ select.formControl {
   font-weight: 500;
 }
 .listBar .listBarItem .value {
+  margin-left: 4px;
   color: #4F535A;
 }
 .listBar.sm .listBarItem {

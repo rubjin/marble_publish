@@ -14,7 +14,7 @@
   <div class="sideHeader">
     <a href="#" class="sideLogo">
       <span class="logoTitle"></span>
-      <span class="logoStar"></span>
+      <!-- <span class="logoStar"></span> -->
     </a>
   </div>
 
@@ -346,7 +346,7 @@
 </div>
 
 <!-- 페이지 상단 헤더 (좌측: 타이틀 + 즐겨찾기 버튼 / 우측: 브래드크럼) -->
-<div class="pageHeader">
+<!-- <div class="pageHeader">
   <div class="headerLeft">
     <h2 class="pageTitle">챌린지 관리</h2>
     <button type="button" class="btnFavorite" aria-label="즐겨찾기 추가/해제">
@@ -368,21 +368,191 @@
       </li>
     </ol>
   </nav>
+</div> -->
+<!-- 페이지 상단 헤더 (좌측: 타이틀 + 즐겨찾기 버튼 / 우측: 이력정보) -->
+<div class="pageHeader">
+  <div class="headerLeft">
+    <h2 class="pageTitle">리워드 한도설정</h2>
+    <button type="button" class="btnFavorite" aria-label="즐겨찾기 추가/해제">
+      <svg class="icoStar" viewBox="0 0 40 40">
+        <path d="M17.8769 5.41469C18.8551 3.8414 21.1449 3.8414 22.1231 5.41469L25.4939 10.8362C25.8381 11.3897 26.3848 11.7869 27.0176 11.9432L33.2154 13.4737C35.014 13.9179 35.7215 16.0956 34.5275 17.5121L30.413 22.3932C29.9929 22.8916 29.7841 23.5344 29.831 24.1845L30.2907 30.5518C30.424 32.3996 28.5716 33.7455 26.8554 33.0477L20.9417 30.6429C20.3379 30.3974 19.6621 30.3974 19.0583 30.6429L13.1446 33.0477C11.4285 33.7455 9.57597 32.3996 9.70935 30.5518L10.169 24.1845C10.2159 23.5344 10.0071 22.8916 9.58696 22.3932L5.47247 17.5121C4.27847 16.0956 4.98605 13.9179 6.78461 13.4737L12.9824 11.9432C13.6152 11.7869 14.1619 11.3897 14.5061 10.8362L17.8769 5.41469Z"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="headerRight">
+    <ul class="listBar">
+      <li class="listBarItem"><span class="label">작성자</span> : <span class="value">(123456) / 디지털 Biz부</span></li>
+      <li class="listBarItem"><span class="label">저장일시</span> : <span class="value">2026.08.15 10:30</span></li>
+    </ul>
+    <button type="button" class="btn outline" data-popup="popupHistory">변경이력조회</button>
+  </div>
 </div>
 
-<!-- ==================== 섹션 1 :: 챌린지 운영 현황 ==================== -->
+<div class="tabWrap">
+  <nav class="tab">
+    <!-- [D] 활성 상태: isActive 클래스 추가 -->
+    <button type="button" class="item isActive">활성화 탭 (Active)</button>
+    <button type="button" class="item">디폴트 탭 (Default)</button>
+    <button type="button" class="item">세 번째 탭</button>
+  </nav>
+</div>
+
+
+
+<!-- ==========================================================================
+  조회 컨트롤 박스 (3줄 검색 박스 + 하단 초기화/조회 버튼)
+  ========================================================================== -->
+<div class="searchBox">
+  <table class="searchTable">
+    <colgroup>
+      <col style="width: 100px;">
+      <col>
+      <col style="width: 100px;">
+      <col>
+    </colgroup>
+    <tbody>
+      <!-- 1줄: 조회일자 -->
+      <tr>
+        <th><span class="formLabel">조회일자</span></th>
+        <td colspan="3">
+          <div class="formRow">
+            <fieldset class="formDateRange">
+              <legend class="srOnly">조회기간 설정</legend>
+              <div class="formDatepicker">
+                <input type="text" class="formControl" value="2026.07.01" title="조회 시작일">
+                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+              </div>
+              <span class="dateSeparator">~</span>
+              <div class="formDatepicker">
+                <input type="text" class="formControl" value="2026.08.31" title="조회 종료일">
+                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+              </div>
+            </fieldset>
+            <div class="btnGroup">
+              <button type="button" class="btn light">오늘</button>
+              <button type="button" class="btn light">1주일</button>
+              <button type="button" class="btn light isActive">1개월</button>
+              <button type="button" class="btn light">3개월</button>
+              <button type="button" class="btn light">전체</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <!-- 2줄: 유형 및 상태 -->
+      <tr>
+        <th><label class="formLabel" for="searchType">유형</label></th>
+        <td>
+          <div class="formRow">
+            <select id="searchType" class="formControl" style="width: 180px;">
+              <option value="">전체</option>
+              <option value="1">OX퀴즈</option>
+              <option value="2">출석체크</option>
+              <option value="3">설문조사</option>
+              <option value="4">챌린지</option>
+            </select>
+          </div>
+        </td>
+        <th><span class="formLabel">상태</span></th>
+        <td>
+          <div class="formRow">
+            <fieldset class="formCheckGroup">
+              <legend class="srOnly">상태 선택</legend>
+              <label class="formCheck">
+                <input type="radio" name="searchStatus" checked>
+                <span class="checkIcon"></span>
+                <span class="checkLabel">전체</span>
+              </label>
+              <label class="formCheck">
+                <input type="radio" name="searchStatus">
+                <span class="checkIcon"></span>
+                <span class="checkLabel">운영중</span>
+              </label>
+              <label class="formCheck">
+                <input type="radio" name="searchStatus">
+                <span class="checkIcon"></span>
+                <span class="checkLabel">일시중단</span>
+              </label>
+              <label class="formCheck">
+                <input type="radio" name="searchStatus">
+                <span class="checkIcon"></span>
+                <span class="checkLabel">종료</span>
+              </label>
+            </fieldset>
+          </div>
+        </td>
+      </tr>
+      <!-- 3줄: 검색어 -->
+      <tr>
+        <th><label class="formLabel" for="searchKeyword">검색어</label></th>
+        <td colspan="3">
+          <div class="formRow">
+            <select class="formControl" style="width: 140px;">
+              <option value="all">전체</option>
+              <option value="title">미션명</option>
+              <option value="id">미션ID</option>
+              <option value="author">등록자</option>
+            </select>
+            <div class="formControlWrap" style="width: 320px;">
+              <input type="text" id="searchKeyword" class="formControl full" placeholder="검색어를 입력해주세요">
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 박스 하단 초기화 / 조회 버튼 -->
+  <div class="searchBtnArea">
+    <button type="button" class="btn outline">초기화</button>
+    <button type="button" class="btn dark">조회</button>
+  </div>
+</div>
+
+<!-- ==================== 조회결과 총계 정보 ==================== -->
+<div class="summaryStatBox singleLine">
+  <div class="statItem">
+    <span class="statLabel">전체 지급완료</span>
+    <div class="statValue">
+      <strong>999,000</strong><span class="unit">건</span>
+    </div>
+  </div>
+
+  <!-- 세로 구분선 -->
+  <div class="statDivider"></div>
+
+  <div class="statItem">
+    <span class="statLabel">지급오류</span>
+    <div class="statValue danger">
+      <a href="#">10</a><span class="unit">건</span>
+    </div>
+  </div>
+
+  <!-- 세로 구분선 -->
+  <div class="statDivider"></div>
+
+  <div class="statItem">
+    <span class="statLabel">리워드 예정</span>
+    <div class="statValue">
+      <strong>1,500</strong><span class="unit">건</span>
+    </div>
+  </div>
+</div>
+
 <section class="boSection">
-  <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
-    <!-- 테이블 상단 타이틀 + 건수 + 우측 버튼 -->
     <div class="tblTop">
       <div class="tblLeft">
         <h3 class="tblTitle">챌린지 운영 현황</h3>
-        <span class="tblCount" style="color: #2563EB; font-weight: 600;">6건</span>
+        <span class="tblCount">총 <strong class="count">6</strong>건 <span class="tblUnit">(단위 : 원)</span></span>
+        <select class="formControl" style="width: 120px;">
+          <option value="10">10건씩 보기</option>
+          <option value="20">20건씩 보기</option>
+          <option value="50">50건씩 보기</option>
+        </select>
       </div>
       <div class="tblRight">
         <div class="btnGroup">
-          <button type="button" class="btn dark">챌린지 추가</button>
+          <button type="button" class="btn outline">챌린지 추가</button>
           <button type="button" class="btn outline">
             <span class="ico download"></span>
             <span>엑셀 다운로드</span>
@@ -390,8 +560,6 @@
         </div>
       </div>
     </div>
-
-    <!-- 테이블 영역 -->
     <div class="tblWrap">
       <table class="tbl">
         <colgroup>
@@ -428,7 +596,7 @@
             </td>
             <td class="textCenter">3,123,000</td>
             <td class="textCenter"><span class="statusDot ing">운영중</span></td>
-            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">2</td>
@@ -443,7 +611,7 @@
             </td>
             <td class="textCenter">10,123,000</td>
             <td class="textCenter"><span class="statusDot ing">운영중</span></td>
-            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">3</td>
@@ -458,7 +626,7 @@
             </td>
             <td class="textCenter">0</td>
             <td class="textCenter"><span class="statusDot ready">예정</span></td>
-            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">4</td>
@@ -473,7 +641,7 @@
             </td>
             <td class="textCenter">1,564,000</td>
             <td class="textCenter"><span class="statusDot end">종료</span></td>
-            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">5</td>
@@ -486,9 +654,9 @@
                 </div>
               </div>
             </td>
-            <td class="textCenter">23,17,000</td>
+            <td class="textCenter">2,317,000</td>
             <td class="textCenter"><span class="statusDot ing">운영중</span></td>
-            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">6</td>
@@ -503,20 +671,160 @@
             </td>
             <td class="textCenter">0</td>
             <td class="textCenter"><span class="statusDot ready">예정</span></td>
-            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
+<!-- ==================== 섹션 1 :: 챌린지 운영 현황 ==================== -->
+<!-- <section class="boSection">
+  <!-- 하얀 박스 영역 --
+  <div class="sectionBox">
+    <!-- 테이블 상단 타이틀 + 건수 + 우측 버튼 --
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">챌린지 운영 현황</h3>
+        <span class="tblCount" style="color: #2563EB; font-weight: 600;">6건</span>
+      </div>
+      <div class="tblRight">
+        <div class="btnGroup">
+          <button type="button" class="btn dark">챌린지 추가</button>
+          <button type="button" class="btn outline">
+            <span class="ico download"></span>
+            <span>엑셀 다운로드</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 테이블 영역 --
+    <div class="tblWrap">
+      <table class="tbl">
+        <colgroup>
+          <col style="width: 80px;">
+          <col style="width: 260px;">
+          <col style="width: 140px;">
+          <col style="width: 200px;">
+          <col style="width: 160px;">
+          <col style="width: 120px;">
+          <col style="width: 100px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>순번</th>
+            <th>챌린지 명</th>
+            <th>참여자 수</th>
+            <th>참여율</th>
+            <th>총 지급 포인트</th>
+            <th>상태</th>
+            <th>관리</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="textCenter">1</td>
+            <td class="textLeft">오늘의 콕</td>
+            <td class="textCenter">120,450</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 50%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">3,123,000</td>
+            <td class="textCenter"><span class="statusDot ing">운영중</span></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">2</td>
+            <td class="textLeft">주식 꾸준히 모으기 챌린지</td>
+            <td class="textCenter">81,920</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 80%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">10,123,000</td>
+            <td class="textCenter"><span class="statusDot ing">운영중</span></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">3</td>
+            <td class="textLeft">투자사랑 산악회 챌린지</td>
+            <td class="textCenter">0</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">0</td>
+            <td class="textCenter"><span class="statusDot ready">예정</span></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">4</td>
+            <td class="textLeft">CMA 챌린지</td>
+            <td class="textCenter">31,100</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 35%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">1,564,000</td>
+            <td class="textCenter"><span class="statusDot end">종료</span></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">5</td>
+            <td class="textLeft">연금 챌린지</td>
+            <td class="textCenter">14,100</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 60%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">23,17,000</td>
+            <td class="textCenter"><span class="statusDot ing">운영중</span></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
+          </tr>
+          <tr>
+            <td class="textCenter">6</td>
+            <td class="textLeft">스탁뷰 챌린지</td>
+            <td class="textCenter">0</td>
+            <td>
+              <div class="barPercent">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </td>
+            <td class="textCenter">0</td>
+            <td class="textCenter"><span class="statusDot ready">예정</span></td>
+            <td class="textCenter"><button type="button" class="btn secondary sm">상세보기</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section> -->
 
 <!-- ==================== 섹션 2 ==================== -->
-<section class="boSection">
+<!-- <section class="boSection">
   <h2 class="sectionTitle">섹션타이틀</h2>
-  <!-- 하얀 박스 영역 -->
+  <!-- 하얀 박스 영역 --
   <div class="sectionBox">
-    <!-- 테이블 상단 타이틀 + 건수 + 버튼 -->
+    <!-- 테이블 상단 타이틀 + 건수 + 버튼 --
     <div class="tblTop">
       <div class="tblLeft">
         <h3 class="tblTitle">테이블타이틀</h3>
@@ -529,7 +837,7 @@
         </div>
       </div>
     </div>
-    <!-- 테이블 영역 -->
+    <!-- 테이블 영역 --
     <div class="tblWrap">
       <table class="tbl tblStriped tblBordered tblCenter">
         <thead>
@@ -552,12 +860,28 @@
     </div>
 
   </div>
-  <!-- 하단 버튼 영역 -->
+  <!-- 하단 버튼 영역 --
   <div class="btnArea">
     <button type="button" class="btn outline">초기화</button>
     <button type="button" class="btn primary">저장</button>
   </div>
-</section>
+</section> -->
+
+<!-- [팝업] 변경이력조회 모달 팝업 -->
+<div id="popupHistory" class="popupDimmed">
+  <div class="popupWrap lg">
+    <div class="popupHeader">
+      <h2 class="popupTitle">변경이력 조회</h2>
+      <button type="button" class="btnClose" aria-label="닫기"></button>
+    </div>
+    <div class="popupBody">
+      팝업 내용들어갑니다.
+    </div>
+    <div class="popupFooter">
+      <button type="button" class="btn primary" onclick="closePopup('popupHistory')">확인</button>
+    </div>
+  </div>
+</div>
 
       </div>
     </main>

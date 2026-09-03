@@ -249,11 +249,23 @@
         font-weight: $font-weight-bold;
       }
       a {
-        color: $text-success;
+        color: $text-info;
+        text-decoration: none;
         transition: color 0.15s ease;
 
         &:hover {
           color: $text-primary;
+          text-decoration: underline;
+        }
+      }
+
+      &.danger,
+      .danger {
+        color: $text-danger;
+
+        strong,
+        a {
+          color: $text-danger;
         }
       }
       .price {
@@ -378,30 +390,6 @@
     }
   }
 
-  @media (max-width: 1200px) {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
-
-    .statCol {
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: flex-start !important;
-    }
-
-    .statDivider {
-      width: 100%;
-      height: 1px;
-    }
-
-    &.splitType {
-      grid-template-columns: 1fr;
-    }
-
-    &.singleLine {
-      justify-content: flex-start;
-    }
-  }
 }
 
 // Status Summary KPI Bar (5개 핵심 운영 현황 지표 바)
@@ -473,9 +461,6 @@
     }
   }
 
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  }
 }
 
 // Status Cards (운영중, 이슈/알림, 참여율, 신규 유입, 연간 지급 포인트 - 각각 독립된 개별 박스)
@@ -547,9 +532,6 @@
     }
   }
 
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  }
 }
 
 
