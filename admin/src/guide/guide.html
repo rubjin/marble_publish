@@ -32,7 +32,7 @@
     }
 
     /* 가이드 레이아웃 */
-    .guideWrapper { max-width: 1200px; margin: 0 auto; padding: 40px 40px 80px; }
+    .guideWrapper { max-width: 1200px; height: calc(100% - 52px); margin: 0 auto; padding: 40px 40px 80px; overflow-y: auto; }
     .guideHeader { margin-bottom: 48px; border-bottom: 3px solid rgb(255,188,0); padding-bottom: 24px; }
     .guideHeader h1 { font-size: 36px; margin: 0 0 12px 0; color: #111; }
     .guideHeader p { color: #666; margin: 0; font-size: 16px; }
@@ -328,6 +328,11 @@
       <h2 class="guideTitle">Summary Info Box (테이블 상단 3개 요약 정보 박스)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/etc.html"></include>
+      </div>
+      
+       <h2 class="guideTitle">MDI Tab Bar (MDI 탭 바)</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/mdi_tap.html"></include>
       </div>
     </section>
 

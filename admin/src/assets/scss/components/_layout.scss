@@ -1,24 +1,26 @@
 // Layout
 .boWrap {
-  min-width: 1280px;
-  max-width: 1920px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
-  min-height: 100vh;
-  background-color: $color-gray-500;
+  background-color: $bg-light;
 }
 
 // Sidebar (240px / 64px)
 .boSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
   width: 240px;
+  height: 100vh;
   background-color: $color-gray-500;
   color: $color-white;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  position: sticky;
-  top: 0;
+  z-index: 100;
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
 
@@ -183,7 +185,7 @@
 
       &.isOpen {
         > a {
-          background-color: $color-gray-500;
+          background-color: $color-gray-400;
           color: $color-white;
 
           .arrow {
@@ -388,15 +390,18 @@
         }
       }
     }
-    .boMenu li {
-      margin-bottom: 36px;
-    }
+   
     .ico[class*="side"] {
       width: 40px;
       height: 40px;
-      background-size: 40px 40px;
+      background-size: contain;
     }
-
+    .ico.sideSub {
+      display: none;
+    }
+    .boMenu li {
+      margin-bottom: 32px;
+    }
     .sideFavorite {
       padding: 0 0 36px;
       display: flex;
@@ -419,7 +424,7 @@
     }
 
     .sideNav {
-      padding: 0 8px;
+      padding: 0 24px;
       overflow: visible;
     }
 
@@ -431,6 +436,7 @@
           justify-content: center;
           padding: 0;
           gap: 0;
+          height: 48px;
 
           .ico {
             display: inline-flex;
@@ -441,10 +447,9 @@
           }
         }
 
-        // 서브메뉴 없는 일반 메뉴 호버/선택 시 툴팁 레이어
+        // 서브메뉴 없는 일반 메뉴 호버 시 툴팁 레이어
         &:not(:has(.boSubMenu)) {
-          &:hover,
-          &.isLayerOpen {
+          &:hover {
             > a .text {
               display: block;
               position: absolute;
@@ -476,20 +481,19 @@
           }
         }
 
-        // 서브메뉴가 있는 메뉴의 축소 상태 처리
+        // 서브메뉴가 있는 메뉴의 축소 상태 처리 (호버 시에만 노출)
         .boSubMenu {
           display: none;
         }
 
-        &:hover .boSubMenu,
-        &.isLayerOpen .boSubMenu {
+        &:hover .boSubMenu {
           display: block;
           position: absolute;
           left: 100%;
           top: 0;
           margin: 0 0 0 8px;
           padding: 8px;
-          min-width: 160px;
+          min-width: 120px;
           background-color: $color-gray-700;
           border-radius: 8px;
           box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
@@ -583,19 +587,52 @@
 // Main Container
 .boContainer {
   flex: 1;
+  margin-left: 240px;
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: auto;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   padding: 32px;
   background-color: $bg-light;
   border-radius: 30px 0 0 0;
-  min-width: 0;
+  box-sizing: border-box;
+  transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // 내부 콘텐츠 최소 너비 유지로 좌우 스크롤 생성
+  > * {
+    // min-width: 1616px;
+    min-width: 1016px; //임시
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-gray-300;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+.boSidebar.isCollapsed ~ .boContainer {
+  margin-left: 96px;
+  // > * { 임시제거
+  //   min-width: 1760px;
+  // }
 }
 
 .boHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 
   .headerLeft {
     display: flex;
@@ -637,10 +674,10 @@
 .boContent {
   flex: 1;
   padding: 24px 0;
-  overflow-y: auto;
+  min-height: 0;
 }
 
-// Page Header (페이지 상단 타이틀 + 우측 브래드크럼 / 정보 & 버튼)
+// Page Header (페이지 상단 타이틀 + 즐겨찾기 버튼 + 우측 브래드크럼 / 정보 & 버튼)
 .pageHeader {
   display: flex;
   align-items: center;
@@ -649,12 +686,59 @@
   flex-wrap: wrap;
   gap: 12px;
 
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .pageTitle {
     font-size: 22px;
     font-weight: $font-weight-bold;
     color: $color-gray-900;
     margin: 0;
     line-height: 30px;
+  }
+
+  // 즐겨찾기 버튼
+  .btnFavorite {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: $color-gray-400;
+    transition: all 0.15s ease;
+
+    .icoStar {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: $color-gray-400;
+      stroke-width: 2.5;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      transition: all 0.15s ease;
+    }
+
+    &:hover {
+      .icoStar {
+        stroke: $color-yellow-500;
+        fill: rgba(255, 199, 43, 0.15);
+      }
+    }
+
+    &.isActive {
+      .icoStar {
+        fill: $color-yellow-500;
+        stroke: $color-yellow-500;
+      }
+    }
   }
 
   .headerRight {

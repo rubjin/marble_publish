@@ -1,5 +1,6 @@
-﻿.tab {
-  display: flex; border-bottom: 1px solid $color-gray-300;
+﻿.tabWrap { margin-bottom: 14px; }
+.tab {
+  display: flex; border-bottom: 1px solid $color-gray-300; font-size: 16px;
   .item {
     padding: 12px 24px; font-weight: $font-weight-semibold; color: $color-gray-300; position: relative;
     background: none; border: none; cursor: pointer;
@@ -49,6 +50,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    max-width: 160px;
     height: 32px;
     padding: 0 12px;
     background-color: $bg-light;
@@ -131,9 +133,9 @@
       transition: all 0.15s ease;
 
       &:hover {
-        opacity: 1;
-        background-color: rgba(0, 0, 0, 0.08);
-        color: $color-gray-900;
+        // opacity: 1;
+        // background-color: rgba(0, 0, 0, 0.08);
+        // color: $color-gray-900;
       }
 
       svg {

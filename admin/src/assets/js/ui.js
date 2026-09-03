@@ -112,7 +112,6 @@
 
   // ==========================================
   // 3. 사이드바 (Sidebar Collapse & Menu Toggle)
-  // ==========================================
   // 사이드바 접기/펼치기 토글
   document.addEventListener('click', function(e) {
     var foldBtn = e.target.closest('.boSidebar .btnFold');
@@ -120,45 +119,22 @@
       var sidebar = foldBtn.closest('.boSidebar');
       if (sidebar) {
         sidebar.classList.toggle('isCollapsed');
-        sidebar.querySelectorAll('.boMenu > li.isLayerOpen').forEach(function(li) {
-          li.classList.remove('isLayerOpen');
-        });
       }
     }
   });
 
-  // 1depth 메뉴 아코디언 토글 (서브메뉴가 있는 경우) 및 축소 상태 레이어 토글
+  // 1depth 메뉴 아코디언 토글 (사이드바 펼침 상태 + 서브메뉴가 있는 경우)
   document.addEventListener('click', function(e) {
     var menuLink = e.target.closest('.boMenu > li > a');
     if (menuLink) {
-      var li = menuLink.parentElement;
       var sidebar = menuLink.closest('.boSidebar');
       var isCollapsed = sidebar && sidebar.classList.contains('isCollapsed');
+      var li = menuLink.parentElement;
       var subMenu = li.querySelector('.boSubMenu');
 
-      if (isCollapsed) {
-        if (subMenu) {
-          e.preventDefault();
-          var isOpen = li.classList.contains('isLayerOpen');
-          sidebar.querySelectorAll('.boMenu > li.isLayerOpen').forEach(function(item) {
-            item.classList.remove('isLayerOpen');
-          });
-          if (!isOpen) {
-            li.classList.add('isLayerOpen');
-          }
-        }
-      } else {
-        if (subMenu) {
-          e.preventDefault();
-          li.classList.toggle('isOpen');
-        }
-      }
-    } else {
-      // 외부 클릭 시 축소 상태의 열린 레이어 닫기
-      if (!e.target.closest('.boSidebar.isCollapsed .boMenu > li')) {
-        document.querySelectorAll('.boSidebar.isCollapsed .boMenu > li.isLayerOpen').forEach(function(li) {
-          li.classList.remove('isLayerOpen');
-        });
+      if (!isCollapsed && subMenu) {
+        e.preventDefault();
+        li.classList.toggle('isOpen');
       }
     }
   });
@@ -197,6 +173,37 @@
     if (openBtn) {
       var targetId = openBtn.getAttribute('data-popup');
       window.openPopup(targetId);
+    }
+  });
+
+  // ==========================================
+  // 5. 페이지 즐겨찾기 버튼 토글 (Favorite Button)
+  // ==========================================
+  document.addEventListener('click', function(e) {
+    var favBtn = e.target.closest('.btnFavorite');
+    if (favBtn) {
+      favBtn.classList.toggle('isActive');
+    }
+  });
+
+  // ==========================================
+  // 6. 라디오 카드 (Radio Card) 활성화 상태 동기화
+  // ==========================================
+  document.addEventListener('change', function(e) {
+    if (e.target.matches('.formRadioCard input[type="radio"]')) {
+      var name = e.target.name;
+      if (name) {
+        document.querySelectorAll('input[type="radio"][name="' + name + '"]').forEach(function(radio) {
+          var card = radio.closest('.formRadioCard');
+          if (card) {
+            if (radio.checked) {
+              card.classList.add('isActive');
+            } else {
+              card.classList.remove('isActive');
+            }
+          }
+        });
+      }
     }
   });
 

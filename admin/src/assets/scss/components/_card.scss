@@ -222,7 +222,7 @@
   .statItem {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    // width: 100%;
     gap: 4px;
     &.col {
       flex-direction: column;
@@ -247,6 +247,14 @@
       }
       strong {
         font-weight: $font-weight-bold;
+      }
+      a {
+        color: $text-success;
+        transition: color 0.15s ease;
+
+        &:hover {
+          color: $text-primary;
+        }
       }
       .price {
         font-size: 20px;

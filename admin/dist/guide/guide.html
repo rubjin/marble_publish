@@ -32,7 +32,7 @@
     }
 
     /* 가이드 레이아웃 */
-    .guideWrapper { max-width: 1200px; margin: 0 auto; padding: 40px 40px 80px; }
+    .guideWrapper { max-width: 1200px; height: calc(100% - 52px); margin: 0 auto; padding: 40px 40px 80px; overflow-y: auto; }
     .guideHeader { margin-bottom: 48px; border-bottom: 3px solid rgb(255,188,0); padding-bottom: 24px; }
     .guideHeader h1 { font-size: 36px; margin: 0 0 12px 0; color: #111; }
     .guideHeader p { color: #666; margin: 0; font-size: 16px; }
@@ -659,6 +659,11 @@
       <span class="checkLabel">체크박스2</span>
     </label>
     <label class="formCheck">
+      <input type="checkbox" disabled checked>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">체크박스 (disabled checked)</span>
+    </label>
+    <label class="formCheck">
       <input type="checkbox" disabled>
       <span class="checkIcon"></span>
       <span class="checkLabel">체크박스 (disabled)</span>
@@ -679,6 +684,16 @@
       <input type="radio" name="publicState">
       <span class="checkIcon"></span>
       <span class="checkLabel">라디오2</span>
+    </label>
+    <label class="formCheck">
+      <input type="radio" name="publicStateDisabled" disabled checked>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">라디오1 (disabled checked)</span>
+    </label>
+    <label class="formCheck">
+      <input type="radio" name="publicStateDisabled" disabled>
+      <span class="checkIcon"></span>
+      <span class="checkLabel">라디오2 (disabled)</span>
     </label>
   </div>
 </fieldset>
@@ -1189,9 +1204,16 @@
     <section id="sectionTitle" class="guideSection">
       <h2 class="guideTitle">Title (타이틀)</h2>
       <div class="guideBox guideBoxBlock">
-        <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+        <!-- 페이지 상단 헤더 (좌측: 타이틀 + 즐겨찾기 버튼 / 우측: 브래드크럼) -->
 <div class="pageHeader">
-  <h2 class="pageTitle">미션등록</h2>
+  <div class="headerLeft">
+    <h2 class="pageTitle">미션등록</h2>
+    <button type="button" class="btnFavorite" aria-label="즐겨찾기 추가/해제">
+      <svg class="icoStar" viewBox="0 0 40 40">
+        <path d="M17.8769 5.41469C18.8551 3.8414 21.1449 3.8414 22.1231 5.41469L25.4939 10.8362C25.8381 11.3897 26.3848 11.7869 27.0176 11.9432L33.2154 13.4737C35.014 13.9179 35.7215 16.0956 34.5275 17.5121L30.413 22.3932C29.9929 22.8916 29.7841 23.5344 29.831 24.1845L30.2907 30.5518C30.424 32.3996 28.5716 33.7455 26.8554 33.0477L20.9417 30.6429C20.3379 30.3974 19.6621 30.3974 19.0583 30.6429L13.1446 33.0477C11.4285 33.7455 9.57597 32.3996 9.70935 30.5518L10.169 24.1845C10.2159 23.5344 10.0071 22.8916 9.58696 22.3932L5.47247 17.5121C4.27847 16.0956 4.98605 13.9179 6.78461 13.4737L12.9824 11.9432C13.6152 11.7869 14.1619 11.3897 14.5061 10.8362L17.8769 5.41469Z" />
+      </svg>
+    </button>
+  </div>
   <nav class="breadcrumb" aria-label="브레드크럼">
     <ol class="breadcrumbList">
       <li class="breadcrumbItem">
@@ -1474,81 +1496,33 @@
 
       <h2 class="guideTitle">Summary Info Box (테이블 상단 3개 요약 정보 박스)</h2>
       <div class="guideBox guideBoxBlock">
-        <!-- ==========================================================================
-  MDI 탭 바 (MDI Tab Bar: 좌측 홈 고정 노출 / 최대 7개 탭 / 우측 전체닫기 아이콘)
+        
+
+<!-- ==========================================================================
+  [페이지 헤더] 화면 타이틀 + 즐겨찾기 버튼 + 브래드크럼
   ========================================================================== -->
-<div class="mdiTabWrap">
-  <!-- 좌측 홈 화면 탭 (항상 고정 노출, 닫기 버튼 없음) -->
-  <button type="button" class="mdiTabItem isHome" title="홈 화면">
-    <span class="tabIcon">
-      <span class="ico mdiTabHome"></span>
-    </span>
-  </button>
-
-  <ul class="mdiTabList">
-    <!-- 활성화 탭: isActive -->
-    <li>
-      <div class="mdiTabItem isActive">
-        <span class="tabText">미션등록</span>
-        <button type="button" class="tabClose" aria-label="미션등록 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 2 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">미션관리</span>
-        <button type="button" class="tabClose" aria-label="미션관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 3 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">챌린지 운영 현황</span>
-        <button type="button" class="tabClose" aria-label="챌린지 운영 현황 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 4 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">회원 및 계좌조회</span>
-        <button type="button" class="tabClose" aria-label="회원 및 계좌조회 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 5 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">포인트/리워드 관리</span>
-        <button type="button" class="tabClose" aria-label="포인트/리워드 관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 6 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">통계 및 성과 분석</span>
-        <button type="button" class="tabClose" aria-label="통계 및 성과 분석 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 7 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">공통 시스템 설정</span>
-        <button type="button" class="tabClose" aria-label="공통 시스템 설정 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-  </ul>
-
-  <!-- 우측 전체 닫기 버튼 -->
-  <div class="mdiTabActions">
-    <button type="button" class="btnAllClose" title="전체 탭 닫기" aria-label="전체 탭 닫기">
-      <span class="ico sm mdiTabClose"></span>
+<div class="pageHeader">
+  <div class="headerLeft">
+    <h2 class="pageTitle">챌린지 관리</h2>
+    <button type="button" class="btnFavorite" aria-label="즐겨찾기 추가/해제">
+      <svg class="icoStar" viewBox="0 0 40 40">
+        <path d="M17.8769 5.41469C18.8551 3.8414 21.1449 3.8414 22.1231 5.41469L25.4939 10.8362C25.8381 11.3897 26.3848 11.7869 27.0176 11.9432L33.2154 13.4737C35.014 13.9179 35.7215 16.0956 34.5275 17.5121L30.413 22.3932C29.9929 22.8916 29.7841 23.5344 29.831 24.1845L30.2907 30.5518C30.424 32.3996 28.5716 33.7455 26.8554 33.0477L20.9417 30.6429C20.3379 30.3974 19.6621 30.3974 19.0583 30.6429L13.1446 33.0477C11.4285 33.7455 9.57597 32.3996 9.70935 30.5518L10.169 24.1845C10.2159 23.5344 10.0071 22.8916 9.58696 22.3932L5.47247 17.5121C4.27847 16.0956 4.98605 13.9179 6.78461 13.4737L12.9824 11.9432C13.6152 11.7869 14.1619 11.3897 14.5061 10.8362L17.8769 5.41469Z" />
+      </svg>
     </button>
   </div>
+  <nav class="breadcrumb" aria-label="브레드크럼">
+    <ol class="breadcrumbList">
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">홈</a>
+      </li>
+      <li class="breadcrumbItem">
+        <a href="#" class="breadcrumbLink">챌린지관리</a>
+      </li>
+      <li class="breadcrumbItem isCurrent" aria-current="page">
+        챌린지 운영 현황
+      </li>
+    </ol>
+  </nav>
 </div>
 
 <!-- ==========================================================================
@@ -1959,6 +1933,86 @@
   <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
 </div>
 
+      </div>
+      
+       <h2 class="guideTitle">MDI Tab Bar (MDI 탭 바)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- ==========================================================================
+  MDI 탭 바 (MDI Tab Bar: 좌측 홈 고정 노출 / 최대 7개 탭 / 우측 전체닫기 아이콘)
+  ========================================================================== -->
+<div class="mdiTabWrap">
+  <!-- 좌측 홈 화면 탭 (항상 고정 노출, 닫기 버튼 없음) -->
+  <button type="button" class="mdiTabItem isHome" title="홈 화면">
+    <span class="tabIcon">
+      <span class="ico mdiTabHome"></span>
+    </span>
+  </button>
+
+  <ul class="mdiTabList">
+    <!-- 활성화 탭: isActive -->
+    <li>
+      <div class="mdiTabItem isActive">
+        <span class="tabText">미션등록</span>
+        <button type="button" class="tabClose" aria-label="미션등록 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 2 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">미션관리</span>
+        <button type="button" class="tabClose" aria-label="미션관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 3 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">챌린지 운영 현황</span>
+        <button type="button" class="tabClose" aria-label="챌린지 운영 현황 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 4 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">회원 및 계좌조회</span>
+        <button type="button" class="tabClose" aria-label="회원 및 계좌조회 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 5 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">포인트/리워드 관리</span>
+        <button type="button" class="tabClose" aria-label="포인트/리워드 관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 6 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">통계 및 성과 분석</span>
+        <button type="button" class="tabClose" aria-label="통계 및 성과 분석 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 7 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">공통 시스템 설정</span>
+        <button type="button" class="tabClose" aria-label="공통 시스템 설정 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+  </ul>
+
+  <!-- 우측 전체 닫기 버튼 -->
+  <div class="mdiTabActions">
+    <button type="button" class="btnAllClose" title="전체 탭 닫기" aria-label="전체 탭 닫기">
+      <span class="ico sm mdiTabClose"></span>
+    </button>
+  </div>
+</div>
       </div>
     </section>
 

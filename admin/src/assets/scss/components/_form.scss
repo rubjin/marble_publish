@@ -249,8 +249,8 @@ select.formControl {
   }
 
   .checkIcon {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border: 1px solid $color-gray-300;
     background-color: $bg-white;
     display: flex;
@@ -310,6 +310,7 @@ select.formControl {
   .checkLabel {
     font-size: 14px;
     color: $text-primary;
+    font-weight: $font-weight-medium;
   }
 
   input:disabled ~ .checkLabel {
@@ -428,7 +429,7 @@ select.formControl {
   align-items: flex-start;
   flex: 1;
   min-width: 240px;
-  padding: 16px 20px;
+  padding: 20px 16px;
   background-color: $bg-white;
   border: 1px solid $border-default;
   border-radius: 8px;
@@ -445,8 +446,8 @@ select.formControl {
   }
 
   .checkIcon {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border: 1px solid $color-gray-300;
     border-radius: 50%;
     background-color: $bg-white;
@@ -472,8 +473,8 @@ select.formControl {
     flex: 1;
 
     .cardTitle {
-      font-size: 14px;
-      font-weight: $font-weight-semibold;
+      font-size: 15px;
+      font-weight: $font-weight-medium;
       color: $text-highlight;
       display: block;
       margin-bottom: 4px;
@@ -481,17 +482,18 @@ select.formControl {
 
     .cardDesc {
       font-size: 13px;
+      font-weight: $font-weight-light;
       color: $text-secondary;
       line-height: 1.4;
       margin: 0;
     }
   }
 
-  // ?좏깮???곹깭
+  // 선택된 상태 (Checked / Active)
   &:has(input:checked),
   &.isActive {
-    background-color: $bg-info-light;
-    border-color: $text-info;
+    background-color: $bg-card-active;
+    border-color: $border-card-active;
 
     .checkIcon {
       background-color: $text-highlight;

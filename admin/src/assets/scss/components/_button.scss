@@ -2,7 +2,7 @@
    Button Component
    ========================================================================== */
 @mixin btnSm { 
-  min-width: 46px; height: $btn-height-sm; padding: 0px $btn-padding-x-sm; font-size: $btn-font-size-sm; font-weight: $font-weight-light; 
+  min-width: 46px; height: $btn-height-sm; padding: 0px $btn-padding-x-sm; font-size: $btn-font-size-sm;
   .ico { width: 16px; height: 16px; }
 }
 @mixin btnLg { 
@@ -24,6 +24,13 @@
   }
   &.light {
     border: 1px solid $border-default; background-color: $bg-light; color: $text-primary;
+    &.isActive {
+      background-color: $bg-dark; color: $text-inverse; border-color: $border-active;
+    }
+    // &:hover { background-color: rgba(0,0,0,0.08); }
+  }
+  &.secondary {
+    border: 1px solid $border-light; background-color: $bg-secondary; color: $text-primary;
     &.isActive {
       background-color: $bg-dark; color: $text-inverse; border-color: $border-active;
     }

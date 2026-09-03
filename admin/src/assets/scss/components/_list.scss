@@ -14,7 +14,7 @@
   .listBarItem {
     display: inline-flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 14px;
     color: $color-gray-600;
     
 
@@ -49,6 +49,7 @@
     }
 
     .value {
+      margin-left: 4px;
       color: $color-gray-600;
     }
   }

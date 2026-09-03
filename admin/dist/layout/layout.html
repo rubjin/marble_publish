@@ -39,6 +39,28 @@
           <span class="text">업무관리</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">결재함</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">계정정보</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">공지사항</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
         <a href="#">
@@ -46,6 +68,16 @@
           <span class="text">고객관리</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">고객목록</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
       <li class="isOpen">
@@ -88,6 +120,22 @@
           <span class="text">리워드관리</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">리워드 지급현황</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">리워드 한도관리</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
         <a href="#">
@@ -95,6 +143,34 @@
           <span class="text">통계분석</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">종합</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">미션분석</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">비용분석</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">고객분석</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
         <a href="#">
@@ -102,6 +178,46 @@
           <span class="text">시스템관리</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">사용자관리</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">권한관리</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">공통코드관리</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">배치프로그램</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">변경이력</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">접속이력</span>
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </nav>
@@ -151,10 +267,94 @@
 
 
 <!-- 실제 콘텐츠 영역 -->
+<!-- MDI Tab Bar -->
+<!-- ==========================================================================
+  MDI 탭 바 (MDI Tab Bar: 좌측 홈 고정 노출 / 최대 7개 탭 / 우측 전체닫기 아이콘)
+  ========================================================================== -->
+<div class="mdiTabWrap">
+  <!-- 좌측 홈 화면 탭 (항상 고정 노출, 닫기 버튼 없음) -->
+  <button type="button" class="mdiTabItem isHome" title="홈 화면">
+    <span class="tabIcon">
+      <span class="ico mdiTabHome"></span>
+    </span>
+  </button>
 
-<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+  <ul class="mdiTabList">
+    <!-- 활성화 탭: isActive -->
+    <li>
+      <div class="mdiTabItem isActive">
+        <span class="tabText">미션등록</span>
+        <button type="button" class="tabClose" aria-label="미션등록 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 2 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">미션관리</span>
+        <button type="button" class="tabClose" aria-label="미션관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 3 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">챌린지 운영 현황</span>
+        <button type="button" class="tabClose" aria-label="챌린지 운영 현황 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 4 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">회원 및 계좌조회</span>
+        <button type="button" class="tabClose" aria-label="회원 및 계좌조회 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 5 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">포인트/리워드 관리</span>
+        <button type="button" class="tabClose" aria-label="포인트/리워드 관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 6 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">통계 및 성과 분석</span>
+        <button type="button" class="tabClose" aria-label="통계 및 성과 분석 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 7 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">공통 시스템 설정</span>
+        <button type="button" class="tabClose" aria-label="공통 시스템 설정 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+  </ul>
+
+  <!-- 우측 전체 닫기 버튼 -->
+  <div class="mdiTabActions">
+    <button type="button" class="btnAllClose" title="전체 탭 닫기" aria-label="전체 탭 닫기">
+      <span class="ico sm mdiTabClose"></span>
+    </button>
+  </div>
+</div>
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 + 즐겨찾기 버튼 / 우측: 브래드크럼) -->
 <div class="pageHeader">
-  <h2 class="pageTitle">챌린지 관리</h2>
+  <div class="headerLeft">
+    <h2 class="pageTitle">챌린지 관리</h2>
+    <button type="button" class="btnFavorite" aria-label="즐겨찾기 추가/해제">
+      <svg class="icoStar" viewBox="0 0 40 40">
+        <path d="M17.8769 5.41469C18.8551 3.8414 21.1449 3.8414 22.1231 5.41469L25.4939 10.8362C25.8381 11.3897 26.3848 11.7869 27.0176 11.9432L33.2154 13.4737C35.014 13.9179 35.7215 16.0956 34.5275 17.5121L30.413 22.3932C29.9929 22.8916 29.7841 23.5344 29.831 24.1845L30.2907 30.5518C30.424 32.3996 28.5716 33.7455 26.8554 33.0477L20.9417 30.6429C20.3379 30.3974 19.6621 30.3974 19.0583 30.6429L13.1446 33.0477C11.4285 33.7455 9.57597 32.3996 9.70935 30.5518L10.169 24.1845C10.2159 23.5344 10.0071 22.8916 9.58696 22.3932L5.47247 17.5121C4.27847 16.0956 4.98605 13.9179 6.78461 13.4737L12.9824 11.9432C13.6152 11.7869 14.1619 11.3897 14.5061 10.8362L17.8769 5.41469Z" />
+      </svg>
+    </button>
+  </div>
   <nav class="breadcrumb" aria-label="브레드크럼">
     <ol class="breadcrumbList">
       <li class="breadcrumbItem">
@@ -228,7 +428,7 @@
             </td>
             <td class="textCenter">3,123,000</td>
             <td class="textCenter"><span class="statusDot ing">운영중</span></td>
-            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">2</td>
@@ -243,7 +443,7 @@
             </td>
             <td class="textCenter">10,123,000</td>
             <td class="textCenter"><span class="statusDot ing">운영중</span></td>
-            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">3</td>
@@ -258,7 +458,7 @@
             </td>
             <td class="textCenter">0</td>
             <td class="textCenter"><span class="statusDot ready">예정</span></td>
-            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">4</td>
@@ -273,7 +473,7 @@
             </td>
             <td class="textCenter">1,564,000</td>
             <td class="textCenter"><span class="statusDot end">종료</span></td>
-            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">5</td>
@@ -288,7 +488,7 @@
             </td>
             <td class="textCenter">23,17,000</td>
             <td class="textCenter"><span class="statusDot ing">운영중</span></td>
-            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
           </tr>
           <tr>
             <td class="textCenter">6</td>
@@ -303,7 +503,7 @@
             </td>
             <td class="textCenter">0</td>
             <td class="textCenter"><span class="statusDot ready">예정</span></td>
-            <td class="textCenter"><button type="button" class="btn outline sm">상세보기</button></td>
+            <td class="textCenter"><button type="button" class="btn light sm">상세보기</button></td>
           </tr>
         </tbody>
       </table>
