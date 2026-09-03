@@ -36,9 +36,9 @@
 
       .logoTitle {
         display: block;
-        width: 100px;
-        height: 22px;
-        background-image: url('../images/logo_title.svg');
+        width: 200px;
+        height: 43px;
+        background-image: imgUrl('logo_title.svg');
         background-repeat: no-repeat;
         background-position: left center;
         background-size: contain;
@@ -46,9 +46,9 @@
 
       .logoStar {
         display: none;
-        width: 32px;
-        height: 24px;
-        background-image: url('../images/logo_star.svg');
+        width: 48px;
+        height: 62px;
+        background-image: imgUrl('logo_star.svg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
