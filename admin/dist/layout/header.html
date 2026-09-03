@@ -13,17 +13,21 @@
   <!-- 상단 로고 -->
   <div class="sideHeader">
     <a href="#" class="sideLogo">
+      <span class="logoTitle"></span>
       <span class="logoStar"></span>
     </a>
   </div>
 
   <!-- 즐겨찾기 메뉴 드롭다운 -->
   <div class="sideFavorite">
-    <div class="formControlWrap full">
+    <div class="formControlWrap full selectWrap">
       <select class="formControl full selectFavorite">
         <option value="">즐겨찾기 메뉴</option>
       </select>
     </div>
+    <button type="button" class="btnFavoriteIco" title="즐겨찾기 메뉴" aria-label="즐겨찾기 메뉴">
+      <span class="ico side1"></span>
+    </button>
   </div>
 
   <!-- 메뉴 리스트 -->
@@ -102,16 +106,20 @@
     </ul>
   </nav>
 
-  <!-- 하단 영역 (세션연장/로그아웃 버튼 및 접기 버튼) -->
+  <!-- 하단 영역 (로그인 정보, 세션연장/로그아웃 버튼 및 접기 버튼) -->
   <div class="sideBottom">
     <div class="inner">
+      <div class="sideUser">
+        <p class="userName">김국민(123456789)님</p>
+        <p class="userTime">2026.09.01 15:30</p>
+      </div>
       <div class="sideBtns">
         <button type="button" class="btnSide">세션연장</button>
         <button type="button" class="btnSide">로그아웃</button>
       </div>
       <button type="button" class="btn btnFold" aria-label="사이드바 축소/확대">
         <span class="ico fold"></span>
-        메뉴바 접기
+        <span class="text">메뉴바 접기</span>
       </button>
     </div>
   </div>

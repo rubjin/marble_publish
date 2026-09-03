@@ -2,17 +2,21 @@
   <!-- 상단 로고 -->
   <div class="sideHeader">
     <a href="#" class="sideLogo">
+      <span class="logoTitle"></span>
       <span class="logoStar"></span>
     </a>
   </div>
 
   <!-- 즐겨찾기 메뉴 드롭다운 -->
   <div class="sideFavorite">
-    <div class="formControlWrap full">
+    <div class="formControlWrap full selectWrap">
       <select class="formControl full selectFavorite">
         <option value="">즐겨찾기 메뉴</option>
       </select>
     </div>
+    <button type="button" class="btnFavoriteIco" title="즐겨찾기 메뉴" aria-label="즐겨찾기 메뉴">
+      <span class="ico side1"></span>
+    </button>
   </div>
 
   <!-- 메뉴 리스트 -->
@@ -24,6 +28,28 @@
           <span class="text">업무관리</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">결재함</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">계정정보</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">공지사항</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
         <a href="#">
@@ -31,6 +57,16 @@
           <span class="text">고객관리</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">고객목록</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
       <li class="isOpen">
@@ -73,6 +109,22 @@
           <span class="text">리워드관리</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">리워드 지급현황</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">리워드 한도관리</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
         <a href="#">
@@ -80,6 +132,34 @@
           <span class="text">통계분석</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">종합</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">미션분석</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">비용분석</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">고객분석</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
         <a href="#">
@@ -87,20 +167,64 @@
           <span class="text">시스템관리</span>
           <span class="arrow"></span>
         </a>
+        <ul class="boSubMenu">
+          <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
+          <li>
+            <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">사용자관리</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">권한관리</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">공통코드관리</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">배치프로그램</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">변경이력</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="ico sideSub"></span>
+              <span class="text">접속이력</span>
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </nav>
 
-  <!-- 하단 영역 (세션연장/로그아웃 버튼 및 접기 버튼) -->
+  <!-- 하단 영역 (로그인 정보, 세션연장/로그아웃 버튼 및 접기 버튼) -->
   <div class="sideBottom">
     <div class="inner">
+      <div class="sideUser">
+        <p class="userName">김국민(123456789)님</p>
+        <p class="userTime">2026.09.01 15:30</p>
+      </div>
       <div class="sideBtns">
         <button type="button" class="btnSide">세션연장</button>
         <button type="button" class="btnSide">로그아웃</button>
       </div>
       <button type="button" class="btn btnFold" aria-label="사이드바 축소/확대">
         <span class="ico fold"></span>
-        메뉴바 접기
+        <span class="text">메뉴바 접기</span>
       </button>
     </div>
   </div>

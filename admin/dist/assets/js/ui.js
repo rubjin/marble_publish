@@ -120,19 +120,45 @@
       var sidebar = foldBtn.closest('.boSidebar');
       if (sidebar) {
         sidebar.classList.toggle('isCollapsed');
+        sidebar.querySelectorAll('.boMenu > li.isLayerOpen').forEach(function(li) {
+          li.classList.remove('isLayerOpen');
+        });
       }
     }
   });
 
-  // 1depth 메뉴 아코디언 토글 (서브메뉴가 있는 경우)
+  // 1depth 메뉴 아코디언 토글 (서브메뉴가 있는 경우) 및 축소 상태 레이어 토글
   document.addEventListener('click', function(e) {
     var menuLink = e.target.closest('.boMenu > li > a');
     if (menuLink) {
       var li = menuLink.parentElement;
+      var sidebar = menuLink.closest('.boSidebar');
+      var isCollapsed = sidebar && sidebar.classList.contains('isCollapsed');
       var subMenu = li.querySelector('.boSubMenu');
-      if (subMenu) {
-        e.preventDefault();
-        li.classList.toggle('isOpen');
+
+      if (isCollapsed) {
+        if (subMenu) {
+          e.preventDefault();
+          var isOpen = li.classList.contains('isLayerOpen');
+          sidebar.querySelectorAll('.boMenu > li.isLayerOpen').forEach(function(item) {
+            item.classList.remove('isLayerOpen');
+          });
+          if (!isOpen) {
+            li.classList.add('isLayerOpen');
+          }
+        }
+      } else {
+        if (subMenu) {
+          e.preventDefault();
+          li.classList.toggle('isOpen');
+        }
+      }
+    } else {
+      // 외부 클릭 시 축소 상태의 열린 레이어 닫기
+      if (!e.target.closest('.boSidebar.isCollapsed .boMenu > li')) {
+        document.querySelectorAll('.boSidebar.isCollapsed .boMenu > li.isLayerOpen').forEach(function(li) {
+          li.classList.remove('isLayerOpen');
+        });
       }
     }
   });
