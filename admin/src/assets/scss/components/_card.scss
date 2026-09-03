@@ -188,7 +188,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: $color-gray-50;
+  background-color: $bg-white;
   border: 1px solid $border-light;
   border-radius: 10px;
   padding: 20px 28px;
@@ -337,7 +337,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 14px 24px;
+    padding: 16px 28px;
     gap: 40px;
     flex-wrap: nowrap;
 
@@ -345,7 +345,7 @@
       display: inline-flex;
       flex-direction: row;
       align-items: center;
-      gap: 24px;
+      gap: 16px;
       white-space: nowrap;
 
       .statLabel {
@@ -356,14 +356,21 @@
       }
 
       .statValue {
-        font-size: 15px;
+        font-size: 18px;
         font-weight: $font-weight-bold;
         color: $text-title;
+        line-height: 1.2;
+
+        strong {
+          font-size: 18px;
+          font-weight: $font-weight-bold;
+        }
 
         .unit {
           font-size: 13px;
           font-weight: $font-weight-regular;
           color: $color-gray-600;
+          margin-left: 2px;
         }
 
         .subText {

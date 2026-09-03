@@ -1,12 +1,45 @@
-﻿.tabWrap { margin-bottom: 14px; }
+.tabWrap {
+  margin-bottom: 20px;
+}
+
 .tab {
-  display: flex; border-bottom: 1px solid $color-gray-300; font-size: 16px;
+  display: flex;
+  border-bottom: 1px solid $bg-dark;
+  font-size: 15px;
+  gap: 4px;
+
   .item {
-    padding: 12px 24px; font-weight: $font-weight-semibold; color: $color-gray-300; position: relative;
-    background: none; border: none; cursor: pointer;
+    min-width: 160px;
+    padding: 12px 20px;
+    font-weight: $font-weight-medium;
+    color: $text-white;
+    position: relative;
+    background: $bg-white;
+    color: $text-primary;
+    border-radius: 6px 6px 0 0;
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $text-highlight;
+    }
+
     &.isActive {
-      color: $color-gray-800;
-      &::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background-color: $color-gray-800; }
+      background: $bg-dark;
+       color: $text-white;
+      font-weight: $font-weight-bold;
+
+      // &::after {
+      //   content: '';
+      //   position: absolute;
+      //   bottom: -1px;
+      //   left: 0;
+      //   right: 0;
+      //   height: 3px;
+      //   background-color: $color-gray-800;
+      //   // border-radius: 3px 3px 0 0;
+      // }
     }
   }
 }

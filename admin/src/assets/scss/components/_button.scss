@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Button Component
    ========================================================================== */
 @mixin btnSm { 
@@ -10,43 +10,43 @@
 }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 4px;
-  height: $btn-height-md; background-color: $color-transparent; 
+  min-width: 90px; height: $btn-height-md; background-color: $color-transparent; 
   padding: 0px $btn-padding-x-md; border-radius: $btn-radius; font-weight: $font-weight-medium; font-size: $btn-font-size-md;
   outline: none; border: none; cursor: pointer; user-select: none; line-height: 1; text-decoration: none;
   transition: background-color 0.2s;
   &.primary {
     background-color: $bg-primary; color: $text-primary;
-    // &:hover { background-color: $color-yellow-400; }
+    &:hover { background-color: $color-yellow-400; }
   }
   &.outline {
     border: 1px solid $border-default; background-color: $bg-white; color: $color-gray-700;
-    // &:hover { background-color: rgba(0,0,0,0.08); }
+    &:hover { background-color: $color-gray-50; border-color: $border-hover; }
   }
   &.light {
     border: 1px solid $border-default; background-color: $bg-light; color: $text-primary;
+    &:hover { background-color: $color-gray-200; }
     &.isActive {
       background-color: $bg-dark; color: $text-inverse; border-color: $border-active;
     }
-    // &:hover { background-color: rgba(0,0,0,0.08); }
   }
   &.secondary {
-    border: 1px solid $border-light; background-color: $bg-secondary; color: $text-primary;
+    border: 1px solid $border-light; background-color: $bg-light; color: $text-primary;
+    &:hover { background-color: $color-gray-200; }
     &.isActive {
       background-color: $bg-dark; color: $text-inverse; border-color: $border-active;
     }
-    // &:hover { background-color: rgba(0,0,0,0.08); }
   }
   &.dark {
     background-color: $bg-dark; color: $text-inverse;
-    // &:hover { background-color: $color-gray-500; }
+    &:hover { background-color: $color-gray-500; }
   }
   &.danger {
     border: 1px solid $border-danger; color: $text-danger;
-    // &:hover { background-color: rgba(242, 63, 63, 0.08); }
+    &:hover { background-color: $bg-danger-light; }
   }
   &.ghost {
     background-color: $color-transparent;
-    // &:hover { background-color: rgba(0,0,0,0.08); }
+    &:hover { background-color: $color-gray-100; }
   }
  
   &.sm { @include btnSm;}

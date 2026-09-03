@@ -1,4 +1,4 @@
-﻿// ==========================================================================
+// ==========================================================================
 // 1. Primitive Colors (Palette)
 // ==========================================================================
 
@@ -11,7 +11,7 @@ $color-gray-100: #F3F5F6;
 $color-gray-150: #F0F0F3;
 $color-gray-200: #E7E9ED;
 $color-gray-300: #D5D7DE;
-$color-gray-400: #9CA3AF;
+$color-gray-400: #8D919B;
 $color-gray-500: #6B7280;
 $color-gray-600: #4F535A;
 $color-gray-700: #404046;
@@ -29,7 +29,8 @@ $color-green-500: #05CD99;
 $color-orange-500: #FFCE20;
 $color-blue-100: #EDF1FB;
 $color-blue-200: #C5D1E2;
-$color-blue-500: #2563EB;
+$color-blue-300: #639DFF;
+$color-blue-500: #287EFF;
 
 $color-white: #FFFFFF;
 $color-transparent: transparent;
@@ -44,15 +45,16 @@ $bg-white: $color-white;
 $bg-light: $color-gray-100;
 $bg-secondary: $color-gray-150;
 $bg-dark: $color-gray-600;
-$bg-disabled: $color-gray-200;
+$bg-disabled: $color-gray-150;
 $bg-table-header: rgba(243, 245, 246, 0.8);
 $bg-danger-light: #FEE2E2;
 $bg-success-light: #ECFDF5;
 $bg-warning-light: #FEFCE8;
-$bg-info-light: #EFF6FF;
+$bg-info-light: #F7F8FB;
 $bg-card-active: $color-blue-100;
 
 // 2.2 Text Colors
+$text-white: $color-white;
 $text-primary: $color-gray-800;
 $text-secondary: $color-gray-600;
 $text-tertiary: $color-gray-400;
@@ -61,11 +63,13 @@ $text-danger: $color-red-600;
 $text-success: $color-green-500;
 $text-warning: $color-orange-500;
 $text-info: $color-blue-500;
+$text-link: $color-blue-300;
 $text-title: $color-gray-950;
 $text-highlight: $color-gray-900;
 
 // 2.3 Borders
 $border-light: $color-gray-150;
+$border-disabled: $color-gray-200;
 $border-default: $color-gray-300;
 $border-hover: $color-gray-400;
 $border-active: $color-gray-600;

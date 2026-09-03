@@ -1,4 +1,4 @@
-﻿// Table Component
+// Table Component
 
 // Table Top Header (좌측 타이틀 + 건수 / 우측 버튼그룹)
 .tblTop {
@@ -78,6 +78,7 @@
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 14px;
+  table-layout: fixed;
 
   thead {
     th {
@@ -92,16 +93,16 @@
   tbody {
     tr {
       border-bottom: 1px solid $border-light;
-      transition: background-color 0.15s;
-      // &:hover {
-      //   background-color: $color-gray-50;
-      // }
+      transition: background-color 0.15s ease;
+      &:hover {
+        background-color: $color-gray-50;
+      }
       &:last-child {
         border-bottom: none;
       }
     }
     th, td {
-      vertical-align: middle;
+      
       font-size: 14px;
     }
     th {
@@ -109,12 +110,14 @@
       font-weight: $font-weight-medium;
       text-align: left;
       white-space: nowrap;
+      vertical-align: top;
     }
     td {
       padding: 10px 0;
+      vertical-align: middle;
     }
   }
-  .formLabel { margin-bottom: 0; }
+  .formLabel { margin-bottom: 0; min-height: 34px; display: inline-flex; align-items: center;  }
 
   // 가운데 정렬
   &.tblCenter {

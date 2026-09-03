@@ -10,7 +10,7 @@
 <!-- 1. Text Input (기본) -->
 <div class="formGroup">
   <label class="formLabel">텍스트 입력 <span class="required">*</span></label>
-  <div class="formControlWrap">
+  <div class="formControlWrap full">
     <input type="text" class="formControl" placeholder="내용을 입력해주세요">
   </div>
 </div>
@@ -18,7 +18,7 @@
 <!-- 2. Text Input (에러 상태: isError + .formErrorMsg) -->
 <div class="formGroup">
   <label class="formLabel">폼 타이틀 <span class="required">*</span></label>
-  <div class="formControlWrap">
+  <div class="formControlWrap full">
     <!-- [D] 에러 상태: isError 클래스 추가 -->
     <input type="email" class="formControl isError" placeholder="placeholder" value="value">
     <p class="formErrorMsg">유효하지 않은 형식입니다.</p>
@@ -28,7 +28,7 @@
 <!-- 3. Text Input (읽기 전용: readonly) -->
 <div class="formGroup">
   <label class="formLabel">폼 타이틀 (읽기 전용)</label>
-  <div class="formControlWrap">
+  <div class="formControlWrap full">
     <input type="text" class="formControl" value="readonly" readonly>
   </div>
 </div>
@@ -36,7 +36,7 @@
 <!-- 4. Textarea (멀티라인 입력) -->
 <div class="formGroup">
   <label class="formLabel">상세 내용</label>
-  <div class="formControlWrap">
+  <div class="formControlWrap full">
     <textarea class="formControl" placeholder="상세 내용을 입력해주세요 (최대 1000자)"></textarea>
   </div>
 </div>
@@ -44,7 +44,7 @@
 <!-- 5. Select Box (드롭다운) -->
 <div class="formGroup">
   <label class="formLabel">항목 선택</label>
-  <div class="formControlWrap">
+  <div class="formControlWrap full">
     <!-- [D] 열림 상태: isOpen 클래스 추가 (또는 포커스 시 자동 화살표 반전) -->
     <select class="formControl">
       <option value="">항목을 선택해주세요</option>
@@ -112,7 +112,7 @@
 <!-- 8. Input + Button 결합 -->
 <div class="formGroup">
   <label class="formLabel">인풋 + 버튼</label>
-  <div class="formControlWrap hasBtn">
+  <div class="formControlWrap hasBtn full">
     <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
     <button type="button" class="btn outline">인증번호 발송</button>
   </div>

@@ -87,12 +87,21 @@
                 <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
               </div>
             </fieldset>
-            <div class="btnGroup">
+            <!-- <div class="btnGroup">
               <button type="button" class="btn light">오늘</button>
               <button type="button" class="btn light">1주일</button>
               <button type="button" class="btn light isActive">1개월</button>
               <button type="button" class="btn light">3개월</button>
               <button type="button" class="btn light">전체</button>
+            </div> -->
+
+            <div class="segment">
+              <!-- [D] 선택된 항목: isActive 클래스 추가 -->
+              <button type="button" class="segmentItem isActive">오늘</button>
+              <button type="button" class="segmentItem">1주일</button>
+              <button type="button" class="segmentItem">1개월</button>
+              <button type="button" class="segmentItem">3개월</button>
+              <button type="button" class="segmentItem">전체</button>
             </div>
           </div>
         </td>
@@ -167,7 +176,19 @@
   </div>
 </div>
 
+
 <!-- ==================== 조회결과 총계 정보 ==================== -->
+
+<div class="tblTop">
+  <div class="tblLeft">
+    <h3 class="tblTitle">미션별 한도설정</h3>
+    <span class="tblUnit">(단위 : 원)</span>
+  </div>
+  <div class="tblRight">
+    <p class="tblGuide">※ 미션별 한도 합계가 전체 예산을 초과 할 수 없습니다.</p>
+  </div>
+</div>
+
 <div class="summaryStatBox singleLine">
   <div class="statItem">
     <span class="statLabel">전체 지급완료</span>

@@ -26,10 +26,22 @@
 
 .formControlWrap {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  &.col {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .formGuideText {
+    margin-left: 8px;
+  }
 
   &.full {
     width: 100%;
-    input.formControl {
+    .formControl {
       width: 100%;
     }
   }
@@ -155,6 +167,7 @@ fieldset {
   outline: none;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
+  font-family: inherit;
 
   &::placeholder {
     color: $text-tertiary;
@@ -172,7 +185,7 @@ fieldset {
   &[readonly] {
     background-color: $bg-disabled;
     color: $text-tertiary;
-    border-color: $border-light;
+    border-color: $border-disabled;
     cursor: not-allowed;
   }
   // &:disabled,
@@ -198,9 +211,10 @@ fieldset {
 
 textarea.formControl {
   height: auto;
-  min-height: 120px;
-  padding: 6px 12px;
+  min-height: 80px;
+  padding: 12px;
   resize: vertical;
+  resize: none; /* 필요시 제거 */
 }
 
 select.formControl {
@@ -337,7 +351,7 @@ select.formControl {
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    background: transparent url('../images/icon/i_calendar_20.svg') no-repeat center / contain;
+    background: transparent iconUrl('i_calendar_16.svg') no-repeat center / contain;
     border: none;
     cursor: pointer;
     padding: 0;
@@ -403,23 +417,22 @@ select.formControl {
   }
 }
 
-/* ?꾩?留?*/
+/* Guide Text */
 .formGuideText {
   font-size: 13px;
   color: $text-tertiary;
+  font-weight: $font-weight-light;
+  &.blue {
+    color: $text-info;
+    margin-top: 8px;
+  }
 }
 
-.formNoticeText {
-  font-size: 13px;
-  color: $text-info;
-  margin-top: 8px;
-  line-height: 1.4;
-}
 
 /* Radio Button */
 .formRadioCardGroup {
   display: flex;
-  gap: 16px;
+  gap: 8px;
   width: 100%;
   flex-wrap: wrap;
 }
@@ -522,11 +535,20 @@ select.formControl {
   }
 }
 
+.fileNameLink {
+  color: $text-link;
+  font-size: 13px;
+  word-break: break-all;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
 /* File Upload Box */
 .fileUploadBox {
   background-color: $bg-info-light;
   border-radius: $form-radius;
-  padding: 12px 16px;
+  padding: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -534,9 +556,9 @@ select.formControl {
 
   .fileNameLink {
     color: $text-info;
-    font-size: 13px;
-    text-decoration: none;
-    word-break: break-all;
+    // font-size: 13px;
+    // text-decoration: none;
+    // word-break: break-all;
 
     // &:hover {
     //   text-decoration: underline;
@@ -560,7 +582,7 @@ select.formControl {
     transition: background-color 0.15s;
 
     &::before {
-      content: '횞';
+      content: 'X';
       font-size: 14px;
       line-height: 1;
       font-weight: $font-weight-bold;
@@ -573,7 +595,7 @@ select.formControl {
   }
 }
 
-/* Step Course Card (?④퀎蹂?肄붿뒪 ?ㅼ젙 移대뱶) */
+/* Step Course Card  */
 .stepCardList {
   display: flex;
   flex-direction: column;
@@ -584,7 +606,7 @@ select.formControl {
 
 .stepCard {
   background-color: $color-gray-50;
-  border: 1px solid $border-default;
+  // border: 1px solid $border-default;
   border-radius: 8px;
   padding: 16px 20px;
 
@@ -639,12 +661,11 @@ select.formControl {
   }
 }
 
-/* Search / Filter Control Box */
+/* Search / Filter Control Box (스타일 A : 소프트 그레이 카드형) */
 .searchBox {
   background-color: $bg-white;
-  border: 1px solid $border-light;
-  border-radius: 10px;
-  padding: 20px 24px;
+  border-radius: 12px;
+  padding: 22px 28px;
   margin-bottom: 20px;
   box-shadow: $shadow-xs;
   width: 100%;
@@ -655,20 +676,19 @@ select.formControl {
     border-collapse: collapse;
     border-spacing: 0;
 
-
     th {
-      width: 110px;
-      padding: 10px 12px 10px 0;
+      width: 100px;
+      padding: 8px 16px 8px 0;
       font-size: 14px;
-      font-weight: $font-weight-medium;
-      color: $text-primary;
+      font-weight: $font-weight-semibold;
+      color: $text-highlight;
       text-align: left;
       vertical-align: middle;
       white-space: nowrap;
     }
 
     td {
-      padding: 10px 12px 10px 0;
+      padding: 8px 16px 8px 0;
       vertical-align: middle;
 
       &:last-child {
@@ -678,12 +698,15 @@ select.formControl {
 
     .formLabel {
       margin-bottom: 0;
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      color: $text-highlight;
     }
 
     .formRow {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       flex-wrap: wrap;
     }
   }
@@ -693,13 +716,11 @@ select.formControl {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-top: 18px;
-    padding-top: 18px;
-    border-top: 1px solid $color-gray-100;
+    margin-top: 20px;
 
     .btn {
-      min-width: 80px;
-      height: 36px;
+      min-width: 84px;
+      height: 38px;
     }
   }
 }

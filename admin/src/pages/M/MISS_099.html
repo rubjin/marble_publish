@@ -30,7 +30,7 @@
     </div>
 
     <div class="tblWrap">
-      <table class="tbl">
+      <table class="tbl tblView">
         <colgroup>
           <col style="width: 155px;">
           <col>
@@ -113,7 +113,7 @@
           <tr>
             <th><label class="formLabel" for="idTargetCustomer">대상고객</label></th>
             <td>
-              <select id="idTargetCustomer" class="formControl full">
+              <select id="idTargetCustomer" class="formControl">
                 <option value="">전체고객 대상</option>
               </select>
             </td>
@@ -184,11 +184,11 @@
           <tr>
             <th><label class="formLabel" for="idMissionType">미션유형 선택 <span class="required">*</span></label></th>
             <td>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <select id="idMissionType" class="formControl" style="width: 240px;">
+              <div class="formControlWrap">
+                <select id="idMissionType" class="formControl">
                   <option value="hiking">투자사랑 산악회</option>
                 </select>
-                <span class="formNoticeText" style="margin: 0;">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</span>
+                <span class="formGuideText">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</span>
               </div>
             </td>
           </tr>
@@ -206,12 +206,12 @@
         <h3 class="tblTitle">상세 설정</h3>
       </div>
       <div class="tblRight">
-        <button type="button" class="btn dark">미션 미리보기</button>
+        <button type="button" class="btn dark">모바일 미리보기</button>
       </div>
     </div>
 
     <div class="tblWrap">
-      <table class="tbl">
+      <table class="tbl tblView">
         <colgroup>
           <col style="width: 155px;">
           <col>
@@ -228,14 +228,14 @@
           <tr>
             <th><label class="formLabel" for="idSubTitle">서브 타이틀 <span class="required">*</span></label></th>
             <td>
-              <input type="text" id="idSubTitle" class="formControl full" value="친구와 투자 매일 하는 주식 습관">
+              <input type="text" id="idSubTitle" class="formControl full" value="첫걸음 부터 함께 하는 투자습관">
             </td>
           </tr>
           <!-- D-Day 카운터 -->
           <tr>
             <th><label class="formLabel" for="idDdayCounter">D-Day 카운터</label></th>
             <td>
-              <select id="idDdayCounter" class="formControl full">
+              <select id="idDdayCounter" class="formControl">
                 <option value="apply">신청일 기준</option>
               </select>
             </td>
@@ -244,9 +244,9 @@
           <tr>
             <th><label class="formLabel" for="idDdayCount">D-Day 일수 <span class="required">*</span></label></th>
             <td>
-              <div style="display: flex; align-items: center; gap: 8px;">
+              <div class="formControlWrap">
                 <input type="text" id="idDdayCount" class="formControl" value="30" style="width: 120px;">
-                <span style="font-size: 14px; color: #4b5563;">일간 진행</span>
+                <span class="unit">일간 진행</span>
               </div>
             </td>
           </tr>
@@ -273,40 +273,38 @@
           <tr>
             <th><label class="formLabel" for="idDetailTargetCustomer">대상고객</label></th>
             <td>
-              <select id="idDetailTargetCustomer" class="formControl full">
-                <option value="invest">투자고객 대상</option>
+              <select id="idDetailTargetCustomer" class="formControl">
+                <option value="invest">전체고객 대상</option>
               </select>
             </td>
           </tr>
-          <!-- 메인 이미지 (탑 뷰) -->
+          <!-- 메인 이미지 (진입) -->
           <tr>
-            <th><span class="formLabel">메인 이미지(탑 뷰) <span class="required">*</span></span></th>
+            <th><span class="formLabel">메인 이미지(진입) <span class="required">*</span></span></th>
             <td>
-              <div class="fileUploadBox">
+              <!-- <div class="fileUploadBox"> -->
                 <a href="#" class="fileNameLink">투자사랑소모임 메인페이지 상단 배너 이미지.jpg(1542byte)</a>
                 <button type="button" class="fileDelete" aria-label="삭제"></button>
-              </div>
+              <!-- </div> -->
               <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="formGuideText">권장사이즈: 720 × 720 (해상도: 72dpi), 최대 10MB(jpg, png, gif 등 등록가능)</span>
-                <button type="button" class="btn dark">파일 선택</button>
+                <span class="formGuideText">챌린지 진입 시 노출되는 대표 이미지입니다.(JPG, PNG / 최대 5MB)</span>
+                <button type="button" class="btn outline">파일 선택</button>
               </div>
             </td>
           </tr>
           <!-- 메인 이미지 (드롭존) -->
           <tr>
-            <th><span class="formLabel">메인 이미지(드롭존) <span class="required">*</span></span></th>
+            <th><span class="formLabel">메인 이미지(완료) <span class="required">*</span></span></th>
             <td>
               <div class="fileDropzone">
                 <div class="dropzoneHeader">
                   <input type="file" multiple>
-                  <div class="dropzoneIcon">
-                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
-                  </div>
-                  <p class="dropzoneText">파일을 끌어 오거나 이미지를 클릭하여 넣으세요.</p>
+                  <span class="ico xl upload"></span>
+                  <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
                 </div>
               </div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-                <span class="formGuideText">이미지 파일만 최대 10MB까지 등록 가능합니다 (jpg, png, gif 등 지원)</span>
+              <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                <span class="formGuideText">챌린지 최종 완료 시 노출되는 대표 이미지입니다.(JPG, PNG / 최대 5MB)</span>
                 <button type="button" class="btn dark">파일 선택</button>
               </div>
             </td>
@@ -316,8 +314,8 @@
             <th><span class="formLabel">단계별 코스</span></th>
             <td>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <span class="formGuideText">※ 최대 70줄을 등록/제어할 수 있으며 순서를 변경할 수 있습니다.</span>
-                <button type="button" class="btn dark sm">+ 단계 추가하기</button>
+                <span class="formGuideText">※ STEP 핸들을 드래그하여 순서를 변경할 수 있습니다.</span>
+                <button type="button" class="btn dark">+ 단계 추가하기</button>
               </div>
 
               <!-- STEP 카드 리스트 -->
@@ -327,11 +325,11 @@
                   <div class="stepHeader">
                     <div class="stepTitleWrap">
                       <span class="stepHandle">≡</span>
-                      <h4 class="stepTitle">STEP 1. 정상 도달</h4>
+                      <h4 class="stepTitle">STEP 3. 정상 미션</h4>
                     </div>
                     <div class="stepActions">
-                      <button type="button" class="btn outline sm">위로</button>
-                      <button type="button" class="btn outline sm">삭제</button>
+                      <button type="button" class="btn outline sm">복사</button>
+                      <button type="button" class="btn danger sm">삭제</button>
                     </div>
                   </div>
                   <table class="tbl">
@@ -489,7 +487,7 @@
     </div>
 
     <div class="tblWrap">
-      <table class="tbl">
+      <table class="tbl tblView">
         <colgroup>
           <col style="width: 155px;">
           <col>
@@ -603,7 +601,7 @@
     </div>
 
     <div class="tblWrap">
-      <table class="tbl">
+      <table class="tbl tblView">
         <colgroup>
           <col style="width: 155px;">
           <col>
