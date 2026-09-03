@@ -348,7 +348,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/reward-summary.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -361,7 +361,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/reward-mission.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -374,7 +374,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/reward-error.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -387,7 +387,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/reward-detail.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -400,7 +400,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/reward-summary.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -413,7 +413,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/reward-limit.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -595,7 +595,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/permission-management.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -608,7 +608,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/user-list.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -621,7 +621,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/user-group-create.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -634,7 +634,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/user-group-detail.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -647,7 +647,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/organization-search.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -660,7 +660,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/employee-search.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -673,7 +673,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/common-code-list.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -686,7 +686,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/common-code-create.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -699,7 +699,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/common-code-detail.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -712,7 +712,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/change-history.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -725,7 +725,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/change-history-detail.html",
-    "note": ""
+    "note": "기획진행중"
   },
   {
     "category": "bo",
@@ -738,7 +738,7 @@ window.adminData = [
     "status": "대기",
     "worker": "",
     "link": "admin/src/pages/access-history.html",
-    "note": ""
+    "note": "기획진행중"
   }
 ];
 var adminData = window.adminData;

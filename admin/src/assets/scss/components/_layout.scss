@@ -25,7 +25,7 @@
   box-sizing: border-box;
 
   .sideHeader {
-    padding: 24px 20px 16px;
+    padding: 32px 20px 30px;
     display: flex;
     align-items: center;
 
@@ -78,7 +78,7 @@
       transition: background-color 0.15s ease;
 
       &:hover {
-        background-color: $color-gray-500;
+        background-color: $color-gray-400;
 
         &::after {
           content: '즐겨찾기 메뉴';
@@ -172,9 +172,13 @@
         font-weight: $font-weight-bold;
         transition: all 0.15s ease;
 
-        &:hover,
+        &:hover {
+          background-color: $color-gray-400;
+          color: $color-white;
+        }
+
         &.isActive {
-          background-color: $color-gray-500;
+          background-color: $color-gray-400;
           color: $color-white;
         }
 
@@ -240,13 +244,13 @@
         height: 36px;
         padding: 8px 10px;
         font-size: 14px;
-        color: $color-white;
+        color: rgba(255, 255, 255, 0.85);
         border-radius: 8px;
         text-decoration: none;
         transition: all 0.15s ease;
 
         &:hover {
-          background-color: $color-gray-500;
+          background-color: rgba(255, 255, 255, 0.12);
           color: $color-white;
         }
 
@@ -254,6 +258,10 @@
           background-color: $color-yellow-500;
           color: $text-primary;
           font-weight: $font-weight-medium;
+
+          &:hover {
+            background-color: $color-yellow-400;
+          }
 
           .ico.sideSub {
           }
@@ -283,7 +291,7 @@
     }
 
     .sideUser {
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       white-space: nowrap;
       overflow: hidden;
 
@@ -340,9 +348,9 @@
     }
 
     .btnFold {
-      margin-top: 24px;
+      margin-top: 30px;
       padding: 0;
-      color: $color-gray-300;
+      color: $color-white;
       font-size: 14px; 
       font-weight: $font-weight-light;
       display: inline-flex;
@@ -539,7 +547,7 @@
             transition: all 0.15s ease;
 
             &:hover {
-              background-color: $color-gray-500;
+              background-color: $color-gray-600;
               color: $color-white;
             }
 
@@ -547,6 +555,10 @@
               background-color: $color-yellow-500;
               color: $text-primary;
               font-weight: $font-weight-medium;
+
+              &:hover {
+                background-color: $color-yellow-400;
+              }
             }
 
             .ico {
