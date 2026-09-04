@@ -66,33 +66,12 @@
   }
 
   // Type Variants (Light Style)
-  &.success {
-    background-color: $bg-success-light;
-    color: $text-success;
-    border: 1px solid $text-success;
-    .toastIcon { color: $text-success; }
-  }
-
-  &.error {
-    background-color: $bg-danger-light;
-    color: $text-danger;
-    border: 1px solid $text-danger;
-    .toastIcon { color: $text-danger; }
-  }
-
-  &.warning {
-    background-color: $color-white;
-    color: $text-warning;
-    border: 1px solid $text-warning;
-    .toastIcon { color: $text-warning; }
-  }
-
-  &.info {
-    background-color: $bg-info-light;
-    color: $text-info;
-    border: 1px solid $text-info;
-    .toastIcon { color: $text-info; }
-  }
+  // &.success {
+  //   background-color: $bg-success-light;
+  //   color: $text-success;
+  //   border: 1px solid $text-success;
+  //   .toastIcon { color: $text-success; }
+  // }
 }
 
 // Toast Container (화면 고정 래퍼)

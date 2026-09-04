@@ -84,7 +84,7 @@
     .guideCodeCopy:hover { background-color: #e5e7eb; color: #1f2937; }
     .guideCodeCopy.isCopied { background-color: #d1fae5; color: #065f46; border-color: #6ee7b7; }
     .guideCodeBlock {
-      display: none; padding: 20px 24px; background-color: #1f2937;
+      display: none; max-height: 400px; padding: 20px 24px; background-color: #1f2937;
       overflow-x: auto; margin: 0;
     }
     .guideCodeBlock.isOpen { display: block; }
@@ -168,41 +168,50 @@
         <include src="./src/components/button.html"></include>
       </div>
 
-      <!-- ==================== 아이콘 버튼 가이드 ==================== -->
+      <!-- ==================== 버튼 :: 하단 버튼 ==================== -->
       <h2 class="guideTitle">페이지 하단 버튼</h2>
       <div class="guideBox">
         <include src="./src/components/button_case.html"></include>
       </div>
 
-       <h2 class="guideTitle">페이지 버튼</h2>
+       <!-- ==================== 버튼 :: 페이지 버튼 ==================== -->
+      <h2 class="guideTitle">페이지 버튼</h2>
       <div class="guideBox" style="gap: 5px;">
         <include src="./src/components/button_case2.html"></include>
       </div>
 
-       <!-- ==================== 아이콘 버튼 가이드 ==================== -->
+       <!-- ==================== 버튼 :: 아이콘 버튼 ==================== -->
       <h2 class="guideTitle">Icon Buttons (아이콘 버튼)</h2>
       <div class="guideBox">
         <include src="./src/components/button_icon.html"></include>
       </div>
 
-      <!-- ==================== 세그먼트 가이드 ==================== -->
+      <!-- ==================== 버튼 :: 세그먼트 ==================== -->
       <h2 class="guideTitle">Segment (세그먼트)</h2>
       <div class="guideBox guideBoxBlock" style="background-color: #666;">
         <include src="./src/components/segment.html"></include>
       </div>
 
-      <!-- ==================== 토글 스위치 가이드 ==================== -->
+      <!-- ==================== 버튼 :: 토글 스위치 ==================== -->
       <h2 class="guideTitle">Toggle (토글 스위치)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/toggle.html"></include>
       </div>
 
-      <!-- ==================== 탭 가이드 ==================== -->
+      <!-- ==================== 버튼 :: 탭 ==================== -->
       <h2 class="guideTitle">Tabs (탭 메뉴)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/tab.html"></include>
       </div>
+
+      <!-- ==================== 버튼 :: MDI 탭 ==================== -->
+      <h2 class="guideTitle">MDI Tab Bar (MDI 탭 바)</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/mdi_tap.html"></include>
+      </div>
     </section>
+
+
 
     <!-- ==================== 아이콘 가이드 ==================== -->
     <section id="sectionIcons" class="guideSection">
@@ -217,6 +226,8 @@
       </div>
     </section>
 
+
+
     <!-- ==================== 뱃지 가이드 ==================== -->
     <section id="sectionBadges" class="guideSection">
       <h2 class="guideTitle">Badges</h2>
@@ -224,6 +235,8 @@
         <include src="./src/components/badge.html"></include>
       </div>
     </section>
+
+
 
     <!-- ==================== 카드 가이드 ==================== -->
     <section id="sectionCards" class="guideSection">
@@ -233,6 +246,8 @@
       </div>
     </section>
 
+
+
     <!-- ==================== 폼 가이드 ==================== -->
     <section id="sectionForms" class="guideSection">
       <h2 class="guideTitle">Forms (입력 폼)</h2>
@@ -240,17 +255,27 @@
         <include src="./src/components/form.html"></include>
       </div>
 
+      <!-- ==================== 폼 :: 체크박스, 라디오 ==================== -->
+      <h2 class="guideTitle">Forms (체크박스/라디오)</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/checkbox_radio.html"></include>
+      </div>
+
+      <!-- ==================== 폼 :: 다중 요소 ==================== -->
       <h2 class="guideTitle">Forms (입력 폼_다중 요소)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/form_multi.html"></include>
       </div>
 
-      <!-- ==================== 첨부파일 가이드 ==================== -->
+
+      <!-- ==================== 폼 :: 첨부파일 ==================== -->
       <h2 class="guideTitle">File Upload (첨부파일 & 드래그앤드롭)</h2>
-      <div class="guideBox guideBoxBlock">
+      <div class="guideBox guideBoxBlock" style="background: #fff;">
         <include src="./src/components/fileupload.html"></include>
       </div>
     </section>
+
+
 
     <!-- ==================== 팝업 가이드 ==================== -->
     <section id="sectionPopups" class="guideSection">
@@ -260,19 +285,22 @@
       <div class="guideBox popupPreviewBox">
         <include src="./src/components/popup.html"></include>
       </div>
-      <!-- ==================== 토스트 팝업 가이드 ==================== -->
+
+      <!-- ==================== 팝업 :: 토스트 팝업 ==================== -->
       <h2 class="guideTitle">Toast (토스트 팝업)</h2>
       <div class="guideBox guideBoxBlock" style="max-width: 600px;">
         <include src="./src/components/toast.html"></include>
       </div>
     
-      <!-- ==================== 툴팁 가이드 ==================== -->
+      <!-- ==================== 팝업 :: 툴팁 ==================== -->
       <h2 class="guideTitle">Tooltip (툴팁)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/tooltip.html"></include>
       </div>
     </section>
    
+
+  
     <!-- ==================== 아코디언 가이드 ==================== -->
     <section id="sectionAccordion" class="guideSection">
       <h2 class="guideTitle">Accordion (아코디언)</h2>
@@ -281,8 +309,15 @@
       </div>
     </section>
 
+
+
     <!-- ==================== 테이블 가이드 ==================== -->
     <section id="sectionTable" class="guideSection">
+      <h2 class="guideTitle">테이블 조회조건</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/control_search.html"></include>
+      </div>
+
       <h2 class="guideTitle">Table (테이블 상단)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/table_top.html"></include>
@@ -292,7 +327,10 @@
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/table.html"></include>
       </div>
+
     </section>
+
+
 
     <!-- ==================== 타이틀 가이드 ==================== -->
     <section id="sectionTitle" class="guideSection">
@@ -302,6 +340,8 @@
       </div>
     </section>
 
+
+
     <!-- ==================== 타이포그래피 (폰트 사이즈) 가이드 ==================== -->
     <section id="sectionTypography" class="guideSection">
       <h2 class="guideTitle">Typography (폰트 사이즈)</h2>
@@ -309,6 +349,8 @@
         <include src="./src/components/typography.html"></include>
       </div>
     </section>
+
+
 
     <!-- ==================== 리스트 가이드 ==================== -->
     <section id="sectionLists" class="guideSection">
@@ -318,27 +360,29 @@
       </div>
     </section>
 
+
+
     <!-- ==================== 기타 가이드 ==================== -->
     <section id="sectionEtc" class="guideSection">
+      
       <h2 class="guideTitle">Breadcrumb (브레드크럼)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/breadcrumb.html"></include>
       </div>
 
-       <h2 class="guideTitle">Progress Bar (진행바)</h2>
+      <h2 class="guideTitle">Progress Bar (진행바)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/progress_bar.html"></include>
       </div>
 
-      <h2 class="guideTitle">Summary Info Box (테이블 상단 3개 요약 정보 박스)</h2>
+      <h2 class="guideTitle">Summary Info Box</h2>
       <div class="guideBox guideBoxBlock">
         <include src="./src/components/etc.html"></include>
       </div>
+
       
-      <h2 class="guideTitle">MDI Tab Bar (MDI 탭 바)</h2>
-      <div class="guideBox guideBoxBlock">
-        <include src="./src/components/mdi_tap.html"></include>
-      </div>
+      
+      
     </section>
 
   </div>

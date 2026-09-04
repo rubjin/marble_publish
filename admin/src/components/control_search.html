@@ -1,0 +1,109 @@
+<!-- ==========================================================================
+  0. 조회 컨트롤 박스 (3줄 검색 박스 + 하단 초기화/조회 버튼)
+  ========================================================================== -->
+  <div class="searchBox">
+    <table class="searchTable">
+      <colgroup>
+        <col style="width: 100px;">
+        <col>
+        <col style="width: 100px;">
+        <col>
+      </colgroup>
+      <tbody>
+        <!-- 1줄: 조회일자 -->
+        <tr>
+          <th><span class="formLabel">조회일자</span></th>
+          <td colspan="3">
+            <div class="formRow">
+              <fieldset class="formDateRange">
+                <legend class="srOnly">조회기간 설정</legend>
+                <div class="formDatepicker">
+                  <input type="text" class="formControl" value="2026.07.01" title="조회 시작일">
+                  <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                </div>
+                <span class="dateSeparator">~</span>
+                <div class="formDatepicker">
+                  <input type="text" class="formControl" value="2026.08.31" title="조회 종료일">
+                  <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                </div>
+              </fieldset>
+              <div class="btnGroup">
+                <button type="button" class="btn light">오늘</button>
+                <button type="button" class="btn light">1주일</button>
+                <button type="button" class="btn light isActive">1개월</button>
+                <button type="button" class="btn light">3개월</button>
+                <button type="button" class="btn light">전체</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <!-- 2줄: 유형 및 상태 -->
+        <tr>
+          <th><label class="formLabel" for="searchType">유형</label></th>
+          <td>
+            <div class="formRow">
+              <select id="searchType" class="formControl" style="width: 180px;">
+                <option value="">전체</option>
+                <option value="1">OX퀴즈</option>
+                <option value="2">출석체크</option>
+                <option value="3">설문조사</option>
+                <option value="4">챌린지</option>
+              </select>
+            </div>
+          </td>
+          <th><span class="formLabel">상태</span></th>
+          <td>
+            <div class="formRow">
+              <fieldset class="formCheckGroup">
+                <legend class="srOnly">상태 선택</legend>
+                <label class="formCheck">
+                  <input type="radio" name="searchStatus" checked>
+                  <span class="checkIcon"></span>
+                  <span class="checkLabel">전체</span>
+                </label>
+                <label class="formCheck">
+                  <input type="radio" name="searchStatus">
+                  <span class="checkIcon"></span>
+                  <span class="checkLabel">운영중</span>
+                </label>
+                <label class="formCheck">
+                  <input type="radio" name="searchStatus">
+                  <span class="checkIcon"></span>
+                  <span class="checkLabel">일시중단</span>
+                </label>
+                <label class="formCheck">
+                  <input type="radio" name="searchStatus">
+                  <span class="checkIcon"></span>
+                  <span class="checkLabel">종료</span>
+                </label>
+              </fieldset>
+            </div>
+          </td>
+        </tr>
+        <!-- 3줄: 검색어 -->
+        <tr>
+          <th><label class="formLabel" for="searchKeyword">검색어</label></th>
+          <td colspan="3">
+            <div class="formRow">
+              <select class="formControl" style="width: 140px;">
+                <option value="all">전체</option>
+                <option value="title">미션명</option>
+                <option value="id">미션ID</option>
+                <option value="author">등록자</option>
+              </select>
+              <div class="formControlWrap" style="width: 320px;">
+                <input type="text" id="searchKeyword" class="formControl full" placeholder="검색어를 입력해주세요">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- 박스 하단 초기화 / 조회 버튼 -->
+    <div class="searchBtnArea">
+      <button type="button" class="btn outline">초기화</button>
+      <button type="button" class="btn dark">조회</button>
+    </div>
+  </div>
+  

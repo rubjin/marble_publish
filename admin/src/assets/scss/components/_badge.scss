@@ -1,7 +1,7 @@
 ﻿.badge {
   display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: $font-weight-bold;
-  &.ongoing { background-color: $color-yellow-500; color: $color-gray-800; }
-  &.completed { background-color: $color-gray-100; color: $color-gray-800; }
+  // &.ongoing { background-color: $color-yellow-500; color: $color-gray-800; }
+  // &.completed { background-color: $color-gray-100; color: $color-gray-800; }
   &.sm { padding: 2px 6px; font-size: 10px; }
   &.lg { padding: 6px 12px; font-size: 14px; }
 
@@ -28,29 +28,29 @@
     background-color: $text-tertiary;
   }
 
-  &.ing,
-  &.ongoing,
-  &.success {
-    &::before {
-      background-color: $text-success; // 珥덈줉
-    }
-  }
+  // &.ing,
+  // &.ongoing,
+  // &.success {
+  //   &::before {
+  //     background-color: $text-success; // 
+  //   }
+  // }
 
-  &.ready,
-  &.pending,
-  &.warning {
-    &::before {
-      background-color: $text-warning; // 二쇳솴/?몃옉
-    }
-  }
+  // &.ready,
+  // &.pending,
+  // &.warning {
+  //   &::before {
+  //     background-color: $text-warning; //
+  //   }
+  // }
 
-  &.end,
-  &.completed,
-  &.danger {
-    &::before {
-      background-color: $text-danger; // 鍮④컯
-    }
-  }
+  // &.end,
+  // &.completed,
+  // &.danger {
+  //   &::before {
+  //     background-color: $text-danger; // 
+  //   }
+  // }
 }
 
 

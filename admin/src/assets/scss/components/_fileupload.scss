@@ -96,11 +96,11 @@
       }
     }
 
-    .dropzoneDesc {
-      font-size: 12px;
-      color: $text-tertiary;
-      margin: 0;
-    }
+    // .dropzoneDesc {
+    //   font-size: 12px;
+    //   color: $text-tertiary;
+    //   margin: 0;
+    // }
   }
 
   // 드롭존 내부의 파일 리스트
@@ -129,101 +129,104 @@
     background-color: $bg-warning-light;
     border-color: $color-yellow-500;
 
-    .dropzoneHeader .dropzoneIcon {
-      color: $text-warning;
-    }
+    background-color: $color-blue-100;
+    border-color: $color-blue-200;
+
+    // .dropzoneHeader .dropzoneIcon {
+    //   color: $text-warning;
+    // }
   }
 }
 
 // 3. 첨부된 파일 리스트 (공통)
-.fileList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: 100%;
-}
+// .fileList {
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 6px;
+//   width: 100%;
+// }
 
-.fileItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px;
-  background-color: $color-white;
-  border: 1px solid $border-light;
-  border-radius: 6px;
-  font-size: 13px;
-  transition: background-color 0.15s;
+// .fileItem {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 8px 12px;
+//   background-color: $color-white;
+//   border: 1px solid $border-light;
+//   border-radius: 6px;
+//   font-size: 13px;
+//   transition: background-color 0.15s;
 
-  &:hover {
-    background-color: $color-gray-50;
-  }
+//   &:hover {
+//     background-color: $color-gray-50;
+//   }
 
-  .fileInfo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 0;
-    flex: 1;
-  }
+//   .fileInfo {
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//     min-width: 0;
+//     flex: 1;
+//   }
 
-  .fileIcon {
-    width: 16px;
-    height: 16px;
-    color: $text-secondary;
-    flex-shrink: 0;
+//   .fileIcon {
+//     width: 16px;
+//     height: 16px;
+//     color: $text-secondary;
+//     flex-shrink: 0;
 
-    svg {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-    }
-  }
+//     svg {
+//       width: 100%;
+//       height: 100%;
+//       fill: currentColor;
+//     }
+//   }
 
-  .fileName {
-    color: $color-gray-800;
-    font-weight: $font-weight-medium;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+//   .fileName {
+//     color: $color-gray-800;
+//     font-weight: $font-weight-medium;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//   }
 
-  .fileSize {
-    color: $text-tertiary;
-    font-size: 12px;
-    flex-shrink: 0;
-    margin-left: 6px;
-  }
+//   .fileSize {
+//     color: $text-tertiary;
+//     font-size: 12px;
+//     flex-shrink: 0;
+//     margin-left: 6px;
+//   }
 
-  .fileDelete {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border: none;
-    background: transparent;
-    color: $text-tertiary;
-    cursor: pointer;
-    padding: 0;
-    margin-left: 10px;
-    border-radius: 4px;
-    transition: all 0.15s;
+//   .fileDelete {
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 20px;
+//     height: 20px;
+//     border: none;
+//     background: transparent;
+//     color: $text-tertiary;
+//     cursor: pointer;
+//     padding: 0;
+//     margin-left: 10px;
+//     border-radius: 4px;
+//     transition: all 0.15s;
 
-    &:hover {
-      background-color: $bg-danger-light;
-      color: $text-danger;
-    }
+//     &:hover {
+//       background-color: $bg-danger-light;
+//       color: $text-danger;
+//     }
 
-    svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
-    }
-  }
-}
+//     svg {
+//       width: 14px;
+//       height: 14px;
+//       fill: currentColor;
+//     }
+//   }
+// }
 
 
 
