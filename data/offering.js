@@ -7,7 +7,7 @@ window.offeringData = [
     "depth4": "",
     "screenId": "MB_CM_01_001",
     "type": "페이지",
-    "status": "완료",
+    "status": "",
     "worker": "신수지",
     "link": "offering/src/dist/CM/MB_CM_01_001.html",
     "note": ""
@@ -20,7 +20,7 @@ window.offeringData = [
     "depth4": "",
     "screenId": "",
     "type": "페이지",
-    "status": "완료",
+    "status": "",
     "worker": "",
     "link": "src/fo/html/challenge.html",
     "note": ""

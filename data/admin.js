@@ -33,7 +33,7 @@ window.adminData = [
     "depth4": "",
     "screenId": "layout",
     "type": "페이지",
-    "status": "진행중",
+    "status": "완료",
     "worker": "",
     "link": "admin/src/layout/layout.html",
     "note": "홈, 고객 관리, 미션 관리, 알림 관리, 관리자 관리"

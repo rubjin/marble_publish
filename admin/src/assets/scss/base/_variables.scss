@@ -77,8 +77,10 @@ $border-danger: $color-red-400;
 $border-dark: #707070;
 $border-card-active: $color-blue-200;
 
+$color-blue-alpha: rgba(40, 126, 255, 0.15);
+
 // 2.4 Focus Rings
-$ring-primary: $color-yellow-alpha;
+$ring-primary: $color-blue-alpha;
 $ring-danger: $color-red-alpha;
 
 // ==========================================================================

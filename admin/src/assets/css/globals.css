@@ -218,7 +218,7 @@ body {
   box-sizing: border-box;
 }
 .boSidebar .sideHeader {
-  padding: 24px 20px 16px;
+  padding: 32px 20px 30px;
   display: flex;
   align-items: center;
 }
@@ -229,8 +229,8 @@ body {
 }
 .boSidebar .sideHeader .sideLogo .logoTitle {
   display: block;
-  width: 100px;
-  height: 22px;
+  width: 200px;
+  height: 43px;
   background-image: url("../images/logo_title.svg");
   background-repeat: no-repeat;
   background-position: left center;
@@ -238,8 +238,8 @@ body {
 }
 .boSidebar .sideHeader .sideLogo .logoStar {
   display: none;
-  width: 32px;
-  height: 24px;
+  width: 48px;
+  height: 62px;
   background-image: url("../images/logo_star.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -266,7 +266,7 @@ body {
   transition: background-color 0.15s ease;
 }
 .boSidebar .sideFavorite .btnFavoriteIco:hover {
-  background-color: #6B7280;
+  background-color: #8D919B;
 }
 .boSidebar .sideFavorite .btnFavoriteIco:hover::after {
   content: "즐겨찾기 메뉴";
@@ -351,8 +351,12 @@ body {
   font-weight: 700;
   transition: all 0.15s ease;
 }
-.boSidebar .boMenu li > a:hover, .boSidebar .boMenu li > a.isActive {
-  background-color: #6B7280;
+.boSidebar .boMenu li > a:hover {
+  background-color: #8D919B;
+  color: #FFFFFF;
+}
+.boSidebar .boMenu li > a.isActive {
+  background-color: #8D919B;
   color: #FFFFFF;
 }
 .boSidebar .boMenu li > a .ico {
@@ -405,19 +409,22 @@ body {
   height: 36px;
   padding: 8px 10px;
   font-size: 14px;
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.85);
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.15s ease;
 }
 .boSidebar .boMenu .boSubMenu a:hover {
-  background-color: #6B7280;
+  background-color: rgba(255, 255, 255, 0.12);
   color: #FFFFFF;
 }
 .boSidebar .boMenu .boSubMenu a.isActive {
   background-color: #FFC72B;
   color: #2F3034;
   font-weight: 500;
+}
+.boSidebar .boMenu .boSubMenu a.isActive:hover {
+  background-color: #FFDC00;
 }
 .boSidebar .boMenu .boSubMenu a .ico {
   flex-shrink: 0;
@@ -437,7 +444,7 @@ body {
   box-sizing: border-box;
 }
 .boSidebar .sideBottom .sideUser {
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -488,9 +495,9 @@ body {
   background-color: #F8F9FA;
 }
 .boSidebar .sideBottom .btnFold {
-  margin-top: 24px;
+  margin-top: 30px;
   padding: 0;
-  color: #D5D7DE;
+  color: #FFFFFF;
   font-size: 14px;
   font-weight: 300;
   display: inline-flex;
@@ -654,13 +661,16 @@ body {
   transition: all 0.15s ease;
 }
 .boSidebar.isCollapsed .boMenu > li:hover .boSubMenu a:hover {
-  background-color: #6B7280;
+  background-color: #4F535A;
   color: #FFFFFF;
 }
 .boSidebar.isCollapsed .boMenu > li:hover .boSubMenu a.isActive {
   background-color: #FFC72B;
   color: #2F3034;
   font-weight: 500;
+}
+.boSidebar.isCollapsed .boMenu > li:hover .boSubMenu a.isActive:hover {
+  background-color: #FFDC00;
 }
 .boSidebar.isCollapsed .boMenu > li:hover .boSubMenu a .ico {
   flex-shrink: 0;
@@ -1832,7 +1842,8 @@ body {
   overflow: hidden;
 }
 .inputGroup:focus-within {
-  box-shadow: 0 0 0 3px rgba(255, 220, 0, 0.2);
+  border-color: #287EFF;
+  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
 }
 .inputGroup.isError {
   border-color: #EF4444;
@@ -1893,7 +1904,8 @@ fieldset {
   border-color: #8D919B;
 }
 .formControl:focus {
-  box-shadow: 0 0 0 3px rgba(255, 220, 0, 0.2);
+  border-color: #287EFF;
+  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
 }
 .formControl[readonly] {
   background-color: #F0F0F3;
@@ -2236,7 +2248,7 @@ select.formControl.wAuto {
   transition: background-color 0.15s;
 }
 .fileUploadBox .fileDelete::before {
-  content: "횞";
+  content: "X";
   font-size: 14px;
   line-height: 1;
   font-weight: 700;
@@ -2246,7 +2258,7 @@ select.formControl.wAuto {
   background-color: #4F535A;
 }
 
-/* Step Course Card (?④퀎蹂?肄붿뒪 ?ㅼ젙 移대뱶) */
+/* Step Course Card  */
 .stepCardList {
   display: flex;
   flex-direction: column;
@@ -2608,11 +2620,11 @@ select.formControl.wAuto {
 }
 .tbl tbody th, .tbl tbody td {
   font-size: 14px;
+  text-align: center;
 }
 .tbl tbody th {
   padding: 20px 10px 20px 4px;
   font-weight: 500;
-  text-align: left;
   white-space: nowrap;
   vertical-align: top;
 }
@@ -2642,6 +2654,9 @@ select.formControl.wAuto {
 }
 .tbl.tblView tbody tr {
   border-bottom: 1px solid #F0F0F3;
+}
+.tbl.tblView tbody th, .tbl.tblView tbody td {
+  text-align: left;
 }
 .tbl.tblView tbody th {
   padding: 14px 12px;

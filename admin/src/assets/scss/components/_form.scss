@@ -109,7 +109,7 @@
   overflow: hidden;
 
   &:focus-within {
-    // border-color: #FFDC00;
+    border-color: $color-blue-500;
     box-shadow: 0 0 0 3px $ring-primary;
   }
 
@@ -178,7 +178,7 @@ fieldset {
   }
 
   &:focus {
-    // border-color: #FFDC00;
+    border-color: $color-blue-500;
     box-shadow: 0 0 0 3px $ring-primary;
   }
 

@@ -102,13 +102,12 @@
       }
     }
     th, td {
-      
       font-size: 14px;
+      text-align: center;
     }
     th {
       padding: 20px 10px 20px 4px;
       font-weight: $font-weight-medium;
-      text-align: left;
       white-space: nowrap;
       vertical-align: top;
     }
@@ -152,6 +151,7 @@
       tr {
         border-bottom: 1px solid $border-light;
       }
+      th, td { text-align: left; }
       th {
         padding: 14px 12px;
         font-weight: $font-weight-medium;
