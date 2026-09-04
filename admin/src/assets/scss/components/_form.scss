@@ -46,6 +46,7 @@
     }
   }
 
+
   &.hasBtn {
     display: inline-flex;
     gap: 6px;
@@ -168,7 +169,9 @@ fieldset {
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
   font-family: inherit;
-
+  &.wSm {
+    width: 120px;
+  }
   &::placeholder {
     color: $text-tertiary;
   }
@@ -182,7 +185,9 @@ fieldset {
     box-shadow: 0 0 0 3px $ring-primary;
   }
 
-  &[readonly] {
+  &[readonly],
+  &:disabled,
+  &.isDisabled {
     background-color: $bg-disabled;
     color: $text-tertiary;
     border-color: $border-disabled;
@@ -428,6 +433,23 @@ select.formControl {
   }
 }
 
+/* Form Control Bottom Area (하단 안내문구 + 우측 버튼 등) */
+.formControlBottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+
+  .formGuideText {
+    margin-left: 0;
+  }
+
+  .btn {
+    flex-shrink: 0;
+  }
+}
+
 
 /* Radio Button */
 .formRadioCardGroup {
@@ -632,10 +654,16 @@ select.formControl {
       }
 
       .stepTitle {
+        width: 130px;
+        height: 30px;
+        background-color: #E7E9ED;
+        border-radius: 6px;
         font-size: 14px;
-        font-weight: $font-weight-bold;
-        color: $text-highlight;
+        font-weight: $font-weight-medium;
+        color: $text-primary;
         margin: 0;
+        line-height: 30px;
+        text-align: center;
       }
     }
 

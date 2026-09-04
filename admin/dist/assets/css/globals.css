@@ -2120,6 +2120,22 @@ select.formControl.wAuto {
   margin-top: 8px;
 }
 
+/* Form Control Bottom Area (하단 안내문구 + 우측 버튼 등) */
+.formControlBottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+.formControlBottom .formGuideText {
+  margin-left: 0;
+  line-height: 34px;
+}
+.formControlBottom .btn {
+  flex-shrink: 0;
+}
+
 /* Radio Button */
 .formRadioCardGroup {
   display: flex;

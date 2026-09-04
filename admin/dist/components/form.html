@@ -1,9 +1,11 @@
 <!-- 
   [D] 폼 컴포넌트 개발 가이드
-  - 에러 상태: input/select/textarea에 'isError' 클래스 추가 & 하단 .formErrorMsg 노출
-  - 비활성화 상태: input에 'disabled' 속성 또는 'isDisabled' 클래스 추가
+  - 기본 구조: 단독/세로 폼은 <div class="formGroup">으로 감싸 일관된 간격(margin-bottom)을 유지합니다.
+  - 에러 상태: input/select/textarea에 'isError' 클래스 추가 & <p class="formErrorMsg">를 formControlWrap 하단에 배치
+  - 비활성화 상태: input에 'disabled' 속성 추가
   - 읽기전용 상태: input에 'readonly' 속성 추가
   - 단위(Unit): 우측 단위 '.formControlWrap.hasUnit', 좌측 단위 '.formControlWrap.hasPrefix'
+  - 버튼 결합: '.formControlWrap.hasBtn'
   - 셀렉트 열림/포커스: select에 'isOpen' 클래스 추가 시 상단 화살표로 반전
 -->
 
@@ -33,7 +35,88 @@
   </div>
 </div>
 
-<!-- 4. Textarea (멀티라인 입력) -->
+<!-- 4. Input + Button 결합 (.hasBtn) -->
+<div class="formGroup">
+  <label class="formLabel">인풋 + 버튼 결합</label>
+  <div class="formControlWrap hasBtn full">
+    <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
+    <button type="button" class="btn outline">인증번호 발송</button>
+  </div>
+</div>
+
+<!-- 5. Input with Unit (우측 단위: hasUnit + .inputUnit) -->
+<div class="formGroup">
+  <label class="formLabel">금액 / 수량 입력 (우측 단위)</label>
+  <div class="formControlWrap full hasUnit">
+    <input type="text" class="formControl" placeholder="0" value="50,000">
+    <span class="inputUnit">원</span>
+  </div>
+</div>
+
+<!-- 6. Input + Button + Guide Text (조회형 폼) -->
+<div class="formGroup">
+  <label class="formLabel" for="idMissionID">미션 ID 조회</label>
+  <div class="formControlWrap hasBtn">
+    <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
+    <button type="button" class="btn outline">찾아보기</button>
+  </div>
+  <p class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</p>
+</div>
+
+<!-- 7. Date Range (공통 운영기간 데이트피커 + 체크박스) -->
+<div class="formGroup">
+  <label class="formLabel">운영 기간</label>
+  <fieldset class="formDateRange">
+    <legend class="srOnly">공통 운영기간 설정</legend>
+    <div class="formDatepicker">
+      <input type="text" class="formControl" value="2026.07.01" title="운영 시작일">
+      <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+    </div>
+    <span class="dateSeparator">~</span>
+    <div class="formDatepicker">
+      <input type="text" class="formControl" value="2026.08.31" title="운영 종료일">
+      <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+    </div>
+    <label class="formCheck">
+      <input type="checkbox">
+      <span class="checkIcon"></span>
+      <span class="checkLabel">미지정</span>
+    </label>
+  </fieldset>
+</div>
+
+<!-- 8. Tag Box (태그 리스트 + 하단 가이드 및 버튼 결합: .col + .formControlBottom) -->
+<div class="formGroup">
+  <label class="formLabel">적용 화면 선택</label>
+  <div class="formControlWrap full col">
+    <div class="tagBox">
+      <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+      <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+      <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+      <span class="tagChip">혜택존 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+    </div>
+    <div class="formControlBottom">
+      <span class="formGuideText">마커의 노출위치를 상세히 지정합니다.</span>
+      <button type="button" class="btn dark">화면 선택</button>
+    </div>
+  </div>
+</div>
+
+<!-- 9. Select Box (드롭다운 + 가이드 문구) -->
+<div class="formGroup">
+  <label class="formLabel" for="idMissionType">미션 유형 선택</label>
+  <div class="formControlWrap">
+    <select id="idMissionType" class="formControl" style="width: 200px;">
+      <option value="ox">OX퀴즈</option>
+      <option value="survey">설문조사</option>
+      <option value="attendance">출석체크</option>
+    </select>
+    <span class="formGuideText">OX 퀴즈를 생성하고 관리합니다.</span>
+  </div>
+  <p class="formGuideText blue">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</p>
+</div>
+
+<!-- 10. Textarea (멀티라인 입력) -->
 <div class="formGroup">
   <label class="formLabel">상세 내용</label>
   <div class="formControlWrap full">
@@ -41,21 +124,7 @@
   </div>
 </div>
 
-<!-- 5. Select Box (드롭다운) -->
-<div class="formGroup">
-  <label class="formLabel">항목 선택</label>
-  <div class="formControlWrap full">
-    <!-- [D] 열림 상태: isOpen 클래스 추가 (또는 포커스 시 자동 화살표 반전) -->
-    <select class="formControl">
-      <option value="">항목을 선택해주세요</option>
-      <option value="1">항목1</option>
-      <option value="2">항목2</option>
-      <option value="3">항목3</option>
-    </select>
-  </div>
-</div>
-
-<!-- 6. Checkbox Group -->
+<!-- 11. Checkbox Group -->
 <fieldset class="formGroup">
   <legend class="formLabel">체크박스 그룹</legend>
   <div class="formCheckGroup">
@@ -82,7 +151,7 @@
   </div>
 </fieldset>
 
-<!-- 7. Radio Group -->
+<!-- 12. Radio Group -->
 <fieldset class="formGroup">
   <legend class="formLabel">라디오 그룹</legend>
   <div class="formCheckGroup">
@@ -109,25 +178,7 @@
   </div>
 </fieldset>
 
-<!-- 8. Input + Button 결합 -->
-<div class="formGroup">
-  <label class="formLabel">인풋 + 버튼</label>
-  <div class="formControlWrap hasBtn full">
-    <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
-    <button type="button" class="btn outline">인증번호 발송</button>
-  </div>
-</div>
-
-<!-- 9. Input with Unit (우측 단위: hasUnit + .inputUnit) -->
-<div class="formGroup">
-  <label class="formLabel">금액 / 수량 입력 (우측 단위)</label>
-  <div class="formControlWrap full hasUnit">
-    <input type="text" class="formControl" placeholder="0" value="50,000">
-    <span class="inputUnit">원</span>
-  </div>
-</div>
-
-<!-- 10. Radio Card Group (라디오 카드형 그룹 - 기본형) -->
+<!-- 13. Radio Card Group (라디오 카드형 그룹 - 기본형) -->
 <fieldset class="formGroup">
   <legend class="formLabel">타입 선택 (라디오 카드형)</legend>
   <div class="formRadioCardGroup">
@@ -150,7 +201,7 @@
   </div>
 </fieldset>
 
-<!-- 11. Radio Card Group (라디오 카드형 그룹 - Compact형) -->
+<!-- 14. Radio Card Group (라디오 카드형 그룹 - Compact형) -->
 <fieldset class="formGroup">
   <legend class="formLabel">정답 선택 (컴팩트 카드형)</legend>
   <div class="formRadioCardGroup">

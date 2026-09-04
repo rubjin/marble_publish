@@ -1,9 +1,11 @@
 <!-- 
   [D] 폼 컴포넌트 개발 가이드
-  - 에러 상태: input/select/textarea에 'isError' 클래스 추가 & 하단 .formErrorMsg 노출
-  - 비활성화 상태: input에 'disabled' 속성 또는 'isDisabled' 클래스 추가
+  - 기본 구조: 단독/세로 폼은 <div class="formGroup">으로 감싸 일관된 간격(margin-bottom)을 유지합니다.
+  - 에러 상태: input/select/textarea에 'isError' 클래스 추가 & <p class="formErrorMsg">를 formControlWrap 하단에 배치
+  - 비활성화 상태: input에 'disabled' 속성 추가
   - 읽기전용 상태: input에 'readonly' 속성 추가
   - 단위(Unit): 우측 단위 '.formControlWrap.hasUnit', 좌측 단위 '.formControlWrap.hasPrefix'
+  - 버튼 결합: '.formControlWrap.hasBtn'
   - 셀렉트 열림/포커스: select에 'isOpen' 클래스 추가 시 상단 화살표로 반전
 -->
 
@@ -41,21 +43,7 @@
   </div>
 </div>
 
-<!-- 5. Select Box (드롭다운) -->
-<div class="formGroup">
-  <label class="formLabel">항목 선택</label>
-  <div class="formControlWrap full">
-    <!-- [D] 열림 상태: isOpen 클래스 추가 (또는 포커스 시 자동 화살표 반전) -->
-    <select class="formControl">
-      <option value="">항목을 선택해주세요</option>
-      <option value="1">항목1</option>
-      <option value="2">항목2</option>
-      <option value="3">항목3</option>
-    </select>
-  </div>
-</div>
-
-<!-- 6. Checkbox Group -->
+<!-- 5. Checkbox Group -->
 <fieldset class="formGroup">
   <legend class="formLabel">체크박스 그룹</legend>
   <div class="formCheckGroup">
@@ -82,7 +70,7 @@
   </div>
 </fieldset>
 
-<!-- 7. Radio Group -->
+<!-- 6. Radio Group -->
 <fieldset class="formGroup">
   <legend class="formLabel">라디오 그룹</legend>
   <div class="formCheckGroup">
@@ -109,7 +97,7 @@
   </div>
 </fieldset>
 
-<!-- 8. Radio Card Group (라디오 카드형 그룹 - 기본형) -->
+<!-- 7. Radio Card Group (라디오 카드형 그룹 - 기본형) -->
 <fieldset class="formGroup">
   <legend class="formLabel">타입 선택 (라디오 카드형)</legend>
   <div class="formRadioCardGroup">
@@ -132,7 +120,7 @@
   </div>
 </fieldset>
 
-<!-- 9. Radio Card Group (라디오 카드형 그룹 - Compact형) -->
+<!-- 8. Radio Card Group (라디오 카드형 그룹 - Compact형) -->
 <fieldset class="formGroup">
   <legend class="formLabel">정답 선택 (컴팩트 카드형)</legend>
   <div class="formRadioCardGroup">

@@ -5,6 +5,112 @@
   - 파일 목록: .fileList 내부에 .fileItem 동적 렌더링 (파일이 없을 땐 .fileList를 비워두면 자동 숨김)
 -->
 
+<!-- STEP 카드 리스트 -->
+<div class="stepCardList">
+  <!-- STEP 1 -->
+  <div class="stepCard">
+    <div class="stepHeader">
+      <div class="stepTitleWrap">
+        <span class="stepHandle">≡</span>
+        <h4 class="stepTitle">STEP 3. 정상 미션</h4>
+      </div>
+      <div class="stepActions">
+        <button type="button" class="btn outline sm">복사</button>
+        <button type="button" class="btn danger sm">삭제</button>
+      </div>
+    </div>
+    <table class="tbl">
+      <colgroup>
+        <col style="width: 100px;">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr>
+          <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="정상 도달"></td>
+        </tr>
+        <tr>
+          <th><label class="formLabel">수행조건 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기"></td>
+        </tr>
+        <tr>
+          <th><label class="formLabel">보조 문구</label></th>
+          <td><input type="text" class="formControl full" value="자산 성장 성공"></td>
+        </tr>
+        <tr>
+          <th><span class="formLabel">상단 이미지</span></th>
+          <td>
+            <div class="formControlWrap full col">
+              <div class="fileDropzone">
+                <div class="dropzoneHeader">
+                  <input type="file" multiple>
+                  <span class="ico xl upload"></span>
+                  <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
+                </div>
+              </div>
+              <div class="formControlBottom">
+                <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
+                <button type="button" class="btn outline">파일 선택</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- STEP 2 -->
+  <div class="stepCard">
+    <div class="stepHeader">
+      <div class="stepTitleWrap">
+        <span class="stepHandle">≡</span>
+        <h4 class="stepTitle">STEP 3. 정상 미션</h4>
+      </div>
+      <div class="stepActions">
+        <button type="button" class="btn outline sm">복사</button>
+        <button type="button" class="btn danger sm">삭제</button>
+      </div>
+    </div>
+    <table class="tbl">
+      <colgroup>
+        <col style="width: 100px;">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr>
+          <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="정상 도달"></td>
+        </tr>
+        <tr>
+          <th><label class="formLabel">수행조건 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기"></td>
+        </tr>
+        <tr>
+          <th><label class="formLabel">보조 문구</label></th>
+          <td><input type="text" class="formControl full" value="자산 성장 성공"></td>
+        </tr>
+        <tr>
+          <th><span class="formLabel">상단 이미지</span></th>
+          <td>
+            <div class="formControlWrap full col">
+              <div class="fileDropzone">
+                <div class="dropzoneHeader">
+                  <input type="file" multiple>
+                  <span class="ico xl upload"></span>
+                  <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
+                </div>
+              </div>
+              <div class="formControlBottom">
+                <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
+                <button type="button" class="btn outline">파일 선택</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <!-- 1. 기본 인풋형 파일 첨부 -->
 <div class="formGroup">
   <label class="formLabel">첨부파일 (기본형)</label>

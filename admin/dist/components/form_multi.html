@@ -7,9 +7,9 @@
   - 셀렉트 열림/포커스: select에 'isOpen' 클래스 추가 시 상단 화살표로 반전
 -->
 
-<!-- 1. Input + Button 결합 (.hasBtn) -->
+<!-- 1. Input + Button 결합 -->
 <div class="formGroup">
-  <label class="formLabel">인풋 + 버튼 결합</label>
+  <label class="formLabel">인풋 + 버튼</label>
   <div class="formControlWrap hasBtn full">
     <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
     <button type="button" class="btn outline">인증번호 발송</button>
@@ -25,9 +25,7 @@
   </div>
 </div>
 
-<!-- 3. Tag Box (태그 리스트 + 하단 버튼 결합: .col ) -->
 <div class="formGroup">
-  <label class="formLabel">Tag Box (태그 리스트 + 하단 버튼 결합)</label>
   <div class="formControlWrap full col">
     <div class="tagBox">
       <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
@@ -39,56 +37,40 @@
   </div>
 </div>
 
-<!-- 4. Tag Box (태그 리스트 + 하단 가이드 및 버튼 결합: .col + .formControlBottom) -->
 <div class="formGroup">
-  <label class="formLabel">Tag Box (태그 리스트 + 하단 가이드 및 버튼 결합)</label>
   <div class="formControlWrap full col">
     <div class="tagBox">
       <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
       <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
       <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-      <span class="tagChip">혜택존 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+      <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
     </div>
-    <div class="formControlBottom">
+    <div class="btnGroup">
       <span class="formGuideText">마커의 노출위치를 상세히 지정합니다.</span>
       <button type="button" class="btn dark">화면 선택</button>
     </div>
   </div>
 </div>
 
-<!-- 5. Select Box (드롭다운 + 가이드 문구) -->
 <div class="formGroup">
-  <label class="formLabel" for="idMissionType">Select Box (드롭다운 + 가이드 문구)</label>
   <div class="formControlWrap">
-    <select id="idMissionType" class="formControl">
+    <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
+    <button type="button" class="btn outline">찾아보기</button>
+    <span class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</span>
+  </div>
+</div>
+
+<div class="formGroup">
+  <div class="formControlWrap">
+    <select id="idMissionType" class="formControl" style="width: 200px;">
       <option value="ox">OX퀴즈</option>
     </select>
-    <span class="formGuideText">OX 퀴즈를 생성하고 관리합니다.</span>
+    <span class="formGuideText">OX 퀴즈를 생성하고 관리 합니다.</span>
   </div>
   <p class="formGuideText blue">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</p>
 </div>
 
-<!-- 6. Input + Guide Text -->
 <div class="formGroup">
-  <div class="formControlWrap">
-    <input type="text" id="idDdayCount" class="formControl wSm" value="30">
-    <span class="unit">일간 진행</span>
-  </div>
-</div>
-
-<!-- 6. Input + Button + Guide Text (조회형 폼) -->
-<div class="formGroup">
-  <label class="formLabel" for="idMissionID">Input + Button + Guide Text (조회형 폼)</label>
-  <div class="formControlWrap hasBtn">
-    <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
-    <button type="button" class="btn outline">찾아보기</button>
-    <p class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</p>
-  </div>
-</div> 
-
-<!-- 7. Date Range (공통 운영기간 데이트피커 + 체크박스) -->
-<div class="formGroup">
-  <label class="formLabel">운영 기간</label>
   <fieldset class="formDateRange">
     <legend class="srOnly">공통 운영기간 설정</legend>
     <div class="formDatepicker">
@@ -107,3 +89,6 @@
     </label>
   </fieldset>
 </div>
+
+
+
