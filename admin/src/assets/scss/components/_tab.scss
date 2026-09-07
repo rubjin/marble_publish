@@ -15,9 +15,12 @@
     color: $text-white;
     position: relative;
     background: $bg-white;
+    // background: $color-gray-200;
+    border: 1px solid $color-gray-200;
+    border-bottom: none;
     color: $text-primary;
     border-radius: 6px 6px 0 0;
-    border: none;
+    // border: none;
     cursor: pointer;
     transition: color 0.15s ease;
 

@@ -1585,9 +1585,10 @@ body {
   color: #FFFFFF;
   position: relative;
   background: #FFFFFF;
+  border: 1px solid #E7E9ED;
+  border-bottom: none;
   color: #2F3034;
   border-radius: 6px 6px 0 0;
-  border: none;
   cursor: pointer;
   transition: color 0.15s ease;
 }
@@ -2281,15 +2282,54 @@ select.formControl.wAuto {
   padding: 8px 0;
 }
 
-/* Search / Filter Control Box (스타일 A : 소프트 그레이 카드형) */
+/* Search / Filter Control Box (div 기반 및 table 호환) */
 .searchBox {
-  background-color: #FFFFFF;
+  background-color: #E7E9ED;
   border-radius: 12px;
-  padding: 22px 28px;
+  padding: 20px 24px;
   margin-bottom: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   width: 100%;
   box-sizing: border-box;
+}
+.searchBox .searchRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  min-height: 40px;
+  padding: 6px 0;
+}
+.searchBox .searchItem {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
+  min-width: 280px;
+}
+.searchBox .searchItem.full {
+  flex: 1 1 100%;
+  width: 100%;
+}
+.searchBox .searchLabel {
+  width: 100px;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1F2937;
+  line-height: 1.4;
+}
+.searchBox .searchField {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.searchBox .formRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 .searchBox .searchTable {
   width: 100%;
@@ -2501,6 +2541,14 @@ select.formControl.wAuto {
   display: block;
 }
 
+.tblSection {
+  width: 100%;
+  margin-bottom: 24px;
+}
+.tblSection:last-child {
+  margin-bottom: 0;
+}
+
 .tblTop {
   display: flex;
   align-items: center;
@@ -2525,9 +2573,12 @@ select.formControl.wAuto {
   font-size: 13px;
   color: #4F535A;
 }
-.tblTop .tblLeft .tblCount strong {
+.tblTop .tblLeft .tblCount .count {
   color: #111827;
   font-weight: 600;
+}
+.tblTop .tblLeft .tblCount .count.point {
+  color: #287EFF;
 }
 .tblTop .tblLeft .tblCount .tblUnit {
   margin-left: 4px;
@@ -3785,7 +3836,7 @@ select.formControl.wAuto {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   padding: 40px 24px;
   box-sizing: border-box;
 }

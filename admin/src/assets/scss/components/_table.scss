@@ -1,5 +1,15 @@
 // Table Component
 
+// Table Container (테이블 상단 + 테이블 래퍼 그룹)
+.tblSection {
+  width: 100%;
+  margin-bottom: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 // Table Top (좌측 타이틀 + 건수 / 우측 버튼그룹)
 .tblTop {
   display: flex;
@@ -26,9 +36,12 @@
       font-size: 13px;
       color: $text-secondary;
 
-      strong {
+      .count {
         color: $text-title;
         font-weight: $font-weight-semibold;
+        &.point {
+          color: $color-blue-500;
+        }
       }
 
       .tblUnit {

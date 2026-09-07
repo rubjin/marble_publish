@@ -298,7 +298,7 @@
     <div class="tblWrap">
       <table class="tbl tblView">
         <colgroup>
-          <col style="width: 155px;">
+          <col style="width: 160px;">
           <col>
         </colgroup>
         <tbody>
@@ -479,7 +479,7 @@
     <div class="tblWrap">
       <table class="tbl tblView">
         <colgroup>
-          <col style="width: 155px;">
+          <col style="width: 160px;">
           <col>
         </colgroup>
         <tbody>
@@ -771,14 +771,14 @@
         <h3 class="tblTitle">최종 완료 설정</h3>
       </div>
       <div class="tblRight">
-        <span class="formGuideText">※ 모든 STEP 완료 후 노출 및 리워드 지급 여부를 설정합니다.</span>
+        <span class="formGuideText">※ 모든 STEP 완료 후 노출 할 팝업과 지급 리워드를 설정합니다.</span>
       </div>
     </div>
 
     <div class="tblWrap">
       <table class="tbl tblView">
         <colgroup>
-          <col style="width: 155px;">
+          <col style="width: 160px;">
           <col>
         </colgroup>
         <tbody>
@@ -803,29 +803,38 @@
           </tr>
           <!-- 상단 타이틀 -->
           <tr>
-            <th><label class="formLabel" for="idFinalTopTitle">상단 타이틀 <span class="required">*</span></label></th>
+            <th><label class="formLabel" for="idFinalTopTitle">팝업 타이틀 <span class="required">*</span></label></th>
             <td>
-              <input type="text" id="idFinalTopTitle" class="formControl full" value="축하합니다! 완등에 성공하셨습니다.">
+              <input type="text" id="idFinalTopTitle" class="formControl full" value="축하합니다! 산악회 코스 완등 성공!">
             </td>
           </tr>
-          <!-- 완성 축하 문구 -->
+          <!-- 팝업 안내 문구 -->
           <tr>
-            <th><label class="formLabel" for="idFinalCongratMsg">완성 축하 문구</label></th>
+            <th><label class="formLabel" for="idFinalCongratMsg">팝업 안내 문구</label></th>
             <td>
-              <input type="text" id="idFinalCongratMsg" class="formControl full" value="총 5단계 코스를 모두 정복하셨습니다. 최종 리워드가 지급되었습니다.">
+              <input type="text" id="idFinalCongratMsg" class="formControl full" value="1~3단계 코스를 모두 완등하셨습니다. 완등 리워드가 지급되었습니다.">
             </td>
           </tr>
-          <!-- 완성 이미지 -->
+          <!-- 팝업 이미지 -->
           <tr>
-            <th><span class="formLabel">완성 이미지</span></th>
+            <th><span class="formLabel">팝업 이미지</span></th>
             <td>
-              <div class="fileUploadBox">
-                <a href="#" class="fileNameLink">투자사랑 소모임 메인페이지 상단 배너 이미지.jpg(1542byte)</a>
-                <button type="button" class="fileDelete" aria-label="삭제"></button>
-              </div>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="formGuideText">권장사이즈: 720 × 720 (해상도: 72dpi), 최대 10MB(jpg, png, gif 등 등록가능)</span>
-                <button type="button" class="btn dark">파일 선택</button>
+              <div class="formControlWrap full col">
+                <!-- [D] 첨부된 파일 목록 -->
+                <ul class="fileList">
+                  <li class="fileItem">
+                    <div class="fileInfo">
+                      <a class="fileName" href="#;">투자사랑 산악회 챌린지 완료 팝업 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
+                    </div>
+                    <button type="button" class="fileDelete" aria-label="삭제">
+                      <span class="ico deleteTag"></span>
+                    </button>
+                  </li>
+                </ul>
+                <div class="formControlBottom">
+                  <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
+                  <button type="button" class="btn outline">파일 선택</button>
+                </div>
               </div>
             </td>
           </tr>
@@ -833,49 +842,45 @@
       </table>
     </div>
 
-    <!-- 하위 서브 섹션 :: 리워드 연결 -->
-    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed #E5E7EB;">
-      <div class="tblTop">
-        <div class="tblLeft">
-          <h4 class="tblTitle" style="font-size: 15px;">리워드 연결</h4>
-          <span class="formGuideText">※ 완료 시 지급될 리워드 정보를 설정합니다.</span>
-        </div>
-        <div class="tblRight">
-          <button type="button" class="btn outline sm">설정 해제</button>
-          <button type="button" class="btn dark sm">리워드 검색</button>
-        </div>
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">리워드 연결</h3>
       </div>
-
-      <div class="tblWrap">
-        <table class="tbl tblView">
-          <colgroup>
-            <col style="width: 140px;">
-            <col>
-            <col style="width: 140px;">
-            <col>
-          </colgroup>
-          <tbody>
-            <tr>
-              <th>리워드제시 ID</th>
-              <td>RW01000001</td>
-              <th>리워드 명</th>
-              <td>KB 포인트 1,000P</td>
-            </tr>
-            <tr>
-              <th>1회 지급량</th>
-              <td>1,000P</td>
-              <th>잔여예산</th>
-              <td>4,970,000P</td>
-            </tr>
-            <tr>
-              <th>운영기간</th>
-              <td>2026.07.01~2026.08.31</td>
-              <th>상태</th>
-              <td>2026.06.21 23:14:17</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="tblRight">
+        <span class="formGuideText">※ 완료 시 지급할 리워드 예산을 설정합니다.</span>
+        <button type="button" class="btn outline">연결 해제</button>
+        <button type="button" class="btn dark">리워드 선택</button>
       </div>
+    </div>
+    <div class="tblWrap">
+      <table class="tbl tblView">
+        <colgroup>
+          <col style="width: 140px;">
+          <col>
+          <col style="width: 140px;">
+          <col>
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>리워드예산 ID</th>
+            <td>RWB-000001</td>
+            <th>리워드 명</th>
+            <td>KB 포인트리 1,000P</td>
+          </tr>
+          <tr>
+            <th>1회 지급량</th>
+            <td>1,000P</td>
+            <th>잔여예산</th>
+            <td>4,970,000P</td>
+          </tr>
+          <tr>
+            <th>운영기간</th>
+            <td>2026.07.01~2026.08.31</td>
+            <th>상태</th>
+            <td>2026.06.21 23:14:17</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -892,7 +897,7 @@
     <div class="tblWrap">
       <table class="tbl tblView">
         <colgroup>
-          <col style="width: 155px;">
+          <col style="width: 160px;">
           <col>
         </colgroup>
         <tbody>

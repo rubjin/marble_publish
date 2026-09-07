@@ -1,36 +1,49 @@
-<!-- 테이블 상단 (좌측: 타이틀 & 건수 / 우측: 버튼 그룹) + 기본 테이블 -->
+<!-- 1. 기본 테이블 (상단 타이틀 & 건수/버튼 + 테이블) -->
+<div class="tblSection">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">기본 목록</h3>
+      <span class="tblCount">총 <strong class="count point">3</strong>건</span>
+    </div>
+    <div class="tblRight">
+      <div class="btnGroup">
+        <button type="button" class="btn outline">다운로드</button>
+      </div>
+    </div>
+  </div>
 
-<div class="tblWrap">
-  <table class="tbl">
-    <thead>
-      <tr>
-        <th>헤더1</th>
-        <th>헤더2</th>
-        <th>헤더3</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>내용1</td>
-        <td>내용2</td>
-        <td>내용3</td>
-      </tr>
-      <tr>
-        <td>내용1</td>
-        <td>내용2</td>
-        <td>내용3</td>
-      </tr>
-      <tr>
-        <td>내용1</td>
-        <td>내용2</td>
-        <td>내용3</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="tblWrap">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>헤더1</th>
+          <th>헤더2</th>
+          <th>헤더3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>내용1</td>
+          <td>내용2</td>
+          <td>내용3</td>
+        </tr>
+        <tr>
+          <td>내용1</td>
+          <td>내용2</td>
+          <td>내용3</td>
+        </tr>
+        <tr>
+          <td>내용1</td>
+          <td>내용2</td>
+          <td>내용3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-
- <div class="sectionBox">
+<!-- 2. 상세 뷰 테이블 (tblView) -->
+<div class="tblSection">
   <div class="tblTop">
     <div class="tblLeft">
       <h3 class="tblTitle">관리정보</h3>
@@ -40,10 +53,10 @@
   <div class="tblWrap">
     <table class="tbl tblView">
       <colgroup>
-        <col style="width: 140px;">
-        <col>
-        <col style="width: 140px;">
-        <col>
+        <col style="width: 140px;" />
+        <col />
+        <col style="width: 140px;" />
+        <col />
       </colgroup>
       <tbody>
         <tr>

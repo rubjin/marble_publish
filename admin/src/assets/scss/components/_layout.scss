@@ -765,13 +765,17 @@
 }
 
 // Section Layout (하얀 박스 영역 + 하단 버튼 영역)
-.boSection {
+.sectionBox {
+  // 하얀 박스 영역
+  background-color: $color-white;
+  border: 1px solid $border-light;
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: $shadow-xs;
   margin-bottom: 16px;
-
   &:last-child {
     margin-bottom: 0;
   }
-
   .sectionTitle {
     font-size: 18px;
     font-weight: $font-weight-bold;
@@ -786,15 +790,6 @@
       font-weight: $font-weight-regular;
       color: $text-secondary;
     }
-  }
-
-  // 하얀 박스 영역
-  .sectionBox {
-    background-color: $color-white;
-    border: 1px solid $border-light;
-    border-radius: 12px;
-    padding: 24px 28px;
-    box-shadow: $shadow-xs;
   }
 
   // 하단 버튼 영역
