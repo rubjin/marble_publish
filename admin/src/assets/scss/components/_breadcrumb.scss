@@ -40,8 +40,8 @@
     transition: color 0.15s ease;
 
     &:hover {
-      // color: $text-highlight;
-      // text-decoration: underline;
+      color: $text-highlight;
+      text-decoration: underline;
     }
   }
 

@@ -61,7 +61,7 @@
   }
 }
 
-// ?섏씠吏 ?섎떒踰꾪듉
+// 페이지 하단 버튼
 .pageBottom {
   width: 100%;
   display: flex;
@@ -70,7 +70,7 @@
   .btn { @include btnLg; }
 }
 
-// 踰꾪듉 洹몃９
+// 버튼 그룹
 .btnGroup {
   display: flex;
   align-items: center;

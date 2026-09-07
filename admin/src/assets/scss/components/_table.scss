@@ -1,6 +1,6 @@
 // Table Component
 
-// Table Top Header (좌측 타이틀 + 건수 / 우측 버튼그룹)
+// Table Top (좌측 타이틀 + 건수 / 우측 버튼그룹)
 .tblTop {
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@
   gap: 6px;
 }
 
-// Table Wrap & Structure
+// Table Wrap & 구조
 .tblWrap {
   width: 100%;
   overflow-x: auto;
@@ -150,6 +150,12 @@
     tbody {
       tr {
         border-bottom: 1px solid $border-light;
+        &:hover {
+          background-color: $color-white;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
       }
       th, td { text-align: left; }
       th {

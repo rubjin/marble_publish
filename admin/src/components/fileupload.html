@@ -40,6 +40,7 @@
         <tr>
           <th><span class="formLabel">상단 이미지</span></th>
           <td>
+            <!-- [D] 파일 첨부 전 상태 -->
             <div class="formControlWrap full col">
               <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
               <div class="fileDropzone">
@@ -55,6 +56,26 @@
                 <button type="button" class="btn outline">파일 선택</button>
               </div>
             </div>
+
+            <!-- [D] 파일 첨부 후 상태 -->
+            <div class="formControlWrap full col">
+              <!-- [D] 첨부된 파일 목록 -->
+              <ul class="fileList">
+                <li class="fileItem">
+                  <div class="fileInfo">
+                    <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
+                  </div>
+                  <button type="button" class="fileDelete" aria-label="삭제">
+                    <span class="ico deleteTag"></span>
+                  </button>
+                </li>
+              </ul>
+              <div class="formControlBottom">
+                <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
+                <button type="button" class="btn outline">파일 선택</button>
+              </div>
+            </div>
+
           </td>
         </tr>
       </tbody>
@@ -156,11 +177,11 @@
   </div>
 </div>
 
-
 <div class="fileUploadBox">
   <a href="#" class="fileNameLink">업로드한 파일명이 출력됩니다(다운로드 가능).jpg(1542byte)</a>
   <button type="button" class="fileDelete" aria-label="삭제"></button>
 </div>
+
 <div style="display: flex; align-items: center; gap: 12px;">
   <button type="button" class="btn dark">파일선택</button>
   <span class="formGuideText">※ 첨부파일은 최대 10MB × 1개로 jpg 파일만 등록할 수 있습니다.</span>

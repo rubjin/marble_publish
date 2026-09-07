@@ -8,7 +8,7 @@
   .desc { font-size: 14px; color: $color-gray-800; margin-bottom: 16px; }
 }
 
-// KPI Statistic Cards (좌측: 타이틀 / 우측: 숫자 & 비교값 정렬)
+// 통계카드 (좌측: 타이틀 / 우측: 숫자 & 비교값 정렬)
 .kpiCardGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -98,7 +98,7 @@
   }
 }
 
-// Information Summary Box Grid (테이블 상단 3개 요약 박스 - 한 라인 배치)
+// 정보 요약 박스 그리드 (테이블 상단 3개 요약 박스 - 한 라인 배치)
 .infoBoxWrap {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -183,7 +183,7 @@
   }
 }
 
-// Summary Statistics Box (테이블 상단 좌/우 통계 요약 박스)
+// 통계 요약 박스 (테이블 상단 좌/우 통계 요약 박스)
 .summaryStatBox {
   display: flex;
   align-items: center;
@@ -222,7 +222,6 @@
   .statItem {
     display: flex;
     flex-direction: column;
-    // width: 100%;
     gap: 4px;
     &.col {
       flex-direction: column;
@@ -332,7 +331,7 @@
     }
   }
 
-  // 1줄 인라인 바 형태 (One-Line Inline Bar)
+  // 1줄 인라인 바 형태 
   &.singleLine {
     display: flex;
     align-items: center;
@@ -379,17 +378,6 @@
           color: $text-secondary;
         }
       }
-
-     
-      // &:not(:first-child)::before {
-      //   content: '';
-      //   display: inline-block;
-      //   width: 1px;
-      //   height: 14px;
-      //   background-color: $color-gray-300;
-      //   margin-right: 14px;
-      //   flex-shrink: 0;
-      // }
     }
     .statDivider {
       height: 14px;
@@ -399,7 +387,7 @@
 
 }
 
-// Status Summary KPI Bar (5개 핵심 운영 현황 지표 바)
+// 현황 지표 바
 .statusSummaryBox {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -470,7 +458,7 @@
 
 }
 
-// Status Cards (운영중, 이슈/알림, 참여율, 신규 유입, 연간 지급 포인트 - 각각 독립된 개별 박스)
+// 상태 카드 (각각 독립된 개별 박스)
 .statusCardGrid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));

@@ -42,11 +42,11 @@
       z-index: 1;
     }
 
-    // &:hover {
-    //   color: $color-gray-800;
-    // }
+    &:hover {
+      color: $color-gray-800;
+    }
 
-    // Active State (Button & Radio)
+    // Active (Button & Radio)
     &.isActive,
     &:has(input[type="radio"]:checked) {
       color: $color-white;
@@ -65,25 +65,9 @@
 
   // Size Variants
   // &.sm {
-  //   padding: 2px;
-  //   border-radius: 6px;
-
-  //   .segmentItem {
-  //     padding: 4px 10px;
-  //     font-size: 12px;
-  //     border-radius: 4px;
-  //   }
   // }
 
   // &.lg {
-  //   padding: 4px;
-  //   border-radius: 10px;
-
-  //   .segmentItem {
-  //     padding: 8px 20px;
-  //     font-size: 14px;
-  //     border-radius: 8px;
-  //   }
   // }
 
   // Full Width

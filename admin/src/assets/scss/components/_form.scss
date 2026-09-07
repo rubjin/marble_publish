@@ -193,13 +193,6 @@ fieldset {
     border-color: $border-disabled;
     cursor: not-allowed;
   }
-  // &:disabled,
-  // &.isDisabled {
-  //   background-color: $bg-disabled;
-  //   color: $text-tertiary;
-  //   border-color: $border-light;
-  //   cursor: not-allowed;
-  // }
 
   &.isError {
     border-color: $text-danger;
@@ -540,7 +533,7 @@ select.formControl {
     }
   }
 
-  // ?쇰뵒??移대뱶 (O/X ?뺣떟 ?좏깮)
+  // 라이오 버튼 컴팩트
   &.isCompact {
     padding: 12px 20px;
     align-items: center;
@@ -628,7 +621,6 @@ select.formControl {
 
 .stepCard {
   background-color: $color-gray-50;
-  // border: 1px solid $border-default;
   border-radius: 8px;
   padding: 16px 20px;
 
