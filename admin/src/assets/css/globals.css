@@ -3793,7 +3793,7 @@ select.formControl.wAuto {
 .errorContainer {
   width: 100%;
   max-width: 680px;
-  min-height: 480px;
+  min-height: 400px;
   background-color: #FFFFFF;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -3859,7 +3859,7 @@ select.formControl.wAuto {
   font-weight: 700;
   color: #111827;
   line-height: 1.35;
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
   word-break: keep-all;
 }
 
@@ -3873,7 +3873,7 @@ select.formControl.wAuto {
 }
 
 .infoText {
-  margin-top: 16px;
+  margin-top: 24px;
   font-size: 14px;
   font-weight: 500;
   color: #287EFF;

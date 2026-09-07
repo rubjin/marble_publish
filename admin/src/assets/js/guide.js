@@ -104,6 +104,13 @@
     });
     targetSection.style.display = 'block';
 
+    // 스크롤 상단 초기화
+    var wrapper = document.querySelector('.guideWrapper');
+    if (wrapper) {
+      wrapper.scrollTop = 0;
+    }
+    window.scrollTo(0, 0);
+
     // 상태 저장 (localStorage & URL hash)
     try {
       localStorage.setItem('activeGuideTab', targetId);

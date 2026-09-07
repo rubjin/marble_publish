@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="../assets/css/globals.css">
   <style>
     /* html 그리드 오버라이드 - PC 레이아웃 */
-    html { display: block !important; grid-template-columns: none !important; }
-    body { background-color: #f9fafb; padding: 0; margin: 0; min-width: 1200px; font-family: 'Pretendard', sans-serif; }
+    html { display: block !important; grid-template-columns: none !important; height: 100% !important; overflow: hidden !important; }
+    body { background-color: #f9fafb; padding: 0; margin: 0; min-width: 1200px; height: 100% !important; overflow: hidden !important; font-family: 'Pretendard', sans-serif; display: flex !important; flex-direction: column !important; }
 
-    /* 스티키 네비게이션 */
+    /* 고정 상단 네비게이션 */
     .guideNav {
-      position: sticky; top: 0; z-index: 100;
+      position: relative; top: 0; z-index: 1000; flex-shrink: 0; width: 100%;
       background-color: #fff; border-bottom: 1px solid #e5e7eb;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
@@ -31,8 +31,8 @@
       color: #1f2937; border-bottom-color: #FFDC00;
     }
 
-    /* 가이드 레이아웃 */
-    .guideWrapper { max-width: 1200px; height: calc(100% - 52px); margin: 0 auto; padding: 40px 40px 80px; overflow-y: auto; }
+    /* 가이드 레이아웃 (독립 스크롤 영역) */
+    .guideWrapper { flex: 1 1 auto; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 40px 80px; overflow-y: auto; box-sizing: border-box; }
     .guideHeader { margin-bottom: 48px; border-bottom: 3px solid rgb(255,188,0); padding-bottom: 24px; }
     .guideHeader h1 { font-size: 36px; margin: 0 0 12px 0; color: #111; }
     .guideHeader p { color: #666; margin: 0; font-size: 16px; }
