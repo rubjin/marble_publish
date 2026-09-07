@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>로그인</title>
+  <link rel="stylesheet" href="../../assets/css/globals.css" />
+</head>
+<body class="loginBody">
+  <div class="loginPage">
+    <div class="loginContainer">
+      <!-- 로고 및 시스템 타이틀 -->
+      <header class="loginHeader">
+        <span class="logo">KB증권 Offering System</span>
+      </header>
+      
+      <div class="loginInner">
+        <h2 class="loginTitle">로그인</h1>
+        <!-- 로그인 폼 -->
+        <form class="loginForm" onsubmit="return false;">
+          <!-- 인풋 2개 (사원번호, 비밀번호) -->
+          <div class="formGroup">
+            <label for="empNo" class="srOnly">사원번호</label>
+            <input type="text" id="empNo" class="loginInput" placeholder="사원번호" autocomplete="username" />
+          </div>
+
+          <div class="formGroup">
+            <label for="userPw" class="srOnly">비밀번호</label>
+            <input type="password" id="userPw" class="loginInput" placeholder="비밀번호" autocomplete="current-password" />
+          </div>
+
+          <!-- 체크박스 (아이디저장) -->
+          <div class="loginCheckWrap">
+            <label class="loginCheck" for="saveId">
+              <input type="checkbox" id="saveId" checked />
+              <span class="checkIcon" aria-hidden="true"></span>
+              <span class="checkLabel">사원번호 저장</span>
+            </label>
+          </div>
+
+          <!-- 버튼 (로그인) -->
+          <button type="submit" class="loginBtn">로그인</button>
+
+          <!-- 잠금해제 / 비밀번호 변경 링크 -->
+          <div class="loginLinks">
+            <a href="#" class="loginLink">잠금해제</a>
+            <span class="bar" aria-hidden="true"></span>
+            <a href="#" class="loginLink">비밀번호 변경</a>
+          </div>
+
+          <!-- 안내문구 -->
+          <div class="loginGuide">
+            <ul class="guideList">
+              <li class="guideItem">로그인 5회 실패 시 계정 관리 시스템을 통해 비밀번호 초기화가 필요합니다.</li>
+            </ul>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/js/ui.js"></script>
+</body>
+</html>

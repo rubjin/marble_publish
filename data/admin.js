@@ -46,9 +46,9 @@ window.adminData = [
     "depth4": "",
     "screenId": "ERROR_404",
     "type": "페이지",
-    "status": "",
+    "status": "완료",
     "worker": "",
-    "link": "admin/src/layout/error-404.html",
+    "link": "admin/src/pages/E/error_404.html",
     "note": "404 에러 페이지"
   },
   {
@@ -59,9 +59,9 @@ window.adminData = [
     "depth4": "",
     "screenId": "ERROR_500",
     "type": "페이지",
-    "status": "",
+    "status": "완료",
     "worker": "",
-    "link": "admin/src/layout/error-500.html",
+    "link": "admin/src/pages/E/error_500.html",
     "note": "500 에러 페이지"
   },
   {
@@ -72,9 +72,9 @@ window.adminData = [
     "depth4": "",
     "screenId": "ERROR_001",
     "type": "페이지",
-    "status": "",
+    "status": "완료",
     "worker": "",
-    "link": "admin/src/layout/error-001.html",
+    "link": "admin/src/pages/E/error_001.html",
     "note": "서비스 점검 페이지"
   },
   {
@@ -85,9 +85,9 @@ window.adminData = [
     "depth4": "",
     "screenId": "LOGIN_001",
     "type": "페이지",
-    "status": "대기",
+    "status": "완료",
     "worker": "",
-    "link": "admin/src/pages/login.html",
+    "link": "admin/src/pages/L/login_001.html",
     "note": ""
   },
   {

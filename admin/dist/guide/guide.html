@@ -84,7 +84,7 @@
     .guideCodeCopy:hover { background-color: #e5e7eb; color: #1f2937; }
     .guideCodeCopy.isCopied { background-color: #d1fae5; color: #065f46; border-color: #6ee7b7; }
     .guideCodeBlock {
-      display: none; padding: 20px 24px; background-color: #1f2937;
+      display: none; max-height: 400px; padding: 20px 24px; background-color: #1f2937;
       overflow-x: auto; margin: 0;
     }
     .guideCodeBlock.isOpen { display: block; }
@@ -221,7 +221,7 @@
 
       </div>
 
-      <!-- ==================== 아이콘 버튼 가이드 ==================== -->
+      <!-- ==================== 버튼 :: 하단 버튼 ==================== -->
       <h2 class="guideTitle">페이지 하단 버튼</h2>
       <div class="guideBox">
         <!-- 페이지 하단 버튼 영역 -->
@@ -241,7 +241,8 @@
 
       </div>
 
-       <h2 class="guideTitle">페이지 버튼</h2>
+       <!-- ==================== 버튼 :: 페이지 버튼 ==================== -->
+      <h2 class="guideTitle">페이지 버튼</h2>
       <div class="guideBox" style="gap: 5px;">
         
 <div class="btnGroup sm">
@@ -269,7 +270,7 @@
 <button type="button" class="btn light">메모 등록</button>
       </div>
 
-       <!-- ==================== 아이콘 버튼 가이드 ==================== -->
+       <!-- ==================== 버튼 :: 아이콘 버튼 ==================== -->
       <h2 class="guideTitle">Icon Buttons (아이콘 버튼)</h2>
       <div class="guideBox">
         <!-- Icon Button - Primary -->
@@ -288,7 +289,7 @@
 
       </div>
 
-      <!-- ==================== 세그먼트 가이드 ==================== -->
+      <!-- ==================== 버튼 :: 세그먼트 ==================== -->
       <h2 class="guideTitle">Segment (세그먼트)</h2>
       <div class="guideBox guideBoxBlock" style="background-color: #666;">
         <!-- 
@@ -328,7 +329,7 @@
 
       </div>
 
-      <!-- ==================== 토글 스위치 가이드 ==================== -->
+      <!-- ==================== 버튼 :: 토글 스위치 ==================== -->
       <h2 class="guideTitle">Toggle (토글 스위치)</h2>
       <div class="guideBox guideBoxBlock">
         <!-- 
@@ -406,7 +407,7 @@
 
       </div>
 
-      <!-- ==================== 탭 가이드 ==================== -->
+      <!-- ==================== 버튼 :: 탭 ==================== -->
       <h2 class="guideTitle">Tabs (탭 메뉴)</h2>
       <div class="guideBox guideBoxBlock">
         <!-- 
@@ -421,7 +422,90 @@
 </nav>
 
       </div>
+
+      <!-- ==================== 버튼 :: MDI 탭 ==================== -->
+      <h2 class="guideTitle">MDI Tab Bar (MDI 탭 바)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- ==========================================================================
+  MDI 탭 바 (MDI Tab Bar: 좌측 홈 고정 노출 / 최대 7개 탭 / 우측 전체닫기 아이콘)
+  ========================================================================== -->
+<div class="mdiTabWrap">
+  <!-- 좌측 홈 화면 탭 (항상 고정 노출, 닫기 버튼 없음) -->
+  <button type="button" class="mdiTabItem isHome" title="홈 화면">
+    <span class="tabIcon">
+      <span class="ico mdiTabHome"></span>
+    </span>
+  </button>
+
+  <ul class="mdiTabList">
+    <!-- 활성화 탭: isActive -->
+    <li>
+      <div class="mdiTabItem isActive">
+        <span class="tabText">미션등록</span>
+        <button type="button" class="tabClose" aria-label="미션등록 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 2 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">미션관리</span>
+        <button type="button" class="tabClose" aria-label="미션관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 3 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">챌린지 운영 현황</span>
+        <button type="button" class="tabClose" aria-label="챌린지 운영 현황 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 4 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">회원 및 계좌조회</span>
+        <button type="button" class="tabClose" aria-label="회원 및 계좌조회 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 5 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">포인트/리워드 관리</span>
+        <button type="button" class="tabClose" aria-label="포인트/리워드 관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 6 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">통계 및 성과 분석</span>
+        <button type="button" class="tabClose" aria-label="통계 및 성과 분석 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+
+    <!-- 페이지 탭 7 -->
+    <li>
+      <div class="mdiTabItem">
+        <span class="tabText">공통 시스템 설정</span>
+        <button type="button" class="tabClose" aria-label="공통 시스템 설정 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
+      </div>
+    </li>
+  </ul>
+
+  <!-- 우측 전체 닫기 버튼 -->
+  <div class="mdiTabActions">
+    <button type="button" class="btnAllClose" title="전체 탭 닫기" aria-label="전체 탭 닫기">
+      <span class="ico sm mdiTabClose"></span>
+    </button>
+  </div>
+</div>
+      </div>
     </section>
+
+
 
     <!-- ==================== 아이콘 가이드 ==================== -->
     <section id="sectionIcons" class="guideSection">
@@ -474,6 +558,8 @@
       </div>
     </section>
 
+
+
     <!-- ==================== 뱃지 가이드 ==================== -->
     <section id="sectionBadges" class="guideSection">
       <h2 class="guideTitle">Badges</h2>
@@ -491,6 +577,8 @@
 
       </div>
     </section>
+
+
 
     <!-- ==================== 카드 가이드 ==================== -->
     <section id="sectionCards" class="guideSection">
@@ -583,6 +671,8 @@
       </div>
     </section>
 
+
+
     <!-- ==================== 폼 가이드 ==================== -->
     <section id="sectionForms" class="guideSection">
       <h2 class="guideTitle">Forms (입력 폼)</h2>
@@ -624,88 +714,7 @@
   </div>
 </div>
 
-<!-- 4. Input + Button 결합 (.hasBtn) -->
-<div class="formGroup">
-  <label class="formLabel">인풋 + 버튼 결합</label>
-  <div class="formControlWrap hasBtn full">
-    <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
-    <button type="button" class="btn outline">인증번호 발송</button>
-  </div>
-</div>
-
-<!-- 5. Input with Unit (우측 단위: hasUnit + .inputUnit) -->
-<div class="formGroup">
-  <label class="formLabel">금액 / 수량 입력 (우측 단위)</label>
-  <div class="formControlWrap full hasUnit">
-    <input type="text" class="formControl" placeholder="0" value="50,000">
-    <span class="inputUnit">원</span>
-  </div>
-</div>
-
-<!-- 6. Input + Button + Guide Text (조회형 폼) -->
-<div class="formGroup">
-  <label class="formLabel" for="idMissionID">미션 ID 조회</label>
-  <div class="formControlWrap hasBtn">
-    <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
-    <button type="button" class="btn outline">찾아보기</button>
-  </div>
-  <p class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</p>
-</div>
-
-<!-- 7. Date Range (공통 운영기간 데이트피커 + 체크박스) -->
-<div class="formGroup">
-  <label class="formLabel">운영 기간</label>
-  <fieldset class="formDateRange">
-    <legend class="srOnly">공통 운영기간 설정</legend>
-    <div class="formDatepicker">
-      <input type="text" class="formControl" value="2026.07.01" title="운영 시작일">
-      <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-    </div>
-    <span class="dateSeparator">~</span>
-    <div class="formDatepicker">
-      <input type="text" class="formControl" value="2026.08.31" title="운영 종료일">
-      <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-    </div>
-    <label class="formCheck">
-      <input type="checkbox">
-      <span class="checkIcon"></span>
-      <span class="checkLabel">미지정</span>
-    </label>
-  </fieldset>
-</div>
-
-<!-- 8. Tag Box (태그 리스트 + 하단 가이드 및 버튼 결합: .col + .formControlBottom) -->
-<div class="formGroup">
-  <label class="formLabel">적용 화면 선택</label>
-  <div class="formControlWrap full col">
-    <div class="tagBox">
-      <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-      <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-      <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-      <span class="tagChip">혜택존 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-    </div>
-    <div class="formControlBottom">
-      <span class="formGuideText">마커의 노출위치를 상세히 지정합니다.</span>
-      <button type="button" class="btn dark">화면 선택</button>
-    </div>
-  </div>
-</div>
-
-<!-- 9. Select Box (드롭다운 + 가이드 문구) -->
-<div class="formGroup">
-  <label class="formLabel" for="idMissionType">미션 유형 선택</label>
-  <div class="formControlWrap">
-    <select id="idMissionType" class="formControl" style="width: 200px;">
-      <option value="ox">OX퀴즈</option>
-      <option value="survey">설문조사</option>
-      <option value="attendance">출석체크</option>
-    </select>
-    <span class="formGuideText">OX 퀴즈를 생성하고 관리합니다.</span>
-  </div>
-  <p class="formGuideText blue">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</p>
-</div>
-
-<!-- 10. Textarea (멀티라인 입력) -->
+<!-- 4. Textarea (멀티라인 입력) -->
 <div class="formGroup">
   <label class="formLabel">상세 내용</label>
   <div class="formControlWrap full">
@@ -713,7 +722,23 @@
   </div>
 </div>
 
-<!-- 11. Checkbox Group -->
+      </div>
+
+      <!-- ==================== 폼 :: 체크박스, 라디오 ==================== -->
+      <h2 class="guideTitle">Forms (체크박스/라디오)</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- 
+  [D] 폼 컴포넌트 개발 가이드
+  - 기본 구조: 단독/세로 폼은 <div class="formGroup">으로 감싸 일관된 간격(margin-bottom)을 유지합니다.
+  - 에러 상태: input/select/textarea에 'isError' 클래스 추가 & <p class="formErrorMsg">를 formControlWrap 하단에 배치
+  - 비활성화 상태: input에 'disabled' 속성 추가
+  - 읽기전용 상태: input에 'readonly' 속성 추가
+  - 단위(Unit): 우측 단위 '.formControlWrap.hasUnit', 좌측 단위 '.formControlWrap.hasPrefix'
+  - 버튼 결합: '.formControlWrap.hasBtn'
+  - 셀렉트 열림/포커스: select에 'isOpen' 클래스 추가 시 상단 화살표로 반전
+-->
+
+<!-- 1. Checkbox Group -->
 <fieldset class="formGroup">
   <legend class="formLabel">체크박스 그룹</legend>
   <div class="formCheckGroup">
@@ -740,7 +765,7 @@
   </div>
 </fieldset>
 
-<!-- 12. Radio Group -->
+<!-- 2. Radio Group -->
 <fieldset class="formGroup">
   <legend class="formLabel">라디오 그룹</legend>
   <div class="formCheckGroup">
@@ -767,7 +792,7 @@
   </div>
 </fieldset>
 
-<!-- 13. Radio Card Group (라디오 카드형 그룹 - 기본형) -->
+<!-- 3. Radio Card Group (라디오 카드형 그룹 - 기본형) -->
 <fieldset class="formGroup">
   <legend class="formLabel">타입 선택 (라디오 카드형)</legend>
   <div class="formRadioCardGroup">
@@ -790,7 +815,7 @@
   </div>
 </fieldset>
 
-<!-- 14. Radio Card Group (라디오 카드형 그룹 - Compact형) -->
+<!-- 4. Radio Card Group (라디오 카드형 그룹 - Compact형) -->
 <fieldset class="formGroup">
   <legend class="formLabel">정답 선택 (컴팩트 카드형)</legend>
   <div class="formRadioCardGroup">
@@ -814,8 +839,9 @@
 
       </div>
 
-      <h2 class="guideTitle">Forms (입력 폼_다중 입력)</h2>
-      <div class="guideBox guideBoxBlock" style="">
+      <!-- ==================== 폼 :: 다중 요소 ==================== -->
+      <h2 class="guideTitle">Forms (입력 폼_다중 요소)</h2>
+      <div class="guideBox guideBoxBlock">
         <!-- 
   [D] 폼 컴포넌트 개발 가이드
   - 에러 상태: input/select/textarea에 'isError' 클래스 추가 & 하단 .formErrorMsg 노출
@@ -825,9 +851,9 @@
   - 셀렉트 열림/포커스: select에 'isOpen' 클래스 추가 시 상단 화살표로 반전
 -->
 
-<!-- 1. Input + Button 결합 -->
+<!-- 1. Input + Button 결합 (.hasBtn) -->
 <div class="formGroup">
-  <label class="formLabel">인풋 + 버튼</label>
+  <label class="formLabel">인풋 + 버튼 결합</label>
   <div class="formControlWrap hasBtn full">
     <input type="text" class="formControl" placeholder="이메일 주소를 입력해주세요">
     <button type="button" class="btn outline">인증번호 발송</button>
@@ -843,7 +869,9 @@
   </div>
 </div>
 
+<!-- 3. Tag Box (태그 리스트 + 하단 버튼 결합: .col ) -->
 <div class="formGroup">
+  <label class="formLabel">Tag Box (태그 리스트 + 하단 버튼 결합)</label>
   <div class="formControlWrap full col">
     <div class="tagBox">
       <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
@@ -855,40 +883,56 @@
   </div>
 </div>
 
+<!-- 4. Tag Box (태그 리스트 + 하단 가이드 및 버튼 결합: .col + .formControlBottom) -->
 <div class="formGroup">
+  <label class="formLabel">Tag Box (태그 리스트 + 하단 가이드 및 버튼 결합)</label>
   <div class="formControlWrap full col">
     <div class="tagBox">
       <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
       <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
       <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-      <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+      <span class="tagChip">혜택존 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
     </div>
-    <div class="btnGroup">
+    <div class="formControlBottom">
       <span class="formGuideText">마커의 노출위치를 상세히 지정합니다.</span>
       <button type="button" class="btn dark">화면 선택</button>
     </div>
   </div>
 </div>
 
+<!-- 5. Select Box (드롭다운 + 가이드 문구) -->
 <div class="formGroup">
+  <label class="formLabel" for="idMissionType">Select Box (드롭다운 + 가이드 문구)</label>
   <div class="formControlWrap">
-    <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
-    <button type="button" class="btn outline">찾아보기</button>
-    <span class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</span>
-  </div>
-</div>
-
-<div class="formGroup">
-  <div class="formControlWrap">
-    <select id="idMissionType" class="formControl" style="width: 200px;">
+    <select id="idMissionType" class="formControl">
       <option value="ox">OX퀴즈</option>
     </select>
-    <span class="formGuideText">OX 퀴즈를 생성하고 관리 합니다.</span>
+    <span class="formGuideText">OX 퀴즈를 생성하고 관리합니다.</span>
   </div>
   <p class="formGuideText blue">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</p>
 </div>
 
+<!-- 6. Input + Guide Text -->
 <div class="formGroup">
+  <div class="formControlWrap">
+    <input type="text" id="idDdayCount" class="formControl wSm" value="30">
+    <span class="unit">일간 진행</span>
+  </div>
+</div>
+
+<!-- 6. Input + Button + Guide Text (조회형 폼) -->
+<div class="formGroup">
+  <label class="formLabel" for="idMissionID">Input + Button + Guide Text (조회형 폼)</label>
+  <div class="formControlWrap hasBtn">
+    <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
+    <button type="button" class="btn outline">찾아보기</button>
+    <p class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</p>
+  </div>
+</div> 
+
+<!-- 7. Date Range (공통 운영기간 데이트피커 + 체크박스) -->
+<div class="formGroup">
+  <label class="formLabel">운영 기간</label>
   <fieldset class="formDateRange">
     <legend class="srOnly">공통 운영기간 설정</legend>
     <div class="formDatepicker">
@@ -908,20 +952,177 @@
   </fieldset>
 </div>
 
-
-
-
       </div>
 
-      <!-- ==================== 첨부파일 가이드 ==================== -->
+
+      <!-- ==================== 폼 :: 첨부파일 ==================== -->
       <h2 class="guideTitle">File Upload (첨부파일 & 드래그앤드롭)</h2>
-      <div class="guideBox guideBoxBlock">
+      <div class="guideBox guideBoxBlock" style="background: #fff;">
         <!-- 
   [D] 파일 첨부 컴포넌트 개발 가이드
   - 기본형: input[type="file"] 변경 시 .fileUploadInput의 value에 파일명 바인딩
   - 드롭존: 파일 드래그 시 'isDragOver' 클래스로 테두리/배경 활성화
   - 파일 목록: .fileList 내부에 .fileItem 동적 렌더링 (파일이 없을 땐 .fileList를 비워두면 자동 숨김)
 -->
+
+<!-- STEP 카드 리스트 -->
+<div class="stepCardList">
+  <!-- STEP 1 -->
+  <div class="stepCard">
+    <div class="stepHeader">
+      <div class="stepTitleWrap">
+        <span class="ico lg stepHandle"></span>
+        <h4 class="stepTitle">STEP 3. 정상 미션</h4>
+      </div>
+      <div class="stepActions">
+        <button type="button" class="btn outline sm">복사</button>
+        <button type="button" class="btn danger sm">삭제</button>
+      </div>
+    </div>
+    <table class="tbl">
+      <colgroup>
+        <col style="width: 100px;">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr>
+          <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="정상 도달"></td>
+        </tr>
+        <tr>
+          <th><label class="formLabel">수행조건 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기"></td>
+        </tr>
+        <tr>
+          <th><label class="formLabel">보조 문구</label></th>
+          <td><input type="text" class="formControl full" value="자산 성장 성공"></td>
+        </tr>
+        <tr>
+          <th><span class="formLabel">상단 이미지</span></th>
+          <td>
+            <!-- [D] 파일 첨부 전 상태 -->
+            <div class="formControlWrap full col">
+              <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
+              <div class="fileDropzone">
+                <!-- 상단 드래그 & 클릭 영역 -->
+                <div class="dropzoneHeader">
+                  <input type="file" multiple>
+                  <span class="ico xl upload"></span>
+                  <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
+                </div>
+              </div>
+              <div class="formControlBottom">
+                <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
+                <button type="button" class="btn outline">파일 선택</button>
+              </div>
+            </div>
+
+            <!-- [D] 파일 첨부 후 상태 -->
+            <div class="formControlWrap full col">
+              <!-- [D] 첨부된 파일 목록 -->
+              <ul class="fileList">
+                <li class="fileItem">
+                  <div class="fileInfo">
+                    <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
+                  </div>
+                  <button type="button" class="fileDelete" aria-label="삭제">
+                    <span class="ico deleteTag"></span>
+                  </button>
+                </li>
+              </ul>
+              <div class="formControlBottom">
+                <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
+                <button type="button" class="btn outline">파일 선택</button>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- STEP 2 -->
+  <div class="stepCard">
+    <div class="stepHeader">
+      <div class="stepTitleWrap">
+        <span class="ico lg stepHandle"></span>
+        <h4 class="stepTitle">STEP 3. 정상 미션</h4>
+      </div>
+      <div class="stepActions">
+        <button type="button" class="btn outline sm">복사</button>
+        <button type="button" class="btn danger sm">삭제</button>
+      </div>
+    </div>
+    <table class="tbl">
+      <colgroup>
+        <col style="width: 100px;">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr>
+          <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="정상 도달"></td>
+        </tr>
+        <tr>
+          <th><label class="formLabel">수행조건 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기"></td>
+        </tr>
+        <tr>
+          <th><label class="formLabel">보조 문구</label></th>
+          <td><input type="text" class="formControl full" value="자산 성장 성공"></td>
+        </tr>
+        <tr>
+          <th><span class="formLabel">상단 이미지</span></th>
+          <td>
+            <!-- <div class="formControlWrap full col"> -->
+              <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
+              <!-- <div class="fileDropzone">
+                <div class="dropzoneHeader">
+                  <input type="file" multiple>
+                  <span class="ico xl upload"></span>
+                  <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
+                </div>
+              </div>
+              <div class="formControlBottom">
+                <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
+                <button type="button" class="btn outline">파일 선택</button>
+              </div> -->
+
+              <!-- [D] 첨부된 파일 목록 (동적 렌더링 / 파일 없을 시 li 제거) -->
+              <!-- <ul class="fileList">
+                <li class="fileItem">
+                  <div class="fileInfo">
+                    <span class="fileIcon">
+                      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                    </span>
+                    <span class="fileName">2026_이벤트_기획안_v1.2.pdf</span>
+                    <span class="fileSize">(1.4 MB)</span>
+                  </div>
+                  <button type="button" class="fileDelete" aria-label="삭제">
+                    <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                  </button>
+                </li>
+                <li class="fileItem">
+                  <div class="fileInfo">
+                    <span class="fileIcon">
+                      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
+                    </span>
+                    <span class="fileName">메인_배너_이미지_01.png</span>
+                    <span class="fileSize">(840 KB)</span>
+                  </div>
+                  <button type="button" class="fileDelete" aria-label="삭제">
+                    <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                  </button>
+                </li>
+              </ul> -->
+              
+            <!-- </div> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <!-- 1. 기본 인풋형 파일 첨부 -->
 <div class="formGroup">
@@ -936,54 +1137,19 @@
   </div>
 </div>
 
-<!-- 2. 드래그 앤 드롭 파일 첨부 (Dropzone) -->
-<div class="formGroup">
-  <label class="formLabel">첨부파일 (드래그 & 드롭)</label>
-  
-  <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
-  <div class="fileDropzone">
-    <!-- 상단 드래그 & 클릭 영역 -->
-    <div class="dropzoneHeader">
-      <input type="file" multiple>
-      <div class="dropzoneIcon">
-        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
-      </div>
-      <p class="dropzoneText">파일을 마우스로 끌어오거나 <span class="highlight">클릭하여 업로드</span>하세요</p>
-      <p class="dropzoneDesc">지원 형식: JPG, PNG, PDF, ZIP (최대 20MB)</p>
-    </div>
-
-    <!-- [D] 첨부된 파일 목록 (동적 렌더링 / 파일 없을 시 li 제거) -->
-    <ul class="fileList">
-      <li class="fileItem">
-        <div class="fileInfo">
-          <span class="fileIcon">
-            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
-          </span>
-          <span class="fileName">2026_이벤트_기획안_v1.2.pdf</span>
-          <span class="fileSize">(1.4 MB)</span>
-        </div>
-        <button type="button" class="fileDelete" aria-label="삭제">
-          <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-        </button>
-      </li>
-      <li class="fileItem">
-        <div class="fileInfo">
-          <span class="fileIcon">
-            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
-          </span>
-          <span class="fileName">메인_배너_이미지_01.png</span>
-          <span class="fileSize">(840 KB)</span>
-        </div>
-        <button type="button" class="fileDelete" aria-label="삭제">
-          <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-        </button>
-      </li>
-    </ul>
-  </div>
+<div class="fileUploadBox">
+  <a href="#" class="fileNameLink">업로드한 파일명이 출력됩니다(다운로드 가능).jpg(1542byte)</a>
+  <button type="button" class="fileDelete" aria-label="삭제"></button>
 </div>
 
+<div style="display: flex; align-items: center; gap: 12px;">
+  <button type="button" class="btn dark">파일선택</button>
+  <span class="formGuideText">※ 첨부파일은 최대 10MB × 1개로 jpg 파일만 등록할 수 있습니다.</span>
+</div>
       </div>
     </section>
+
+
 
     <!-- ==================== 팝업 가이드 ==================== -->
     <section id="sectionPopups" class="guideSection">
@@ -1034,7 +1200,8 @@
 </div>
 
       </div>
-      <!-- ==================== 토스트 팝업 가이드 ==================== -->
+
+      <!-- ==================== 팝업 :: 토스트 팝업 ==================== -->
       <h2 class="guideTitle">Toast (토스트 팝업)</h2>
       <div class="guideBox guideBoxBlock" style="max-width: 600px;">
         <!-- 
@@ -1056,56 +1223,10 @@
   </div>
 </div>
 
-<!-- 2. 상태별 라이트 토스트 (Variants) -->
-<div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px; margin-top: 16px;">
-  <!-- Success -->
-  <div class="toast success">
-    <span class="toastIcon">
-      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
-    </span>
-    <span class="toastMessage">요청이 정상적으로 처리되었습니다.</span>
-    <button type="button" class="toastClose" aria-label="닫기">
-      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-    </button>
-  </div>
-
-  <!-- Error -->
-  <div class="toast error">
-    <span class="toastIcon">
-      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd"/></svg>
-    </span>
-    <span class="toastMessage">데이터 저장 중 오류가 발생했습니다.</span>
-    <button type="button" class="toastClose" aria-label="닫기">
-      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-    </button>
-  </div>
-
-  <!-- Warning -->
-  <div class="toast warning">
-    <span class="toastIcon">
-      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
-    </span>
-    <span class="toastMessage">필수 입력 항목을 다시 확인해 주세요.</span>
-    <button type="button" class="toastClose" aria-label="닫기">
-      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-    </button>
-  </div>
-
-  <!-- Info -->
-  <div class="toast info">
-    <span class="toastIcon">
-      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/></svg>
-    </span>
-    <span class="toastMessage">새로운 업데이트 사항이 있습니다.</span>
-    <button type="button" class="toastClose" aria-label="닫기">
-      <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-    </button>
-  </div>
-</div>
 
       </div>
     
-      <!-- ==================== 툴팁 가이드 ==================== -->
+      <!-- ==================== 팝업 :: 툴팁 ==================== -->
       <h2 class="guideTitle">Tooltip (툴팁)</h2>
       <div class="guideBox guideBoxBlock">
         <!-- 
@@ -1174,6 +1295,8 @@
       </div>
     </section>
    
+
+  
     <!-- ==================== 아코디언 가이드 ==================== -->
     <section id="sectionAccordion" class="guideSection">
       <h2 class="guideTitle">Accordion (아코디언)</h2>
@@ -1211,8 +1334,123 @@
       </div>
     </section>
 
+
+
     <!-- ==================== 테이블 가이드 ==================== -->
     <section id="sectionTable" class="guideSection">
+      <h2 class="guideTitle">테이블 조회조건</h2>
+      <div class="guideBox guideBoxBlock">
+        <!-- ==========================================================================
+  0. 조회 컨트롤 박스 (3줄 검색 박스 + 하단 초기화/조회 버튼)
+  ========================================================================== -->
+  <div class="searchBox">
+    <table class="searchTable">
+      <colgroup>
+        <col style="width: 100px;">
+        <col>
+        <col style="width: 100px;">
+        <col>
+      </colgroup>
+      <tbody>
+        <!-- 1줄: 조회일자 -->
+        <tr>
+          <th><span class="formLabel">조회일자</span></th>
+          <td colspan="3">
+            <div class="formRow">
+              <fieldset class="formDateRange">
+                <legend class="srOnly">조회기간 설정</legend>
+                <div class="formDatepicker">
+                  <input type="text" class="formControl" value="2026.07.01" title="조회 시작일">
+                  <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                </div>
+                <span class="dateSeparator">~</span>
+                <div class="formDatepicker">
+                  <input type="text" class="formControl" value="2026.08.31" title="조회 종료일">
+                  <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+                </div>
+              </fieldset>
+              <div class="btnGroup">
+                <button type="button" class="btn light">오늘</button>
+                <button type="button" class="btn light">1주일</button>
+                <button type="button" class="btn light isActive">1개월</button>
+                <button type="button" class="btn light">3개월</button>
+                <button type="button" class="btn light">전체</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <!-- 2줄: 유형 및 상태 -->
+        <tr>
+          <th><label class="formLabel" for="searchType">유형</label></th>
+          <td>
+            <div class="formRow">
+              <select id="searchType" class="formControl" style="width: 180px;">
+                <option value="">전체</option>
+                <option value="1">OX퀴즈</option>
+                <option value="2">출석체크</option>
+                <option value="3">설문조사</option>
+                <option value="4">챌린지</option>
+              </select>
+            </div>
+          </td>
+          <th><span class="formLabel">상태</span></th>
+          <td>
+            <div class="formRow">
+              <fieldset class="formCheckGroup">
+                <legend class="srOnly">상태 선택</legend>
+                <label class="formCheck">
+                  <input type="radio" name="searchStatus" checked>
+                  <span class="checkIcon"></span>
+                  <span class="checkLabel">전체</span>
+                </label>
+                <label class="formCheck">
+                  <input type="radio" name="searchStatus">
+                  <span class="checkIcon"></span>
+                  <span class="checkLabel">운영중</span>
+                </label>
+                <label class="formCheck">
+                  <input type="radio" name="searchStatus">
+                  <span class="checkIcon"></span>
+                  <span class="checkLabel">일시중단</span>
+                </label>
+                <label class="formCheck">
+                  <input type="radio" name="searchStatus">
+                  <span class="checkIcon"></span>
+                  <span class="checkLabel">종료</span>
+                </label>
+              </fieldset>
+            </div>
+          </td>
+        </tr>
+        <!-- 3줄: 검색어 -->
+        <tr>
+          <th><label class="formLabel" for="searchKeyword">검색어</label></th>
+          <td colspan="3">
+            <div class="formRow">
+              <select class="formControl" style="width: 140px;">
+                <option value="all">전체</option>
+                <option value="title">미션명</option>
+                <option value="id">미션ID</option>
+                <option value="author">등록자</option>
+              </select>
+              <div class="formControlWrap" style="width: 320px;">
+                <input type="text" id="searchKeyword" class="formControl full" placeholder="검색어를 입력해주세요">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- 박스 하단 초기화 / 조회 버튼 -->
+    <div class="searchBtnArea">
+      <button type="button" class="btn outline">초기화</button>
+      <button type="button" class="btn dark">조회</button>
+    </div>
+  </div>
+  
+      </div>
+
       <h2 class="guideTitle">Table (테이블 상단)</h2>
       <div class="guideBox guideBoxBlock">
         <!-- 기본형 (좌측: 타이틀 & 건수 / 우측: 버튼 그룹) -->
@@ -1262,8 +1500,6 @@
         <th>헤더1</th>
         <th>헤더2</th>
         <th>헤더3</th>
-        <th>헤더4</th>
-        <th>헤더5</th>
       </tr>
     </thead>
     <tbody>
@@ -1271,37 +1507,16 @@
         <td>내용1</td>
         <td>내용2</td>
         <td>내용3</td>
-        <td><span class="badge ongoing">진행중</span></td>
-        <td>
-          <div class="btnGroup">
-            <button type="button" class="btn outline sm">수정</button>
-            <button type="button" class="btn outline sm">삭제</button>
-          </div>
-        </td>
       </tr>
       <tr>
         <td>내용1</td>
         <td>내용2</td>
         <td>내용3</td>
-        <td><span class="badge completed">완료</span></td>
-        <td>
-          <div class="btnGroup">
-            <button type="button" class="btn outline sm">수정</button>
-            <button type="button" class="btn outline sm">삭제</button>
-          </div>
-        </td>
       </tr>
       <tr>
         <td>내용1</td>
         <td>내용2</td>
         <td>내용3</td>
-        <td><span class="badge ongoing">진행중</span></td>
-        <td>
-          <div class="btnGroup">
-            <button type="button" class="btn outline sm">수정</button>
-            <button type="button" class="btn outline sm">삭제</button>
-          </div>
-        </td>
       </tr>
     </tbody>
   </table>
@@ -1348,7 +1563,10 @@
 </div>
 
       </div>
+
     </section>
+
+
 
     <!-- ==================== 타이틀 가이드 ==================== -->
     <section id="sectionTitle" class="guideSection">
@@ -1420,6 +1638,8 @@
 
       </div>
     </section>
+
+
 
     <!-- ==================== 타이포그래피 (폰트 사이즈) 가이드 ==================== -->
     <section id="sectionTypography" class="guideSection">
@@ -1542,6 +1762,8 @@
       </div>
     </section>
 
+
+
     <!-- ==================== 리스트 가이드 ==================== -->
     <section id="sectionLists" class="guideSection">
       <h2 class="guideTitle">Lists (세로 바 리스트 / 목록)</h2>
@@ -1593,13 +1815,13 @@
   ========================================================================== -->
 
 <!-- 세로형 바 리스트 (기본 & 강조) -->
-<!-- <ul class="listBarVertical">
+<ul class="listBarVertical">
   <li class="listBarItem">앞 리스트</li>
   <li class="listBarItem isPoint">앞 리스트(포인트)</li>
-</ul> -->
+</ul>
 
 <!-- 세로형 바 리스트 (타이틀 + 설명 조합) -->
-<!-- <ul class="listBarVertical">
+<ul class="listBarVertical">
   <li class="listBarItem">
     <strong class="title">타이틀</strong>
     <span class="desc">설명입니다.</span>
@@ -1608,25 +1830,17 @@
     <strong class="title">타이틀</strong>
     <span class="desc">설명입니다.</span>
   </li>
-</ul> -->
+</ul>
 
-<!-- 세로형 바 리스트 (박스/알림형) -->
-<!-- <ul class="listBarVertical boxType">
-  <li class="listBarItem">
-    <strong class="title">타이틀</strong>
-    <span class="desc">설명입니다.</span>
-  </li>
-  <li class="listBarItem isPoint">
-    <strong class="title">타이틀</strong>
-    <span class="desc">설명입니다.</span>
-  </li>
-</ul> -->
 
       </div>
     </section>
 
+
+
     <!-- ==================== 기타 가이드 ==================== -->
     <section id="sectionEtc" class="guideSection">
+      
       <h2 class="guideTitle">Breadcrumb (브레드크럼)</h2>
       <div class="guideBox guideBoxBlock">
         <!-- Breadcrumb (Default) -->
@@ -1645,7 +1859,7 @@
 </nav>
       </div>
 
-       <h2 class="guideTitle">Progress Bar (진행바)</h2>
+      <h2 class="guideTitle">Progress Bar (진행바)</h2>
       <div class="guideBox guideBoxBlock">
         <div class="barPercent">
   <div class="barPercentTrack">
@@ -1655,117 +1869,9 @@
 </div>
       </div>
 
-      <h2 class="guideTitle">Summary Info Box (테이블 상단 3개 요약 정보 박스)</h2>
+      <h2 class="guideTitle">Summary Info Box</h2>
       <div class="guideBox guideBoxBlock">
         
-<!-- ==========================================================================
-  0. 조회 컨트롤 박스 (3줄 검색 박스 + 하단 초기화/조회 버튼)
-  ========================================================================== -->
-<div class="searchBox">
-  <table class="searchTable">
-    <colgroup>
-      <col style="width: 100px;">
-      <col>
-      <col style="width: 100px;">
-      <col>
-    </colgroup>
-    <tbody>
-      <!-- 1줄: 조회일자 -->
-      <tr>
-        <th><span class="formLabel">조회일자</span></th>
-        <td colspan="3">
-          <div class="formRow">
-            <fieldset class="formDateRange">
-              <legend class="srOnly">조회기간 설정</legend>
-              <div class="formDatepicker">
-                <input type="text" class="formControl" value="2026.07.01" title="조회 시작일">
-                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-              </div>
-              <span class="dateSeparator">~</span>
-              <div class="formDatepicker">
-                <input type="text" class="formControl" value="2026.08.31" title="조회 종료일">
-                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-              </div>
-            </fieldset>
-            <div class="btnGroup">
-              <button type="button" class="btn light">오늘</button>
-              <button type="button" class="btn light">1주일</button>
-              <button type="button" class="btn light isActive">1개월</button>
-              <button type="button" class="btn light">3개월</button>
-              <button type="button" class="btn light">전체</button>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <!-- 2줄: 유형 및 상태 -->
-      <tr>
-        <th><label class="formLabel" for="searchType">유형</label></th>
-        <td>
-          <div class="formRow">
-            <select id="searchType" class="formControl" style="width: 180px;">
-              <option value="">전체</option>
-              <option value="1">OX퀴즈</option>
-              <option value="2">출석체크</option>
-              <option value="3">설문조사</option>
-              <option value="4">챌린지</option>
-            </select>
-          </div>
-        </td>
-        <th><span class="formLabel">상태</span></th>
-        <td>
-          <div class="formRow">
-            <fieldset class="formCheckGroup">
-              <legend class="srOnly">상태 선택</legend>
-              <label class="formCheck">
-                <input type="radio" name="searchStatus" checked>
-                <span class="checkIcon"></span>
-                <span class="checkLabel">전체</span>
-              </label>
-              <label class="formCheck">
-                <input type="radio" name="searchStatus">
-                <span class="checkIcon"></span>
-                <span class="checkLabel">운영중</span>
-              </label>
-              <label class="formCheck">
-                <input type="radio" name="searchStatus">
-                <span class="checkIcon"></span>
-                <span class="checkLabel">일시중단</span>
-              </label>
-              <label class="formCheck">
-                <input type="radio" name="searchStatus">
-                <span class="checkIcon"></span>
-                <span class="checkLabel">종료</span>
-              </label>
-            </fieldset>
-          </div>
-        </td>
-      </tr>
-      <!-- 3줄: 검색어 -->
-      <tr>
-        <th><label class="formLabel" for="searchKeyword">검색어</label></th>
-        <td colspan="3">
-          <div class="formRow">
-            <select class="formControl" style="width: 140px;">
-              <option value="all">전체</option>
-              <option value="title">미션명</option>
-              <option value="id">미션ID</option>
-              <option value="author">등록자</option>
-            </select>
-            <div class="formControlWrap" style="width: 320px;">
-              <input type="text" id="searchKeyword" class="formControl full" placeholder="검색어를 입력해주세요">
-            </div>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- 박스 하단 초기화 / 조회 버튼 -->
-  <div class="searchBtnArea">
-    <button type="button" class="btn outline">초기화</button>
-    <button type="button" class="btn dark">조회</button>
-  </div>
-</div>
 
 <!-- ==========================================================================
   1. 테이블 상단 3개 요약 정보 박스 (고객정보 / 포인트·쿠폰 / 룰렛 참여권)
@@ -2059,100 +2165,12 @@
   </div>
 </div>
 
-<div class="tagBox">
-  <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-  <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-  <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-  <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-</div>
-
-
-<p class="formGuideText blue">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</p>
-
-
-
 
       </div>
+
       
-       <h2 class="guideTitle">MDI Tab Bar (MDI 탭 바)</h2>
-      <div class="guideBox guideBoxBlock">
-        <!-- ==========================================================================
-  MDI 탭 바 (MDI Tab Bar: 좌측 홈 고정 노출 / 최대 7개 탭 / 우측 전체닫기 아이콘)
-  ========================================================================== -->
-<div class="mdiTabWrap">
-  <!-- 좌측 홈 화면 탭 (항상 고정 노출, 닫기 버튼 없음) -->
-  <button type="button" class="mdiTabItem isHome" title="홈 화면">
-    <span class="tabIcon">
-      <span class="ico mdiTabHome"></span>
-    </span>
-  </button>
-
-  <ul class="mdiTabList">
-    <!-- 활성화 탭: isActive -->
-    <li>
-      <div class="mdiTabItem isActive">
-        <span class="tabText">미션등록</span>
-        <button type="button" class="tabClose" aria-label="미션등록 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 2 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">미션관리</span>
-        <button type="button" class="tabClose" aria-label="미션관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 3 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">챌린지 운영 현황</span>
-        <button type="button" class="tabClose" aria-label="챌린지 운영 현황 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 4 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">회원 및 계좌조회</span>
-        <button type="button" class="tabClose" aria-label="회원 및 계좌조회 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 5 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">포인트/리워드 관리</span>
-        <button type="button" class="tabClose" aria-label="포인트/리워드 관리 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 6 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">통계 및 성과 분석</span>
-        <button type="button" class="tabClose" aria-label="통계 및 성과 분석 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-
-    <!-- 페이지 탭 7 -->
-    <li>
-      <div class="mdiTabItem">
-        <span class="tabText">공통 시스템 설정</span>
-        <button type="button" class="tabClose" aria-label="공통 시스템 설정 탭 닫기"><span class="ico sm mdiTabClose"></span></button>
-      </div>
-    </li>
-  </ul>
-
-  <!-- 우측 전체 닫기 버튼 -->
-  <div class="mdiTabActions">
-    <button type="button" class="btnAllClose" title="전체 탭 닫기" aria-label="전체 탭 닫기">
-      <span class="ico sm mdiTabClose"></span>
-    </button>
-  </div>
-</div>
-      </div>
+      
+      
     </section>
 
   </div>

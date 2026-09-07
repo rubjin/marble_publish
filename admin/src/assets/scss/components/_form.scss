@@ -99,57 +99,57 @@
 }
 
 // Input Group (input + addon)
-.inputGroup {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  border: 1px solid $border-default;
-  border-radius: $form-radius;
-  background-color: $bg-white;
-  transition: all 0.2s ease-in-out;
-  overflow: hidden;
+// .inputGroup {
+//   display: flex;
+//   align-items: center;
+//   width: 100%;
+//   border: 1px solid $border-default;
+//   border-radius: $form-radius;
+//   background-color: $bg-white;
+//   transition: all 0.2s ease-in-out;
+//   overflow: hidden;
 
-  &:focus-within {
-    border-color: $color-blue-500;
-    box-shadow: 0 0 0 3px $ring-primary;
-  }
+//   &:focus-within {
+//     border-color: $color-blue-500;
+//     box-shadow: 0 0 0 3px $ring-primary;
+//   }
 
-  &.isError {
-    border-color: $text-danger;
+//   &.isError {
+//     border-color: $text-danger;
 
-    &:focus-within {
-      box-shadow: 0 0 0 3px $ring-danger;
-    }
-  }
+//     &:focus-within {
+//       box-shadow: 0 0 0 3px $ring-danger;
+//     }
+//   }
 
-  .inputAddon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 12px;
-    height: $form-height-sm;
-    font-size: 13px;
-    font-weight: $font-weight-medium;
-    color: $text-secondary;
-    background-color: $bg-light;
-    flex-shrink: 0;
+//   .inputAddon {
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//     padding: 0 12px;
+//     height: $form-height-sm;
+//     font-size: 13px;
+//     font-weight: $font-weight-medium;
+//     color: $text-secondary;
+//     background-color: $bg-light;
+//     flex-shrink: 0;
 
-    &.prefix {
-      border-right: 1px solid $border-default;
-    }
+//     &.prefix {
+//       border-right: 1px solid $border-default;
+//     }
 
-    &.suffix {
-      border-left: 1px solid $border-default;
-    }
-  }
+//     &.suffix {
+//       border-left: 1px solid $border-default;
+//     }
+//   }
 
-  .formControl {
-    border: none;
-    border-radius: 0;
-    box-shadow: none !important;
-    height: $form-height-sm;
-  }
-}
+//   .formControl {
+//     border: none;
+//     border-radius: 0;
+//     box-shadow: none !important;
+//     height: $form-height-sm;
+//   }
+// }
 fieldset {
   min-width: 0;
   margin: 0;
