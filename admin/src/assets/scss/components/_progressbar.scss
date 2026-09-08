@@ -1,0 +1,24 @@
+﻿.barPercent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.barPercentTrack {
+  flex: 1;
+  height: 8px;
+  overflow: hidden;
+  background: $color-gray-100;
+  border-radius: 999px;
+}
+
+.barPercentFill {
+  height: 100%;
+  background: $color-yellow-500;
+  border-radius: inherit;
+}
+
+
+
+

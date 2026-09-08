@@ -1,0 +1,34 @@
+<!-- 
+  [D] 세그먼트 컴포넌트 개발 가이드
+  - 버튼 방식: 선택된 항목에 'isActive' 클래스 추가
+  - 라디오 방식: input에 'checked' 속성 제어
+  - 비활성화: 'isDisabled' 클래스 또는 disabled 속성 추가
+  - 사이즈: 기본(MD), 'sm'(작은 크기), 'lg'(큰 크기), 'full'(가로 100% 꽉 채움)
+-->
+
+<!-- 버튼 방식 (선택 상태: isActive) -->
+<!-- Small, Large -> sm, lg -->
+<div class="segment">
+  <!-- [D] 선택된 항목: isActive 클래스 추가 -->
+  <button type="button" class="segmentItem isActive">일별 (DAU)</button>
+  <button type="button" class="segmentItem">월별 (MAU)</button>
+  <button type="button" class="segmentItem">서비스 고척도</button>
+</div>
+
+<!-- 라디오 방식 (선택 상태: input checked) -->
+<div class="segment">
+  <!-- [D] 선택된 항목: input checked 속성 제어 -->
+  <label class="segmentItem">
+    <input type="radio" name="missionState" checked>
+    <span class="segmentText">일별 (DAU)</span>
+  </label>
+  <label class="segmentItem">
+    <input type="radio" name="missionState">
+    <span class="segmentText">월별 (MAU)</span>
+  </label>
+  <label class="segmentItem">
+    <input type="radio" name="missionState">
+    <span class="segmentText">서비스 고척도</span>
+  </label>
+</div>
+

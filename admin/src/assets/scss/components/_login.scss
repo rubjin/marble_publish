@@ -1,0 +1,243 @@
+/* ==========================================================================
+   Login Component
+   ========================================================================== */
+
+.loginBody {
+  background-color: #2e3441;
+  overflow: auto;
+}
+
+.loginPage {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-color: #2e3441;
+  padding: 40px 24px;
+  box-sizing: border-box;
+}
+
+.loginContainer {
+  width: 100%;
+  max-width: 360px;
+}
+
+.loginInner {
+  border: 2px solid $border-default;
+  border-radius: 20px;
+  padding: 24px; 
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.loginHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 32px;
+
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    line-height: 1;
+  }
+
+}
+
+.loginTitle {
+  font-size: 20px;
+  font-weight: $font-weight-bold;
+  color: #ffffff;
+  margin: 0;
+}
+.loginForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 24px;
+  .formGroup {
+    margin-bottom: 12px;
+    width: 100%;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .loginInput {
+    width: 100%;
+    height: $form-height-xl;
+    padding: 0 16px;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    color: $text-primary;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+
+    &:focus {
+      border-color: $color-blue-500;
+      box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.25);
+    }
+  }
+
+  .loginCheckWrap {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .loginCheck {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .checkIcon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+
+      &::after {
+        content: '';
+        display: none;
+        width: 8px;
+        height: 8px;
+        background-color: #2e3441;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      }
+    }
+
+    input:checked + .checkIcon {
+      background-color: #ffffff;
+      border-color: #ffffff;
+
+      &::after {
+        display: block;
+      }
+    }
+
+    .checkLabel {
+      font-size: 13px;
+      color: #ffffff;
+      font-weight: $font-weight-regular;
+    }
+  }
+
+  .loginBtn {
+    width: 100%;
+    height: $btn-height-xl;
+    background-color: #ffc72b;
+    color: #1f2937;
+    font-size: 15px;
+    font-weight: $font-weight-bold;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #ffdc00;
+    }
+
+    &:active {
+      background-color: #e5b300;
+    }
+  }
+}
+
+.loginLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+  .loginLink {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+
+  .bar {
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 0 12px;
+  }
+}
+
+.loginGuide {
+  width: 100%;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  .guideList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .guideItem {
+      position: relative;
+      padding-left: 12px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.55);
+      word-break: keep-all;
+
+      &::before {
+        content: '※';
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      + .guideItem {
+        margin-top: 4px;
+      }
+    }
+  }
+}

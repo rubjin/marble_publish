@@ -1,0 +1,87 @@
+﻿/* ==========================================================================
+   Segment Component
+   ========================================================================== */
+
+.segment {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  background-color: $color-gray-50;
+  border-radius: 6px;
+  user-select: none;
+  gap: 4px;
+
+  .segmentItem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    padding: 0px 12px;
+    font-size: 12px;
+    font-weight: $font-weight-medium;
+    color: $color-gray-500;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    position: relative;
+    line-height: 1;
+
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .segmentText {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover {
+      color: $color-gray-800;
+    }
+
+    // Active (Button & Radio)
+    &.isActive,
+    &:has(input[type="radio"]:checked) {
+      color: $color-white;
+      background: $bg-dark;
+      font-weight: $font-weight-bold;
+    }
+
+    &:disabled,
+    &.isDisabled,
+    &:has(input[type="radio"]:disabled) {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  // Size Variants
+  // &.sm {
+  // }
+
+  // &.lg {
+  // }
+
+  // Full Width
+  // &.full {
+  //   display: flex;
+  //   width: 100%;
+
+  //   .segmentItem {
+  //     flex: 1;
+  //   }
+  // }
+}
+
+
+
+
+

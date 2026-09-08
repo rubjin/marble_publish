@@ -1,0 +1,215 @@
+.tabWrap {
+  margin-bottom: 20px;
+}
+
+.tab {
+  display: flex;
+  border-bottom: 1px solid $bg-dark;
+  font-size: 15px;
+  gap: 4px;
+
+  .item {
+    min-width: 160px;
+    padding: 12px 20px;
+    font-weight: $font-weight-medium;
+    color: $text-white;
+    position: relative;
+    background: $bg-white;
+    // background: $color-gray-200;
+    border: 1px solid $color-gray-200;
+    border-bottom: none;
+    color: $text-primary;
+    border-radius: 6px 6px 0 0;
+    // border: none;
+    cursor: pointer;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $text-highlight;
+    }
+
+    &.isActive {
+      background: $bg-dark;
+       color: $text-white;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+/* ==========================================================================
+   MDI (Multi Document Interface) Tab Bar
+   ========================================================================== */
+.mdiTabWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-white;
+  border: 1px solid $border-light;
+  border-radius: 8px;
+  padding: 6px 12px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  gap: 12px;
+
+  .mdiTabList {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    overflow-x: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-gray-200;
+      border-radius: 4px;
+    }
+  }
+
+  .mdiTabItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 160px;
+    height: 32px;
+    padding: 0 12px;
+    background-color: $bg-light;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    flex-shrink: 0;
+
+    &:hover {
+      background-color: $bg-disabled;
+      color: $color-gray-900;
+    }
+
+    // 홈 고정 탭 (항상 노출)
+    &.isHome {
+      padding: 0 10px;
+      color: $color-gray-600;
+      background-color: $bg-light;
+
+      .tabIcon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        color: inherit;
+      }
+
+      &.isActive {
+        background-color: $color-white;
+        border-color: $border-default;
+        color: $color-gray-900;
+        font-weight: $font-weight-bold;
+        box-shadow: $shadow-sm;
+      }
+    }
+
+    // 활성화된 탭
+    &.isActive {
+      background-color: $color-white;
+      border-color: $border-default;
+      color: $color-gray-900;
+      font-weight: $font-weight-bold;
+      box-shadow: $shadow-sm;
+
+      .tabClose {
+        opacity: 0.8;
+      }
+    }
+
+    .tabText {
+      max-width: 130px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    // 개별 탭 닫기 버튼
+    .tabClose {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      margin-left: 2px;
+      border: none;
+      background: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 0;
+      color: $text-tertiary;
+      opacity: 0.6;
+      transition: all 0.15s ease;
+
+      &:hover {
+        // opacity: 1;
+        // background-color: rgba(0, 0, 0, 0.08);
+        // color: $color-gray-900;
+      }
+
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  // 우측 액션 영역 (전체닫기 아이콘 버튼)
+  .mdiTabActions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+
+    .btnAllClose {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background-color: $color-gray-50;
+      border: 1px solid $border-default;
+      border-radius: 6px;
+      cursor: pointer;
+      color: $color-gray-600;
+      padding: 0;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background-color: $bg-disabled;
+        color: $color-gray-900;
+        border-color: $color-gray-400;
+      }
+
+      // .icoAllClose {
+      //   display: inline-flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   width: 16px;
+      //   height: 16px;
+      // }
+    }
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+// =========================================================
+// main.scss - 컴파일 진입점
+// 컴파일 결과: src/assets/styles/css/index.css (1개 파일)
+// 각 폴더에 파일이 생기면 아래 @use 목록에 추가하세요.
+// =========================================================
+
+// @use 'abstracts';
+// @use 'base/reset';
+// @use 'base/typography';
+@use 'layout/header';
+// @use 'layout/footer';
+// @use 'components/btn';
+// @use 'components/tab';
+// @use 'components/modal';
+// @use 'service/product';
+// @use 'service/service';
+// @use 'service/offering';

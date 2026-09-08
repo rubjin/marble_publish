@@ -1,0 +1,44 @@
+<!-- 
+  [D] 폼 컴포넌트 개발 가이드
+  - 기본 구조: 단독/세로 폼은 <div class="formGroup">으로 감싸 일관된 간격(margin-bottom)을 유지합니다.
+  - 에러 상태: input/select/textarea에 'isError' 클래스 추가 & <p class="formErrorMsg">를 formControlWrap 하단에 배치
+  - 비활성화 상태: input에 'disabled' 속성 추가
+  - 읽기전용 상태: input에 'readonly' 속성 추가
+  - 단위(Unit): 우측 단위 '.formControlWrap.hasUnit', 좌측 단위 '.formControlWrap.hasPrefix'
+  - 버튼 결합: '.formControlWrap.hasBtn'
+  - 셀렉트 열림/포커스: select에 'isOpen' 클래스 추가 시 상단 화살표로 반전
+-->
+
+<!-- 1. Text Input (기본) -->
+<div class="formGroup">
+  <label class="formLabel">텍스트 입력 <span class="required">*</span></label>
+  <div class="formControlWrap full">
+    <input type="text" class="formControl" placeholder="내용을 입력해주세요">
+  </div>
+</div>
+
+<!-- 2. Text Input (에러 상태: isError + .formErrorMsg) -->
+<div class="formGroup">
+  <label class="formLabel">폼 타이틀 <span class="required">*</span></label>
+  <div class="formControlWrap full">
+    <!-- [D] 에러 상태: isError 클래스 추가 -->
+    <input type="email" class="formControl isError" placeholder="placeholder" value="value">
+  </div>
+  <p class="formErrorMsg">유효하지 않은 형식입니다.</p>
+</div>
+
+<!-- 3. Text Input (읽기 전용: readonly) -->
+<div class="formGroup">
+  <label class="formLabel">폼 타이틀 (읽기 전용)</label>
+  <div class="formControlWrap full">
+    <input type="text" class="formControl" value="readonly" readonly>
+  </div>
+</div>
+
+<!-- 4. Textarea (멀티라인 입력) -->
+<div class="formGroup">
+  <label class="formLabel">상세 내용</label>
+  <div class="formControlWrap full">
+    <textarea class="formControl" placeholder="상세 내용을 입력해주세요 (최대 1000자)"></textarea>
+  </div>
+</div>

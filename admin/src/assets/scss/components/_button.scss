@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Button Component
+   ========================================================================== */
+@mixin btnSm { 
+  min-width: 46px; height: $btn-height-sm; padding: 0px $btn-padding-x-sm; font-size: $btn-font-size-sm;
+  .ico { width: 16px; height: 16px; }
+}
+@mixin btnLg { 
+  min-width: 100px; height: $btn-height-lg; padding: 0px $btn-padding-x-lg; font-size: $btn-font-size-lg;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  min-width: 90px; height: $btn-height-md; background-color: $color-transparent; 
+  padding: 0px $btn-padding-x-md; border-radius: $btn-radius; font-weight: $font-weight-medium; font-size: $btn-font-size-md;
+  outline: none; border: none; cursor: pointer; user-select: none; line-height: 1; text-decoration: none;
+  transition: background-color 0.2s;
+  &.primary {
+    background-color: $bg-primary; color: $text-primary;
+    &:hover { background-color: $color-yellow-400; }
+  }
+  &.outline {
+    border: 1px solid $border-default; background-color: $bg-white; color: $color-gray-700;
+    &:hover { background-color: $color-gray-50; border-color: $border-hover; }
+  }
+  &.light {
+    border: 1px solid $border-default; background-color: $bg-light; color: $text-primary;
+    &:hover { background-color: $color-gray-200; }
+    &.isActive {
+      background-color: $bg-dark; color: $text-inverse; border-color: $border-active;
+    }
+  }
+  &.secondary {
+    border: 1px solid $border-light; background-color: $bg-light; color: $text-primary;
+    &:hover { background-color: $color-gray-200; }
+    &.isActive {
+      background-color: $bg-dark; color: $text-inverse; border-color: $border-active;
+    }
+  }
+  &.dark {
+    background-color: $bg-dark; color: $text-inverse;
+    &:hover { background-color: $color-gray-500; }
+  }
+  &.danger {
+    border: 1px solid $border-danger; color: $text-danger;
+    &:hover { background-color: $bg-danger-light; }
+  }
+  &.ghost {
+    background-color: $color-transparent;
+    &:hover { background-color: $color-gray-100; }
+  }
+ 
+  &.sm { @include btnSm;}
+  &.lg { @include btnLg; }
+  &.full { width: 100%;}
+  &:disabled, &.isDisabled {
+    opacity: 0.5; cursor: not-allowed; pointer-events: none;
+  }
+  // Icon Button
+  .ico {
+    flex-shrink: 0;
+  }
+}
+
+// 페이지 하단 버튼
+.pageBottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  .btn { @include btnLg; }
+}
+
+// 버튼 그룹
+.btnGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  &.sm {
+    gap: 4px;
+    .btn {
+      @include btnSm;
+    }
+  }
+  &.lg {
+    gap: 6px;
+    .btn {
+      @include btnLg;
+    }
+  }
+}
+.btnGroupRight {
+  margin-left: auto;
+}
+
+
+
+

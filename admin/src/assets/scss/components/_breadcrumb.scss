@@ -1,0 +1,58 @@
+﻿/* ==========================================================================
+   Breadcrumb Component
+   ========================================================================== */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+}
+
+.breadcrumbItem {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  color: $color-gray-500;
+
+  &:not(:last-child)::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: iconUrl('breadcrumb_24.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .breadcrumbLink {
+    color: $color-gray-500;
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $text-highlight;
+      text-decoration: underline;
+    }
+  }
+
+  &.isCurrent,
+  &[aria-current="page"] {
+    color: $color-gray-900;
+    font-weight: $font-weight-medium;
+  }
+}
+
+
+
+
+

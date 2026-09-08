@@ -1,0 +1,792 @@
+/* ==========================================================================
+   Form Component
+   ========================================================================== */
+
+.formGroup {
+  margin-bottom: 24px;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.formLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+  margin-bottom: 8px;
+  
+  .required {
+    color: $text-danger;
+    margin-left: 4px;
+  }
+}
+
+.formControlWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  &.col {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .formGuideText {
+    margin-left: 8px;
+  }
+
+  &.full {
+    width: 100%;
+    .formControl {
+      width: 100%;
+    }
+  }
+
+
+  &.hasBtn {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    
+    .formControl {
+      flex: 1;
+    }
+    
+    .btn {
+      flex-shrink: 0;
+      height: $form-height; /* input과 높이 맞춤 */
+      margin: 0; /* md 버튼의 여백 등에 대비 */
+    }
+  }
+
+  // 좌측/우측 단위 (내부 텍스트형)
+  .inputPrefix,
+  .inputUnit {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: $text-secondary;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .inputPrefix {
+    left: 12px;
+  }
+
+  .inputUnit {
+    right: 12px;
+  }
+
+  &.hasPrefix .formControl {
+    padding-left: 36px;
+  }
+
+  &.hasUnit .formControl {
+    padding-right: 36px;
+    text-align: right;
+  }
+
+  &.hasPrefix.hasUnit .formControl {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+
+// Input Group (input + addon)
+// .inputGroup {
+//   display: flex;
+//   align-items: center;
+//   width: 100%;
+//   border: 1px solid $border-default;
+//   border-radius: $form-radius;
+//   background-color: $bg-white;
+//   transition: all 0.2s ease-in-out;
+//   overflow: hidden;
+
+//   &:focus-within {
+//     border-color: $color-blue-500;
+//     box-shadow: 0 0 0 3px $ring-primary;
+//   }
+
+//   &.isError {
+//     border-color: $text-danger;
+
+//     &:focus-within {
+//       box-shadow: 0 0 0 3px $ring-danger;
+//     }
+//   }
+
+//   .inputAddon {
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//     padding: 0 12px;
+//     height: $form-height-sm;
+//     font-size: 13px;
+//     font-weight: $font-weight-medium;
+//     color: $text-secondary;
+//     background-color: $bg-light;
+//     flex-shrink: 0;
+
+//     &.prefix {
+//       border-right: 1px solid $border-default;
+//     }
+
+//     &.suffix {
+//       border-left: 1px solid $border-default;
+//     }
+//   }
+
+//   .formControl {
+//     border: none;
+//     border-radius: 0;
+//     box-shadow: none !important;
+//     height: $form-height-sm;
+//   }
+// }
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.formControl {
+  width: 200px;
+  height: $form-height;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: $text-primary;
+  background-color: $bg-white;
+  border: 1px solid $border-default;
+  border-radius: $form-radius;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  font-family: inherit;
+  &.wSm {
+    width: 120px;
+  }
+  &::placeholder {
+    color: $text-tertiary;
+  }
+
+  &:hover {
+    border-color: $text-tertiary;
+  }
+
+  &:focus {
+    border-color: $color-blue-500;
+    box-shadow: 0 0 0 3px $ring-primary;
+  }
+
+  &[readonly],
+  &:disabled,
+  &.isDisabled {
+    background-color: $bg-disabled;
+    color: $text-tertiary;
+    border-color: $border-disabled;
+    cursor: not-allowed;
+  }
+
+  &.isError {
+    border-color: $text-danger;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px $ring-danger;
+    }
+  }
+
+  &.full {
+    width: 100%;
+  }
+}
+
+textarea.formControl {
+  height: auto;
+  min-height: 80px;
+  padding: 12px;
+  resize: vertical;
+  resize: none; /* 필요시 제거 */
+}
+
+select.formControl {
+  appearance: none;
+  background-image: iconUrl('select_20.svg');
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding-right: 40px;
+  @include text-ellipsis;
+  &.wAuto { width: auto; }
+  &:focus,
+  &.isOpen {
+    
+  }
+}
+
+.formErrorMsg {
+  display: block;
+  font-size: 13px;
+  color: $text-danger;
+  margin-top: 6px;
+}
+
+/* Checkbox & Radio */
+.formCheckGroup {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.formCheck {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .checkIcon {
+    width: 24px;
+    height: 24px;
+    border: 1px solid $color-gray-300;
+    background-color: $bg-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    transition: all 0.2s;
+
+    &::after {
+      content: '';
+      display: none;
+    }
+  }
+
+  input[type="checkbox"] + .checkIcon {
+    border-radius: 4px;
+    
+    &::after {
+      width: 10px;
+      height: 10px;
+      background-color: $bg-white;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
+  }
+
+  input[type="radio"] + .checkIcon {
+    border-radius: 50%;
+
+    &::after {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $bg-white;
+    }
+  }
+
+  input:checked + .checkIcon {
+    background-color: $text-highlight;
+    border-color: $text-highlight;
+
+    &::after {
+      display: block;
+    }
+  }
+
+  input:disabled + .checkIcon {
+    background-color: $bg-light;
+    border-color: $border-light;
+    cursor: not-allowed;
+  }
+
+  input:checked:disabled + .checkIcon {
+    background-color: $color-gray-300;
+    border-color: $color-gray-300;
+  }
+
+  .checkLabel {
+    font-size: 14px;
+    color: $text-primary;
+    font-weight: $font-weight-medium;
+  }
+
+  input:disabled ~ .checkLabel {
+    color: $text-tertiary;
+    cursor: not-allowed;
+  }
+}
+
+/* Datepicker & Date Range */
+.formDatepicker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  .formControl {
+    padding-right: 36px;
+    width: 140px;
+  }
+
+  .btnCalendar {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: transparent iconUrl('i_calendar_16.svg') no-repeat center / contain;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.formDateRange {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  .dateSeparator {
+    color: $text-tertiary;
+    font-size: 14px;
+  }
+}
+
+/* Tag Chip */
+.tagBox {
+  border: 1px solid $border-default;
+  border-radius: $form-radius;
+  padding: 12px;
+  min-height: 80px;
+  background-color: $bg-white;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 6px;
+  width: 100%;
+}
+
+.tagChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 7px 7px 12px;
+  background-color: $color-gray-100;
+  border-radius: 100px;
+  font-size: 14px;
+  color: $color-gray-600;
+  line-height: 1;
+
+  .tagDelete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: iconUrl('i_tagDelete_20.svg');
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.15s;
+    // &:hover {
+    //   background-color: $text-secondary;
+    // }
+  }
+}
+
+/* Guide Text */
+.formGuideText {
+  font-size: 13px;
+  color: $text-tertiary;
+  font-weight: $font-weight-light;
+  &.blue {
+    color: $text-info;
+    margin-top: 8px;
+  }
+}
+
+/* Form Control Bottom Area (하단 안내문구 + 우측 버튼 등) */
+.formControlBottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+
+  .formGuideText {
+    margin-left: 0;
+  }
+
+  .btn {
+    flex-shrink: 0;
+  }
+  .right {
+    margin-left: auto;
+  }
+}
+
+
+/* Radio Button */
+.formRadioCardGroup {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.formRadioCard {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 240px;
+  padding: 20px 16px;
+  background-color: $bg-white;
+  border: 1px solid $border-default;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  user-select: none;
+
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .checkIcon {
+    width: 24px;
+    height: 24px;
+    border: 1px solid $color-gray-300;
+    border-radius: 50%;
+    background-color: $bg-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    transition: all 0.2s;
+
+    &::after {
+      content: '';
+      display: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $bg-white;
+    }
+  }
+
+  .cardContent {
+    flex: 1;
+
+    .cardTitle {
+      font-size: 15px;
+      font-weight: $font-weight-medium;
+      color: $text-highlight;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .cardDesc {
+      font-size: 13px;
+      font-weight: $font-weight-light;
+      color: $text-secondary;
+      line-height: 1.4;
+      margin: 0;
+    }
+  }
+
+  // 선택된 상태 (Checked / Active)
+  &:has(input:checked),
+  &.isActive {
+    background-color: $bg-card-active;
+    border-color: $border-card-active;
+
+    .checkIcon {
+      background-color: $text-highlight;
+      border-color: $text-highlight;
+
+      &::after {
+        display: block;
+      }
+    }
+  }
+
+  // 라이오 버튼 컴팩트
+  &.isCompact {
+    padding: 12px 20px;
+    align-items: center;
+
+    .checkIcon {
+      margin-top: 0;
+    }
+
+    .cardContent {
+      .cardTitle {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// .fileNameLink {
+//   color: $text-link;
+//   font-size: 13px;
+//   word-break: break-all;
+
+//   &:hover {
+//     text-decoration: underline;
+//   }
+// }
+/* File Upload Box */
+// .fileUploadBox {
+//   background-color: $bg-info-light;
+//   border-radius: $form-radius;
+//   padding: 16px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   margin-bottom: 10px;
+
+//   .fileNameLink {
+//     color: $text-info;
+    
+//   }
+
+//   .fileDelete {
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 18px;
+//     height: 18px;
+//     border-radius: 50%;
+//     background-color: $text-tertiary;
+//     color: $color-white;
+//     border: none;
+//     cursor: pointer;
+//     padding: 0;
+//     margin-left: 12px;
+//     flex-shrink: 0;
+//     transition: background-color 0.15s;
+
+//     &::before {
+//       content: 'X';
+//       font-size: 14px;
+//       line-height: 1;
+//       font-weight: $font-weight-bold;
+//       margin-top: -1px;
+//     }
+
+//     &:hover {
+//       background-color: $text-secondary;
+//     }
+//   }
+// }
+
+/* Step Course Card  */
+.stepCardList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.stepCard {
+  background-color: $color-gray-50;
+  border-radius: 8px;
+  padding: 16px 20px;
+
+  .stepHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid $color-gray-200;
+
+    .stepTitleWrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .stepHandle {
+        cursor: grab;
+        user-select: none;
+      }
+
+      .stepTitle {
+        width: 130px;
+        height: 30px;
+        background-color: #E7E9ED;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: $font-weight-medium;
+        color: $text-primary;
+        margin: 0;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+
+    .stepActions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+
+  .tbl {
+    tbody {
+      tr {
+        border-bottom: none;
+      }
+      th {
+        padding: 8px 10px 8px 0;
+      }
+      td {
+        padding: 8px 0;
+      }
+    }
+  }
+}
+
+/* Search / Filter Control Box (div 기반 및 table 호환) */
+.searchBox {
+  background-color: $color-gray-200;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: $shadow-xs;
+  width: 100%;
+  box-sizing: border-box;
+
+  .searchRow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    min-height: 40px;
+    padding: 6px 0;
+  }
+
+  .searchItem {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0%;
+    min-width: 280px;
+
+    &.full {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+  }
+
+  .searchLabel {
+    width: 100px;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: $font-weight-semibold;
+    color: $text-highlight;
+    line-height: 1.4;
+  }
+
+  .searchField {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .formRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .searchTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    th {
+      width: 100px;
+      padding: 8px 16px 8px 0;
+      font-size: 14px;
+      font-weight: $font-weight-semibold;
+      color: $text-highlight;
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 8px 16px 8px 0;
+      vertical-align: middle;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .formLabel {
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      color: $text-highlight;
+    }
+
+    .formRow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+  }
+
+  .searchBtnArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+
+    .btn {
+      min-width: 84px;
+      height: 38px;
+    }
+  }
+}
+
+
+
+
+
+
+

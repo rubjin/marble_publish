@@ -1,0 +1,195 @@
+﻿/* ==========================================================================
+   File Upload & Drag & Drop Component
+   ========================================================================== */
+
+// 기본 인풋형 첨부파일 (Button + Input)
+.fileUpload {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+
+  input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    opacity: 0;
+  }
+
+  .fileUploadInput {
+    flex: 1;
+    background-color: $color-white;
+    cursor: pointer;
+  }
+
+  .fileUploadBtn {
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+}
+
+// 2. 드래그 앤 드롭 첨부파일 (Dropzone)
+.fileDropzone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  background-color: $color-gray-50;
+  border: 2px dashed $color-gray-300;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+
+  .dropzoneHeader {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.15s;
+
+    input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .dropzoneText {
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      color: $text-tertiary;
+      margin-top: 10px;
+      .highlight {
+        color: $text-warning;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // 드롭존 내부의 파일 리스트
+  // .fileList {
+  //   position: relative;
+  //   z-index: 2;
+  //   list-style: none;
+  //   margin: 12px 0 0 0;
+  //   padding: 12px 0 0 0;
+  //   border-top: 1px dashed $color-gray-200;
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: 6px;
+  //   width: 100%;
+
+  //   &:empty {
+  //     display: none;
+  //     margin: 0;
+  //     padding: 0;
+  //     border-top: none;
+  //   }
+  // }
+
+  &:hover,
+  &.isDragOver {
+    background-color: $bg-warning-light;
+    border-color: $color-yellow-500;
+
+    background-color: $color-blue-100;
+    border-color: $color-blue-200;
+  }
+}
+
+// 첨부된 파일 리스트 (공통)
+.fileList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  &.boxType {
+    width: 100%;
+    padding: 10px 16px; 
+    border-radius: 6px;
+    background-color: $bg-info-light;
+    .fileItem .fileInfo {
+      flex: none;
+    }
+  }
+}
+
+.fileItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 0px;
+  font-size: 14px;
+
+  &:hover {
+    background-color: $color-gray-50;
+  }
+
+  .fileInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .fileIcon {
+    width: 16px;
+    height: 16px;
+    color: $text-secondary;
+    flex-shrink: 0;
+  }
+
+  .fileName {
+    color: $text-link;
+    font-weight: $font-weight-medium;
+    text-decoration: underline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .fileSize {
+    flex-shrink: 0;
+  }
+
+  .fileDelete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    color: $text-tertiary;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    border-radius: 4px;
+    transition: all 0.15s;
+
+    &:hover {
+      background-color: $bg-danger-light;
+      color: $text-danger;
+    }
+  }
+}
+
+
+
+
+

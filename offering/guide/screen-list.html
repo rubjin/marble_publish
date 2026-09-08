@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>화면리스트 | 오퍼링</title>
+<style>
+  :root {
+    --color-primary: #3461ff;
+    --color-primary-bg: #eef1ff;
+    --color-text: #16181d;
+    --color-sub: #8b8f9b;
+    --color-border: #eef0f4;
+    --page-bg: #f3f4f8;
+ 
+    --status-대기-bg: #eef0f4; --status-대기-text: #767b87;
+    --status-진행중-bg: #fff4d9; --status-진행중-text: #b8860a;
+    --status-완료-bg: #e4f8ec; --status-완료-text: #1a9d54;
+    --status-보류-bg: #ffe9e3; --status-보류-text: #e0562a;
+  }
+ 
+  * { box-sizing: border-box; }
+ 
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Malgun Gothic", sans-serif;
+    color: var(--color-text);
+    background: var(--page-bg);
+    font-size: 14px;
+    padding: 28px;
+  }
+ 
+  .card {
+    max-width: 1280px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 24px;
+    padding: 28px 28px 12px;
+    box-shadow: 0 1px 2px rgba(20, 20, 43, 0.04);
+  }
+ 
+  /* 헤더 영역 */
+  .page-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .page-head h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.3px;
+  }
+  .page-head h1 span {
+    color: var(--color-primary);
+  }
+  .page-head p {
+    margin: 0;
+    color: var(--color-sub);
+    font-size: 13px;
+  }
+ 
+  /* 툴바 (검색 + 필터 + 요약) */
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .toolbar input[type="text"] {
+    flex: 1;
+    min-width: 220px;
+    padding: 10px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 13px;
+    background: var(--page-bg);
+    outline: none;
+  }
+  .toolbar input[type="text"]:focus {
+    border-color: var(--color-primary);
+    background: #fff;
+  }
+  .toolbar select {
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 13px;
+    background: var(--page-bg);
+    color: var(--color-text);
+    outline: none;
+  }
+  .toolbar .count {
+    margin-left: auto;
+    color: var(--color-sub);
+    font-size: 13px;
+    white-space: nowrap;
+    padding: 0 4px;
+  }
+  .toolbar .count strong {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+ 
+  /* 테이블 */
+  .table-scroll {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 920px;
+  }
+  thead th {
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--color-sub);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 14px;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: #fafbff; }
+ 
+  .depth-cell {
+    color: #565a66;
+    font-size: 12.5px;
+    font-weight: 500;
+  }
+  .depth-cell.empty {
+    color: #d5d7de;
+  }
+ 
+  .screen-id {
+    color: var(--color-primary);
+    white-space: nowrap;
+  }
+ 
+  .screen-name a {
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .screen-name a:hover {
+    color: var(--color-primary);
+  }
+ 
+  .type-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #6a6e78;
+    white-space: nowrap;
+  }
+ 
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .status-대기   { background: var(--status-대기-bg);   color: var(--status-대기-text); }
+  .status-진행중 { background: var(--status-진행중-bg); color: var(--status-진행중-text); }
+  .status-완료   { background: var(--status-완료-bg);   color: var(--status-완료-text); }
+  .status-보류   { background: var(--status-보류-bg);   color: var(--status-보류-text); }
+ 
+  .worker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .worker-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .worker.empty { color: var(--color-sub); }
+ 
+  .issue {
+    color: #d94f36;
+    font-size: 12.5px;
+    max-width: 220px;
+    white-space: normal;
+    font-weight: 500;
+  }
+  .issue.empty {
+    color: #d5d7de;
+    font-weight: 400;
+  }
+ 
+  .empty-row td {
+    text-align: center;
+    padding: 48px 0;
+    color: var(--color-sub);
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="page-head">
+    <h1>오퍼링 퍼블리싱 화면리스트</h1>
+    <p>퍼블리싱 작업 현황 확인용 문서입니다. 데이터 수정은 screen-list-data.js 파일에서 합니다.</p>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" id="searchInput" placeholder="화면ID, 화면명으로 검색">
+    <select id="statusFilter">
+      <option value="">전체 상태</option>
+      <option value="대기">대기</option>
+      <option value="진행중">진행중</option>
+      <option value="완료">완료</option>
+      <option value="보류">보류</option>
+    </select>
+    <span class="count"><strong id="countNum">0</strong>개 화면</span>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:10%">1depth</th>
+          <th style="width:10%">2depth</th>
+          <th style="width:10%">3depth</th>
+          <th style="width:10%">4depth</th>
+          <th style="width:10%">화면ID</th>
+          <th style="width:15%">화면명</th>
+          <th style="width:8%">형태</th>
+          <th style="width:9%">작업상태</th>
+          <th style="width:8%">작업자</th>
+          <th>이슈</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- JS로 렌더링 -->
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="screen-list-data.js"></script>
+<script>
+  const $ = (sel) => document.querySelector(sel);
+  const tableBody = $('#tableBody');
+  const searchInput = $('#searchInput');
+  const statusFilter = $('#statusFilter');
+  const countNum = $('#countNum');
+
+  function renderDepthCell(value) {
+    return value
+      ? `<span class="depth-cell">${value}</span>`
+      : `<span class="depth-cell empty">-</span>`;
+  }
+
+  function renderRows() {
+    const keyword = searchInput.value.trim().toLowerCase();
+    const statusVal = statusFilter.value;
+
+    const filtered = screenListData.filter(row => {
+      const matchKeyword =
+        !keyword ||
+        row.screenId.toLowerCase().includes(keyword) ||
+        row.screenName.toLowerCase().includes(keyword);
+      const matchStatus = !statusVal || row.status === statusVal;
+      return matchKeyword && matchStatus;
+    });
+
+    countNum.textContent = filtered.length;
+
+    if (filtered.length === 0) {
+      tableBody.innerHTML = `<tr class="empty-row"><td colspan="10">조건에 맞는 화면이 없습니다.</td></tr>`;
+      return;
+    }
+
+    tableBody.innerHTML = filtered
+      .map(
+        (row) => `
+      <tr>
+        <td>${renderDepthCell(row.depth1)}</td>
+        <td>${renderDepthCell(row.depth2)}</td>
+        <td>${renderDepthCell(row.depth3)}</td>
+        <td>${renderDepthCell(row.depth4)}</td>
+        <td><span class="screen-id"><a href="../src/dist/${row.path}.html" target="_blank">${row.screenId}</a></span></td>
+        <td><span class="screen-name"><a href="../src/dist/${row.path}.html" target="_blank">${row.screenName}</a></span></td>
+        <td><span class="type-badge">${row.type}</span></td>
+        <td><span class="status-badge status-${row.status}">${row.status}</span></td>
+        <td><span class="worker">${row.worker || '-'}</span></td>
+        <td><span class="issue ${row.issue ? '' : 'empty'}">${row.issue || '-'}</span></td>
+      </tr>`
+      )
+      .join('');
+  }
+
+  searchInput.addEventListener('input', renderRows);
+  statusFilter.addEventListener('change', renderRows);
+
+  renderRows();
+</script>
+
+</body>
+</html>
