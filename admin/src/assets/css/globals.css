@@ -70,6 +70,45 @@ body {
   text-align: right !important;
 }
 
+.flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 기본 상단 정렬 */
+  width: 100%;
+  gap: 12px;
+}
+.flexBetween.alignCenter {
+  align-items: center;
+}
+.flexBetween.alignTop {
+  align-items: flex-start;
+}
+.flexBetween.alignBottom {
+  align-items: flex-end;
+}
+.flexBetween .btn {
+  flex-shrink: 0;
+}
+.flexBetween .right, .flexBetween .alignRight {
+  margin-left: auto;
+}
+
+.alignTop {
+  align-items: flex-start !important;
+}
+
+.alignCenter {
+  align-items: center !important;
+}
+
+.alignBottom {
+  align-items: flex-end !important;
+}
+
+.alignRight {
+  margin-left: auto !important;
+}
+
 .boWrap {
   width: 100%;
   height: 100vh;
@@ -2064,21 +2103,38 @@ select.formControl.wAuto {
   margin-top: 8px;
 }
 
-/* Form Control Bottom Area (하단 안내문구 + 우측 버튼 등) */
+/* Flex Between Area (안내문구 + 우측 버튼, 상단/하단 정렬 공통) */
+.flexBetween,
 .formControlBottom {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; /* 기본 상단 정렬 */
   justify-content: space-between;
   width: 100%;
   gap: 12px;
 }
+.flexBetween.alignCenter,
+.formControlBottom.alignCenter {
+  align-items: center;
+}
+.flexBetween.alignTop,
+.formControlBottom.alignTop {
+  align-items: flex-start;
+}
+.flexBetween.alignBottom,
+.formControlBottom.alignBottom {
+  align-items: flex-end;
+}
+.flexBetween .formGuideText,
 .formControlBottom .formGuideText {
   margin-left: 0;
 }
+.flexBetween .btn,
 .formControlBottom .btn {
   flex-shrink: 0;
 }
-.formControlBottom .right {
+.flexBetween .right, .flexBetween .alignRight,
+.formControlBottom .right,
+.formControlBottom .alignRight {
   margin-left: auto;
 }
 
@@ -3149,59 +3205,6 @@ select.formControl.wAuto {
 .tbl.tblView tbody td {
   padding: 14px 12px;
   color: #2F3034;
-}
-
-.accordion {
-  border: 1px solid #D5D7DE;
-  border-radius: 6px;
-  overflow: hidden;
-}
-.accordion + .accordion {
-  margin-top: -1px;
-}
-.accordion .accordionHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-  background-color: #FFFFFF;
-  cursor: pointer;
-  border: none;
-  width: 100%;
-  text-align: left;
-  font-size: 15px;
-  font-weight: 500;
-  color: #2F3034;
-  transition: background-color 0.2s;
-}
-.accordion .accordionHeader:hover {
-  background-color: #F3F5F6;
-}
-.accordion .accordionHeader .accordionArrow {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-  transition: transform 0.3s;
-  flex-shrink: 0;
-}
-.accordion .accordionHeader .accordionArrow svg {
-  width: 100%;
-  height: 100%;
-}
-.accordion .accordionBody {
-  display: none;
-  padding: 20px;
-  border-top: 1px solid #D5D7DE;
-  background-color: #FFFFFF;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #2F3034;
-}
-.accordion.isOpen .accordionHeader .accordionArrow {
-  transform: rotate(180deg);
-}
-.accordion.isOpen .accordionBody {
-  display: block;
 }
 
 .barPercent {

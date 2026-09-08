@@ -67,6 +67,48 @@ body {
 .textCenter { text-align: center !important; }
 .textRight { text-align: right !important; }
 
+// ==========================================================================
+// Common Flex & Alignment Utilities (공통 Flex 및 정렬 클래스)
+// ==========================================================================
+// 1. Flex Display
+.flex { display: flex !important; }
+.inlineFlex { display: inline-flex !important; }
+.flexCol { flex-direction: column !important; }
+.flexRow { flex-direction: row !important; }
+.flexWrap { flex-wrap: wrap !important; }
+
+// 2. Justify Content (좌우 / 가로 정렬)
+.justifyBetween { justify-content: space-between !important; }
+.justifyStart { justify-content: flex-start !important; }
+.justifyCenter { justify-content: center !important; }
+.justifyEnd { justify-content: flex-end !important; }
+
+// 3. Align Items (상하 / 세로 정렬)
+.alignTop, .alignStart { align-items: flex-start !important; }
+.alignCenter { align-items: center !important; }
+.alignBottom, .alignEnd { align-items: flex-end !important; }
+
+// 4. Auto Margins (요소 밀기)
+.alignRight, .right { margin-left: auto !important; }
+.alignLeft, .left { margin-right: auto !important; }
+
+// 5. Common Flex Between Container (양 끝 정렬 공통 컨테이너)
+.flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 기본 상단 정렬 */
+  width: 100%;
+  gap: 12px;
+
+  &.alignCenter { align-items: center; }
+  &.alignTop { align-items: flex-start; }
+  &.alignBottom { align-items: flex-end; }
+
+  .btn { flex-shrink: 0; }
+  .right, .alignRight { margin-left: auto; }
+}
+
+
 
 
 

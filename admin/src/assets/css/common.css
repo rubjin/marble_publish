@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -67,4 +68,43 @@ body {
 
 .textRight {
   text-align: right !important;
+}
+
+.flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 기본 상단 정렬 */
+  width: 100%;
+  gap: 12px;
+}
+.flexBetween.alignCenter {
+  align-items: center;
+}
+.flexBetween.alignTop {
+  align-items: flex-start;
+}
+.flexBetween.alignBottom {
+  align-items: flex-end;
+}
+.flexBetween .btn {
+  flex-shrink: 0;
+}
+.flexBetween .right, .flexBetween .alignRight {
+  margin-left: auto;
+}
+
+.alignTop {
+  align-items: flex-start !important;
+}
+
+.alignCenter {
+  align-items: center !important;
+}
+
+.alignBottom {
+  align-items: flex-end !important;
+}
+
+.alignRight {
+  margin-left: auto !important;
 }
