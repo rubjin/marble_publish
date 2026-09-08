@@ -1,21 +1,38 @@
 // Font
-@font-face {
-  font-family: 'KBFG Text';
-  src: fontUrl('KBFGTextLight.woff2') format('woff2');
-  font-weight: $font-weight-light;
-}
+// @font-face {
+//   font-family: 'KBFG Text';
+//   src: fontUrl('KBFGTextLight.woff2') format('woff2');
+//   font-weight: $font-weight-light;
+// }
 
-@font-face {
-  font-family: 'KBFG Text';
-  src: fontUrl('KBFGTextM.woff2') format('woff2');
-  font-weight: $font-weight-medium;
-}
+// @font-face {
+//   font-family: 'KBFG Text';
+//   src: fontUrl('KBFGTextM.woff2') format('woff2');
+//   font-weight: $font-weight-medium;
+// }
 
 // @font-face {
 //   font-family: 'KBFG Text';
 //   src: fontUrl('KBFGText-Bold.woff2') format('woff2');
 //   font-weight: $font-weight-bold;
 // }
+@font-face {
+  font-family: 'KBFG Text';
+  src: fontUrl('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff') format('woff2');
+  font-weight: $font-weight-light;
+}
+
+@font-face {
+  font-family: 'KBFG Text';
+  src: fontUrl('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Medium.woff') format('woff2');
+  font-weight: $font-weight-medium;
+}
+
+@font-face {
+  font-family: 'KBFG Text';
+  src: fontUrl('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff') format('woff2');
+  font-weight: $font-weight-bold;
+}
 
 // Common
 html, body {
@@ -25,7 +42,6 @@ html, body {
 
 body {
   font-family: $font-family-base;
-  // font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: $font-weight-light;
   line-height: 1.5;

@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "node build.js",
-    "sass:watch": "sass --watch src/assets/scss/globals.scss:src/assets/css/globals.css",
-    "sass:build": "sass src/assets/scss/globals.scss:src/assets/css/globals.css"
+    "sass:watch": "sass --watch src/assets/scss/common.scss:src/assets/css/common.css",
+    "sass:build": "sass src/assets/scss/common.scss:src/assets/css/common.css"
   },
   "keywords": [],
   "author": "",

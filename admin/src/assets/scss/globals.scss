@@ -1,31 +1,39 @@
-// Base
-@import 'base/variables';
-@import 'base/mixins';
-@import 'base/reset';
-@import 'base/common';
+// ==========================================================================
+// [All Components & Layout Bundle: globals.scss]
+// 퍼블리싱 가이드 및 전체 스타일 일괄 적용용
+// ==========================================================================
 
-// Components
-@import 'components/icon';
+// 1. Common Base (변수, 믹스인, 리셋, 전역 기본)
+@import 'common';
+
+// 2. Layout & Shell (Sidebar, Header, Layout)
 @import 'components/layout';
-@import 'components/button';
-@import 'components/badge';
-@import 'components/card';
-@import 'components/tab';
-@import 'components/form';
-@import 'components/searchbox';
-@import 'components/popup';
-@import 'components/accordion';
-@import 'components/table';
+@import 'components/icon';
 @import 'components/typography';
 @import 'components/breadcrumb';
+@import 'components/list';
+
+// 3. Actions & Navigation Controls
+@import 'components/button';
 @import 'components/segment';
 @import 'components/toggle';
+@import 'components/tab';
+
+// 4. Forms & Filters
+@import 'components/form';
+@import 'components/searchbox';
+@import 'components/fileupload';
+
+// 5. Data Display & Feedback Components
+@import 'components/badge';
+@import 'components/card';
+@import 'components/table';
+@import 'components/accordion';
+@import 'components/progressbar';
+@import 'components/popup';
 @import 'components/toast';
 @import 'components/tooltip';
-@import 'components/fileupload';
-@import 'components/list';
-@import 'components/progressbar';
+
+// 6. Standalone Pages
 @import 'components/login';
 @import 'components/error';
-
-

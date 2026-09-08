@@ -20,37 +20,32 @@
     boxes.forEach(function(box) {
       if (box.nextElementSibling && box.nextElementSibling.classList.contains('guideCodeWrap')) return;
       
-      var htmlCode = '';
-      // 레이아웃용 래퍼 클래스 제외 후 순수 컴포넌트 추출
-      var targets = Array.from(box.querySelectorAll('*:not(.guideSizeGroup):not(.guideSizeItem):not(.guideSizeLabel)'));
-
-      if (targets.length > 0) {
-        var filteredTargets = targets.filter(function(t) {
-          var parent = t.parentElement;
-          while (parent && parent !== box) {
-            var isWrapper = parent.matches('.guideSizeGroup, .guideSizeItem, .guideSizeLabel');
-            if (!isWrapper) return false;
-            parent = parent.parentElement;
-          }
-          return true;
-        });
-        
-        htmlCode = filteredTargets.map(function(t) { return t.outerHTML; }).join('\n');
-      } else {
-        htmlCode = box.innerHTML;
-      }
+      // 주석(Comment)을 포함한 원본 HTML 추출 및 가이드 래퍼 정리
+      var rawHtml = box.innerHTML;
+      var htmlCode = rawHtml
+        .replace(/<span class="guideSizeLabel"[^>]*>[\s\S]*?<\/span>/gi, '')
+        .replace(/<div class="guideSizeItem"[^>]*>([\s\S]*?)<\/div>/gi, '$1')
+        .replace(/<div class="guideSizeGroup"[^>]*>([\s\S]*?)<\/div>/gi, '$1');
       
       // 들여쓰기 및 줄바꿈 정리
       var lines = htmlCode.split('\n');
-      if (lines.length > 0 && lines[0].trim() === '') lines.shift();
-      if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
+      while (lines.length > 0 && lines[0].trim() === '') lines.shift();
+      while (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
       
       if (lines.length > 0) {
-        var match = lines[0].match(/^(\s+)/);
-        if (match) {
-          var indent = match[1];
-          var regex = new RegExp('^' + indent, 'gm');
-          htmlCode = lines.join('\n').replace(regex, '');
+        var minIndent = null;
+        lines.forEach(function(line) {
+          if (line.trim().length === 0) return;
+          var match = line.match(/^(\s+)/);
+          var indent = match ? match[1].length : 0;
+          if (minIndent === null || indent < minIndent) {
+            minIndent = indent;
+          }
+        });
+
+        if (minIndent && minIndent > 0) {
+          var regex = new RegExp('^\\s{' + minIndent + '}');
+          htmlCode = lines.map(function(l) { return l.replace(regex, ''); }).join('\n');
         } else {
           htmlCode = lines.join('\n');
         }

@@ -1,0 +1,19 @@
+// ==========================================================================
+// [Common Base Stylesheet: common.scss]
+// 개발(React)에서 전역 공통 기반(변수, 믹스인, 리셋, 전역 폰트/유틸리티)만 단독으로 import할 때 사용합니다.
+// Header, Sidebar 레이아웃 및 개별 UI 컴포넌트(button, popup 등)는 제외되어 있으며,
+// 각 컴포넌트/화면에서 필요 시 개별 import합니다.
+//
+// Usage:
+//   // App.tsx 또는 index.tsx
+//   import '@/assets/scss/common.scss';
+//
+//   // 개별 컴포넌트 사용 시
+//   import '@/assets/scss/components/_button.scss';
+//   import '@/assets/scss/components/_popup.scss';
+// ==========================================================================
+
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/reset';
+@import 'base/common';

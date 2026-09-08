@@ -38,7 +38,7 @@
 
     .kpiTitle {
       font-size: 13px;
-      font-weight: $font-weight-semibold;
+      font-weight: $font-weight-medium;
       color: $color-gray-600;
       margin: 0;
       white-space: nowrap;
@@ -62,7 +62,7 @@
 
         .unit {
           font-size: 14px;
-          font-weight: $font-weight-regular;
+          font-weight: $font-weight-medium;
           color: $color-gray-600;
           margin-left: 2px;
         }
@@ -75,7 +75,7 @@
         white-space: nowrap;
 
         .rate {
-          font-weight: $font-weight-semibold;
+          font-weight: $font-weight-medium;
 
           &.isUp {
             color: $text-danger;
@@ -153,13 +153,13 @@
 
       .label {
         color: $text-secondary;
-        font-weight: $font-weight-regular;
+        font-weight: $font-weight-medium;
         white-space: nowrap;
       }
 
       .value {
         color: $text-title;
-        font-weight: $font-weight-semibold;
+        font-weight: $font-weight-medium;
         text-align: right;
         white-space: nowrap;
 
@@ -176,7 +176,7 @@
 
         .danger {
           color: $text-danger;
-          font-weight: $font-weight-semibold;
+          font-weight: $font-weight-medium;
         }
       }
     }
@@ -275,13 +275,13 @@
 
       .unit {
         font-size: 14px;
-        font-weight: $font-weight-regular;
+        font-weight: $font-weight-medium;
         color: $color-gray-600;
       }
 
       .subText {
         font-size: 12px;
-        font-weight: $font-weight-regular;
+        font-weight: $font-weight-medium;
         color: $text-secondary;
       }
 
@@ -289,7 +289,7 @@
         display: inline-flex;
         align-items: center;
         font-size: 12px;
-        font-weight: $font-weight-semibold;
+        font-weight: $font-weight-medium;
         padding: 2px 6px;
         border-radius: 4px;
         margin-left: 4px;
@@ -367,14 +367,14 @@
 
         .unit {
           font-size: 13px;
-          font-weight: $font-weight-regular;
+          font-weight: $font-weight-medium;
           color: $color-gray-600;
           margin-left: 2px;
         }
 
         .subText {
           font-size: 12px;
-          font-weight: $font-weight-regular;
+          font-weight: $font-weight-medium;
           color: $text-secondary;
         }
       }

@@ -38,7 +38,7 @@
 
       .count {
         color: $text-title;
-        font-weight: $font-weight-semibold;
+        font-weight: $font-weight-medium;
         &.point {
           color: $color-blue-500;
         }
@@ -97,7 +97,7 @@
     th {
       padding: 10px 10px;
       background-color: $bg-table-header;
-      font-weight: $font-weight-semibold;
+      font-weight: $font-weight-medium;
       text-align: center;
       white-space: nowrap;
     }
