@@ -18,19 +18,19 @@
 // }
 @font-face {
   font-family: 'KBFG Text';
-  src: fontUrl('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff') format('woff2');
+  src: url('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff') format('woff2');
   font-weight: $font-weight-light;
 }
 
 @font-face {
   font-family: 'KBFG Text';
-  src: fontUrl('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Medium.woff') format('woff2');
+  src: url('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Medium.woff') format('woff2');
   font-weight: $font-weight-medium;
 }
 
 @font-face {
   font-family: 'KBFG Text';
-  src: fontUrl('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff') format('woff2');
+  src: url('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff') format('woff2');
   font-weight: $font-weight-bold;
 }
 
