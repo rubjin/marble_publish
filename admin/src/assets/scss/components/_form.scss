@@ -86,18 +86,9 @@
     right: 12px;
   }
 
-  &.hasPrefix .formControl {
-    padding-left: 36px;
-  }
-
   &.hasUnit .formControl {
     padding-right: 36px;
     text-align: right;
-  }
-
-  &.hasPrefix.hasUnit .formControl {
-    padding-left: 36px;
-    padding-right: 36px;
   }
 }
 

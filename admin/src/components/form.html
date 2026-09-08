@@ -1,7 +1,7 @@
 <!-- 
   [React Component Guide]
   - Component 1: <FormItem label="..." required={true} error="..." helperText="..."> {inputElement} </FormItem>
-  - Component 2: <Input type="text" placeholder="..." value={val} onChange={...} isError={...} hasUnit="원" hasPrefix="https://" />
+  - Component 2: <Input type="text" placeholder="..." value={val} onChange={...} isError={...} hasUnit="원" />
   - Component 3: <Select options={options} value={selected} onChange={...} placeholder="선택" />
   - Component 4: <Textarea value={text} onChange={...} maxLength={1000} placeholder="..." />
   - Props Interface:
@@ -10,7 +10,6 @@
     * error?: string (adds .isError on control and renders <p class="formErrorMsg">{error}</p>)
     * disabled?: boolean
     * readOnly?: boolean
-    * hasPrefix?: string (wraps in .formControlWrap.hasPrefix with <span class="prefix">)
     * hasUnit?: string (wraps in .formControlWrap.hasUnit with <span class="unit">)
     * hasBtn?: React.ReactNode (wraps in .formControlWrap.hasBtn with <button type="button" class="btn">)
 -->
