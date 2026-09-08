@@ -106,6 +106,24 @@ admin/
       </ul>
     </section>
 
+    <section class="guideSection">
+      <h2 class="guideTitle">6. 컴포넌트 아키텍처 & 페이지 패턴</h2>
+      <p style="margin-bottom: 12px; color: #4b5563; font-size: 14px;">
+        본 시스템은 <strong>Atomic 단위 컴포넌트 분리</strong>와 <strong>컴포저블(Composable) 페이지 조립</strong>을 지원합니다.
+      </p>
+      <ul class="ruleList">
+        <li><strong>컴포넌트 1:1 SCSS 매핑:</strong> <code>_button.scss</code>, <code>_popup.scss</code>, <code>_searchbox.scss</code>, <code>_table.scss</code>, <code>_card.scss</code> 등 각 컴포넌트별로 독립된 스타일 파일을 제공합니다.</li>
+        <li><strong>실전 페이지 패턴 (Page Patterns):</strong>
+          <ul>
+            <li><strong>Pattern 1 (검색 & 그리드):</strong> <code>PageHeader</code> + <code>SearchFilterBox</code> + <code>TableTop</code> + <code>Table</code> + <code>Pagination</code></li>
+            <li><strong>Pattern 2 (등록/수정 폼):</strong> <code>PageHeader</code> + <code>FormGroup (2열/단위/태그)</code> + <code>PageBottomAction</code></li>
+            <li><strong>Pattern 3 (KPI 대시보드):</strong> <code>PageHeader</code> + <code>KpiCardGrid (4단)</code> + <code>StatusCardGrid (5단)</code> + <code>SummaryStatBox</code></li>
+            <li><strong>Pattern 4 (모달 다이얼로그):</strong> <code>Modal</code> (Confirm 안내형 / Large 상세 폼 결합형)</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
   </div>
 
 </body>

@@ -2220,7 +2220,9 @@ select.formControl.wAuto {
   padding: 8px 0;
 }
 
-/* Search / Filter Control Box (div 기반 및 table 호환) */
+/* ==========================================================================
+   Search / Filter Box Component (_searchbox.scss)
+   ========================================================================== */
 .searchBox {
   background-color: #E7E9ED;
   border-radius: 12px;

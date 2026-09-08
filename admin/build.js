@@ -33,6 +33,7 @@ function compileSass(srcFile, destFile) {
   }
 }
 
+compileSass('src/assets/scss/common.scss', 'src/assets/css/common.css');
 compileSass('src/assets/scss/globals.scss', 'src/assets/css/globals.css');
 
 // 3. Helper to copy directory recursively
@@ -60,10 +61,13 @@ function copyDirSync(srcDirPath, destDirPath) {
 });
 
 // Also copy compiled CSS to dist
-if (fs.existsSync(path.resolve(SRC_DIR, 'assets/css/globals.css'))) {
-  fs.mkdirSync(path.resolve(DIST_DIR, 'assets/css'), { recursive: true });
-  fs.copyFileSync(path.resolve(SRC_DIR, 'assets/css/globals.css'), path.resolve(DIST_DIR, 'assets/css/globals.css'));
-}
+['common.css', 'globals.css'].forEach(cssFile => {
+  const srcCss = path.resolve(SRC_DIR, 'assets/css', cssFile);
+  if (fs.existsSync(srcCss)) {
+    fs.mkdirSync(path.resolve(DIST_DIR, 'assets/css'), { recursive: true });
+    fs.copyFileSync(srcCss, path.resolve(DIST_DIR, 'assets/css', cssFile));
+  }
+});
 
 // 4. HTML Include Resolver
 function resolveIncludes(htmlContent, currentFilePath) {
@@ -109,7 +113,7 @@ for (const htmlFile of allHtmlFiles) {
   // 2) Replace .scss references with .css references for dist
   const depth = relativePath.split(path.sep).length - 1;
   const prefix = depth > 0 ? '../'.repeat(depth) : './';
-  content = content.replace(/href="[^"]*?(?:assets\/)?scss\/(?:globals|main)\.scss"/g, `href="${prefix}assets/css/globals.css"`);
+  content = content.replace(/href="[^"]*?(?:assets\/)?scss\/(?:globals|main|common)\.scss"/g, `href="${prefix}assets/css/globals.css"`);
   content = content.replace(/src="[^"]*?(?:assets\/)?js\/ui\.js"/g, `src="${prefix}assets/js/ui.js"`);
 
   const destPath = path.resolve(DIST_DIR, relativePath);

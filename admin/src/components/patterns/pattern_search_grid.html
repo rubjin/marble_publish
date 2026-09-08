@@ -1,0 +1,191 @@
+<!-- 
+  [Page Pattern 1] 검색 조건 필터 & 데이터 그리드 테이블 패턴
+  - Layout Structure:
+    1. <PageHeader /> (페이지 타이틀 + 브레드크럼)
+    2. <SearchFilterBox /> (조회기간, 셀렉트, 라디오, 검색어)
+    3. <TableTop /> (총 건수 + 페이지크기 셀렉트 + 엑셀다운로드/등록 버튼)
+    4. <Table /> (데이터 그리드)
+    5. <Pagination /> (페이지 번호 네비게이션)
+-->
+
+<!-- 1. 페이지 헤더 -->
+<div class="pageHeader">
+  <div class="headerLeft">
+    <h2 class="pageTitle">목록 조회 및 관리</h2>
+  </div>
+  <nav class="breadcrumb">
+    <ol class="breadcrumbList">
+      <li class="breadcrumbItem"><a href="#" class="breadcrumbLink">홈</a></li>
+      <li class="breadcrumbItem"><a href="#" class="breadcrumbLink">관리메뉴</a></li>
+      <li class="breadcrumbItem isCurrent">목록 조회</li>
+    </ol>
+  </nav>
+</div>
+
+<!-- 2. 검색 조건 컨트롤 박스 -->
+<div class="searchBox">
+  <div class="searchRow">
+    <div class="searchItem full">
+      <span class="searchLabel">조회기간</span>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formDateRange">
+            <div class="formDatepicker">
+              <input type="text" class="formControl" value="2026.07.01" />
+              <button type="button" class="btnCalendar"></button>
+            </div>
+            <span class="dateSeparator">~</span>
+            <div class="formDatepicker">
+              <input type="text" class="formControl" value="2026.08.31" />
+              <button type="button" class="btnCalendar"></button>
+            </div>
+          </div>
+          <div class="segment">
+            <label class="segmentItem"><input type="radio" name="p1Date" checked /><span class="segmentText">오늘</span></label>
+            <label class="segmentItem"><input type="radio" name="p1Date" /><span class="segmentText">1주일</span></label>
+            <label class="segmentItem"><input type="radio" name="p1Date" /><span class="segmentText">1개월</span></label>
+            <label class="segmentItem"><input type="radio" name="p1Date" /><span class="segmentText">전체</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchRow">
+    <div class="searchItem">
+      <label class="searchLabel" for="p1Type">구분</label>
+      <div class="searchField">
+        <select id="p1Type" class="formControl">
+          <option value="">전체</option>
+          <option value="1">유형 A</option>
+          <option value="2">유형 B</option>
+        </select>
+      </div>
+    </div>
+    <div class="searchItem">
+      <span class="searchLabel">상태</span>
+      <div class="searchField">
+        <div class="formCheckGroup">
+          <label class="formCheck"><input type="radio" name="p1Status" checked /><span class="checkIcon"></span><span class="checkLabel">전체</span></label>
+          <label class="formCheck"><input type="radio" name="p1Status" /><span class="checkIcon"></span><span class="checkLabel">운영중</span></label>
+          <label class="formCheck"><input type="radio" name="p1Status" /><span class="checkIcon"></span><span class="checkLabel">종료</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchRow">
+    <div class="searchItem full">
+      <label class="searchLabel" for="p1Keyword">검색어</label>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl">
+            <option value="all">전체</option>
+            <option value="name">항목명</option>
+            <option value="code">코드</option>
+          </select>
+          <div class="formControlWrap">
+            <input type="text" id="p1Keyword" class="formControl full" placeholder="검색어를 입력해주세요" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchBtnArea">
+    <button type="button" class="btn outline">초기화</button>
+    <button type="button" class="btn dark">조회</button>
+  </div>
+</div>
+
+<!-- 3. 테이블 상단 건수 및 액션 바 -->
+<div class="tblTop">
+  <div class="tblLeft">
+    <h3 class="tblTitle">검색 결과</h3>
+    <span class="tblCount">총 <strong class="count">128</strong>건</span>
+    <select class="formControl">
+      <option value="10">10건씩 보기</option>
+      <option value="20">20건씩 보기</option>
+      <option value="50">50건씩 보기</option>
+    </select>
+  </div>
+  <div class="tblRight">
+    <div class="btnGroup">
+      <button type="button" class="btn outline">
+        <span class="ico download"></span>
+        <span>엑셀 다운로드</span>
+      </button>
+      <button type="button" class="btn primary">신규 등록</button>
+    </div>
+  </div>
+</div>
+
+<!-- 4. 데이터 그리드 테이블 -->
+<div class="tblWrap">
+  <table class="tbl">
+    <colgroup>
+      <col style="width: 80px;" />
+      <col style="width: 140px;" />
+      <col style="width: auto;" />
+      <col style="width: 120px;" />
+      <col style="width: 120px;" />
+      <col style="width: 160px;" />
+      <col style="width: 120px;" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>구분</th>
+        <th>항목명</th>
+        <th>상태</th>
+        <th>작성자</th>
+        <th>등록일자</th>
+        <th>관리</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>유형 A</td>
+        <td class="textLeft"><a href="#" class="link">링크 항목 01</a></td>
+        <td><span class="statusDot ing">운영중</span></td>
+        <td>관리자</td>
+        <td>2026.06.15</td>
+        <td>
+          <div class="btnGroup sm">
+            <button type="button" class="btn outline">수정</button>
+            <button type="button" class="btn danger">삭제</button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>유형 B</td>
+        <td class="textLeft"><a href="#" class="link">링크 항목 02</a></td>
+        <td><span class="statusDot ready">대기</span></td>
+        <td>관리자</td>
+        <td>2026.06.14</td>
+        <td>
+          <div class="btnGroup sm">
+            <button type="button" class="btn outline">수정</button>
+            <button type="button" class="btn danger">삭제</button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>유형 A</td>
+        <td class="textLeft"><a href="#" class="link">링크 항목 03</a></td>
+        <td><span class="statusDot end">종료</span></td>
+        <td>운영자</td>
+        <td>2026.06.10</td>
+        <td>
+          <div class="btnGroup sm">
+            <button type="button" class="btn outline">수정</button>
+            <button type="button" class="btn danger">삭제</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

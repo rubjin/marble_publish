@@ -1,0 +1,120 @@
+<!-- 
+  [Page Pattern 3] 통계 및 운영 지표 대시보드 페이지 패턴
+  - Layout Structure:
+    1. <PageHeader /> (대시보드 타이틀 + 세그먼트 기간 필터)
+    2. <KpiCardGrid /> (4단 통계 요약 카드)
+    3. <StatusCardGrid /> (5단 핵심 운영 상태 지표 카드)
+    4. <SummaryStatBox /> (실시간 한도/소진 요약 인라인 바)
+    5. <Table /> (최근 활동 내역 그리드)
+-->
+
+<!-- 1. 페이지 헤더 + 기간 필터 세그먼트 -->
+<div class="pageHeader">
+  <div class="headerLeft">
+    <h2 class="pageTitle">운영 성과 및 통계 대시보드</h2>
+  </div>
+  <div class="headerRight">
+    <div class="segment">
+      <button type="button" class="segmentItem isActive">일별</button>
+      <button type="button" class="segmentItem">주간</button>
+      <button type="button" class="segmentItem">월별</button>
+      <button type="button" class="segmentItem">연간</button>
+    </div>
+  </div>
+</div>
+
+<!-- 2. KPI 4단 통계 요약 카드 그리드 -->
+<div class="kpiCardGrid">
+  <div class="kpiCard">
+    <span class="kpiTitle">총 예산 한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>100,000,000</strong><span class="unit">원</span></div>
+      <p class="kpiSub">(전년 대비 / <span class="rate isUp">+12.5%</span>)</p>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">지급 완료 금액</span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>65,400,000</strong><span class="unit">원</span></div>
+      <p class="kpiSub">(전년 대비 / <span class="rate isUp">+8.2%</span>)</p>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">잔여 한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>34,600,000</strong><span class="unit">원</span></div>
+      <p class="kpiSub">(안전 잔여율 34.6%)</p>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">전체 소진율</span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>65.4</strong><span class="unit">%</span></div>
+      <p class="kpiSub">(목표 대비 정상 소진)</p>
+    </div>
+  </div>
+</div>
+
+<!-- 3. 핵심 운영 상태 5단 지표 카드 -->
+<div class="statusCardGrid">
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">운영중</span>
+      <span class="ico statusIng"></span>
+    </div>
+    <div class="statusValue"><strong>24</strong><span class="unit">건</span></div>
+  </div>
+
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">이슈/알림</span>
+      <span class="ico statusAlarm"></span>
+    </div>
+    <div class="statusValue danger"><strong>2</strong><span class="unit">건</span></div>
+  </div>
+
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">참여율</span>
+      <span class="ico statusRate"></span>
+    </div>
+    <div class="statusValue"><strong>72.4</strong><span class="unit">%</span></div>
+  </div>
+
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">신규 참여</span>
+      <span class="ico statusAdd"></span>
+    </div>
+    <div class="statusValue"><strong>3,450</strong><span class="unit">명</span></div>
+  </div>
+
+  <div class="statusCard">
+    <div class="statusHeader">
+      <span class="statusLabel">총 지급 포인트</span>
+      <span class="ico statusPoint"></span>
+    </div>
+    <div class="statusValue"><strong>2,840,000</strong><span class="unit">P</span></div>
+  </div>
+</div>
+
+<!-- 4. 실시간 요약 인라인 바 -->
+<div class="summaryStatBox singleLine" style="margin-top: 20px;">
+  <div class="statItem">
+    <span class="statLabel">당월 예산 총한도</span>
+    <div class="statValue"><strong>80,000,000</strong><span class="unit">원</span></div>
+  </div>
+  <div class="statDivider"></div>
+  <div class="statItem">
+    <span class="statLabel">지급 잔여 금액</span>
+    <div class="statValue"><strong>20,000,000</strong><span class="unit">원</span></div>
+  </div>
+  <div class="statDivider"></div>
+  <div class="statItem">
+    <span class="statLabel">금일 정산 건수</span>
+    <div class="statValue"><strong>142</strong><span class="unit">건</span></div>
+  </div>
+</div>

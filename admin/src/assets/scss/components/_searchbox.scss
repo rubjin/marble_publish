@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Search / Filter Box Component (_searchbox.scss)
+   ========================================================================== */
+
+.searchBox {
+  background-color: $color-gray-200;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: $shadow-xs;
+  width: 100%;
+  box-sizing: border-box;
+
+  .searchRow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    min-height: 40px;
+    padding: 6px 0;
+  }
+
+  .searchItem {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0%;
+    min-width: 280px;
+
+    &.full {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+  }
+
+  .searchLabel {
+    width: 100px;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: $font-weight-semibold;
+    color: $text-highlight;
+    line-height: 1.4;
+  }
+
+  .searchField {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .formRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .searchTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    th {
+      width: 100px;
+      padding: 8px 16px 8px 0;
+      font-size: 14px;
+      font-weight: $font-weight-semibold;
+      color: $text-highlight;
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 8px 16px 8px 0;
+      vertical-align: middle;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .formLabel {
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      color: $text-highlight;
+    }
+
+    .formRow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+  }
+
+  .searchBtnArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+
+    .btn {
+      min-width: 84px;
+      height: 38px;
+    }
+  }
+}
