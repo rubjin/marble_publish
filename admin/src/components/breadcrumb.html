@@ -1,5 +1,16 @@
+<!-- 
+  [React Component Guide]
+  - Component: <Breadcrumb items={[{ label: '홈', href: '/' }, { label: '뎁스2', href: '/depth2' }, { label: '현재페이지' }]} />
+  - Props Interface:
+    * items: Array<{ label: string; href?: string; isCurrent?: boolean }>
+    * separator?: React.ReactNode (기본 구분자 화살표 아이콘)
+    * className?: string
+  - State Classes:
+    * .breadcrumbItem.isCurrent : 현재 페이지 항목 (링크 대신 텍스트로 렌더링, aria-current="page")
+-->
+
 <!-- Breadcrumb (Default) -->
-<nav class="breadcrumb" aria-label="브레드크럼">
+<nav class="breadcrumb" aria-label="브레드크럼 위치 경로">
   <ol class="breadcrumbList">
     <li class="breadcrumbItem">
       <a href="#" class="breadcrumbLink">홈</a>

@@ -1,8 +1,20 @@
+<!-- 
+  [React Component Guide]
+  - Component: <SearchFilterBox onSearch={handleSearch} onReset={handleReset}> {searchRows} </SearchFilterBox>
+  - Props Interface:
+    * onSearch: (filters: SearchFilterState) => void
+    * onReset: () => void
+    * children: React.ReactNode (각 searchRow 구성 항목)
+  - Layout Structure:
+    * .searchBox > .searchRow > .searchItem (.full 또는 2열 배치) > .searchLabel + .searchField
+    * .searchBtnArea > 초기화 (.btn.outline) + 조회 (.btn.dark)
+-->
+
 <!-- ==========================================================================
-  조회 컨트롤 박스 (div 기반 3줄 검색 박스 + 하단 초기화/조회 버튼)
+  조회 컨트롤 박스 (div 기반 검색 필터 영역 + 하단 초기화/조회 버튼)
   ========================================================================== -->
 <div class="searchBox">
-  <!-- 1줄: 조회일자 -->
+  <!-- 1줄: 조회일자 (데이트피커 범위 + 기간 숏컷 세그먼트) -->
   <div class="searchRow">
     <div class="searchItem full">
       <span class="searchLabel">조회일자</span>
@@ -22,25 +34,24 @@
           </fieldset>
 
           <div class="segment">
-            <!-- [D] 선택된 항목: input checked 속성 제어 -->
             <label class="segmentItem">
-              <input type="radio" name="missionState" checked>
+              <input type="radio" name="missionState" checked />
               <span class="segmentText">오늘</span>
             </label>
             <label class="segmentItem">
-              <input type="radio" name="missionState">
+              <input type="radio" name="missionState" />
               <span class="segmentText">1주일</span>
             </label>
             <label class="segmentItem">
-              <input type="radio" name="missionState">
+              <input type="radio" name="missionState" />
               <span class="segmentText">1개월</span>
             </label>
             <label class="segmentItem">
-              <input type="radio" name="missionState">
+              <input type="radio" name="missionState" />
               <span class="segmentText">3개월</span>
             </label>
             <label class="segmentItem">
-              <input type="radio" name="missionState">
+              <input type="radio" name="missionState" />
               <span class="segmentText">전체</span>
             </label>
           </div>
@@ -49,7 +60,7 @@
     </div>
   </div>
 
-  <!-- 2줄: 유형 및 상태 -->
+  <!-- 2줄: 유형(셀렉트) 및 상태(라디오) 2열 구성 -->
   <div class="searchRow">
     <div class="searchItem">
       <label class="searchLabel" for="searchType">유형</label>
@@ -94,7 +105,7 @@
     </div>
   </div>
 
-  <!-- 3줄: 검색어 -->
+  <!-- 3줄: 검색어 구분 셀렉트 + 인풋 콤보 -->
   <div class="searchRow">
     <div class="searchItem full">
       <label class="searchLabel" for="searchKeyword">검색어</label>

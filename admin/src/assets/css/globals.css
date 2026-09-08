@@ -18,18 +18,13 @@ legend {
 
 @font-face {
   font-family: "KBFG Text";
-  src: url("../fonts/KBFGText-Light.woff2") format("woff2");
+  src: url("../fonts/KBFGTextLight.woff2") format("woff2");
   font-weight: 300;
 }
 @font-face {
   font-family: "KBFG Text";
-  src: url("../fonts/KBFGText-Medium.woff2") format("woff2");
+  src: url("../fonts/KBFGTextM.woff2") format("woff2");
   font-weight: 500;
-}
-@font-face {
-  font-family: "KBFG Text";
-  src: url("../fonts/KBFGText-Bold.woff2") format("woff2");
-  font-weight: 700;
 }
 html, body {
   height: 100%;
@@ -37,7 +32,7 @@ html, body {
 }
 
 body {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "KBFG Text", sans-serif;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
@@ -833,13 +828,18 @@ body {
   margin: 0;
 }
 
-.boSection {
+.sectionBox {
+  background-color: #FFFFFF;
+  border: 1px solid #F0F0F3;
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   margin-bottom: 16px;
 }
-.boSection:last-child {
+.sectionBox:last-child {
   margin-bottom: 0;
 }
-.boSection .sectionTitle {
+.sectionBox .sectionTitle {
   font-size: 18px;
   font-weight: 700;
   color: #2F3034;
@@ -848,32 +848,25 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.boSection .sectionTitle .subText {
+.sectionBox .sectionTitle .subText {
   font-size: 13px;
   font-weight: 400;
   color: #4F535A;
 }
-.boSection .sectionBox {
-  background-color: #FFFFFF;
-  border: 1px solid #F0F0F3;
-  border-radius: 12px;
-  padding: 24px 28px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-.boSection .btnArea {
+.sectionBox .btnArea {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
   margin-top: 16px;
 }
-.boSection .btnArea.center {
+.sectionBox .btnArea.center {
   justify-content: center;
 }
-.boSection .btnArea.between {
+.sectionBox .btnArea.between {
   justify-content: space-between;
 }
-.boSection .btnArea.left {
+.sectionBox .btnArea.left {
   justify-content: flex-start;
 }
 
@@ -2085,6 +2078,9 @@ select.formControl.wAuto {
 .formControlBottom .btn {
   flex-shrink: 0;
 }
+.formControlBottom .right {
+  margin-left: auto;
+}
 
 /* Radio Button */
 .formRadioCardGroup {
@@ -2099,7 +2095,7 @@ select.formControl.wAuto {
   align-items: flex-start;
   flex: 1;
   min-width: 240px;
-  padding: 20px 16px;
+  padding: 16px;
   background-color: #FFFFFF;
   border: 1px solid #D5D7DE;
   border-radius: 8px;
@@ -2163,65 +2159,6 @@ select.formControl.wAuto {
 }
 .formRadioCard:has(input:checked) .checkIcon::after, .formRadioCard.isActive .checkIcon::after {
   display: block;
-}
-.formRadioCard.isCompact {
-  padding: 12px 20px;
-  align-items: center;
-}
-.formRadioCard.isCompact .checkIcon {
-  margin-top: 0;
-}
-.formRadioCard.isCompact .cardContent .cardTitle {
-  margin-bottom: 0;
-}
-
-.fileNameLink {
-  color: #639DFF;
-  font-size: 13px;
-  word-break: break-all;
-}
-.fileNameLink:hover {
-  text-decoration: underline;
-}
-
-/* File Upload Box */
-.fileUploadBox {
-  background-color: #F7F8FB;
-  border-radius: 6px;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.fileUploadBox .fileNameLink {
-  color: #287EFF;
-}
-.fileUploadBox .fileDelete {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: #8D919B;
-  color: #FFFFFF;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 12px;
-  flex-shrink: 0;
-  transition: background-color 0.15s;
-}
-.fileUploadBox .fileDelete::before {
-  content: "X";
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 700;
-  margin-top: -1px;
-}
-.fileUploadBox .fileDelete:hover {
-  background-color: #4F535A;
 }
 
 /* Step Course Card  */
@@ -3406,6 +3343,15 @@ select.formControl.wAuto {
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+.fileList.boxType {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 6px;
+  background-color: #F7F8FB;
+}
+.fileList.boxType .fileItem .fileInfo {
+  flex: none;
 }
 
 .fileItem {

@@ -1,18 +1,25 @@
 <!-- 
-  [D] 파일 첨부 컴포넌트 개발 가이드
-  - 기본형: input[type="file"] 변경 시 .fileUploadInput의 value에 파일명 바인딩
-  - 드롭존: 파일 드래그 시 'isDragOver' 클래스로 테두리/배경 활성화
-  - 파일 목록: .fileList 내부에 .fileItem 동적 렌더링 (파일이 없을 땐 .fileList를 비워두면 자동 숨김)
+  [React Component Guide]
+  - Component 1: <FileDropzone files={fileList} onDrop={handleDrop} onSelect={handleSelect} onRemove={handleRemove} accept="image/*" maxCount={5} />
+  - Component 2: <StepCard stepNumber={1} title="코스명" onCopy={...} onDelete={...}> ... </StepCard>
+  - Props Interface (<FileDropzone />):
+    * files: Array<{ id: string | number; name: string; size: string; downloadUrl?: string }>
+    * onDrop: (files: File[]) => void
+    * onRemove: (fileId: string | number) => void
+    * accept?: string (e.g., 'image/png, image/jpeg')
+    * guideText?: string
+  - State Classes:
+    * .fileDropzone.isDragOver : 드래그앤드롭 진입 시 테두리/배경 활성화
 -->
 
-<!-- STEP 카드 리스트 -->
+<!-- STEP 카드 리스트 (드래그 핸들 + 단계별 입력 폼 + 파일첨부) -->
 <div class="stepCardList">
   <!-- STEP 1 -->
   <div class="stepCard">
     <div class="stepHeader">
       <div class="stepTitleWrap">
         <span class="ico lg stepHandle"></span>
-        <h4 class="stepTitle">STEP 3. 정상 미션</h4>
+        <h4 class="stepTitle">STEP 1. 정상 미션</h4>
       </div>
       <div class="stepActions">
         <button type="button" class="btn outline sm">복사</button>
@@ -21,114 +28,48 @@
     </div>
     <table class="tbl">
       <colgroup>
-        <col style="width: 100px;">
-        <col>
+        <col style="width: 100px;" />
+        <col />
       </colgroup>
       <tbody>
         <tr>
-          <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
-          <td><input type="text" class="formControl full" value="정상 도달"></td>
+          <th scope="row"><label class="formLabel">코스명 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="정상 도달" /></td>
         </tr>
         <tr>
-          <th><label class="formLabel">수행조건 <span class="required">*</span></label></th>
-          <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기"></td>
+          <th scope="row"><label class="formLabel">수행조건 <span class="required">*</span></label></th>
+          <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기" /></td>
         </tr>
         <tr>
-          <th><label class="formLabel">보조 문구</label></th>
-          <td><input type="text" class="formControl full" value="자산 성장 성공"></td>
+          <th scope="row"><label class="formLabel">보조 문구</label></th>
+          <td><input type="text" class="formControl full" value="자산 성장 성공" /></td>
         </tr>
         <tr>
-          <th><span class="formLabel">상단 이미지</span></th>
+          <th scope="row"><span class="formLabel">상단 이미지</span></th>
           <td>
             <div class="formControlWrap full col">
-              <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
-              <!-- [D] 파일 첨부 전 상태 -->
+              <!-- [D] 드롭존 영역: 드래그 시 .fileDropzone.isDragOver 클래스 추가 -->
               <div class="fileDropzone">
                 <div class="dropzoneHeader">
-                  <input type="file" multiple>
+                  <input type="file" multiple />
                   <span class="ico xl upload"></span>
                   <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
                 </div>
               </div>
-              <!-- [D] 파일 첨부 후 상태 -->
-              <!-- [D] 첨부된 파일 목록 -->
+
+              <!-- [D] 첨부된 파일 목록: 파일 있을 때 노출 -->
               <ul class="fileList">
                 <li class="fileItem">
                   <div class="fileInfo">
-                    <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
+                    <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg <span class="fileSize">(1.5MB)</span></a> 
                   </div>
-                  <button type="button" class="fileDelete" aria-label="삭제">
+                  <button type="button" class="fileDelete" aria-label="파일 삭제">
                     <span class="ico deleteTag"></span>
                   </button>
                 </li>
               </ul>
               <div class="formControlBottom">
-                <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
-                <button type="button" class="btn outline">파일 선택</button>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- STEP 2 -->
-  <div class="stepCard">
-    <div class="stepHeader">
-      <div class="stepTitleWrap">
-        <span class="ico lg stepHandle"></span>
-        <h4 class="stepTitle">STEP 3. 정상 미션</h4>
-      </div>
-      <div class="stepActions">
-        <button type="button" class="btn outline sm">복사</button>
-        <button type="button" class="btn danger sm">삭제</button>
-      </div>
-    </div>
-    <table class="tbl">
-      <colgroup>
-        <col style="width: 100px;">
-        <col>
-      </colgroup>
-      <tbody>
-        <tr>
-          <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
-          <td><input type="text" class="formControl full" value="정상 도달"></td>
-        </tr>
-        <tr>
-          <th><label class="formLabel">수행조건 <span class="required">*</span></label></th>
-          <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기"></td>
-        </tr>
-        <tr>
-          <th><label class="formLabel">보조 문구</label></th>
-          <td><input type="text" class="formControl full" value="자산 성장 성공"></td>
-        </tr>
-        <tr>
-          <th><span class="formLabel">상단 이미지</span></th>
-          <td>
-            <div class="formControlWrap full col">
-              <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
-              <!-- [D] 파일 첨부 전 상태 -->
-              <div class="fileDropzone">
-                <div class="dropzoneHeader">
-                  <input type="file" multiple>
-                  <span class="ico xl upload"></span>
-                  <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
-                </div>
-              </div>
-              <!-- [D] 파일 첨부 후 상태 -->
-              <!-- [D] 첨부된 파일 목록 -->
-              <ul class="fileList">
-                <li class="fileItem">
-                  <div class="fileInfo">
-                    <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
-                  </div>
-                  <button type="button" class="fileDelete" aria-label="삭제">
-                    <span class="ico deleteTag"></span>
-                  </button>
-                </li>
-              </ul>
-              <div class="formControlBottom">
-                <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
+                <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다. (JPG, PNG / 최대 5MB)</span>
                 <button type="button" class="btn outline">파일 선택</button>
               </div>
             </div>

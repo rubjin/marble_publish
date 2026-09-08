@@ -1,8 +1,21 @@
-<!-- 기본형 (좌측: 타이틀 & 건수 / 우측: 버튼 그룹) -->
+<!-- 
+  [React Component Guide]
+  - Component: <TableTop title="..." totalCount={6} unit="원" pageSize={10} onPageSizeChange={...} actions={...} guideText="..." />
+  - Props Interface:
+    * title: string (테이블 섹션 타이틀)
+    * totalCount?: number (총 건수)
+    * unit?: string (단위 텍스트, e.g. '(단위 : 원)')
+    * pageSize?: number (10 | 20 | 50 등 페이지당 노출 건수)
+    * onPageSizeChange?: (size: number) => void
+    * actions?: React.ReactNode (우측 액션 버튼 그룹)
+    * guideText?: string (우측 가이드/안내 문구)
+-->
+
+<!-- Case 1: 기본형 (좌측: 타이틀 & 건수 & 페이지크기 셀렉트 / 우측: 버튼 그룹) -->
 <div class="tblTop">
   <div class="tblLeft">
     <h3 class="tblTitle">챌린지 운영 현황</h3>
-    <span class="tblCount">총<strong class="count">6</strong>건<span class="tblUnit">(단위 : 원)</span></span>
+    <span class="tblCount">총 <strong class="count">6</strong>건 <span class="tblUnit">(단위 : 원)</span></span>
     <select class="formControl">
       <option value="10">10건씩 보기</option>
       <option value="20">20건씩 보기</option>
@@ -20,8 +33,9 @@
   </div>
 </div>
 
+<div style="width: 100%; height: 20px;"></div>
 
-<!-- 좌측 타이틀 (단위 : 원) + 우측 가이드문구 -->
+<!-- Case 2: 타이틀 + 단위 + 우측 가이드 문구형 -->
 <div class="tblTop">
   <div class="tblLeft">
     <h3 class="tblTitle">미션별 한도설정</h3>

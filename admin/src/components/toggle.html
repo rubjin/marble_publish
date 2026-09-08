@@ -1,71 +1,80 @@
 <!-- 
-  [D] 토글 스위치 컴포넌트 개발 가이드
-  - ON/OFF 상태: input[type="checkbox"]의 'checked' 속성 제어
-  - 비활성화: input 'disabled' 속성 또는 부모 .toggle에 'isDisabled' 클래스 추가
-  - 테마: 기본(다크), 'primary'(노란색 활성 테마)
-  - 사이즈: 기본(MD), 'sm'(작은 크기), 'lg'(큰 크기)
+  [React Component Guide]
+  - Component: <ToggleSwitch checked={checked} onChange={setChecked} label="..." />
+  - Props Interface:
+    * checked: boolean (controlled checked state)
+    * onChange: (checked: boolean, e: React.ChangeEvent<HTMLInputElement>) => void
+    * label?: string | React.ReactNode (텍스트 라벨)
+    * variant?: 'default' | 'primary' (default: 'default', 'primary'는 노란색 활성)
+    * size?: 'sm' | 'md' | 'lg' (default: 'md')
+    * disabled?: boolean (default: false)
+    * name?: string
+    * id?: string
+  - State Classes / Attributes:
+    * input[type="checkbox"]:checked : ON 상태
+    * input:disabled, .isDisabled : 비활성화 상태
 -->
 
-<!-- 기본 토글 스위치 -->
+<!-- 1. 기본 토글 스위치 (Default & Primary) -->
 <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
-  <!-- [D] OFF 상태 -->
+  <!-- Case 1-1: OFF 상태 -->
   <label class="toggle">
-    <input type="checkbox">
+    <input type="checkbox" />
     <span class="toggleTrack"></span>
     <span class="toggleLabel">비활성 (OFF)</span>
   </label>
 
-  <!-- [D] ON 상태: input checked -->
+  <!-- Case 1-2: ON 상태 -->
   <label class="toggle">
-    <input type="checkbox" checked>
+    <input type="checkbox" checked />
     <span class="toggleTrack"></span>
     <span class="toggleLabel">활성 (ON)</span>
   </label>
 
-  <!-- [D] Primary 테마 컬러 토글 -->
+  <!-- Case 1-3: Primary 컬러 테마 -->
   <label class="toggle primary">
-    <input type="checkbox" checked>
+    <input type="checkbox" checked />
     <span class="toggleTrack"></span>
     <span class="toggleLabel">Primary 컬러</span>
   </label>
 </div>
 
-<!-- 사이즈별 변형 (sm, 기본, lg) -->
+<!-- 2. Sizes (사이즈 변형) -->
 <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-top: 16px;">
-  <!-- Small -->
+  <!-- Case 2-1: Small (sm) -->
   <label class="toggle sm">
-    <input type="checkbox" checked>
+    <input type="checkbox" checked />
     <span class="toggleTrack"></span>
     <span class="toggleLabel">Small (sm)</span>
   </label>
 
-  <!-- Default -->
+  <!-- Case 2-2: Medium (Default) -->
   <label class="toggle">
-    <input type="checkbox" checked>
+    <input type="checkbox" checked />
     <span class="toggleTrack"></span>
     <span class="toggleLabel">Default (기본)</span>
   </label>
 
-  <!-- Large -->
+  <!-- Case 2-3: Large (lg) -->
   <label class="toggle lg">
-    <input type="checkbox" checked>
+    <input type="checkbox" checked />
     <span class="toggleTrack"></span>
     <span class="toggleLabel">Large (lg)</span>
   </label>
 </div>
 
-<!-- 비활성 (Disabled) 상태 -->
+<!-- 3. States (Disabled 상태) -->
 <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-top: 16px;">
-  <!-- [D] Disabled OFF -->
+  <!-- Case 3-1: Disabled OFF -->
   <label class="toggle">
-    <input type="checkbox" disabled>
+    <input type="checkbox" disabled />
     <span class="toggleTrack"></span>
     <span class="toggleLabel">Disabled (OFF)</span>
   </label>
 
-  <!-- [D] Disabled ON -->
+  <!-- Case 3-2: Disabled ON -->
   <label class="toggle">
-    <input type="checkbox" checked disabled>
+    <input type="checkbox" checked disabled />
     <span class="toggleTrack"></span>
     <span class="toggleLabel">Disabled (ON)</span>
   </label>

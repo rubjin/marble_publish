@@ -1,10 +1,19 @@
 <!-- 
-  [D] 탭 컴포넌트 개발 가이드
-  - 선택된 탭: .item에 'isActive' 클래스 추가
+  [React Component Guide]
+  - Component: <Tabs items={tabList} activeKey={activeKey} onChange={setActiveKey} />
+  - Props Interface:
+    * items: Array<{ key: string | number; label: string; disabled?: boolean }>
+    * activeKey: string | number (controlled active tab key)
+    * onChange: (key: string | number) => void
+    * className?: string
+  - State Classes:
+    * .item.isActive : 선택된 활성 탭 (하단 액티브 보더 / 하이라이트 표시)
 -->
-<nav class="tab">
-  <!-- [D] 활성 상태: isActive 클래스 추가 -->
-  <button type="button" class="item isActive">활성화 탭 (Active)</button>
-  <button type="button" class="item">디폴트 탭 (Default)</button>
-  <button type="button" class="item">세 번째 탭</button>
+
+<nav class="tab" aria-label="화면 탭 메뉴">
+  <!-- [D] 활성 탭: .item.isActive 클래스 바인딩 -->
+  <button type="button" class="item isActive" aria-selected="true" role="tab">활성화 탭 (Active)</button>
+  <button type="button" class="item" aria-selected="false" role="tab">디폴트 탭 (Default)</button>
+  <button type="button" class="item" aria-selected="false" role="tab">세 번째 탭</button>
+  <button type="button" class="item" aria-selected="false" role="tab" disabled>비활성 탭 (Disabled)</button>
 </nav>

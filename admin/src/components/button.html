@@ -1,53 +1,71 @@
-<!-- Ghost -->
-<button type="button" class="btn ghost sm">Ghost SM (높이 24px)</button>
-<button type="button" class="btn ghost">Ghost Default (높이 34px)</button>
-<button type="button" class="btn ghost lg">Ghost LG (높이 40px)</button>
+<!-- 
+  [React Component Guide]
+  - Component: <Button />
+  - Props Interface:
+    * variant?: 'primary' | 'dark' | 'outline' | 'light' | 'secondary' | 'danger' | 'ghost' (default: 'primary')
+    * size?: 'sm' | 'md' | 'lg' (default: 'md', sm: 24px, md: 34px, lg: 40px)
+    * fullWidth?: boolean (default: false, adds 'full')
+    * disabled?: boolean (default: false, attribute or 'isDisabled')
+    * type?: 'button' | 'submit' | 'reset' (default: 'button')
+    * icon?: React.ReactNode (prepends or appends icon with .ico)
+    * children?: React.ReactNode
+    * onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
+  - State Classes:
+    * .isDisabled, :disabled : 비활성화 상태
+    * .isActive : 활성화(선택) 상태 (.light, .secondary 등)
+-->
 
-<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+<!-- 1. Variants (기본 MD 사이즈: 높이 34px) -->
+<!-- Case 1-1: Primary (메인 강조 액션) -->
+<button type="button" class="btn primary">Primary</button>
 
-<!-- Primary -->
-<button type="button" class="btn primary sm">Primary SM (높이 24px)</button>
-<button type="button" class="btn primary">Primary Default (높이 34px)</button>
-<button type="button" class="btn primary lg">Primary LG (높이 40px)</button>
+<!-- Case 1-2: Dark (차분한 주요 액션) -->
+<button type="button" class="btn dark">Dark</button>
 
-<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+<!-- Case 1-3: Outline (보조 액션 / 기본 버튼) -->
+<button type="button" class="btn outline">Outline</button>
 
-<!-- Dark -->
-<button type="button" class="btn dark sm">Dark SM (높이 24px)</button>
-<button type="button" class="btn dark">Dark Default (높이 34px)</button>
-<button type="button" class="btn dark lg">Dark LG (높이 40px)</button>
+<!-- Case 1-4: Light (배경색 있는 보조 버튼) -->
+<button type="button" class="btn light">Light</button>
 
-<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+<!-- Case 1-5: Danger (삭제, 취소 등 위험 액션) -->
+<button type="button" class="btn danger">Danger</button>
 
-<!-- Outline -->
-<button type="button" class="btn outline sm">Outline SM (높이 24px)</button>
-<button type="button" class="btn outline">Outline Default (높이 34px)</button>
-<button type="button" class="btn outline lg">Outline LG (높이 40px)</button>
+<!-- Case 1-6: Ghost (배경/테두리 없는 텍스트형 버튼) -->
+<button type="button" class="btn ghost">Ghost</button>
 
-<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+<div style="width: 100%; height: 2px;"></div><!-- 구분선 -->
 
-<!-- Light -->
-<button type="button" class="btn light sm">Light SM (높이 24px)</button>
-<button type="button" class="btn light">Light Default (높이 34px)</button>
-<button type="button" class="btn light lg">Light LG (높이 40px)</button>
+<!-- 2. Sizes (크기 변형) -->
+<!-- Case 2-1: Small (높이 24px, 폰트 12px) -->
+<button type="button" class="btn primary sm">Primary SM</button>
+<button type="button" class="btn outline sm">Outline SM</button>
+<button type="button" class="btn dark sm">Dark SM</button>
 
-<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+<!-- Case 2-2: Medium / Default (높이 34px, 폰트 14px) -->
+<button type="button" class="btn primary">Primary MD</button>
+<button type="button" class="btn outline">Outline MD</button>
+<button type="button" class="btn dark">Dark MD</button>
 
-<!-- Danger -->
-<button type="button" class="btn danger sm">Danger SM (높이 24px)</button>
-<button type="button" class="btn danger">Danger Default (높이 34px)</button>
-<button type="button" class="btn danger lg">Danger LG (높이 40px)</button>
+<!-- Case 2-3: Large (높이 40px, 폰트 16px - 페이지 하단 액션용) -->
+<button type="button" class="btn primary lg">Primary LG</button>
+<button type="button" class="btn outline lg">Outline LG</button>
+<button type="button" class="btn dark lg">Dark LG</button>
 
-<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+<div style="width: 100%; height: 2px;"></div><!-- 구분선 -->
 
-<!-- Full Width -->
+<!-- 3. Full Width (가로 100% 확장) -->
 <button type="button" class="btn primary full">Primary Full Width (100%)</button>
 <button type="button" class="btn outline full">Outline Full Width (100%)</button>
 
-<div style="width: 100%; height: 2px;"></div><!-- 단락구분용 -->
+<div style="width: 100%; height: 2px;"></div><!-- 구분선 -->
 
-<!-- Disabled -->
-<button type="button" class="btn primary" disabled>Disabled (Primary)</button>
-<button type="button" class="btn outline isDisabled">Disabled (Outline)</button>
+<!-- 4. States (비활성화 및 활성화 상태) -->
+<!-- Case 4-1: Disabled (disabled 속성 또는 .isDisabled 클래스) -->
+<button type="button" class="btn primary" disabled>Primary Disabled</button>
+<button type="button" class="btn outline" disabled>Outline Disabled</button>
+<button type="button" class="btn dark" disabled>Dark Disabled</button>
+<button type="button" class="btn ghost isDisabled">Ghost Disabled</button>
 
-
+<!-- Case 4-2: Active (토글 선택 상태) -->
+<button type="button" class="btn light isActive">Light Active</button>

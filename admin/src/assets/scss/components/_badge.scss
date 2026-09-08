@@ -26,22 +26,19 @@
     background-color: $text-tertiary;
   }
 
-  &.ing,
-  &.success {
+  &.ing {
     &::before {
       background-color: $text-success; // 
     }
   }
 
-  &.ready,
-  &.warning {
+  &.ready  {
     &::before {
       background-color: $text-warning; //
     }
   }
 
-  &.end,
-  &.danger {
+  &.end  {
     &::before {
       background-color: $text-danger; // 
     }

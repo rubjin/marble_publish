@@ -1,6 +1,19 @@
-<div class="barPercent">
+<!-- 
+  [React Component Guide]
+  - Component: <ProgressBar value={70} max={100} showValue={true} />
+  - Props Interface:
+    * value: number (현재 값, 0 ~ max)
+    * max?: number (최대 값, default: 100)
+    * showValue?: boolean (백분율 텍스트 표시 여부, default: false)
+    * className?: string
+  - Style Binding:
+    * .barPercentFill 의 style="width: ${ (value / max) * 100 }%" 로 동적 바인딩
+-->
+
+<!-- Case 1: 기본 프로그레스 바 (진행률 게이지 바만 표시) -->
+<div class="barPercent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
   <div class="barPercentTrack">
     <div class="barPercentFill" style="width: 70%;"></div>
   </div>
-  <!-- <span class="barPercentValue">70%</span> -->
 </div>
+

@@ -1,5 +1,17 @@
+<!-- 
+  [React Component Guide]
+  - Component: <PageHeader title="..." isFavorite={isFav} onToggleFavorite={...} breadcrumb={...} metaInfo={...} extraActions={...} />
+  - Props Interface:
+    * title: string (페이지 메인 타이틀)
+    * isFavorite?: boolean (즐겨찾기 활성 여부)
+    * onToggleFavorite?: () => void
+    * breadcrumb?: React.ReactNode (우측 브레드크럼)
+    * metaInfo?: Array<{ label: string; value: string }> (작성자/일시 등 메타 정보)
+    * extraActions?: React.ReactNode (우측 버튼 등)
+-->
+
 <!-- ==========================================================================
-  [페이지 헤더] 화면 타이틀 + 즐겨찾기 버튼 + 브래드크럼
+  Case 1: [페이지 헤더] 화면 타이틀 + 즐겨찾기 버튼 + 브레드크럼
   ========================================================================== -->
 <div class="pageHeader">
   <div class="headerLeft">
@@ -25,8 +37,10 @@
   </nav>
 </div>
 
+<div style="width: 100%; height: 20px;"></div>
+
 <!-- ==========================================================================
-  [페이지 헤더] 화면 타이틀 + 즐겨찾기 버튼 + 이력정보
+  Case 2: [페이지 헤더] 화면 타이틀 + 즐겨찾기 버튼 + 이력정보 + 액션 버튼
   ========================================================================== -->
 <div class="pageHeader">
   <div class="headerLeft">
@@ -43,21 +57,5 @@
       <li class="listBarItem"><span class="label">저장일시</span>:<span class="value">2026.08.15 10:30</span></li>
     </ul>
     <button type="button" class="btn outline" data-popup="popupHistory">변경이력조회</button>
-  </div>
-</div>
-
-<!-- [팝업] 변경이력조회 모달 팝업 -->
-<div id="popupHistory" class="popupDimmed">
-  <div class="popupWrap lg">
-    <div class="popupHeader">
-      <h2 class="popupTitle">변경이력 조회</h2>
-      <button type="button" class="btnClose" aria-label="닫기"></button>
-    </div>
-    <div class="popupBody">
-      팝업 내용들어갑니다.
-    </div>
-    <div class="popupFooter">
-      <button type="button" class="btn primary" onclick="closePopup('popupHistory')">확인</button>
-    </div>
   </div>
 </div>

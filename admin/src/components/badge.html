@@ -1,10 +1,42 @@
-<!-- Status -->
-<!-- <span class="badge ongoing">진행중</span>
-<span class="badge completed">종료</span> -->
+<!-- 
+  [React Component Guide]
+  - Component 1: <Badge variant="account" size="md" />
+  - Props Interface (<Badge />):
+    * variant?: 'account' | 'default' (default: 'default')
+    * size?: 'sm' | 'md' | 'lg' (default: 'md')
+    * children: React.ReactNode
+    * className?: string
 
-<!-- Size -->
-<!-- <span class="badge ongoing sm">진행중 SM</span>
-<span class="badge ongoing lg">진행중 LG</span> -->
+  - Component 2: <StatusDot status="ing" label="운영중" />
+  - Props Interface (<StatusDot />):
+    * status: 'ing' | 'ready' | 'end' | 'success' | 'warning' | 'danger'
+      - 'ing' / 'success' : 초록색 불릿 (운영중, 활성)
+      - 'ready' / 'warning' : 주황/노란색 불릿 (대기, 예정)
+      - 'end' / 'danger' : 빨간색 불릿 (종료, 중단)
+    * label: string | React.ReactNode
+    * className?: string
+-->
+
+<!-- 1. Badges (뱃지) -->
+<!-- Case 1-1: 계정 권한 뱃지 (Pill 형태) -->
 <span class="badge account">관리자</span>
+<span class="badge account">운영자</span>
 
+<div style="width: 100%; height: 2px;"></div><!-- 구분선 -->
 
+<!-- Case 1-2: 기본 뱃지 사이즈별 (SM, MD, LG) -->
+<span class="badge sm">Badge SM</span>
+<span class="badge">Badge MD</span>
+<span class="badge lg">Badge LG</span>
+
+<div style="width: 100%; height: 2px;"></div><!-- 구분선 -->
+
+<!-- 2. Status Dot (상태 불릿 텍스트: 운영중 / 진행예정 / 종료) -->
+<!-- Case 2-1: 진행/운영 중 (Green Dot) -->
+<span class="statusDot ing">운영중</span>
+
+<!-- Case 2-2: 대기/예정 (Yellow/Orange Dot) -->
+<span class="statusDot ready">진행예정</span>
+
+<!-- Case 2-3: 종료/중지 (Red Dot) -->
+<span class="statusDot end">종료</span>

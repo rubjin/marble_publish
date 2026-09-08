@@ -1,4 +1,16 @@
-<!-- 페이지 하단 버튼 영역 -->
+<!-- 
+  [React Component Guide]
+  - Component: <PageBottomAction leftActions={...} rightActions={...} /> 또는 <ButtonGroup align="right" />
+  - Props Interface:
+    * leftActions?: React.ReactNode (목록, 초기화 등 좌측 배치 액션)
+    * rightActions?: React.ReactNode (저장, 승인 등 우측 주요 액션)
+    * className?: string
+  - Description:
+    * 페이지 하단 고정/배치 영역으로 기본 .btn은 @include btnLg (높이 40px)로 적용됩니다.
+    * .btnGroupRight 클래스를 통해 우측 정렬 버튼 그룹을 자동으로 배치합니다.
+-->
+
+<!-- Case 1: 페이지 하단 표준 액션 바 (좌측 보조 버튼 + 우측 주요 액션 버튼) -->
 <div class="btnArea pageBottom">
   <div class="btnGroup">
     <button type="button" class="btn outline">목록</button>
@@ -12,3 +24,10 @@
   </div>
 </div>
 
+<!-- Case 2: 우측 정렬 단일 액션 그룹 -->
+<div class="btnArea pageBottom">
+  <div class="btnGroup btnGroupRight">
+    <button type="button" class="btn outline">취소</button>
+    <button type="button" class="btn primary">등록</button>
+  </div>
+</div>
