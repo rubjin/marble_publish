@@ -18,13 +18,18 @@ legend {
 
 @font-face {
   font-family: "KBFG Text";
-  src: url("../fonts/KBFGTextLight.woff2") format("woff2");
+  src: url("../fonts/https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff") format("woff2");
   font-weight: 300;
 }
 @font-face {
   font-family: "KBFG Text";
-  src: url("../fonts/KBFGTextM.woff2") format("woff2");
+  src: url("../fonts/https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Medium.woff") format("woff2");
   font-weight: 500;
+}
+@font-face {
+  font-family: "KBFG Text";
+  src: url("../fonts/https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff") format("woff2");
+  font-weight: 700;
 }
 html, body {
   height: 100%;
@@ -322,7 +327,7 @@ body {
 }
 .boSidebar .sideBottom .sideUser .userName {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: #FFFFFF;
   line-height: 1.4;
   margin: 0 0 4px;
@@ -727,7 +732,7 @@ body {
 }
 .sectionBox .sectionTitle .subText {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   color: #4F535A;
 }
 .sectionBox .btnArea {
@@ -926,7 +931,7 @@ body {
 }
 
 .fwRegular {
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 .fwMedium {
@@ -934,7 +939,7 @@ body {
 }
 
 .fwSemibold {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 
 .fwBold {
@@ -991,35 +996,35 @@ body {
 
 .bodyLg {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   color: #2F3034;
   line-height: 1.6;
 }
 
 .bodyMd {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: #2F3034;
   line-height: 1.6;
 }
 
 .bodySm {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   color: #4F535A;
   line-height: 1.5;
 }
 
 .caption {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   color: #4F535A;
   line-height: 1.5;
 }
 
 .micro {
   font-size: 10px;
-  font-weight: 400;
+  font-weight: 500;
   color: #8D919B;
   line-height: 1.4;
 }
@@ -1199,7 +1204,7 @@ body {
   background-color: #FFC72B;
 }
 .listBarVertical .listBarItem .title {
-  font-weight: 600;
+  font-weight: 500;
   color: #111827;
   margin-right: 6px;
 }
@@ -2248,7 +2253,7 @@ select.formControl.wAuto {
   width: 100px;
   flex-shrink: 0;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: #1F2937;
   line-height: 1.4;
 }
@@ -2274,7 +2279,7 @@ select.formControl.wAuto {
   width: 100px;
   padding: 8px 16px 8px 0;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: #1F2937;
   text-align: left;
   vertical-align: middle;
@@ -2568,7 +2573,7 @@ select.formControl.wAuto {
 }
 .kpiCardGrid .kpiCard .kpiTitle {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   color: #4F535A;
   margin: 0;
   white-space: nowrap;
@@ -2591,7 +2596,7 @@ select.formControl.wAuto {
 }
 .kpiCardGrid .kpiCard .kpiContent .kpiNumber .unit {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: #4F535A;
   margin-left: 2px;
 }
@@ -2602,7 +2607,7 @@ select.formControl.wAuto {
   white-space: nowrap;
 }
 .kpiCardGrid .kpiCard .kpiContent .kpiSub .rate {
-  font-weight: 600;
+  font-weight: 500;
 }
 .kpiCardGrid .kpiCard .kpiContent .kpiSub .rate.isUp {
   color: #EF4444;
@@ -2673,12 +2678,12 @@ select.formControl.wAuto {
 }
 .infoBox .infoList .infoListItem .label {
   color: #4F535A;
-  font-weight: 400;
+  font-weight: 500;
   white-space: nowrap;
 }
 .infoBox .infoList .infoListItem .value {
   color: #111827;
-  font-weight: 600;
+  font-weight: 500;
   text-align: right;
   white-space: nowrap;
 }
@@ -2693,7 +2698,7 @@ select.formControl.wAuto {
 }
 .infoBox .infoList .infoListItem .value .danger {
   color: #EF4444;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .summaryStatBox {
@@ -2781,19 +2786,19 @@ select.formControl.wAuto {
 }
 .summaryStatBox .statItem .statValue .unit {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: #4F535A;
 }
 .summaryStatBox .statItem .statValue .subText {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   color: #4F535A;
 }
 .summaryStatBox .statItem .statValue .rate {
   display: inline-flex;
   align-items: center;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 2px 6px;
   border-radius: 4px;
   margin-left: 4px;
@@ -2860,13 +2865,13 @@ select.formControl.wAuto {
 }
 .summaryStatBox.singleLine .statItem .statValue .unit {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   color: #4F535A;
   margin-left: 2px;
 }
 .summaryStatBox.singleLine .statItem .statValue .subText {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   color: #4F535A;
 }
 .summaryStatBox.singleLine .statDivider {
@@ -3028,7 +3033,7 @@ select.formControl.wAuto {
 }
 .tblTop .tblLeft .tblCount .count {
   color: #111827;
-  font-weight: 600;
+  font-weight: 500;
 }
 .tblTop .tblLeft .tblCount .count.point {
   color: #287EFF;
@@ -3076,7 +3081,7 @@ select.formControl.wAuto {
 .tbl thead th {
   padding: 10px 10px;
   background-color: rgba(243, 245, 246, 0.8);
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   white-space: nowrap;
 }
@@ -3165,7 +3170,7 @@ select.formControl.wAuto {
   width: 100%;
   text-align: left;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   color: #2F3034;
   transition: background-color 0.2s;
 }
@@ -3469,7 +3474,7 @@ select.formControl.wAuto {
   background-color: #2F3034;
   color: #FFFFFF;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.4;
   white-space: nowrap;
   border-radius: 6px;
@@ -3697,7 +3702,7 @@ select.formControl.wAuto {
 .loginForm .loginCheck .checkLabel {
   font-size: 13px;
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 500;
 }
 .loginForm .loginBtn {
   width: 100%;
@@ -3869,7 +3874,7 @@ select.formControl.wAuto {
 
 .errorDesc {
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
   color: #4F535A;
   line-height: 1.6;
   margin: 0;

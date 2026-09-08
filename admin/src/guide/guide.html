@@ -151,7 +151,6 @@
       <button type="button" class="guideNavItem" data-target="sectionPopups">Popups</button>
       <!-- <button type="button" class="guideNavItem" data-target="sectionTypography">Typography</button> -->
       <button type="button" class="guideNavItem" data-target="sectionLists">Lists</button>
-      <button type="button" class="guideNavItem" data-target="sectionAccordion">Accordion</button>
       <button type="button" class="guideNavItem" data-target="sectionTable">Table</button>
       <button type="button" class="guideNavItem" data-target="sectionTitle">Title</button>
       <button type="button" class="guideNavItem" data-target="sectionEtc">etc</button>
@@ -167,16 +166,10 @@
         <include src="./src/components/button.html"></include>
       </div>
 
-      <!-- ==================== 버튼 :: 하단 버튼 ==================== -->
-      <h2 class="guideTitle">페이지 하단 버튼</h2>
-      <div class="guideBox">
-        <include src="./src/components/button_case.html"></include>
-      </div>
-
-       <!-- ==================== 버튼 :: 페이지 버튼 ==================== -->
-      <h2 class="guideTitle">페이지 버튼</h2>
-      <div class="guideBox" style="gap: 5px;">
-        <include src="./src/components/button_case2.html"></include>
+      <!-- ==================== 버튼 :: 버튼 그룹 & 하단 액션 ==================== -->
+      <h2 class="guideTitle">Button Group & Action Bar (버튼 그룹 & 하단 액션 바)</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/button_group.html"></include>
       </div>
 
        <!-- ==================== 버튼 :: 아이콘 버튼 ==================== -->
@@ -214,14 +207,9 @@
 
     <!-- ==================== 아이콘 가이드 ==================== -->
     <section id="sectionIcons" class="guideSection">
-      <h2 class="guideTitle">Icons (아이콘)</h2>
+      <h2 class="guideTitle">Icons (아이콘 & 메뉴 아이콘)</h2>
       <div class="guideBox guideSizeGroup" style="background: #99c4f8;">
         <include src="./src/components/icon.html"></include>
-      </div>
-
-      <h2 class="guideTitle">Icons (메뉴 아이콘)</h2>
-      <div class="guideBox guideSizeGroup" style="background: #949494;">
-        <include src="./src/components/icon_menu.html"></include>
       </div>
     </section>
 
@@ -293,17 +281,6 @@
       </div>
     </section>
    
-
-  
-    <!-- ==================== 아코디언 가이드 ==================== -->
-    <section id="sectionAccordion" class="guideSection">
-      <h2 class="guideTitle">Accordion (아코디언)</h2>
-      <div class="guideBox guideBoxBlock" style="max-width: 700px;">
-        <include src="./src/components/accordion.html"></include>
-      </div>
-    </section>
-
-
 
     <!-- ==================== 테이블 가이드 ==================== -->
     <section id="sectionTable" class="guideSection">

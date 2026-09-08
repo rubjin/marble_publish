@@ -17,13 +17,18 @@ legend {
 
 @font-face {
   font-family: "KBFG Text";
-  src: url("../fonts/KBFGTextLight.woff2") format("woff2");
+  src: url("../fonts/https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff") format("woff2");
   font-weight: 300;
 }
 @font-face {
   font-family: "KBFG Text";
-  src: url("../fonts/KBFGTextM.woff2") format("woff2");
+  src: url("../fonts/https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Medium.woff") format("woff2");
   font-weight: 500;
+}
+@font-face {
+  font-family: "KBFG Text";
+  src: url("../fonts/https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff") format("woff2");
+  font-weight: 700;
 }
 html, body {
   height: 100%;
