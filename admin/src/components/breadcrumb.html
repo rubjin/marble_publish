@@ -6,11 +6,11 @@
     * separator?: React.ReactNode (기본 구분자 화살표 아이콘)
     * className?: string
   - State Classes:
-    * .breadcrumbItem.isCurrent : 현재 페이지 항목 (링크 대신 텍스트로 렌더링, aria-current="page")
+    * .breadcrumbItem.isCurrent : 현재 페이지 항목 (링크 대신 텍스트로 렌더링)
 -->
 
 <!-- Breadcrumb (Default) -->
-<nav class="breadcrumb" aria-label="브레드크럼 위치 경로">
+<nav class="breadcrumb">
   <ol class="breadcrumbList">
     <li class="breadcrumbItem">
       <a href="#" class="breadcrumbLink">홈</a>
@@ -18,7 +18,7 @@
     <li class="breadcrumbItem">
       <a href="#" class="breadcrumbLink">뎁스2</a>
     </li>
-    <li class="breadcrumbItem isCurrent" aria-current="page">
+    <li class="breadcrumbItem isCurrent">
       현재페이지
     </li>
   </ol>

@@ -32,10 +32,10 @@
   <label class="formLabel">Tag Box (태그 선택 및 관리)</label>
   <div class="formControlWrap full col">
     <div class="tagBox">
-      <span class="tagChip">태그 1 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-      <span class="tagChip">태그 2 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-      <span class="tagChip">태그 3 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-      <span class="tagChip">태그 4 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+      <span class="tagChip">태그 1 <button type="button" class="tagDelete"></button></span>
+      <span class="tagChip">태그 2 <button type="button" class="tagDelete"></button></span>
+      <span class="tagChip">태그 3 <button type="button" class="tagDelete"></button></span>
+      <span class="tagChip">태그 4 <button type="button" class="tagDelete"></button></span>
     </div>
     <div class="formControlBottom">
       <span class="formGuideText">노출할 항목을 선택하여 지정합니다.</span>
@@ -70,21 +70,20 @@
 <!-- 6. Date Range (공통 운영기간 데이트피커 + 미지정 체크박스) -->
 <div class="formGroup">
   <label class="formLabel">기간 설정</label>
-  <fieldset class="formDateRange">
-    <legend class="srOnly">기간 설정</legend>
+  <div class="formDateRange">
     <div class="formDatepicker">
       <input type="text" class="formControl" value="2026.07.01" title="시작일" />
-      <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+      <button type="button" class="btnCalendar"></button>
     </div>
     <span class="dateSeparator">~</span>
     <div class="formDatepicker">
       <input type="text" class="formControl" value="2026.08.31" title="종료일" />
-      <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+      <button type="button" class="btnCalendar"></button>
     </div>
     <label class="formCheck">
       <input type="checkbox" />
       <span class="checkIcon"></span>
       <span class="checkLabel">미지정</span>
     </label>
-  </fieldset>
+  </div>
 </div>

@@ -38,6 +38,7 @@ body {
   line-height: 1.5;
   color: #2F3034;
   background-color: #F8F9FA;
+  letter-spacing: -2%;
 }
 
 .srOnly {
@@ -1069,13 +1070,13 @@ body {
   border-radius: 50%;
   background-color: #8D919B;
 }
-.statusDot.ing::before, .statusDot.success::before {
+.statusDot.ing::before {
   background-color: #05CD99;
 }
-.statusDot.ready::before, .statusDot.warning::before {
+.statusDot.ready::before {
   background-color: #FFCE20;
 }
-.statusDot.end::before, .statusDot.danger::before {
+.statusDot.end::before {
   background-color: #EF4444;
 }
 

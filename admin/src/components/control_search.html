@@ -20,18 +20,17 @@
       <span class="searchLabel">조회일자</span>
       <div class="searchField">
         <div class="formRow">
-          <fieldset class="formDateRange">
-            <legend class="srOnly">조회기간 설정</legend>
+          <div class="formDateRange">
             <div class="formDatepicker">
-              <input type="text" class="formControl" value="2026.07.01" title="조회 시작일" />
-              <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+              <input type="text" class="formControl" value="2026.07.01" />
+              <button type="button" class="btnCalendar"></button>
             </div>
             <span class="dateSeparator">~</span>
             <div class="formDatepicker">
-              <input type="text" class="formControl" value="2026.08.31" title="조회 종료일" />
-              <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+              <input type="text" class="formControl" value="2026.08.31" />
+              <button type="button" class="btnCalendar"></button>
             </div>
-          </fieldset>
+          </div>
 
           <div class="segment">
             <label class="segmentItem">
@@ -78,8 +77,7 @@
     <div class="searchItem">
       <span class="searchLabel">상태</span>
       <div class="searchField">
-        <fieldset class="formCheckGroup">
-          <legend class="srOnly">상태 선택</legend>
+        <div class="formCheckGroup">
           <label class="formCheck">
             <input type="radio" name="searchStatus" checked />
             <span class="checkIcon"></span>
@@ -100,7 +98,7 @@
             <span class="checkIcon"></span>
             <span class="checkLabel">종료</span>
           </label>
-        </fieldset>
+        </div>
       </div>
     </div>
   </div>

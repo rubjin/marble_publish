@@ -6,8 +6,7 @@
     * size?: 'sm' | 'md' | 'lg' (default: 'md')
     * icon: string | React.ReactNode (e.g., 'download', 'calendar' 등 .ico 클래스)
     * iconPosition?: 'left' | 'right' (default: 'left')
-    * children?: React.ReactNode (텍스트 생략 시 아이콘 단독 버튼)
-    * aria-label?: string (아이콘 단독 버튼일 때 필수)
+    * children?: React.ReactNode
 -->
 
 <!-- Case 1: 아이콘 + 텍스트 버튼 (다운로드 / 캘린더 등) -->
@@ -27,7 +26,7 @@
   <span>다운로드</span>
 </button>
 
-<!-- Case 3: 아이콘 단독 버튼 (접근성을 위해 aria-label 명시 필수) -->
-<button type="button" class="btn outline sm" aria-label="다운로드">
+<!-- Case 3: 아이콘 단독 버튼 -->
+<button type="button" class="btn outline sm">
   <span class="ico download"></span>
 </button>
