@@ -70,6 +70,62 @@ body {
   text-align: right !important;
 }
 
+.flex {
+  display: flex !important;
+}
+
+.inlineFlex {
+  display: inline-flex !important;
+}
+
+.flexCol {
+  flex-direction: column !important;
+}
+
+.flexRow {
+  flex-direction: row !important;
+}
+
+.flexWrap {
+  flex-wrap: wrap !important;
+}
+
+.justifyBetween {
+  justify-content: space-between !important;
+}
+
+.justifyStart {
+  justify-content: flex-start !important;
+}
+
+.justifyCenter {
+  justify-content: center !important;
+}
+
+.justifyEnd {
+  justify-content: flex-end !important;
+}
+
+.alignTop, .alignStart {
+  align-items: flex-start !important;
+}
+
+.alignCenter {
+  align-items: center !important;
+}
+
+.alignBottom, .alignEnd {
+  align-items: flex-end !important;
+}
+
+.alignRight, .right {
+  margin-left: auto !important;
+}
+
+.alignLeft, .left {
+  margin-right: auto !important;
+}
+
 .flexBetween {
   display: flex;
   justify-content: space-between;
@@ -91,22 +147,6 @@ body {
 }
 .flexBetween .right, .flexBetween .alignRight {
   margin-left: auto;
-}
-
-.alignTop {
-  align-items: flex-start !important;
-}
-
-.alignCenter {
-  align-items: center !important;
-}
-
-.alignBottom {
-  align-items: flex-end !important;
-}
-
-.alignRight {
-  margin-left: auto !important;
 }
 
 .boWrap {
@@ -2103,38 +2143,21 @@ select.formControl.wAuto {
   margin-top: 8px;
 }
 
-/* Flex Between Area (안내문구 + 우측 버튼, 상단/하단 정렬 공통) */
-.flexBetween,
+/* Form Control Bottom Area (하단 안내문구 + 우측 버튼 등) */
 .formControlBottom {
   display: flex;
-  align-items: flex-start; /* 기본 상단 정렬 */
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   gap: 12px;
 }
-.flexBetween.alignCenter,
-.formControlBottom.alignCenter {
-  align-items: center;
-}
-.flexBetween.alignTop,
-.formControlBottom.alignTop {
-  align-items: flex-start;
-}
-.flexBetween.alignBottom,
-.formControlBottom.alignBottom {
-  align-items: flex-end;
-}
-.flexBetween .formGuideText,
 .formControlBottom .formGuideText {
   margin-left: 0;
 }
-.flexBetween .btn,
 .formControlBottom .btn {
   flex-shrink: 0;
 }
-.flexBetween .right, .flexBetween .alignRight,
-.formControlBottom .right,
-.formControlBottom .alignRight {
+.formControlBottom .right {
   margin-left: auto;
 }
 

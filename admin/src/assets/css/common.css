@@ -70,6 +70,62 @@ body {
   text-align: right !important;
 }
 
+.flex {
+  display: flex !important;
+}
+
+.inlineFlex {
+  display: inline-flex !important;
+}
+
+.flexCol {
+  flex-direction: column !important;
+}
+
+.flexRow {
+  flex-direction: row !important;
+}
+
+.flexWrap {
+  flex-wrap: wrap !important;
+}
+
+.justifyBetween {
+  justify-content: space-between !important;
+}
+
+.justifyStart {
+  justify-content: flex-start !important;
+}
+
+.justifyCenter {
+  justify-content: center !important;
+}
+
+.justifyEnd {
+  justify-content: flex-end !important;
+}
+
+.alignTop, .alignStart {
+  align-items: flex-start !important;
+}
+
+.alignCenter {
+  align-items: center !important;
+}
+
+.alignBottom, .alignEnd {
+  align-items: flex-end !important;
+}
+
+.alignRight, .right {
+  margin-left: auto !important;
+}
+
+.alignLeft, .left {
+  margin-right: auto !important;
+}
+
 .flexBetween {
   display: flex;
   justify-content: space-between;
@@ -91,20 +147,4 @@ body {
 }
 .flexBetween .right, .flexBetween .alignRight {
   margin-left: auto;
-}
-
-.alignTop {
-  align-items: flex-start !important;
-}
-
-.alignCenter {
-  align-items: center !important;
-}
-
-.alignBottom {
-  align-items: flex-end !important;
-}
-
-.alignRight {
-  margin-left: auto !important;
 }
