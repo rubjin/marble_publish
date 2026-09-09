@@ -1,15 +1,18 @@
-<!-- 
-  [React Component Guide]
-  - Component 1: <TagBox tags={tags} onRemoveTag={...} onAddClick={...} guideText="..." />
-  - Component 2: <DateRangePicker startDate={start} endDate={end} onStartDateChange={...} onEndDateChange={...} noLimit={noLimit} onNoLimitChange={...} />
-  - Component 3: <SearchInput value={val} onSearchClick={...} guideText="..." />
-  - Props Interface:
-    * tags: Array<{ id: string | number; label: string }>
-    * onRemoveTag: (tagId: string | number) => void
-    * startDate / endDate: string (YYYY.MM.DD)
+﻿<!-- 
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트 1: <InputGroup hasBtn={<button type="button" class="btn outline">확인</button>}> <Input ... /> </InputGroup>
+  - 컴포넌트 2: <InputGroup hasUnit="원"> <Input ... /> </InputGroup>
+  - 컴포넌트 3: <Select ... />
+  - 컴포넌트 4: <TagBox tags={tags} onRemoveTag={...} onAddClick={...} guideText="..." />
+  - 컴포넌트 5: <DateRangePicker startDate={start} endDate={end} onStartDateChange={...} onEndDateChange={...} noLimit={noLimit} onNoLimitChange={...} />
+  - 컴포넌트 6: <SearchInput value={val} onSearchClick={...} guideText="..." />
+  - 속성 인터페이스:
+    * tags: Array<{ id: string | number; label: string }> (태그 목록)
+    * onRemoveTag: (tagId: string | number) => void (태그 삭제 콜백)
+    * startDate / endDate: string (시작일 / 종료일, 형식: YYYY.MM.DD)
 -->
 
-<!-- 1. Input + Button 결합 (.hasBtn) -->
+<!-- 1. 인풋 + 버튼 결합 (.hasBtn) -->
 <div class="formGroup">
   <label class="formLabel">인풋 + 버튼 결합 (.hasBtn)</label>
   <div class="formControlWrap hasBtn full">
@@ -18,7 +21,7 @@
   </div>
 </div>
 
-<!-- 2. Input with Unit (우측 단위: .hasUnit + .inputUnit) -->
+<!-- 2. 단위 결합 인풋 (.hasUnit) -->
 <div class="formGroup">
   <label class="formLabel">수량 / 단위 입력 (우측 단위)</label>
   <div class="formControlWrap full hasUnit">
@@ -27,7 +30,30 @@
   </div>
 </div>
 
-<!-- 3. Tag Box (태그 리스트 + 하단 액션 버튼 결합) -->
+<!-- 3. 셀렉트 박스 (드롭다운 + 하단 안내 문구) -->
+<div class="formGroup">
+  <label class="formLabel" for="idMissionType">Select Box (드롭다운 + 가이드 문구)</label>
+  <div class="formControlWrap">
+    <select id="idMissionType" class="formControl">
+      <option value="1">옵션 A</option>
+      <option value="2">옵션 B</option>
+    </select>
+    <span class="formGuideText">유형을 선택하고 관리합니다.</span>
+  </div>
+  <p class="formGuideText blue">※ 유형 선택에 따라 아래 상세 설정 화면이 변경됩니다.</p>
+</div>
+
+<!-- 4. 조회형 인풋 (인풋 + 검색 버튼 + 가이드 문구) -->
+<div class="formGroup">
+  <label class="formLabel" for="idMissionID">코드 조회 (조회형 폼)</label>
+  <div class="formControlWrap hasBtn">
+    <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly />
+    <button type="button" class="btn outline">찾아보기</button>
+    <p class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</p>
+  </div>
+</div>
+
+<!-- 5. 태그 박스 (태그 선택 및 관리) -->
 <div class="formGroup">
   <label class="formLabel">Tag Box (태그 선택 및 관리)</label>
   <div class="formControlWrap full col">
@@ -44,30 +70,7 @@
   </div>
 </div>
 
-<!-- 4. Select Box (드롭다운 + 하단 안내 문구) -->
-<div class="formGroup">
-  <label class="formLabel" for="idMissionType">Select Box (드롭다운 + 가이드 문구)</label>
-  <div class="formControlWrap">
-    <select id="idMissionType" class="formControl">
-      <option value="1">옵션 A</option>
-      <option value="2">옵션 B</option>
-    </select>
-    <span class="formGuideText">유형을 선택하고 관리합니다.</span>
-  </div>
-  <p class="formGuideText blue">※ 유형 선택에 따라 아래 상세 설정 화면이 변경됩니다.</p>
-</div>
-
-<!-- 5. 조회형 인풋 (Input + Search Button + Guide Text) -->
-<div class="formGroup">
-  <label class="formLabel" for="idMissionID">코드 조회 (조회형 폼)</label>
-  <div class="formControlWrap hasBtn">
-    <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly />
-    <button type="button" class="btn outline">찾아보기</button>
-    <p class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</p>
-  </div>
-</div> 
-
-<!-- 6. Date Range (공통 운영기간 데이트피커 + 미지정 체크박스) -->
+<!-- 6. 기간 설정 (공통 운영기간 데이트피커 + 미지정 체크박스) -->
 <div class="formGroup">
   <label class="formLabel">기간 설정</label>
   <div class="formDateRange">

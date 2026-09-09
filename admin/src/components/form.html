@@ -1,20 +1,18 @@
 <!-- 
-  [React Component Guide]
-  - Component 1: <FormItem label="..." required={true} error="..." helperText="..."> {inputElement} </FormItem>
-  - Component 2: <Input type="text" placeholder="..." value={val} onChange={...} isError={...} hasUnit="원" />
-  - Component 3: <Select options={options} value={selected} onChange={...} placeholder="선택" />
-  - Component 4: <Textarea value={text} onChange={...} maxLength={1000} placeholder="..." />
-  - Props Interface:
-    * label?: string | React.ReactNode
-    * required?: boolean (adds <span class="required">*</span>)
-    * error?: string (adds .isError on control and renders <p class="formErrorMsg">{error}</p>)
-    * disabled?: boolean
-    * readOnly?: boolean
-    * hasUnit?: string (wraps in .formControlWrap.hasUnit with <span class="unit">)
-    * hasBtn?: React.ReactNode (wraps in .formControlWrap.hasBtn with <button type="button" class="btn">)
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트 1: <FormItem label="..." required={true} error="..." helperText="..."> {inputElement} </FormItem>
+  - 컴포넌트 2: <Input type="text" placeholder="..." value={val} onChange={...} isError={...} />
+  - 컴포넌트 3: <Select options={options} value={selected} onChange={...} placeholder="선택" />
+  - 컴포넌트 4: <Textarea value={text} onChange={...} maxLength={1000} placeholder="..." />
+  - 속성 인터페이스:
+    * label?: string | React.ReactNode (라벨 텍스트)
+    * required?: boolean (필수 표시 <span class="required">*</span> 추가)
+    * error?: string (에러 상태 .isError 추가 및 <p class="formErrorMsg">{error}</p> 노출)
+    * disabled?: boolean (비활성화 상태)
+    * readOnly?: boolean (읽기 전용 상태)
 -->
 
-<!-- 1. Text Input (기본 및 필수 항목) -->
+<!-- 1. 텍스트 입력 (기본 및 필수 항목) -->
 <div class="formGroup">
   <label class="formLabel">텍스트 입력 <span class="required">*</span></label>
   <div class="formControlWrap full">
@@ -22,17 +20,16 @@
   </div>
 </div>
 
-<!-- 2. Text Input (유효성 에러 상태: .isError + .formErrorMsg) -->
+<!-- 2. 텍스트 입력 (유효성 에러 상태: .isError + .formErrorMsg) -->
 <div class="formGroup">
   <label class="formLabel">폼 타이틀 <span class="required">*</span></label>
   <div class="formControlWrap full">
-    <!-- [D] 에러 상태: input에 .isError 클래스 추가 -->
     <input type="text" class="formControl isError" placeholder="내용을 입력해주세요" value="입력값" />
   </div>
   <p class="formErrorMsg">올바른 형식으로 입력해주세요.</p>
 </div>
 
-<!-- 3. Text Input (읽기 전용: readonly / 비활성화: disabled) -->
+<!-- 3. 텍스트 입력 (읽기 전용 / 비활성화) -->
 <div class="formGroup">
   <label class="formLabel">읽기 전용 항목 (Readonly)</label>
   <div class="formControlWrap full">
@@ -47,7 +44,7 @@
   </div>
 </div>
 
-<!-- 4. Select Box (드롭다운 선택) -->
+<!-- 4. 셀렉트 박스 (드롭다운 선택) -->
 <div class="formGroup">
   <label class="formLabel">옵션 선택 <span class="required">*</span></label>
   <div class="formControlWrap full">
@@ -60,25 +57,7 @@
   </div>
 </div>
 
-<!-- 5. 단위 결합 인풋 (.hasUnit) -->
-<div class="formGroup">
-  <label class="formLabel">단위 입력 (.hasUnit)</label>
-  <div class="formControlWrap full hasUnit">
-    <input type="text" class="formControl" placeholder="0" />
-    <span class="unit">원</span>
-  </div>
-</div>
-
-<!-- 6. 버튼 결합 인풋 (.hasBtn) -->
-<div class="formGroup">
-  <label class="formLabel">버튼 결합 입력 (.hasBtn)</label>
-  <div class="formControlWrap full hasBtn">
-    <input type="text" class="formControl" placeholder="내용을 입력해주세요" />
-    <button type="button" class="btn dark">확인</button>
-  </div>
-</div>
-
-<!-- 7. Textarea (멀티라인 입력) -->
+<!-- 5. 텍스트에어리어 (멀티라인 입력) -->
 <div class="formGroup">
   <label class="formLabel">상세 내용</label>
   <div class="formControlWrap full">

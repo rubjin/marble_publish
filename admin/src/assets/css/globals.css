@@ -18,17 +18,17 @@ legend {
 
 @font-face {
   font-family: "KBFG Text";
-  src: url("../fonts/https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff") format("woff2");
+  src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff") format("woff2");
   font-weight: 300;
 }
 @font-face {
   font-family: "KBFG Text";
-  src: url("../fonts/https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Medium.woff") format("woff2");
+  src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Medium.woff") format("woff2");
   font-weight: 500;
 }
 @font-face {
   font-family: "KBFG Text";
-  src: url("../fonts/https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff") format("woff2");
+  src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff") format("woff2");
   font-weight: 700;
 }
 html, body {
@@ -1255,66 +1255,6 @@ body {
   margin: 0 12px;
 }
 
-.listBarVertical {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 8px;
-}
-.listBarVertical .listBarItem {
-  position: relative;
-  padding-left: 12px;
-  font-size: 14px;
-  color: #2F3034;
-}
-.listBarVertical .listBarItem::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 9px;
-  width: 3px;
-  height: 3px;
-  background-color: #8D919B;
-  border-radius: 50%;
-}
-.listBarVertical .listBarItem.primary::before, .listBarVertical .listBarItem.isPoint::before {
-  background-color: #FFC72B;
-}
-.listBarVertical .listBarItem .title {
-  font-weight: 500;
-  color: #111827;
-  margin-right: 6px;
-}
-.listBarVertical .listBarItem .desc {
-  color: #4F535A;
-}
-.listBarVertical.sm {
-  gap: 6px;
-}
-.listBarVertical.sm .listBarItem {
-  font-size: 12px;
-  padding-left: 10px;
-}
-.listBarVertical.sm .listBarItem::before {
-  top: 4px;
-  width: 2px;
-  height: 10px;
-}
-.listBarVertical.lg {
-  gap: 10px;
-}
-.listBarVertical.lg .listBarItem {
-  font-size: 16px;
-  padding-left: 14px;
-}
-.listBarVertical.lg .listBarItem::before {
-  top: 5px;
-  width: 3px;
-  height: 14px;
-}
-
 .listBar + .listBar,
 .listBar + .listBarVertical,
 .listBarVertical + .listBarVertical,
@@ -1884,16 +1824,9 @@ body {
 .formControlWrap .inputUnit {
   right: 12px;
 }
-.formControlWrap.hasPrefix .formControl {
-  padding-left: 36px;
-}
 .formControlWrap.hasUnit .formControl {
   padding-right: 36px;
   text-align: right;
-}
-.formControlWrap.hasPrefix.hasUnit .formControl {
-  padding-left: 36px;
-  padding-right: 36px;
 }
 
 fieldset {

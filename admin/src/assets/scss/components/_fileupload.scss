@@ -79,27 +79,6 @@
     }
   }
 
-  // 드롭존 내부의 파일 리스트
-  // .fileList {
-  //   position: relative;
-  //   z-index: 2;
-  //   list-style: none;
-  //   margin: 12px 0 0 0;
-  //   padding: 12px 0 0 0;
-  //   border-top: 1px dashed $color-gray-200;
-  //   display: flex;
-  //   flex-direction: column;
-  //   gap: 6px;
-  //   width: 100%;
-
-  //   &:empty {
-  //     display: none;
-  //     margin: 0;
-  //     padding: 0;
-  //     border-top: none;
-  //   }
-  // }
-
   &:hover,
   &.isDragOver {
     background-color: $bg-warning-light;
@@ -171,21 +150,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
     border: none;
     background: transparent;
-    color: $text-tertiary;
     cursor: pointer;
-    padding: 0;
-    margin-left: 10px;
-    border-radius: 4px;
-    transition: all 0.15s;
-
-    &:hover {
-      background-color: $bg-danger-light;
-      color: $text-danger;
-    }
   }
 }
 
