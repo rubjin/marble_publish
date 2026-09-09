@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Tooltip Component
    ========================================================================== */
 
@@ -52,7 +52,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 
     // 말풍선 꼬리 화살표 공통
     &::after {
@@ -60,22 +60,27 @@
       position: absolute;
       width: 0;
       height: 0;
-      border: 5px solid transparent;
+      border-style: solid;
     }
   }
 
-  // 기본 위치: 상단 (Top)
+  // 기본 위치 및 상단 (Top)
   .tooltipContent,
   &.top .tooltipContent {
     bottom: calc(100% + 8px);
     left: 50%;
+    right: auto;
+    top: auto;
     transform: translateX(-50%) translateY(4px);
 
     &::after {
       top: 100%;
       left: 50%;
+      bottom: auto;
+      right: auto;
       transform: translateX(-50%);
-      border-top-color: $color-gray-800;
+      border-width: 5px 5px 0 5px;
+      border-color: $color-gray-800 transparent transparent transparent;
     }
   }
 
@@ -84,14 +89,17 @@
     top: calc(100% + 8px);
     bottom: auto;
     left: 50%;
+    right: auto;
     transform: translateX(-50%) translateY(-4px);
 
     &::after {
       bottom: 100%;
-      top: auto;
       left: 50%;
+      top: auto;
+      right: auto;
       transform: translateX(-50%);
-      border-bottom-color: $color-gray-800;
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent $color-gray-800 transparent;
     }
   }
 
@@ -106,8 +114,11 @@
     &::after {
       left: 100%;
       top: 50%;
+      right: auto;
+      bottom: auto;
       transform: translateY(-50%);
-      border-left-color: $color-gray-800;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent $color-gray-800;
     }
   }
 
@@ -121,25 +132,53 @@
 
     &::after {
       right: 100%;
-      left: auto;
       top: 50%;
+      left: auto;
+      bottom: auto;
       transform: translateY(-50%);
-      border-right-color: $color-gray-800;
+      border-width: 5px 5px 5px 0;
+      border-color: transparent $color-gray-800 transparent transparent;
     }
   }
 
-  // Hover & Focus & Open State
+  // 호버 / 포커스 / 열림 공통 상태
   &:hover .tooltipContent,
   &:focus-within .tooltipContent,
   &.isOpen .tooltipContent {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    
-    &.top, & { transform: translateX(-50%) translateY(0); }
-    &.bottom { transform: translateX(-50%) translateY(0); }
-    &.left { transform: translateY(-50%) translateX(0); }
-    &.right { transform: translateY(-50%) translateX(0); }
+  }
+
+  // Top (기본) 호버
+  &:hover .tooltipContent,
+  &:focus-within .tooltipContent,
+  &.isOpen .tooltipContent,
+  &.top:hover .tooltipContent,
+  &.top:focus-within .tooltipContent,
+  &.top.isOpen .tooltipContent {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  // Bottom 호버
+  &.bottom:hover .tooltipContent,
+  &.bottom:focus-within .tooltipContent,
+  &.bottom.isOpen .tooltipContent {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  // Left 호버
+  &.left:hover .tooltipContent,
+  &.left:focus-within .tooltipContent,
+  &.left.isOpen .tooltipContent {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  // Right 호버
+  &.right:hover .tooltipContent,
+  &.right:focus-within .tooltipContent,
+  &.right.isOpen .tooltipContent {
+    transform: translateY(-50%) translateX(0);
   }
 
   // 다중 라인 (너비 제한 툴팁)
@@ -149,6 +188,14 @@
     max-width: 260px;
     word-break: keep-all;
   }
+}
+
+// 툴팁 그룹 (라벨과 툴팁 결합 및 다중 툴팁 정렬 래퍼)
+.tooltipGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 

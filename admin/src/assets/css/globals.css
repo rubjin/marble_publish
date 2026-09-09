@@ -2462,20 +2462,9 @@ select.formControl.wAuto {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
   border: none;
   background: transparent;
-  color: #8D919B;
   cursor: pointer;
-  padding: 0;
-  margin-left: 10px;
-  border-radius: 4px;
-  transition: all 0.15s;
-}
-.fileItem .fileDelete:hover {
-  background-color: #FEE2E2;
-  color: #EF4444;
 }
 
 .badge {
@@ -3394,8 +3383,8 @@ select.formControl.wAuto {
   }
 }
 /* ==========================================================================
-  Tooltip Component
-  ========================================================================== */
+   Tooltip Component
+   ========================================================================== */
 .tooltipWrap {
   position: relative;
   display: inline-flex;
@@ -3441,38 +3430,46 @@ select.formControl.wAuto {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
 .tooltipWrap .tooltipContent::after {
   content: "";
   position: absolute;
   width: 0;
   height: 0;
-  border: 5px solid transparent;
+  border-style: solid;
 }
 .tooltipWrap .tooltipContent, .tooltipWrap.top .tooltipContent {
   bottom: calc(100% + 8px);
   left: 50%;
+  right: auto;
+  top: auto;
   transform: translateX(-50%) translateY(4px);
 }
 .tooltipWrap .tooltipContent::after, .tooltipWrap.top .tooltipContent::after {
   top: 100%;
   left: 50%;
+  bottom: auto;
+  right: auto;
   transform: translateX(-50%);
-  border-top-color: #2F3034;
+  border-width: 5px 5px 0 5px;
+  border-color: #2F3034 transparent transparent transparent;
 }
 .tooltipWrap.bottom .tooltipContent {
   top: calc(100% + 8px);
   bottom: auto;
   left: 50%;
+  right: auto;
   transform: translateX(-50%) translateY(-4px);
 }
 .tooltipWrap.bottom .tooltipContent::after {
   bottom: 100%;
-  top: auto;
   left: 50%;
+  top: auto;
+  right: auto;
   transform: translateX(-50%);
-  border-bottom-color: #2F3034;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #2F3034 transparent;
 }
 .tooltipWrap.left .tooltipContent {
   right: calc(100% + 8px);
@@ -3484,8 +3481,11 @@ select.formControl.wAuto {
 .tooltipWrap.left .tooltipContent::after {
   left: 100%;
   top: 50%;
+  right: auto;
+  bottom: auto;
   transform: translateY(-50%);
-  border-left-color: #2F3034;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #2F3034;
 }
 .tooltipWrap.right .tooltipContent {
   left: calc(100% + 8px);
@@ -3496,26 +3496,28 @@ select.formControl.wAuto {
 }
 .tooltipWrap.right .tooltipContent::after {
   right: 100%;
-  left: auto;
   top: 50%;
+  left: auto;
+  bottom: auto;
   transform: translateY(-50%);
-  border-right-color: #2F3034;
+  border-width: 5px 5px 5px 0;
+  border-color: transparent #2F3034 transparent transparent;
 }
 .tooltipWrap:hover .tooltipContent, .tooltipWrap:focus-within .tooltipContent, .tooltipWrap.isOpen .tooltipContent {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
-.tooltipWrap:hover .tooltipContent.top, .tooltipWrap:hover .tooltipContent, .tooltipWrap:focus-within .tooltipContent.top, .tooltipWrap:focus-within .tooltipContent, .tooltipWrap.isOpen .tooltipContent.top, .tooltipWrap.isOpen .tooltipContent {
+.tooltipWrap:hover .tooltipContent, .tooltipWrap:focus-within .tooltipContent, .tooltipWrap.isOpen .tooltipContent, .tooltipWrap.top:hover .tooltipContent, .tooltipWrap.top:focus-within .tooltipContent, .tooltipWrap.top.isOpen .tooltipContent {
   transform: translateX(-50%) translateY(0);
 }
-.tooltipWrap:hover .tooltipContent.bottom, .tooltipWrap:focus-within .tooltipContent.bottom, .tooltipWrap.isOpen .tooltipContent.bottom {
+.tooltipWrap.bottom:hover .tooltipContent, .tooltipWrap.bottom:focus-within .tooltipContent, .tooltipWrap.bottom.isOpen .tooltipContent {
   transform: translateX(-50%) translateY(0);
 }
-.tooltipWrap:hover .tooltipContent.left, .tooltipWrap:focus-within .tooltipContent.left, .tooltipWrap.isOpen .tooltipContent.left {
+.tooltipWrap.left:hover .tooltipContent, .tooltipWrap.left:focus-within .tooltipContent, .tooltipWrap.left.isOpen .tooltipContent {
   transform: translateY(-50%) translateX(0);
 }
-.tooltipWrap:hover .tooltipContent.right, .tooltipWrap:focus-within .tooltipContent.right, .tooltipWrap.isOpen .tooltipContent.right {
+.tooltipWrap.right:hover .tooltipContent, .tooltipWrap.right:focus-within .tooltipContent, .tooltipWrap.right.isOpen .tooltipContent {
   transform: translateY(-50%) translateX(0);
 }
 .tooltipWrap .tooltipContent.multiLine {
@@ -3523,6 +3525,13 @@ select.formControl.wAuto {
   min-width: 180px;
   max-width: 260px;
   word-break: keep-all;
+}
+
+.tooltipGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 /* ==========================================================================
