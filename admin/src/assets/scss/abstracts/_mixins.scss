@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'functions' as *;
 
 // Mixins
 @mixin text-ellipsis {
@@ -7,18 +8,6 @@
   white-space: nowrap;
 }
 
-// Functions
-@function imgUrl($path) {
-  @return url('#{$path-images}/#{$path}');
-}
-
-@function iconUrl($name) {
-  @return url('#{$path-images}/icon/#{$name}');
-}
-
-@function fontUrl($name) {
-  @return url('#{$path-fonts}/#{$name}');
-}
 
 
 
