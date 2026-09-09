@@ -2,11 +2,13 @@
 // 1. Primitive Colors (Palette)
 // ==========================================================================
 
-$color-yellow-400: #FFDC00;
-$color-yellow-500: #FFC72B;
+// Brand & Accent (Yellow)
+$color-yellow-400:   #FFDC00;
+$color-yellow-500:   #FFC72B;
 $color-yellow-alpha: rgba(255, 220, 0, 0.2);
 
-$color-gray-50: #F8F9FA;
+// Grayscale
+$color-gray-50:  #F8F9FA;
 $color-gray-100: #F3F5F6;
 $color-gray-150: #F0F0F3;
 $color-gray-200: #E7E9ED;
@@ -19,20 +21,28 @@ $color-gray-800: #2F3034;
 $color-gray-900: #1F2937;
 $color-gray-950: #111827;
 
-// $color-red-400: #FF9494; 
-$color-red-400: #EE5D50;
-$color-red-500: #F23F3F;
-$color-red-600: #EF4444;
+// Status & Accent Colors
+$color-red-50:    #FEE2E2;
+$color-red-400:   #EE5D50;
+$color-red-500:   #F23F3F;
+$color-red-600:   #EF4444;
 $color-red-alpha: rgba(239, 68, 68, 0.2);
 
+$color-green-50:  #ECFDF5;
 $color-green-500: #05CD99;
-$color-orange-500: #FFCE20;
-$color-blue-100: #EDF1FB;
-$color-blue-200: #C5D1E2;
-$color-blue-300: #639DFF;
-$color-blue-500: #287EFF;
 
-$color-white: #FFFFFF;
+$color-orange-50:  #FEFCE8;
+$color-orange-500: #FFCE20;
+
+$color-blue-50:    #F7F8FB;
+$color-blue-100:   #EDF1FB;
+$color-blue-200:   #C5D1E2;
+$color-blue-300:   #639DFF;
+$color-blue-500:   #287EFF;
+$color-blue-alpha: rgba(40, 126, 255, 0.15);
+
+// Base
+$color-white:       #FFFFFF;
 $color-transparent: transparent;
 
 // ==========================================================================
@@ -40,59 +50,65 @@ $color-transparent: transparent;
 // ==========================================================================
 
 // 2.1 Backgrounds
-$bg-primary: $color-yellow-500;
-$bg-white: $color-white;
-$bg-light: $color-gray-100;
-$bg-secondary: $color-gray-150;
-$bg-dark: $color-gray-600;
-$bg-disabled: $color-gray-150;
-$bg-table-header: rgba(243, 245, 246, 0.8);
-$bg-danger-light: #FEE2E2;
-$bg-success-light: #ECFDF5;
-$bg-warning-light: #FEFCE8;
-$bg-info-light: #F7F8FB;
-$bg-card-active: $color-blue-100;
+$bg-primary:       $color-yellow-500;
+$bg-white:         $color-white;
+$bg-light:         $color-gray-100;
+$bg-secondary:     $color-gray-150;
+$bg-dark:          $color-gray-600;
+$bg-disabled:      $color-gray-150;
+$bg-table-header:  rgba(243, 245, 246, 0.8);
+$bg-danger-light:  $color-red-50;
+$bg-success-light: $color-green-50;
+$bg-warning-light: $color-orange-50;
+$bg-info-light:    $color-blue-50;
+$bg-card-active:   $color-blue-100;
 
 // 2.2 Text Colors
-$text-white: $color-white;
-$text-primary: $color-gray-800;
+$text-white:     $color-white;
+$text-primary:   $color-gray-800;
 $text-secondary: $color-gray-600;
-$text-tertiary: $color-gray-400;
-$text-inverse: $color-white;
-$text-danger: $color-red-600;
-$text-success: $color-green-500;
-$text-warning: $color-orange-500;
-$text-info: $color-blue-500;
-$text-link: $color-blue-300;
-$text-title: $color-gray-950;
+$text-tertiary:  $color-gray-400;
+$text-inverse:   $color-white;
+$text-danger:    $color-red-600;
+$text-success:   $color-green-500;
+$text-warning:   $color-orange-500;
+$text-info:      $color-blue-500;
+$text-link:      $color-blue-300;
+$text-title:     $color-gray-950;
 $text-highlight: $color-gray-900;
 
 // 2.3 Borders
-$border-light: $color-gray-150;
-$border-disabled: $color-gray-200;
-$border-default: $color-gray-300;
-$border-hover: $color-gray-400;
-$border-active: $color-gray-600;
-$border-danger: $color-red-400;
-$border-dark: #707070;
+$border-light:       $color-gray-150;
+$border-disabled:    $color-gray-200;
+$border-default:     $color-gray-300;
+$border-hover:       $color-gray-400;
+$border-active:      $color-gray-600;
+$border-danger:      $color-red-400;
+$border-dark:        #707070;
 $border-card-active: $color-blue-200;
-
-$color-blue-alpha: rgba(40, 126, 255, 0.15);
 
 // 2.4 Focus Rings
 $ring-primary: $color-blue-alpha;
-$ring-danger: $color-red-alpha;
+$ring-danger:  $color-red-alpha;
 
 // ==========================================================================
-// 3. Component Tokens
+// 3. Typography
+// ==========================================================================
+$font-family-base:   'KBFG Text', sans-serif;
+$font-weight-light:  300;
+$font-weight-medium: 500;
+$font-weight-bold:   700;
+
+// ==========================================================================
+// 4. Component Tokens
 // ==========================================================================
 
-// 3.1 Button
-$btn-radius: 6px;
-$btn-height-sm: 24px;
-$btn-height-md: 34px;
-$btn-height-lg: 40px;
-$btn-height-xl: 48px;
+// 4.1 Buttons
+$btn-radius:      6px;
+$btn-height-sm:   24px;
+$btn-height-md:   34px;
+$btn-height-lg:   40px;
+$btn-height-xl:   48px;
 $btn-padding-x-sm: 12px;
 $btn-padding-x-md: 12px;
 $btn-padding-x-lg: 20px;
@@ -100,26 +116,16 @@ $btn-font-size-sm: 12px;
 $btn-font-size-md: 14px;
 $btn-font-size-lg: 16px;
 
-// 3.2 Form
-$form-radius: 6px;
-$form-height: 34px;
+// 4.2 Form Controls
+$form-radius:    6px;
+$form-height:    34px;
 $form-height-xl: 48px;
-// $form-height-sm: 32px;
 $form-padding-y: 6px;
 $form-padding-x: 12px;
 $form-font-size: 14px;
 
-
 // ==========================================================================
-// 5. Typography
-// ==========================================================================
-$font-family-base: 'KBFG Text', sans-serif;
-$font-weight-light: 300;
-$font-weight-medium: 500;
-$font-weight-bold: 700;
-
-// ==========================================================================
-// 6. Box Shadows
+// 5. Box Shadows
 // ==========================================================================
 $shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.04);
 $shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -128,21 +134,16 @@ $shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.18);
 $shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
 // ==========================================================================
-// 7. Z-Index
+// 6. Z-Index Layering
 // ==========================================================================
-$z-dropdown: 100;
-$z-tooltip: 200;
+$z-dropdown:  100;
+$z-tooltip:   200;
 $z-popup-dim: 1000;
-$z-popup: 1001;
-$z-toast: 9999;
+$z-popup:     1001;
+$z-toast:     9999;
 
 // ==========================================================================
-// 4. Paths
+// 7. Asset Paths
 // ==========================================================================
 $path-images: '../images';
-$path-fonts: '../fonts';
-
-
-
-
-
+$path-fonts:  '../fonts';
