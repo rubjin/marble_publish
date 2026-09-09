@@ -14,7 +14,7 @@ if (fs.existsSync(DIST_DIR)) {
 }
 fs.mkdirSync(DIST_DIR, { recursive: true });
 
-// 2. Compile SCSS
+// 2. Compile SCSS directly to dist/assets/css
 function compileSass(srcFile, destFile) {
   const fullSrc = path.resolve(ROOT_DIR, srcFile);
   const fullDest = path.resolve(ROOT_DIR, destFile);
@@ -32,9 +32,6 @@ function compileSass(srcFile, destFile) {
     console.error(`[Sass Error] ${srcFile}:`, err.message);
   }
 }
-
-compileSass('src/assets/scss/common.scss', 'src/assets/css/common.css');
-compileSass('src/assets/scss/globals.scss', 'src/assets/css/globals.css');
 
 // 3. Helper to copy directory recursively
 function copyDirSync(srcDirPath, destDirPath) {
@@ -55,19 +52,14 @@ function copyDirSync(srcDirPath, destDirPath) {
   }
 }
 
-// Copy static assets directly to dist/assets
+// Copy static assets directly to dist/assets (css, fonts, images, js)
 ['css', 'fonts', 'images', 'js'].forEach(subDir => {
   copyDirSync(path.resolve(SRC_DIR, 'assets', subDir), path.resolve(DIST_DIR, 'assets', subDir));
 });
 
-// Also copy compiled CSS to dist
-['common.css', 'globals.css'].forEach(cssFile => {
-  const srcCss = path.resolve(SRC_DIR, 'assets/css', cssFile);
-  if (fs.existsSync(srcCss)) {
-    fs.mkdirSync(path.resolve(DIST_DIR, 'assets/css'), { recursive: true });
-    fs.copyFileSync(srcCss, path.resolve(DIST_DIR, 'assets/css', cssFile));
-  }
-});
+// Compile SCSS directly to dist/assets/css
+compileSass('src/assets/scss/common.scss', 'dist/assets/css/common.css');
+compileSass('src/assets/scss/globals.scss', 'dist/assets/css/globals.css');
 
 // 4. HTML Include Resolver
 function resolveIncludes(htmlContent, currentFilePath) {

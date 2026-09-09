@@ -9,6 +9,8 @@ build/
 out/
 .temp/
 .tmp/
+*.css.map
+src/**/scss/*.css
 
 # Logs
 logs
