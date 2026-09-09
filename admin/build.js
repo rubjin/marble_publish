@@ -57,7 +57,9 @@ function copyDirSync(srcDirPath, destDirPath) {
   copyDirSync(path.resolve(SRC_DIR, 'assets', subDir), path.resolve(DIST_DIR, 'assets', subDir));
 });
 
-// Compile SCSS directly to dist/assets/css
+// Compile SCSS directly to src/assets/css & dist/assets/css
+compileSass('src/assets/scss/common.scss', 'src/assets/css/common.css');
+compileSass('src/assets/scss/globals.scss', 'src/assets/css/globals.css');
 compileSass('src/assets/scss/common.scss', 'dist/assets/css/common.css');
 compileSass('src/assets/scss/globals.scss', 'dist/assets/css/globals.css');
 

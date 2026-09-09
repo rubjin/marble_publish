@@ -43,7 +43,7 @@ body {
   line-height: 1.5;
   color: #2F3034;
   background-color: #F8F9FA;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
 }
 
 .srOnly {
@@ -147,4 +147,4 @@ body {
 }
 .flexBetween .right, .flexBetween .alignRight {
   margin-left: auto;
-}/*# sourceMappingURL=common.css.map */
+}

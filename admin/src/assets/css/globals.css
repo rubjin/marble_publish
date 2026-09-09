@@ -43,7 +43,7 @@ body {
   line-height: 1.5;
   color: #2F3034;
   background-color: #F8F9FA;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
 }
 
 .srOnly {
@@ -267,9 +267,7 @@ body {
   background-position: right 12px center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   cursor: pointer;
 }
 .boSidebar .sideFavorite .selectFavorite option {
@@ -1282,9 +1280,7 @@ body {
   outline: none;
   border: none;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   line-height: 1;
   text-decoration: none;
   transition: background-color 0.2s;
@@ -1433,9 +1429,7 @@ body {
   padding: 4px;
   background-color: #F8F9FA;
   border-radius: 6px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   gap: 4px;
 }
 .segment .segmentItem {
@@ -1489,9 +1483,7 @@ body {
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   position: relative;
 }
 .toggle input[type=checkbox] {
@@ -1674,9 +1666,7 @@ body {
   color: #4F535A;
   cursor: pointer;
   white-space: nowrap;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   transition: all 0.15s ease;
   text-decoration: none;
   flex-shrink: 0;
@@ -1878,9 +1868,6 @@ fieldset {
 .formControl.wSm {
   width: 140px;
 }
-.formControl::-moz-placeholder {
-  color: #8D919B;
-}
 .formControl::placeholder {
   color: #8D919B;
 }
@@ -1916,9 +1903,7 @@ textarea.formControl {
 }
 
 select.formControl {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background-image: url("../images/icon/select_20.svg");
   background-position: right 12px center;
   background-repeat: no-repeat;
@@ -1951,9 +1936,7 @@ select.formControl.wAuto {
   align-items: center;
   cursor: pointer;
   position: relative;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .formCheck input[type=checkbox],
 .formCheck input[type=radio] {
@@ -2146,9 +2129,7 @@ select.formControl.wAuto {
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .formRadioCard input[type=radio] {
   position: absolute;
@@ -2236,9 +2217,7 @@ select.formControl.wAuto {
 }
 .stepCard .stepHeader .stepTitleWrap .stepHandle {
   cursor: grab;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .stepCard .stepHeader .stepTitleWrap .stepTitle {
   width: 130px;
@@ -2582,8 +2561,7 @@ select.formControl.wAuto {
   width: 100%;
   height: 160px;
   background-color: #F3F5F6;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .card .content {
   padding: 16px;
@@ -3667,9 +3645,6 @@ select.formControl.wAuto {
   box-sizing: border-box;
   transition: all 0.2s ease;
 }
-.loginForm .loginInput::-moz-placeholder {
-  color: #9ca3af;
-}
 .loginForm .loginInput::placeholder {
   color: #9ca3af;
 }
@@ -3686,9 +3661,7 @@ select.formControl.wAuto {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .loginForm .loginCheck input[type=checkbox] {
   position: absolute;
@@ -3934,4 +3907,4 @@ select.formControl.wAuto {
   font-size: 12px;
   color: #8D919B;
   line-height: 1.5;
-}/*# sourceMappingURL=globals.css.map */
+}
