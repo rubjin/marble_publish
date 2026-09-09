@@ -7,32 +7,32 @@
 @use 'common';
 
 // 2. Layout & Shell (Sidebar, Header, Layout)
-@use 'components/layout';
-@use 'components/icon';
-@use 'components/typography';
-@use 'components/breadcrumb';
-@use 'components/listbar';
+@use 'components/layout.module';
+@use 'components/icon.module';
+@use 'components/typography.module';
+@use 'components/breadcrumb.module';
+@use 'components/listbar.module';
 
 // 3. Actions & Navigation Controls
-@use 'components/button';
-@use 'components/segment';
-@use 'components/toggle';
-@use 'components/tab';
+@use 'components/button.module';
+@use 'components/segment.module';
+@use 'components/toggle.module';
+@use 'components/tab.module';
 
 // 4. Forms & Filters
-@use 'components/form';
-@use 'components/searchbox';
-@use 'components/fileupload';
+@use 'components/form.module';
+@use 'components/searchbox.module';
+@use 'components/fileupload.module';
 
 // 5. Data Display & Feedback Components
-@use 'components/badge';
-@use 'components/card';
-@use 'components/table';
-@use 'components/progressbar';
-@use 'components/popup';
-@use 'components/toast';
-@use 'components/tooltip';
+@use 'components/badge.module';
+@use 'components/card.module';
+@use 'components/table.module';
+@use 'components/progressbar.module';
+@use 'components/popup.module';
+@use 'components/toast.module';
+@use 'components/tooltip.module';
 
 // 6. Standalone Pages
-@use 'pages/login';
-@use 'pages/error';
+@use 'pages/login.module';
+@use 'pages/error.module';

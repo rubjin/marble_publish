@@ -23,7 +23,7 @@
   <nav class="sideNav">
     <ul class="boMenu">
       <li>
-        <a href="#">
+        <a href="#" data-route="/work"> <!-- 실제 경로: /work -->
           <span class="ico side2"></span>
           <span class="text">업무관리</span>
           <span class="arrow"></span>
@@ -32,19 +32,19 @@
           <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
           <li>
             <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
-            <a href="#" class="">
+            <a href="#" class="" data-route="/work/approval"> <!-- 실제 경로: /work/approval -->
               <span class="ico sideSub"></span>
               <span class="text">결재함</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/work/account"> <!-- 실제 경로: /work/account -->
               <span class="ico sideSub"></span>
               <span class="text">계정정보</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/work/notice"> <!-- 실제 경로: /work/notice -->
               <span class="ico sideSub"></span>
               <span class="text">공지사항</span>
             </a>
@@ -52,7 +52,7 @@
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a href="#" data-route="/customer"> <!-- 실제 경로: /customer -->
           <span class="ico side3"></span>
           <span class="text">고객관리</span>
           <span class="arrow"></span>
@@ -61,7 +61,7 @@
           <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
           <li>
             <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
-            <a href="#" class="isActive">
+            <a href="#" class="isActive" data-route="/customer/list"> <!-- 실제 경로: /customer/list -->
               <span class="ico sideSub"></span>
               <span class="text">고객목록</span>
             </a>
@@ -70,7 +70,7 @@
       </li>
       <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
       <li class="isOpen">
-        <a href="#">
+        <a href="#" data-route="/mission"> <!-- 실제 경로: /mission -->
           <span class="ico side4"></span>
           <span class="text">미션관리</span>
           <span class="arrow"></span>
@@ -78,25 +78,25 @@
         <ul class="boSubMenu">
           <li>
             <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
-            <a href="#" class="isActive">
+            <a href="#" class="isActive" data-route="/mission/home"> <!-- 실제 경로: /mission/home -->
               <span class="ico sideSub"></span>
               <span class="text">미션홈관리</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/mission/individual"> <!-- 실제 경로: /mission/individual -->
               <span class="ico sideSub"></span>
               <span class="text">개별미션관리</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/mission/register"> <!-- 실제 경로: /mission/register -->
               <span class="ico sideSub"></span>
               <span class="text">미션등록</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/mission/history"> <!-- 실제 경로: /mission/history -->
               <span class="ico sideSub"></span>
               <span class="text">미션참여내역</span>
             </a>
@@ -104,7 +104,7 @@
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a href="#" data-route="/reward"> <!-- 실제 경로: /reward -->
           <span class="ico side5"></span>
           <span class="text">리워드관리</span>
           <span class="arrow"></span>
@@ -113,13 +113,13 @@
           <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
           <li>
             <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
-            <a href="#" class="">
+            <a href="#" class="" data-route="/reward/status"> <!-- 실제 경로: /reward/status -->
               <span class="ico sideSub"></span>
               <span class="text">리워드 지급현황</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/reward/limit"> <!-- 실제 경로: /reward/limit -->
               <span class="ico sideSub"></span>
               <span class="text">리워드 한도관리</span>
             </a>
@@ -127,7 +127,7 @@
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a href="#" data-route="/stats"> <!-- 실제 경로: /stats -->
           <span class="ico side6"></span>
           <span class="text">통계분석</span>
           <span class="arrow"></span>
@@ -136,25 +136,25 @@
           <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
           <li>
             <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
-            <a href="#" class="">
+            <a href="#" class="" data-route="/stats/summary"> <!-- 실제 경로: /stats/summary -->
               <span class="ico sideSub"></span>
               <span class="text">종합</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/stats/mission"> <!-- 실제 경로: /stats/mission -->
               <span class="ico sideSub"></span>
               <span class="text">미션분석</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/stats/cost"> <!-- 실제 경로: /stats/cost -->
               <span class="ico sideSub"></span>
               <span class="text">비용분석</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/stats/customer"> <!-- 실제 경로: /stats/customer -->
               <span class="ico sideSub"></span>
               <span class="text">고객분석</span>
             </a>
@@ -162,7 +162,7 @@
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a href="#" data-route="/system"> <!-- 실제 경로: /system -->
           <span class="ico side7"></span>
           <span class="text">시스템관리</span>
           <span class="arrow"></span>
@@ -171,37 +171,37 @@
           <!-- [D] 서브메뉴 열린상태 : isOpen 클래스 추가 -->
           <li>
             <!-- [D] 서브메뉴 활성화 상태 : isActive 클래스 추가 -->
-            <a href="#" class="">
+            <a href="#" class="" data-route="/system/users"> <!-- 실제 경로: /system/users -->
               <span class="ico sideSub"></span>
               <span class="text">사용자관리</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/system/roles"> <!-- 실제 경로: /system/roles -->
               <span class="ico sideSub"></span>
               <span class="text">권한관리</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/system/codes"> <!-- 실제 경로: /system/codes -->
               <span class="ico sideSub"></span>
               <span class="text">공통코드관리</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/system/batch"> <!-- 실제 경로: /system/batch -->
               <span class="ico sideSub"></span>
               <span class="text">배치프로그램</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/system/change-log"> <!-- 실제 경로: /system/change-log -->
               <span class="ico sideSub"></span>
               <span class="text">변경이력</span>
             </a>
           </li>
           <li>
-            <a href="#" class="">
+            <a href="#" class="" data-route="/system/access-log"> <!-- 실제 경로: /system/access-log -->
               <span class="ico sideSub"></span>
               <span class="text">접속이력</span>
             </a>
