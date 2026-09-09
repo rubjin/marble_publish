@@ -1,16 +1,16 @@
 <!-- 
-  [React Component Guide]
-  - Component: <Toast message="..." type="default" onClose={...} /> 또는 toast.success("...")
-  - Props Interface:
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트: <Toast message="..." type="default" onClose={...} /> 또는 toast.success("...")
+  - 속성 인터페이스:
     * message: string | React.ReactNode (노출할 텍스트)
-    * type?: 'default' | 'success' | 'warning' | 'error' (default: 'default')
-    * duration?: number (auto close ms, default: 3000)
+    * type?: 'default' | 'success' | 'warning' | 'error' (기본값: 'default')
+    * duration?: number (자동 닫힘 ms, 기본값: 3000)
     * onClose?: () => void (닫기 버튼 클릭 또는 시간 만료 시 호출)
-    * position?: 'topCenter' | 'bottomCenter' | 'bottomRight' (default: 'bottomRight')
-  - Container: <div class="toastContainer [topCenter | bottomCenter]"> ... </div>
+    * position?: 'topCenter' | 'bottomCenter' | 'bottomRight' (기본값: 'bottomRight')
+  - 컨테이너: <div class="toastContainer [topCenter | bottomCenter]"> ... </div>
 -->
 
-<!-- Case 1: 기본 다크 토스트 (Default Dark Toast) -->
+<!-- 1. 기본 다크 토스트 -->
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px;">
   <div class="toast">
     <span class="toastIcon">

@@ -1,21 +1,21 @@
 <!-- 
-  [React Component Guide]
-  - Component: <ToggleSwitch checked={checked} onChange={setChecked} label="..." />
-  - Props Interface:
-    * checked: boolean (controlled checked state)
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트: <ToggleSwitch checked={checked} onChange={setChecked} label="..." />
+  - 속성 인터페이스:
+    * checked: boolean (체크 상태 제어)
     * onChange: (checked: boolean, e: React.ChangeEvent<HTMLInputElement>) => void
     * label?: string | React.ReactNode (텍스트 라벨)
-    * variant?: 'default' | 'primary' (default: 'default', 'primary'는 노란색 활성)
-    * size?: 'sm' | 'md' | 'lg' (default: 'md')
-    * disabled?: boolean (default: false)
+    * variant?: 'default' | 'primary' (기본값: 'default', 'primary'는 노란색 활성)
+    * size?: 'sm' | 'md' | 'lg' (기본값: 'md')
+    * disabled?: boolean (기본값: false)
     * name?: string
     * id?: string
-  - State Classes / Attributes:
+  - 상태 클래스 및 속성:
     * input[type="checkbox"]:checked : ON 상태
     * input:disabled, .isDisabled : 비활성화 상태
 -->
 
-<!-- 1. 기본 토글 스위치 (Default & Primary) -->
+<!-- 1. 기본 토글 스위치 (기본 및 Primary) -->
 <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
   <!-- Case 1-1: OFF 상태 -->
   <label class="toggle">

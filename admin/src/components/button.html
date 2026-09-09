@@ -1,21 +1,21 @@
 <!-- 
-  [React Component Guide]
-  - Component: <Button />
-  - Props Interface:
-    * variant?: 'primary' | 'dark' | 'outline' | 'light' | 'secondary' | 'danger' | 'ghost' (default: 'primary')
-    * size?: 'sm' | 'md' | 'lg' (default: 'md', sm: 24px, md: 34px, lg: 40px)
-    * fullWidth?: boolean (default: false, adds 'full')
-    * disabled?: boolean (default: false, attribute or 'isDisabled')
-    * type?: 'button' | 'submit' | 'reset' (default: 'button')
-    * icon?: React.ReactNode (prepends or appends icon with .ico)
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트: <Button />
+  - 속성 인터페이스:
+    * variant?: 'primary' | 'dark' | 'outline' | 'light' | 'secondary' | 'danger' | 'ghost' (기본값: 'primary')
+    * size?: 'sm' | 'md' | 'lg' (기본값: 'md', sm: 24px, md: 34px, lg: 40px)
+    * fullWidth?: boolean (기본값: false, full 클래스 추가)
+    * disabled?: boolean (기본값: false, disabled 속성 또는 .isDisabled)
+    * type?: 'button' | 'submit' | 'reset' (기본값: 'button')
+    * icon?: React.ReactNode (.ico 클래스가 포함된 아이콘 요소)
     * children?: React.ReactNode
     * onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
-  - State Classes:
+  - 상태 클래스:
     * .isDisabled, :disabled : 비활성화 상태
     * .isActive : 활성화(선택) 상태 (.light, .secondary 등)
 -->
 
-<!-- 1. Variants (기본 MD 사이즈: 높이 34px) -->
+<!-- 1. 버튼 스타일 유형 (기본 MD 사이즈: 높이 34px) -->
 <!-- Case 1-1: Primary (메인 강조 액션) -->
 <button type="button" class="btn primary">Primary</button>
 

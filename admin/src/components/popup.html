@@ -1,15 +1,15 @@
 <!-- 
-  [React Component Guide]
-  - Component: <Modal isOpen={isOpen} onClose={handleClose} title="..." size="md" footer={...}> ... </Modal>
-  - Props Interface:
-    * isOpen: boolean (controlled visibility)
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트: <Modal isOpen={isOpen} onClose={handleClose} title="..." size="md" footer={...}> ... </Modal>
+  - 속성 인터페이스:
+    * isOpen: boolean (화면 노출 여부 제어)
     * onClose: () => void (X 버튼, 취소 버튼, Dimmed 클릭 시 호출)
     * title: string | React.ReactNode (팝업 헤더 타이틀)
-    * size?: 'md' | 'lg' (default: 'md', 'lg'는 .popupWrap.lg)
+    * size?: 'md' | 'lg' (기본값: 'md', 'lg'는 .popupWrap.lg)
     * children: React.ReactNode (팝업 본문 .popupBody)
     * footer?: React.ReactNode (팝업 하단 버튼 영역 .popupFooter)
-    * closeOnDimmedClick?: boolean (default: true)
-  - State Classes:
+    * closeOnDimmedClick?: boolean (기본값: true)
+  - 상태 클래스:
     * .popupDimmed.isOpen : 팝업 열림(화면 표시)
 -->
 

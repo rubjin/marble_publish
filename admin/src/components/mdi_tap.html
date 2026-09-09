@@ -1,14 +1,14 @@
 <!-- 
-  [React Component Guide]
-  - Component: <MdiTabBar tabs={openTabs} activeTabId={currentId} onSelectTab={...} onCloseTab={...} onCloseAll={...} />
-  - Props Interface:
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트: <MdiTabBar tabs={openTabs} activeTabId={currentId} onSelectTab={...} onCloseTab={...} onCloseAll={...} />
+  - 속성 인터페이스:
     * tabs: Array<{ id: string; title: string; closable?: boolean }>
     * activeTabId: string (현재 활성화된 탭 ID)
     * onSelectTab: (tabId: string) => void (탭 클릭 시 화면 전환)
     * onCloseTab: (tabId: string) => void (개별 탭 닫기)
     * onCloseAll: () => void (우측 전체 닫기)
     * onHomeClick?: () => void (홈 탭 클릭 시 대시보드 이동)
-  - State Classes:
+  - 상태 클래스:
     * .mdiTabItem.isHome : 좌측 홈 고정 탭
     * .mdiTabItem.isActive : 현재 보고 있는 활성 탭
 -->

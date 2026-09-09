@@ -1,19 +1,19 @@
 <!-- 
-  [React Component Guide]
-  - Component: 
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트: 
     1) <ButtonGroup size="sm" | "md" | "lg" align="left" | "right"> {buttons} </ButtonGroup>
     2) <PageBottomAction leftActions={...} rightActions={...} />
-  - Props Interface:
-    * size?: 'sm' | 'md' | 'lg' (default: 'md', sm: 24px, md: 34px, lg: 40px)
+  - 속성 인터페이스:
+    * size?: 'sm' | 'md' | 'lg' (기본값: 'md', sm: 24px, md: 34px, lg: 40px)
     * align?: 'left' | 'right' | 'center' (align="right" 시 .btnGroupRight 적용)
     * leftActions?: React.ReactNode (페이지 하단 좌측 슬롯 - 목록, 초기화 등)
     * rightActions?: React.ReactNode (페이지 하단 우측 슬롯 - 임시저장, 저장, 등록 등)
     * children?: React.ReactNode
-  - Description:
+  - 컴포넌트 설명:
     * 테이블 내부 행 액션, 다이얼로그/모달 하단 액션, 페이지 하단 액션 바 등 여러 개의 버튼을 일정한 간격으로 배치하고 정렬하는 컴포넌트입니다.
 -->
 
-<!-- 1. Small Button Group (테이블 행 단위 관리 액션용, 높이 24px) -->
+<!-- 1. 소형 버튼 그룹 (테이블 행 단위 관리 액션용, 높이 24px) -->
 <div class="btnGroup sm">
   <button type="button" class="btn outline">수정</button>
   <button type="button" class="btn outline">복사</button>

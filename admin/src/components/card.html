@@ -1,7 +1,7 @@
 <!-- 
-  [React Component Guide]
-  - Component: <KpiCard title="..." value="..." unit="..." subInfo="..." rate="..." isUp={...} />
-  - Props Interface (<KpiCard />):
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트: <KpiCard title="..." value="..." unit="..." subInfo="..." rate="..." isUp={...} />
+  - 속성 인터페이스 (<KpiCard />):
     * title: string (카드 타이틀)
     * value: string | number (주요 수치/금액)
     * unit?: string (단위, e.g. '원', '%', '건')
@@ -9,7 +9,7 @@
     * rate?: string (증감률, e.g. '+12.5%', '-3.2%')
     * rateType?: 'up' | 'down' | 'neutral' (up: .isUp 녹색/상승, down: .isDown 빨간색/하락)
 
-  - Grid Container: <KpiCardGrid columns={3 | 4}>{children}</KpiCardGrid>
+  - 그리드 컨테이너: <KpiCardGrid columns={3 | 4}>{children}</KpiCardGrid>
     * columns: 4 (기본 4단), 3 (3단 그리드: .col3)
 -->
 

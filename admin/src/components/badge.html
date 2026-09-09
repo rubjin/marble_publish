@@ -1,14 +1,14 @@
 <!-- 
-  [React Component Guide]
-  - Component 1: <Badge variant="account" size="md" />
-  - Props Interface (<Badge />):
-    * variant?: 'account' | 'default' (default: 'default')
-    * size?: 'sm' | 'md' | 'lg' (default: 'md')
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트 1: <Badge variant="account" size="md" />
+  - 속성 인터페이스 (<Badge />):
+    * variant?: 'account' | 'default' (기본값: 'default')
+    * size?: 'sm' | 'md' | 'lg' (기본값: 'md')
     * children: React.ReactNode
     * className?: string
 
-  - Component 2: <StatusDot status="ing" label="운영중" />
-  - Props Interface (<StatusDot />):
+  - 컴포넌트 2: <StatusDot status="ing" label="운영중" />
+  - 속성 인터페이스 (<StatusDot />):
     * status: 'ing' | 'ready' | 'end' | 'success' | 'warning' | 'danger'
       - 'ing' / 'success' : 초록색 불릿 (운영중, 활성)
       - 'ready' / 'warning' : 주황/노란색 불릿 (대기, 예정)
@@ -17,7 +17,7 @@
     * className?: string
 -->
 
-<!-- 1. Badges (뱃지) -->
+<!-- 1. 뱃지 (Badges) -->
 <!-- Case 1-1: 계정 권한 뱃지 (Pill 형태) -->
 <span class="badge account">관리자</span>
 <span class="badge account">운영자</span>
