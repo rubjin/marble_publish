@@ -1,4 +1,6 @@
-﻿// Mixins
+@use 'variables' as *;
+
+// Mixins
 @mixin text-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

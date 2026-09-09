@@ -4,35 +4,35 @@
 // ==========================================================================
 
 // 1. Common Base (변수, 믹스인, 리셋, 전역 기본)
-@import 'common';
+@use 'common';
 
 // 2. Layout & Shell (Sidebar, Header, Layout)
-@import 'components/layout';
-@import 'components/icon';
-@import 'components/typography';
-@import 'components/breadcrumb';
-@import 'components/listbar';
+@use 'components/layout';
+@use 'components/icon';
+@use 'components/typography';
+@use 'components/breadcrumb';
+@use 'components/listbar';
 
 // 3. Actions & Navigation Controls
-@import 'components/button';
-@import 'components/segment';
-@import 'components/toggle';
-@import 'components/tab';
+@use 'components/button';
+@use 'components/segment';
+@use 'components/toggle';
+@use 'components/tab';
 
 // 4. Forms & Filters
-@import 'components/form';
-@import 'components/searchbox';
-@import 'components/fileupload';
+@use 'components/form';
+@use 'components/searchbox';
+@use 'components/fileupload';
 
 // 5. Data Display & Feedback Components
-@import 'components/badge';
-@import 'components/card';
-@import 'components/table';
-@import 'components/progressbar';
-@import 'components/popup';
-@import 'components/toast';
-@import 'components/tooltip';
+@use 'components/badge';
+@use 'components/card';
+@use 'components/table';
+@use 'components/progressbar';
+@use 'components/popup';
+@use 'components/toast';
+@use 'components/tooltip';
 
 // 6. Standalone Pages
-@import 'pages/login';
-@import 'pages/error';
+@use 'pages/login';
+@use 'pages/error';

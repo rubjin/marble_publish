@@ -13,7 +13,7 @@
 //   import '@/assets/scss/components/_popup.scss';
 // ==========================================================================
 
-@import 'base/variables';
-@import 'base/mixins';
-@import 'base/reset';
-@import 'base/common';
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+@use 'abstracts/reset';
+@use 'abstracts/common';
