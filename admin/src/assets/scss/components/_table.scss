@@ -139,13 +139,6 @@
     }
   }
 
-  // 줄무늬
-  // &.tblStriped {
-  //   tbody tr:nth-child(even) {
-  //     background-color: $color-gray-100;
-  //   }
-  // }
-
   // 테두리
   &.tblBordered {
     border: 1px solid $border-light;

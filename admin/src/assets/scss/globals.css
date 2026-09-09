@@ -1797,9 +1797,12 @@ body {
 }
 .formControlWrap.full {
   width: 100%;
+  flex: 1;
+  min-width: 0;
 }
 .formControlWrap.full .formControl {
   width: 100%;
+  min-width: 0;
 }
 .formControlWrap.between {
   width: 100%;
@@ -1860,8 +1863,11 @@ fieldset {
   box-sizing: border-box;
   font-family: inherit;
 }
-.formControl.wSm {
+.formControl.wXs {
   width: 120px;
+}
+.formControl.wSm {
+  width: 140px;
 }
 .formControl::-moz-placeholder {
   color: #8D919B;
@@ -2303,6 +2309,15 @@ select.formControl.wAuto {
   gap: 8px;
   flex-wrap: wrap;
 }
+.searchBox .formRow.full {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+.searchBox .formRow.full .formControlWrap {
+  flex: 1;
+  min-width: 0;
+}
 .searchBox .searchTable {
   width: 100%;
   border-collapse: collapse;
@@ -2336,6 +2351,15 @@ select.formControl.wAuto {
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+}
+.searchBox .searchTable .formRow.full {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+.searchBox .searchTable .formRow.full .formControlWrap {
+  flex: 1;
+  min-width: 0;
 }
 .searchBox .searchBtnArea {
   display: flex;

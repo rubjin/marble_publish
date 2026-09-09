@@ -1787,9 +1787,11 @@ body {
 }
 .formControlWrap.full {
   width: 100%;
+  flex: 1;
 }
 .formControlWrap.full .formControl {
   width: 100%;
+  flex: 1;
 }
 .formControlWrap.between {
   width: 100%;
@@ -2282,6 +2284,15 @@ select.formControl.wAuto {
   gap: 8px;
   flex-wrap: wrap;
 }
+.searchBox .formRow.full {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+.searchBox .formRow.full .formControlWrap {
+  flex: 1;
+  min-width: 0;
+}
 .searchBox .searchTable {
   width: 100%;
   border-collapse: collapse;
@@ -2315,6 +2326,15 @@ select.formControl.wAuto {
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+}
+.searchBox .searchTable .formRow.full {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+.searchBox .searchTable .formRow.full .formControlWrap {
+  flex: 1;
+  min-width: 0;
 }
 .searchBox .searchBtnArea {
   display: flex;
@@ -3223,7 +3243,6 @@ select.formControl.wAuto {
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
-  border-bottom: 1px solid #F0F0F3;
 }
 .popupHeader .popupTitle {
   font-size: 18px;
@@ -3277,8 +3296,6 @@ select.formControl.wAuto {
 /* 팝업 푸터 (버튼 영역) */
 .popupFooter {
   padding: 20px 24px;
-  background-color: #F8F9FA;
-  border-top: 1px solid #F0F0F3;
   display: flex;
   justify-content: flex-end;
   gap: 12px;
@@ -3535,7 +3552,7 @@ select.formControl.wAuto {
 }
 
 /* ==========================================================================
-   Login Component
+   Login 페이지
    ========================================================================== */
 .loginBody {
   background-color: #2e3441;
@@ -3750,7 +3767,7 @@ select.formControl.wAuto {
 }
 
 /* ==========================================================================
-   에러 Pages
+   에러 페이지
    ========================================================================== */
 .errorBody {
   background-color: #F8F9FA;

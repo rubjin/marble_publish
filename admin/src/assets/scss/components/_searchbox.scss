@@ -54,6 +54,17 @@
     align-items: center;
     gap: 8px;
     flex-wrap: wrap;
+
+    &.full {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+
+      .formControlWrap {
+        flex: 1;
+        min-width: 0;
+      }
+    }
   }
 
   .searchTable {
@@ -93,6 +104,17 @@
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
+
+      &.full {
+        flex: 1;
+        min-width: 0;
+        width: 100%;
+
+        .formControlWrap {
+          flex: 1;
+          min-width: 0;
+        }
+      }
     }
   }
 

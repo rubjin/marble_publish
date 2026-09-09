@@ -41,8 +41,11 @@
 
   &.full {
     width: 100%;
+    flex: 1;
+    min-width: 0; // flex 컨테이너 내부에서 축소 시 넘침 방지
     .formControl {
       width: 100%;
+      min-width: 0;
     }
   }
   &.between {
@@ -163,8 +166,11 @@ fieldset {
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
   font-family: inherit;
-  &.wSm {
+  &.wXs {
     width: 120px;
+  }
+  &.wSm {
+    width: 140px;
   }
   &::placeholder {
     color: $text-tertiary;

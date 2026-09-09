@@ -31,28 +31,13 @@
               <button type="button" class="btnCalendar"></button>
             </div>
           </div>
-
           <div class="segment">
-            <label class="segmentItem">
-              <input type="radio" name="missionState" checked />
-              <span class="segmentText">오늘</span>
-            </label>
-            <label class="segmentItem">
-              <input type="radio" name="missionState" />
-              <span class="segmentText">1주일</span>
-            </label>
-            <label class="segmentItem">
-              <input type="radio" name="missionState" />
-              <span class="segmentText">1개월</span>
-            </label>
-            <label class="segmentItem">
-              <input type="radio" name="missionState" />
-              <span class="segmentText">3개월</span>
-            </label>
-            <label class="segmentItem">
-              <input type="radio" name="missionState" />
-              <span class="segmentText">전체</span>
-            </label>
+            <!-- [D] 선택된 항목: isActive 클래스 추가 -->
+            <button type="button" class="segmentItem isActive">오늘</button>
+            <button type="button" class="segmentItem">1주일</button>
+            <button type="button" class="segmentItem">1개월</button>
+            <button type="button" class="segmentItem">3개월</button>
+            <button type="button" class="segmentItem">전체</button>
           </div>
         </div>
       </div>
@@ -64,7 +49,7 @@
     <div class="searchItem">
       <label class="searchLabel" for="searchType">유형</label>
       <div class="searchField">
-        <select id="searchType" class="formControl">
+        <select id="searchType" class="formControl wSm">
           <option value="">전체</option>
           <option value="1">OX퀴즈</option>
           <option value="2">출석체크</option>
@@ -109,7 +94,7 @@
       <label class="searchLabel" for="searchKeyword">검색어</label>
       <div class="searchField">
         <div class="formRow">
-          <select class="formControl">
+          <select class="formControl wSm">
             <option value="all">전체</option>
             <option value="title">미션명</option>
             <option value="id">미션ID</option>
