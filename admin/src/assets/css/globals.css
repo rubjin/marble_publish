@@ -1608,6 +1608,15 @@ body {
   color: #FFFFFF;
   font-weight: 700;
 }
+.tab .item:disabled, .tab .item.isDisabled {
+  background-color: #F0F0F3;
+  color: #8D919B;
+  border-color: #E7E9ED;
+  cursor: not-allowed;
+}
+.tab .item:disabled:hover, .tab .item.isDisabled:hover {
+  color: #8D919B;
+}
 
 /* ==========================================================================
    MDI (Multi Document Interface) Tab Bar
@@ -1788,10 +1797,11 @@ body {
 .formControlWrap.full {
   width: 100%;
   flex: 1;
+  min-width: 0;
 }
 .formControlWrap.full .formControl {
   width: 100%;
-  flex: 1;
+  min-width: 0;
 }
 .formControlWrap.between {
   width: 100%;
@@ -1852,8 +1862,11 @@ fieldset {
   box-sizing: border-box;
   font-family: inherit;
 }
-.formControl.wSm {
+.formControl.wXs {
   width: 120px;
+}
+.formControl.wSm {
+  width: 140px;
 }
 .formControl::placeholder {
   color: #8D919B;

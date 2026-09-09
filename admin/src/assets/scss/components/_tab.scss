@@ -30,8 +30,20 @@
 
     &.isActive {
       background: $bg-dark;
-       color: $text-white;
+      color: $text-white;
       font-weight: $font-weight-bold;
+    }
+
+    &:disabled,
+    &.isDisabled {
+      background-color: $bg-disabled;
+      color: $text-tertiary;
+      border-color: $border-disabled;
+      cursor: not-allowed;
+
+      &:hover {
+        color: $text-tertiary;
+      }
     }
   }
 }

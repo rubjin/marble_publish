@@ -1,10 +1,23 @@
-<!-- 폰트 크기 및 계층 구조 -->
-<p>임시 작성. 수정예정</p>
+<!-- 
+  [리액트 컴포넌트 가이드]
+  - 컴포넌트 1: <Typography variant="pageTitle" | "sectionTitle" | "cardTitle" | "body" | "caption" as="h2" | "p" | "span" color="..." weight="..."> {children} </Typography>
+  - 컴포넌트 2: <PageTitle title="..." />
+  - 컴포넌트 3: <SectionTitle title="..." />
+  - 컴포넌트 4: <GuideText variant="default" | "blue" | "danger">안내 문구</GuideText>
+  - 속성 인터페이스 (<Typography />):
+    * variant: 'pageTitle' (22px) | 'sectionTitle' (18px) | 'cardTitle' (18px) | 'bodyLg' (16px) | 'body' (14px 기본) | 'bodySm' (13px) | 'caption' (12px) | 'micro' (10px)
+    * as?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span' | 'div' | 'label' (기본값: variant에 따라 자동 매핑)
+    * weight?: 'bold' (.fwBold) | 'medium' (.fwMedium) | 'light' (.fwLight)
+    * color?: 'default' | 'dark' (.textDark) | 'muted' (.textMuted) | 'disabled' (.textDisabled) | 'primary' (.textPrimary)
+    * className?: string
+    * children: React.ReactNode
+-->
+
 <div class="typoList">
-  <!-- 28px -->
+  <!-- 1. 페이지 타이틀 (28px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Page Title (28px)</div>
+      <div class="name">페이지 타이틀 (28px)</div>
       <div class="meta">.titPage / .fs28 .fwBold</div>
     </div>
     <div class="preview titPage">
@@ -12,10 +25,10 @@
     </div>
   </div>
 
-  <!-- 24px -->
+  <!-- 2. 섹션 타이틀 (24px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Section Title (24px)</div>
+      <div class="name">섹션 타이틀 (24px)</div>
       <div class="meta">.titSection / .fs24 .fwBold</div>
     </div>
     <div class="preview titSection">
@@ -23,10 +36,10 @@
     </div>
   </div>
 
-  <!-- 20px -->
+  <!-- 3. 서브 타이틀 (20px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Sub Title (20px)</div>
+      <div class="name">서브 타이틀 (20px)</div>
       <div class="meta">.titSub / .fs20 .fwBold</div>
     </div>
     <div class="preview titSub">
@@ -34,10 +47,10 @@
     </div>
   </div>
 
-  <!-- 18px -->
+  <!-- 4. 카드 / 모달 타이틀 (18px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Card/Modal Title (18px)</div>
+      <div class="name">카드 / 모달 타이틀 (18px)</div>
       <div class="meta">.titCard / .fs18 .fwBold</div>
     </div>
     <div class="preview titCard">
@@ -45,21 +58,21 @@
     </div>
   </div>
 
-  <!-- 16px -->
+  <!-- 5. 본문 대형 (16px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Body Large (16px)</div>
+      <div class="name">본문 대형 (16px)</div>
       <div class="meta">.bodyLg / .fs16</div>
     </div>
     <div class="preview bodyLg">
-      가나다라마바사 1234567890 AaBbCc (강조 본문 / 큰 버튼)
+      가나다라마바사 1234567890 AaBbCc (강조 본문 / 대형 버튼)
     </div>
   </div>
 
-  <!-- 15px -->
+  <!-- 6. 본문 중형 (15px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Body Medium (15px)</div>
+      <div class="name">본문 중형 (15px)</div>
       <div class="meta">.fs15</div>
     </div>
     <div class="preview fs15">
@@ -67,10 +80,10 @@
     </div>
   </div>
 
-  <!-- 14px (Default) -->
+  <!-- 7. 기본 본문 (14px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Body Default (14px)</div>
+      <div class="name">기본 본문 (14px)</div>
       <div class="meta">.bodyMd / .fs14</div>
     </div>
     <div class="preview bodyMd">
@@ -78,10 +91,10 @@
     </div>
   </div>
 
-  <!-- 13px -->
+  <!-- 8. 소형 본문 (13px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Body Small (13px)</div>
+      <div class="name">소형 본문 (13px)</div>
       <div class="meta">.bodySm / .fs13</div>
     </div>
     <div class="preview bodySm">
@@ -89,10 +102,10 @@
     </div>
   </div>
 
-  <!-- 12px -->
+  <!-- 9. 캡션 (12px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Caption (12px)</div>
+      <div class="name">캡션 (12px)</div>
       <div class="meta">.caption / .fs12</div>
     </div>
     <div class="preview caption">
@@ -100,10 +113,10 @@
     </div>
   </div>
 
-  <!-- 10px -->
+  <!-- 10. 마이크로 (10px) -->
   <div class="typoItem">
     <div class="info">
-      <div class="name">Micro (10px)</div>
+      <div class="name">마이크로 (10px)</div>
       <div class="meta">.micro / .fs10</div>
     </div>
     <div class="preview micro">
