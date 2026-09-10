@@ -24,10 +24,23 @@ function htmlIncludePlugin() {
   return {
     name: 'html-include',
     transformIndexHtml(html) {
-      return resolveIncludes(html);
+      // 1. Include 치환
+      let content = resolveIncludes(html);
+
+      // 2. SCSS 링크를 Vite 모듈 로더(<script type="module">)로 변환하여 CSS 정상 주입 및 HMR 지원
+      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/globals\.scss["']\s*\/?>/gi, '<script type="module" src="/src/assets/scss/globals.scss"></script>');
+      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/common\.scss["']\s*\/?>/gi, '<script type="module" src="/src/assets/scss/common.scss"></script>');
+      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["']([^"']+\.scss)["']\s*\/?>/gi, '<script type="module" src="$1"></script>');
+
+      // 3. UI JS 스크립트 경로 정규화
+      content = content.replace(/src=["'][^"']*?(?:assets\/)?js\/ui\.js["']/g, 'src="/src/assets/js/ui.js"');
+      content = content.replace(/src=["'][^"']*?(?:assets\/)?js\/guide\.js["']/g, 'src="/src/assets/js/guide.js"');
+      content = content.replace(/src=["'][^"']*?(?:assets\/)?js\/prism\.min\.js["']/g, 'src="/src/assets/js/prism.min.js"');
+
+      return content;
     },
     handleHotUpdate({ file, server }) {
-      if (file.endsWith('.html')) {
+      if (file.endsWith('.html') || file.endsWith('.scss')) {
         server.ws.send({
           type: 'full-reload'
         });
@@ -44,41 +57,48 @@ function rootWorksheetPlugin() {
       server.middlewares.use(async (req, res, next) => {
         const url = req.url.split('?')[0];
 
-        // 1. 루트 접근 시 상위 index.html 서빙
+        // 1. 루트 접근 시 admin/src/index.html 서빙
         if (url === '/' || url === '/index.html') {
-          const rootIndexPath = resolve(__dirname, '../index.html');
-          if (fs.existsSync(rootIndexPath)) {
-            let html = fs.readFileSync(rootIndexPath, 'utf-8');
-            html = await server.transformIndexHtml(req.url, html);
+          const adminIndexPath = resolve(__dirname, 'src/index.html');
+          if (fs.existsSync(adminIndexPath)) {
+            let html = fs.readFileSync(adminIndexPath, 'utf-8');
+            html = await server.transformIndexHtml('/src/index.html', html);
             res.setHeader('Content-Type', 'text/html; charset=utf-8');
             return res.end(html);
           }
         }
 
-        // 2. /admin/ 경로로 들어온 요청은 / 경로로 리라이트 (admin 폴더 내부 파일 매핑)
+        // 2. /admin/ 경로로 들어온 요청은 / 경로로 리라이트
         if (req.url.startsWith('/admin/')) {
           req.url = req.url.replace(/^\/admin/, '');
         }
 
-        // 3. /offering/ 경로로 들어온 요청은 상위 offering 디렉토리 파일 서빙
-        if (req.url.startsWith('/offering/')) {
-          const offeringFilePath = resolve(__dirname, '..', req.url.replace(/^\//, ''));
-          if (fs.existsSync(offeringFilePath) && fs.statSync(offeringFilePath).isFile()) {
-            const ext = offeringFilePath.split('.').pop();
-            const mimeMap = { html: 'text/html; charset=utf-8', js: 'application/javascript', css: 'text/css' };
-            res.setHeader('Content-Type', mimeMap[ext] || 'text/plain');
-            return res.end(fs.readFileSync(offeringFilePath));
-          }
-        }
-
-        // 4. /data/ 경로로 들어온 요청은 상위 data 디렉토리 파일 서빙
-        if (req.url.startsWith('/data/')) {
-          const dataFilePath = resolve(__dirname, '..', req.url.replace(/^\//, '').split('?')[0]);
+        // 3. /data/ 또는 /src/data/ 경로 요청 처리
+        if (req.url.startsWith('/data/') || req.url.startsWith('/src/data/')) {
+          const cleanPath = req.url.replace(/^\/(?:src\/)?/, '').split('?')[0];
+          const dataFilePath = resolve(__dirname, 'src', cleanPath);
           if (fs.existsSync(dataFilePath) && fs.statSync(dataFilePath).isFile()) {
             const ext = dataFilePath.split('.').pop();
             const mimeMap = { js: 'application/javascript; charset=utf-8', json: 'application/json; charset=utf-8' };
             res.setHeader('Content-Type', mimeMap[ext] || 'text/plain');
             return res.end(fs.readFileSync(dataFilePath));
+          }
+        }
+
+        // 4. /pages/, /guide/, /layout/, /components/ 등 src 하위 HTML 요청 직접 매핑
+        const subDirs = ['pages', 'guide', 'layout', 'components'];
+        for (const dir of subDirs) {
+          if (req.url.startsWith(`/${dir}/`)) {
+            const relativeReqPath = req.url.replace(/^\//, '').split('?')[0];
+            const srcFilePath = resolve(__dirname, 'src', relativeReqPath);
+            if (fs.existsSync(srcFilePath) && fs.statSync(srcFilePath).isFile()) {
+              if (srcFilePath.endsWith('.html')) {
+                let html = fs.readFileSync(srcFilePath, 'utf-8');
+                html = await server.transformIndexHtml(`/src/${relativeReqPath}`, html);
+                res.setHeader('Content-Type', 'text/html; charset=utf-8');
+                return res.end(html);
+              }
+            }
           }
         }
 

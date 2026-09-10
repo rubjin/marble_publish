@@ -181,6 +181,13 @@ for (const htmlFile of allHtmlFiles) {
   console.log(`[HTML] Generated: ${relativePath}`);
 }
 
+// 6. Process admin worksheet data
+const srcDataDir = path.resolve(SRC_DIR, 'data');
+if (fs.existsSync(srcDataDir)) {
+  copyDirSync(srcDataDir, path.resolve(DIST_DIR, 'data'));
+  console.log('[Worksheet Data] Copied: dist/data');
+}
+
 console.log('\n========================================');
 console.log('Dist build completed successfully in ./dist');
 console.log('========================================\n');
