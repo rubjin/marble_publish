@@ -187,7 +187,7 @@ body {
   display: block;
   width: 200px;
   height: 43px;
-  background-image: url("../images/logo_title.svg");
+  background-image: url("/src/assets/images/logo_title.svg");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: contain;
@@ -196,7 +196,7 @@ body {
   display: none;
   width: 48px;
   height: 62px;
-  background-image: url("../images/logo_star.svg");
+  background-image: url("/src/assets/images/logo_star.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -263,7 +263,7 @@ body {
   font-weight: 300;
   color: #2F3034;
   background-color: #FFFFFF;
-  background-image: url("../images/icon/select_20.svg");
+  background-image: url("/src/assets/images/icon/select_20.svg");
   background-position: right 12px center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
@@ -346,7 +346,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  background-image: url("../images/icon/side_arrow.svg");
+  background-image: url("/src/assets/images/icon/side_arrow.svg");
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .boSidebar .boMenu .boSubMenu {
@@ -864,95 +864,95 @@ body {
   height: 36px;
 }
 .ico.side1 {
-  background-image: url("../images/icon/side_1.svg");
+  background-image: url("/src/assets/images/icon/side_1.svg");
 }
 .ico.side2 {
-  background-image: url("../images/icon/side_2.svg");
+  background-image: url("/src/assets/images/icon/side_2.svg");
 }
 .ico.side3 {
-  background-image: url("../images/icon/side_3.svg");
+  background-image: url("/src/assets/images/icon/side_3.svg");
 }
 .ico.side4 {
-  background-image: url("../images/icon/side_4.svg");
+  background-image: url("/src/assets/images/icon/side_4.svg");
 }
 .ico.side5 {
-  background-image: url("../images/icon/side_5.svg");
+  background-image: url("/src/assets/images/icon/side_5.svg");
 }
 .ico.side6 {
-  background-image: url("../images/icon/side_6.svg");
+  background-image: url("/src/assets/images/icon/side_6.svg");
 }
 .ico.side7 {
-  background-image: url("../images/icon/side_7.svg");
+  background-image: url("/src/assets/images/icon/side_7.svg");
 }
 .ico.sideSub {
-  background-image: url("../images/icon/side_sub.svg");
+  background-image: url("/src/assets/images/icon/side_sub.svg");
 }
 .ico.fold {
-  background-image: url("../images/icon/i_fold.svg");
+  background-image: url("/src/assets/images/icon/i_fold.svg");
 }
 .ico.logout {
-  background-image: url("../images/icon/i_logout.svg");
+  background-image: url("/src/assets/images/icon/i_logout.svg");
 }
 .ico.calendar {
-  background-image: url("../images/icon/i_calendar_16.svg");
+  background-image: url("/src/assets/images/icon/i_calendar_16.svg");
 }
 .ico.download {
-  background-image: url("../images/icon/i_download_16.svg");
+  background-image: url("/src/assets/images/icon/i_download_16.svg");
 }
 .ico.mdiTabHome {
-  background-image: url("../images/icon/mdi_tab_home.svg");
+  background-image: url("/src/assets/images/icon/mdi_tab_home.svg");
 }
 .ico.mdiTabClose {
-  background-image: url("../images/icon/mdi_tab_close.svg");
+  background-image: url("/src/assets/images/icon/mdi_tab_close.svg");
 }
 .ico.deleteTag {
-  background-image: url("../images/icon/i_tagDelete_20.svg");
+  background-image: url("/src/assets/images/icon/i_tagDelete_20.svg");
 }
 .ico.statusIng {
-  background-image: url("../images/icon/i_status_ing_20.svg");
+  background-image: url("/src/assets/images/icon/i_status_ing_20.svg");
 }
 .ico.statusAlarm {
-  background-image: url("../images/icon/i_status_alarm_20.svg");
+  background-image: url("/src/assets/images/icon/i_status_alarm_20.svg");
 }
 .ico.statusRate {
-  background-image: url("../images/icon/i_status_rate_20.svg");
+  background-image: url("/src/assets/images/icon/i_status_rate_20.svg");
 }
 .ico.statusAdd {
-  background-image: url("../images/icon/i_status_new_20.svg");
+  background-image: url("/src/assets/images/icon/i_status_new_20.svg");
 }
 .ico.statusPoint {
-  background-image: url("../images/icon/i_status_point_20.svg");
+  background-image: url("/src/assets/images/icon/i_status_point_20.svg");
 }
 .ico.select {
-  background-image: url("../images/icon/select_20.svg");
+  background-image: url("/src/assets/images/icon/select_20.svg");
 }
 .ico.breadcrumb {
-  background-image: url("../images/icon/breadcrumb_24.svg");
+  background-image: url("/src/assets/images/icon/breadcrumb_24.svg");
 }
 .ico.checkbox {
-  background-image: url("../images/icon/checkbox_24.svg");
+  background-image: url("/src/assets/images/icon/checkbox_24.svg");
 }
 .ico.checkboxChecked {
-  background-image: url("../images/icon/checkbox_24_checked.svg");
+  background-image: url("/src/assets/images/icon/checkbox_24_checked.svg");
 }
 .ico.radio {
-  background-image: url("../images/icon/radio_24.svg");
+  background-image: url("/src/assets/images/icon/radio_24.svg");
 }
 .ico.radioChecked {
-  background-image: url("../images/icon/radio_24_checked.svg");
+  background-image: url("/src/assets/images/icon/radio_24_checked.svg");
 }
 .ico.deleteFile {
-  background-image: url("../images/icon/i_fileDelete_24.svg");
+  background-image: url("/src/assets/images/icon/i_fileDelete_24.svg");
 }
 .ico.stepHandle {
-  background-image: url("../images/icon/i_drag_30.svg");
+  background-image: url("/src/assets/images/icon/i_drag_30.svg");
 }
 .ico.upload {
-  background-image: url("../images/icon/i_upload_36.svg");
+  background-image: url("/src/assets/images/icon/i_upload_36.svg");
 }
 
 .isActive .ico.sideSub {
-  background-image: url("../images/icon/side_sub_active.svg");
+  background-image: url("/src/assets/images/icon/side_sub_active.svg");
 }
 
 .fs28 {
@@ -1177,7 +1177,7 @@ body {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background-image: url("../images/icon/breadcrumb_24.svg");
+  background-image: url("/src/assets/images/icon/breadcrumb_24.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1904,7 +1904,7 @@ textarea.formControl {
 
 select.formControl {
   appearance: none;
-  background-image: url("../images/icon/select_20.svg");
+  background-image: url("/src/assets/images/icon/select_20.svg");
   background-position: right 12px center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
@@ -2021,7 +2021,7 @@ select.formControl.wAuto {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  background: transparent url("../images/icon/i_calendar_16.svg") no-repeat center/contain;
+  background: transparent url("/src/assets/images/icon/i_calendar_16.svg") no-repeat center/contain;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -2073,7 +2073,7 @@ select.formControl.wAuto {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-image: url("../images/icon/i_tagDelete_20.svg");
+  background-image: url("/src/assets/images/icon/i_tagDelete_20.svg");
   border: none;
   cursor: pointer;
   padding: 0;
@@ -3825,7 +3825,7 @@ select.formControl.wAuto {
   display: inline-block;
   width: 180px;
   height: 40px;
-  background-image: url("../images/logo_title_dark.svg");
+  background-image: url("/src/assets/images/logo_title_dark.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

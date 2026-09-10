@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use 'abstracts' as *;
 
 .card {
   border: 1px solid $color-gray-300; border-radius: 8px; overflow: hidden; background-color: $color-white;
