@@ -14,6 +14,54 @@ if (fs.existsSync(DIST_DIR)) {
 }
 fs.mkdirSync(DIST_DIR, { recursive: true });
 
+// Custom alias importer for Sass (supports styles/, @/, assets/, src/)
+const sassAliasImporter = {
+  canonicalize(url) {
+    let resolvedPath = null;
+    if (url.startsWith('styles/')) {
+      resolvedPath = path.resolve(ROOT_DIR, 'src/assets/scss', url.replace(/^styles\//, ''));
+    } else if (url.startsWith('@/')) {
+      resolvedPath = path.resolve(ROOT_DIR, 'src', url.replace(/^@\//, ''));
+    } else if (url.startsWith('assets/')) {
+      resolvedPath = path.resolve(ROOT_DIR, 'src/assets', url.replace(/^assets\//, ''));
+    } else if (url.startsWith('src/')) {
+      resolvedPath = path.resolve(ROOT_DIR, url);
+    }
+
+    if (!resolvedPath) return null;
+
+    const dir = path.dirname(resolvedPath);
+    const base = path.basename(resolvedPath);
+    const candidates = [
+      resolvedPath,
+      `${resolvedPath}.scss`,
+      path.join(dir, `_${base}.scss`),
+      path.join(resolvedPath, '_index.scss'),
+      path.join(resolvedPath, 'index.scss')
+    ];
+
+    for (const c of candidates) {
+      if (fs.existsSync(c) && fs.statSync(c).isFile()) {
+        const fileUrlStr = `file:///${c.replace(/\\/g, '/')}`;
+        return new URL(fileUrlStr);
+      }
+    }
+    return null;
+  },
+  load(canonicalUrl) {
+    let filePath = canonicalUrl.pathname;
+    // On Windows, pathname starts with /C:/..., normalize it
+    if (/^\/[a-zA-Z]:/.test(filePath)) {
+      filePath = filePath.substring(1);
+    }
+    const decodedPath = decodeURIComponent(filePath);
+    return {
+      contents: fs.readFileSync(decodedPath, 'utf8'),
+      syntax: decodedPath.endsWith('.sass') ? 'indented' : 'scss'
+    };
+  }
+};
+
 // 2. Compile SCSS directly to dist/assets/css
 function compileSass(srcFile, destFile) {
   const fullSrc = path.resolve(ROOT_DIR, srcFile);
@@ -21,12 +69,29 @@ function compileSass(srcFile, destFile) {
   if (!fs.existsSync(fullSrc)) return;
   try {
     const result = sass.compile(fullSrc, {
-      loadPaths: [path.dirname(fullSrc)],
+      importers: [sassAliasImporter],
+      loadPaths: [
+        path.dirname(fullSrc),
+        path.resolve(ROOT_DIR, 'src/assets/scss'),
+        path.resolve(ROOT_DIR, 'src/assets'),
+        path.resolve(ROOT_DIR, 'src'),
+        ROOT_DIR
+      ],
       style: 'expanded',
       sourceMap: false
     });
+
+    let css = result.css;
+    // dist 배포용 CSS는 독립적인 상대 경로(dist/assets/images, dist/assets/fonts)로 보정
+    if (destFile.startsWith('dist/')) {
+      css = css.replace(/\/src\/assets\/images/g, '../images');
+      css = css.replace(/\/src\/assets\/fonts/g, '../fonts');
+      css = css.replace(/\/assets\/images/g, '../images');
+      css = css.replace(/\/assets\/fonts/g, '../fonts');
+    }
+
     fs.mkdirSync(path.dirname(fullDest), { recursive: true });
-    fs.writeFileSync(fullDest, result.css, 'utf8');
+    fs.writeFileSync(fullDest, css, 'utf8');
     console.log(`[Sass] Compiled: ${srcFile} -> ${destFile}`);
   } catch (err) {
     console.error(`[Sass Error] ${srcFile}:`, err.message);

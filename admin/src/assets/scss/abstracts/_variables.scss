@@ -145,5 +145,5 @@ $z-toast:     9999;
 // ==========================================================================
 // 7. Asset Paths
 // ==========================================================================
-$path-images: '../images';
-$path-fonts:  '../fonts';
+$path-images: '/src/assets/images' !default;
+$path-fonts:  '/src/assets/fonts' !default;

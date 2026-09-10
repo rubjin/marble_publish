@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "node build.js",
-    "sass:watch": "sass --watch src/assets/scss/globals.scss:src/assets/css/globals.css src/assets/scss/common.scss:src/assets/css/common.css --no-source-map",
-    "sass:build": "sass src/assets/scss/globals.scss:src/assets/css/globals.css src/assets/scss/common.scss:src/assets/css/common.css --no-source-map"
+    "sass:watch": "sass --watch --load-path=src/assets/scss --load-path=src/assets --load-path=src src/assets/scss/globals.scss:src/assets/css/globals.css src/assets/scss/common.scss:src/assets/css/common.css --no-source-map",
+    "sass:build": "sass --load-path=src/assets/scss --load-path=src/assets --load-path=src src/assets/scss/globals.scss:src/assets/css/globals.css src/assets/scss/common.scss:src/assets/css/common.css --no-source-map"
   },
   "keywords": [],
   "author": "",

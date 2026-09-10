@@ -82,6 +82,29 @@ function rootWorksheetPlugin() {
           }
         }
 
+        // 5. /assets/ 경로로 들어온 요청은 /src/assets/ 디렉토리 파일 서빙 (호환성)
+        if (req.url.startsWith('/assets/')) {
+          const assetFilePath = resolve(__dirname, 'src', req.url.replace(/^\//, '').split('?')[0]);
+          if (fs.existsSync(assetFilePath) && fs.statSync(assetFilePath).isFile()) {
+            const ext = assetFilePath.split('.').pop();
+            const mimeMap = {
+              woff2: 'font/woff2',
+              woff: 'font/woff',
+              ttf: 'font/ttf',
+              svg: 'image/svg+xml',
+              png: 'image/png',
+              jpg: 'image/jpeg',
+              jpeg: 'image/jpeg',
+              gif: 'image/gif',
+              webp: 'image/webp',
+              css: 'text/css; charset=utf-8',
+              js: 'application/javascript; charset=utf-8'
+            };
+            res.setHeader('Content-Type', mimeMap[ext] || 'application/octet-stream');
+            return res.end(fs.readFileSync(assetFilePath));
+          }
+        }
+
         next();
       });
     }
@@ -90,6 +113,30 @@ function rootWorksheetPlugin() {
 
 export default defineConfig({
   plugins: [htmlIncludePlugin(), rootWorksheetPlugin()],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+      'src': resolve(__dirname, 'src'),
+      'styles': resolve(__dirname, 'src/assets/scss'),
+      'scss': resolve(__dirname, 'src/assets/scss'),
+      'abstracts': resolve(__dirname, 'src/assets/scss/abstracts'),
+      'components': resolve(__dirname, 'src/assets/scss/components'),
+      'pages': resolve(__dirname, 'src/assets/scss/pages'),
+      'assets': resolve(__dirname, 'src/assets')
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        loadPaths: [
+          resolve(__dirname, 'src/assets/scss'),
+          resolve(__dirname, 'src/assets'),
+          resolve(__dirname, 'src'),
+          resolve(__dirname)
+        ]
+      }
+    }
+  },
   server: {
     port: 3000,
     open: true, // 서버 실행 시 브라우저 자동 열기
