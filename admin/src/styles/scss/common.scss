@@ -6,11 +6,11 @@
 //
 // Usage:
 //   // App.tsx 또는 index.tsx
-//   import '@/assets/scss/common.scss';
+//   import '@/styles/scss/common.scss';
 //
 //   // 개별 컴포넌트 사용 시
-//   import '@/assets/scss/components/_button.scss';
-//   import '@/assets/scss/components/_popup.scss';
+//   import '@/styles/scss/components/_button.scss';
+//   import '@/styles/scss/components/_popup.scss';
 // ==========================================================================
 
 @use 'abstracts/variables' as *;

@@ -19,7 +19,7 @@ const sassAliasImporter = {
   canonicalize(url) {
     let resolvedPath = null;
     if (url.startsWith('styles/')) {
-      resolvedPath = path.resolve(ROOT_DIR, 'src/assets/scss', url.replace(/^styles\//, ''));
+      resolvedPath = path.resolve(ROOT_DIR, 'src/styles/scss', url.replace(/^styles\//, ''));
     } else if (url.startsWith('@/')) {
       resolvedPath = path.resolve(ROOT_DIR, 'src', url.replace(/^@\//, ''));
     } else if (url.startsWith('assets/')) {
@@ -62,7 +62,7 @@ const sassAliasImporter = {
   }
 };
 
-// 2. Compile SCSS directly to dist/assets/css
+// 2. Compile SCSS directly to dist/styles/css
 function compileSass(srcFile, destFile) {
   const fullSrc = path.resolve(ROOT_DIR, srcFile);
   const fullDest = path.resolve(ROOT_DIR, destFile);
@@ -72,7 +72,7 @@ function compileSass(srcFile, destFile) {
       importers: [sassAliasImporter],
       loadPaths: [
         path.dirname(fullSrc),
-        path.resolve(ROOT_DIR, 'src/assets/scss'),
+        path.resolve(ROOT_DIR, 'src/styles/scss'),
         path.resolve(ROOT_DIR, 'src/assets'),
         path.resolve(ROOT_DIR, 'src'),
         ROOT_DIR
@@ -122,11 +122,11 @@ function copyDirSync(srcDirPath, destDirPath) {
   copyDirSync(path.resolve(SRC_DIR, 'assets', subDir), path.resolve(DIST_DIR, 'assets', subDir));
 });
 
-// Compile SCSS directly to src/assets/css & dist/assets/css
-compileSass('src/assets/scss/common.scss', 'src/assets/css/common.css');
-compileSass('src/assets/scss/globals.scss', 'src/assets/css/globals.css');
-compileSass('src/assets/scss/common.scss', 'dist/assets/css/common.css');
-compileSass('src/assets/scss/globals.scss', 'dist/assets/css/globals.css');
+// Compile SCSS directly to src/styles/css & dist/styles/css
+compileSass('src/styles/scss/common.scss', 'src/styles/css/common.css');
+compileSass('src/styles/scss/globals.scss', 'src/styles/css/globals.css');
+compileSass('src/styles/scss/common.scss', 'dist/styles/css/common.css');
+compileSass('src/styles/scss/globals.scss', 'dist/styles/css/globals.css');
 
 // 4. HTML Include Resolver
 function resolveIncludes(htmlContent, currentFilePath) {
@@ -172,7 +172,7 @@ for (const htmlFile of allHtmlFiles) {
   // 2) Replace .scss references with .css references for dist
   const depth = relativePath.split(path.sep).length - 1;
   const prefix = depth > 0 ? '../'.repeat(depth) : './';
-  content = content.replace(/href="[^"]*?(?:assets\/)?scss\/(?:globals|main|common)\.scss"/g, `href="${prefix}assets/css/globals.css"`);
+  content = content.replace(/href="[^"]*?(?:assets\/)?scss\/(?:globals|main|common)\.scss"/g, `href="${prefix}styles/css/globals.css"`);
   content = content.replace(/src="[^"]*?(?:assets\/)?js\/ui\.js"/g, `src="${prefix}assets/js/ui.js"`);
 
   const destPath = path.resolve(DIST_DIR, relativePath);

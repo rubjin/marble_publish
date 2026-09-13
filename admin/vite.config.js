@@ -28,8 +28,8 @@ function htmlIncludePlugin() {
       let content = resolveIncludes(html);
 
       // 2. SCSS 링크를 Vite 모듈 로더(<script type="module">)로 변환하여 CSS 정상 주입 및 HMR 지원
-      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/globals\.scss["']\s*\/?>/gi, '<script type="module" src="/src/assets/scss/globals.scss"></script>');
-      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/common\.scss["']\s*\/?>/gi, '<script type="module" src="/src/assets/scss/common.scss"></script>');
+      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/globals\.scss["']\s*\/?>/gi, '<script type="module" src="/src/styles/scss/globals.scss"></script>');
+      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/common\.scss["']\s*\/?>/gi, '<script type="module" src="/src/styles/scss/common.scss"></script>');
       content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["']([^"']+\.scss)["']\s*\/?>/gi, '<script type="module" src="$1"></script>');
 
       // 3. UI JS 스크립트 경로 정규화
@@ -137,11 +137,11 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src'),
       'src': resolve(__dirname, 'src'),
-      'styles': resolve(__dirname, 'src/assets/scss'),
-      'scss': resolve(__dirname, 'src/assets/scss'),
-      'abstracts': resolve(__dirname, 'src/assets/scss/abstracts'),
-      'components': resolve(__dirname, 'src/assets/scss/components'),
-      'pages': resolve(__dirname, 'src/assets/scss/pages'),
+      'styles': resolve(__dirname, 'src/styles/scss'),
+      'scss': resolve(__dirname, 'src/styles/scss'),
+      'abstracts': resolve(__dirname, 'src/styles/scss/abstracts'),
+      'components': resolve(__dirname, 'src/styles/scss/components'),
+      'pages': resolve(__dirname, 'src/styles/scss/pages'),
       'assets': resolve(__dirname, 'src/assets')
     }
   },
@@ -149,7 +149,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         loadPaths: [
-          resolve(__dirname, 'src/assets/scss'),
+          resolve(__dirname, 'src/styles/scss'),
           resolve(__dirname, 'src/assets'),
           resolve(__dirname, 'src'),
           resolve(__dirname)
