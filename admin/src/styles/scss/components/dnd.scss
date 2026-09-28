@@ -1,0 +1,296 @@
+@use 'abstracts' as *;
+
+/* ==========================================================================
+   Drag & Drop Component (라이브러리 미정 - 공통 상태 클래스)
+   - 특정 라이브러리에 종속되지 않도록 상태 클래스만 정의합니다.
+     (dnd-kit / pragmatic-drag-and-drop / react-beautiful-dnd 계열 모두 적용 가능)
+   - 위치 이동(transform)은 라이브러리가 인라인 스타일로 처리하고, 본 파일은 모양만 담당합니다.
+
+   [D] 상태 클래스
+     .isDragging  : 드래그 중인 원본 아이템 (자리 표시용으로 흐리게)
+     .isOverlay   : 커서를 따라다니는 드래그 미리보기 (DragOverlay)
+     .isOver      : 드롭 가능 영역 위에 올라온 상태
+     .isDisabled  : 드래그 불가 아이템
+     body.isDndActive : 드래그 진행 중 (전역 커서/텍스트 선택 제어)
+   ========================================================================== */
+
+$dnd-active-border: $color-blue-500;
+$dnd-over-bg:       $bg-info-light;
+
+body.isDndActive {
+  cursor: grabbing !important;
+  user-select: none;
+
+  * { cursor: grabbing !important; }
+}
+
+/* --------------------------------------------------------------------------
+   드래그 핸들 (기존 아이콘 i_drag_30.svg 사용)
+   -------------------------------------------------------------------------- */
+.dndHandle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent iconUrl('i_drag_30.svg') no-repeat center / 30px;
+  cursor: grab;
+  flex-shrink: 0;
+  touch-action: none; // 모바일/터치 드래그 시 스크롤 방지
+  transition: background-color 0.15s;
+
+  &:hover { background-color: $color-gray-150; }
+  &:active { cursor: grabbing; }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px $ring-primary;
+  }
+
+  &:disabled,
+  &.isDisabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background-color: transparent;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   정렬 리스트 (Sortable List)
+   -------------------------------------------------------------------------- */
+.dndList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  // 가로 정렬
+  &.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.dndItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 10px 16px 10px 10px;
+  background-color: $bg-white;
+  border: 1px solid $border-default;
+  border-radius: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s, opacity 0.15s;
+
+  &:hover { border-color: $border-hover; }
+
+  // 아이템 전체를 핸들로 사용하는 경우
+  &.isHandle {
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    &:active { cursor: grabbing; }
+  }
+
+  .dndOrder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 6px;
+    border-radius: 12px;
+    background-color: $color-gray-100;
+    font-size: 12px;
+    font-weight: $font-weight-bold;
+    color: $text-secondary;
+    flex-shrink: 0;
+  }
+
+  .dndContent {
+    flex: 1;
+    min-width: 0;
+
+    .dndTitle {
+      display: block;
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      color: $text-primary;
+      @include text-ellipsis;
+    }
+
+    .dndDesc {
+      display: block;
+      margin-top: 2px;
+      font-size: 13px;
+      color: $text-tertiary;
+      @include text-ellipsis;
+    }
+  }
+
+  .dndActions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  // 드래그 중인 원본 (자리 표시)
+  &.isDragging {
+    opacity: 1;
+    border: 1px dashed $border-hover;
+    background-color: $color-gray-50;
+    box-shadow: none;
+
+    > * { visibility: hidden; }
+  }
+
+  // 커서를 따라다니는 미리보기
+  &.isOverlay {
+    border-color: $dnd-active-border;
+    box-shadow: $shadow-lg;
+    cursor: grabbing;
+    transform: scale(1.02);
+    z-index: $z-dropdown;
+  }
+
+  &.isDisabled {
+    background-color: $bg-disabled;
+    border-color: $border-disabled;
+
+    .dndTitle { color: $text-tertiary; }
+  }
+}
+
+// 가로 정렬용 칩 형태
+.dndList.horizontal .dndItem {
+  min-height: 36px;
+  padding: 4px 12px 4px 4px;
+  gap: 4px;
+  border-radius: 100px;
+}
+
+// 삽입 위치 표시선 (라이브러리가 인디케이터 방식을 쓸 경우)
+// [D] 대상 아이템에 .isDropBefore / .isDropAfter
+.dndItem.isDropBefore::before,
+.dndItem.isDropAfter::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 1px;
+  background-color: $dnd-active-border;
+  pointer-events: none;
+}
+.dndItem.isDropBefore::before { top: -6px; }
+.dndItem.isDropAfter::after { bottom: -6px; }
+
+/* --------------------------------------------------------------------------
+   테이블 행 순서 변경 (.tbl 내부)
+   [D] 드래그 중인 행: tr.isDragging / 미리보기 행: tr.isOverlay
+   -------------------------------------------------------------------------- */
+.tbl {
+  .colDrag {
+    width: 48px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center;
+  }
+
+  tbody tr.isDragging {
+    background-color: $color-gray-50;
+
+    td { opacity: 0.4; }
+  }
+
+  tbody tr.isOverlay {
+    background-color: $bg-white;
+    box-shadow: $shadow-lg;
+    outline: 1px solid $dnd-active-border;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   보드 (칸반 형태 - 영역 간 이동)
+   -------------------------------------------------------------------------- */
+.dndBoard {
+  display: grid;
+  grid-auto-columns: minmax(240px, 1fr);
+  grid-auto-flow: column;
+  gap: 16px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.dndColumn {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 12px;
+  background-color: $color-gray-100;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: background-color 0.15s, border-color 0.15s;
+
+  .dndColumnHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 0 4px;
+
+    .dndColumnTitle {
+      margin: 0;
+      font-size: 14px;
+      font-weight: $font-weight-bold;
+      color: $text-title;
+    }
+
+    .dndCount {
+      font-size: 13px;
+      font-weight: $font-weight-medium;
+      color: $text-tertiary;
+    }
+  }
+
+  .dndList { flex: 1; min-height: 60px; }
+
+  &.isOver {
+    background-color: $dnd-over-bg;
+    border-color: $dnd-active-border;
+    border-style: dashed;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   드롭 영역 (빈 영역 / 아이템 추가 영역)
+   -------------------------------------------------------------------------- */
+.dndDropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px;
+  border: 1px dashed $border-default;
+  border-radius: 8px;
+  background-color: $color-gray-50;
+  font-size: 13px;
+  color: $text-tertiary;
+  text-align: center;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+
+  &.isOver {
+    border-color: $dnd-active-border;
+    background-color: $dnd-over-bg;
+    color: $text-info;
+  }
+}

@@ -1,0 +1,190 @@
+<!--
+  [리액트 컴포넌트 가이드 - Drag & Drop (라이브러리 미정)]
+  - 라이브러리와 무관하게 "상태 클래스"만 바인딩하면 되도록 설계했습니다.
+    위치 이동(transform / transition)은 라이브러리가 주는 인라인 style 을 그대로 사용합니다.
+  - 스타일: styles/scss/components/dnd.scss
+
+  - 상태 클래스
+    .isDragging      : 드래그 중인 원본 아이템 (빈 자리 표시)
+    .isOverlay       : 커서를 따라다니는 미리보기 (예: dnd-kit <DragOverlay>)
+    .isOver          : 드롭 영역(.dndColumn / .dndDropzone) 위에 올라온 상태
+    .isDropBefore / .isDropAfter : 삽입 위치 표시선 (인디케이터 방식 라이브러리용)
+    .isDisabled      : 드래그 불가
+    body.isDndActive : 드래그 진행 중 (전역 커서 grabbing, 텍스트 선택 방지)
+
+  - 예시 (dnd-kit 기준)
+    const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id });
+    <li ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition }}
+        className={cx('dndItem', { isDragging })}>
+      <button type="button" className="dndHandle" aria-label="순서 변경" {...attributes} {...listeners} />
+      ...
+    </li>
+-->
+
+<!-- 1. 정렬 리스트 (핸들 드래그) -->
+<h3 class="guideSubtitle">정렬 리스트</h3>
+<ul class="dndList">
+  <li class="dndItem">
+    <button type="button" class="dndHandle" aria-label="순서 변경"></button>
+    <span class="dndOrder">1</span>
+    <div class="dndContent">
+      <strong class="dndTitle">메인 배너 - 가을 적금 이벤트</strong>
+      <span class="dndDesc">2026.09.01 ~ 2026.10.31</span>
+    </div>
+    <div class="dndActions">
+      <span class="statusDot ing">노출중</span>
+      <button type="button" class="btn outline sm">수정</button>
+    </div>
+  </li>
+  <!-- [D] 드래그 중인 원본: .isDragging -->
+  <li class="dndItem isDragging">
+    <button type="button" class="dndHandle" aria-label="순서 변경"></button>
+    <span class="dndOrder">2</span>
+    <div class="dndContent">
+      <strong class="dndTitle">미션 배너 - 만보 걷기</strong>
+      <span class="dndDesc">2026.09.10 ~ 2026.09.30</span>
+    </div>
+  </li>
+  <li class="dndItem isDropBefore">
+    <button type="button" class="dndHandle" aria-label="순서 변경"></button>
+    <span class="dndOrder">3</span>
+    <div class="dndContent">
+      <strong class="dndTitle">공지 배너 - 시스템 점검 안내</strong>
+      <span class="dndDesc">2026.09.20 ~ 2026.09.21</span>
+    </div>
+    <div class="dndActions">
+      <span class="statusDot ready">대기</span>
+      <button type="button" class="btn outline sm">수정</button>
+    </div>
+  </li>
+  <!-- [D] 드래그 불가: .isDisabled + 핸들 disabled -->
+  <li class="dndItem isDisabled">
+    <button type="button" class="dndHandle" aria-label="순서 변경" disabled></button>
+    <span class="dndOrder">4</span>
+    <div class="dndContent">
+      <strong class="dndTitle">고정 배너 - 순서 변경 불가</strong>
+      <span class="dndDesc">상시 노출</span>
+    </div>
+  </li>
+</ul>
+
+<!-- 드래그 미리보기 (DragOverlay) -->
+<h3 class="guideSubtitle">드래그 미리보기 (Overlay)</h3>
+<div class="dndList">
+  <div class="dndItem isOverlay">
+    <button type="button" class="dndHandle" aria-label="순서 변경"></button>
+    <span class="dndOrder">2</span>
+    <div class="dndContent">
+      <strong class="dndTitle">미션 배너 - 만보 걷기</strong>
+      <span class="dndDesc">2026.09.10 ~ 2026.09.30</span>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 가로 정렬 (칩 형태) -->
+<h3 class="guideSubtitle">가로 정렬 (칩)</h3>
+<ul class="dndList horizontal">
+  <li class="dndItem isHandle"><span class="dndHandle" aria-hidden="true"></span><span class="dndTitle">건강</span></li>
+  <li class="dndItem isHandle"><span class="dndHandle" aria-hidden="true"></span><span class="dndTitle">금융</span></li>
+  <li class="dndItem isHandle isOverlay"><span class="dndHandle" aria-hidden="true"></span><span class="dndTitle">생활</span></li>
+  <li class="dndItem isHandle"><span class="dndHandle" aria-hidden="true"></span><span class="dndTitle">학습</span></li>
+</ul>
+
+<!-- 3. 테이블 행 순서 변경 -->
+<h3 class="guideSubtitle">테이블 행 순서 변경</h3>
+<div class="tblWrap">
+  <table class="tbl">
+    <colgroup>
+      <col class="colDrag" />
+      <col style="width: 80px;" />
+      <col />
+      <col style="width: 140px;" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="colDrag"><span class="srOnly">순서 변경</span></th>
+        <th>순서</th>
+        <th>카테고리명</th>
+        <th>노출 여부</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="colDrag"><button type="button" class="dndHandle" aria-label="순서 변경"></button></td>
+        <td>1</td>
+        <td class="textLeft">건강 챌린지</td>
+        <td>노출</td>
+      </tr>
+      <!-- [D] 드래그 중인 행: tr.isDragging -->
+      <tr class="isDragging">
+        <td class="colDrag"><button type="button" class="dndHandle" aria-label="순서 변경"></button></td>
+        <td>2</td>
+        <td class="textLeft">금융 챌린지</td>
+        <td>노출</td>
+      </tr>
+      <!-- [D] 미리보기 행: tr.isOverlay -->
+      <tr class="isOverlay">
+        <td class="colDrag"><button type="button" class="dndHandle" aria-label="순서 변경"></button></td>
+        <td>3</td>
+        <td class="textLeft">생활 챌린지</td>
+        <td>미노출</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 4. 보드 (영역 간 이동) -->
+<h3 class="guideSubtitle">보드 (영역 간 이동)</h3>
+<div class="dndBoard">
+  <section class="dndColumn">
+    <div class="dndColumnHeader">
+      <h4 class="dndColumnTitle">대기</h4>
+      <span class="dndCount">2</span>
+    </div>
+    <ul class="dndList">
+      <li class="dndItem isHandle">
+        <div class="dndContent">
+          <strong class="dndTitle">추석 맞이 이벤트</strong>
+          <span class="dndDesc">담당: 운영팀</span>
+        </div>
+      </li>
+      <li class="dndItem isHandle isDragging">
+        <div class="dndContent">
+          <strong class="dndTitle">신규 가입 웰컴 미션</strong>
+          <span class="dndDesc">담당: 기획팀</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- [D] 드롭 대상 영역 위: .isOver -->
+  <section class="dndColumn isOver">
+    <div class="dndColumnHeader">
+      <h4 class="dndColumnTitle">검수중</h4>
+      <span class="dndCount">1</span>
+    </div>
+    <ul class="dndList">
+      <li class="dndItem isHandle">
+        <div class="dndContent">
+          <strong class="dndTitle">연말 적금 챌린지</strong>
+          <span class="dndDesc">담당: 상품팀</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="dndColumn">
+    <div class="dndColumnHeader">
+      <h4 class="dndColumnTitle">완료</h4>
+      <span class="dndCount">0</span>
+    </div>
+    <div class="dndDropzone">여기로 끌어다 놓으세요</div>
+  </section>
+</div>
+
+<!-- 5. 드롭 영역 -->
+<h3 class="guideSubtitle">드롭 영역</h3>
+<div class="flex" style="gap: 12px;">
+  <div class="dndDropzone" style="flex: 1;">항목을 끌어다 놓으세요</div>
+  <div class="dndDropzone isOver" style="flex: 1;">놓으면 추가됩니다 (.isOver)</div>
+</div>

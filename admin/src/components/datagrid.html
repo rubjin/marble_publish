@@ -1,0 +1,334 @@
+<!--
+  [리액트 컴포넌트 가이드 - @tanstack/react-table]
+  - Headless 라이브러리이므로 아래 마크업 구조 그대로 렌더링하고 클래스만 바인딩합니다.
+  - 스타일: styles/scss/components/datagrid.scss (+ table.scss, form.scss 체크박스)
+
+  - 구조
+    <div class="dataGridWrap [h400] [isLoading]">
+      <table class="tbl dataGrid [isBordered | isCompact | isStriped | isResizable]">
+        thead th     : header.column.getCanSort() → <button class="sortBtn [isAsc|isDesc]">
+        tbody tr     : row.getIsSelected() → .isSelected
+        td/th 정렬    : columnDef.meta.className 으로 .textLeft / .textRight / .isNumber 지정 권장
+        체크박스 컬럼 : th/td.colCheck + .formCheck (전체선택: table.getIsSomeRowsSelected() → indeterminate)
+        빈 데이터     : <td class="gridEmpty" colSpan={n}>
+    <div class="dataGridBottom"> .gridSelectedInfo / .pagination / .gridPageSize
+
+  - 예시
+    <th key={header.id} className={header.column.columnDef.meta?.className} style={{ width: header.getSize() }}>
+      {header.column.getCanSort() ? (
+        <button type="button"
+          className={cx('sortBtn', { isAsc: header.column.getIsSorted() === 'asc', isDesc: header.column.getIsSorted() === 'desc' })}
+          onClick={header.column.getToggleSortingHandler()}>
+          <span className="sortText">{flexRender(header.column.columnDef.header, header.getContext())}</span>
+          <span className="sortIcon" aria-hidden="true" />
+        </button>
+      ) : flexRender(header.column.columnDef.header, header.getContext())}
+    </th>
+-->
+
+<!-- 1. 기본 그리드 : 정렬 + 행 선택 + 페이지네이션 -->
+<div class="tblSection">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">미션 목록</h3>
+      <span class="tblCount">총 <strong class="count point">128</strong>건</span>
+    </div>
+    <div class="tblRight">
+      <div class="btnGroup">
+        <button type="button" class="btn outline">
+          <span class="ico download"></span>
+          <span>엑셀 다운로드</span>
+        </button>
+        <button type="button" class="btn primary">신규 등록</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dataGridWrap">
+    <table class="tbl dataGrid">
+      <colgroup>
+        <col style="width: 56px;" />
+        <col style="width: 80px;" />
+        <col />
+        <col style="width: 120px;" />
+        <col style="width: 140px;" />
+        <col style="width: 140px;" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="colCheck">
+            <!-- [D] 일부 선택 시 input.indeterminate = true -->
+            <label class="formCheck">
+              <input type="checkbox" class="isIndeterminate" aria-label="전체 선택" />
+              <span class="checkIcon"></span>
+            </label>
+          </th>
+          <th>No.</th>
+          <th class="textLeft">
+            <button type="button" class="sortBtn">
+              <span class="sortText">미션명</span>
+              <span class="sortIcon" aria-hidden="true"></span>
+            </button>
+          </th>
+          <th>상태</th>
+          <th class="isNumber">
+            <!-- [D] 정렬 중: .isAsc / .isDesc -->
+            <button type="button" class="sortBtn isDesc">
+              <span class="sortText">참여자 수</span>
+              <span class="sortIcon" aria-hidden="true"></span>
+            </button>
+          </th>
+          <th>
+            <button type="button" class="sortBtn isAsc">
+              <span class="sortText">등록일자</span>
+              <span class="sortIcon" aria-hidden="true"></span>
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="isSelected">
+          <td class="colCheck">
+            <label class="formCheck">
+              <input type="checkbox" checked aria-label="행 선택" />
+              <span class="checkIcon"></span>
+            </label>
+          </td>
+          <td>1</td>
+          <td class="textLeft"><a href="#" class="link">매일 만보 걷기 챌린지</a></td>
+          <td><span class="statusDot ing">운영중</span></td>
+          <td class="isNumber">12,480</td>
+          <td>2026.06.15</td>
+        </tr>
+        <tr>
+          <td class="colCheck">
+            <label class="formCheck">
+              <input type="checkbox" aria-label="행 선택" />
+              <span class="checkIcon"></span>
+            </label>
+          </td>
+          <td>2</td>
+          <td class="textLeft"><a href="#" class="link">주 3회 금융 퀴즈 풀기</a></td>
+          <td><span class="statusDot ready">대기</span></td>
+          <td class="isNumber">8,204</td>
+          <td>2026.06.18</td>
+        </tr>
+        <tr>
+          <td class="colCheck">
+            <label class="formCheck">
+              <input type="checkbox" aria-label="행 선택" />
+              <span class="checkIcon"></span>
+            </label>
+          </td>
+          <td>3</td>
+          <td class="textLeft"><a href="#" class="link">적금 30일 연속 납입 미션</a></td>
+          <td><span class="statusDot end">종료</span></td>
+          <td class="isNumber">3,091</td>
+          <td>2026.06.20</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dataGridBottom">
+    <p class="gridSelectedInfo"><strong>1</strong>건 선택</p>
+
+    <nav class="pagination" aria-label="페이지 이동">
+      <button type="button" class="pageBtn first" aria-label="첫 페이지" disabled></button>
+      <button type="button" class="pageBtn prev" aria-label="이전 페이지" disabled></button>
+      <span class="pageNumList">
+        <button type="button" class="pageNum isActive" aria-current="page">1</button>
+        <button type="button" class="pageNum">2</button>
+        <button type="button" class="pageNum">3</button>
+        <button type="button" class="pageNum">4</button>
+        <button type="button" class="pageNum">5</button>
+        <span class="pageEllipsis" aria-hidden="true">...</span>
+        <button type="button" class="pageNum">13</button>
+      </span>
+      <button type="button" class="pageBtn next" aria-label="다음 페이지"></button>
+      <button type="button" class="pageBtn last" aria-label="마지막 페이지"></button>
+    </nav>
+
+    <div class="gridPageSize">
+      <select class="formControl wSm" aria-label="페이지당 건수">
+        <option value="10">10건씩 보기</option>
+        <option value="20">20건씩 보기</option>
+        <option value="50">50건씩 보기</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 고급 그리드 : 컬럼 고정 + 리사이즈 + 행 펼침 + 합계 (세로 스크롤, 헤더 고정) -->
+<div class="tblSection">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">지점별 실적</h3>
+      <span class="tblUnit">(단위: 건)</span>
+    </div>
+    <div class="tblRight">
+      <p class="tblGuide">컬럼 경계를 드래그하여 너비를 조절할 수 있습니다.</p>
+    </div>
+  </div>
+
+  <!-- [D] 컬럼 고정: 좌측 .isPinnedLeft + style left / 경계 컬럼 .isPinnedEdge -->
+  <!-- [D] 컬럼 리사이즈: th 에 style width = header.getSize(), table 에 style width = table.getTotalSize()
+           .resizer 에 onMouseDown / onTouchStart = header.getResizeHandler(), 드래그 중 .isResizing -->
+  <!-- ※ 가이드의 리사이즈 동작은 guide.html 하단 데모 스크립트로 구현 (개발 연동 시 불필요) -->
+  <div class="dataGridWrap h300">
+    <table class="tbl dataGrid isBordered isResizable" style="width: 1400px;">
+      <thead>
+        <tr>
+          <th class="textLeft isPinnedLeft isPinnedEdge" style="width: 220px; left: 0;">
+            지점명
+            <div class="resizer"></div>
+          </th>
+          <th class="isNumber" style="width: 150px;">1월<div class="resizer"></div></th>
+          <th class="isNumber" style="width: 150px;">2월<div class="resizer"></div></th>
+          <th class="isNumber" style="width: 150px;">3월<div class="resizer"></div></th>
+          <th class="isNumber" style="width: 150px;">4월<div class="resizer"></div></th>
+          <th class="isNumber" style="width: 150px;">5월<div class="resizer"></div></th>
+          <th class="isNumber" style="width: 150px;">6월<div class="resizer"></div></th>
+          <th class="isNumber isPinnedRight isPinnedEdge" style="width: 130px; right: 0;">합계</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
+            <span class="expandCell">
+              <!-- [D] 펼침: .isOpen -->
+              <button type="button" class="expandBtn isOpen" aria-label="하위 지점 접기" aria-expanded="true"></button>
+              서울본부
+            </span>
+          </td>
+          <td class="isNumber">1,204</td>
+          <td class="isNumber">1,380</td>
+          <td class="isNumber">1,422</td>
+          <td class="isNumber">1,510</td>
+          <td class="isNumber">1,630</td>
+          <td class="isNumber">1,702</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">8,848</td>
+        </tr>
+        <tr class="isSubRow">
+          <!-- [D] 하위 행 들여쓰기: row.depth * 20 + 26px -->
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
+            <span class="expandCell" style="padding-left: 26px;">여의도지점</span>
+          </td>
+          <td class="isNumber">640</td>
+          <td class="isNumber">702</td>
+          <td class="isNumber">731</td>
+          <td class="isNumber">790</td>
+          <td class="isNumber">822</td>
+          <td class="isNumber">860</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">4,545</td>
+        </tr>
+        <tr class="isSubRow">
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
+            <span class="expandCell" style="padding-left: 26px;">강남지점</span>
+          </td>
+          <td class="isNumber">564</td>
+          <td class="isNumber">678</td>
+          <td class="isNumber">691</td>
+          <td class="isNumber">720</td>
+          <td class="isNumber">808</td>
+          <td class="isNumber">842</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">4,303</td>
+        </tr>
+        <tr>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
+            <span class="expandCell">
+              <button type="button" class="expandBtn" aria-label="하위 지점 펼치기" aria-expanded="false"></button>
+              부산본부
+            </span>
+          </td>
+          <td class="isNumber">802</td>
+          <td class="isNumber">845</td>
+          <td class="isNumber">910</td>
+          <td class="isNumber">954</td>
+          <td class="isNumber">1,010</td>
+          <td class="isNumber">1,088</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">5,609</td>
+        </tr>
+        <tr>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
+            <span class="expandCell">
+              <button type="button" class="expandBtn" aria-label="하위 지점 펼치기" aria-expanded="false"></button>
+              대구본부
+            </span>
+          </td>
+          <td class="isNumber">512</td>
+          <td class="isNumber">530</td>
+          <td class="isNumber">588</td>
+          <td class="isNumber">602</td>
+          <td class="isNumber">640</td>
+          <td class="isNumber">671</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">3,543</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">합계</td>
+          <td class="isNumber">2,518</td>
+          <td class="isNumber">2,755</td>
+          <td class="isNumber">2,920</td>
+          <td class="isNumber">3,066</td>
+          <td class="isNumber">3,280</td>
+          <td class="isNumber">3,461</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">18,000</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<!-- 3. 상태 : 빈 데이터 / 로딩 -->
+<div class="tblSection">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">빈 데이터</h3>
+    </div>
+  </div>
+  <div class="dataGridWrap">
+    <table class="tbl dataGrid isCompact">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>미션명</th>
+          <th>상태</th>
+          <th>등록일자</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="gridEmpty" colspan="4">조회된 데이터가 없습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tblSection">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">로딩 중</h3>
+    </div>
+  </div>
+  <!-- [D] 조회 중: .dataGridWrap.isLoading -->
+  <div class="dataGridWrap isLoading">
+    <table class="tbl dataGrid isCompact isStriped">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>미션명</th>
+          <th>상태</th>
+          <th>등록일자</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>매일 만보 걷기 챌린지</td><td>운영중</td><td>2026.06.15</td></tr>
+        <tr><td>2</td><td>주 3회 금융 퀴즈 풀기</td><td>대기</td><td>2026.06.18</td></tr>
+        <tr><td>3</td><td>적금 30일 연속 납입 미션</td><td>종료</td><td>2026.06.20</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

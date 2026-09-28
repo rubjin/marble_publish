@@ -8,6 +8,7 @@
 
 // 2. Layout & Shell (Sidebar, Header, Layout)
 @use 'components/layout';
+@use 'components/section';
 @use 'components/icon';
 @use 'components/typography';
 @use 'components/breadcrumb';
@@ -33,6 +34,12 @@
 @use 'components/toast';
 @use 'components/tooltip';
 
-// 6. Standalone Pages
+// 6. External Library Skins (React 라이브러리 연동 스타일)
+@use 'components/datagrid';   // @tanstack/react-table
+@use 'components/chart';      // lightweight-charts
+@use 'components/calendar';   // react-day-picker
+@use 'components/dnd';        // Drag & Drop (라이브러리 미정)
+
+// 7. Standalone Pages
 @use 'pages/login';
 @use 'pages/error';

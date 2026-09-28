@@ -117,6 +117,14 @@
       margin-bottom: 0;
     }
 
+    /* 라이브러리 섹션 안내 박스 */
+    .guideNotice { background: #eff6ff; border: 1px solid #bfdbfe; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+    .guideNotice h3 { margin: 0 0 8px; color: #1e40af; font-size: 18px; }
+    .guideNotice p { margin: 0; color: #1d4ed8; font-size: 14px; line-height: 1.6; }
+
+    /* 캘린더 레이어(absolute) 미리보기 공간 확보 */
+    .guideCalendarDemo { min-height: 400px; margin-bottom: 24px; }
+
     /* 초기 깜빡임 방지: 모든 섹션 기본 숨김 */
     .guideSection { display: none; }
   </style>
@@ -154,6 +162,7 @@
       <button type="button" class="guideNavItem" data-target="sectionTable">Table</button>
       <button type="button" class="guideNavItem" data-target="sectionTitle">Title</button>
       <button type="button" class="guideNavItem" data-target="sectionEtc">etc</button>
+      <button type="button" class="guideNavItem" data-target="sectionLibrary">Library</button>
       <button type="button" class="guideNavItem" data-target="sectionPatterns" style="color: #d97706; font-weight: 700;">Page Patterns ★</button>
     </div>
   </nav>
@@ -347,6 +356,37 @@
       </div>
     </section>
 
+    <!-- ==================== React 라이브러리 연동 스타일 ==================== -->
+    <section id="sectionLibrary" class="guideSection">
+      <div class="guideNotice">
+        <h3>React 라이브러리 연동 스타일 (Library Skins)</h3>
+        <p>
+          개발에서 사용하는 외부 라이브러리를 기존 컴포넌트 톤(색상 토큰, 폼, 테이블, 팝업)에 맞춘 스타일입니다.<br />
+          Grid: @tanstack/react-table · Chart: lightweight-charts v5 · Calendar: react-day-picker v9/v10 · Drag &amp; Drop: 라이브러리 미정(공통 상태 클래스)
+        </p>
+      </div>
+
+      <h2 class="guideTitle">Data Grid (@tanstack/react-table)</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/datagrid.html"></include>
+      </div>
+
+      <h2 class="guideTitle">Chart (lightweight-charts)</h2>
+      <div class="guideBox guideBoxBlock" style="background: #f8f9fa;">
+        <include src="./src/components/chart.html"></include>
+      </div>
+
+      <h2 class="guideTitle">Calendar (react-day-picker)</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/calendar.html"></include>
+      </div>
+
+      <h2 class="guideTitle">Drag &amp; Drop (라이브러리 미정)</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/dnd.html"></include>
+      </div>
+    </section>
+
     <!-- ==================== 실무 페이지 사용 패턴 (Page Patterns) ==================== -->
     <section id="sectionPatterns" class="guideSection">
       <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
@@ -392,6 +432,148 @@
 
   <!-- 2. UI 스타일 가이드 전용 시스템 스크립트 (코드 보기/복사, 가이드 탭) -->
   <script src="../assets/js/guide.js"></script>
+
+  <!-- 3. Library 섹션 그리드 컬럼 리사이즈 데모 (실제 개발은 tanstack header.getResizeHandler() 사용) -->
+  <script>
+    (function () {
+      var MIN_WIDTH = 60;
+      document.addEventListener('mousedown', function (e) {
+        var resizer = e.target.closest('.dataGrid .resizer');
+        if (!resizer) return;
+        e.preventDefault();
+
+        var th = resizer.closest('th');
+        var table = th.closest('table');
+        var startX = e.clientX;
+        var startWidth = th.offsetWidth;
+        var startTableWidth = table.offsetWidth;
+
+        resizer.classList.add('isResizing');
+        document.body.style.cursor = 'col-resize';
+
+        function onMove(ev) {
+          var width = Math.max(MIN_WIDTH, startWidth + ev.clientX - startX);
+          th.style.width = width + 'px';
+          table.style.width = (startTableWidth + width - startWidth) + 'px';
+        }
+        function onUp() {
+          resizer.classList.remove('isResizing');
+          document.body.style.cursor = '';
+          document.removeEventListener('mousemove', onMove);
+          document.removeEventListener('mouseup', onUp);
+        }
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+      });
+    })();
+  </script>
+
+  <!-- 4. Library 섹션 차트 데모 (lightweight-charts standalone + 공통 테마) -->
+  <script src="../assets/js/vendor/lightweight-charts.standalone.production.js"></script>
+  <script type="module">
+    import { getChartOptions, getSeriesOptions, formatNumber } from '../assets/js/chartTheme.js';
+
+    // guide.js 가 코드 박스를 추출한 뒤(DOMContentLoaded 이후)에 캔버스를 그려야 코드 보기에 canvas 가 섞이지 않음
+    function run() {
+      var LC = window.LightweightCharts;
+      if (!LC) return;
+
+      // 데모 데이터 (고정 시드)
+      var seed = 7;
+      function rand() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+      function days(n, end) {
+        var list = [];
+        var d = new Date(end);
+        d.setDate(d.getDate() - n + 1);
+        for (var i = 0; i < n; i++) {
+          list.push(d.toISOString().slice(0, 10));
+          d.setDate(d.getDate() + 1);
+        }
+        return list;
+      }
+      var dates = days(30, '2026-09-28');
+      var join = [], done = [], quit = [];
+      var base = 900;
+      dates.forEach(function (t) {
+        base += (rand() - 0.4) * 80;
+        join.push({ time: t, value: Math.round(base) });
+        done.push({ time: t, value: Math.round(base * (0.55 + rand() * 0.1)) });
+        quit.push({ time: t, value: Math.round(base * (0.08 + rand() * 0.05)) });
+      });
+
+      // 1. 라인 차트 + 범례 토글 + 툴팁
+      var lineEl = document.getElementById('guideChartLine');
+      if (lineEl) {
+        var chart = LC.createChart(lineEl, getChartOptions());
+        var seriesList = [join, done, quit].map(function (data, i) {
+          var s = chart.addSeries(LC.LineSeries, getSeriesOptions('line', i));
+          s.setData(data);
+          return s;
+        });
+        seriesList[2].applyOptions({ visible: false });
+        chart.timeScale().fitContent();
+
+        var legendBtns = lineEl.closest('.chartBox').querySelectorAll('.chartLegend .legendItem');
+        legendBtns.forEach(function (btn, i) {
+          btn.addEventListener('click', function () {
+            var off = btn.classList.toggle('isOff');
+            seriesList[i].applyOptions({ visible: !off });
+          });
+        });
+
+        var tooltip = lineEl.querySelector('.chartTooltip');
+        var names = ['참여', '완료', '포기'];
+        chart.subscribeCrosshairMove(function (param) {
+          if (!param.point || !param.time || param.point.x < 0 || param.point.y < 0) {
+            tooltip.classList.remove('isOpen');
+            return;
+          }
+          var rows = seriesList.map(function (s, i) {
+            var d = param.seriesData.get(s);
+            if (!d || !s.options().visible) return '';
+            return '<li class="tooltipItem series' + (i + 1) + '"><span class="legendMarker"></span>' + names[i] +
+                   '<span class="tooltipValue">' + formatNumber(d.value) + '</span></li>';
+          }).join('');
+          tooltip.innerHTML = '<span class="tooltipDate">' + String(param.time).replace(/-/g, '.') + '</span><ul class="tooltipList">' + rows + '</ul>';
+
+          var w = tooltip.offsetWidth, h = tooltip.offsetHeight;
+          var x = param.point.x + 16;
+          if (x + w > lineEl.clientWidth) x = param.point.x - w - 16;
+          var y = Math.max(0, Math.min(param.point.y - h / 2, lineEl.clientHeight - h));
+          tooltip.style.left = x + 'px';
+          tooltip.style.top = y + 'px';
+          tooltip.classList.add('isOpen');
+        });
+      }
+
+      // 2. 영역 차트
+      var areaEl = document.getElementById('guideChartArea');
+      if (areaEl) {
+        var areaChart = LC.createChart(areaEl, getChartOptions({ rightPriceScale: { visible: false }, crosshair: { horzLine: { visible: false } } }));
+        var acc = 42000;
+        areaChart.addSeries(LC.AreaSeries, getSeriesOptions('area', 0)).setData(dates.map(function (t) {
+          acc += Math.round(rand() * 400);
+          return { time: t, value: acc };
+        }));
+        areaChart.timeScale().fitContent();
+      }
+
+      // 3. 막대 차트
+      var barEl = document.getElementById('guideChartBar');
+      if (barEl) {
+        var barChart = LC.createChart(barEl, getChartOptions());
+        barChart.addSeries(LC.HistogramSeries, getSeriesOptions('histogram', 0)).setData(
+          ['2026-04-01', '2026-05-01', '2026-06-01', '2026-07-01', '2026-08-01', '2026-09-01'].map(function (t) {
+            return { time: t, value: Math.round(2600 + rand() * 900) };
+          })
+        );
+        barChart.timeScale().fitContent();
+      }
+    }
+
+    if (document.readyState === 'complete') run();
+    else window.addEventListener('load', run);
+  </script>
 </body>
 </html>
 

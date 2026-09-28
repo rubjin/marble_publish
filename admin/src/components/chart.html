@@ -1,0 +1,117 @@
+<!--
+  [리액트 컴포넌트 가이드 - lightweight-charts v5]
+  - 차트 본체는 canvas 이므로 색상/폰트는 CSS 로 제어할 수 없습니다.
+    → assets/js/chartTheme.js 의 getChartOptions() / getSeriesOptions() 로 공통 테마를 적용합니다.
+      (색상 기준: styles/scss/components/chart.scss 의 --chart-* CSS 변수)
+  - 외곽 UI(카드, 헤더, 범례, 툴팁, 빈 데이터, 로딩)는 chart.scss 클래스로 마크업합니다.
+
+  - 구조
+    <div class="chartBox">
+      <div class="chartHeader"> .chartTitleWrap(.chartTitle / .chartDesc / .chartValue) + .chartActions
+      <ul class="chartLegend [isBottom]"> .legendItem > .legendMarker[.line|.dot] + 텍스트  (.series1 ~ .series6 = 시리즈 순번)
+      <div class="chartArea [h200|h360|...] [isLoading|isEmpty]" ref={containerRef}>
+        <div class="chartTooltip [isOpen]" />   // subscribeCrosshairMove 로 위치/내용 갱신
+
+  - 예시
+    useEffect(() => {
+      const chart = createChart(ref.current, getChartOptions());
+      const s1 = chart.addSeries(LineSeries, getSeriesOptions('line', 0));   // 범례 .series1
+      const s2 = chart.addSeries(LineSeries, getSeriesOptions('line', 1));   // 범례 .series2
+      s1.setData(data1); s2.setData(data2);
+      chart.timeScale().fitContent();
+      return () => chart.remove();
+    }, [data1, data2]);
+
+  - 라이선스: layout.attributionLogo(TradingView 로고)는 Apache-2.0 NOTICE 의 출처 표기이므로 유지합니다.
+-->
+
+<div class="chartGrid">
+  <!-- 1. 라인 차트 (다중 시리즈 + 범례 + 기간 선택 + 툴팁) -->
+  <div class="chartBox span2">
+    <div class="chartHeader">
+      <div class="chartTitleWrap">
+        <h3 class="chartTitle">일별 미션 참여 추이</h3>
+        <p class="chartDesc">최근 30일 기준, 매일 00시 집계</p>
+      </div>
+      <div class="chartActions">
+        <div class="btnGroup sm">
+          <button type="button" class="btn light">7일</button>
+          <button type="button" class="btn light isActive">30일</button>
+          <button type="button" class="btn light">90일</button>
+        </div>
+      </div>
+    </div>
+
+    <ul class="chartLegend">
+      <!-- [D] 범례 클릭으로 시리즈 숨김 시 .isOff -->
+      <li><button type="button" class="legendItem series1"><span class="legendMarker line"></span>참여</button></li>
+      <li><button type="button" class="legendItem series2"><span class="legendMarker line"></span>완료</button></li>
+      <li><button type="button" class="legendItem series3 isOff"><span class="legendMarker line"></span>포기</button></li>
+    </ul>
+
+    <div class="chartArea h360" id="guideChartLine">
+      <div class="chartTooltip">
+        <span class="tooltipDate">2026.09.15</span>
+        <ul class="tooltipList">
+          <li class="tooltipItem series1"><span class="legendMarker"></span>참여<span class="tooltipValue">1,240</span></li>
+          <li class="tooltipItem series2"><span class="legendMarker"></span>완료<span class="tooltipValue">812</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 영역 차트 (대표 수치 + 증감) -->
+  <div class="chartBox">
+    <div class="chartHeader">
+      <div class="chartTitleWrap">
+        <h3 class="chartTitle">누적 가입자</h3>
+        <p class="chartValue">
+          48,210<span class="unit">명</span>
+          <span class="rate isUp">▲ 12.4%</span>
+        </p>
+      </div>
+    </div>
+    <div class="chartArea h200" id="guideChartArea"></div>
+  </div>
+
+  <!-- 3. 막대 차트 (하단 범례) -->
+  <div class="chartBox">
+    <div class="chartHeader">
+      <div class="chartTitleWrap">
+        <h3 class="chartTitle">월별 리워드 지급</h3>
+        <p class="chartValue">
+          3,120<span class="unit">만원</span>
+          <span class="rate isDown">▼ 4.1%</span>
+        </p>
+      </div>
+    </div>
+    <div class="chartArea h200" id="guideChartBar"></div>
+    <ul class="chartLegend isBottom">
+      <li class="legendItem series1"><span class="legendMarker"></span>지급액</li>
+    </ul>
+  </div>
+
+  <!-- 4. 빈 데이터 -->
+  <div class="chartBox">
+    <div class="chartHeader">
+      <div class="chartTitleWrap">
+        <h3 class="chartTitle">빈 데이터</h3>
+      </div>
+    </div>
+    <!-- [D] 데이터 없음: .isEmpty + .chartEmpty -->
+    <div class="chartArea h200 isEmpty">
+      <p class="chartEmpty">조회 기간에 해당하는 데이터가 없습니다.</p>
+    </div>
+  </div>
+
+  <!-- 5. 로딩 -->
+  <div class="chartBox">
+    <div class="chartHeader">
+      <div class="chartTitleWrap">
+        <h3 class="chartTitle">로딩 중</h3>
+      </div>
+    </div>
+    <!-- [D] 조회 중: .isLoading -->
+    <div class="chartArea h200 isLoading"></div>
+  </div>
+</div>

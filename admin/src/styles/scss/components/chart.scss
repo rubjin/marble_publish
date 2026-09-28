@@ -1,0 +1,346 @@
+@use 'sass:list';
+@use 'abstracts' as *;
+
+/* ==========================================================================
+   Chart Component (lightweight-charts v5)
+   - 차트 본체는 canvas 로 그려지므로 색상/폰트는 JS 옵션으로 전달해야 합니다.
+   - 아래 CSS 변수(--chart-*)가 차트 테마의 단일 기준이며,
+     assets/js/chartTheme.js 의 getChartOptions() / getSeriesColor() 가 이 값을 읽어 옵션을 생성합니다.
+   - 컨테이너, 헤더, 범례, 툴팁 등 차트 외곽 UI 는 본 파일의 클래스로 스타일링합니다.
+   ========================================================================== */
+
+// 시리즈 팔레트 (범례 .series1 ~ .series6 과 동일 순서)
+$chart-series: (
+  $color-blue-500,
+  $color-yellow-500,
+  $color-green-500,
+  $color-red-400,
+  $color-gray-600,
+  $color-blue-300,
+);
+
+:root {
+  // 레이아웃
+  --chart-bg: #{$bg-white};
+  --chart-text: #{$text-tertiary};
+  --chart-font-family: #{$font-family-base};
+  --chart-font-size: 12;
+  --chart-grid: #{$border-light};
+  --chart-border: #{$color-gray-200};
+  --chart-crosshair: #{$border-hover};
+  --chart-label-bg: #{$color-gray-800};
+
+  // 시리즈
+  @for $i from 1 through list.length($chart-series) {
+    --chart-series-#{$i}: #{list.nth($chart-series, $i)};
+  }
+
+  // 상승 / 하락 (국내 기준: 상승 빨강, 하락 파랑 - KPI 카드 .isUp/.isDown 과 동일)
+  --chart-up: #{$color-red-600};
+  --chart-down: #{$color-blue-500};
+}
+
+/* --------------------------------------------------------------------------
+   차트 카드
+   -------------------------------------------------------------------------- */
+.chartBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  padding: 20px 24px;
+  background-color: $bg-white;
+  border: 1px solid $border-light;
+  border-radius: 10px;
+  box-shadow: $shadow-xs;
+
+  // 카드 테두리 없이 영역만 사용 (다른 박스 내부 배치 시)
+  &.isPlain {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+// 차트 카드 그리드 (2단 / 3단)
+.chartGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+
+  &.col3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  &.col1 { grid-template-columns: minmax(0, 1fr); }
+
+  // 넓게 차지하는 카드
+  .span2 { grid-column: span 2; }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: minmax(0, 1fr);
+    .span2 { grid-column: auto; }
+  }
+}
+
+/* 헤더 (좌측: 타이틀 & 수치 / 우측: 기간 세그먼트, 버튼 등) */
+.chartHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  .chartTitleWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .chartTitle {
+    margin: 0;
+    font-size: 15px;
+    font-weight: $font-weight-bold;
+    color: $text-title;
+    @include text-ellipsis;
+  }
+
+  .chartDesc {
+    margin: 0;
+    font-size: 13px;
+    color: $text-tertiary;
+  }
+
+  // 대표 수치 (현재값 + 증감)
+  .chartValue {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 22px;
+    font-weight: $font-weight-bold;
+    color: $text-title;
+    line-height: 1.2;
+
+    .unit {
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      color: $color-gray-600;
+    }
+
+    .rate {
+      font-size: 13px;
+      font-weight: $font-weight-medium;
+
+      &.isUp { color: $text-danger; }
+      &.isDown { color: $text-info; }
+    }
+  }
+
+  .chartActions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+}
+
+/* 범례 */
+.chartLegend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 16px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+
+  // 차트 하단 배치
+  &.isBottom {
+    justify-content: center;
+    margin: 12px 0 0;
+  }
+
+  .legendItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: $text-secondary;
+    white-space: nowrap;
+
+    // 범례 토글 버튼형
+    // [D] 시리즈 숨김 시 .isOff (series.applyOptions({ visible: false }))
+    &:is(button) {
+      padding: 0;
+      border: none;
+      background: none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    &.isOff {
+      color: $text-tertiary;
+      text-decoration: line-through;
+      .legendMarker { opacity: 0.3; }
+    }
+
+    .legendValue {
+      font-weight: $font-weight-medium;
+      color: $text-title;
+    }
+  }
+
+  // 마커: 기본 사각(바/면), .line 라인, .dot 점
+  .legendMarker {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background-color: var(--legend-color, var(--chart-series-1));
+    flex-shrink: 0;
+
+    &.line { width: 14px; height: 3px; border-radius: 2px; }
+    &.dot { width: 8px; height: 8px; border-radius: 50%; }
+  }
+
+  @for $i from 1 through list.length($chart-series) {
+    .series#{$i} { --legend-color: var(--chart-series-#{$i}); }
+  }
+  .seriesUp { --legend-color: var(--chart-up); }
+  .seriesDown { --legend-color: var(--chart-down); }
+}
+
+/* --------------------------------------------------------------------------
+   차트 영역 (createChart 의 container)
+   - autoSize: true 옵션 사용 시 컨테이너 크기를 따라가므로 높이를 반드시 지정합니다.
+   -------------------------------------------------------------------------- */
+.chartArea {
+  position: relative;
+  width: 100%;
+  height: 280px;
+
+  &.h160 { height: 160px; }
+  &.h200 { height: 200px; }
+  &.h360 { height: 360px; }
+  &.h440 { height: 440px; }
+
+  // [D] 데이터 없음: .isEmpty + <p class="chartEmpty">
+  &.isEmpty canvas { visibility: hidden; }
+
+  // [D] 로딩 중: .isLoading
+  &.isLoading {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 6;
+      width: 28px;
+      height: 28px;
+      margin: -14px 0 0 -14px;
+      border: 3px solid $color-gray-200;
+      border-top-color: $color-gray-600;
+      border-radius: 50%;
+      animation: chartSpin 0.8s linear infinite;
+    }
+  }
+}
+
+@keyframes chartSpin {
+  to { transform: rotate(360deg); }
+}
+
+.chartEmpty {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  background-color: $color-gray-50;
+  border-radius: 8px;
+  font-size: 14px;
+  color: $text-tertiary;
+}
+
+/* --------------------------------------------------------------------------
+   툴팁 (lightweight-charts 는 기본 툴팁이 없어 직접 구현)
+   [D] chart.subscribeCrosshairMove(param => ...) 에서
+       위치: style="left: {x}px; top: {y}px", 노출: .isOpen
+   -------------------------------------------------------------------------- */
+.chartTooltip {
+  position: absolute;
+  z-index: $z-tooltip;
+  min-width: 140px;
+  padding: 10px 12px;
+  background-color: $color-gray-800;
+  border-radius: 6px;
+  box-shadow: $shadow-md;
+  color: $color-white;
+  font-size: 12px;
+  line-height: 1.4;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+
+  &.isOpen {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .tooltipDate {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: $font-weight-medium;
+    color: $color-gray-300;
+  }
+
+  .tooltipList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tooltipItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .legendMarker {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--legend-color, var(--chart-series-1));
+      flex-shrink: 0;
+    }
+
+    .tooltipValue {
+      margin-left: auto;
+      padding-left: 12px;
+      font-weight: $font-weight-bold;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  @for $i from 1 through list.length($chart-series) {
+    .series#{$i} { --legend-color: var(--chart-series-#{$i}); }
+  }
+}

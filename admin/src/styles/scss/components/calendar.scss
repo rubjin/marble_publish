@@ -1,0 +1,490 @@
+@use 'abstracts' as *;
+
+/* ==========================================================================
+   Calendar Component (react-day-picker v9 / v10)
+   - 라이브러리 기본 클래스(.rdp-*)를 그대로 사용합니다.
+   - 본 파일만으로 레이아웃이 완성되므로 'react-day-picker/style.css' 는 import 하지 않아도 됩니다.
+     (함께 import 할 경우 반드시 본 파일을 뒤에 import)
+   - 권장 옵션: locale={ko}, weekStartsOn={0}, showOutsideDays, navLayout="around"
+   ========================================================================== */
+
+$cal-day-size:     36px;
+$cal-btn-size:     32px;
+$cal-radius:       $btn-radius;
+$cal-selected-bg:  $bg-dark;
+$cal-range-bg:     $color-gray-150;
+$cal-today-dot:    $color-yellow-500;
+$cal-sunday:       $color-red-600;
+$cal-saturday:     $color-blue-500;
+
+/* --------------------------------------------------------------------------
+   데이트피커 레이어 (입력창 하단 팝오버)
+   [D] 열림: .formDatepicker 또는 .formDateRange 에 .isOpen 추가
+       기간 선택 시 현재 입력 중인 쪽 .formDatepicker 에 .isActive (포커스 표시)
+   -------------------------------------------------------------------------- */
+.formDatepicker,
+.formDateRange {
+  position: relative;
+
+  &.isOpen > .datePickerLayer { display: flex; }
+}
+
+// 데이트피커 입력창은 직접 입력 방지를 위해 readonly 를 쓰므로 비활성 스타일에서 제외
+.formDatepicker .formControl[readonly]:not(:disabled):not(.isDisabled) {
+  background-color: $bg-white;
+  color: $text-primary;
+  border-color: $border-default;
+  cursor: pointer;
+
+  &:hover { border-color: $text-tertiary; }
+}
+
+.formDatepicker.isOpen,
+.formDatepicker.isActive {
+  .formControl {
+    border-color: $color-blue-500;
+    box-shadow: 0 0 0 3px $ring-primary;
+  }
+}
+
+.datePickerLayer {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: $z-dropdown;
+  // 부모(입력창) 너비에 맞춰 줄어들지 않도록 내용 기준 너비
+  width: max-content;
+  background-color: $bg-white;
+  border: 1px solid $border-default;
+  border-radius: 8px;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+
+  // 우측 기준 정렬 (화면 우측 끝에 있는 입력창)
+  &.alignRight { left: auto; right: 0; }
+  // 상단으로 열기
+  &.alignTop { top: auto; bottom: calc(100% + 4px); }
+
+  // 가이드/인라인 노출용 (항상 표시, static 배치)
+  &.isStatic {
+    display: flex;
+    position: static;
+  }
+}
+
+.datePickerBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.datePickerMain {
+  padding: 16px 16px 12px;
+}
+
+// 기간 빠른 선택 (좌측 프리셋)
+.datePickerPreset {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 112px;
+  padding: 12px 8px;
+  border-right: 1px solid $border-light;
+  background-color: $color-gray-50;
+
+  .presetBtn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    border: none;
+    border-radius: $cal-radius;
+    background: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+
+    &:hover { background-color: $color-gray-150; color: $text-primary; }
+
+    &.isActive {
+      background-color: $bg-dark;
+      color: $text-inverse;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+// 하단 (선택값 요약 + 버튼)
+.datePickerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid $border-light;
+
+  .datePickerValue {
+    font-size: 13px;
+    color: $text-secondary;
+
+    strong {
+      color: $text-title;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  .btnGroup { margin-left: auto; }
+}
+
+// 인라인 캘린더 (카드 내 항상 펼침형)
+.calendarBox {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: $bg-white;
+  border: 1px solid $border-light;
+  border-radius: 10px;
+  box-shadow: $shadow-xs;
+}
+
+/* --------------------------------------------------------------------------
+   react-day-picker
+   -------------------------------------------------------------------------- */
+.rdp-root {
+  // 라이브러리 CSS 변수 (style.css 를 함께 사용할 경우 대비)
+  --rdp-accent-color: #{$cal-selected-bg};
+  --rdp-accent-background-color: #{$cal-range-bg};
+  --rdp-day-height: #{$cal-day-size};
+  --rdp-day-width: #{$cal-day-size};
+  --rdp-day_button-height: #{$cal-btn-size};
+  --rdp-day_button-width: #{$cal-btn-size};
+  --rdp-day_button-border-radius: #{$cal-radius};
+  --rdp-day_button-border: none;
+  --rdp-selected-border: none;
+  --rdp-nav-height: 32px;
+  --rdp-nav_button-height: 28px;
+  --rdp-nav_button-width: 28px;
+  --rdp-months-gap: 24px;
+  --rdp-today-color: #{$text-primary};
+
+  position: relative;
+  box-sizing: border-box;
+  font-family: $font-family-base;
+  font-size: 14px;
+  color: $text-primary;
+
+  * { box-sizing: border-box; }
+}
+
+.rdp-months {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: fit-content;
+}
+
+.rdp-month {
+  position: relative;
+}
+
+// 여러 달 표시 시 구분선
+.rdp-month + .rdp-month {
+  padding-left: 24px;
+  border-left: 1px solid $border-light;
+}
+
+.rdp-month_caption {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+.rdp-caption_label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 15px;
+  font-weight: $font-weight-bold;
+  color: $text-title;
+  white-space: nowrap;
+}
+
+/* 이전/다음 버튼 */
+.rdp-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+}
+
+.rdp-button_previous,
+.rdp-button_next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid $border-default;
+  border-radius: $cal-radius;
+  background-color: $bg-white;
+  color: $text-secondary;
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 0.15s, border-color 0.15s;
+
+  &:hover { background-color: $color-gray-50; border-color: $border-hover; }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px $ring-primary;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background-color: $bg-white;
+    border-color: $border-default;
+  }
+}
+
+.rdp-chevron {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  fill: $text-secondary;
+}
+
+// navLayout="around" : [<]  2026년 9월  [>]
+.rdp-root[data-nav-layout="around"] {
+  .rdp-month_caption {
+    justify-content: center;
+    margin-inline: 32px;
+  }
+
+  .rdp-button_previous,
+  .rdp-button_next {
+    position: absolute;
+    top: 2px;
+  }
+
+  .rdp-button_previous { left: 0; }
+  .rdp-button_next { right: 0; }
+}
+
+/* 연/월 드롭다운 (captionLayout="dropdown") */
+.rdp-dropdowns {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rdp-dropdown_root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  .rdp-caption_label {
+    height: 30px;
+    padding: 0 6px 0 10px;
+    border: 1px solid $border-default;
+    border-radius: $form-radius;
+    background-color: $bg-white;
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    transition: border-color 0.2s;
+  }
+
+  &:hover .rdp-caption_label { border-color: $border-hover; }
+
+  .rdp-chevron {
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+  }
+
+  &[data-disabled="true"] .rdp-chevron { opacity: 0.35; }
+}
+
+.rdp-dropdown {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  opacity: 0;
+  appearance: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.rdp-dropdown:focus-visible ~ .rdp-caption_label {
+  border-color: $color-blue-500;
+  box-shadow: 0 0 0 3px $ring-primary;
+}
+
+/* 요일 / 날짜 그리드 */
+.rdp-month_grid {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.rdp-weekday {
+  width: $cal-day-size;
+  height: 28px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  color: $text-tertiary;
+  text-align: center;
+}
+
+.rdp-week {
+  // 행 간 간격 (border-collapse 상태에서 td padding 대신 사용)
+  border-top: 2px solid transparent;
+}
+
+.rdp-day {
+  width: $cal-day-size;
+  height: $cal-day-size;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.rdp-day_button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $cal-btn-size;
+  height: $cal-btn-size;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: $cal-radius;
+  background: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: $font-weight-light;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+
+  &:hover { background-color: $color-gray-100; }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px $ring-primary;
+  }
+
+  &:disabled { cursor: not-allowed; }
+}
+
+// 주말 색상 (weekStartsOn={0} 일요일 시작 기준)
+.rdp-weekday:first-child,
+.rdp-week .rdp-day:first-child { color: $cal-sunday; }
+.rdp-weekday:last-child,
+.rdp-week .rdp-day:last-child { color: $cal-saturday; }
+
+/* 날짜 상태 (Modifiers) */
+
+// 오늘: 하단 포인트 닷
+.rdp-today:not(.rdp-outside) .rdp-day_button {
+  font-weight: $font-weight-bold;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background-color: $cal-today-dot;
+  }
+}
+
+// 이전/다음 달 날짜
+.rdp-outside { color: $color-gray-300 !important; }
+
+// 선택 불가 날짜
+.rdp-disabled:not(.rdp-selected) {
+  color: $color-gray-300 !important;
+
+  .rdp-day_button {
+    text-decoration: line-through;
+    &:hover { background: none; }
+  }
+}
+
+.rdp-hidden { visibility: hidden; }
+
+// 선택된 날짜 (단일 / 다중)
+.rdp-selected .rdp-day_button,
+.rdp-selected .rdp-day_button:hover {
+  background-color: $cal-selected-bg;
+  color: $text-inverse;
+  font-weight: $font-weight-bold;
+}
+
+.rdp-selected {
+  color: $text-inverse;
+}
+
+// 기간 선택 (mode="range")
+.rdp-range_middle {
+  background-color: $cal-range-bg;
+  color: $text-primary !important;
+
+  .rdp-day_button,
+  .rdp-day_button:hover {
+    background-color: transparent;
+    color: inherit;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.rdp-range_start {
+  background: linear-gradient(90deg, transparent 50%, $cal-range-bg 50%);
+}
+
+.rdp-range_end {
+  background: linear-gradient(90deg, $cal-range-bg 50%, transparent 50%);
+}
+
+.rdp-range_start.rdp-range_end {
+  background: none;
+}
+
+// 선택/기간 상태 날짜 위의 오늘 표시 닷 가독성 유지
+.rdp-selected.rdp-today:not(.rdp-range_middle) .rdp-day_button::after {
+  background-color: $cal-today-dot;
+}
+
+.rdp-footer {
+  padding-top: 8px;
+  font-size: 13px;
+  color: $text-secondary;
+}
+
+// ※ 월 전환 애니메이션(animate 옵션)은 라이브러리 keyframes 가 필요하므로
+//   사용 시 'react-day-picker/style.css' 를 먼저 import 하고 본 파일을 뒤에 import 합니다.

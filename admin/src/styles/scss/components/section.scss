@@ -1,0 +1,51 @@
+@use 'abstracts' as *;
+
+// Section Layout (하얀 박스 영역 + 하단 버튼 영역)
+.sectionBox {
+  // 하얀 박스 영역
+  background-color: $color-white;
+  border: 1px solid $border-light;
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: $shadow-xs;
+  margin-bottom: 16px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .sectionTitle {
+    font-size: 18px;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .subText {
+      font-size: 13px;
+      font-weight: $font-weight-medium;
+      color: $text-secondary;
+    }
+  }
+
+  // 하단 버튼 영역
+  .btnArea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+
+    &.center {
+      justify-content: center;
+    }
+
+    &.between {
+      justify-content: space-between;
+    }
+
+    &.left {
+      justify-content: flex-start;
+    }
+  }
+}

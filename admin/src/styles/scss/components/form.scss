@@ -310,6 +310,22 @@ select.formControl {
     }
   }
 
+  // 부분 선택 (전체선택 체크박스 - 일부 행만 선택된 상태)
+  // [D] input.indeterminate = true (React: ref 로 지정) 또는 .isIndeterminate
+  input[type="checkbox"]:indeterminate + .checkIcon,
+  input[type="checkbox"].isIndeterminate + .checkIcon {
+    background-color: $text-highlight;
+    border-color: $text-highlight;
+
+    &::after {
+      display: block;
+      width: 10px;
+      height: 2px;
+      border-radius: 1px;
+      clip-path: none;
+    }
+  }
+
   input:disabled + .checkIcon {
     background-color: $bg-light;
     border-color: $border-light;
