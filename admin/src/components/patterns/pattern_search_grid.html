@@ -189,3 +189,41 @@
     </tbody>
   </table>
 </div>
+
+<!-- 4-1. 데이터 그리드 테이블 - 검색결과 없음 -->
+<!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
+<div class="tblTop">
+  <div class="tblLeft">
+    <h3 class="tblTitle">검색 결과</h3>
+    <span class="tblCount">총 <strong class="count">0</strong>건</span>
+  </div>
+</div>
+<div class="tblWrap">
+  <table class="tbl">
+    <colgroup>
+      <col style="width: 80px;" />
+      <col style="width: 140px;" />
+      <col style="width: auto;" />
+      <col style="width: 120px;" />
+      <col style="width: 120px;" />
+      <col style="width: 160px;" />
+      <col style="width: 120px;" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>구분</th>
+        <th>항목명</th>
+        <th>상태</th>
+        <th>작성자</th>
+        <th>등록일자</th>
+        <th>관리</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tblEmpty" colspan="7">검색결과가 없습니다.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

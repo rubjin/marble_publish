@@ -16,7 +16,7 @@ interface SectionBoxProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
-const SectionBox = ({
+function SectionBox({
   title,
   subText,
   footer,
@@ -24,7 +24,7 @@ const SectionBox = ({
   className,
   children,
   ...rest
-}: SectionBoxProps) => {
+}: SectionBoxProps) {
   return (
     <div className={cn('sectionBox', className)} {...rest}>
       {title && (
@@ -41,6 +41,7 @@ const SectionBox = ({
       )}
     </div>
   );
-};
+}
 
 export default SectionBox;
+export type { SectionBoxProps };

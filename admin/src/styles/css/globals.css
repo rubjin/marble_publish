@@ -3156,6 +3156,14 @@ select.formControl.wAuto {
   padding: 10px 0;
   vertical-align: middle;
 }
+.tbl tbody td.tblEmpty {
+  height: 200px;
+  color: #8D919B;
+  white-space: normal;
+}
+.tbl tbody tr:has(.tblEmpty):hover {
+  background-color: transparent;
+}
 .tbl .formLabel {
   margin-bottom: 0;
   min-height: 34px;
