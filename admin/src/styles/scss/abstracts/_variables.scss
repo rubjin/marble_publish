@@ -111,35 +111,35 @@ $btn-font-size-md: 14px;    // .btn 기본
 $btn-font-size-lg: 16px;    // .btn.lg
 
 // Buttons - 변형별 컬러 (button.scss)
-$btn-primary-bg:           $bg-primary;       // .btn.primary (조회 등 주요 액션)
-$btn-primary-bg-hover:     $color-yellow-400;
-$btn-primary-text:         $text-primary;
+$btn-primary-bg:           $bg-primary;       // #FFC72B .btn.primary (조회 등 주요 액션)           
+$btn-primary-bg-hover:     $color-yellow-400; // #FFDC00                                    
+$btn-primary-text:         $text-primary;     // #2F3034
 
-$btn-dark-bg:              $bg-dark;          // .btn.dark
-$btn-dark-bg-hover:        $color-gray-500;
-$btn-dark-text:            $text-inverse;
+$btn-dark-bg:              $bg-dark;          // #4F535A .btn.dark                                
+$btn-dark-bg-hover:        $color-gray-500;   // #6B7280               
+$btn-dark-text:            $text-inverse;     // #FFFFFF                  
 
-$btn-outline-bg:           $bg-white;         // .btn.outline (초기화 등 보조 액션)
-$btn-outline-bg-hover:     $color-gray-50;
-$btn-outline-border:       $border-default;
-$btn-outline-border-hover: $border-hover;
-$btn-outline-text:         $color-gray-700;
+$btn-outline-bg:           $bg-white;         // #FFFFFF .btn.outline (초기화 등 보조 액션)          
+$btn-outline-bg-hover:     $color-gray-50;    // #F8F9FA
+$btn-outline-border:       $border-default;   // #D5D7DE
+$btn-outline-border-hover: $border-hover;     // #8D919B
+$btn-outline-text:         $color-gray-700;   // #404046
 
-$btn-light-bg:             $bg-light;         // .btn.light / .btn.secondary 공통
-$btn-light-bg-hover:       $color-gray-200;
-$btn-light-text:           $text-primary;
-$btn-light-border:         $border-default;   // .btn.light 테두리
-$btn-secondary-border:     $border-light;     // .btn.secondary 테두리
+$btn-light-bg:             $bg-light;         // #F3F5F6 .btn.light / .btn.secondary 공통          
+$btn-light-bg-hover:       $color-gray-200;   // #E7E9ED
+$btn-light-text:           $text-primary;     // #2F3034                          
+$btn-light-border:         $border-default;   // #D5D7DE .btn.light 테두리                        
+$btn-secondary-border:     $border-light;     // #F0F0F3 .btn.secondary 테두리                     
 
-$btn-active-bg:            $bg-dark;          // .btn.light / .btn.secondary 선택 상태 (.isActive)
-$btn-active-border:        $border-active;
-$btn-active-text:          $text-inverse;
+$btn-active-bg:            $bg-dark;          // #4F535A .btn.light / .btn.secondary 선택 상태 (.isActive)  
+$btn-active-border:        $border-active;    // #4F535A
+$btn-active-text:          $text-inverse;     // #FFFFFF                                  
 
-$btn-danger-bg-hover:      $bg-danger-light;  // .btn.danger
-$btn-danger-border:        $border-danger;
-$btn-danger-text:          $text-danger;
+$btn-danger-bg-hover:      $bg-danger-light;  // #FEE2E2 .btn.danger                               
+$btn-danger-border:        $border-danger;    // #EE5D50
+$btn-danger-text:          $text-danger;      // #EF4444                   
 
-$btn-ghost-bg-hover:       $color-gray-100;   // .btn.ghost
+$btn-ghost-bg-hover:       $color-gray-100;   // #F3F5F6 .btn.ghost                                
 
 // Form Controls - 크기
 $form-radius:    6px;  // 입력폼 모서리 - .formControl, 태그박스
@@ -148,27 +148,27 @@ $form-height-xl: 48px; // 로그인 입력폼 (login)
 $form-font-size: 14px; // .formControl 글자 크기
 
 // Form Controls - 상태별 컬러 (form.scss: input, select, textarea, 데이트피커, 태그박스)
-$form-bg:              $bg-white;
-$form-text:            $text-primary;
-$form-placeholder:     $text-tertiary;
-$form-border:          $border-default;
-$form-border-hover:    $border-hover;
-$form-border-focus:    $color-blue-500;
-$form-ring-focus:      $ring-primary;
-$form-border-error:    $text-danger;
-$form-ring-error:      $ring-danger;
-$form-bg-disabled:     $bg-disabled;      // disabled, readonly 공통
-$form-text-disabled:   $text-tertiary;
-$form-border-disabled: $border-disabled;
+$form-bg:              $bg-white;           // #FFFFFF - 입력폼 배경
+$form-text:            $text-primary;       // #2F3034 - 입력폼 텍스트
+$form-placeholder:     $text-tertiary;      // #8D919B - 입력폼 placeholder
+$form-border:          $border-default;     // #D5D7DE - 입력폼 테두리
+$form-border-hover:    $border-hover;       // #8D919B - 입력폼 hover 테두리
+$form-border-focus:    $color-blue-500;     // #287EFF - 입력폼 focus 테두리
+$form-ring-focus:      $ring-primary;       // rgba(40, 126, 255, 0.15) - 입력폼 focus ring
+$form-border-error:    $text-danger;        // #EF4444 - 입력폼 에러 테두리
+$form-ring-error:      $ring-danger;        // rgba(239, 68, 68, 0.2) - 입력폼 에러 focus ring
+$form-bg-disabled:     $bg-disabled;        // #F0F0F3 - disabled, readonly 배경
+$form-text-disabled:   $text-tertiary;      // #8D919B - disabled, readonly 텍스트
+$form-border-disabled: $border-disabled;    // #E7E9ED - disabled, readonly 테두리
 
 // Form Controls - 체크박스 / 라디오 (.formCheck, .formRadioCard)
-$check-bg:                  $bg-white;
-$check-border:              $color-gray-300;
-$check-checked-bg:          $text-highlight;  // 체크 시 배경 + 테두리
-$check-mark:                $bg-white;        // 체크 표시 (체크/라디오 점)
-$check-disabled-bg:         $bg-light;
-$check-disabled-border:     $border-light;
-$check-checked-disabled-bg: $color-gray-300;  // 체크 + disabled 시 배경 + 테두리
+$check-bg:                  $bg-white;        // #FFFFFF - 체크박스/라디오 배경              
+$check-border:              $color-gray-300;  // #D5D7DE                                 
+$check-checked-bg:          $text-highlight;  // #1F2937 - 체크 시 배경 + 테두리           
+$check-mark:                $bg-white;        // #FFFFFF - 체크 표시 (체크/라디오 점)        
+$check-disabled-bg:         $bg-light;        // #F3F5F6 - disabled 시 배경                  
+$check-disabled-border:     $border-light;    // #F0F0F3                                                           
+$check-checked-disabled-bg: $color-gray-300;  // #D5D7DE - 체크 + disabled 시 배경 + 테두리  
 
 // ==========================================================================
 // Box Shadows
