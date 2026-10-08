@@ -128,6 +128,12 @@ compileSass('src/styles/scss/globals.scss', 'src/styles/css/globals.css');
 compileSass('src/styles/scss/common.scss', 'dist/styles/css/common.css');
 compileSass('src/styles/scss/globals.scss', 'dist/styles/css/globals.css');
 
+// Copy vendor CSS (가이드 코드 하이라이트 테마)
+fs.copyFileSync(
+  path.resolve(SRC_DIR, 'styles/css/prism-tomorrow.min.css'),
+  path.resolve(DIST_DIR, 'styles/css/prism-tomorrow.min.css')
+);
+
 // 4. HTML Include Resolver
 function resolveIncludes(htmlContent, currentFilePath) {
   const includeRegex = /<!--[\s\S]*?-->|<include\s+src="([^"]+)"><\/include>/g;

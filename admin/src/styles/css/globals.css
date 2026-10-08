@@ -668,15 +668,18 @@ body {
   transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .boContainer > * {
-  min-width: 1016px;
+  min-width: 1616px;
 }
 .boContainer::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
 }
 .boContainer::-webkit-scrollbar-thumb {
   background-color: #D5D7DE;
-  border-radius: 4px;
+  border-radius: 6px;
+}
+.boContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #8D919B;
 }
 .boContainer::-webkit-scrollbar-track {
   background-color: transparent;
@@ -1050,6 +1053,10 @@ body {
 }
 
 .textSuccess {
+  color: #287EFF !important;
+}
+
+.textIng {
   color: #05CD99 !important;
 }
 
@@ -1598,40 +1605,48 @@ body {
 
 .tab {
   display: flex;
-  border-bottom: 1px solid #4F535A;
+  border-bottom: 1px solid #D5D7DE;
   font-size: 15px;
   gap: 4px;
 }
 .tab .item {
-  min-width: 160px;
+  position: relative;
+  min-width: 120px;
   padding: 12px 20px;
   font-weight: 500;
-  color: #FFFFFF;
-  position: relative;
-  background: #FFFFFF;
-  border: 1px solid #E7E9ED;
-  border-bottom: none;
-  color: #2F3034;
-  border-radius: 6px 6px 0 0;
+  color: #6B7280;
+  background: transparent;
+  border: none;
   cursor: pointer;
   transition: color 0.15s ease;
+}
+.tab .item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.15s ease;
 }
 .tab .item:hover {
   color: #1F2937;
 }
 .tab .item.isActive {
-  background: #4F535A;
-  color: #FFFFFF;
+  color: #111827;
   font-weight: 700;
 }
+.tab .item.isActive::after {
+  height: 3px;
+  background-color: #FFC72B;
+}
 .tab .item:disabled, .tab .item.isDisabled {
-  background-color: #F0F0F3;
-  color: #8D919B;
-  border-color: #E7E9ED;
+  color: #D5D7DE;
   cursor: not-allowed;
 }
 .tab .item:disabled:hover, .tab .item.isDisabled:hover {
-  color: #8D919B;
+  color: #D5D7DE;
 }
 
 /* ==========================================================================
@@ -1640,24 +1655,26 @@ body {
 .mdiTabWrap {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
   border-radius: 8px;
-  padding: 6px 12px;
+  padding: 6px;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 20px;
-  gap: 12px;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 .mdiTabWrap .mdiTabList {
   display: flex;
   align-items: center;
   gap: 4px;
   flex: 1;
+  min-width: 0;
   overflow-x: auto;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 6px;
+  border-left: 1px solid #F0F0F3;
   list-style: none;
 }
 .mdiTabWrap .mdiTabList::-webkit-scrollbar {
@@ -1668,14 +1685,15 @@ body {
   border-radius: 4px;
 }
 .mdiTabWrap .mdiTabItem {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  max-width: 160px;
+  gap: 6px;
+  max-width: 180px;
   height: 32px;
-  padding: 0 12px;
+  padding: 0 8px 0 12px;
   background-color: #F3F5F6;
-  border: 1px solid transparent;
+  border: none;
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
@@ -1683,46 +1701,48 @@ body {
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
   text-decoration: none;
   flex-shrink: 0;
 }
 .mdiTabWrap .mdiTabItem:hover {
-  background-color: #F0F0F3;
+  background-color: #E7E9ED;
   color: #1F2937;
 }
+.mdiTabWrap .mdiTabItem:hover .tabClose {
+  opacity: 1;
+}
 .mdiTabWrap .mdiTabItem.isHome {
-  padding: 0 10px;
-  color: #4F535A;
-  background-color: #F3F5F6;
+  justify-content: center;
+  width: 32px;
+  padding: 0;
+  background-color: transparent;
 }
 .mdiTabWrap .mdiTabItem.isHome .tabIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
-  color: inherit;
+  width: 18px;
+  height: 18px;
 }
-.mdiTabWrap .mdiTabItem.isHome.isActive {
-  background-color: #FFFFFF;
-  border-color: #D5D7DE;
-  color: #1F2937;
-  font-weight: 700;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+.mdiTabWrap .mdiTabItem.isHome .tabIcon .ico {
+  width: 18px;
+  height: 18px;
 }
 .mdiTabWrap .mdiTabItem.isActive {
-  background-color: #FFFFFF;
-  border-color: #D5D7DE;
-  color: #1F2937;
+  background-color: #FFC72B;
+  color: #111827;
   font-weight: 700;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 .mdiTabWrap .mdiTabItem.isActive .tabClose {
   opacity: 0.8;
 }
+.mdiTabWrap .mdiTabItem.isActive .tabClose:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  opacity: 1;
+}
 .mdiTabWrap .mdiTabItem .tabText {
-  max-width: 130px;
+  max-width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1731,27 +1751,29 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
-  margin-left: 2px;
+  width: 18px;
+  height: 18px;
   border: none;
   background: transparent;
-  border-radius: 50%;
+  border-radius: 4px;
   cursor: pointer;
   padding: 0;
-  color: #8D919B;
-  opacity: 0.6;
-  transition: all 0.15s ease;
+  opacity: 0.4;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
 }
-.mdiTabWrap .mdiTabItem .tabClose svg {
+.mdiTabWrap .mdiTabItem .tabClose .ico {
   width: 10px;
   height: 10px;
+}
+.mdiTabWrap .mdiTabItem .tabClose:hover {
+  background-color: #E7E9ED;
 }
 .mdiTabWrap .mdiTabActions {
   display: flex;
   align-items: center;
-  gap: 6px;
   flex-shrink: 0;
+  padding-left: 6px;
+  border-left: 1px solid #F0F0F3;
 }
 .mdiTabWrap .mdiTabActions .btnAllClose {
   display: inline-flex;
@@ -1759,18 +1781,19 @@ body {
   justify-content: center;
   width: 32px;
   height: 32px;
-  background-color: #F8F9FA;
-  border: 1px solid #D5D7DE;
+  background-color: transparent;
+  border: none;
   border-radius: 6px;
   cursor: pointer;
-  color: #4F535A;
   padding: 0;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+.mdiTabWrap .mdiTabActions .btnAllClose .ico {
+  width: 12px;
+  height: 12px;
 }
 .mdiTabWrap .mdiTabActions .btnAllClose:hover {
-  background-color: #F0F0F3;
-  color: #1F2937;
-  border-color: #8D919B;
+  opacity: 1;
 }
 
 /* ==========================================================================
@@ -2279,10 +2302,11 @@ select.formControl.wAuto {
    Search / Filter Box Component (_searchbox.scss)
    ========================================================================== */
 .searchBox {
-  background-color: #E7E9ED;
+  background-color: #FFFFFF;
+  border: 1px solid #F0F0F3;
   border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 20px;
+  padding: 20px 28px;
+  margin-bottom: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   width: 100%;
   box-sizing: border-box;
@@ -2291,14 +2315,14 @@ select.formControl.wAuto {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px 24px;
+  gap: 12px 64px;
   min-height: 40px;
   padding: 6px 0;
 }
 .searchBox .searchItem {
   display: flex;
   align-items: center;
-  flex: 1 1 0%;
+  flex: 0 1 auto;
   min-width: 280px;
 }
 .searchBox .searchItem.full {
@@ -2319,6 +2343,12 @@ select.formControl.wAuto {
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+}
+.searchBox .searchField .formControlWrap {
+  min-width: 320px;
+}
+.searchBox .segment {
+  background-color: #F3F5F6;
 }
 .searchBox .formRow {
   display: flex;
@@ -2383,7 +2413,9 @@ select.formControl.wAuto {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-top: 20px;
+  margin-top: 14px;
+  padding-top: 18px;
+  border-top: 1px solid #F0F0F3;
 }
 .searchBox .searchBtnArea .btn {
   min-width: 84px;
@@ -3158,6 +3190,9 @@ select.formControl.wAuto {
 .tbl tbody tr:last-child {
   border-bottom: none;
 }
+.tbl tbody tr.rowLink {
+  cursor: pointer;
+}
 .tbl tbody th, .tbl tbody td {
   font-size: 14px;
   text-align: center;
@@ -3169,7 +3204,7 @@ select.formControl.wAuto {
   vertical-align: top;
 }
 .tbl tbody td {
-  padding: 10px 0;
+  padding: 10px 8px;
   vertical-align: middle;
 }
 .tbl tbody td.tblEmpty {
@@ -3268,10 +3303,6 @@ select.formControl.wAuto {
 .tbl.tblInfo .infoStat strong {
   color: #111827;
   font-weight: 700;
-}
-.tbl.tblInfo .infoStat + .infoStat {
-  padding-left: 12px;
-  border-left: 1px solid #F0F0F3;
 }
 .tbl.tblInfo .infoTotal {
   color: #8D919B;

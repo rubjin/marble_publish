@@ -36,6 +36,9 @@ function htmlIncludePlugin() {
       content = content.replace(/src=["'][^"']*?(?:assets\/)?js\/guide\.js["']/g, 'src="/src/assets/js/guide.js"');
       content = content.replace(/src=["'][^"']*?(?:assets\/)?js\/prism\.min\.js["']/g, 'src="/src/assets/js/prism.min.js"');
 
+      // 4. Prism 테마 CSS 경로 정규화 (상대경로 ../styles/... 는 dev 서버에서 404)
+      content = content.replace(/href=["'][^"']*?styles\/css\/prism-tomorrow\.min\.css["']/g, 'href="/src/styles/css/prism-tomorrow.min.css"');
+
       return content;
     },
     handleHotUpdate({ file, server }) {
