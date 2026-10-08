@@ -5,10 +5,11 @@
    ========================================================================== */
 
 .searchBox {
-  background-color: $color-gray-200;
+  background-color: $color-white;
+  border: 1px solid $border-light;
   border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 20px;
+  padding: 20px 28px;
+  margin-bottom: 16px;
   box-shadow: $shadow-xs;
   width: 100%;
   box-sizing: border-box;
@@ -49,6 +50,16 @@
     align-items: center;
     gap: 8px;
     flex-wrap: wrap;
+
+    // 키워드 입력창 최소 너비 확보
+    .formControlWrap {
+      min-width: 320px;
+    }
+  }
+
+  // 흰 배경에서 세그먼트 영역이 구분되도록 배경 보정
+  .segment {
+    background-color: $bg-light;
   }
 
   .formRow {
@@ -125,7 +136,9 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 14px;
+    padding-top: 18px;
+    border-top: 1px solid $border-light;
 
     .btn {
       min-width: 84px;

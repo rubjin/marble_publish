@@ -21,7 +21,7 @@ window.adminData = [
     "screenId": "guide",
     "type": "페이지",
     "status": "진행중",
-    "worker": "",
+    "worker": "주진희",
     "link": "guide/guide.html",
     "note": "버튼, 뱃지, 탭 등 UI 요소 모음"
   },
@@ -34,9 +34,35 @@ window.adminData = [
     "screenId": "layout",
     "type": "페이지",
     "status": "완료",
-    "worker": "",
+    "worker": "주진희",
     "link": "layout/layout.html",
     "note": "홈, 고객 관리, 미션 관리, 알림 관리, 관리자 관리"
+  },
+  {
+    "category": "AM",
+    "depth1": "샘플 페이지",
+    "depth2": "",
+    "depth3": "",
+    "depth4": "",
+    "screenId": "MISS_009",
+    "type": "페이지",
+    "status": "완료",
+    "worker": "주진희",
+    "link": "pages/M/MISS_009.html",
+    "note": ""
+  },
+  {
+    "category": "AM",
+    "depth1": "샘플 페이지",
+    "depth2": "",
+    "depth3": "",
+    "depth4": "",
+    "screenId": "MISS_099",
+    "type": "페이지",
+    "status": "완료",
+    "worker": "주진희",
+    "link": "pages/M/MISS_099.html",
+    "note": ""
   },
   {
     "category": "AM",
@@ -47,7 +73,7 @@ window.adminData = [
     "screenId": "OFR_AM_LI_001",
     "type": "페이지",
     "status": "완료",
-    "worker": "",
+    "worker": "주진희",
     "link": "pages/LI/OFR_AM_LI_001.html",
     "note": ""
   },
@@ -60,7 +86,7 @@ window.adminData = [
     "screenId": "OFR_AM_CM_001",
     "type": "페이지",
     "status": "완료",
-    "worker": "",
+    "worker": "주진희",
     "link": "pages/CM/OFR_AM_CM_001.html",
     "note": ""
   },
@@ -73,36 +99,11 @@ window.adminData = [
     "screenId": "OFR_AM_CM_002",
     "type": "페이지",
     "status": "완료",
-    "worker": "",
+    "worker": "주진희",
     "link": "pages/CM/OFR_AM_CM_002.html",
     "note": ""
   },
-  {
-    "category": "AM",
-    "depth1": "서비스점검",
-    "depth2": "",
-    "depth3": "",
-    "depth4": "서비스점검",
-    "screenId": "MISS_009",
-    "type": "페이지",
-    "status": "완료",
-    "worker": "",
-    "link": "pages/M/MISS_009.html",
-    "note": ""
-  },
-  {
-    "category": "AM",
-    "depth1": "서비스점검",
-    "depth2": "",
-    "depth3": "",
-    "depth4": "서비스점검",
-    "screenId": "MISS_099",
-    "type": "페이지",
-    "status": "완료",
-    "worker": "",
-    "link": "pages/M/MISS_099.html",
-    "note": ""
-  },
+
   {
     "category": "AM",
     "depth1": "미션관리",
@@ -112,7 +113,7 @@ window.adminData = [
     "screenId": "OFR_AM_MM_016",
     "type": "페이지",
     "status": "완료",
-    "worker": "",
+    "worker": "주진희",
     "link": "pages/MM/OFR_AM_MM_016.html",
     "note": ""
   },
@@ -125,7 +126,7 @@ window.adminData = [
     "screenId": "OFR_AM_MM_017",
     "type": "페이지",
     "status": "완료",
-    "worker": "",
+    "worker": "주진희",
     "link": "pages/MM/OFR_AM_MM_017.html",
     "note": ""
   },

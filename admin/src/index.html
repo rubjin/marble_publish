@@ -162,9 +162,10 @@
 
   <table>
     <colgroup>
-      <col style="width: 12%">
-      <col style="width: 16%">
-      <col style="width: 18%">
+      <col style="width: 170px">
+      <col style="width: 170px">
+      <col style="width: 150px">
+      <col style="width: 220px">
       <col style="width: 150px">
       <col style="width: 80px">
       <col style="width: 80px">
@@ -176,6 +177,7 @@
         <th>구분 (1Depth)</th>
         <th>화면명 (2Depth)</th>
         <th>화면명 (3Depth)</th>
+        <th>화면명</th>
         <th class="center">화면ID</th>
         <th class="center">화면종류</th>
         <th class="center">상태</th>
@@ -271,7 +273,7 @@
         countNum.textContent = filtered.length;
 
         if (filtered.length === 0) {
-          tableBody.innerHTML = `<tr class="empty-row"><td colspan="8">조건에 맞는 화면이 없습니다.</td></tr>`;
+          tableBody.innerHTML = `<tr class="empty-row"><td colspan="9">조건에 맞는 화면이 없습니다.</td></tr>`;
           return;
         }
 
@@ -353,6 +355,11 @@
             depth3Html = `<td><span class="text-empty">-</span></td>`;
           }
 
+          // 화면명 셀
+          const depth4Html = row.depth4
+            ? `<td>${row.depth4}</td>`
+            : `<td><span class="text-empty">-</span></td>`;
+
           // 화면ID 셀 (링크 연결)
           let screenIdHtml = '';
           if (row.screenId) {
@@ -382,6 +389,7 @@
               ${depth1Html}
               ${depth2Html}
               ${depth3Html}
+              ${depth4Html}
               <td class="center">${screenIdHtml}</td>
               <td class="center">${typeHtml}</td>
               <td class="center">${statusHtml}</td>
