@@ -43,7 +43,8 @@
       font-weight: $font-weight-bold;
 
       &::after {
-        background-color: $text-title;
+        height: 3px;
+        background-color: $bg-primary;
       }
     }
 
@@ -104,12 +105,12 @@
     max-width: 180px;
     height: 32px;
     padding: 0 8px 0 12px;
-    background-color: transparent;
+    background-color: $bg-light;
     border: none;
     border-radius: 6px;
     font-size: 13px;
     font-weight: $font-weight-medium;
-    color: $color-gray-500;
+    color: $text-secondary;
     cursor: pointer;
     white-space: nowrap;
     user-select: none;
@@ -118,7 +119,7 @@
     flex-shrink: 0;
 
     &:hover {
-      background-color: $bg-light;
+      background-color: $color-gray-200;
       color: $text-highlight;
 
       .tabClose {
@@ -131,6 +132,7 @@
       justify-content: center;
       width: 32px;
       padding: 0;
+      background-color: transparent;
 
       .tabIcon {
         display: inline-flex;
@@ -146,25 +148,19 @@
       }
     }
 
-    // 활성화된 탭 (배경 + 하단 브랜드 컬러 인디케이터)
+    // 활성화된 탭 (브랜드 컬러 배경 - 사이드바 활성 메뉴와 통일)
     &.isActive {
-      background-color: $bg-light;
+      background-color: $bg-primary;
       color: $text-title;
       font-weight: $font-weight-bold;
 
-      &::after {
-        content: '';
-        position: absolute;
-        left: 10px;
-        right: 10px;
-        bottom: 0;
-        height: 2px;
-        border-radius: 2px;
-        background-color: $bg-primary;
-      }
-
       .tabClose {
-        opacity: 1;
+        opacity: 0.8;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.08);
+          opacity: 1;
+        }
       }
     }
 
@@ -220,7 +216,7 @@
       border-radius: 6px;
       cursor: pointer;
       padding: 0;
-      opacity: 0.6;
+      // opacity: 0.6;
       transition: background-color 0.15s ease, opacity 0.15s ease;
 
       .ico {
@@ -229,7 +225,7 @@
       }
 
       &:hover {
-        background-color: $bg-light;
+        // background-color: $bg-light;
         opacity: 1;
       }
     }
