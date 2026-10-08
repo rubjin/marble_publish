@@ -97,58 +97,6 @@
   }
 }
 
-// Input Group (input + addon)
-// .inputGroup {
-//   display: flex;
-//   align-items: center;
-//   width: 100%;
-//   border: 1px solid $border-default;
-//   border-radius: $form-radius;
-//   background-color: $bg-white;
-//   transition: all 0.2s ease-in-out;
-//   overflow: hidden;
-
-//   &:focus-within {
-//     border-color: $color-blue-500;
-//     box-shadow: 0 0 0 3px $ring-primary;
-//   }
-
-//   &.isError {
-//     border-color: $text-danger;
-
-//     &:focus-within {
-//       box-shadow: 0 0 0 3px $ring-danger;
-//     }
-//   }
-
-//   .inputAddon {
-//     display: inline-flex;
-//     align-items: center;
-//     justify-content: center;
-//     padding: 0 12px;
-//     height: $form-height-sm;
-//     font-size: 13px;
-//     font-weight: $font-weight-medium;
-//     color: $text-secondary;
-//     background-color: $bg-light;
-//     flex-shrink: 0;
-
-//     &.prefix {
-//       border-right: 1px solid $border-default;
-//     }
-
-//     &.suffix {
-//       border-left: 1px solid $border-default;
-//     }
-//   }
-
-//   .formControl {
-//     border: none;
-//     border-radius: 0;
-//     box-shadow: none !important;
-//     height: $form-height-sm;
-//   }
-// }
 fieldset {
   min-width: 0;
   margin: 0;
@@ -159,10 +107,10 @@ fieldset {
   width: 200px;
   height: $form-height;
   padding: 6px 12px;
-  font-size: 14px;
-  color: $text-primary;
-  background-color: $bg-white;
-  border: 1px solid $border-default;
+  font-size: $form-font-size;
+  color: $form-text;
+  background-color: $form-bg;
+  border: 1px solid $form-border;
   border-radius: $form-radius;
   outline: none;
   transition: all 0.2s ease-in-out;
@@ -175,32 +123,32 @@ fieldset {
     width: 140px;
   }
   &::placeholder {
-    color: $text-tertiary;
+    color: $form-placeholder;
   }
 
   &:hover {
-    border-color: $text-tertiary;
+    border-color: $form-border-hover;
   }
 
   &:focus {
-    border-color: $color-blue-500;
-    box-shadow: 0 0 0 3px $ring-primary;
+    border-color: $form-border-focus;
+    box-shadow: 0 0 0 3px $form-ring-focus;
   }
 
   &[readonly],
   &:disabled,
   &.isDisabled {
-    background-color: $bg-disabled;
-    color: $text-tertiary;
-    border-color: $border-disabled;
+    background-color: $form-bg-disabled;
+    color: $form-text-disabled;
+    border-color: $form-border-disabled;
     cursor: not-allowed;
   }
 
   &.isError {
-    border-color: $text-danger;
+    border-color: $form-border-error;
     
     &:focus {
-      box-shadow: 0 0 0 3px $ring-danger;
+      box-shadow: 0 0 0 3px $form-ring-error;
     }
   }
 
@@ -265,8 +213,8 @@ select.formControl {
   .checkIcon {
     width: 24px;
     height: 24px;
-    border: 1px solid $color-gray-300;
-    background-color: $bg-white;
+    border: 1px solid $check-border;
+    background-color: $check-bg;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -285,7 +233,7 @@ select.formControl {
     &::after {
       width: 10px;
       height: 10px;
-      background-color: $bg-white;
+      background-color: $check-mark;
       clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     }
   }
@@ -297,13 +245,13 @@ select.formControl {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: $bg-white;
+      background-color: $check-mark;
     }
   }
 
   input:checked + .checkIcon {
-    background-color: $text-highlight;
-    border-color: $text-highlight;
+    background-color: $check-checked-bg;
+    border-color: $check-checked-bg;
 
     &::after {
       display: block;
@@ -314,8 +262,8 @@ select.formControl {
   // [D] input.indeterminate = true (React: ref 로 지정) 또는 .isIndeterminate
   input[type="checkbox"]:indeterminate + .checkIcon,
   input[type="checkbox"].isIndeterminate + .checkIcon {
-    background-color: $text-highlight;
-    border-color: $text-highlight;
+    background-color: $check-checked-bg;
+    border-color: $check-checked-bg;
 
     &::after {
       display: block;
@@ -327,14 +275,14 @@ select.formControl {
   }
 
   input:disabled + .checkIcon {
-    background-color: $bg-light;
-    border-color: $border-light;
+    background-color: $check-disabled-bg;
+    border-color: $check-disabled-border;
     cursor: not-allowed;
   }
 
   input:checked:disabled + .checkIcon {
-    background-color: $color-gray-300;
-    border-color: $color-gray-300;
+    background-color: $check-checked-disabled-bg;
+    border-color: $check-checked-disabled-bg;
   }
 
   .checkLabel {
@@ -392,11 +340,11 @@ select.formControl {
 
 /* Tag Chip */
 .tagBox {
-  border: 1px solid $border-default;
+  border: 1px solid $form-border;
   border-radius: $form-radius;
   padding: 12px;
   min-height: 80px;
-  background-color: $bg-white;
+  background-color: $form-bg;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -497,9 +445,9 @@ select.formControl {
   .checkIcon {
     width: 24px;
     height: 24px;
-    border: 1px solid $color-gray-300;
+    border: 1px solid $check-border;
     border-radius: 50%;
-    background-color: $bg-white;
+    background-color: $check-bg;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -514,7 +462,7 @@ select.formControl {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: $bg-white;
+      background-color: $check-mark;
     }
   }
 
@@ -545,8 +493,8 @@ select.formControl {
     border-color: $border-card-active;
 
     .checkIcon {
-      background-color: $text-highlight;
-      border-color: $text-highlight;
+      background-color: $check-checked-bg;
+      border-color: $check-checked-bg;
 
       &::after {
         display: block;
