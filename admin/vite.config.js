@@ -27,10 +27,9 @@ function htmlIncludePlugin() {
       // 1. Include 치환
       let content = resolveIncludes(html);
 
-      // 2. SCSS 링크를 Vite 모듈 로더(<script type="module">)로 변환하여 CSS 정상 주입 및 HMR 지원
-      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/globals\.scss["']\s*\/?>/gi, '<script type="module" src="/src/styles/scss/globals.scss"></script>');
-      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/common\.scss["']\s*\/?>/gi, '<script type="module" src="/src/styles/scss/common.scss"></script>');
-      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["']([^"']+\.scss)["']\s*\/?>/gi, '<script type="module" src="$1"></script>');
+      // 2. SCSS 링크 경로 정규화 (<link> 유지: JS 주입 방식은 렌더 후 CSS가 적용되어 화면 깨짐(FOUC) 발생)
+      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/globals\.scss["']\s*\/?>/gi, '<link rel="stylesheet" href="/src/styles/scss/globals.scss">');
+      content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/common\.scss["']\s*\/?>/gi, '<link rel="stylesheet" href="/src/styles/scss/common.scss">');
 
       // 3. UI JS 스크립트 경로 정규화
       content = content.replace(/src=["'][^"']*?(?:assets\/)?js\/ui\.js["']/g, 'src="/src/assets/js/ui.js"');
