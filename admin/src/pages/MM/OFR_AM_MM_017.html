@@ -1,0 +1,277 @@
+<include src="./src/layout/header.html"></include>
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<div class="pageHeader">
+  <h2 class="pageTitle">스탁뷰 미션 고객 참여 내역</h2>
+</div>
+    
+<!-- 상세 뷰 테이블 (상세 정보 확인용 .tblView) -->
+<!-- 하얀 박스 영역 -->
+<div class="sectionBox">
+  <div class="tblSection">
+    <div class="tblWrap">
+      <table class="tbl tblInfo">
+        <colgroup>
+          <col style="width: 130px;">
+          <col>
+          <col style="width: 130px;">
+          <col>
+          <col style="width: 130px;">
+          <col>
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>고객명</th>
+            <td>김*민</td>
+            <th>고객번호</th>
+            <td>9012345678</td>
+            <th>앱푸시 여부</th>
+            <td>동의</td>
+          </tr>
+          <tr>
+            <th>회차</th>
+            <td>3회차</td>
+            <th>신청일시</th>
+            <td>2026.07.01 09:12:30</td>
+            <th>해지일시</th>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>누적 횟수/포인트</th>
+            <td>
+              <div class="infoStats">
+                <span class="infoStat">완료 <strong>50</strong>회</span>/
+                <span class="infoStat">미완료 <strong>5</strong>회</span>/
+                <span class="infoStat"><strong>2,500</strong>P</span>
+              </div>
+            </td>
+            <th>20일 누적미션 현황</th>
+            <td><strong class="textInfo">17</strong><span class="infoTotal"> / 20일</span></td>
+            <th>참여상태</th>
+            <td><span class="textInfo">참여</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 섹션 :: 공통설정 ==================== -->
+<!-- 검색 조건 컨트롤 박스 -->
+<div class="searchBox">
+  <div class="searchRow">
+    <div class="searchItem">
+      <span class="searchLabel">참여일자</span>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formDateRange">
+            <div class="formDatepicker">
+              <input type="text" class="formControl" value="2026.07.01">
+              <button type="button" class="btnCalendar"></button>
+            </div>
+            <span class="dateSeparator">~</span>
+            <div class="formDatepicker">
+              <input type="text" class="formControl" value="2026.08.31">
+              <button type="button" class="btnCalendar"></button>
+            </div>
+          </div>
+          <div class="segment">
+            <label class="segmentItem"><input type="radio" name="p1Date" checked=""><span class="segmentText">당일</span></label>
+            <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">7일</span></label>
+            <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">한달</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchRow">
+    <div class="searchItem">
+      <label class="searchLabel" for="p1Keyword">진행상태</label>
+      <div class="searchField">
+        <div class="formRow">
+          <select id="searchType" class="formControl wSm">
+            <option value="all">전체</option>
+            <option value="name">항목명</option>
+            <option value="code">코드</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchBtnArea">
+    <button type="button" class="btn outline">초기화</button>
+    <button type="button" class="btn dark">조회</button>
+  </div>
+</div>
+
+<!-- 실시간 요약 인라인 바 -->
+<div class="summaryStatBox singleLine">
+  <div class="statItem">
+    <span class="statLabel">완료</span>
+    <div class="statValue"><strong>20</strong><span class="unit">회</span></div>
+  </div>
+  <div class="statDivider"></div>
+  <div class="statItem">
+    <span class="statLabel">미완료</span>
+    <div class="statValue"><strong>5</strong><span class="unit">회</span></div>
+  </div>
+  <div class="statDivider"></div>
+  <div class="statItem">
+    <span class="statLabel">포인트</span>
+    <div class="statValue"><strong>1,000</strong><span class="unit">P</span></div>
+  </div>
+  <div class="statDivider"></div>
+  <div class="statItem">
+    <span class="statLabel">해외주식 쿠폰</span>
+    <div class="statValue"><strong>0</strong><span class="unit">원</span></div>
+  </div>
+</div>
+
+<!-- 하얀 박스 영역 -->
+<div class="sectionBox">
+  <!-- 테이블 상단 건수 및 액션 바 -->
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">검색 결과</h3>
+      <span class="tblCount">총 <strong class="count">128</strong>건</span>
+      <select class="formControl wSm">
+        <option value="10">10건씩 보기</option>
+        <option value="20">20건씩 보기</option>
+        <option value="50">50건씩 보기</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 데이터 그리드 테이블 -->
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: 120px;">
+        <col style="width: 110px;">
+        <col style="width: 100px;">
+        <col style="width: auto;">
+        <col style="width: 120px;">
+        <col style="width: 200px;">
+        <col style="width: 100px;">
+        <col style="width: 160px;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th rowspan="2">참여일자</th>
+          <th colspan="3">일별 미션 현황</th>
+          <th rowspan="2">20일 누적 미션</th>
+          <th rowspan="2">지급 리워드<br>(금융쿠폰/포인트)</th>
+          <th rowspan="2">지급상태</th>
+          <th rowspan="2">지급일시</th>
+        </tr>
+        <tr>
+          <th>조회종목수(개)</th>
+          <th>진행상태</th>
+          <th>미완료 사유</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2026.08.25(화)</td>
+          <td class="textRight"><a href="#" class="link">6</a></td>
+          <td><span class="textIng">진행중</span></td>
+          <td class="textLeft">-</td>
+          <td>17/20일</td>
+          <td class="textRight">100P</td>
+          <td><span class="textSuccess">지급완료</span></td>
+          <td>2026.07.22 10:00:00</td>
+        </tr>
+        <tr>
+          <td>2026.08.25(화)</td>
+          <td class="textRight"><a href="#" class="link">2</a></td>
+          <td><span class="textDanger">미완료</span></td>
+          <td class="textLeft">조회종목 수 미달성</td>
+          <td>16/20일</td>
+          <td>-</td>
+          <td><span class="textDanger">지급오류</span></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>2026.08.25(화)</td>
+          <td class="textRight"><a href="#" class="link">5</a></td>
+          <td><span class="textSuccess">완료</span></td>
+          <td class="textLeft">-</td>
+          <td>16/20일</td>
+          <td class="textRight">100P</td>
+          <td><span class="textSuccess">지급완료</span></td>
+          <td>2026.07.20 10:00:00</td>
+        </tr>
+        <tr>
+          <td>2026.08.25(화)</td>
+          <td class="textRight"><a href="#" class="link">0</a></td>
+          <td><span class="textDanger">미완료</span></td>
+          <td class="textLeft">보상 미수령</td>
+          <td>15/20일</td>
+          <td class="textRight">-</td>
+          <td><span class="textDanger">지급오류</span></td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 하얀 박스 영역 -->
+<div class="sectionBox">
+  <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+  <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
+ <!-- 테이블 상단 건수 및 액션 바 -->
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">검색 결과</h3>
+      <span class="tblCount">총 <strong class="count">0</strong>건</span>
+      <select class="formControl wSm">
+        <option value="10">10건씩 보기</option>
+        <option value="20">20건씩 보기</option>
+        <option value="50">50건씩 보기</option>
+      </select>
+    </div>
+  </div>
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: 120px;">
+        <col style="width: 110px;">
+        <col style="width: 100px;">
+        <col style="width: auto;">
+        <col style="width: 120px;">
+        <col style="width: 200px;">
+        <col style="width: 100px;">
+        <col style="width: 160px;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th rowspan="2">참여일자</th>
+          <th colspan="3">일별 미션 현황</th>
+          <th rowspan="2">20일 누적 미션</th>
+          <th rowspan="2">지급 리워드<br>(금융쿠폰/포인트)</th>
+          <th rowspan="2">지급상태</th>
+          <th rowspan="2">지급일시</th>
+        </tr>
+        <tr>
+          <th>조회종목수(개)</th>
+          <th>진행상태</th>
+          <th>미완료 사유</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tblEmpty" colspan="8">참여 내역이 없습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<include src="./src/layout/footer.html"></include>

@@ -154,7 +154,7 @@ body {
   height: 100vh;
   overflow: hidden;
   display: flex;
-  background-color: #F3F5F6;
+  background-color: #6B7280;
 }
 
 .boSidebar {
@@ -1043,6 +1043,22 @@ body {
 
 .textWhite {
   color: #FFFFFF !important;
+}
+
+.textInfo {
+  color: #287EFF !important;
+}
+
+.textSuccess {
+  color: #05CD99 !important;
+}
+
+.textWarning {
+  color: #FFCE20 !important;
+}
+
+.textDanger {
+  color: #EF4444 !important;
 }
 
 .titPage {
@@ -3204,6 +3220,62 @@ select.formControl.wAuto {
 .tbl.tblView tbody td {
   padding: 14px 12px;
   color: #2F3034;
+}
+.tbl.tblInfo {
+  border-collapse: separate;
+  border-top: 1px solid #707070;
+}
+.tbl.tblInfo tbody tr {
+  border-bottom: none;
+}
+.tbl.tblInfo tbody tr:hover {
+  background-color: transparent;
+}
+.tbl.tblInfo tbody th, .tbl.tblInfo tbody td {
+  height: 48px;
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid #F0F0F3;
+  border-left: 1px solid #F0F0F3;
+}
+.tbl.tblInfo tbody th:first-child, .tbl.tblInfo tbody td:first-child {
+  border-left: none;
+}
+.tbl.tblInfo tbody th {
+  background-color: rgba(243, 245, 246, 0.8);
+  font-weight: 500;
+  color: #4F535A;
+  white-space: nowrap;
+}
+.tbl.tblInfo tbody td {
+  color: #111827;
+  font-weight: 500;
+}
+.tbl.tblInfo .infoStats {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+.tbl.tblInfo .infoStat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  color: #4F535A;
+  font-weight: 500;
+}
+.tbl.tblInfo .infoStat strong {
+  color: #111827;
+  font-weight: 700;
+}
+.tbl.tblInfo .infoStat + .infoStat {
+  padding-left: 12px;
+  border-left: 1px solid #F0F0F3;
+}
+.tbl.tblInfo .infoTotal {
+  color: #8D919B;
+  font-weight: 500;
 }
 
 .barPercent {

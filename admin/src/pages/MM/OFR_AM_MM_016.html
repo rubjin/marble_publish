@@ -1,0 +1,225 @@
+<include src="./src/layout/header.html"></include>
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<div class="pageHeader">
+  <h2 class="pageTitle">스탁뷰 미션 참여 내역</h2>
+</div>
+
+<!-- ==================== 섹션 :: 공통설정 ==================== -->
+<!-- 검색 조건 컨트롤 박스 -->
+<div class="searchBox">
+  <div class="searchRow">
+    <div class="searchItem full">
+      <span class="searchLabel">조회일자</span>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formDateRange">
+            <div class="formDatepicker">
+              <input type="text" class="formControl" value="2026.07.01">
+              <button type="button" class="btnCalendar"></button>
+            </div>
+            <span class="dateSeparator">~</span>
+            <div class="formDatepicker">
+              <input type="text" class="formControl" value="2026.08.31">
+              <button type="button" class="btnCalendar"></button>
+            </div>
+          </div>
+          <div class="segment">
+            <label class="segmentItem"><input type="radio" name="p1Date" checked=""><span class="segmentText">당일</span></label>
+            <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">7일</span></label>
+            <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">한달</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchRow">
+    <div class="searchItem full">
+      <label class="searchLabel" for="p1Keyword">고객정보</label>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="all">전체</option>
+            <option value="name">항목명</option>
+            <option value="code">코드</option>
+          </select>
+          <div class="formControlWrap">
+            <input type="text" id="p1Keyword" class="formControl full" placeholder="고객번호 또는 고객명 입력">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchBtnArea">
+    <button type="button" class="btn outline">초기화</button>
+    <button type="button" class="btn dark">조회</button>
+  </div>
+</div>
+<!-- 하얀 박스 영역 -->
+<div class="sectionBox">
+  <!-- 테이블 상단 건수 및 액션 바 -->
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">검색 결과</h3>
+      <span class="tblCount">총 <strong class="count">128</strong>건</span>
+      <select class="formControl wSm">
+        <option value="10">10건씩 보기</option>
+        <option value="20">20건씩 보기</option>
+        <option value="50">50건씩 보기</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 데이터 그리드 테이블 -->
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: 100px;">
+        <col style="width: 120px;">
+        <col style="width: 70px;">
+        <col style="width: 160px;">
+        <col style="width: 160px;">
+        <col style="width: 100px;">
+        <col style="width: 110px;">
+        <col style="width: 130px;">
+        <col style="width: 90px;">
+        <col style="width: 90px;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th colspan="2">고객정보</th>
+          <th colspan="4">미션참여정보</th>
+          <th colspan="2">전체 지급 리워드</th>
+          <th rowspan="2">완료횟수</th>
+          <th rowspan="2">미완료횟수</th>
+        </tr>
+        <tr>
+          <th>고객명</th>
+          <th>고객번호</th>
+          <th>회차</th>
+          <th>신청일시</th>
+          <th>해지일시</th>
+          <th>참여상태</th>
+          <th>포인트(P)</th>
+          <th>해외주식 쿠폰(원)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
+          <td>김*민</td>
+          <td>9012345678</td>
+          <td>1</td>
+          <td>2026.07.01 09:12:30</td>
+          <td>-</td>
+          <td><span class="textIng">참여</span></td>
+          <td class="textRight">5,000</td>
+          <td class="textRight">10,000</td>
+          <td class="textRight">3</td>
+          <td class="textRight">1</td>
+        </tr>
+        <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
+          <td>김*민</td>
+          <td>5678901234</td>
+          <td>1</td>
+          <td>2026.07.03 14:05:11</td>
+          <td>2026.07.20 10:22:45</td>
+          <td><span class="textDanger">해지</span></td>
+          <td class="textRight">2,000</td>
+          <td class="textRight">5,000</td>
+          <td class="textRight">1</td>
+          <td class="textRight">3</td>
+        </tr>
+        <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
+          <td>김*민</td>
+          <td>1000034567</td>
+          <td>1</td>
+          <td>2026.07.05 18:40:02</td>
+          <td>-</td>
+          <td><span class="textSuccess">달성</span></td>
+          <td class="textRight">0</td>
+          <td class="textRight">0</td>
+          <td class="textRight">0</td>
+          <td class="textRight">4</td>
+        </tr>
+        <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
+          <td>김*민</td>
+          <td>1000034567</td>
+          <td>1</td>
+          <td>2026.07.05 18:40:02</td>
+          <td>-</td>
+          <td><span class="textMuted">미달성</span></td>
+          <td class="textRight">0</td>
+          <td class="textRight">0</td>
+          <td class="textRight">0</td>
+          <td class="textRight">4</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 하얀 박스 영역 -->
+<div class="sectionBox">
+  <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+  <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
+ <!-- 테이블 상단 건수 및 액션 바 -->
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">검색 결과</h3>
+      <span class="tblCount">총 <strong class="count">0</strong>건</span>
+      <select class="formControl wSm">
+        <option value="10">10건씩 보기</option>
+        <option value="20">20건씩 보기</option>
+        <option value="50">50건씩 보기</option>
+      </select>
+    </div>
+  </div>
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: 100px;">
+        <col style="width: 120px;">
+        <col style="width: 70px;">
+        <col style="width: 160px;">
+        <col style="width: 160px;">
+        <col style="width: 100px;">
+        <col style="width: 110px;">
+        <col style="width: 130px;">
+        <col style="width: 90px;">
+        <col style="width: 90px;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th colspan="2">고객정보</th>
+          <th colspan="4">미션참여정보</th>
+          <th colspan="2">전체 지급 리워드</th>
+          <th rowspan="2">완료횟수</th>
+          <th rowspan="2">미완료횟수</th>
+        </tr>
+        <tr>
+          <th>고객명</th>
+          <th>고객번호</th>
+          <th>회차</th>
+          <th>신청일시</th>
+          <th>해지일시</th>
+          <th>참여상태</th>
+          <th>포인트(P)</th>
+          <th>해외주식 쿠폰(원)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tblEmpty" colspan="10">참여 내역이 없습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<include src="./src/layout/footer.html"></include>

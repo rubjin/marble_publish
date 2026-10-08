@@ -22,7 +22,7 @@
   </nav>
 </div>
 
-<!-- 2. 검색 조건 컨트롤 박스 -->
+<!-- 검색 조건 컨트롤 박스 -->
 <div class="searchBox">
   <div class="searchRow">
     <div class="searchItem full">
@@ -98,132 +98,138 @@
   </div>
 </div>
 
-<!-- 3. 테이블 상단 건수 및 액션 바 -->
-<div class="tblTop">
-  <div class="tblLeft">
-    <h3 class="tblTitle">검색 결과</h3>
-    <span class="tblCount">총 <strong class="count">128</strong>건</span>
-    <select class="formControl wSm">
-      <option value="10">10건씩 보기</option>
-      <option value="20">20건씩 보기</option>
-      <option value="50">50건씩 보기</option>
-    </select>
-  </div>
-  <div class="tblRight">
-    <div class="btnGroup">
-      <button type="button" class="btn outline">
-        <span class="ico download"></span>
-        <span>엑셀 다운로드</span>
-      </button>
-      <button type="button" class="btn primary">신규 등록</button>
+<!-- 테이블 상단 건수 및 액션 바 -->
+ <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">검색 결과</h3>
+      <span class="tblCount">총 <strong class="count">128</strong>건</span>
+      <select class="formControl wSm">
+        <option value="10">10건씩 보기</option>
+        <option value="20">20건씩 보기</option>
+        <option value="50">50건씩 보기</option>
+      </select>
+    </div>
+    <div class="tblRight">
+      <div class="btnGroup">
+        <button type="button" class="btn outline">
+          <span class="ico download"></span>
+          <span>엑셀 다운로드</span>
+        </button>
+        <button type="button" class="btn primary">신규 등록</button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- 4. 데이터 그리드 테이블 -->
-<div class="tblWrap">
-  <table class="tbl">
-    <colgroup>
-      <col style="width: 80px;" />
-      <col style="width: 140px;" />
-      <col style="width: auto;" />
-      <col style="width: 120px;" />
-      <col style="width: 120px;" />
-      <col style="width: 160px;" />
-      <col style="width: 120px;" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th>No.</th>
-        <th>구분</th>
-        <th>항목명</th>
-        <th>상태</th>
-        <th>작성자</th>
-        <th>등록일자</th>
-        <th>관리</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>유형 A</td>
-        <td class="textLeft"><a href="#" class="link">링크 항목 01</a></td>
-        <td><span class="statusDot ing">운영중</span></td>
-        <td>관리자</td>
-        <td>2026.06.15</td>
-        <td>
-          <div class="btnGroup sm">
-            <button type="button" class="btn outline">수정</button>
-            <button type="button" class="btn danger">삭제</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>유형 B</td>
-        <td class="textLeft"><a href="#" class="link">링크 항목 02</a></td>
-        <td><span class="statusDot ready">대기</span></td>
-        <td>관리자</td>
-        <td>2026.06.14</td>
-        <td>
-          <div class="btnGroup sm">
-            <button type="button" class="btn outline">수정</button>
-            <button type="button" class="btn danger">삭제</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>유형 A</td>
-        <td class="textLeft"><a href="#" class="link">링크 항목 03</a></td>
-        <td><span class="statusDot end">종료</span></td>
-        <td>운영자</td>
-        <td>2026.06.10</td>
-        <td>
-          <div class="btnGroup sm">
-            <button type="button" class="btn outline">수정</button>
-            <button type="button" class="btn danger">삭제</button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- 4-1. 데이터 그리드 테이블 - 검색결과 없음 -->
-<!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
-<div class="tblTop">
-  <div class="tblLeft">
-    <h3 class="tblTitle">검색 결과</h3>
-    <span class="tblCount">총 <strong class="count">0</strong>건</span>
+  <!-- 데이터 그리드 테이블 -->
+  <div class="tblWrap">
+    <table class="tbl">
+      <colgroup>
+        <col style="width: 80px;" />
+        <col style="width: 140px;" />
+        <col style="width: auto;" />
+        <col style="width: 120px;" />
+        <col style="width: 120px;" />
+        <col style="width: 160px;" />
+        <col style="width: 120px;" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>구분</th>
+          <th>항목명</th>
+          <th>상태</th>
+          <th>작성자</th>
+          <th>등록일자</th>
+          <th>관리</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>유형 A</td>
+          <td class="textLeft"><a href="#" class="link">링크 항목 01</a></td>
+          <td><span class="statusDot ing">운영중</span></td>
+          <td>관리자</td>
+          <td>2026.06.15</td>
+          <td>
+            <div class="btnGroup sm">
+              <button type="button" class="btn outline">수정</button>
+              <button type="button" class="btn danger">삭제</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>유형 B</td>
+          <td class="textLeft"><a href="#" class="link">링크 항목 02</a></td>
+          <td><span class="statusDot ready">대기</span></td>
+          <td>관리자</td>
+          <td>2026.06.14</td>
+          <td>
+            <div class="btnGroup sm">
+              <button type="button" class="btn outline">수정</button>
+              <button type="button" class="btn danger">삭제</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>유형 A</td>
+          <td class="textLeft"><a href="#" class="link">링크 항목 03</a></td>
+          <td><span class="statusDot end">종료</span></td>
+          <td>운영자</td>
+          <td>2026.06.10</td>
+          <td>
+            <div class="btnGroup sm">
+              <button type="button" class="btn outline">수정</button>
+              <button type="button" class="btn danger">삭제</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-<div class="tblWrap">
-  <table class="tbl">
-    <colgroup>
-      <col style="width: 80px;" />
-      <col style="width: 140px;" />
-      <col style="width: auto;" />
-      <col style="width: 120px;" />
-      <col style="width: 120px;" />
-      <col style="width: 160px;" />
-      <col style="width: 120px;" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th>No.</th>
-        <th>구분</th>
-        <th>항목명</th>
-        <th>상태</th>
-        <th>작성자</th>
-        <th>등록일자</th>
-        <th>관리</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="tblEmpty" colspan="7">검색결과가 없습니다.</td>
-      </tr>
-    </tbody>
-  </table>
+
+<!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+<!-- 하얀 박스 영역 -->
+<div class="sectionBox">
+  <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">검색 결과</h3>
+      <span class="tblCount">총 <strong class="count">0</strong>건</span>
+    </div>
+  </div>
+  <div class="tblWrap">
+    <table class="tbl">
+      <colgroup>
+        <col style="width: 80px;" />
+        <col style="width: 140px;" />
+        <col style="width: auto;" />
+        <col style="width: 120px;" />
+        <col style="width: 120px;" />
+        <col style="width: 160px;" />
+        <col style="width: 120px;" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>구분</th>
+          <th>항목명</th>
+          <th>상태</th>
+          <th>작성자</th>
+          <th>등록일자</th>
+          <th>관리</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tblEmpty" colspan="7">검색결과가 없습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

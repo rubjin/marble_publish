@@ -28,19 +28,19 @@
     background-color: $text-tertiary;
   }
 
-  &.ing {
+  &.ing {//운영중
     &::before {
       background-color: $text-success; // 
     }
   }
 
-  &.ready  {
+  &.ready  {//예정
     &::before {
       background-color: $text-warning; //
     }
   }
 
-  &.end  {
+  &.end  {//종료
     &::before {
       background-color: $text-danger; // 
     }

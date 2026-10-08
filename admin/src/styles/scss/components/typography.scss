@@ -27,6 +27,11 @@
 .textMuted { color: $text-secondary !important; }
 .textDisabled { color: $text-tertiary !important; }
 .textWhite { color: $color-white !important; }
+.textInfo { color: $text-info !important; }
+.textSuccess { color: $text-info !important; }
+.textIng { color: $text-success !important; }
+.textWarning { color: $text-warning !important; }
+.textDanger { color: $text-danger !important; }
 
 // Typography Component Scale (Headings & Body)
 .titPage {
