@@ -166,7 +166,12 @@ function walkHtml(dir) {
   return results;
 }
 
-const allHtmlFiles = walkHtml(SRC_DIR);
+// 개발 서버 전용 페이지 (React 번들 필요 - 정적 dist 에서는 동작하지 않음)
+const DEV_ONLY_HTML = ['guide/library.html'];
+
+const allHtmlFiles = walkHtml(SRC_DIR).filter(
+  (f) => !DEV_ONLY_HTML.includes(path.relative(SRC_DIR, f).split(path.sep).join('/'))
+);
 
 for (const htmlFile of allHtmlFiles) {
   const relativePath = path.relative(SRC_DIR, htmlFile);

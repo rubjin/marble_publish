@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>라이브러리 동작 확인</title>
+  <link rel="stylesheet" href="../styles/scss/globals.scss">
+  <style>
+    /* 확인 페이지 전용 레이아웃 (서비스 화면에는 사용하지 않음) */
+    body { background-color: #F3F5F6; }
+    .libPage { max-width: 1400px; margin: 0 auto; padding: 32px 32px 80px; }
+    .libHeader { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+    .libHeader h1 { font-size: 26px; font-weight: 700; color: #111827; }
+    .libHeader p { font-size: 13px; color: #6B7280; }
+    .libNav { position: sticky; top: 0; z-index: 50; display: flex; gap: 6px; padding: 12px 0; margin-bottom: 16px; background-color: #F3F5F6; }
+    .libSection { scroll-margin-top: 64px; margin-bottom: 40px; }
+    .libSectionTitle { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; font-size: 20px; font-weight: 700; color: #111827; }
+    .libSectionTitle small { font-size: 13px; font-weight: 500; color: #8D919B; }
+    .libDemoTitle { margin: 28px 0 10px; font-size: 15px; font-weight: 700; color: #1F2937; }
+    .libDemoTitle:first-child { margin-top: 0; }
+    .libHint { margin-bottom: 12px; font-size: 13px; color: #6B7280; }
+    .libState { margin-top: 10px; padding: 10px 12px; border-radius: 6px; background-color: #F8F9FA; font-size: 12px; color: #4F535A; font-family: Consolas, monospace; white-space: pre-wrap; }
+    .libRow { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; }
+    .libCalendarSlot { min-height: 420px; }
+  </style>
+</head>
+<body>
+  <!-- [D] 개발 확인용 페이지 - npm run dev 에서만 동작 (React 번들 필요, dist 빌드 제외) -->
+  <div id="root"></div>
+  <script type="module" src="/src/guide/library/main.jsx"></script>
+</body>
+</html>

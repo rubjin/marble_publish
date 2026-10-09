@@ -27,6 +27,19 @@ window.adminData = [
   },
   {
     "category": "AM",
+    "depth1": "가이드",
+    "depth2": "라이브러리 동작 확인",
+    "depth3": "",
+    "depth4": "",
+    "screenId": "library",
+    "type": "페이지",
+    "status": "진행중",
+    "worker": "",
+    "link": "guide/library.html",
+    "note": "그리드·달력·차트·드래그앤드롭 실제 동작 (npm run dev 전용)"
+  },
+  {
+    "category": "AM",
     "depth1": "공통",
     "depth2": "공통 레이아웃",
     "depth3": "",
