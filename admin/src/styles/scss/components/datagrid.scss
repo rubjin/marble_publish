@@ -292,7 +292,7 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
   thead .isPinnedLeft,
   thead .isPinnedRight {
     z-index: 3;
-    background-color: $color-gray-100;
+    background-color: $tbl-header-bg-solid;
   }
 
   tfoot .isPinnedLeft,
@@ -339,11 +339,12 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
     user-select: none;
     touch-action: none;
 
+    // 손잡이 선을 컬럼 경계(셀 우측 끝)에 맞춤
     &::after {
       content: '';
       position: absolute;
       top: 25%;
-      right: 2px;
+      right: 0;
       width: 2px;
       height: 50%;
       border-radius: 1px;
@@ -357,6 +358,15 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
       height: 100%;
       background-color: $color-blue-500;
     }
+  }
+
+  // 셀 구분선이 있는 경우 평소에는 구분선만 노출, hover / 드래그 시에만 손잡이 표시
+  &.isBordered .resizer::after {
+    background-color: transparent;
+  }
+  &.isBordered .resizer:hover::after,
+  &.isBordered .resizer.isResizing::after {
+    background-color: $color-blue-500;
   }
 }
 
