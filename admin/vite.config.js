@@ -1,21 +1,28 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { resolve, dirname } from 'path';
 import fs from 'fs';
 
 // 초간단 HTML Include 플러그인 (정규식 기반 - 중첩 include 지원)
-function resolveIncludes(htmlContent) {
+// 경로는 include 를 쓴 파일 기준 상대 경로 (VS Code 에서 Ctrl+클릭으로 파일 이동 가능)
+//   예) src/guide/guide.html → <include src="../components/form.html"></include>
+// 기존 방식(admin 루트 기준 "./src/...")도 계속 지원
+function resolveIncludePath(src, baseDir) {
+  const candidates = [resolve(baseDir, src), resolve(__dirname, src)];
+  return candidates.find((p) => fs.existsSync(p) && fs.statSync(p).isFile());
+}
+
+function resolveIncludes(htmlContent, baseDir = __dirname) {
   const regex = /<!--[\s\S]*?-->|<include\s+src="([^"]+)"><\/include>/g;
   return htmlContent.replace(regex, (match, src) => {
     // 매칭된 내용이 주석이라면 원본 그대로 통과
     if (match.startsWith('<!--')) return match;
-    
-    // vite.config.js 파일의 위치(__dirname) 기준으로 경로 탐색
-    const filePath = resolve(__dirname, src);
-    if (fs.existsSync(filePath)) {
+
+    const filePath = resolveIncludePath(src, baseDir);
+    if (filePath) {
       const nestedContent = fs.readFileSync(filePath, 'utf-8');
-      return resolveIncludes(nestedContent); // 재귀 호출로 중첩된 include까지 모두 치환
+      return resolveIncludes(nestedContent, dirname(filePath)); // 중첩 include 는 포함된 파일 기준으로 다시 해석
     }
-    console.warn(`[html-include] 파일을 찾을 수 없습니다: ${filePath}`);
+    console.warn(`[html-include] 파일을 찾을 수 없습니다: ${src} (기준: ${baseDir})`);
     return match; // 파일이 없으면 원본 그대로 둠
   });
 }
@@ -23,9 +30,10 @@ function resolveIncludes(htmlContent) {
 function htmlIncludePlugin() {
   return {
     name: 'html-include',
-    transformIndexHtml(html) {
-      // Include 치환
-      let content = resolveIncludes(html);
+    transformIndexHtml(html, ctx) {
+      // Include 치환 (현재 HTML 파일 위치 기준)
+      const baseDir = ctx?.filename ? dirname(ctx.filename) : __dirname;
+      let content = resolveIncludes(html, baseDir);
 
       // SCSS 링크 경로 정규화 (<link> 유지: JS 주입 방식은 렌더 후 CSS가 적용되어 화면 깨짐(FOUC) 발생)
       content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/globals\.scss["']\s*\/?>/gi, '<link rel="stylesheet" href="/src/styles/scss/globals.scss">');

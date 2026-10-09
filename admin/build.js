@@ -82,12 +82,10 @@ function compileSass(srcFile, destFile) {
     });
 
     let css = result.css;
-    // dist 배포용 CSS는 독립적인 상대 경로(dist/assets/images, dist/assets/fonts)로 보정
+    // dist 배포용 CSS는 독립적인 상대 경로로 보정
+    // CSS 위치: dist/styles/css/ → 이미지/폰트: dist/assets/images, dist/assets/fonts (../../assets/...)
     if (destFile.startsWith('dist/')) {
-      css = css.replace(/\/src\/assets\/images/g, '../images');
-      css = css.replace(/\/src\/assets\/fonts/g, '../fonts');
-      css = css.replace(/\/assets\/images/g, '../images');
-      css = css.replace(/\/assets\/fonts/g, '../fonts');
+      css = css.replace(/(["'(])\/(?:src\/)?assets\/(images|fonts)\//g, '$1../../assets/$2/');
     }
 
     fs.mkdirSync(path.dirname(fullDest), { recursive: true });
@@ -135,12 +133,17 @@ fs.copyFileSync(
 );
 
 // HTML Include Resolver
+// 경로는 include 를 쓴 파일 기준 상대 경로 (기존 admin 루트 기준 "./src/..." 도 지원) - vite.config.js 와 동일 규칙
 function resolveIncludes(htmlContent, currentFilePath) {
   const includeRegex = /<!--[\s\S]*?-->|<include\s+src="([^"]+)"><\/include>/g;
   return htmlContent.replace(includeRegex, (match, src) => {
     if (match.startsWith('<!--')) return match;
-    const includePath = path.resolve(ROOT_DIR, src.replace(/^\.\//, ''));
-    if (fs.existsSync(includePath)) {
+    const candidates = [
+      path.resolve(path.dirname(currentFilePath), src),
+      path.resolve(ROOT_DIR, src.replace(/^\.\//, ''))
+    ];
+    const includePath = candidates.find((p) => fs.existsSync(p) && fs.statSync(p).isFile());
+    if (includePath) {
       const nestedContent = fs.readFileSync(includePath, 'utf8');
       return resolveIncludes(nestedContent, includePath);
     }
