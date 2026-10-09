@@ -9,7 +9,7 @@
   'use strict';
 
   // ==========================================
-  // 1. 세그먼트 (Segment) 컴포넌트
+  // 세그먼트 (Segment) 컴포넌트
   // ==========================================
   document.addEventListener('click', function(e) {
     var btn = e.target.closest('.segment .segmentItem:not(label)');
@@ -25,7 +25,7 @@
   });
 
   // ==========================================
-  // 2. 파일 업로드 & 드래그 앤 드롭 (File Upload & Dropzone)
+  // 파일 업로드 & 드래그 앤 드롭 (File Upload & Dropzone)
   // ==========================================
 
   // 파일 크기 포맷 유틸
@@ -111,7 +111,7 @@
   });
 
   // ==========================================
-  // 3. 사이드바 (Sidebar Collapse & Menu Toggle)
+  // 사이드바 (Sidebar Collapse & Menu Toggle)
   // 사이드바 접기/펼치기 토글
   document.addEventListener('click', function(e) {
     var foldBtn = e.target.closest('.boSidebar .btnFold');
@@ -140,7 +140,7 @@
   });
 
   // ==========================================
-  // 4. 모달 팝업 (Modal Popup Open/Close)
+  // 모달 팝업 (Modal Popup Open/Close)
   // ==========================================
   window.openPopup = function(id) {
     var popup = document.getElementById(id);
@@ -177,7 +177,7 @@
   });
 
   // ==========================================
-  // 5. 페이지 즐겨찾기 버튼 토글 (Favorite Button)
+  // 페이지 즐겨찾기 버튼 토글 (Favorite Button)
   // ==========================================
   document.addEventListener('click', function(e) {
     var favBtn = e.target.closest('.btnFavorite');
@@ -187,7 +187,7 @@
   });
 
   // ==========================================
-  // 6. 라디오 카드 (Radio Card) 활성화 상태 동기화
+  // 라디오 카드 (Radio Card) 활성화 상태 동기화
   // ==========================================
   document.addEventListener('change', function(e) {
     if (e.target.matches('.formRadioCard input[type="radio"]')) {

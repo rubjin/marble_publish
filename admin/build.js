@@ -8,7 +8,7 @@ const DIST_DIR = path.resolve(ROOT_DIR, 'dist');
 
 console.log('Starting HTML dist build...\n');
 
-// 1. Clean dist
+// Clean dist
 if (fs.existsSync(DIST_DIR)) {
   fs.rmSync(DIST_DIR, { recursive: true, force: true });
 }
@@ -62,7 +62,7 @@ const sassAliasImporter = {
   }
 };
 
-// 2. Compile SCSS directly to dist/styles/css
+// Compile SCSS directly to dist/styles/css
 function compileSass(srcFile, destFile) {
   const fullSrc = path.resolve(ROOT_DIR, srcFile);
   const fullDest = path.resolve(ROOT_DIR, destFile);
@@ -98,7 +98,7 @@ function compileSass(srcFile, destFile) {
   }
 }
 
-// 3. Helper to copy directory recursively
+// Helper to copy directory recursively
 function copyDirSync(srcDirPath, destDirPath) {
   if (!fs.existsSync(srcDirPath)) return;
 
@@ -134,7 +134,7 @@ fs.copyFileSync(
   path.resolve(DIST_DIR, 'styles/css/prism-tomorrow.min.css')
 );
 
-// 4. HTML Include Resolver
+// HTML Include Resolver
 function resolveIncludes(htmlContent, currentFilePath) {
   const includeRegex = /<!--[\s\S]*?-->|<include\s+src="([^"]+)"><\/include>/g;
   return htmlContent.replace(includeRegex, (match, src) => {
@@ -149,7 +149,7 @@ function resolveIncludes(htmlContent, currentFilePath) {
   });
 }
 
-// 5. Process all HTML files in src (output directly under dist/)
+// Process all HTML files in src (output directly under dist/)
 function walkHtml(dir) {
   let results = [];
   if (!fs.existsSync(dir)) return results;
@@ -177,10 +177,10 @@ for (const htmlFile of allHtmlFiles) {
   const relativePath = path.relative(SRC_DIR, htmlFile);
   let content = fs.readFileSync(htmlFile, 'utf8');
 
-  // 1) Resolve includes
+  // Resolve includes
   content = resolveIncludes(content, htmlFile);
 
-  // 2) Replace .scss references with .css references for dist
+  // Replace .scss references with .css references for dist
   const depth = relativePath.split(path.sep).length - 1;
   const prefix = depth > 0 ? '../'.repeat(depth) : './';
   content = content.replace(/href="[^"]*?(?:assets\/)?scss\/(?:globals|main|common)\.scss"/g, `href="${prefix}styles/css/globals.css"`);
@@ -192,7 +192,7 @@ for (const htmlFile of allHtmlFiles) {
   console.log(`[HTML] Generated: ${relativePath}`);
 }
 
-// 6. Process admin worksheet data
+// Process admin worksheet data
 const srcDataDir = path.resolve(SRC_DIR, 'data');
 if (fs.existsSync(srcDataDir)) {
   copyDirSync(srcDataDir, path.resolve(DIST_DIR, 'data'));

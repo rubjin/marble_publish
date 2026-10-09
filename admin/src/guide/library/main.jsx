@@ -9,12 +9,14 @@ import GridDemo from './GridDemo.jsx';
 import CalendarDemo from './CalendarDemo.jsx';
 import ChartDemo from './ChartDemo.jsx';
 import DndDemo from './DndDemo.jsx';
+import UploadDemo from './UploadDemo.jsx';
 
 const SECTIONS = [
   { id: 'libGrid', title: 'Data Grid', lib: '@tanstack/react-table v8', Demo: GridDemo },
   { id: 'libCalendar', title: 'Calendar', lib: 'react-day-picker v9', Demo: CalendarDemo },
   { id: 'libChart', title: 'Chart', lib: 'lightweight-charts v5', Demo: ChartDemo },
-  { id: 'libDnd', title: 'Drag & Drop', lib: '@dnd-kit', Demo: DndDemo }
+  { id: 'libDnd', title: 'Drag & Drop', lib: '@dnd-kit', Demo: DndDemo },
+  { id: 'libUpload', title: 'File Upload', lib: 'react-dropzone v14', Demo: UploadDemo }
 ];
 
 function App() {

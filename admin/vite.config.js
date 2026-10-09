@@ -24,19 +24,19 @@ function htmlIncludePlugin() {
   return {
     name: 'html-include',
     transformIndexHtml(html) {
-      // 1. Include 치환
+      // Include 치환
       let content = resolveIncludes(html);
 
-      // 2. SCSS 링크 경로 정규화 (<link> 유지: JS 주입 방식은 렌더 후 CSS가 적용되어 화면 깨짐(FOUC) 발생)
+      // SCSS 링크 경로 정규화 (<link> 유지: JS 주입 방식은 렌더 후 CSS가 적용되어 화면 깨짐(FOUC) 발생)
       content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/globals\.scss["']\s*\/?>/gi, '<link rel="stylesheet" href="/src/styles/scss/globals.scss">');
       content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["'][^"']*?(?:assets\/)?scss\/common\.scss["']\s*\/?>/gi, '<link rel="stylesheet" href="/src/styles/scss/common.scss">');
 
-      // 3. UI JS 스크립트 경로 정규화
+      // UI JS 스크립트 경로 정규화
       content = content.replace(/src=["'][^"']*?(?:assets\/)?js\/ui\.js["']/g, 'src="/src/assets/js/ui.js"');
       content = content.replace(/src=["'][^"']*?(?:assets\/)?js\/guide\.js["']/g, 'src="/src/assets/js/guide.js"');
       content = content.replace(/src=["'][^"']*?(?:assets\/)?js\/prism\.min\.js["']/g, 'src="/src/assets/js/prism.min.js"');
 
-      // 4. Prism 테마 CSS 경로 정규화 (상대경로 ../styles/... 는 dev 서버에서 404)
+      // Prism 테마 CSS 경로 정규화 (상대경로 ../styles/... 는 dev 서버에서 404)
       content = content.replace(/href=["'][^"']*?styles\/css\/prism-tomorrow\.min\.css["']/g, 'href="/src/styles/css/prism-tomorrow.min.css"');
 
       return content;
@@ -59,7 +59,7 @@ function rootWorksheetPlugin() {
       server.middlewares.use(async (req, res, next) => {
         const url = req.url.split('?')[0];
 
-        // 1. 루트 접근 시 admin/src/index.html 서빙
+        // 루트 접근 시 admin/src/index.html 서빙
         if (url === '/' || url === '/index.html') {
           const adminIndexPath = resolve(__dirname, 'src/index.html');
           if (fs.existsSync(adminIndexPath)) {
@@ -70,12 +70,12 @@ function rootWorksheetPlugin() {
           }
         }
 
-        // 2. /admin/ 경로로 들어온 요청은 / 경로로 리라이트
+        // /admin/ 경로로 들어온 요청은 / 경로로 리라이트
         if (req.url.startsWith('/admin/')) {
           req.url = req.url.replace(/^\/admin/, '');
         }
 
-        // 3. /data/ 또는 /src/data/ 경로 요청 처리
+        // /data/ 또는 /src/data/ 경로 요청 처리
         if (req.url.startsWith('/data/') || req.url.startsWith('/src/data/')) {
           const cleanPath = req.url.replace(/^\/(?:src\/)?/, '').split('?')[0];
           const dataFilePath = resolve(__dirname, 'src', cleanPath);
@@ -87,7 +87,7 @@ function rootWorksheetPlugin() {
           }
         }
 
-        // 4. /pages/, /guide/, /layout/, /components/ 등 src 하위 HTML 요청 직접 매핑
+        // /pages/, /guide/, /layout/, /components/ 등 src 하위 HTML 요청 직접 매핑
         const subDirs = ['pages', 'guide', 'layout', 'components'];
         for (const dir of subDirs) {
           if (req.url.startsWith(`/${dir}/`)) {
@@ -104,7 +104,7 @@ function rootWorksheetPlugin() {
           }
         }
 
-        // 5. /assets/ 경로로 들어온 요청은 /src/assets/ 디렉토리 파일 서빙 (호환성)
+        // /assets/ 경로로 들어온 요청은 /src/assets/ 디렉토리 파일 서빙 (호환성)
         if (req.url.startsWith('/assets/')) {
           const assetFilePath = resolve(__dirname, 'src', req.url.replace(/^\//, '').split('?')[0]);
           if (fs.existsSync(assetFilePath) && fs.statSync(assetFilePath).isFile()) {

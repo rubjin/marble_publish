@@ -36,7 +36,7 @@ window.adminData = [
     "status": "진행중",
     "worker": "",
     "link": "guide/library.html",
-    "note": "그리드·달력·차트·드래그앤드롭 실제 동작 (npm run dev 전용)"
+    "note": "그리드·달력·차트·드래그앤드롭·파일첨부 실제 동작 (npm run dev 전용)"
   },
   {
     "category": "AM",

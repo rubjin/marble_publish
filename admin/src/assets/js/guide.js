@@ -12,7 +12,7 @@
   'use strict';
 
   // ==========================================
-  // 1. 코드 박스 자동 생성 & Prism 하이라이팅
+  // 코드 박스 자동 생성 & Prism 하이라이팅
   // ==========================================
   document.addEventListener('DOMContentLoaded', function() {
     var boxes = document.querySelectorAll('.guideBox');
@@ -75,7 +75,7 @@
   });
 
   // ==========================================
-  // 2. 가이드 탭 네비게이션 & 상태 유지
+  // 가이드 탭 네비게이션 & 상태 유지
   // ==========================================
   window.activateTab = function(targetId) {
     if (!targetId) return;
@@ -145,7 +145,7 @@
 })();
 
 // ==========================================
-// 3. 코드 보기 토글 & 복사 전역 함수
+// 코드 보기 토글 & 복사 전역 함수
 // ==========================================
 function toggleCode(btn) {
   var wrap = btn.closest('.guideCodeWrap');
