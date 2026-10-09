@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve, dirname } from 'path';
 import fs from 'fs';
+import { spawn } from 'child_process';
 
 // 초간단 HTML Include 플러그인 (정규식 기반 - 중첩 include 지원)
 // 경로는 include 를 쓴 파일 기준 상대 경로 (VS Code 에서 Ctrl+클릭으로 파일 이동 가능)
@@ -55,6 +56,23 @@ function htmlIncludePlugin() {
           type: 'full-reload'
         });
       }
+    }
+  };
+}
+
+// dist 실시간 빌드 플러그인 (npm run dev 실행 시 build-watch.js 를 함께 실행)
+// 끄기: DIST_WATCH=false npm run dev (PowerShell: $env:DIST_WATCH='false'; npm run dev)
+function distWatchPlugin() {
+  return {
+    name: 'dist-watch',
+    apply: 'serve',
+    configureServer(server) {
+      if (process.env.DIST_WATCH === 'false') return;
+      const child = spawn(process.execPath, [resolve(__dirname, 'build-watch.js')], { cwd: __dirname, stdio: 'inherit' });
+      const stop = () => { if (!child.killed) child.kill(); };
+      // 설정 변경으로 서버가 재시작되거나 종료되면 감시 프로세스도 함께 종료
+      server.httpServer?.once('close', stop);
+      process.once('exit', stop);
     }
   };
 }
@@ -142,7 +160,7 @@ function rootWorksheetPlugin() {
 }
 
 export default defineConfig({
-  plugins: [htmlIncludePlugin(), rootWorksheetPlugin()],
+  plugins: [htmlIncludePlugin(), rootWorksheetPlugin(), distWatchPlugin()],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
