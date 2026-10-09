@@ -3,10 +3,10 @@
 // 퍼블리싱 가이드 및 전체 스타일 일괄 적용용
 // ==========================================================================
 
-// 1. Common Base (변수, 믹스인, 리셋, 전역 기본)
+// Common Base (변수, 믹스인, 리셋, 전역 기본)
 @use 'common';
 
-// 2. Layout & Shell (Sidebar, Header, Layout)
+// Layout & Shell (Sidebar, Header, Layout)
 @use 'components/layout';
 @use 'components/section';
 @use 'components/icon';
@@ -14,18 +14,18 @@
 @use 'components/breadcrumb';
 @use 'components/listbar';
 
-// 3. Actions & Navigation Controls
+// Actions & Navigation Controls
 @use 'components/button';
 @use 'components/segment';
 @use 'components/toggle';
 @use 'components/tab';
 
-// 4. Forms & Filters
+// Forms & Filters
 @use 'components/form';
 @use 'components/searchbox';
 @use 'components/fileupload';
 
-// 5. Data Display & Feedback Components
+// Data Display & Feedback Components
 @use 'components/badge';
 @use 'components/card';
 @use 'components/table';
@@ -34,12 +34,12 @@
 @use 'components/toast';
 @use 'components/tooltip';
 
-// 6. External Library Skins (React 라이브러리 연동 스타일)
+// External Library Skins (React 라이브러리 연동 스타일)
 @use 'components/datagrid';   // @tanstack/react-table
 @use 'components/chart';      // lightweight-charts
 @use 'components/calendar';   // react-day-picker
 @use 'components/dnd';        // Drag & Drop (라이브러리 미정)
 
-// 7. Standalone Pages
+// Standalone Pages
 @use 'pages/login';
 @use 'pages/error';
