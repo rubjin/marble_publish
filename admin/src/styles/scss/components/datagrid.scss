@@ -165,9 +165,6 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
     thead th { height: 36px; padding: 6px 10px; font-size: 13px; }
     tbody td { height: 36px; padding: 6px 10px; font-size: 13px; }
   }
-
-  /* ---------- 줄무늬 (Striped) ---------- */
-  &.isStriped tbody tr:nth-child(even) { background-color: $color-gray-50; }
 }
 
 /* --------------------------------------------------------------------------

@@ -5,7 +5,7 @@
 
   - 구조
     <div class="dataGridWrap [h400] [isLoading]">
-      <table class="tbl dataGrid [isBordered | isCompact | isStriped | isResizable]">
+      <table class="tbl dataGrid [isBordered | isCompact | isResizable]">
         thead th     : header.column.getCanSort() → <button class="sortBtn [isAsc|isDesc]">
         tbody tr     : row.getIsSelected() → .isSelected
         td/th 정렬    : columnDef.meta.className 으로 .textLeft / .textRight / .isNumber 지정 권장
@@ -315,7 +315,7 @@
   </div>
   <!-- [D] 조회 중: .dataGridWrap.isLoading -->
   <div class="dataGridWrap isLoading">
-    <table class="tbl dataGrid isCompact isStriped">
+    <table class="tbl dataGrid isCompact">
       <thead>
         <tr>
           <th>No.</th>
