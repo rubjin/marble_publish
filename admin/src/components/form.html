@@ -4,6 +4,9 @@
   - 컴포넌트 2: <Input type="text" placeholder="..." value={val} onChange={...} isError={...} />
   - 컴포넌트 3: <Select options={options} value={selected} onChange={...} placeholder="선택" />
   - 컴포넌트 4: <Textarea value={text} onChange={...} maxLength={1000} placeholder="..." />
+  - 컴포넌트 5: <FileInput files={fileList} onSelect={...} onRemove={...} accept=".pdf,.xlsx" boxType />
+      .fileUpload (input[type=file] + .fileUploadInput 선택 파일명 + .fileUploadBtn) + .fileList.boxType (박스형 목록)
+      files 형태는 fileupload.html 과 동일: Array<{ id; name; size: number(byte); url? }>
   - 속성 인터페이스:
     * label?: string | React.ReactNode (라벨 텍스트)
     * required?: boolean (필수 표시 <span class="required">*</span> 추가)
@@ -62,5 +65,38 @@
   <label class="formLabel">상세 내용</label>
   <div class="formControlWrap full">
     <textarea class="formControl" rows="4" placeholder="상세 내용을 입력해주세요 (최대 1000자)"></textarea>
+  </div>
+</div>
+
+<!-- 첨부파일 (인풋형 선택 + 박스형 목록: .fileList.boxType) -->
+<div class="formGroup">
+  <label class="formLabel" for="formAttachFile">첨부파일</label>
+  <div class="formControlWrap full col">
+    <div class="fileUpload">
+      <input type="file" id="formAttachFile" multiple />
+      <input type="text" class="formControl fileUploadInput" placeholder="파일을 선택해주세요" readonly aria-label="선택된 파일" />
+      <label for="formAttachFile" class="btn outline fileUploadBtn">파일 선택</label>
+    </div>
+
+    <!-- [D] 첨부된 파일 목록: 파일 있을 때 노출 / 박스형: .boxType -->
+    <ul class="fileList boxType">
+      <li class="fileItem">
+        <div class="fileInfo">
+          <a class="fileName" href="#;">이벤트 안내문.pdf <span class="fileSize">(820KB)</span></a>
+        </div>
+        <button type="button" class="fileDelete" aria-label="이벤트 안내문.pdf 삭제">
+          <span class="ico deleteTag"></span>
+        </button>
+      </li>
+      <li class="fileItem">
+        <div class="fileInfo">
+          <a class="fileName" href="#;">참여자 명단.xlsx <span class="fileSize">(1.2MB)</span></a>
+        </div>
+        <button type="button" class="fileDelete" aria-label="참여자 명단.xlsx 삭제">
+          <span class="ico deleteTag"></span>
+        </button>
+      </li>
+    </ul>
+    <span class="formGuideText">PDF, XLSX / 파일당 최대 10MB / 최대 5개</span>
   </div>
 </div>
