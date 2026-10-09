@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { DndContext, PointerSensor, KeyboardSensor, closestCenter, useSensor, useSensors } from '@dnd-kit/core';
+import { DndContext, DragOverlay, PointerSensor, KeyboardSensor, closestCenter, useSensor, useSensors } from '@dnd-kit/core';
 import { SortableContext, arrayMove, useSortable, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { cx, StateView } from './shared.jsx';
@@ -222,26 +222,30 @@ function StepImageField({ image, onChange }) {
   );
 }
 
-function StepCard({ step, index, canDelete, onChange, onCopy, onDelete }) {
-  const { setNodeRef, setActivatorNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id: step.id });
+/** 정렬 가능한 STEP 카드 (원본 자리: .isDragging) */
+function SortableStepCard(props) {
+  const { setNodeRef, setActivatorNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id: props.step.id });
+  return (
+    <StepCard
+      {...props}
+      cardRef={setNodeRef}
+      className={cx({ isDragging })}
+      style={{ transform: CSS.Translate.toString(transform), transition }}
+      handleProps={{ ref: setActivatorNodeRef, ...attributes, ...listeners }}
+    />
+  );
+}
+
+const noop = () => {};
+
+function StepCard({ step, index, canDelete, onChange = noop, onCopy, onDelete, cardRef, className, style, handleProps }) {
   const set = (key) => (e) => onChange({ ...step, [key]: e.target.value });
 
   return (
-    <div
-      ref={setNodeRef}
-      className="stepCard"
-      // 드래그 중 카드가 다른 카드 위로 보이도록 (확인용 인라인 스타일)
-      style={{
-        transform: CSS.Translate.toString(transform),
-        transition,
-        position: 'relative',
-        zIndex: isDragging ? 10 : undefined,
-        boxShadow: isDragging ? '0 4px 16px rgba(0, 0, 0, 0.18)' : undefined
-      }}
-    >
+    <div ref={cardRef} className={cx('stepCard', className)} style={style}>
       <div className="stepHeader">
         <div className="stepTitleWrap">
-          <span ref={setActivatorNodeRef} className="ico lg stepHandle" aria-label="STEP 순서 변경" {...attributes} {...listeners}></span>
+          <span className="ico lg stepHandle" aria-label="STEP 순서 변경" {...handleProps}></span>
           <h4 className="stepTitle">STEP {index + 1}. {step.name || '새 단계'}</h4>
         </div>
         <div className="stepActions">
@@ -295,15 +299,25 @@ function StepCardDemo() {
     return list.filter((_, j) => j !== i);
   });
 
+  const [activeId, setActiveId] = useState(null);
+  const activeIndex = steps.findIndex((s) => s.id === activeId);
+  const endDrag = () => {
+    setActiveId(null);
+    document.body.classList.remove('isDndActive');
+  };
+
   return (
     <>
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
-        onDragStart={() => document.body.classList.add('isDndActive')}
-        onDragCancel={() => document.body.classList.remove('isDndActive')}
+        onDragStart={({ active }) => {
+          setActiveId(active.id);
+          document.body.classList.add('isDndActive');
+        }}
+        onDragCancel={endDrag}
         onDragEnd={({ active, over }) => {
-          document.body.classList.remove('isDndActive');
+          endDrag();
           if (over && active.id !== over.id) {
             setSteps((list) => arrayMove(list, list.findIndex((s) => s.id === active.id), list.findIndex((s) => s.id === over.id)));
           }
@@ -312,7 +326,7 @@ function StepCardDemo() {
         <SortableContext items={steps} strategy={verticalListSortingStrategy}>
           <div className="stepCardList">
             {steps.map((step, i) => (
-              <StepCard
+              <SortableStepCard
                 key={step.id}
                 step={step}
                 index={i}
@@ -324,6 +338,12 @@ function StepCardDemo() {
             ))}
           </div>
         </SortableContext>
+        {/* 커서를 따라다니는 미리보기: .stepCard.isOverlay */}
+        <DragOverlay>
+          {activeIndex >= 0 && (
+            <StepCard step={steps[activeIndex]} index={activeIndex} canDelete={steps.length > 1} className="isOverlay" />
+          )}
+        </DragOverlay>
       </DndContext>
       <div style={{ marginTop: 12 }}>
         <button type="button" className="btn outline" onClick={() => setSteps((list) => [...list, newStep()])}>+ STEP 추가</button>

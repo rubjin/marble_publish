@@ -5247,6 +5247,29 @@ body.isDndActive * {
 }
 
 /* --------------------------------------------------------------------------
+   STEP 카드 순서 변경 (.stepCardList > .stepCard)
+   [D] 드래그 중인 원본: .stepCard.isDragging / 미리보기(DragOverlay): .stepCard.isOverlay
+       카드에 테두리가 없으므로 크기 변화가 없도록 outline 으로 표시
+   -------------------------------------------------------------------------- */
+.stepCard.isDragging {
+  outline: 1px dashed #8D919B;
+  outline-offset: -1px;
+  box-shadow: none;
+}
+.stepCard.isDragging > * {
+  visibility: hidden;
+}
+.stepCard.isOverlay {
+  outline: 1px solid #287EFF;
+  outline-offset: -1px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  cursor: grabbing;
+}
+.stepCard.isOverlay .stepHandle {
+  cursor: grabbing;
+}
+
+/* --------------------------------------------------------------------------
    보드 (칸반 형태 - 영역 간 이동)
    -------------------------------------------------------------------------- */
 .dndBoard {
