@@ -564,6 +564,8 @@ select.formControl {
     tbody {
       tr {
         border-bottom: none;
+        // 입력 폼 레이아웃용 테이블이므로 행 hover 배경 없음
+        &:hover { background-color: transparent; }
       }
       th {
         padding: 8px 10px 8px 0;

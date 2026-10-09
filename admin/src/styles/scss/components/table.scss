@@ -144,9 +144,11 @@
   .formLabel { margin-bottom: 0; min-height: 34px; display: inline-flex; align-items: center;  }
 
   // 가운데 정렬
+  // 수정자(tblCenter / tblBordered / tblView / tblInfo)는 자식 선택자(>)로 자기 행·셀에만 적용
+  // → 셀 안에 중첩된 테이블(.stepCard 의 .tbl 등)로 스타일이 새지 않음
   &.tblCenter {
-    thead th,
-    tbody td {
+    > thead > tr > th,
+    > tbody > tr > td {
       text-align: center;
     }
   }
@@ -155,8 +157,8 @@
   &.tblBordered {
     border: 1px solid $tbl-cell-border;
 
-    thead th,
-    tbody td {
+    > thead > tr > th,
+    > tbody > tr > td {
       border: 1px solid $tbl-cell-border;
     }
   }
@@ -165,23 +167,22 @@
   &.tblView {
     border-top: 1px solid $tbl-border-top;
 
-    tbody {
-      tr {
-        border-bottom: 1px solid $tbl-cell-border;
-        &:hover {
-          background-color: $color-white;
-        }
-        &:last-child {
-          border-bottom: none;
-        }
+    > tbody > tr {
+      border-bottom: 1px solid $tbl-cell-border;
+      &:hover {
+        background-color: $color-white;
       }
-      th, td { text-align: left; }
-      th {
+      &:last-child {
+        border-bottom: none;
+      }
+
+      > th, > td { text-align: left; }
+      > th {
         padding: 14px 12px;
         font-weight: $font-weight-medium;
         color: $tbl-th-text;
       }
-      td {
+      > td {
         padding: 14px 12px;
         color: $tbl-td-text;
       }
@@ -194,12 +195,11 @@
     border-collapse: separate;
     border-top: 1px solid $tbl-border-top;
 
-    tbody {
-      tr {
-        border-bottom: none;
-        &:hover { background-color: transparent; }
-      }
-      th, td {
+    > tbody > tr {
+      border-bottom: none;
+      &:hover { background-color: transparent; }
+
+      > th, > td {
         height: 48px;
         padding: 12px 16px;
         text-align: left;
@@ -208,13 +208,13 @@
         border-left: 1px solid $tbl-cell-border;
         &:first-child { border-left: none; }
       }
-      th {
+      > th {
         background-color: $tbl-header-bg;
         font-weight: $font-weight-medium;
         color: $tbl-th-text;
         white-space: nowrap;
       }
-      td {
+      > td {
         color: $text-title;
         font-weight: $font-weight-medium;
       }
