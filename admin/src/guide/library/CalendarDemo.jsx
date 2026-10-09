@@ -192,26 +192,26 @@ function RangePicker() {
 }
 
 /* ==========================================================================
-   인라인 캘린더 (연/월 드롭다운 + 다중 선택)
+   인라인 캘린더 (연/월 드롭다운 + 단일 선택)
    ========================================================================== */
 function InlineCalendar() {
-  const [days, setDays] = useState([]);
+  const [day, setDay] = useState(today());
   return (
     <div>
       <div className="calendarBox">
         <DayPicker
           {...COMMON}
-          mode="multiple"
+          mode="single"
           showOutsideDays
           captionLayout="dropdown"
           startMonth={new Date(2025, 0)}
           endMonth={new Date(2027, 11)}
           formatters={{ formatMonthDropdown: (d) => format(d, 'M월'), formatYearDropdown: (d) => format(d, 'yyyy년') }}
-          selected={days}
-          onSelect={(v) => setDays(v || [])}
+          selected={day}
+          onSelect={setDay}
         />
       </div>
-      <StateView>selected: {days.length ? days.map(fmt).join(', ') : '(없음)'}</StateView>
+      <StateView>selected: {day ? fmt(day) : '(없음)'}</StateView>
     </div>
   );
 }
@@ -230,7 +230,7 @@ export default function CalendarDemo() {
           <RangePicker />
         </div>
       </div>
-      <h3 className="libDemoTitle">3. 인라인 캘린더 (연/월 드롭다운, 다중 선택)</h3>
+      <h3 className="libDemoTitle">3. 인라인 캘린더 (연/월 드롭다운, 단일 선택)</h3>
       <InlineCalendar />
     </>
   );
