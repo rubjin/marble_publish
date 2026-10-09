@@ -7,6 +7,12 @@
    ========================================================================== */
 
 $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
+// 고정(sticky) 셀 구분선: border-collapse 테두리는 sticky 셀을 따라오지 않으므로 inset box-shadow 로 그림
+$grid-line:         $border-default;
+$grid-line-bottom:  inset 0 -1px 0 $grid-line; // 헤더 하단
+$grid-line-top:     inset 0 1px 0 $grid-line;  // 합계 상단
+$grid-line-right:   inset -1px 0 0 $grid-line; // 좌측 고정 경계 / 헤더 세로선
+$grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
 
 // 그리드 래퍼 (가로 스크롤 / 세로 고정 높이 스크롤)
 .dataGridWrap {
@@ -68,7 +74,7 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
       // 헤더 고정 시 스크롤되는 행이 비치지 않도록 불투명 배경 사용
       background-color: $tbl-header-bg-solid;
       color: $tbl-header-text;
-      border-bottom: 1px solid $border-default;
+      box-shadow: $grid-line-bottom;
       @include text-ellipsis;
     }
   }
@@ -123,7 +129,7 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
       height: 44px;
       padding: 10px 12px;
       background-color: $color-gray-50;
-      border-top: 1px solid $border-default;
+      box-shadow: $grid-line-top;
       font-weight: $font-weight-medium;
       color: $text-title;
       text-align: center;
@@ -147,7 +153,11 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
       border-right: 1px solid $tbl-cell-border;
       &:last-child { border-right: none; }
     }
-    thead th { border-right-color: $border-default; }
+    // 헤더는 sticky 이므로 테두리 대신 inset 선 사용
+    thead th {
+      border-right: none;
+      &:not(:last-child) { box-shadow: $grid-line-right, $grid-line-bottom; }
+    }
   }
 
   /* ---------- 촘촘한 행 (Compact) ---------- */
@@ -312,8 +322,13 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
     .isPinnedLeft, .isPinnedRight { background-color: $tbl-row-selected; }
   }
 
-  .isPinnedLeft.isPinnedEdge { box-shadow: 4px 0 6px -2px $grid-pin-shadow; }
-  .isPinnedRight.isPinnedEdge { box-shadow: -4px 0 6px -2px $grid-pin-shadow; }
+  // 고정 영역 경계: 구분선 + 그림자 (스크롤 시에도 유지)
+  .isPinnedLeft.isPinnedEdge { box-shadow: $grid-line-right, 4px 0 6px -2px $grid-pin-shadow; }
+  .isPinnedRight.isPinnedEdge { box-shadow: $grid-line-left, -4px 0 6px -2px $grid-pin-shadow; }
+  thead th.isPinnedLeft.isPinnedEdge { box-shadow: $grid-line-right, $grid-line-bottom, 4px 0 6px -2px $grid-pin-shadow; }
+  thead th.isPinnedRight.isPinnedEdge { box-shadow: $grid-line-left, $grid-line-bottom, -4px 0 6px -2px $grid-pin-shadow; }
+  tfoot .isPinnedLeft.isPinnedEdge { box-shadow: $grid-line-right, $grid-line-top, 4px 0 6px -2px $grid-pin-shadow; }
+  tfoot .isPinnedRight.isPinnedEdge { box-shadow: $grid-line-left, $grid-line-top, -4px 0 6px -2px $grid-pin-shadow; }
 }
 
 /* --------------------------------------------------------------------------

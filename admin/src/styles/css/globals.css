@@ -3751,7 +3751,7 @@ select.formControl.wAuto {
   padding: 10px 12px;
   background-color: #F5F7F8;
   color: #2F3034;
-  border-bottom: 1px solid #D5D7DE;
+  box-shadow: inset 0 -1px 0 #D5D7DE;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -3797,7 +3797,7 @@ select.formControl.wAuto {
   height: 44px;
   padding: 10px 12px;
   background-color: #F8F9FA;
-  border-top: 1px solid #D5D7DE;
+  box-shadow: inset 0 1px 0 #D5D7DE;
   font-weight: 500;
   color: #111827;
   text-align: center;
@@ -3823,7 +3823,10 @@ select.formControl.wAuto {
   border-right: none;
 }
 .tbl.dataGrid.isBordered thead th {
-  border-right-color: #D5D7DE;
+  border-right: none;
+}
+.tbl.dataGrid.isBordered thead th:not(:last-child) {
+  box-shadow: inset -1px 0 0 #D5D7DE, inset 0 -1px 0 #D5D7DE;
 }
 .tbl.dataGrid {
   /* ---------- 촘촘한 행 (Compact) ---------- */
@@ -3997,10 +4000,22 @@ select.formControl.wAuto {
   background-color: #EDF1FB;
 }
 .tbl.dataGrid .isPinnedLeft.isPinnedEdge {
-  box-shadow: 4px 0 6px -2px rgba(0, 0, 0, 0.08);
+  box-shadow: inset -1px 0 0 #D5D7DE, 4px 0 6px -2px rgba(0, 0, 0, 0.08);
 }
 .tbl.dataGrid .isPinnedRight.isPinnedEdge {
-  box-shadow: -4px 0 6px -2px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 1px 0 0 #D5D7DE, -4px 0 6px -2px rgba(0, 0, 0, 0.08);
+}
+.tbl.dataGrid thead th.isPinnedLeft.isPinnedEdge {
+  box-shadow: inset -1px 0 0 #D5D7DE, inset 0 -1px 0 #D5D7DE, 4px 0 6px -2px rgba(0, 0, 0, 0.08);
+}
+.tbl.dataGrid thead th.isPinnedRight.isPinnedEdge {
+  box-shadow: inset 1px 0 0 #D5D7DE, inset 0 -1px 0 #D5D7DE, -4px 0 6px -2px rgba(0, 0, 0, 0.08);
+}
+.tbl.dataGrid tfoot .isPinnedLeft.isPinnedEdge {
+  box-shadow: inset -1px 0 0 #D5D7DE, inset 0 1px 0 #D5D7DE, 4px 0 6px -2px rgba(0, 0, 0, 0.08);
+}
+.tbl.dataGrid tfoot .isPinnedRight.isPinnedEdge {
+  box-shadow: inset 1px 0 0 #D5D7DE, inset 0 1px 0 #D5D7DE, -4px 0 6px -2px rgba(0, 0, 0, 0.08);
 }
 
 /* --------------------------------------------------------------------------
