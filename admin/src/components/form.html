@@ -7,6 +7,7 @@
   - 컴포넌트 5: <FileInput files={fileList} onSelect={...} onRemove={...} accept=".pdf,.xlsx" boxType />
       .fileUpload (input[type=file] + .fileUploadInput 선택 파일명 + .fileUploadBtn) + .fileList.boxType (박스형 목록)
       files 형태는 fileupload.html 과 동일: Array<{ id; name; size: number(byte); url? }>
+      단일 첨부형: .fileList.boxType (목록) + 하단 .formControlWrap ([파일 선택] .btn.dark + .formGuideText)
   - 속성 인터페이스:
     * label?: string | React.ReactNode (라벨 텍스트)
     * required?: boolean (필수 표시 <span class="required">*</span> 추가)
@@ -90,5 +91,27 @@
       </li>
     </ul>
     <span class="formGuideText">PDF, XLSX / 파일당 최대 10MB / 최대 5개</span>
+  </div>
+</div>
+
+<!-- 첨부파일 (박스형 목록 + 하단 [파일 선택] 버튼 & 안내문구) -->
+<div class="formGroup">
+  <span class="formLabel">첨부파일 (단일)</span>
+  <div class="formControlWrap full col">
+    <!-- [D] 첨부된 파일 목록: 파일 있을 때 노출 -->
+    <ul class="fileList boxType">
+      <li class="fileItem">
+        <div class="fileInfo">
+          <a class="fileName" href="#;">업로드한 파일명이 출력됩니다(다운로드 가능).jpg<span class="fileSize">(1542byte)</span></a>
+        </div>
+        <button type="button" class="fileDelete" aria-label="삭제">
+          <span class="ico deleteTag"></span>
+        </button>
+      </li>
+    </ul>
+    <div class="formControlWrap">
+      <button type="button" class="btn dark">파일 선택</button>
+      <span class="formGuideText">※ 첨부파일은 최대 10MB × 1개로 jpg 파일만 등록할 수 있습니다.</span>
+    </div>
   </div>
 </div>

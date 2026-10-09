@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { DndContext, DragOverlay, PointerSensor, KeyboardSensor, closestCenter, useSensor, useSensors } from '@dnd-kit/core';
 import { SortableContext, arrayMove, useSortable, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable';
@@ -14,39 +14,7 @@ function errorMessage(rejection, { maxSize }) {
   const name = rejection.file.name;
   if (code === 'file-invalid-type') return `${name}: 허용되지 않는 파일 형식입니다.`;
   if (code === 'file-too-large') return `${name}: 최대 ${maxSize / MB}MB 까지 첨부할 수 있습니다.`;
-  if (code === 'too-many-files') return `${name}: 첨부 가능한 개수를 초과했습니다.`;
   return `${name}: ${rejection.errors[0]?.message}`;
-}
-
-/** 첨부 파일 상태 (미리보기 URL 생성/해제 포함) */
-function useFileList() {
-  const [files, setFiles] = useState([]);
-  const filesRef = useRef(files);
-  filesRef.current = files;
-
-  // 언마운트 시 미리보기 URL 해제
-  useEffect(() => () => filesRef.current.forEach((f) => URL.revokeObjectURL(f.url)), []);
-
-  const add = (list, { replace = false } = {}) => {
-    setFiles((prev) => {
-      if (replace) prev.forEach((f) => URL.revokeObjectURL(f.url));
-      const base = replace ? [] : prev;
-      const added = list
-        .filter((file) => !base.some((f) => f.name === file.name && f.size === file.size)) // 같은 파일 중복 첨부 방지
-        .map((file) => ({ id: `${file.name}-${file.size}-${file.lastModified}`, name: file.name, size: file.size, url: URL.createObjectURL(file) }));
-      return [...base, ...added];
-    });
-  };
-
-  const remove = (id) => {
-    setFiles((prev) => {
-      const target = prev.find((f) => f.id === id);
-      if (target) URL.revokeObjectURL(target.url);
-      return prev.filter((f) => f.id !== id);
-    });
-  };
-
-  return { files, add, remove };
 }
 
 function FileList({ files, onRemove, boxType }) {
@@ -70,107 +38,15 @@ function FileList({ files, onRemove, boxType }) {
 }
 
 /* ==========================================================================
-   이미지 다중 첨부 (형식/용량/개수 제한)
+   이미지 단일 첨부 (첨부 전 드롭존 / 첨부 후 파일 목록)
    ========================================================================== */
-const IMAGE_RULE = { maxSize: 5 * MB, maxCount: 5 };
-
-function ImageUpload() {
-  const { files, add, remove } = useFileList();
-  const [errors, setErrors] = useState([]);
-  const remain = IMAGE_RULE.maxCount - files.length;
-
-  const onDrop = useCallback((accepted, rejected) => {
-    const messages = rejected.map((r) => errorMessage(r, IMAGE_RULE));
-    let list = accepted;
-    if (accepted.length > remain) {
-      list = accepted.slice(0, Math.max(0, remain));
-      accepted.slice(list.length).forEach((f) => messages.push(`${f.name}: 최대 ${IMAGE_RULE.maxCount}개까지 첨부할 수 있습니다.`));
-    }
-    add(list);
-    setErrors(messages);
-  }, [remain]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const { getRootProps, getInputProps, isDragActive, isDragReject, open } = useDropzone({
-    onDrop,
-    accept: { 'image/jpeg': ['.jpg', '.jpeg'], 'image/png': ['.png'] },
-    maxSize: IMAGE_RULE.maxSize,
-    disabled: remain <= 0
-  });
-
+function ImageSingleDemo() {
+  const [image, setImage] = useState(null);
   return (
-    <div className="formControlWrap full col">
-      {/* [D] 드래그 진입 시 .isDragOver */}
-      <div {...getRootProps({ className: cx('fileDropzone', { isDragOver: isDragActive }) })}>
-        <div className="dropzoneHeader">
-          <input {...getInputProps()} />
-          <span className="ico xl upload"></span>
-          <p className="dropzoneText">
-            {remain <= 0
-              ? '첨부 가능한 개수를 모두 사용했습니다.'
-              : isDragReject
-                ? 'JPG, PNG 파일만 첨부할 수 있습니다.'
-                : isDragActive
-                  ? '여기에 놓으면 첨부됩니다.'
-                  : '파일 선택 또는 이미지를 끌어다 놓으세요.'}
-          </p>
-        </div>
-      </div>
-
-      <FileList files={files} onRemove={remove} />
-      {errors.map((m) => <p key={m} className="formErrorMsg">{m}</p>)}
-
-      <div className="formControlBottom">
-        <span className="formGuideText">JPG, PNG / 최대 5MB / 최대 {IMAGE_RULE.maxCount}개 ({files.length}/{IMAGE_RULE.maxCount})</span>
-        <button type="button" className="btn outline" onClick={open} disabled={remain <= 0}>파일 선택</button>
-      </div>
-
-      <StateView>files: {files.length ? files.map((f) => `${f.name} (${formatSize(f.size)})`).join(', ') : '(없음)'}</StateView>
-    </div>
-  );
-}
-
-/* ==========================================================================
-   단일 파일 (새로 올리면 교체) + 박스형 목록
-   ========================================================================== */
-const EXCEL_RULE = { maxSize: 10 * MB };
-
-function SingleUpload() {
-  const { files, add, remove } = useFileList();
-  const [error, setError] = useState('');
-
-  const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
-    onDrop: (accepted, rejected) => {
-      if (accepted.length) add(accepted.slice(0, 1), { replace: true });
-      setError(rejected[0] ? errorMessage(rejected[0], EXCEL_RULE) : '');
-    },
-    accept: {
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'],
-      'text/csv': ['.csv']
-    },
-    maxSize: EXCEL_RULE.maxSize,
-    maxFiles: 1,
-    multiple: false,
-    noClick: true // 영역 클릭 대신 [파일 선택] 버튼으로만 열기
-  });
-
-  return (
-    <div className="formControlWrap full col">
-      <div {...getRootProps({ className: cx('fileDropzone', { isDragOver: isDragActive }) })}>
-        <div className="dropzoneHeader" onClick={open}>
-          <input {...getInputProps()} />
-          <span className="ico xl upload"></span>
-          <p className="dropzoneText">{isDragActive ? '여기에 놓으면 기존 파일이 교체됩니다.' : '엑셀 파일을 끌어다 놓으세요.'}</p>
-        </div>
-      </div>
-
-      <FileList files={files} onRemove={remove} boxType />
-      {error && <p className="formErrorMsg">{error}</p>}
-
-      <div className="formControlBottom">
-        <span className="formGuideText">XLSX, CSV / 최대 10MB / 1개 (다시 첨부하면 교체)</span>
-        <button type="button" className="btn outline" onClick={open}>파일 선택</button>
-      </div>
-    </div>
+    <>
+      <StepImageField image={image} onChange={setImage} />
+      <StateView>image: {image ? `${image.name} (${formatSize(image.size)})` : '(없음)'}</StateView>
+    </>
   );
 }
 
@@ -205,13 +81,17 @@ function StepImageField({ image, onChange }) {
 
   return (
     <div className="formControlWrap full col">
-      <div {...getRootProps({ className: cx('fileDropzone', { isDragOver: isDragActive }) })}>
-        <div className="dropzoneHeader">
-          <input {...getInputProps()} />
-          <span className="ico xl upload"></span>
-          <p className="dropzoneText">{isDragActive ? '여기에 놓으면 첨부됩니다.' : '파일 선택 또는 이미지를 끌어다 놓으세요.'}</p>
+      {/* [파일 선택] 버튼(open)이 첨부 후에도 동작하도록 input 은 드롭존 밖에 둠 */}
+      <input {...getInputProps()} />
+      {/* [D] 첨부 전: 드롭존 노출 / 첨부 후: 드롭존 숨김 + 파일 목록 노출 */}
+      {!image && (
+        <div {...getRootProps({ className: cx('fileDropzone', { isDragOver: isDragActive }) })}>
+          <div className="dropzoneHeader">
+            <span className="ico xl upload"></span>
+            <p className="dropzoneText">{isDragActive ? '여기에 놓으면 첨부됩니다.' : '파일 선택 또는 이미지를 끌어다 놓으세요.'}</p>
+          </div>
         </div>
-      </div>
+      )}
       <FileList files={image ? [image] : []} onRemove={remove} />
       {error && <p className="formErrorMsg">{error}</p>}
       <div className="formControlBottom">
@@ -356,12 +236,10 @@ function StepCardDemo() {
 export default function UploadDemo() {
   return (
     <>
-      <p className="libHint">탐색기에서 파일을 끌어다 놓거나 영역/버튼을 클릭해 선택합니다. 파일명을 클릭하면 새 창에서 미리보기, 형식·용량·개수 위반 시 오류 문구가 표시됩니다.</p>
-      <h3 className="libDemoTitle">1. 이미지 다중 첨부 (형식·용량·개수 제한)</h3>
-      <ImageUpload />
-      <h3 className="libDemoTitle">2. 단일 파일 교체 + 박스형 목록</h3>
-      <SingleUpload />
-      <h3 className="libDemoTitle">3. STEP 카드 (이미지 첨부 + 복사·삭제 + 핸들 드래그로 순서 변경)</h3>
+      <p className="libHint">드래그앤드롭 첨부는 단일 파일만 받습니다. 첨부 전에는 드롭존, 첨부 후에는 파일 목록이 노출되며 [파일 선택]으로 교체합니다. 형식·용량 위반 시 오류 문구가 표시됩니다.</p>
+      <h3 className="libDemoTitle">1. 이미지 단일 첨부</h3>
+      <ImageSingleDemo />
+      <h3 className="libDemoTitle">2. STEP 카드 (이미지 첨부 + 복사·삭제 + 핸들 드래그로 순서 변경)</h3>
       <StepCardDemo />
     </>
   );
