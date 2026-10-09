@@ -5228,6 +5228,7 @@ body.isDndActive * {
    [D] 드래그 중인 행: tr.isDragging / 미리보기 행: tr.isOverlay
    -------------------------------------------------------------------------- */
 .tbl .colDrag {
+  position: relative;
   width: 48px;
   padding-left: 0 !important;
   padding-right: 0 !important;
