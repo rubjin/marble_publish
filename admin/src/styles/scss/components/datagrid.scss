@@ -6,8 +6,6 @@
    - 기본 셀/헤더 스타일은 .tbl 과 동일한 톤을 유지합니다. (<table class="tbl dataGrid">)
    ========================================================================== */
 
-$grid-row-hover:    $color-gray-50;
-$grid-row-selected: $bg-card-active;
 $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
 
 // 그리드 래퍼 (가로 스크롤 / 세로 고정 높이 스크롤)
@@ -15,7 +13,7 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
   position: relative;
   width: 100%;
   overflow: auto;
-  border-top: 1px solid $border-dark;
+  border-top: 1px solid $tbl-border-top;
 
   // 세로 스크롤 영역 높이 (헤더 고정)
   &.h300 { max-height: 300px; }
@@ -68,8 +66,8 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
       height: 44px;
       padding: 10px 12px;
       // 헤더 고정 시 스크롤되는 행이 비치지 않도록 불투명 배경 사용
-      background-color: $color-gray-100;
-      color: $text-primary;
+      background-color: $tbl-header-bg-solid;
+      color: $tbl-header-text;
       border-bottom: 1px solid $border-default;
       @include text-ellipsis;
     }
@@ -77,12 +75,12 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
 
   tbody {
     tr {
-      &:hover { background-color: $grid-row-hover; }
+      &:hover { background-color: $tbl-row-hover; }
 
       // [D] 행 선택: row.getIsSelected() 시 .isSelected
       &.isSelected,
       &.isSelected:hover {
-        background-color: $grid-row-selected;
+        background-color: $tbl-row-selected;
       }
 
       // [D] 행 클릭 가능: .isClickable
@@ -98,7 +96,7 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
     td {
       height: 48px;
       padding: 10px 12px;
-      color: $text-primary;
+      color: $tbl-td-text;
       @include text-ellipsis;
 
       // 줄바꿈 허용 셀
@@ -146,7 +144,7 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
   /* ---------- 컬럼 테두리 (셀 구분선) ---------- */
   &.isBordered {
     th, td {
-      border-right: 1px solid $border-light;
+      border-right: 1px solid $tbl-cell-border;
       &:last-child { border-right: none; }
     }
     thead th { border-right-color: $border-default; }
@@ -188,7 +186,7 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
   &:focus-visible {
     outline: none;
     border-radius: 4px;
-    box-shadow: 0 0 0 3px $ring-primary;
+    box-shadow: $focus-ring;
   }
 
   .sortText { @include text-ellipsis; }
@@ -305,13 +303,13 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
 
   // 행 hover / 선택 배경을 고정 셀에도 동일하게 반영
   tbody tr:hover {
-    .isPinnedLeft, .isPinnedRight { background-color: $grid-row-hover; }
+    .isPinnedLeft, .isPinnedRight { background-color: $tbl-row-hover; }
   }
   tbody tr.isSubRow {
     .isPinnedLeft, .isPinnedRight { background-color: $color-gray-50; }
   }
   tbody tr.isSelected {
-    .isPinnedLeft, .isPinnedRight { background-color: $grid-row-selected; }
+    .isPinnedLeft, .isPinnedRight { background-color: $tbl-row-selected; }
   }
 
   .isPinnedLeft.isPinnedEdge { box-shadow: 4px 0 6px -2px $grid-pin-shadow; }
@@ -441,7 +439,7 @@ $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
 
     &:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 3px $ring-primary;
+      box-shadow: $focus-ring;
     }
 
     &:disabled {

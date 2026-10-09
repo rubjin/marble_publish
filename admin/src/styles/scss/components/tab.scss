@@ -66,15 +66,15 @@
 .mdiTabWrap {
   display: flex;
   align-items: center;
-  background-color: $color-white;
-  border: 1px solid $border-light;
-  border-radius: 8px;
+  background-color: $box-bg;
+  border: 1px solid $box-border;
+  border-radius: $box-radius;
   padding: 6px;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 20px;
   gap: 6px;
-  box-shadow: $shadow-xs;
+  box-shadow: $box-shadow;
 
   .mdiTabList {
     display: flex;

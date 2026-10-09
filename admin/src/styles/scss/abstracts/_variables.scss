@@ -84,6 +84,7 @@ $border-card-active: $color-blue-200; // #C5D1E2 - 선택 상태 테두리
 // Focus Rings
 $ring-primary: $color-blue-alpha; // rgba(40, 126, 255, 0.15); - 포커스 
 $ring-danger:  $color-red-alpha;  // rgba(239, 68, 68, 0.2); - 에러 포커스
+$focus-ring:   0 0 0 3px $ring-primary; // 포커스 (datagrid, dnd)
 
 // ==========================================================================
 // Typography
@@ -92,6 +93,14 @@ $font-family-base:   'KBFG Text', sans-serif; // 기본 서체
 $font-weight-light:  300; 
 $font-weight-medium: 500; 
 $font-weight-bold:   700; 
+
+// ==========================================================================
+// Box Shadows
+// ==========================================================================
+$shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.04); // 카드형 박스 기본 그림자
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15); // 떠 있는 레이어: 데이트피커, 툴팁, 사이드바 접힘 툴팁
+$shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.18); // 드래그 중인 요소, 토스트
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); // 팝업
 
 // ==========================================================================
 // Component Tokens
@@ -170,13 +179,25 @@ $check-disabled-bg:         $bg-light;        // #F3F5F6 - disabled 시 배경
 $check-disabled-border:     $border-light;    // #F0F0F3                                                           
 $check-checked-disabled-bg: $color-gray-300;  // #D5D7DE - 체크 + disabled 시 배경 + 테두리  
 
-// ==========================================================================
-// Box Shadows
-// ==========================================================================
-$shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.04); // 카드형 박스 기본 그림자
-$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15); // 떠 있는 레이어: 데이트피커, 툴팁, 사이드바 접힘 툴팁
-$shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.18); // 드래그 중인 요소, 토스트
-$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); // 팝업
+// Box - 흰 박스 컨테이너 (.sectionBox 기준)
+$box-bg:      $color-white;
+$box-border:  $border-light;
+$box-radius:  12px;
+$box-shadow:  $shadow-xs;
+$box-padding: 24px 28px; //.sectionBox, .searchBox
+$box-summary-padding: 20px 28px; // .summaryStatBox, .statusSummaryBox 내부 카드 여백
+$box-card-padding: 18px 20px;     // .kpiCard, .statusCardGrid 내부 여백
+
+// Table - .tbl / .tbl.dataGrid 공통
+$tbl-header-bg:       $bg-table-header;    // thead th, .tblInfo th
+$tbl-header-bg-solid: #F5F7F8;           // 헤더 고정(sticky)용 불투명 버전 - 흰 배경 위 $tbl-header-bg 와 동일한 색
+$tbl-header-text:     $text-primary;
+$tbl-th-text:         $text-secondary;    // 세로형 테이블 th (.tblView, .tblInfo)
+$tbl-td-text:         $text-primary;
+$tbl-border-top:      $border-dark;       // 테이블 상단 굵은 선 (.tblView, .tblInfo, .dataGridWrap)
+$tbl-cell-border:     $border-light;      // 행/셀 구분선
+$tbl-row-hover:       $color-gray-50;
+$tbl-row-selected:    $bg-card-active;    // 행 선택 (.isSelected)
 
 // ==========================================================================
 // Z-Index Layering

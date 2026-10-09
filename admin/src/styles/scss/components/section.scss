@@ -3,11 +3,11 @@
 // Section Layout (하얀 박스 영역 + 하단 버튼 영역)
 .sectionBox {
   // 하얀 박스 영역
-  background-color: $color-white;
-  border: 1px solid $border-light;
-  border-radius: 12px;
-  padding: 24px 28px;
-  box-shadow: $shadow-xs;
+  background-color: $box-bg;
+  border: 1px solid $box-border;
+  border-radius: $box-radius;
+  padding: $box-padding;
+  box-shadow: $box-shadow;
   margin-bottom: 16px;
   &:last-child {
     margin-bottom: 0;

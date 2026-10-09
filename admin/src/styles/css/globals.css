@@ -1657,7 +1657,7 @@ body {
   align-items: center;
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 6px;
   width: 100%;
   box-sizing: border-box;
@@ -2305,7 +2305,7 @@ select.formControl.wAuto {
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
   border-radius: 12px;
-  padding: 20px 28px;
+  padding: 24px 28px;
   margin-bottom: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   width: 100%;
@@ -2657,7 +2657,7 @@ select.formControl.wAuto {
 .kpiCardGrid .kpiCard {
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 20px 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   display: flex;
@@ -2732,7 +2732,7 @@ select.formControl.wAuto {
 .infoBox {
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 20px 24px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   display: flex;
@@ -2802,8 +2802,8 @@ select.formControl.wAuto {
   justify-content: space-between;
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
-  border-radius: 10px;
-  padding: 20px 28px;
+  border-radius: 12px;
+  padding: 24px 28px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   width: 100%;
   margin-bottom: 20px;
@@ -2919,7 +2919,7 @@ select.formControl.wAuto {
 .summaryStatBox.splitType .statCard {
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 20px 24px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   display: flex;
@@ -2980,8 +2980,8 @@ select.formControl.wAuto {
   gap: 24px;
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
-  border-radius: 10px;
-  padding: 20px 28px;
+  border-radius: 12px;
+  padding: 24px 28px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   width: 100%;
   margin-bottom: 20px;
@@ -3044,7 +3044,7 @@ select.formControl.wAuto {
 .statusCardGrid .statusCard {
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 18px 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   display: flex;
@@ -3176,6 +3176,7 @@ select.formControl.wAuto {
 .tbl thead th {
   padding: 10px 10px;
   background-color: rgba(243, 245, 246, 0.8);
+  color: #2F3034;
   font-weight: 500;
   text-align: center;
   white-space: nowrap;
@@ -3748,7 +3749,7 @@ select.formControl.wAuto {
   z-index: 2;
   height: 44px;
   padding: 10px 12px;
-  background-color: #F3F5F6;
+  background-color: #F5F7F8;
   color: #2F3034;
   border-bottom: 1px solid #D5D7DE;
   overflow: hidden;

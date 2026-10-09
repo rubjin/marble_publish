@@ -5,12 +5,12 @@
    ========================================================================== */
 
 .searchBox {
-  background-color: $color-white;
-  border: 1px solid $border-light;
-  border-radius: 12px;
-  padding: 20px 28px;
+  background-color: $box-bg;
+  border: 1px solid $box-border;
+  border-radius: $box-radius;
+  padding: $box-padding;
   margin-bottom: 16px;
-  box-shadow: $shadow-xs;
+  box-shadow: $box-shadow;
   width: 100%;
   box-sizing: border-box;
 

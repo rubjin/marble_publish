@@ -27,11 +27,11 @@
   }
 
   .kpiCard {
-    background-color: $color-white;
-    border: 1px solid $border-light;
-    border-radius: 10px;
-    padding: 20px 20px;
-    box-shadow: $shadow-xs;
+    background-color: $box-bg;
+    border: 1px solid $box-border;
+    border-radius: $box-radius;
+    padding: $box-card-padding;
+    box-shadow: $box-shadow;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -110,11 +110,11 @@
 }
 
 .infoBox {
-  background-color: $color-white;
-  border: 1px solid $border-light;
-  border-radius: 8px;
-  padding: 20px 24px;
-  box-shadow: $shadow-xs;
+  background-color: $box-bg;
+  border: 1px solid $box-border;
+  border-radius: $box-radius;
+  padding: $box-summary-padding;
+  box-shadow: $box-shadow;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -190,11 +190,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: $bg-white;
-  border: 1px solid $border-light;
-  border-radius: 10px;
-  padding: 20px 28px;
-  box-shadow: $shadow-xs;
+  background-color: $box-bg;
+  border: 1px solid $box-border;
+  border-radius: $box-radius;
+  padding: $box-summary-padding;
+  box-shadow: $box-shadow;
   width: 100%;
   margin-bottom: 20px;
   gap: 32px;
@@ -321,11 +321,11 @@
     gap: 16px;
 
     .statCard {
-      background-color: $color-white;
-      border: 1px solid $border-light;
-      border-radius: 10px;
-      padding: 20px 24px;
-      box-shadow: $shadow-xs;
+      background-color: $box-bg;
+      border: 1px solid $box-border;
+      border-radius: $box-radius;
+      padding: $box-summary-padding;
+      box-shadow: $box-shadow;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -394,11 +394,11 @@
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 24px;
-  background-color: $color-white;
-  border: 1px solid $border-light;
-  border-radius: 10px;
-  padding: 20px 28px;
-  box-shadow: $shadow-xs;
+  background-color: $box-bg;
+  border: 1px solid $box-border;
+  border-radius: $box-radius;
+  padding: $box-summary-padding;
+  box-shadow: $box-shadow;
   width: 100%;
   margin-bottom: 20px;
 
@@ -469,11 +469,11 @@
   margin-bottom: 20px;
 
   .statusCard {
-    background-color: $color-white;
-    border: 1px solid $border-light;
-    border-radius: 10px;
-    padding: 18px 20px;
-    box-shadow: $shadow-xs;
+    background-color: $box-bg;
+    border: 1px solid $box-border;
+    border-radius: $box-radius;
+    padding: $box-card-padding;
+    box-shadow: $box-shadow;
     display: flex;
     flex-direction: column;
     gap: 12px;
