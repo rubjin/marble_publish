@@ -100,8 +100,7 @@ export function getChartOptions(overrides) {
       textColor: readVar('--chart-text'),
       fontFamily: readVar('--chart-font-family'),
       fontSize: Number(readVar('--chart-font-size')),
-      // TradingView 로고: Apache-2.0 NOTICE 에 따른 출처 표기 (false 시 페이지 내 별도 표기 필요)
-      attributionLogo: true
+      attributionLogo: false
     },
     grid: {
       vertLines: { visible: false },
