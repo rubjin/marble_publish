@@ -2517,6 +2517,9 @@ select.formControl.wAuto {
   border-radius: 6px;
   background-color: #F7F8FB;
 }
+.fileList.boxType .fileItem {
+  padding: 0;
+}
 .fileList.boxType .fileItem .fileInfo {
   flex: none;
 }
