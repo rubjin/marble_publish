@@ -255,7 +255,7 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
 /* --------------------------------------------------------------------------
    행 펼침 (Expanding / Sub Rows)
    [D] row.getCanExpand() 시 .expandBtn, row.getIsExpanded() 시 .isOpen
-       하위 행 들여쓰기: style="padding-left: {row.depth * 20}px" 로 .expandCell 에 적용
+       하위 행 들여쓰기: row.depth > 0 일 때 style="padding-left: {(row.depth - 1) * 20 + 26}px" 로 .expandCell 에 적용
    -------------------------------------------------------------------------- */
 .expandCell {
   display: inline-flex;

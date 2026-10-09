@@ -2272,8 +2272,9 @@ select.formControl.wAuto {
   user-select: none;
 }
 .stepCard .stepHeader .stepTitleWrap .stepTitle {
-  width: 130px;
+  min-width: 130px;
   height: 30px;
+  padding: 0 12px;
   background-color: #E7E9ED;
   border-radius: 6px;
   font-size: 14px;
@@ -2506,6 +2507,7 @@ select.formControl.wAuto {
   margin: 0;
   padding: 0;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   gap: 6px;
 }
@@ -2522,6 +2524,7 @@ select.formControl.wAuto {
 .fileItem {
   display: flex;
   align-items: center;
+  gap: 4px;
   padding: 8px 0px;
   font-size: 14px;
 }
@@ -3841,12 +3844,6 @@ select.formControl.wAuto {
   padding: 6px 10px;
   font-size: 13px;
 }
-.tbl.dataGrid {
-  /* ---------- 줄무늬 (Striped) ---------- */
-}
-.tbl.dataGrid.isStriped tbody tr:nth-child(even) {
-  background-color: #F8F9FA;
-}
 
 /* --------------------------------------------------------------------------
    정렬 (Sorting)
@@ -3938,7 +3935,7 @@ select.formControl.wAuto {
 /* --------------------------------------------------------------------------
    행 펼침 (Expanding / Sub Rows)
    [D] row.getCanExpand() 시 .expandBtn, row.getIsExpanded() 시 .isOpen
-       하위 행 들여쓰기: style="padding-left: {row.depth * 20}px" 로 .expandCell 에 적용
+       하위 행 들여쓰기: row.depth > 0 일 때 style="padding-left: {(row.depth - 1) * 20 + 26}px" 로 .expandCell 에 적용
    -------------------------------------------------------------------------- */
 .expandCell {
   display: inline-flex;
@@ -5225,7 +5222,8 @@ body.isDndActive * {
 
 /* --------------------------------------------------------------------------
    테이블 행 순서 변경 (.tbl 내부)
-   [D] 드래그 중인 행: tr.isDragging / 미리보기 행: tr.isOverlay
+   [D] 이동 중인 행: tr.isOverlay (행 자체가 transform 으로 이동, DragOverlay 미사용)
+       tr.isDragging : 원본 자리를 따로 남기는 라이브러리(인디케이터 방식)용
    -------------------------------------------------------------------------- */
 .tbl .colDrag {
   position: relative;

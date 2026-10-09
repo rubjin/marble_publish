@@ -13,12 +13,17 @@
     body.isDndActive : 드래그 진행 중 (전역 커서 grabbing, 텍스트 선택 방지)
 
   - 예시 (dnd-kit 기준)
-    const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id });
+    // 센서: useSensor(PointerSensor, { activationConstraint: { distance: 5 } }) - 5px 이동 후 드래그 시작 (클릭과 구분)
+    const { setNodeRef, setActivatorNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id });
     <li ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition }}
         className={cx('dndItem', { isDragging })}>
-      <button type="button" className="dndHandle" aria-label="순서 변경" {...attributes} {...listeners} />
+      <button type="button" className="dndHandle" aria-label="순서 변경" ref={setActivatorNodeRef} {...attributes} {...listeners} />
       ...
     </li>
+    <DragOverlay>{activeItem && <div className="dndItem isOverlay">...</div>}</DragOverlay>
+
+  - 테이블 행 : 표 밖에 미리보기를 띄우면 컬럼 너비가 맞지 않으므로 DragOverlay 를 쓰지 않고
+                이동 중인 행 자체에 .isOverlay + style={{ transform: CSS.Translate.toString(transform), transition, position: 'relative', zIndex: 1 }}
 -->
 
 <!-- 정렬 리스트 (핸들 드래그) -->
@@ -115,15 +120,14 @@
         <td class="textLeft">건강 챌린지</td>
         <td>노출</td>
       </tr>
-      <!-- [D] 드래그 중인 행: tr.isDragging -->
-      <tr class="isDragging">
+      <!-- [D] 이동 중인 행: tr.isOverlay (행 자체가 transform 으로 이동, 별도 미리보기 없음) -->
+      <tr class="isOverlay">
         <td class="colDrag"><button type="button" class="dndHandle" aria-label="순서 변경"></button></td>
         <td>2</td>
         <td class="textLeft">금융 챌린지</td>
         <td>노출</td>
       </tr>
-      <!-- [D] 미리보기 행: tr.isOverlay -->
-      <tr class="isOverlay">
+      <tr>
         <td class="colDrag"><button type="button" class="dndHandle" aria-label="순서 변경"></button></td>
         <td>3</td>
         <td class="textLeft">생활 챌린지</td>

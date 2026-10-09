@@ -28,6 +28,8 @@
 
   - 기간 선택 : <div class="formDateRange isOpen"> + .datePickerPreset(빠른 선택) + numberOfMonths={2}
   - 선택 불가 : disabled={{ after: new Date() }} → .rdp-disabled
+  - 인라인 캘린더 : <div class="calendarBox"> + mode="single" + captionLayout="dropdown" + startMonth / endMonth (선택 가능 연도 범위)
+                   formatters={{ formatMonthDropdown: (d) => format(d, 'M월'), formatYearDropdown: (d) => format(d, 'yyyy년') }}
 -->
 
 <!-- 단일 날짜 선택 (입력창 + 레이어) -->

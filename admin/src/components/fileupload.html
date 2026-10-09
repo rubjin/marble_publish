@@ -1,9 +1,15 @@
 <!-- 
   [리액트 컴포넌트 가이드]
-  - 컴포넌트 1: <FileDropzone files={fileList} onDrop={handleDrop} onSelect={handleSelect} onRemove={handleRemove} accept="image/*" maxCount={5} />
+  - 라이브러리: react-dropzone (useDropzone)
+      getRootProps({ className: cx('fileDropzone', { isDragOver: isDragActive }) }) → .fileDropzone
+      getInputProps() → .dropzoneHeader 내부 input / open() → [파일 선택] 버튼
+      onDrop(accepted, rejected) : rejected 는 .formErrorMsg 로 파일별 안내 (형식 / 용량 / 개수)
+  - 컴포넌트 1: <FileDropzone files={fileList} onDrop={handleDrop} onSelect={handleSelect} onRemove={handleRemove} accept="image/*" maxSize={5MB} maxCount={5} />
   - 컴포넌트 2: <StepCard stepNumber={1} title="코스명" onCopy={...} onDelete={...}> ... </StepCard>
   - 속성 인터페이스 (<FileDropzone />):
-    * files: Array<{ id: string | number; name: string; size: string; downloadUrl?: string }>
+    * files: Array<{ id: string | number; name: string; size: number; url?: string }>
+        - size : byte 단위 숫자, 화면에서 1.5MB / 300KB 형태로 변환해 .fileSize 에 표시
+        - url  : 다운로드 / 미리보기 주소 (.fileName href, 없으면 링크 동작 없음)
     * onDrop: (files: File[]) => void
     * onRemove: (fileId: string | number) => void
     * accept?: string (e.g., 'image/png, image/jpeg')
