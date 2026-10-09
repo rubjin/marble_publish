@@ -9,13 +9,24 @@
   - 컴포넌트 2: <TableView items={viewData} colWidths={['140px', 'auto', '140px', 'auto']} />
   - 속성 인터페이스 (<TableView />):
     * 2열 또는 4열의 상세 정보 key-value 테이블
+    * 입력 폼 테이블도 .tblView 사용 (th: .formLabel + .required / td: .formControl, .formControlWrap, .formCheckGroup)
+
+  - 테이블 수정자
+    * .tblBordered : 셀 테두리 (그룹 헤더 colspan / rowspan 사용 시)
+    * .tblView     : 상세 정보 / 입력 폼 (th 좌측 정렬, 행 구분선)
+    * .tblInfo     : 정보 요약 (th 배경 + 셀 구분선) - 수치 묶음 .infoStats > .infoStat, 전체값 .infoTotal
+    * 수정자는 자기 테이블의 행·셀에만 적용 (셀 안에 중첩된 테이블에는 영향 없음)
+  - 행 / 셀
+    * tr.rowLink   : 행 클릭 이동 (커서 pointer)
+    * td.tblEmpty  : 빈 데이터 (colSpan = 컬럼 수)
+    * .textLeft / .textRight : 셀 정렬 (기본 가운데 정렬)
 -->
 
 <!-- 기본 데이터 그리드 테이블 (상단 타이틀 & 건수/버튼 + 테이블) -->
 <div class="tblSection">
   <div class="tblTop">
     <div class="tblLeft">
-      <h3 class="tblTitle">기본 목록</h3>
+      <h3 class="tblTitle">검색 결과</h3>
       <span class="tblCount">총 <strong class="count point">3</strong>건</span>
     </div>
     <div class="tblRight">
@@ -62,11 +73,51 @@
   </div>
 </div>
 
+<!-- 빈 데이터 (.tblEmpty) -->
+<div class="tblSection">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">검색 결과</h3>
+      <span class="tblCount">총 <strong class="count">0</strong>건</span>
+    </div>
+    <div class="tblRight">
+      <div class="btnGroup">
+        <button type="button" class="btn outline">
+          <span class="ico download"></span>
+          <span>다운로드</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="tblWrap">
+    <table class="tbl">
+      <colgroup>
+        <col style="width: 25%;" />
+        <col style="width: 45%;" />
+        <col style="width: 30%;" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>헤더1</th>
+          <th>헤더2</th>
+          <th>헤더3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- [D] data.length === 0 시 colSpan = 컬럼 수 -->
+        <tr>
+          <td class="tblEmpty" colspan="3">검색결과가 없습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <!-- 상세 뷰 테이블 (상세 정보 확인용 .tblView) -->
 <div class="tblSection">
   <div class="tblTop">
     <div class="tblLeft">
-      <h3 class="tblTitle">관리정보</h3>
+      <h3 class="tblTitle">상세 정보 확인용</h3>
     </div>
   </div>
 
@@ -101,3 +152,93 @@
     </table>
   </div>
 </div>
+
+<!-- 테두리 테이블 (.tblBordered) : 그룹 헤더(colspan / rowspan) + 행 클릭(.rowLink) + 셀 정렬 유틸 -->
+<div class="tblSection">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">테두리 테이블</h3>
+      <span class="tblCount">총 <strong class="count point">2</strong>건</span>
+    </div>
+  </div>
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: 120px;" />
+        <col />
+        <col style="width: 140px;" />
+        <col style="width: 140px;" />
+        <col style="width: 120px;" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th rowspan="2">고객명</th>
+          <th colspan="2">미션 참여정보</th>
+          <th colspan="2">지급 리워드</th>
+        </tr>
+        <tr>
+          <th>미션명</th>
+          <th>신청일시</th>
+          <th>포인트(P)</th>
+          <th>지급상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- [D] 행 클릭 이동: tr.rowLink (커서 pointer) -->
+        <tr class="rowLink">
+          <td>김*민</td>
+          <!-- [D] 셀 정렬: .textLeft / .textRight (기본 가운데 정렬) -->
+          <td class="textLeft">매일 만보 걷기 챌린지</td>
+          <td>2026.07.01 09:12</td>
+          <td class="textRight">5,000</td>
+          <td><span class="textInfo">지급완료</span></td>
+        </tr>
+        <tr class="rowLink">
+          <td>이*영</td>
+          <td class="textLeft">주 3회 금융 퀴즈 풀기</td>
+          <td>2026.07.03 14:05</td>
+          <td class="textRight">2,000</td>
+          <td><span class="textDanger">지급오류</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 정보 요약 테이블 (.tblInfo) : th 배경 + 셀 구분선 / 수치 묶음 .infoStats -->
+<div class="tblSection">
+  <div class="tblWrap">
+    <table class="tbl tblInfo">
+      <colgroup>
+        <col style="width: 150px;" />
+        <col />
+        <col style="width: 150px;" />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <th>고객명</th>
+          <td>김*민</td>
+          <th>고객번호</th>
+          <td>9012345678</td>
+        </tr>
+        <tr>
+          <th>누적 횟수/포인트</th>
+          <td>
+            <div class="infoStats">
+              <span class="infoStat">완료 <strong>50</strong>회</span>/
+              <span class="infoStat">미완료 <strong>5</strong>회</span>/
+              <span class="infoStat"><strong>2,500</strong>P</span>
+            </div>
+          </td>
+          <th>누적미션 현황</th>
+          <!-- [D] 진행 수치 / 전체: strong + .infoTotal -->
+          <td><strong class="textInfo">17</strong><span class="infoTotal"> / 20일</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
