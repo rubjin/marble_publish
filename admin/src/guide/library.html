@@ -8,6 +8,8 @@
   <style>
     /* 확인 페이지 전용 레이아웃 (서비스 화면에는 사용하지 않음) */
     body { background-color: #F3F5F6; }
+    /* 전역 html, body 는 overflow: hidden (어드민 레이아웃용) 이므로 #root 를 스크롤 영역으로 사용 */
+    #root { height: 100%; overflow-y: auto; }
     .libPage { max-width: 1400px; margin: 0 auto; padding: 32px 32px 80px; }
     .libHeader { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
     .libHeader h1 { font-size: 26px; font-weight: 700; color: #111827; }

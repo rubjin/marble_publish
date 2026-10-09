@@ -34,7 +34,7 @@ function useDndSensors() {
 const dndActive = (on) => document.body.classList.toggle('isDndActive', on);
 
 /* ==========================================================================
-   1. 정렬 리스트 (핸들 드래그 + DragOverlay)
+   정렬 리스트 (핸들 드래그 + DragOverlay)
    ========================================================================== */
 const BANNERS = [
   { id: 'b1', title: '메인 배너 - 가을 적금 이벤트', desc: '2026.09.01 ~ 2026.10.31', status: { key: 'ing', label: '노출중' } },
@@ -115,7 +115,7 @@ function SortableListDemo() {
 }
 
 /* ==========================================================================
-   2. 가로 정렬 (칩 - 아이템 전체가 핸들)
+   가로 정렬 (칩 - 아이템 전체가 핸들)
    ========================================================================== */
 function SortableChip({ chip }) {
   const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id: chip });
@@ -170,7 +170,7 @@ function ChipDemo() {
 }
 
 /* ==========================================================================
-   3. 테이블 행 순서 변경 (행 자체가 이동 - 이동 중인 행 .isOverlay)
+   테이블 행 순서 변경 (행 자체가 이동 - 이동 중인 행 .isOverlay)
    ========================================================================== */
 function SortableRow({ row, order }) {
   const { setNodeRef, setActivatorNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id: row.id });
@@ -240,7 +240,7 @@ function TableRowDemo() {
 }
 
 /* ==========================================================================
-   4. 보드 (영역 간 이동)
+   보드 (영역 간 이동)
    ========================================================================== */
 const COLUMNS = [
   { id: 'wait', title: '대기' },
@@ -370,7 +370,7 @@ function BoardDemo() {
 }
 
 /* ==========================================================================
-   5. 드롭 영역 (자유 드래그 → 영역에 놓기)
+   드롭 영역 (자유 드래그 → 영역에 놓기)
    ========================================================================== */
 function DraggableTag({ tag }) {
   const { setNodeRef, attributes, listeners, transform, isDragging } = useDraggable({ id: tag });
