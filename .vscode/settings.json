@@ -1,0 +1,42 @@
+{
+  // 들여쓰기: 스페이스 2칸 (파일별 자동 감지 끔 - 항상 2칸)
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+
+  // 저장 시 자동 정렬 - 수정한 줄만 정렬 (기존 코드 전체 재정렬 방지, git 관리 파일 기준)
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modifications",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+
+  // 포매터: VS Code 내장 포매터 고정 (확장 설치 / 인터넷 불필요 - 내부망 동작)
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[css]": { "editor.defaultFormatter": "vscode.css-language-features" },
+  "[scss]": { "editor.defaultFormatter": "vscode.css-language-features" },
+  "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  "[javascriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  "[json]": { "editor.defaultFormatter": "vscode.json-language-features" },
+  "[jsonc]": { "editor.defaultFormatter": "vscode.json-language-features" },
+
+  // HTML 정렬 옵션
+  "html.format.enable": true,
+  "html.format.wrapLineLength": 0,           // 긴 줄 강제 줄바꿈 안 함
+  "html.format.wrapAttributes": "auto",      // 속성은 한 줄 유지 (길이 제한 없음)
+  "html.format.indentInnerHtml": false,      // <head>, <body> 안쪽은 들여쓰지 않음
+  "html.format.preserveNewLines": true,      // 작성한 줄바꿈 유지
+  "html.format.maxPreserveNewLines": 2,      // 빈 줄은 최대 1줄까지
+  "html.format.templating": true,            // {{ }} / {{#if}} 템플릿 구문 보존 (src/partials)
+  "html.format.indentHandlebars": false,
+  "html.format.extraLiners": "",             // head / body 앞에 빈 줄 추가 안 함
+
+  // SCSS / CSS 정렬 옵션
+  "scss.format.enable": true,
+  "css.format.enable": true,
+  "scss.format.newlineBetweenRules": true,
+  "scss.format.preserveNewLines": true,
+
+  // JS / JSX 정렬 옵션
+  "javascript.format.enable": true,
+  "javascript.format.semicolons": "insert"
+}

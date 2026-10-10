@@ -1,0 +1,12 @@
+# 에디터 공통 설정 (VS Code 는 .vscode/settings.json 에서 동일하게 적용)
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
