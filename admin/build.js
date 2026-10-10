@@ -163,20 +163,28 @@ function walkHtml(dir) {
 // 개발 서버 전용 페이지 (React 번들 필요 - 정적 dist 에서는 동작하지 않음)
 const DEV_ONLY_HTML = ['guide/library.html'];
 
-// UI 컴포넌트 파일(src/partials)은 include 로만 사용하는 조각이므로 단독 출력하지 않음
+// UI 컴포넌트 파일(src/partials)은 사용법 주석의 예시를 렌더링한 완성 마크업으로 출력
 const PARTIAL_DIR = 'partials/';
 
 const allHtmlFiles = walkHtml(SRC_DIR).filter((f) => {
   const rel = path.relative(SRC_DIR, f).split(path.sep).join('/');
-  return !DEV_ONLY_HTML.includes(rel) && !rel.startsWith(PARTIAL_DIR);
+  return !DEV_ONLY_HTML.includes(rel);
 });
 
 for (const htmlFile of allHtmlFiles) {
   const relativePath = path.relative(SRC_DIR, htmlFile);
-  let content = fs.readFileSync(htmlFile, 'utf8');
+  const isPartial = relativePath.split(path.sep).join('/').startsWith(PARTIAL_DIR);
+  let content;
 
   // Resolve includes
-  content = resolveIncludes(content, htmlFile);
+  if (isPartial) {
+    content = htmlInclude.renderExamples(htmlFile, {
+      rootDir: ROOT_DIR,
+      onMissing: (src) => console.warn(`[Include Warning] Not found: ${src} in ${htmlFile}`)
+    });
+  } else {
+    content = resolveIncludes(fs.readFileSync(htmlFile, 'utf8'), htmlFile);
+  }
 
   // Replace .scss references with .css references for dist
   const depth = relativePath.split(path.sep).length - 1;

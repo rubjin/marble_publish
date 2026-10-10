@@ -8,7 +8,8 @@
   - startLabel / endLabel : 입력창 설명 (기본: 시작일 / 종료일)
   - legend                : 있으면 fieldset + 숨김 legend 로 출력 (등록 폼용)
   - name                  : 기간 숏컷 라디오 name (화면 안에서 중복되지 않게)
-  - noShortcut            : 기간 숏컷(당일 / 7일 / 한달) 숨김 (값 없이 속성만 작성)
+  - shortcuts             : 기간 숏컷 문구 (쉼표 구분, 기본: 당일,7일,한달 / 첫 번째 항목 선택)
+  - noShortcut            : 기간 숏컷 숨김 (값 없이 속성만 작성)
   - slot                  : 종료일 뒤에 붙는 내용 (예: 미지정 체크박스) - 생략 가능
 -->
 {{#if legend}}<fieldset class="formDateRange">
@@ -25,7 +26,8 @@
   {{ slot }}
 {{#if legend}}</fieldset>{{/if}}{{#if !legend}}</div>{{/if}}
 {{#if !noShortcut}}<div class="segment">
-  <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}" checked><span class="segmentText">당일</span></label>
+  {{#each shortcuts}}<label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"{{#if first}} checked{{/if}}><span class="segmentText">{{ item }}</span></label>
+  {{/each}}{{#if !shortcuts}}<label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}" checked><span class="segmentText">당일</span></label>
   <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"><span class="segmentText">7일</span></label>
-  <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"><span class="segmentText">한달</span></label>
+  <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"><span class="segmentText">한달</span></label>{{/if}}
 </div>{{/if}}

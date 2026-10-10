@@ -132,7 +132,7 @@ admin/
     <section class="guideSection">
       <h2 class="guideTitle">7. UI 컴포넌트 불러오기 (include + 속성 전달)</h2>
       <p style="margin-bottom: 12px; color: #4b5563; font-size: 14px;">
-        화면 코딩 시 마크업을 복사하지 않고 <code>src/partials</code> 의 UI 컴포넌트을 불러온 뒤 <strong>텍스트만 속성으로 전달</strong>합니다. UI 컴포넌트을 고치면 사용하는 모든 화면에 반영됩니다.
+        화면 코딩 시 마크업을 복사하지 않고 <code>src/partials</code> 의 UI 컴포넌트를 불러온 뒤 <strong>텍스트만 속성으로 전달</strong>합니다. UI 컴포넌트를 고치면 사용하는 모든 화면에 반영됩니다.
       </p>
       <ul class="ruleList">
         <li><strong>경로:</strong> include 를 쓰는 파일 기준 상대 경로 (VS Code 에서 Ctrl+클릭으로 UI 컴포넌트 파일 이동)</li>
@@ -143,15 +143,16 @@ admin/
         <li><strong>이름 있는 slot:</strong> 내용을 넣을 자리가 여러 개일 때 <code>&lt;slot name="actions"&gt;...&lt;/slot&gt;</code> → UI 컴포넌트의 <code>{{ actions }}</code> 위치에 출력</li>
         <li><strong>조건부 출력:</strong> <code>{{#if count}} ... {{/if}}</code>, <code>{{#if !count}} ... {{/if}}</code> (중첩 가능)</li>
         <li><strong>목록 반복:</strong> 쉼표로 구분한 값을 <code>{{#each options}} ... {{ item }} ... {{/each}}</code> 로 반복 (예: <code>options="운영중,중단,종료"</code>)</li>
-        <li><strong>사용법:</strong> 각 UI 컴포넌트 파일 맨 위 <code>&lt;!-- [UI 컴포넌트] ... --&gt;</code> 주석 참고 (결과물에는 포함되지 않음)</li>
+        <li><strong>사용법:</strong> 각 UI 컴포넌트 파일 맨 위 <code>&lt;!-- [UI 컴포넌트] ... --&gt;</code> 주석 참고 (화면 결과물에는 포함되지 않음)</li>
+        <li><strong>완성 마크업 확인:</strong> 사용법 주석의 예시를 렌더링한 결과가 <code>dist/partials/*.html</code> 로 출력됩니다. 개발 서버에서는 <code>/partials/이름.html</code> 로 스타일이 적용된 미리보기를 볼 수 있습니다.</li>
         <li><strong>제공 UI 컴포넌트:</strong>
           <ul>
             <li>조회 화면: <code>pageHeader</code>, <code>breadcrumb</code>, <code>searchBox</code>, <code>searchRow</code>, <code>searchItem</code>, <code>dateRange</code>, <code>tblTop</code></li>
             <li>등록 화면: <code>viewSection</code>, <code>viewRow</code>, <code>checkGroup</code>, <code>dateRange</code>, <code>fileAttach</code>, <code>stepCard</code></li>
-            <li>적용 예: <code>pages/MM/OFR_AM_MM_016.html</code>, <code>OFR_AM_MM_017.html</code>, <code>pages/M/MISS_009.html</code>, <code>MISS_099.html</code></li>
+            <li>적용 예: <code>pages/MM/OFR_AM_MM_016.html</code>, <code>OFR_AM_MM_017.html</code>, <code>pages/M/MISS_009.html</code>, <code>MISS_099.html</code>, <code>layout/layout.html</code></li>
           </ul>
         </li>
-        <li><strong>UI 컴포넌트을 쓰지 않는 부분:</strong> 테이블 행 데이터, 화면마다 다른 특수 레이아웃은 마크업을 직접 작성합니다. <code>layout/layout.html</code> 은 마크업 견본이므로 UI 컴포넌트을 쓰지 않습니다.</li>
+        <li><strong>UI 컴포넌트를 쓰지 않는 부분:</strong> 테이블 행 데이터, 요약 바, 팝업 등 화면마다 다른 특수 레이아웃은 마크업을 직접 작성합니다. include 가 모두 펼쳐진 완성 마크업은 <code>dist</code> 에서 확인합니다.</li>
       </ul>
       <pre class="codeBlock">
 &lt;include src="../../partials/searchBox.html"&gt;

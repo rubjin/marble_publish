@@ -95,8 +95,8 @@ function rootWorksheetPlugin() {
           }
         }
 
-        // /pages/, /guide/, /layout/, /components/ 등 src 하위 HTML 요청 직접 매핑
-        const subDirs = ['pages', 'guide', 'layout', 'components'];
+        // /pages/, /guide/, /layout/, /components/, /partials/ 등 src 하위 HTML 요청 직접 매핑
+        const subDirs = ['pages', 'guide', 'layout', 'components', 'partials'];
         for (const dir of subDirs) {
           if (req.url.startsWith(`/${dir}/`)) {
             const relativeReqPath = req.url.replace(/^\//, '').split('?')[0];
@@ -104,6 +104,14 @@ function rootWorksheetPlugin() {
             if (fs.existsSync(srcFilePath) && fs.statSync(srcFilePath).isFile()) {
               if (srcFilePath.endsWith('.html')) {
                 let html = fs.readFileSync(srcFilePath, 'utf-8');
+                // UI 컴포넌트(partials): 사용법 주석의 예시를 렌더링해 스타일과 함께 미리보기
+                if (dir === 'partials') {
+                  const preview = htmlInclude.renderExamples(srcFilePath, { rootDir: __dirname });
+                  html = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><title>${relativeReqPath}</title>` +
+                    '<link rel="stylesheet" href="/src/styles/scss/globals.scss">' +
+                    '<style>html, body { height: auto !important; overflow: auto !important; } body { padding: 24px; background-color: #F3F5F6; }</style>' +
+                    `</head><body>${preview}</body></html>`;
+                }
                 html = await server.transformIndexHtml(`/src/${relativeReqPath}`, html);
                 res.setHeader('Content-Type', 'text/html; charset=utf-8');
                 return res.end(html);

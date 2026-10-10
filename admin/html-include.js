@@ -35,7 +35,8 @@
  *
  * - HTML 주석(<!-- -->) 안의 {{ }} 는 치환하지 않음 (UI 컴포넌트 사용법 설명용)
  * - UI 컴포넌트 파일 맨 위 <!-- [UI 컴포넌트] ... --> 사용법 주석은 결과물에 포함하지 않음
- * - UI 컴포넌트 파일 위치: src/partials (dist 에는 단독 파일로 출력하지 않음)
+ * - UI 컴포넌트 파일 위치: src/partials
+ *   dist/partials 에는 사용법 주석의 예시를 렌더링한 완성 마크업을 출력 (renderExamples)
  */
 const fs = require('fs');
 const path = require('path');
@@ -210,4 +211,33 @@ function resolveIncludes(html, opts) {
   return out + html.slice(pos);
 }
 
-module.exports = { resolveIncludes };
+/**
+ * UI 컴포넌트 파일(src/partials) 미리보기 렌더링
+ * - 맨 위 <!-- [UI 컴포넌트] ... --> 주석의 사용 예시(<include ...>)를 실제로 치환한 결과를 반환
+ * - 예시 경로("../../partials/...")는 화면(src/pages/폴더/) 기준이므로 그 위치에서 해석
+ * - 결과: 원본 사용법 주석 + 예시별 완성 마크업 (dist/partials, 개발 서버 /partials/ 에서 사용)
+ */
+function renderExamples(filePath, opts) {
+  const raw = fs.readFileSync(filePath, 'utf8');
+  const doc = raw.match(/^\s*<!--\s*\[UI 컴포넌트\][\s\S]*?-->/);
+  if (!doc) return resolveIncludes(raw, { ...opts, baseDir: path.dirname(filePath) });
+
+  const body = doc[0].replace(/^\s*<!--/, '').replace(/-->$/, '');
+  const exampleBase = path.join(path.dirname(filePath), '..', 'pages', '_example');
+  const examples = [];
+  let pos = 0;
+  let inc;
+  while ((inc = findInclude(body, pos))) {
+    examples.push(body.slice(inc.start, inc.end));
+    pos = inc.end;
+  }
+
+  const rendered = examples.map((ex, i) => {
+    const html = resolveIncludes(ex, { ...opts, baseDir: exampleBase }).trim();
+    const label = ex.replace(/\s+/g, ' ').replace(/--/g, '- -');
+    return `<!-- 예시 ${i + 1}: ${label} -->\n${html}`;
+  });
+  return `${doc[0].trim()}\n\n${rendered.join('\n\n')}\n`;
+}
+
+module.exports = { resolveIncludes, renderExamples };

@@ -5,6 +5,7 @@
   </include>
   - title    : 테이블 타이틀 (필수)
   - count    : 총 건수 - 있으면 "총 N건" 출력
+  - point    : 건수 강조색 (값 없이 속성만 작성)
   - unit     : 단위 문구 (예: 단위 : 원) - 있으면 출력
   - pageSize : 페이지 크기 셀렉트(10/20/50건씩 보기) 출력 (값 없이 속성만 작성)
   - guide    : 우측 가이드 문구 (예: ※ ...)
@@ -13,8 +14,8 @@
 <div class="tblTop">
   <div class="tblLeft">
     <h3 class="tblTitle">{{ title }}</h3>
-    {{#if count}}<span class="tblCount">총 <strong class="count">{{ count }}</strong>건</span>{{/if}}
-    {{#if unit}}<span class="tblUnit">({{ unit }})</span>{{/if}}
+    {{#if count}}<span class="tblCount">총 <strong class="count{{#if point}} point{{/if}}">{{ count }}</strong>건{{#if unit}} <span class="tblUnit">({{ unit }})</span>{{/if}}</span>{{/if}}
+    {{#if !count}}{{#if unit}}<span class="tblUnit">({{ unit }})</span>{{/if}}{{/if}}
     {{#if pageSize}}<select class="formControl wSm" aria-label="페이지당 건수">
       <option value="10">10건씩 보기</option>
       <option value="20">20건씩 보기</option>
