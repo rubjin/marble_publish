@@ -1,38 +1,29 @@
 <!--
   [UI 컴포넌트] 기간 선택 (시작일 ~ 종료일 + 기간 숏컷 세그먼트)
   조회 조건:  <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
-  등록 폼:    <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="운영기간 설정" startLabel="운영 시작일" endLabel="운영 종료일" noShortcut>
-                <label class="formCheck">...미지정...</label>
+  등록 폼:    <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" noShortcut>
+                <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">미지정</span></label>
               </include>
-  - start / end           : 시작일 / 종료일 값
-  - startLabel / endLabel : 입력창 설명 (기본: 시작일 / 종료일)
-  - legend                : 있으면 fieldset + 숨김 legend 로 출력 (등록 폼용)
-  - name                  : 기간 숏컷 라디오 name (화면 안에서 중복되지 않게)
-  - shortcuts             : 기간 숏컷 문구 (쉼표 구분, 기본: 당일,7일,한달 / 첫 번째 항목 선택)
-  - noShortcut            : 기간 숏컷 숨김 (값 없이 속성만 작성)
-  - slot                  : 종료일 뒤에 붙는 내용 (예: 미지정 체크박스) - 생략 가능
+  - start / end : 시작일 / 종료일 값
+  - name        : 기간 숏컷 라디오 name (화면 안에서 중복되지 않게)
+  - shortcuts   : 기간 숏컷 문구 (쉼표 구분, 기본: 당일,7일,한달 / 첫 번째 항목 선택)
+  - noShortcut  : 기간 숏컷 숨김 (값 없이 속성만 작성)
+  - slot        : 종료일 뒤에 붙는 내용 (예: 미지정 체크박스) - 생략 가능
+  ※ fieldset + 숨김 legend "기간 선택", 입력창 aria-label "시작일" / "종료일" 로 통일
 -->
-{% if legend %}
 <fieldset class="formDateRange">
-  <legend class="srOnly">{{ legend }}</legend>
-{% else %}
-<div class="formDateRange">
-{% endif %}
+  <legend class="srOnly">기간 선택</legend>
   <div class="formDatepicker">
-    <input type="text" class="formControl" value="{{ start }}" aria-label="{{ startLabel | default('시작일', true) }}">
+    <input type="text" class="formControl" value="{{ start }}" aria-label="시작일">
     <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
   </div>
   <span class="dateSeparator">~</span>
   <div class="formDatepicker">
-    <input type="text" class="formControl" value="{{ end }}" aria-label="{{ endLabel | default('종료일', true) }}">
+    <input type="text" class="formControl" value="{{ end }}" aria-label="종료일">
     <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
   </div>
   {{ slot }}
-{% if legend %}
 </fieldset>
-{% else %}
-</div>
-{% endif %}
 {% if not noShortcut %}
 <div class="segment">
   {% for item in shortcuts | default('당일,7일,한달', true) | list %}
