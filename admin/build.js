@@ -163,7 +163,7 @@ function walkHtml(dir) {
 // 개발 서버 전용 페이지 (React 번들 필요 - 정적 dist 에서는 동작하지 않음)
 const DEV_ONLY_HTML = ['guide/library.html'];
 
-// 부품 파일(src/partials)은 include 로만 사용하는 조각이므로 단독 출력하지 않음
+// UI 컴포넌트 파일(src/partials)은 include 로만 사용하는 조각이므로 단독 출력하지 않음
 const PARTIAL_DIR = 'partials/';
 
 const allHtmlFiles = walkHtml(SRC_DIR).filter((f) => {

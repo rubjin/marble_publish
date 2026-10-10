@@ -11,7 +11,7 @@ function htmlIncludePlugin() {
     transformIndexHtml(html, ctx) {
       // Include 치환 (현재 HTML 파일 위치 기준)
       const baseDir = ctx?.filename ? dirname(ctx.filename) : __dirname;
-      // HTML 수정 시 include 된 부품 파일 변경도 반영되도록 매 요청마다 다시 읽음
+      // HTML 수정 시 include 된 UI 컴포넌트 파일 변경도 반영되도록 매 요청마다 다시 읽음
       let content = htmlInclude.resolveIncludes(html, {
         baseDir,
         rootDir: __dirname,

@@ -8,20 +8,20 @@
  *
  * 속성 전달 (props)
  *   화면:  <include src="../../partials/pageHeader.html" title="미션 목록"></include>
- *   부품:  <h2 class="pageTitle">{{ title }}</h2>
+ *   UI 컴포넌트:  <h2 class="pageTitle">{{ title }}</h2>
  *   - {{ name | 기본값 }} : 값이 없으면 기본값 사용 (기본값 생략 시 빈 문자열)
  *   - 값 없는 속성(예: full)은 "true"
  *
  * 내용 끼워 넣기 (slot)
  *   화면:  <include src="../../partials/searchItem.html" label="조회일자"> ...마크업... </include>
- *   부품:  <div class="searchField">{{ slot }}</div>
+ *   UI 컴포넌트:  <div class="searchField">{{ slot }}</div>
  *
  * 이름 있는 slot (내용을 넣을 자리가 여러 개일 때)
  *   화면:  <include src="../../partials/viewSection.html" title="상세 설정">
  *            <slot name="actions"><button ...>미리보기</button></slot>
  *            ...행 마크업 (기본 slot)...
  *          </include>
- *   부품:  {{ actions }} / {{ slot }}
+ *   UI 컴포넌트:  {{ actions }} / {{ slot }}
  *
  * 조건부 출력
  *   {{#if count}} ... {{/if}}   : count 값이 있을 때만 출력 (중첩 가능)
@@ -29,13 +29,13 @@
  *
  * 목록 반복 (쉼표로 구분한 값)
  *   화면:  <include src="../../partials/checkGroup.html" name="status" options="운영중,중단,종료" checked="중단"></include>
- *   부품:  {{#each options}} ... {{ item }} ... {{/each}}   (중첩 불가)
+ *   UI 컴포넌트:  {{#each options}} ... {{ item }} ... {{/each}}   (중첩 불가)
  *   - 반복 안에서 쓸 수 있는 값: item(현재 값), num(1부터 순번), first / last(처음·마지막이면 true),
  *     isChecked(checked 속성 목록에 포함되면 true, checked 속성이 없으면 첫 번째가 true)
  *
- * - HTML 주석(<!-- -->) 안의 {{ }} 는 치환하지 않음 (부품 사용법 설명용)
- * - 부품 파일 맨 위 <!-- [부품] ... --> 사용법 주석은 결과물에 포함하지 않음
- * - 부품 파일 위치: src/partials (dist 에는 단독 파일로 출력하지 않음)
+ * - HTML 주석(<!-- -->) 안의 {{ }} 는 치환하지 않음 (UI 컴포넌트 사용법 설명용)
+ * - UI 컴포넌트 파일 맨 위 <!-- [UI 컴포넌트] ... --> 사용법 주석은 결과물에 포함하지 않음
+ * - UI 컴포넌트 파일 위치: src/partials (dist 에는 단독 파일로 출력하지 않음)
  */
 const fs = require('fs');
 const path = require('path');
@@ -202,8 +202,8 @@ function resolveIncludes(html, opts) {
     Object.keys(named).forEach((k) => {
       props[k] = named[k].trim() ? resolveIncludes(named[k], opts) : '';
     });
-    // 부품 파일 맨 위 사용법 주석(<!-- [부품] ... -->)은 결과물에서 제외
-    const raw = fs.readFileSync(filePath, 'utf8').replace(/^\s*<!--\s*\[부품\][\s\S]*?-->\s*/, '');
+    // UI 컴포넌트 파일 맨 위 사용법 주석(<!-- [UI 컴포넌트] ... -->)은 결과물에서 제외
+    const raw = fs.readFileSync(filePath, 'utf8').replace(/^\s*<!--\s*\[UI 컴포넌트\][\s\S]*?-->\s*/, '');
     const content = applyProps(raw, { ...props, slot });
     out += resolveIncludes(content, { ...opts, baseDir: path.dirname(filePath) });
   }
