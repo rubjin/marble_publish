@@ -1,9 +1,13 @@
 <!--
   [UI 컴포넌트] 검색 조건 박스 (하단 초기화 / 조회 버튼 포함)
   <include src="../../partials/searchBox.html">
-    ...searchRow / searchItem...
+    <div class="searchRow">
+      <include src="../../partials/searchItem.html" label="유형" for="searchType">
+        <select id="searchType" class="formControl wSm"><option>전체</option></select>
+      </include>
+    </div>
   </include>
-  - slot        : 검색 조건 행 (partials/searchRow.html)
+  - slot        : 검색 조건 행 (<div class="searchRow"> 안에 searchItem 1~2개)
   - resetText   : 초기화 버튼 문구 (기본: 초기화)
   - searchText  : 조회 버튼 문구 (기본: 조회)
 -->

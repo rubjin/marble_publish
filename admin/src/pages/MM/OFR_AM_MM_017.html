@@ -59,7 +59,7 @@
 <!-- ==================== 섹션 :: 공통설정 ==================== -->
 <!-- 검색 조건 컨트롤 박스 -->
 <include src="../../partials/searchBox.html">
-  <include src="../../partials/searchRow.html">
+  <div class="searchRow">
     <include src="../../partials/searchItem.html" label="참여일자">
       <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
     </include>
@@ -71,7 +71,7 @@
         <option value="code">코드</option>
       </select>
     </include>
-  </include>
+  </div>
 </include>
 
 <!-- 실시간 요약 인라인 바 -->

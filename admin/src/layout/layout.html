@@ -47,14 +47,14 @@
   ========================================================================== -->
 <include src="../partials/searchBox.html">
   <!-- 1줄: 조회일자 -->
-  <include src="../partials/searchRow.html">
+  <div class="searchRow">
     <include src="../partials/searchItem.html" label="조회일자" full>
       <include src="../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="searchPeriod" shortcuts="오늘,1주일,1개월,3개월,전체"></include>
     </include>
-  </include>
+  </div>
 
   <!-- 2줄: 유형 및 상태 -->
-  <include src="../partials/searchRow.html">
+  <div class="searchRow">
     <include src="../partials/searchItem.html" label="유형" for="searchType">
       <select id="searchType" class="formControl wSm">
         <option value="">전체</option>
@@ -68,10 +68,10 @@
     <include src="../partials/searchItem.html" label="상태">
       <include src="../partials/checkGroup.html" name="searchStatus" options="전체,운영중,일시중단,종료" legend="상태 선택"></include>
     </include>
-  </include>
+  </div>
 
   <!-- 3줄: 검색어 -->
-  <include src="../partials/searchRow.html">
+  <div class="searchRow">
     <include src="../partials/searchItem.html" label="검색어" for="searchKeyword" full>
       <select class="formControl wSm">
         <option value="all">전체</option>
@@ -83,7 +83,7 @@
         <input type="text" id="searchKeyword" class="formControl full" placeholder="검색어를 입력해주세요" />
       </div>
     </include>
-  </include>
+  </div>
 </include>
 
 

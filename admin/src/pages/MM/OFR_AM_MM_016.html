@@ -7,13 +7,13 @@
 <!-- ==================== 섹션 :: 공통설정 ==================== -->
 <!-- 검색 조건 컨트롤 박스 -->
 <include src="../../partials/searchBox.html">
-  <include src="../../partials/searchRow.html">
+  <div class="searchRow">
     <include src="../../partials/searchItem.html" label="조회일자" full>
       <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
     </include>
-  </include>
+  </div>
 
-  <include src="../../partials/searchRow.html">
+  <div class="searchRow">
     <include src="../../partials/searchItem.html" label="고객정보" for="p1Keyword" full>
       <select class="formControl wSm">
         <option value="all">전체</option>
@@ -24,7 +24,7 @@
         <input type="text" id="p1Keyword" class="formControl full" placeholder="고객번호 또는 고객명 입력">
       </div>
     </include>
-  </include>
+  </div>
 </include>
 <!-- 하얀 박스 영역 -->
 <div class="sectionBox">
