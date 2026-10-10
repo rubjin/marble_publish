@@ -1,12 +1,15 @@
 <!--
   [UI 컴포넌트] STEP 카드 (드래그 핸들 + 단계 타이틀 + 복사 / 삭제 + 입력 폼 테이블)
   <include src="../../partials/stepCard.html" step="1" title="정상 미션">
-    <include src="../../partials/viewRow.html" label="코스명" required> ... </include>
+    <tr>
+      <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
+      <td><input type="text" class="formControl full"></td>
+    </tr>
   </include>
   - step    : 단계 번호
   - title   : 단계 타이틀
   - thWidth : 항목명(th) 너비 (기본: 120px)
-  - slot    : 테이블 행 (partials/viewRow.html)
+  - slot    : 테이블 행 (<tr><th><label class="formLabel">항목명</label></th><td>입력 영역</td></tr>)
   [D] 드래그 중인 원본: .stepCard.isDragging / 미리보기: .stepCard.isOverlay (스타일: dnd.scss)
 -->
 <div class="stepCard">

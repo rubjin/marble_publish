@@ -14,14 +14,27 @@
 <div class="tblTop">
   <div class="tblLeft">
     <h3 class="tblTitle">{{ title }}</h3>
-    {% if count %}<span class="tblCount">총 <strong class="count{% if point %} point{% endif %}">{{ count }}</strong>건{% if unit %} <span class="tblUnit">({{ unit }})</span>{% endif %}</span>{% endif %}
-    {% if not count %}{% if unit %}<span class="tblUnit">({{ unit }})</span>{% endif %}{% endif %}
-    {% if pageSize %}<select class="formControl wSm" aria-label="페이지당 건수">
+    {% if count %}
+    <span class="tblCount">총 <strong class="count{% if point %} point{% endif %}">{{ count }}</strong>건{% if unit %} <span class="tblUnit">({{ unit }})</span>{% endif %}</span>
+    {% elif unit %}
+    <span class="tblUnit">({{ unit }})</span>
+    {% endif %}
+    {% if pageSize %}
+    <select class="formControl wSm" aria-label="페이지당 건수">
       <option value="10">10건씩 보기</option>
       <option value="20">20건씩 보기</option>
       <option value="50">50건씩 보기</option>
-    </select>{% endif %}
+    </select>
+    {% endif %}
   </div>
-  {% if guide %}<div class="tblRight"><p class="tblGuide">{{ guide }}</p></div>{% endif %}
-  {% if slot %}<div class="tblRight">{{ slot }}</div>{% endif %}
+  {% if guide %}
+  <div class="tblRight">
+    <p class="tblGuide">{{ guide }}</p>
+  </div>
+  {% endif %}
+  {% if slot %}
+  <div class="tblRight">
+    {{ slot }}
+  </div>
+  {% endif %}
 </div>

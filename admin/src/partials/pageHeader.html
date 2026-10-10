@@ -19,6 +19,12 @@
   {% else %}
   <h2 class="pageTitle">{{ title }}</h2>
   {% endif %}
-  {% if breadcrumb %}<include src="./breadcrumb.html" items="{{ breadcrumb }}"></include>{% endif %}
-  {% if slot %}<div class="headerRight">{{ slot }}</div>{% endif %}
+  {% if breadcrumb %}
+  <include src="./breadcrumb.html" items="{{ breadcrumb }}"></include>
+  {% endif %}
+  {% if slot %}
+  <div class="headerRight">
+    {{ slot }}
+  </div>
+  {% endif %}
 </div>

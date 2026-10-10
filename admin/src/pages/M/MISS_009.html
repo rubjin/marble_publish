@@ -10,73 +10,100 @@
 <div class="sectionBox">
   <include src="../../partials/viewSection.html" title="공통 설정">
     <!-- 미션 ID -->
-    <include src="../../partials/viewRow.html" label="미션 ID" for="idMissionID">
-      <div class="formControlWrap">
-        <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
-        <button type="button" class="btn outline">찾아보기</button>
-        <span class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</span>
-      </div>
-    </include>
-    <!-- 미션상태 -->
-    <include src="../../partials/viewRow.html" label="미션상태" required>
-      <include src="../../partials/checkGroup.html" name="MissionStatus" options="운영중,중단,종료" legend="미션상태 선택"></include>
-    </include>
-    <!-- 승인여부 -->
-    <include src="../../partials/viewRow.html" label="승인여부" required>
-      <include src="../../partials/checkGroup.html" name="ApprovalStatus" options="승인,미승인" legend="승인여부 선택"></include>
-    </include>
-    <!-- 노출여부 -->
-    <include src="../../partials/viewRow.html" label="노출여부" required>
-      <include src="../../partials/checkGroup.html" name="ExposureStatus" options="노출함,노출 안함" legend="노출여부 선택"></include>
-    </include>
-    <!-- 대상고객 -->
-    <include src="../../partials/viewRow.html" label="대상고객" for="idTargetCustomer">
-      <select id="idTargetCustomer" class="formControl full">
-        <option value="">전체고객 대상</option>
-      </select>
-    </include>
-    <!-- 운영기간 -->
-    <include src="../../partials/viewRow.html" label="운영기간" required>
-      <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="공통 운영기간 설정" startLabel="운영 시작일" endLabel="운영 종료일" noShortcut>
-        <label class="formCheck">
-          <input type="checkbox">
-          <span class="checkIcon"></span>
-          <span class="checkLabel">미지정</span>
-        </label>
-      </include>
-    </include>
-    <!-- 노출위치 -->
-    <include src="../../partials/viewRow.html" label="노출위치" required>
-      <div class="formControlWrap full col">
-        <div class="tagBox">
-          <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-          <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-          <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-          <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+    <tr>
+      <th><label class="formLabel" for="idMissionID">미션 ID</label></th>
+      <td>
+        <div class="formControlWrap">
+          <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
+          <button type="button" class="btn outline">찾아보기</button>
+          <span class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</span>
         </div>
-        <button type="button" class="btn dark">화면선택</button>
-      </div>
-    </include>
-    <!-- 노출기간 -->
-    <include src="../../partials/viewRow.html" label="노출기간" required>
-      <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="노출기간 설정" startLabel="노출 시작일" endLabel="노출 종료일" noShortcut>
-        <label class="formCheck">
-          <input type="checkbox">
-          <span class="checkIcon"></span>
-          <span class="checkLabel">미지정</span>
-        </label>
-      </include>
-    </include>
-    <!-- 미션유형 선택 -->
-    <include src="../../partials/viewRow.html" label="미션유형 선택" for="idMissionType" required>
-      <div class="formControlWrap">
-        <select id="idMissionType" class="formControl">
-          <option value="ox">OX퀴즈</option>
+      </td>
+    </tr>
+    <!-- 미션상태 -->
+    <tr>
+      <th><label class="formLabel">미션상태 <span class="required">*</span></label></th>
+      <td>
+        <include src="../../partials/checkGroup.html" name="MissionStatus" options="운영중,중단,종료" legend="미션상태 선택"></include>
+      </td>
+    </tr>
+    <!-- 승인여부 -->
+    <tr>
+      <th><label class="formLabel">승인여부 <span class="required">*</span></label></th>
+      <td>
+        <include src="../../partials/checkGroup.html" name="ApprovalStatus" options="승인,미승인" legend="승인여부 선택"></include>
+      </td>
+    </tr>
+    <!-- 노출여부 -->
+    <tr>
+      <th><label class="formLabel">노출여부 <span class="required">*</span></label></th>
+      <td>
+        <include src="../../partials/checkGroup.html" name="ExposureStatus" options="노출함,노출 안함" legend="노출여부 선택"></include>
+      </td>
+    </tr>
+    <!-- 대상고객 -->
+    <tr>
+      <th><label class="formLabel" for="idTargetCustomer">대상고객</label></th>
+      <td>
+        <select id="idTargetCustomer" class="formControl full">
+          <option value="">전체고객 대상</option>
         </select>
-        <span class="formGuideText">OX 퀴즈를 생성하고 관리 합니다.</span>
-      </div>
-      <p class="formGuideText blue">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</p>
-    </include>
+      </td>
+    </tr>
+    <!-- 운영기간 -->
+    <tr>
+      <th><label class="formLabel">운영기간 <span class="required">*</span></label></th>
+      <td>
+        <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="공통 운영기간 설정" startLabel="운영 시작일" endLabel="운영 종료일" noShortcut>
+          <label class="formCheck">
+            <input type="checkbox">
+            <span class="checkIcon"></span>
+            <span class="checkLabel">미지정</span>
+          </label>
+        </include>
+      </td>
+    </tr>
+    <!-- 노출위치 -->
+    <tr>
+      <th><label class="formLabel">노출위치 <span class="required">*</span></label></th>
+      <td>
+        <div class="formControlWrap full col">
+          <div class="tagBox">
+            <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+            <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+            <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+            <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+          </div>
+          <button type="button" class="btn dark">화면선택</button>
+        </div>
+      </td>
+    </tr>
+    <!-- 노출기간 -->
+    <tr>
+      <th><label class="formLabel">노출기간 <span class="required">*</span></label></th>
+      <td>
+        <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="노출기간 설정" startLabel="노출 시작일" endLabel="노출 종료일" noShortcut>
+          <label class="formCheck">
+            <input type="checkbox">
+            <span class="checkIcon"></span>
+            <span class="checkLabel">미지정</span>
+          </label>
+        </include>
+      </td>
+    </tr>
+    <!-- 미션유형 선택 -->
+    <tr>
+      <th><label class="formLabel" for="idMissionType">미션유형 선택 <span class="required">*</span></label></th>
+      <td>
+        <div class="formControlWrap">
+          <select id="idMissionType" class="formControl">
+            <option value="ox">OX퀴즈</option>
+          </select>
+          <span class="formGuideText">OX 퀴즈를 생성하고 관리 합니다.</span>
+        </div>
+        <p class="formGuideText blue">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</p>
+      </td>
+    </tr>
   </include>
 </div>
 
@@ -85,71 +112,95 @@
 <div class="sectionBox">
   <include src="../../partials/viewSection.html" title="상세 설정">
     <!-- 미션 타이틀 -->
-    <include src="../../partials/viewRow.html" label="미션 타이틀" for="idMissionTitle" required>
-      <input type="text" id="idMissionTitle" class="formControl full" value="OX퀴즈">
-    </include>
+    <tr>
+      <th><label class="formLabel" for="idMissionTitle">미션 타이틀 <span class="required">*</span></label></th>
+      <td>
+        <input type="text" id="idMissionTitle" class="formControl full" value="OX퀴즈">
+      </td>
+    </tr>
     <!-- 퀴즈 타입 선택 -->
-    <include src="../../partials/viewRow.html" label="퀴즈 타입 선택">
-      <fieldset class="formRadioCardGroup">
-        <legend class="srOnly">퀴즈 타입 선택</legend>
-        <label class="formRadioCard isActive">
-          <input type="radio" name="QuizType" checked>
-          <span class="checkIcon"></span>
-          <div class="cardContent">
-            <strong class="cardTitle">A-type (화면 본문 삽입형)</strong>
-            <p class="cardDesc">질문과 정답 버튼만 노출되는 기본형 퀴즈 레이아웃입니다.</p>
-          </div>
-        </label>
-        <label class="formRadioCard">
-          <input type="radio" name="QuizType">
-          <span class="checkIcon"></span>
-          <div class="cardContent">
-            <strong class="cardTitle">B-type (단독 화면 호출)</strong>
-            <p class="cardDesc">단독화면에 사용되는 퀴즈 레이아웃입니다</p>
-          </div>
-        </label>
-      </fieldset>
-    </include>
+    <tr>
+      <th><label class="formLabel">퀴즈 타입 선택</label></th>
+      <td>
+        <fieldset class="formRadioCardGroup">
+          <legend class="srOnly">퀴즈 타입 선택</legend>
+          <label class="formRadioCard isActive">
+            <input type="radio" name="QuizType" checked>
+            <span class="checkIcon"></span>
+            <div class="cardContent">
+              <strong class="cardTitle">A-type (화면 본문 삽입형)</strong>
+              <p class="cardDesc">질문과 정답 버튼만 노출되는 기본형 퀴즈 레이아웃입니다.</p>
+            </div>
+          </label>
+          <label class="formRadioCard">
+            <input type="radio" name="QuizType">
+            <span class="checkIcon"></span>
+            <div class="cardContent">
+              <strong class="cardTitle">B-type (단독 화면 호출)</strong>
+              <p class="cardDesc">단독화면에 사용되는 퀴즈 레이아웃입니다</p>
+            </div>
+          </label>
+        </fieldset>
+      </td>
+    </tr>
     <!-- 퀴즈 텍스트 -->
-    <include src="../../partials/viewRow.html" label="퀴즈 텍스트" for="idQuizText">
-      <textarea id="idQuizText" class="formControl full" placeholder="퀴즈 텍스트를 입력해주세요."></textarea>
-    </include>
+    <tr>
+      <th><label class="formLabel" for="idQuizText">퀴즈 텍스트</label></th>
+      <td>
+        <textarea id="idQuizText" class="formControl full" placeholder="퀴즈 텍스트를 입력해주세요."></textarea>
+      </td>
+    </tr>
     <!-- 퀴즈 힌트 -->
-    <include src="../../partials/viewRow.html" label="퀴즈 힌트" for="idQuizHint">
-      <textarea id="idQuizHint" class="formControl full" placeholder="퀴즈 힌트를 입력해주세요."></textarea>
-    </include>
+    <tr>
+      <th><label class="formLabel" for="idQuizHint">퀴즈 힌트</label></th>
+      <td>
+        <textarea id="idQuizHint" class="formControl full" placeholder="퀴즈 힌트를 입력해주세요."></textarea>
+      </td>
+    </tr>
     <!-- 정답 선택 -->
-    <include src="../../partials/viewRow.html" label="정답 선택">
-      <fieldset class="formRadioCardGroup">
-        <legend class="srOnly">정답 선택</legend>
-        <label class="formRadioCard isActive">
-          <input type="radio" name="CorrectAnswer" checked>
-          <span class="checkIcon"></span>
-          <div class="cardContent">
-            <strong class="cardTitle">O (정답)</strong>
-          </div>
-        </label>
-        <label class="formRadioCard">
-          <input type="radio" name="CorrectAnswer">
-          <span class="checkIcon"></span>
-          <div class="cardContent">
-            <strong class="cardTitle">X (오답)</strong>
-          </div>
-        </label>
-      </fieldset>
-    </include>
+    <tr>
+      <th><label class="formLabel">정답 선택</label></th>
+      <td>
+        <fieldset class="formRadioCardGroup">
+          <legend class="srOnly">정답 선택</legend>
+          <label class="formRadioCard isActive">
+            <input type="radio" name="CorrectAnswer" checked>
+            <span class="checkIcon"></span>
+            <div class="cardContent">
+              <strong class="cardTitle">O (정답)</strong>
+            </div>
+          </label>
+          <label class="formRadioCard">
+            <input type="radio" name="CorrectAnswer">
+            <span class="checkIcon"></span>
+            <div class="cardContent">
+              <strong class="cardTitle">X (오답)</strong>
+            </div>
+          </label>
+        </fieldset>
+      </td>
+    </tr>
     <!-- 정답 메세지 -->
-    <include src="../../partials/viewRow.html" label="정답 메세지" for="idAnswerMsg">
-      <textarea id="idAnswerMsg" class="formControl full" placeholder="정답 메세지를 입력해주세요."></textarea>
-    </include>
+    <tr>
+      <th><label class="formLabel" for="idAnswerMsg">정답 메세지</label></th>
+      <td>
+        <textarea id="idAnswerMsg" class="formControl full" placeholder="정답 메세지를 입력해주세요."></textarea>
+      </td>
+    </tr>
     <!-- 오답 메세지 -->
-    <include src="../../partials/viewRow.html" label="오답 메세지" for="idWrongMsg">
-      <textarea id="idWrongMsg" class="formControl full" placeholder="오답 메세지를 입력해주세요."></textarea>
-    </include>
+    <tr>
+      <th><label class="formLabel" for="idWrongMsg">오답 메세지</label></th>
+      <td>
+        <textarea id="idWrongMsg" class="formControl full" placeholder="오답 메세지를 입력해주세요."></textarea>
+      </td>
+    </tr>
     <!-- 버튼 연결 URL -->
-    <include src="../../partials/viewRow.html" label="버튼 연결 URL" for="idBtnUrl" required>
-      <input type="text" id="idBtnUrl" class="formControl full" value="">
-    </include>
+    <tr>
+      <th><label class="formLabel" for="idBtnUrl">버튼 연결 URL <span class="required">*</span></label></th>
+      <td>
+        <input type="text" id="idBtnUrl" class="formControl full" value="">
+      </td>
+    </tr>
   </include>
 </div>
 
@@ -158,45 +209,60 @@
 <div class="sectionBox">
   <include src="../../partials/viewSection.html" title="운영정보">
     <!-- 파일첨부 -->
-    <include src="../../partials/viewRow.html" label="파일첨부">
-      <div class="formControlWrap full col">
-        <ul class="fileList boxType">
-          <li class="fileItem">
-            <div class="fileInfo">
-              <a class="fileName" href="#;">업로드한 파일명이 출력됩니다(다운로드 가능).jpg<span class="fileSize">(1542byte)</span></a> 
-            </div>
-            <button type="button" class="fileDelete" aria-label="삭제">
-              <span class="ico deleteTag"></span>
-            </button>
-          </li>
-        </ul>
-        <div class="formControlWrap">
-          <button type="button" class="btn dark">파일 선택</button>
-          <span class="formGuideText">※ 첨부파일은 최대 10MB × 1개로 jpg 파일만 등록할 수 있습니다.</span>
+    <tr>
+      <th><label class="formLabel">파일첨부</label></th>
+      <td>
+        <div class="formControlWrap full col">
+          <ul class="fileList boxType">
+            <li class="fileItem">
+              <div class="fileInfo">
+                <a class="fileName" href="#;">업로드한 파일명이 출력됩니다(다운로드 가능).jpg<span class="fileSize">(1542byte)</span></a> 
+              </div>
+              <button type="button" class="fileDelete" aria-label="삭제">
+                <span class="ico deleteTag"></span>
+              </button>
+            </li>
+          </ul>
+          <div class="formControlWrap">
+            <button type="button" class="btn dark">파일 선택</button>
+            <span class="formGuideText">※ 첨부파일은 최대 10MB × 1개로 jpg 파일만 등록할 수 있습니다.</span>
+          </div>
         </div>
-      </div>
-    </include>
+      </td>
+    </tr>
     <!-- 심의대상 여부 -->
-    <include src="../../partials/viewRow.html" label="심의대상 여부" required>
-      <include src="../../partials/checkGroup.html" name="DeliberationTarget" options="대상,대상아님" checked="대상아님" type="checkbox" legend="심의대상 여부 선택"></include>
-    </include>
+    <tr>
+      <th><label class="formLabel">심의대상 여부 <span class="required">*</span></label></th>
+      <td>
+        <include src="../../partials/checkGroup.html" name="DeliberationTarget" options="대상,대상아님" checked="대상아님" type="checkbox" legend="심의대상 여부 선택"></include>
+      </td>
+    </tr>
     <!-- 심의번호 -->
-    <include src="../../partials/viewRow.html" label="심의번호" for="idDeliberationNo" required>
-      <input type="text" id="idDeliberationNo" class="formControl full" placeholder="심의번호를 입력해주세요.">
-    </include>
+    <tr>
+      <th><label class="formLabel" for="idDeliberationNo">심의번호 <span class="required">*</span></label></th>
+      <td>
+        <input type="text" id="idDeliberationNo" class="formControl full" placeholder="심의번호를 입력해주세요.">
+      </td>
+    </tr>
     <!-- 운영기간 -->
-    <include src="../../partials/viewRow.html" label="운영기간" required>
-      <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="운영정보 운영기간 설정" startLabel="운영 시작일" endLabel="운영 종료일" noShortcut></include>
-    </include>
+    <tr>
+      <th><label class="formLabel">운영기간 <span class="required">*</span></label></th>
+      <td>
+        <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="운영정보 운영기간 설정" startLabel="운영 시작일" endLabel="운영 종료일" noShortcut></include>
+      </td>
+    </tr>
     <!-- 운영메모 -->
-    <include src="../../partials/viewRow.html" label="운영메모" for="idOperationMemo">
-      <div class="formControlWrap full col">
-        <textarea class="formControl" placeholder="운영 시 참고사항 또는 협업 내용을 입력하세요."></textarea>
-        <div class="flexBetween alignCenter">
-          <button type="button" class="btn outline right">메모 등록</button>
+    <tr>
+      <th><label class="formLabel" for="idOperationMemo">운영메모</label></th>
+      <td>
+        <div class="formControlWrap full col">
+          <textarea class="formControl" placeholder="운영 시 참고사항 또는 협업 내용을 입력하세요."></textarea>
+          <div class="flexBetween alignCenter">
+            <button type="button" class="btn outline right">메모 등록</button>
+          </div>
         </div>
-      </div>
-    </include>
+      </td>
+    </tr>
   </include>
 </div>
 

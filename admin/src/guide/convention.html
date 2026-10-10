@@ -152,7 +152,7 @@ admin/
         <li><strong>제공 UI 컴포넌트:</strong>
           <ul>
             <li>조회 화면: <code>pageHeader</code>, <code>breadcrumb</code>, <code>searchBox</code>, <code>searchRow</code>, <code>searchItem</code>, <code>dateRange</code>, <code>tblTop</code></li>
-            <li>등록 화면: <code>viewSection</code>, <code>viewRow</code>, <code>checkGroup</code>, <code>dateRange</code>, <code>fileAttach</code>, <code>stepCard</code></li>
+            <li>등록 화면: <code>viewSection</code>, <code>checkGroup</code>, <code>dateRange</code>, <code>fileAttach</code>, <code>stepCard</code></li>
             <li>적용 예: <code>pages/MM/OFR_AM_MM_016.html</code>, <code>OFR_AM_MM_017.html</code>, <code>pages/M/MISS_009.html</code>, <code>MISS_099.html</code>, <code>layout/layout.html</code></li>
           </ul>
         </li>
@@ -172,12 +172,19 @@ admin/
 &lt;!-- 등록 화면 --&gt;
 &lt;include src="../../partials/viewSection.html" title="공통 설정"&gt;
   &lt;slot name="actions"&gt;&lt;button type="button" class="btn dark"&gt;모바일 미리보기&lt;/button&gt;&lt;/slot&gt;
-  &lt;include src="../../partials/viewRow.html" label="미션상태" required&gt;
-    &lt;include src="../../partials/checkGroup.html" name="MissionStatus" options="운영중,중단,종료" legend="미션상태 선택"&gt;&lt;/include&gt;
-  &lt;/include&gt;
-  &lt;include src="../../partials/viewRow.html" label="대표 이미지" required&gt;
-    &lt;include src="../../partials/fileAttach.html" guide="대표 이미지입니다.(JPG, PNG / 최대 5MB)"&gt;&lt;/include&gt;
-  &lt;/include&gt;
+  &lt;!-- 테이블 행은 HTML 로 작성 --&gt;
+  &lt;tr&gt;
+    &lt;th&gt;&lt;label class="formLabel"&gt;미션상태 &lt;span class="required"&gt;*&lt;/span&gt;&lt;/label&gt;&lt;/th&gt;
+    &lt;td&gt;
+      &lt;include src="../../partials/checkGroup.html" name="MissionStatus" options="운영중,중단,종료" legend="미션상태 선택"&gt;&lt;/include&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;&lt;label class="formLabel"&gt;대표 이미지 &lt;span class="required"&gt;*&lt;/span&gt;&lt;/label&gt;&lt;/th&gt;
+    &lt;td&gt;
+      &lt;include src="../../partials/fileAttach.html" guide="대표 이미지입니다.(JPG, PNG / 최대 5MB)"&gt;&lt;/include&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
 &lt;/include&gt;
       </pre>
     </section>
