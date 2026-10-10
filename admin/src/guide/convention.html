@@ -138,6 +138,7 @@ admin/
         <li><strong>경로:</strong> include 를 쓰는 파일 기준 상대 경로 (VS Code 에서 Ctrl+클릭으로 UI 컴포넌트 파일 이동)</li>
         <li><strong>속성 전달:</strong> <code>&lt;include src="../../partials/pageHeader.html" title="미션 목록"&gt;&lt;/include&gt;</code> → UI 컴포넌트의 <code>{{ title }}</code> 위치에 출력</li>
         <li><strong>기본값:</strong> <code>{{ resetText | 초기화 }}</code> - 속성이 없으면 기본값 사용</li>
+        <li><strong>속성 값 안의 치환:</strong> <code>style</code> 처럼 에디터가 검사하는 속성은 앞에 <code>:</code> 를 붙여 작성 (<code>&lt;col :style="width: {{ thWidth | 160px }};"&gt;</code> → 출력 시 <code>style</code>)</li>
         <li><strong>값 없는 속성:</strong> <code>full</code>, <code>pageSize</code> 처럼 속성만 쓰면 켜짐</li>
         <li><strong>내용 끼워 넣기 (slot):</strong> 여는 태그와 닫는 태그 사이의 마크업이 UI 컴포넌트의 <code>{{ slot }}</code> 위치에 출력 (include 중첩 가능)</li>
         <li><strong>이름 있는 slot:</strong> 내용을 넣을 자리가 여러 개일 때 <code>&lt;slot name="actions"&gt;...&lt;/slot&gt;</code> → UI 컴포넌트의 <code>{{ actions }}</code> 위치에 출력</li>

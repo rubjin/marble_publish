@@ -33,6 +33,9 @@
  *   - 반복 안에서 쓸 수 있는 값: item(현재 값), num(1부터 순번), first / last(처음·마지막이면 true),
  *     isChecked(checked 속성 목록에 포함되면 true, checked 속성이 없으면 첫 번째가 true)
  *
+ * 바인딩 속성 (속성 값에 {{ }} 를 쓸 때 에디터 검사 회피)
+ *   UI 컴포넌트:  <col :style="width: {{ thWidth | 160px }};">  →  출력: <col style="width: 160px;">
+ *
  * - HTML 주석(<!-- -->) 안의 {{ }} 는 치환하지 않음 (UI 컴포넌트 사용법 설명용)
  * - UI 컴포넌트 파일 맨 위 <!-- [UI 컴포넌트] ... --> 사용법 주석은 결과물에 포함하지 않음
  * - UI 컴포넌트 파일 위치: src/partials
@@ -67,13 +70,42 @@ function outsideComments(html, fn) {
     .join('');
 }
 
+// 출력이 비는 자리 표시 (반복 끝 / 거짓 조건 / 빈 값) - 표시만 남은 줄은 통째로 제거
+const MARK = '\u0001';
+const BLOCK_PLACEHOLDER_RE = /^([ \t]*)\{\{\s*([A-Za-z_][\w-]*)\s*(?:\|([^}]*))?\}\}[ \t]*$/gm;
+// 바인딩 속성: :style="width: {{ w }};" → style="..." (에디터의 CSS 검사 회피용)
+const BOUND_ATTR_RE = /(<[A-Za-z][^<>]*?\s):([A-Za-z][\w-]*)=/g;
+
+function propValue(props, name, fallback) {
+  const v = props[name];
+  if (v !== undefined && v !== '') return v;
+  return fallback !== undefined ? fallback.trim() : '';
+}
+
+/** 여러 줄 값을 지정한 들여쓰기에 맞춤 (공통 들여쓰기 제거 + 앞뒤 빈 줄 제거) */
+function reindent(value, indent) {
+  const lines = String(value).replace(/\r/g, '').split('\n');
+  while (lines.length && !lines[0].trim()) lines.shift();
+  while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+  const min = Math.min(...lines.filter((l) => l.trim()).map((l) => l.match(/^[ \t]*/)[0].length));
+  return lines.map((l) => (l.trim() ? indent + l.slice(min) : '')).join('\n');
+}
+
+function cleanMarks(text) {
+  return text
+    .split('\n')
+    .filter((line) => !(line.includes(MARK) && !line.replace(new RegExp(MARK, 'g'), '').trim()))
+    .join('\n')
+    .replace(new RegExp(MARK, 'g'), '');
+}
+
 function applyProps(html, props) {
-  return outsideComments(html, (part) =>
-    part
-      .replace(EACH_RE, (_, name, body) => {
-        const items = splitList(props[name]);
-        const checked = props.checked === undefined ? null : splitList(props.checked);
-        return items
+  const out = outsideComments(html, (part) => {
+    let text = part.replace(EACH_RE, (_, name, body) => {
+      const items = splitList(props[name]);
+      const checked = props.checked === undefined ? null : splitList(props.checked);
+      return (
+        items
           .map((item, i) =>
             applyProps(body, {
               ...props,
@@ -84,25 +116,34 @@ function applyProps(html, props) {
               isChecked: (checked ? checked.includes(item) : i === 0) ? 'true' : ''
             })
           )
-          .join('');
-      })
-      .replace(/[\s\S]*/, (text) => {
-        let prev;
-        do {
-          prev = text;
-          text = text.replace(IF_RE, (_, not, name, body) => {
-            const has = props[name] !== undefined && String(props[name]).trim() !== '';
-            return (not ? !has : has) ? body : '';
-          });
-        } while (text !== prev);
-        return text;
-      })
-      .replace(PLACEHOLDER_RE, (_, name, fallback) => {
-        const v = props[name];
-        if (v !== undefined && v !== '') return v;
-        return fallback !== undefined ? fallback.trim() : '';
-      })
-  );
+          .join('') + MARK
+      );
+    });
+
+    let prev;
+    do {
+      prev = text;
+      text = text.replace(IF_RE, (_, not, name, body) => {
+        const has = props[name] !== undefined && String(props[name]).trim() !== '';
+        return (not ? !has : has) ? body : MARK;
+      });
+    } while (text !== prev);
+
+    // 한 줄 전체가 {{ 값 }} 인 경우: 여러 줄 값을 그 자리 들여쓰기에 맞춤
+    text = text.replace(BLOCK_PLACEHOLDER_RE, (_, indent, name, fallback) => {
+      const v = propValue(props, name, fallback);
+      return v.trim() ? reindent(v, indent) : MARK;
+    });
+    text = text.replace(PLACEHOLDER_RE, (_, name, fallback) => propValue(props, name, fallback));
+
+    let bound;
+    do {
+      bound = text;
+      text = text.replace(BOUND_ATTR_RE, '$1$2=');
+    } while (text !== bound);
+    return text;
+  });
+  return cleanMarks(out);
 }
 
 /**
@@ -206,7 +247,11 @@ function resolveIncludes(html, opts) {
     // UI 컴포넌트 파일 맨 위 사용법 주석(<!-- [UI 컴포넌트] ... -->)은 결과물에서 제외
     const raw = fs.readFileSync(filePath, 'utf8').replace(/^\s*<!--\s*\[UI 컴포넌트\][\s\S]*?-->\s*/, '');
     const content = applyProps(raw, { ...props, slot });
-    out += resolveIncludes(content, { ...opts, baseDir: path.dirname(filePath) });
+    const rendered = resolveIncludes(content, { ...opts, baseDir: path.dirname(filePath) }).replace(/\s+$/, '');
+    // include 태그가 줄 맨 앞(들여쓰기만 있는 위치)에 있으면 결과 전체를 같은 들여쓰기로 맞춤
+    const lineStart = html.lastIndexOf('\n', inc.start - 1) + 1;
+    const indent = html.slice(lineStart, inc.start);
+    out += /^[ \t]*$/.test(indent) ? rendered.replace(/\n(?=[^\n])/g, '\n' + indent) : rendered;
   }
   return out + html.slice(pos);
 }
