@@ -1,0 +1,23 @@
+<!--
+  [부품] 기간 선택 (시작일 ~ 종료일 + 기간 숏컷 세그먼트)
+  <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+  - start / end : 시작일 / 종료일 값
+  - name        : 기간 숏컷 라디오 name (화면 안에서 중복되지 않게)
+  - noShortcut  : 기간 숏컷(당일 / 7일 / 한달) 숨김 (값 없이 속성만 작성)
+-->
+<div class="formDateRange">
+  <div class="formDatepicker">
+    <input type="text" class="formControl" value="{{ start }}" aria-label="시작일">
+    <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+  </div>
+  <span class="dateSeparator">~</span>
+  <div class="formDatepicker">
+    <input type="text" class="formControl" value="{{ end }}" aria-label="종료일">
+    <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+  </div>
+</div>
+{{#if !noShortcut}}<div class="segment">
+  <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}" checked><span class="segmentText">당일</span></label>
+  <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"><span class="segmentText">7일</span></label>
+  <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"><span class="segmentText">한달</span></label>
+</div>{{/if}}

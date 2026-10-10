@@ -40,21 +40,26 @@
       <pre class="codeBlock">
 admin/
 ├── build.js                  # 빌드 스크립트 (dist 산출물 생성)
+├── build-watch.js            # dist 실시간 빌드 (npm run dev 실행 시 함께 동작)
+├── html-include.js           # &lt;include&gt; 처리 (속성 전달 / slot / 조건부 출력)
 ├── package.json              # 프로젝트 설정 및 빌드/컴파일 명령어
 ├── vite.config.js            # Vite 개발 서버 설정 및 HTML include 플러그인
 └── src/
-    ├── assets/               # 정적 자원 및 스타일 소스
-    │   ├── css/              # 컴파일된 CSS (globals.css) 및 외부 라이브러리 CSS
+    ├── assets/               # 정적 자원
     │   ├── fonts/            # 웹 폰트 (KBFG.woff2 등)
     │   ├── images/           # 이미지 및 아이콘 (SVG 등)
-    │   ├── js/               # 공통/유틸 스크립트 (prism.min.js 등)
-    │   └── scss/             # SCSS 소스 폴더 (실제 스타일 작업 영역)
-    │       ├── base/         # Reset, Variables, Mixins, 공통 기본 스타일
-    │       ├── components/   # 버튼, 뱃지, 카드 등 UI 컴포넌트 스타일
-    │       └── globals.scss     # 진입점 SCSS
+    │   └── js/               # 공통/유틸 스크립트 (ui.js, chartTheme.js 등)
+    ├── styles/
+    │   ├── css/              # 컴파일된 CSS (globals.css) - 직접 수정 금지
+    │   └── scss/             # SCSS 소스 (실제 스타일 작업 영역)
+    │       ├── abstracts/    # Variables, Mixins, Functions, Reset, 공통 기본 스타일
+    │       ├── components/   # 버튼, 테이블, 폼 등 UI 컴포넌트 스타일
+    │       ├── pages/        # 단독 화면 스타일 (로그인, 오류)
+    │       └── globals.scss  # 진입점 SCSS
     │
-    ├── components/           # 재사용 가능한 UI 컴포넌트 HTML 조각
-    ├── guide/                # 가이드 문서 (convention.html, guide.html)
+    ├── components/           # 가이드용 UI 컴포넌트 예시 HTML (한 파일에 여러 케이스)
+    ├── partials/             # 화면에서 불러다 쓰는 부품 HTML (한 파일에 하나, 텍스트는 속성으로 전달)
+    ├── guide/                # 가이드 문서 (convention.html, guide.html, library.html)
     ├── layout/               # 공통 레이아웃 템플릿 (aside, header, footer, layout)
     └── pages/                # 업무별 화면 HTML
       </pre>
@@ -122,6 +127,34 @@ admin/
           </ul>
         </li>
       </ul>
+    </section>
+
+    <section class="guideSection">
+      <h2 class="guideTitle">7. 부품 불러오기 (include + 속성 전달)</h2>
+      <p style="margin-bottom: 12px; color: #4b5563; font-size: 14px;">
+        화면 코딩 시 마크업을 복사하지 않고 <code>src/partials</code> 의 부품을 불러온 뒤 <strong>텍스트만 속성으로 전달</strong>합니다. 부품을 고치면 사용하는 모든 화면에 반영됩니다.
+      </p>
+      <ul class="ruleList">
+        <li><strong>경로:</strong> include 를 쓰는 파일 기준 상대 경로 (VS Code 에서 Ctrl+클릭으로 부품 파일 이동)</li>
+        <li><strong>속성 전달:</strong> <code>&lt;include src="../../partials/pageHeader.html" title="미션 목록"&gt;&lt;/include&gt;</code> → 부품의 <code>{{ title }}</code> 위치에 출력</li>
+        <li><strong>기본값:</strong> <code>{{ resetText | 초기화 }}</code> - 속성이 없으면 기본값 사용</li>
+        <li><strong>값 없는 속성:</strong> <code>full</code>, <code>pageSize</code> 처럼 속성만 쓰면 켜짐</li>
+        <li><strong>내용 끼워 넣기 (slot):</strong> 여는 태그와 닫는 태그 사이의 마크업이 부품의 <code>{{ slot }}</code> 위치에 출력 (include 중첩 가능)</li>
+        <li><strong>조건부 출력:</strong> <code>{{#if count}} ... {{/if}}</code>, <code>{{#if !count}} ... {{/if}}</code></li>
+        <li><strong>사용법:</strong> 각 부품 파일 맨 위 <code>&lt;!-- [부품] ... --&gt;</code> 주석 참고 (결과물에는 포함되지 않음)</li>
+        <li><strong>제공 부품:</strong> <code>pageHeader</code>, <code>searchBox</code>, <code>searchRow</code>, <code>searchItem</code>, <code>dateRange</code>, <code>tblTop</code> (적용 예: <code>pages/MM/OFR_AM_MM_016.html</code>)</li>
+      </ul>
+      <pre class="codeBlock">
+&lt;include src="../../partials/searchBox.html"&gt;
+  &lt;include src="../../partials/searchRow.html"&gt;
+    &lt;include src="../../partials/searchItem.html" label="조회일자" full&gt;
+      &lt;include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"&gt;&lt;/include&gt;
+    &lt;/include&gt;
+  &lt;/include&gt;
+&lt;/include&gt;
+
+&lt;include src="../../partials/tblTop.html" title="검색 결과" count="128" pageSize&gt;&lt;/include&gt;
+      </pre>
     </section>
 
   </div>

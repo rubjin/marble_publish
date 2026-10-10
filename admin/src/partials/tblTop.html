@@ -1,0 +1,26 @@
+<!--
+  [부품] 테이블 상단 (좌측: 타이틀 / 건수 / 단위 / 페이지 크기 · 우측: 가이드 문구 / 버튼)
+  <include src="../../partials/tblTop.html" title="검색 결과" count="128" pageSize>
+    <button type="button" class="btn primary">신규 등록</button>
+  </include>
+  - title    : 테이블 타이틀 (필수)
+  - count    : 총 건수 - 있으면 "총 N건" 출력
+  - unit     : 단위 문구 (예: 단위 : 원) - 있으면 출력
+  - pageSize : 페이지 크기 셀렉트(10/20/50건씩 보기) 출력 (값 없이 속성만 작성)
+  - guide    : 우측 가이드 문구 (예: ※ ...)
+  - slot     : 우측 버튼 영역 - 생략 가능
+-->
+<div class="tblTop">
+  <div class="tblLeft">
+    <h3 class="tblTitle">{{ title }}</h3>
+    {{#if count}}<span class="tblCount">총 <strong class="count">{{ count }}</strong>건</span>{{/if}}
+    {{#if unit}}<span class="tblUnit">({{ unit }})</span>{{/if}}
+    {{#if pageSize}}<select class="formControl wSm" aria-label="페이지당 건수">
+      <option value="10">10건씩 보기</option>
+      <option value="20">20건씩 보기</option>
+      <option value="50">50건씩 보기</option>
+    </select>{{/if}}
+  </div>
+  {{#if guide}}<div class="tblRight"><p class="tblGuide">{{ guide }}</p></div>{{/if}}
+  {{#if slot}}<div class="tblRight"><div class="btnGroup">{{ slot }}</div></div>{{/if}}
+</div>

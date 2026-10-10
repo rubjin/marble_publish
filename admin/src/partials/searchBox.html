@@ -1,0 +1,16 @@
+<!--
+  [부품] 검색 조건 박스 (하단 초기화 / 조회 버튼 포함)
+  <include src="../../partials/searchBox.html">
+    ...searchRow / searchItem...
+  </include>
+  - slot        : 검색 조건 행 (partials/searchRow.html)
+  - resetText   : 초기화 버튼 문구 (기본: 초기화)
+  - searchText  : 조회 버튼 문구 (기본: 조회)
+-->
+<div class="searchBox">
+  {{ slot }}
+  <div class="searchBtnArea">
+    <button type="button" class="btn outline">{{ resetText | 초기화 }}</button>
+    <button type="button" class="btn primary">{{ searchText | 조회 }}</button>
+  </div>
+</div>

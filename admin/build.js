@@ -132,23 +132,14 @@ fs.copyFileSync(
   path.resolve(DIST_DIR, 'styles/css/prism-tomorrow.min.css')
 );
 
-// HTML Include Resolver
-// 경로는 include 를 쓴 파일 기준 상대 경로 (기존 admin 루트 기준 "./src/..." 도 지원) - vite.config.js 와 동일 규칙
+// HTML Include Resolver (vite.config.js 와 공통 모듈 사용 - 속성 전달 / slot / 조건부 출력)
+const htmlInclude = require('./html-include.js');
+
 function resolveIncludes(htmlContent, currentFilePath) {
-  const includeRegex = /<!--[\s\S]*?-->|<include\s+src="([^"]+)"><\/include>/g;
-  return htmlContent.replace(includeRegex, (match, src) => {
-    if (match.startsWith('<!--')) return match;
-    const candidates = [
-      path.resolve(path.dirname(currentFilePath), src),
-      path.resolve(ROOT_DIR, src.replace(/^\.\//, ''))
-    ];
-    const includePath = candidates.find((p) => fs.existsSync(p) && fs.statSync(p).isFile());
-    if (includePath) {
-      const nestedContent = fs.readFileSync(includePath, 'utf8');
-      return resolveIncludes(nestedContent, includePath);
-    }
-    console.warn(`[Include Warning] Not found: ${src} in ${currentFilePath}`);
-    return match;
+  return htmlInclude.resolveIncludes(htmlContent, {
+    baseDir: path.dirname(currentFilePath),
+    rootDir: ROOT_DIR,
+    onMissing: (src) => console.warn(`[Include Warning] Not found: ${src} in ${currentFilePath}`)
   });
 }
 
@@ -172,9 +163,13 @@ function walkHtml(dir) {
 // 개발 서버 전용 페이지 (React 번들 필요 - 정적 dist 에서는 동작하지 않음)
 const DEV_ONLY_HTML = ['guide/library.html'];
 
-const allHtmlFiles = walkHtml(SRC_DIR).filter(
-  (f) => !DEV_ONLY_HTML.includes(path.relative(SRC_DIR, f).split(path.sep).join('/'))
-);
+// 부품 파일(src/partials)은 include 로만 사용하는 조각이므로 단독 출력하지 않음
+const PARTIAL_DIR = 'partials/';
+
+const allHtmlFiles = walkHtml(SRC_DIR).filter((f) => {
+  const rel = path.relative(SRC_DIR, f).split(path.sep).join('/');
+  return !DEV_ONLY_HTML.includes(rel) && !rel.startsWith(PARTIAL_DIR);
+});
 
 for (const htmlFile of allHtmlFiles) {
   const relativePath = path.relative(SRC_DIR, htmlFile);

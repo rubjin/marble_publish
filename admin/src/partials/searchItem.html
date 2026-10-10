@@ -1,0 +1,18 @@
+<!--
+  [부품] 검색 조건 항목 (라벨 + 입력 영역)
+  <include src="../../partials/searchItem.html" label="고객정보" for="p1Keyword" full>
+    <select class="formControl wSm">...</select>
+  </include>
+  - label : 항목명 (필수)
+  - for   : 연결할 입력창 id - 있으면 <label>, 없으면 <span> 으로 출력
+  - full  : 한 줄 전체 사용 (값 없이 속성만 작성)
+  - slot  : 입력 영역 (formControl, 데이트피커 등)
+-->
+<div class="searchItem{{#if full}} full{{/if}}">
+  {{#if for}}<label class="searchLabel" for="{{ for }}">{{ label }}</label>{{/if}}{{#if !for}}<span class="searchLabel">{{ label }}</span>{{/if}}
+  <div class="searchField">
+    <div class="formRow">
+      {{ slot }}
+    </div>
+  </div>
+</div>
