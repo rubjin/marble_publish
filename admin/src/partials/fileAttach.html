@@ -10,14 +10,16 @@
   [D] 드래그 진입 시 .fileDropzone.isDragOver / 파일 첨부 시 드롭존 숨김 + .fileList 노출
 -->
 <div class="formControlWrap full col">
-  {{#if !file}}<div class="fileDropzone{{#if dragOver}} isDragOver{{/if}}">
+  {% if not file %}
+  <div class="fileDropzone{% if dragOver %} isDragOver{% endif %}">
     <div class="dropzoneHeader">
-      <input type="file" accept="{{ accept | .jpg,.jpeg,.png }}">
+      <input type="file" accept="{{ accept | default('.jpg,.jpeg,.png', true) }}">
       <span class="ico xl upload"></span>
       <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
     </div>
-  </div>{{/if}}
-  {{#if file}}<ul class="fileList">
+  </div>
+  {% else %}
+  <ul class="fileList">
     <li class="fileItem">
       <div class="fileInfo">
         <a class="fileName" href="#;">{{ file }}<span class="fileSize">({{ size }})</span></a>
@@ -26,7 +28,8 @@
         <span class="ico deleteTag"></span>
       </button>
     </li>
-  </ul>{{/if}}
+  </ul>
+  {% endif %}
   <div class="flexBetween alignCenter">
     <span class="formGuideText">{{ guide }}</span>
     <button type="button" class="btn outline">파일 선택</button>

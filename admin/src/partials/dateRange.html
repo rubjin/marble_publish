@@ -12,22 +12,31 @@
   - noShortcut            : 기간 숏컷 숨김 (값 없이 속성만 작성)
   - slot                  : 종료일 뒤에 붙는 내용 (예: 미지정 체크박스) - 생략 가능
 -->
-{{#if legend}}<fieldset class="formDateRange">
-  <legend class="srOnly">{{ legend }}</legend>{{/if}}{{#if !legend}}<div class="formDateRange">{{/if}}
+{% if legend %}
+<fieldset class="formDateRange">
+  <legend class="srOnly">{{ legend }}</legend>
+{% else %}
+<div class="formDateRange">
+{% endif %}
   <div class="formDatepicker">
-    <input type="text" class="formControl" value="{{ start }}" aria-label="{{ startLabel | 시작일 }}">
+    <input type="text" class="formControl" value="{{ start }}" aria-label="{{ startLabel | default('시작일', true) }}">
     <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
   </div>
   <span class="dateSeparator">~</span>
   <div class="formDatepicker">
-    <input type="text" class="formControl" value="{{ end }}" aria-label="{{ endLabel | 종료일 }}">
+    <input type="text" class="formControl" value="{{ end }}" aria-label="{{ endLabel | default('종료일', true) }}">
     <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
   </div>
   {{ slot }}
-{{#if legend}}</fieldset>{{/if}}{{#if !legend}}</div>{{/if}}
-{{#if !noShortcut}}<div class="segment">
-  {{#each shortcuts}}<label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"{{#if first}} checked{{/if}}><span class="segmentText">{{ item }}</span></label>
-  {{/each}}{{#if !shortcuts}}<label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}" checked><span class="segmentText">당일</span></label>
-  <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"><span class="segmentText">7일</span></label>
-  <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"><span class="segmentText">한달</span></label>{{/if}}
-</div>{{/if}}
+{% if legend %}
+</fieldset>
+{% else %}
+</div>
+{% endif %}
+{% if not noShortcut %}
+<div class="segment">
+  {% for item in shortcuts | default('당일,7일,한달', true) | list %}
+  <label class="segmentItem"><input type="radio" name="{{ name | default('dateShortcut', true) }}"{% if loop.first %} checked{% endif %}><span class="segmentText">{{ item }}</span></label>
+  {% endfor %}
+</div>
+{% endif %}

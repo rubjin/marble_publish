@@ -6,81 +6,53 @@
  *   - 경로는 include 를 쓴 파일 기준 상대 경로 (VS Code Ctrl+클릭 이동 가능)
  *   - 기존 admin 루트 기준 "./src/..." 경로도 지원
  *
- * 속성 전달 (props)
- *   화면:  <include src="../../partials/pageHeader.html" title="미션 목록"></include>
- *   UI 컴포넌트:  <h2 class="pageTitle">{{ title }}</h2>
- *   - {{ name | 기본값 }} : 값이 없으면 기본값 사용 (기본값 생략 시 빈 문자열)
- *   - 값 없는 속성(예: full)은 "true"
+ * UI 컴포넌트 (src/partials) - Nunjucks 템플릿 (https://mozilla.github.io/nunjucks/templating.html)
+ *   화면에서 넘긴 속성 / slot 이 템플릿 변수가 됩니다. (그 외 include 파일은 그대로 삽입)
  *
- * 내용 끼워 넣기 (slot)
- *   화면:  <include src="../../partials/searchItem.html" label="조회일자"> ...마크업... </include>
- *   UI 컴포넌트:  <div class="searchField">{{ slot }}</div>
+ *   속성 전달
+ *     화면:         <include src="../../partials/pageHeader.html" title="미션 목록"></include>
+ *     UI 컴포넌트:  <h2 class="pageTitle">{{ title }}</h2>
+ *     - 기본값: {{ resetText | default('초기화', true) }}  (속성이 없거나 빈 값이면 기본값)
+ *     - 값 없는 속성(예: full)은 "true"
  *
- * 이름 있는 slot (내용을 넣을 자리가 여러 개일 때)
- *   화면:  <include src="../../partials/viewSection.html" title="상세 설정">
- *            <slot name="actions"><button ...>미리보기</button></slot>
- *            ...행 마크업 (기본 slot)...
- *          </include>
- *   UI 컴포넌트:  {{ actions }} / {{ slot }}
+ *   내용 끼워 넣기 (slot)
+ *     화면:         <include src="../../partials/searchItem.html" label="조회일자"> ...마크업... </include>
+ *     UI 컴포넌트:  {{ slot }}
+ *     - 한 줄에 {{ 변수 }} 만 있으면 여러 줄 값을 그 자리 들여쓰기에 맞춰 출력 (빈 값이면 줄 삭제)
  *
- * 조건부 출력
- *   {{#if count}} ... {{/if}}   : count 값이 있을 때만 출력 (중첩 가능)
- *   {{#if !count}} ... {{/if}}  : count 값이 없을 때만 출력
+ *   이름 있는 slot (내용을 넣을 자리가 여러 개일 때)
+ *     화면:         <include src="../../partials/viewSection.html" title="상세 설정">
+ *                     <slot name="actions"><button ...>미리보기</button></slot>
+ *                     ...행 마크업 (기본 slot)...
+ *                   </include>
+ *     UI 컴포넌트:  {{ actions }} / {{ slot }}
  *
- * 목록 반복 (쉼표로 구분한 값)
- *   화면:  <include src="../../partials/checkGroup.html" name="status" options="운영중,중단,종료" checked="중단"></include>
- *   UI 컴포넌트:  {{#each options}} ... {{ item }} ... {{/each}}   (중첩 불가)
- *   - 반복 안에서 쓸 수 있는 값: item(현재 값), num(1부터 순번), first / last(처음·마지막이면 true),
- *     isChecked(checked 속성 목록에 포함되면 true, checked 속성이 없으면 첫 번째가 true)
+ *   조건 / 반복
+ *     {% if count %} ... {% endif %}   /   {% if not count %} ... {% endif %}
+ *     {% for opt in options | list %} ... {{ opt }} ... {% endfor %}   (list: 쉼표 구분 값 → 배열)
+ *     - 반복 안: loop.first / loop.last / loop.index(1부터)
+ *     - {% %} 태그가 있는 줄은 결과가 공백뿐이면 자동 삭제 (블록 태그만 있는 줄, 거짓 조건 줄)
  *
- * 바인딩 속성 (속성 값에 {{ }} 를 쓸 때 에디터 검사 회피)
- *   UI 컴포넌트:  <col :style="width: {{ thWidth | 160px }};">  →  출력: <col style="width: 160px;">
+ *   바인딩 속성 (속성 값에 {{ }} 를 쓸 때 에디터의 CSS 검사 회피)
+ *     UI 컴포넌트:  <col :style="width: {{ thWidth | default('160px', true) }};">  →  출력: <col style="width: 160px;">
  *
- * - HTML 주석(<!-- -->) 안의 {{ }} 는 치환하지 않음 (UI 컴포넌트 사용법 설명용)
  * - UI 컴포넌트 파일 맨 위 <!-- [UI 컴포넌트] ... --> 사용법 주석은 결과물에 포함하지 않음
- * - UI 컴포넌트 파일 위치: src/partials
- *   dist/partials 에는 사용법 주석의 예시를 렌더링한 완성 마크업을 출력 (renderExamples)
+ * - 그 외 템플릿 설명은 Nunjucks 주석 {# ... #} 사용 (HTML 주석 안의 {{ }} 도 치환되므로 주의)
+ * - dist/partials 에는 사용법 주석의 예시를 렌더링한 완성 마크업을 출력 (renderExamples)
  */
 const fs = require('fs');
 const path = require('path');
+const nunjucks = require('nunjucks');
 
 const ATTR_RE = /([^\s=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'))?/g;
-const PLACEHOLDER_RE = /\{\{\s*([A-Za-z_][\w-]*)\s*(?:\|([^}]*))?\}\}/g;
-// 안쪽(다른 {{#if 를 포함하지 않는) 조건부터 처리 → 바깥으로 반복 (중첩 지원)
-const IF_RE = /\{\{#if\s+(!?)([A-Za-z_][\w-]*)\s*\}\}((?:(?!\{\{#if\b)[\s\S])*?)\{\{\/if\}\}/g;
-const EACH_RE = /\{\{#each\s+([A-Za-z_][\w-]*)\s*\}\}([\s\S]*?)\{\{\/each\}\}/g;
+const DOC_COMMENT_RE = /^\s*<!--\s*\[UI 컴포넌트\][\s\S]*?-->\s*/;
 
-const splitList = (v) => (v === undefined ? [] : String(v).split(',').map((s) => s.trim()).filter(Boolean));
-
-function parseAttrs(str) {
-  const attrs = {};
-  let m;
-  ATTR_RE.lastIndex = 0;
-  while ((m = ATTR_RE.exec(str))) {
-    attrs[m[1]] = m[2] !== undefined ? m[2] : m[3] !== undefined ? m[3] : 'true';
-  }
-  return attrs;
-}
-
-/** 주석을 제외한 부분에만 fn 적용 */
-function outsideComments(html, fn) {
-  return html
-    .split(/(<!--[\s\S]*?-->)/g)
-    .map((part) => (part.startsWith('<!--') ? part : fn(part)))
-    .join('');
-}
-
-// 출력이 비는 자리 표시 (반복 끝 / 거짓 조건 / 빈 값) - 표시만 남은 줄은 통째로 제거
+// 출력이 비는 자리 표시 (빈 slot 등) - 표시만 남은 줄은 통째로 제거
 const MARK = '\u0001';
-const BLOCK_PLACEHOLDER_RE = /^([ \t]*)\{\{\s*([A-Za-z_][\w-]*)\s*(?:\|([^}]*))?\}\}[ \t]*$/gm;
-// 바인딩 속성: :style="width: {{ w }};" → style="..." (에디터의 CSS 검사 회피용)
+// 한 줄에 {{ 변수 }} 만 있는 경우 → 여러 줄 값 들여쓰기 맞춤
+const BLOCK_VAR_RE = /^([ \t]*)\{\{\s*([A-Za-z_]\w*)\s*\}\}[ \t]*$/gm;
+// 바인딩 속성: :style="..." → style="..."
 const BOUND_ATTR_RE = /(<[A-Za-z][^<>]*?\s):([A-Za-z][\w-]*)=/g;
-
-function propValue(props, name, fallback) {
-  const v = props[name];
-  if (v !== undefined && v !== '') return v;
-  return fallback !== undefined ? fallback.trim() : '';
-}
 
 /** 여러 줄 값을 지정한 들여쓰기에 맞춤 (공통 들여쓰기 제거 + 앞뒤 빈 줄 제거) */
 function reindent(value, indent) {
@@ -94,56 +66,50 @@ function reindent(value, indent) {
 function cleanMarks(text) {
   return text
     .split('\n')
-    .filter((line) => !(line.includes(MARK) && !line.replace(new RegExp(MARK, 'g'), '').trim()))
+    .filter((line) => !(line.includes(MARK) && !line.split(MARK).join('').trim()))
     .join('\n')
-    .replace(new RegExp(MARK, 'g'), '');
+    .split(MARK).join('');
 }
 
-function applyProps(html, props) {
-  const out = outsideComments(html, (part) => {
-    let text = part.replace(EACH_RE, (_, name, body) => {
-      const items = splitList(props[name]);
-      const checked = props.checked === undefined ? null : splitList(props.checked);
-      return (
-        items
-          .map((item, i) =>
-            applyProps(body, {
-              ...props,
-              item,
-              num: String(i + 1),
-              first: i === 0 ? 'true' : '',
-              last: i === items.length - 1 ? 'true' : '',
-              isChecked: (checked ? checked.includes(item) : i === 0) ? 'true' : ''
-            })
-          )
-          .join('') + MARK
-      );
-    });
+// {% %} 태그가 있는 줄은 렌더링 결과가 공백뿐이면 줄 삭제 (블록 태그만 있는 줄 / 거짓 조건만 있는 줄)
+// (Nunjucks trimBlocks 는 내용 뒤의 {% endif %} 줄바꿈까지 지워 다음 줄이 붙으므로 사용하지 않음)
+const TAG_LINE_RE = /^.*\{%.*$/gm;
 
-    let prev;
-    do {
-      prev = text;
-      text = text.replace(IF_RE, (_, not, name, body) => {
-        const has = props[name] !== undefined && String(props[name]).trim() !== '';
-        return (not ? !has : has) ? body : MARK;
-      });
-    } while (text !== prev);
+const env = new nunjucks.Environment(null, {
+  autoescape: false    // slot 은 HTML 그대로 출력
+});
+// 쉼표 구분 값 → 배열 ("운영중, 중단" → ['운영중', '중단'])
+env.addFilter('list', (v) => (v ? String(v).split(',').map((s) => s.trim()).filter(Boolean) : []));
+// 블록 변수 출력 (BLOCK_VAR_RE 변환용)
+env.addGlobal('__block', (value, indent) => (value && String(value).trim() ? reindent(value, indent) : MARK));
 
-    // 한 줄 전체가 {{ 값 }} 인 경우: 여러 줄 값을 그 자리 들여쓰기에 맞춤
-    text = text.replace(BLOCK_PLACEHOLDER_RE, (_, indent, name, fallback) => {
-      const v = propValue(props, name, fallback);
-      return v.trim() ? reindent(v, indent) : MARK;
-    });
-    text = text.replace(PLACEHOLDER_RE, (_, name, fallback) => propValue(props, name, fallback));
+/** UI 컴포넌트 템플릿 렌더링 */
+function renderTemplate(source, context, filePath) {
+  const prepared = source
+    .replace(TAG_LINE_RE, (line) => line + MARK)
+    .replace(BLOCK_VAR_RE, (_, indent, name) => `{{ __block(${name}, ${JSON.stringify(indent)}) }}`);
+  let html;
+  try {
+    html = env.renderString(prepared, context);
+  } catch (err) {
+    throw new Error(`[html-include] 템플릿 오류 (${filePath}): ${err.message}`);
+  }
+  let prev;
+  do {
+    prev = html;
+    html = html.replace(BOUND_ATTR_RE, '$1$2=');
+  } while (html !== prev);
+  return cleanMarks(html);
+}
 
-    let bound;
-    do {
-      bound = text;
-      text = text.replace(BOUND_ATTR_RE, '$1$2=');
-    } while (text !== bound);
-    return text;
-  });
-  return cleanMarks(out);
+function parseAttrs(str) {
+  const attrs = {};
+  let m;
+  ATTR_RE.lastIndex = 0;
+  while ((m = ATTR_RE.exec(str))) {
+    attrs[m[1]] = m[2] !== undefined ? m[2] : m[3] !== undefined ? m[3] : 'true';
+  }
+  return attrs;
 }
 
 /**
@@ -245,8 +211,11 @@ function resolveIncludes(html, opts) {
       props[k] = named[k].trim() ? resolveIncludes(named[k], opts) : '';
     });
     // UI 컴포넌트 파일 맨 위 사용법 주석(<!-- [UI 컴포넌트] ... -->)은 결과물에서 제외
-    const raw = fs.readFileSync(filePath, 'utf8').replace(/^\s*<!--\s*\[UI 컴포넌트\][\s\S]*?-->\s*/, '');
-    const content = applyProps(raw, { ...props, slot });
+    const raw = fs.readFileSync(filePath, 'utf8').replace(DOC_COMMENT_RE, '');
+    // src/partials 는 Nunjucks 템플릿으로 렌더링, 그 외 파일은 그대로 삽입
+    const partialsDir = path.resolve(rootDir, 'src', 'partials');
+    const isTemplate = !path.relative(partialsDir, filePath).startsWith('..');
+    const content = isTemplate ? renderTemplate(raw, { ...props, slot }, filePath) : raw;
     const rendered = resolveIncludes(content, { ...opts, baseDir: path.dirname(filePath) }).replace(/\s+$/, '');
     // include 태그가 줄 맨 앞(들여쓰기만 있는 위치)에 있으면 결과 전체를 같은 들여쓰기로 맞춤
     const lineStart = html.lastIndexOf('\n', inc.start - 1) + 1;

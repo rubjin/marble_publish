@@ -10,7 +10,7 @@
 <div class="searchBox">
   {{ slot }}
   <div class="searchBtnArea">
-    <button type="button" class="btn outline">{{ resetText | 초기화 }}</button>
-    <button type="button" class="btn primary">{{ searchText | 조회 }}</button>
+    <button type="button" class="btn outline">{{ resetText | default('초기화', true) }}</button>
+    <button type="button" class="btn primary">{{ searchText | default('조회', true) }}</button>
   </div>
 </div>

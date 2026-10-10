@@ -5,7 +5,12 @@
 -->
 <nav class="breadcrumb" aria-label="브레드크럼">
   <ol class="breadcrumbList">
-    {{#each items}}{{#if !last}}<li class="breadcrumbItem"><a href="#" class="breadcrumbLink">{{ item }}</a></li>{{/if}}{{#if last}}<li class="breadcrumbItem isCurrent" aria-current="page">{{ item }}</li>{{/if}}
-    {{/each}}
+    {% for item in items | list %}
+    {% if loop.last %}
+    <li class="breadcrumbItem isCurrent" aria-current="page">{{ item }}</li>
+    {% else %}
+    <li class="breadcrumbItem"><a href="#" class="breadcrumbLink">{{ item }}</a></li>
+    {% endif %}
+    {% endfor %}
   </ol>
 </nav>

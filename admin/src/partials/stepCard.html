@@ -22,7 +22,7 @@
   </div>
   <table class="tbl">
     <colgroup>
-      <col :style="width: {{ thWidth | 120px }};">
+      <col :style="width: {{ thWidth | default('120px', true) }};">
       <col>
     </colgroup>
     <tbody>

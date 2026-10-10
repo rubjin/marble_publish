@@ -8,11 +8,13 @@
   - legend  : 스크린리더용 그룹 설명 (기본: 선택)
 -->
 <fieldset class="formCheckGroup">
-  <legend class="srOnly">{{ legend | 선택 }}</legend>
-  {{#each options}}<label class="formCheck">
-    <input type="{{ type | radio }}" name="{{ name }}"{{#if isChecked}} checked{{/if}}>
+  <legend class="srOnly">{{ legend | default('선택', true) }}</legend>
+  {% for item in options | list %}
+  {% set isChecked = (item in (checked | list)) or (not checked and loop.first) %}
+  <label class="formCheck">
+    <input type="{{ type | default('radio', true) }}" name="{{ name }}"{% if isChecked %} checked{% endif %}>
     <span class="checkIcon"></span>
     <span class="checkLabel">{{ item }}</span>
   </label>
-  {{/each}}
+  {% endfor %}
 </fieldset>

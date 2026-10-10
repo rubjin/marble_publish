@@ -137,13 +137,16 @@ admin/
       <ul class="ruleList">
         <li><strong>경로:</strong> include 를 쓰는 파일 기준 상대 경로 (VS Code 에서 Ctrl+클릭으로 UI 컴포넌트 파일 이동)</li>
         <li><strong>속성 전달:</strong> <code>&lt;include src="../../partials/pageHeader.html" title="미션 목록"&gt;&lt;/include&gt;</code> → UI 컴포넌트의 <code>{{ title }}</code> 위치에 출력</li>
-        <li><strong>기본값:</strong> <code>{{ resetText | 초기화 }}</code> - 속성이 없으면 기본값 사용</li>
-        <li><strong>속성 값 안의 치환:</strong> <code>style</code> 처럼 에디터가 검사하는 속성은 앞에 <code>:</code> 를 붙여 작성 (<code>&lt;col :style="width: {{ thWidth | 160px }};"&gt;</code> → 출력 시 <code>style</code>)</li>
+        <li><strong>템플릿 문법:</strong> UI 컴포넌트(<code>src/partials</code>)는 <strong>Nunjucks</strong> 템플릿입니다. 화면에서 넘긴 속성과 slot 이 변수가 됩니다. (<a href="https://mozilla.github.io/nunjucks/templating.html" target="_blank">Nunjucks 문법</a>)</li>
+        <li><strong>기본값:</strong> <code>{{ resetText | default('초기화', true) }}</code> - 속성이 없거나 빈 값이면 기본값 사용</li>
+        <li><strong>속성 값 안의 치환:</strong> <code>style</code> 처럼 에디터가 검사하는 속성은 앞에 <code>:</code> 를 붙여 작성 (<code>&lt;col :style="width: {{ thWidth | default('160px', true) }};"&gt;</code> → 출력 시 <code>style</code>)</li>
         <li><strong>값 없는 속성:</strong> <code>full</code>, <code>pageSize</code> 처럼 속성만 쓰면 켜짐</li>
         <li><strong>내용 끼워 넣기 (slot):</strong> 여는 태그와 닫는 태그 사이의 마크업이 UI 컴포넌트의 <code>{{ slot }}</code> 위치에 출력 (include 중첩 가능)</li>
         <li><strong>이름 있는 slot:</strong> 내용을 넣을 자리가 여러 개일 때 <code>&lt;slot name="actions"&gt;...&lt;/slot&gt;</code> → UI 컴포넌트의 <code>{{ actions }}</code> 위치에 출력</li>
-        <li><strong>조건부 출력:</strong> <code>{{#if count}} ... {{/if}}</code>, <code>{{#if !count}} ... {{/if}}</code> (중첩 가능)</li>
-        <li><strong>목록 반복:</strong> 쉼표로 구분한 값을 <code>{{#each options}} ... {{ item }} ... {{/each}}</code> 로 반복 (예: <code>options="운영중,중단,종료"</code>)</li>
+        <li><strong>조건부 출력:</strong> <code>{% if count %} ... {% else %} ... {% endif %}</code>, <code>{% if not count %} ... {% endif %}</code></li>
+        <li><strong>목록 반복:</strong> 쉼표로 구분한 값을 <code>{% for item in options | list %} ... {{ item }} ... {% endfor %}</code> 로 반복 (예: <code>options="운영중,중단,종료"</code> / 반복 안에서 <code>loop.first</code>, <code>loop.last</code>, <code>loop.index</code>)</li>
+        <li><strong>줄 정리:</strong> <code>{% %}</code> 태그가 있는 줄은 결과가 공백뿐이면 자동 삭제 / 한 줄에 <code>{{ slot }}</code> 만 있으면 내용 들여쓰기를 그 자리에 맞춤</li>
+        <li><strong>템플릿 설명 주석:</strong> 맨 위 <code>&lt;!-- [UI 컴포넌트] --&gt;</code> 사용법 주석 외에는 Nunjucks 주석 <code>{# ... #}</code> 사용 (HTML 주석 안의 <code>{{ }}</code> 도 치환됨)</li>
         <li><strong>사용법:</strong> 각 UI 컴포넌트 파일 맨 위 <code>&lt;!-- [UI 컴포넌트] ... --&gt;</code> 주석 참고 (화면 결과물에는 포함되지 않음)</li>
         <li><strong>완성 마크업 확인:</strong> 사용법 주석의 예시를 렌더링한 결과가 <code>dist/partials/*.html</code> 로 출력됩니다. 개발 서버에서는 <code>/partials/이름.html</code> 로 스타일이 적용된 미리보기를 볼 수 있습니다.</li>
         <li><strong>제공 UI 컴포넌트:</strong>

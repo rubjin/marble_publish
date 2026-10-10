@@ -9,7 +9,7 @@
   - slot     : 입력 영역
 -->
 <tr>
-  <th>{{#if for}}<label class="formLabel" for="{{ for }}">{{/if}}{{#if !for}}<span class="formLabel">{{/if}}{{ label }}{{#if required}} <span class="required">*</span>{{/if}}{{#if for}}</label>{{/if}}{{#if !for}}</span>{{/if}}</th>
+  <th>{% if for %}<label class="formLabel" for="{{ for }}">{% else %}<span class="formLabel">{% endif %}{{ label }}{% if required %} <span class="required">*</span>{% endif %}{% if for %}</label>{% else %}</span>{% endif %}</th>
   <td>
     {{ slot }}
   </td>

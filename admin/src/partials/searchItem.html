@@ -8,8 +8,12 @@
   - full  : 한 줄 전체 사용 (값 없이 속성만 작성)
   - slot  : 입력 영역 (formControl, 데이트피커 등)
 -->
-<div class="searchItem{{#if full}} full{{/if}}">
-  {{#if for}}<label class="searchLabel" for="{{ for }}">{{ label }}</label>{{/if}}{{#if !for}}<span class="searchLabel">{{ label }}</span>{{/if}}
+<div class="searchItem{% if full %} full{% endif %}">
+  {% if for %}
+  <label class="searchLabel" for="{{ for }}">{{ label }}</label>
+  {% else %}
+  <span class="searchLabel">{{ label }}</span>
+  {% endif %}
   <div class="searchField">
     <div class="formRow">
       {{ slot }}
