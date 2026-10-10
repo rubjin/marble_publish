@@ -3,22 +3,7 @@
 <!-- 실제 콘텐츠 영역 -->
 
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-<div class="pageHeader">
-  <h2 class="pageTitle">미션등록</h2>
-  <nav class="breadcrumb" aria-label="브레드크럼">
-    <ol class="breadcrumbList">
-      <li class="breadcrumbItem">
-        <a href="#" class="breadcrumbLink">홈</a>
-      </li>
-      <li class="breadcrumbItem">
-        <a href="#" class="breadcrumbLink">미션관리</a>
-      </li>
-      <li class="breadcrumbItem isCurrent" aria-current="page">
-        미션등록
-      </li>
-    </ol>
-  </nav>
-</div>
+<include src="../../partials/pageHeader.html" title="미션등록" breadcrumb="홈,미션관리,미션등록"></include>
 
 <!-- ==================== 섹션 1 :: 공통 설정 ==================== -->
 <div class="sectionBox">
@@ -35,163 +20,75 @@
       </colgroup>
       <tbody>
         <!-- 미션 ID -->
-        <tr>
-          <th><label class="formLabel" for="idMissionID">미션 ID</label></th>
-          <td>
-            <div class="formControlWrap hasBtn">
-              <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
-              <button type="button" class="btn outline">찾아보기</button>
-              <p class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</p>
-            </div>
-          </td>
-        </tr>
+        <include src="../../partials/viewRow.html" label="미션 ID" for="idMissionID">
+          <div class="formControlWrap hasBtn">
+            <input type="text" id="idMissionID" class="formControl" value="TP010504" readonly>
+            <button type="button" class="btn outline">찾아보기</button>
+            <p class="formGuideText">미션ID를 직접 조회하여 수정할 수 있습니다.</p>
+          </div>
+        </include>
         <!-- 미션상태 -->
-        <tr>
-          <th><span class="formLabel">미션상태 <span class="required">*</span></span></th>
-          <td>
-            <fieldset class="formCheckGroup">
-              <legend class="srOnly">미션상태 선택</legend>
-              <label class="formCheck">
-                <input type="radio" name="MissionStatus" checked>
-                <span class="checkIcon"></span>
-                <span class="checkLabel">운영중</span>
-              </label>
-              <label class="formCheck">
-                <input type="radio" name="MissionStatus">
-                <span class="checkIcon"></span>
-                <span class="checkLabel">중단</span>
-              </label>
-              <label class="formCheck">
-                <input type="radio" name="MissionStatus">
-                <span class="checkIcon"></span>
-                <span class="checkLabel">종료</span>
-              </label>
-            </fieldset>
-          </td>
-        </tr>
+        <include src="../../partials/viewRow.html" label="미션상태" required>
+          <include src="../../partials/checkGroup.html" name="MissionStatus" options="운영중,중단,종료" legend="미션상태 선택"></include>
+        </include>
         <!-- 승인여부 -->
-        <tr>
-          <th><span class="formLabel">승인여부 <span class="required">*</span></span></th>
-          <td>
-            <fieldset class="formCheckGroup">
-              <legend class="srOnly">승인여부 선택</legend>
-              <label class="formCheck">
-                <input type="radio" name="ApprovalStatus" checked>
-                <span class="checkIcon"></span>
-                <span class="checkLabel">승인</span>
-              </label>
-              <label class="formCheck">
-                <input type="radio" name="ApprovalStatus">
-                <span class="checkIcon"></span>
-                <span class="checkLabel">미승인</span>
-              </label>
-            </fieldset>
-          </td>
-        </tr>
+        <include src="../../partials/viewRow.html" label="승인여부" required>
+          <include src="../../partials/checkGroup.html" name="ApprovalStatus" options="승인,미승인" legend="승인여부 선택"></include>
+        </include>
         <!-- 노출여부 -->
-        <tr>
-          <th><span class="formLabel">노출여부 <span class="required">*</span></span></th>
-          <td>
-            <fieldset class="formCheckGroup">
-              <legend class="srOnly">노출여부 선택</legend>
-              <label class="formCheck">
-                <input type="radio" name="ExposureStatus" checked>
-                <span class="checkIcon"></span>
-                <span class="checkLabel">노출함</span>
-              </label>
-              <label class="formCheck">
-                <input type="radio" name="ExposureStatus">
-                <span class="checkIcon"></span>
-                <span class="checkLabel">노출 안함</span>
-              </label>
-            </fieldset>
-          </td>
-        </tr>
+        <include src="../../partials/viewRow.html" label="노출여부" required>
+          <include src="../../partials/checkGroup.html" name="ExposureStatus" options="노출함,노출 안함" legend="노출여부 선택"></include>
+        </include>
         <!-- 대상고객 -->
-        <tr>
-          <th><label class="formLabel" for="idTargetCustomer">대상고객</label></th>
-          <td>
-            <select id="idTargetCustomer" class="formControl">
-              <option value="">전체고객 대상</option>
-            </select>
-          </td>
-        </tr>
+        <include src="../../partials/viewRow.html" label="대상고객" for="idTargetCustomer">
+          <select id="idTargetCustomer" class="formControl">
+            <option value="">전체고객 대상</option>
+          </select>
+        </include>
         <!-- 운영기간 -->
-        <tr>
-          <th><span class="formLabel">운영기간 <span class="required">*</span></span></th>
-          <td>
-            <fieldset class="formDateRange">
-              <legend class="srOnly">공통 운영기간 설정</legend>
-              <div class="formDatepicker">
-                <input type="text" class="formControl" value="2026.07.01" title="운영 시작일">
-                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-              </div>
-              <span class="dateSeparator">~</span>
-              <div class="formDatepicker">
-                <input type="text" class="formControl" value="2026.08.31" title="운영 종료일">
-                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-              </div>
-              <label class="formCheck">
-                <input type="checkbox">
-                <span class="checkIcon"></span>
-                <span class="checkLabel">미지정</span>
-              </label>
-            </fieldset>
-          </td>
-        </tr>
+        <include src="../../partials/viewRow.html" label="운영기간" required>
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="공통 운영기간 설정" startLabel="운영 시작일" endLabel="운영 종료일" noShortcut>
+            <label class="formCheck">
+              <input type="checkbox">
+              <span class="checkIcon"></span>
+              <span class="checkLabel">미지정</span>
+            </label>
+          </include>
+        </include>
         <!-- 노출기간 -->
-        <tr>
-          <th><span class="formLabel">노출기간 <span class="required">*</span></span></th>
-          <td>
-            <fieldset class="formDateRange">
-              <legend class="srOnly">공통 노출기간 설정</legend>
-              <div class="formDatepicker">
-                <input type="text" class="formControl" value="2026.07.01" title="노출 시작일">
-                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-              </div>
-              <span class="dateSeparator">~</span>
-              <div class="formDatepicker">
-                <input type="text" class="formControl" value="2026.08.31" title="노출 종료일">
-                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-              </div>
-              <label class="formCheck">
-                <input type="checkbox">
-                <span class="checkIcon"></span>
-                <span class="checkLabel">미지정</span>
-              </label>
-            </fieldset>
-          </td>
-        </tr>
+        <include src="../../partials/viewRow.html" label="노출기간" required>
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="공통 노출기간 설정" startLabel="노출 시작일" endLabel="노출 종료일" noShortcut>
+            <label class="formCheck">
+              <input type="checkbox">
+              <span class="checkIcon"></span>
+              <span class="checkLabel">미지정</span>
+            </label>
+          </include>
+        </include>
         <!-- 노출위치 -->
-        <tr>
-          <th><span class="formLabel">노출위치 <span class="required">*</span></span></th>
-          <td>
-            <div class="formControlWrap full col">
-              <div class="tagBox">
-                <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-                <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-                <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-                <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-              </div>
-              <div class="flexBetween alignCenter">
-                <span class="formGuideText">마커의 노출위치를 상세히 지정합니다.</span>
-                <button type="button" class="btn dark">화면 선택</button>
-              </div>
+        <include src="../../partials/viewRow.html" label="노출위치" required>
+          <div class="formControlWrap full col">
+            <div class="tagBox">
+              <span class="tagChip">자산성장 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+              <span class="tagChip">오늘의 콕 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+              <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+              <span class="tagChip">이벤트 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
             </div>
-          </td>
-        </tr>
+            <div class="flexBetween alignCenter">
+              <span class="formGuideText">마커의 노출위치를 상세히 지정합니다.</span>
+              <button type="button" class="btn dark">화면 선택</button>
+            </div>
+          </div>
+        </include>
         <!-- 미션유형 선택 -->
-        <tr>
-          <th><label class="formLabel" for="idMissionType">미션유형 선택 <span class="required">*</span></label></th>
-          <td>
-            <div class="formControlWrap">
-              <select id="idMissionType" class="formControl">
-                <option value="hiking">투자사랑 산악회</option>
-              </select>
-              <span class="formGuideText">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</span>
-            </div>
-          </td>
-        </tr>
+        <include src="../../partials/viewRow.html" label="미션유형 선택" for="idMissionType" required>
+          <div class="formControlWrap">
+            <select id="idMissionType" class="formControl">
+              <option value="hiking">투자사랑 산악회</option>
+            </select>
+            <span class="formGuideText">※ 미션 유형 선택에 따라 아래 상세 설정 화면 전체가 변경됩니다.</span>
+          </div>
+        </include>
       </tbody>
     </table>
   </div>
@@ -199,411 +96,136 @@
 
 <!-- ==================== 섹션 2 :: 상세 설정 ==================== -->
 <div class="sectionBox">
-  <div class="tblSection">
-    <div class="tblTop">
-      <div class="tblLeft">
-        <h3 class="tblTitle">상세 설정</h3>
+  <include src="../../partials/viewSection.html" title="상세 설정">
+    <slot name="actions">
+      <button type="button" class="btn dark">모바일 미리보기</button>
+
+    </slot>
+    <!-- 미션 타이틀 -->
+    <include src="../../partials/viewRow.html" label="미션 타이틀" for="idDetailMissionTitle" required>
+      <input type="text" id="idDetailMissionTitle" class="formControl full" value="투자사랑 산악회">
+    </include>
+    <!-- 서브 타이틀 -->
+    <include src="../../partials/viewRow.html" label="서브 타이틀" for="idSubTitle" required>
+      <input type="text" id="idSubTitle" class="formControl full" value="첫걸음 부터 함께 하는 투자습관">
+    </include>
+    <!-- D-Day 카운터 -->
+    <include src="../../partials/viewRow.html" label="D-Day 카운터" for="idDdayCounter">
+      <select id="idDdayCounter" class="formControl">
+        <option value="apply">신청일 기준</option>
+      </select>
+    </include>
+    <!-- D-Day 일수 -->
+    <include src="../../partials/viewRow.html" label="D-Day 일수" for="idDdayCount" required>
+      <div class="formControlWrap">
+        <input type="text" id="idDdayCount" class="formControl wXs" value="30">
+        <span class="unit">일간 진행</span>
       </div>
-      <div class="tblRight">
-        <button type="button" class="btn dark">모바일 미리보기</button>
+    </include>
+    <!-- 노출여부 -->
+    <include src="../../partials/viewRow.html" label="노출여부" required>
+      <include src="../../partials/checkGroup.html" name="DetailExposureStatus" options="노출함,노출 안함" legend="노출여부 선택"></include>
+    </include>
+    <!-- 대상고객 -->
+    <include src="../../partials/viewRow.html" label="대상고객" for="idDetailTargetCustomer">
+      <select id="idDetailTargetCustomer" class="formControl">
+        <option value="invest">전체고객 대상</option>
+      </select>
+    </include>
+    <!-- 메인 이미지 (진입) -->
+    <include src="../../partials/viewRow.html" label="메인 이미지(진입)" required>
+      <include src="../../partials/fileAttach.html" file="투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg" size="1542byte" guide="챌린지 진입 시 노출되는 대표 이미지입니다.(JPG, PNG / 최대 5MB)"></include>
+    </include>
+    <!-- 메인 이미지 (드롭존) -->
+    <include src="../../partials/viewRow.html" label="메인 이미지(완료)" required>
+      <include src="../../partials/fileAttach.html" guide="챌린지 최종 완료 시 노출되는 대표 이미지입니다.(JPG, PNG / 최대 5MB)"></include>
+    </include>
+    <!-- 단계별 코스 -->
+    <include src="../../partials/viewRow.html" label="단계별 코스">
+      <div class="formControlWrap between">
+        <span class="formGuideText">※ STEP 핸들을 드래그하여 순서를 변경할 수 있습니다.</span>
+        <button type="button" class="btn dark">+ 단계 추가하기</button>
       </div>
-    </div>
-    <div class="tblWrap">
-      <table class="tbl tblView">
-        <colgroup>
-          <col style="width: 160px;">
-          <col>
-        </colgroup>
-        <tbody>
-          <!-- 미션 타이틀 -->
-          <tr>
-            <th><label class="formLabel" for="idDetailMissionTitle">미션 타이틀 <span class="required">*</span></label></th>
-            <td>
-              <input type="text" id="idDetailMissionTitle" class="formControl full" value="투자사랑 산악회">
-            </td>
-          </tr>
-          <!-- 서브 타이틀 -->
-          <tr>
-            <th><label class="formLabel" for="idSubTitle">서브 타이틀 <span class="required">*</span></label></th>
-            <td>
-              <input type="text" id="idSubTitle" class="formControl full" value="첫걸음 부터 함께 하는 투자습관">
-            </td>
-          </tr>
-          <!-- D-Day 카운터 -->
-          <tr>
-            <th><label class="formLabel" for="idDdayCounter">D-Day 카운터</label></th>
-            <td>
-              <select id="idDdayCounter" class="formControl">
-                <option value="apply">신청일 기준</option>
-              </select>
-            </td>
-          </tr>
-          <!-- D-Day 일수 -->
-          <tr>
-            <th><label class="formLabel" for="idDdayCount">D-Day 일수 <span class="required">*</span></label></th>
-            <td>
-              <div class="formControlWrap">
-                <input type="text" id="idDdayCount" class="formControl wXs" value="30">
-                <span class="unit">일간 진행</span>
-              </div>
-            </td>
-          </tr>
-          <!-- 노출여부 -->
-          <tr>
-            <th><span class="formLabel">노출여부 <span class="required">*</span></span></th>
-            <td>
-              <fieldset class="formCheckGroup">
-                <legend class="srOnly">노출여부 선택</legend>
-                <label class="formCheck">
-                  <input type="radio" name="DetailExposureStatus" checked>
-                  <span class="checkIcon"></span>
-                  <span class="checkLabel">노출함</span>
-                </label>
-                <label class="formCheck">
-                  <input type="radio" name="DetailExposureStatus">
-                  <span class="checkIcon"></span>
-                  <span class="checkLabel">노출 안함</span>
-                </label>
-              </fieldset>
-            </td>
-          </tr>
-          <!-- 대상고객 -->
-          <tr>
-            <th><label class="formLabel" for="idDetailTargetCustomer">대상고객</label></th>
-            <td>
-              <select id="idDetailTargetCustomer" class="formControl">
-                <option value="invest">전체고객 대상</option>
-              </select>
-            </td>
-          </tr>
-          <!-- 메인 이미지 (진입) -->
-          <tr>
-            <th><span class="formLabel">메인 이미지(진입) <span class="required">*</span></span></th>
-            <td>
-              <div class="formControlWrap full col">
-                <ul class="fileList">
-                  <li class="fileItem">
-                    <div class="fileInfo">
-                      <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
-                    </div>
-                    <button type="button" class="fileDelete" aria-label="삭제"> <span class="ico deleteTag"></span></button>
-                  </li>
-                </ul>
-                <div class="flexBetween alignCenter">
-                  <span class="formGuideText">챌린지 진입 시 노출되는 대표 이미지입니다.(JPG, PNG / 최대 5MB)</span>
-                  <button type="button" class="btn outline">파일 선택</button>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <!-- 메인 이미지 (드롭존) -->
-          <tr>
-            <th><span class="formLabel">메인 이미지(완료) <span class="required">*</span></span></th>
-            <td>
-              <div class="formControlWrap full col">
-                <div class="fileDropzone">
-                  <div class="dropzoneHeader">
-                    <input type="file" multiple>
-                    <span class="ico xl upload"></span>
-                    <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
-                  </div>
-                </div>
-                <div class="flexBetween alignCenter">
-                  <span class="formGuideText">챌린지 최종 완료 시 노출되는 대표 이미지입니다.(JPG, PNG / 최대 5MB)</span>
-                  <button type="button" class="btn outline">파일 선택</button>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <!-- 단계별 코스 -->
-          <tr>
-            <th><span class="formLabel">단계별 코스</span></th>
-            <td>
-              <div class="formControlWrap between">
-                <span class="formGuideText">※ STEP 핸들을 드래그하여 순서를 변경할 수 있습니다.</span>
-                <button type="button" class="btn dark">+ 단계 추가하기</button>
-              </div>
 
-              <!-- STEP 카드 리스트 -->
-              <div class="stepCardList">
-                <!-- STEP 3 -->
-                <div class="stepCard">
-                  <div class="stepHeader">
-                    <div class="stepTitleWrap">
-                      <span class="ico lg stepHandle"></span>
-                      <h4 class="stepTitle">STEP 3. 정상 미션</h4>
-                    </div>
-                    <div class="stepActions">
-                      <button type="button" class="btn outline sm">복사</button>
-                      <button type="button" class="btn danger sm">삭제</button>
-                    </div>
-                  </div>
-                  <table class="tbl">
-                    <colgroup>
-                      <col style="width: 120px;">
-                      <col>
-                    </colgroup>
-                    <tbody>
-                      <tr>
-                        <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
-                        <td><input type="text" class="formControl full" value="정상 도달"></td>
-                      </tr>
-                      <tr>
-                        <th><label class="formLabel">수행조건 <span class="required">*</span></label></th>
-                        <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기"></td>
-                      </tr>
-                      <tr>
-                        <th><label class="formLabel">보조 문구</label></th>
-                        <td><input type="text" class="formControl full" value="자산 성장 성공"></td>
-                      </tr>
-                      <tr>
-                        <th><span class="formLabel">상단 이미지</span></th>
-                        <td>
-                          <div class="formControlWrap full col">
-                            <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
-                            <!-- [D] 파일 첨부 전 상태 -->
-                            <div class="fileDropzone isDragOver">
-                              <!-- 상단 드래그 & 클릭 영역 -->
-                              <div class="dropzoneHeader">
-                                <input type="file" multiple>
-                                <span class="ico xl upload"></span>
-                                <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
-                              </div>
-                            </div>
+      <!-- STEP 카드 리스트 -->
+      <div class="stepCardList">
+        <!-- STEP 3 -->
+        <include src="../../partials/stepCard.html" step="3" title="정상 미션">
+          <include src="../../partials/viewRow.html" label="코스명" required>
+            <input type="text" class="formControl full" value="정상 도달">
+          </include>
+          <include src="../../partials/viewRow.html" label="수행조건" required>
+            <input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기">
+          </include>
+          <include src="../../partials/viewRow.html" label="보조 문구">
+            <input type="text" class="formControl full" value="자산 성장 성공">
+          </include>
+          <include src="../../partials/viewRow.html" label="상단 이미지">
+            <include src="../../partials/fileAttach.html" guide="해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)" dragOver></include>
+          </include>
+        </include>
 
-                            <!-- [D] 파일 첨부 후 상태 -->
-                            <!-- [D] 첨부된 파일 목록 -->
-                            <!-- <ul class="fileList">
-                              <li class="fileItem">
-                                <div class="fileInfo">
-                                  <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
-                                </div>
-                                <button type="button" class="fileDelete" aria-label="삭제">
-                                  <span class="ico deleteTag"></span>
-                                </button>
-                              </li>
-                            </ul> -->
-                            <div class="flexBetween alignCenter">
-                              <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
-                              <button type="button" class="btn outline">파일 선택</button>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+        <!-- STEP 2 -->
+        <include src="../../partials/stepCard.html" step="2" title="등산 미션">
+          <include src="../../partials/viewRow.html" label="코스명" required>
+            <input type="text" class="formControl full" value="정상 도달">
+          </include>
+          <include src="../../partials/viewRow.html" label="수행조건" required>
+            <input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기">
+          </include>
+          <include src="../../partials/viewRow.html" label="보조 문구">
+            <input type="text" class="formControl full" value="자산 성장 성공">
+          </include>
+          <include src="../../partials/viewRow.html" label="상단 이미지">
+            <include src="../../partials/fileAttach.html" file="투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg" size="1542byte" guide="해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)"></include>
+          </include>
+        </include>
 
-                <!-- STEP 2 -->
-                <div class="stepCard">
-                  <div class="stepHeader">
-                    <div class="stepTitleWrap">
-                      <span class="ico lg stepHandle"></span>
-                      <h4 class="stepTitle">STEP 2. 등산 미션</h4>
-                    </div>
-                    <div class="stepActions">
-                      <button type="button" class="btn outline sm">복사</button>
-                      <button type="button" class="btn danger sm">삭제</button>
-                    </div>
-                  </div>
-                  <table class="tbl">
-                    <colgroup>
-                      <col style="width: 120px;">
-                      <col>
-                    </colgroup>
-                    <tbody>
-                      <tr>
-                        <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
-                        <td><input type="text" class="formControl full" value="정상 도달"></td>
-                      </tr>
-                      <tr>
-                        <th><label class="formLabel">수행조건 <span class="required">*</span></label></th>
-                        <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기"></td>
-                      </tr>
-                      <tr>
-                        <th><label class="formLabel">보조 문구</label></th>
-                        <td><input type="text" class="formControl full" value="자산 성장 성공"></td>
-                      </tr>
-                      <tr>
-                        <th><span class="formLabel">상단 이미지</span></th>
-                        <td>
-                          <div class="formControlWrap full col">
-                            <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
-                            <!-- [D] 파일 첨부 전 상태 -->
-                            <!-- <div class="fileDropzone">
-                              <div class="dropzoneHeader">
-                                <input type="file" multiple>
-                                <span class="ico xl upload"></span>
-                                <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
-                              </div>
-                            </div> -->
-
-                            <!-- [D] 파일 첨부 후 상태 -->
-                            <!-- [D] 첨부된 파일 목록 -->
-                            <ul class="fileList">
-                              <li class="fileItem">
-                                <div class="fileInfo">
-                                  <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
-                                </div>
-                                <button type="button" class="fileDelete" aria-label="삭제">
-                                  <span class="ico deleteTag"></span>
-                                </button>
-                              </li>
-                            </ul>
-                            <div class="flexBetween alignCenter">
-                              <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
-                              <button type="button" class="btn outline">파일 선택</button>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <!-- STEP 1 -->
-                <div class="stepCard">
-                  <div class="stepHeader">
-                    <div class="stepTitleWrap">
-                      <span class="ico lg stepHandle"></span>
-                      <h4 class="stepTitle">STEP 1. 입산 미션</h4>
-                    </div>
-                    <div class="stepActions">
-                      <button type="button" class="btn outline sm">복사</button>
-                      <button type="button" class="btn danger sm">삭제</button>
-                    </div>
-                  </div>
-                  <table class="tbl">
-                    <colgroup>
-                      <col style="width: 120px;">
-                      <col>
-                    </colgroup>
-                    <tbody>
-                      <tr>
-                        <th><label class="formLabel">코스명 <span class="required">*</span></label></th>
-                        <td><input type="text" class="formControl full" value="정상 도달"></td>
-                      </tr>
-                      <tr>
-                        <th><label class="formLabel">수행조건 <span class="required">*</span></label></th>
-                        <td><input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기"></td>
-                      </tr>
-                      <tr>
-                        <th><label class="formLabel">보조 문구</label></th>
-                        <td><input type="text" class="formControl full" value="자산 성장 성공"></td>
-                      </tr>
-                      <tr>
-                        <th><span class="formLabel">상단 이미지</span></th>
-                        <td>
-                          <!-- [D] 파일 첨부 후 상태 -->
-                          <div class="formControlWrap full col">
-                            <!-- [D] 첨부된 파일 목록 -->
-                            <ul class="fileList">
-                              <li class="fileItem">
-                                <div class="fileInfo">
-                                  <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
-                                </div>
-                                <button type="button" class="fileDelete" aria-label="삭제">
-                                  <span class="ico deleteTag"></span>
-                                </button>
-                              </li>
-                            </ul>
-                            <div class="flexBetween alignCenter">
-                              <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
-                              <button type="button" class="btn outline">파일 선택</button>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+        <!-- STEP 1 -->
+        <include src="../../partials/stepCard.html" step="1" title="입산 미션">
+          <include src="../../partials/viewRow.html" label="코스명" required>
+            <input type="text" class="formControl full" value="정상 도달">
+          </include>
+          <include src="../../partials/viewRow.html" label="수행조건" required>
+            <input type="text" class="formControl full" value="해당기간 100만원 이상 주문하기">
+          </include>
+          <include src="../../partials/viewRow.html" label="보조 문구">
+            <input type="text" class="formControl full" value="자산 성장 성공">
+          </include>
+          <include src="../../partials/viewRow.html" label="상단 이미지">
+            <!-- [D] 파일 첨부 후 상태 -->
+            <include src="../../partials/fileAttach.html" file="투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg" size="1542byte" guide="해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)"></include>
+          </include>
+        </include>
+      </div>
+    </include>
+  </include>
 </div>
 
 <!-- ==================== 섹션 3 :: 최종 완료 설정 ==================== -->
 <div class="sectionBox">
-  <div class="tblSection">
-    <div class="tblTop">
-      <div class="tblLeft">
-        <h3 class="tblTitle">최종 완료 설정</h3>
-      </div>
-      <div class="tblRight">
-        <span class="formGuideText">※ 모든 STEP 완료 후 노출 할 팝업과 지급 리워드를 설정합니다.</span>
-      </div>
-    </div>
-    <div class="tblWrap">
-      <table class="tbl tblView">
-        <colgroup>
-          <col style="width: 160px;">
-          <col>
-        </colgroup>
-        <tbody>
-          <!-- 카드 상단 노출 -->
-          <tr>
-            <th><span class="formLabel">카드 상단 노출 <span class="required">*</span></span></th>
-            <td>
-              <fieldset class="formCheckGroup">
-                <legend class="srOnly">카드 상단 노출 선택</legend>
-                <label class="formCheck">
-                  <input type="radio" name="FinalExposureStatus" checked>
-                  <span class="checkIcon"></span>
-                  <span class="checkLabel">노출함</span>
-                </label>
-                <label class="formCheck">
-                  <input type="radio" name="FinalExposureStatus">
-                  <span class="checkIcon"></span>
-                  <span class="checkLabel">노출 안함</span>
-                </label>
-              </fieldset>
-            </td>
-          </tr>
-          <!-- 상단 타이틀 -->
-          <tr>
-            <th><label class="formLabel" for="idFinalTopTitle">팝업 타이틀 <span class="required">*</span></label></th>
-            <td>
-              <input type="text" id="idFinalTopTitle" class="formControl full" value="축하합니다! 산악회 코스 완등 성공!">
-            </td>
-          </tr>
-          <!-- 팝업 안내 문구 -->
-          <tr>
-            <th><label class="formLabel" for="idFinalCongratMsg">팝업 안내 문구</label></th>
-            <td>
-              <input type="text" id="idFinalCongratMsg" class="formControl full" value="1~3단계 코스를 모두 완등하셨습니다. 완등 리워드가 지급되었습니다.">
-            </td>
-          </tr>
-          <!-- 팝업 이미지 -->
-          <tr>
-            <th><span class="formLabel">팝업 이미지</span></th>
-            <td>
-              <div class="formControlWrap full col">
-                <!-- [D] 첨부된 파일 목록 -->
-                <ul class="fileList">
-                  <li class="fileItem">
-                    <div class="fileInfo">
-                      <a class="fileName" href="#;">투자사랑 산악회 챌린지 완료 팝업 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
-                    </div>
-                    <button type="button" class="fileDelete" aria-label="삭제">
-                      <span class="ico deleteTag"></span>
-                    </button>
-                  </li>
-                </ul>
-                <div class="flexBetween alignCenter">
-                  <span class="formGuideText">해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)</span>
-                  <button type="button" class="btn outline">파일 선택</button>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <include src="../../partials/viewSection.html" title="최종 완료 설정">
+    <slot name="actions">
+      <span class="formGuideText">※ 모든 STEP 완료 후 노출 할 팝업과 지급 리워드를 설정합니다.</span>
+
+    </slot>
+    <!-- 카드 상단 노출 -->
+    <include src="../../partials/viewRow.html" label="카드 상단 노출" required>
+      <include src="../../partials/checkGroup.html" name="FinalExposureStatus" options="노출함,노출 안함" legend="카드 상단 노출 선택"></include>
+    </include>
+    <!-- 상단 타이틀 -->
+    <include src="../../partials/viewRow.html" label="팝업 타이틀" for="idFinalTopTitle" required>
+      <input type="text" id="idFinalTopTitle" class="formControl full" value="축하합니다! 산악회 코스 완등 성공!">
+    </include>
+    <!-- 팝업 안내 문구 -->
+    <include src="../../partials/viewRow.html" label="팝업 안내 문구" for="idFinalCongratMsg">
+      <input type="text" id="idFinalCongratMsg" class="formControl full" value="1~3단계 코스를 모두 완등하셨습니다. 완등 리워드가 지급되었습니다.">
+    </include>
+    <!-- 팝업 이미지 -->
+    <include src="../../partials/viewRow.html" label="팝업 이미지">
+      <include src="../../partials/fileAttach.html" file="투자사랑 산악회 챌린지 완료 팝업 이미지.jpg" size="1542byte" guide="해당 STEP이 진행 단계일때 상단에 노출되는 이미지입니다.(JPG, PNG / 최대 5MB)"></include>
+    </include>
+  </include>
   <div class="tblSection">
     <div class="tblTop">
       <div class="tblLeft">
@@ -650,113 +272,33 @@
 
 <!-- ==================== 섹션 4 :: 운영정보 ==================== -->
 <div class="sectionBox">
-  <div class="tblSection">
-    <div class="tblTop">
-      <div class="tblLeft">
-        <h3 class="tblTitle">운영정보</h3>
+  <include src="../../partials/viewSection.html" title="운영정보">
+    <!-- 파일첨부 -->
+    <include src="../../partials/viewRow.html" label="파일첨부">
+      <include src="../../partials/fileAttach.html" guide="JPG, PNG / 최대 5MB"></include>
+    </include>
+    <!-- 심의대상 여부 -->
+    <include src="../../partials/viewRow.html" label="심의대상 여부" required>
+      <include src="../../partials/checkGroup.html" name="OpDeliberationTarget" options="대상,대상아님" checked="대상아님" type="checkbox" legend="심의대상 여부 선택"></include>
+    </include>
+    <!-- 심의번호 -->
+    <include src="../../partials/viewRow.html" label="심의번호" for="idOpDeliberationNo" required>
+      <input type="text" id="idOpDeliberationNo" class="formControl full" placeholder="심의번호를 입력해주세요.">
+    </include>
+    <!-- 운영기간 -->
+    <include src="../../partials/viewRow.html" label="운영기간" required>
+      <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="운영정보 운영기간 설정" startLabel="운영 시작일" endLabel="운영 종료일" noShortcut></include>
+    </include>
+    <!-- 운영메모 -->
+    <include src="../../partials/viewRow.html" label="운영메모" for="idOpMemo">
+      <div class="formControlWrap full col">
+        <textarea class="formControl" placeholder="상세 내용을 입력해주세요 (최대 1000자)"></textarea>
+        <div class="flexBetween alignCenter">
+          <button type="button" class="btn outline right">메모 등록</button>
+        </div>
       </div>
-    </div>
-    <div class="tblWrap">
-      <table class="tbl tblView">
-        <colgroup>
-          <col style="width: 160px;">
-          <col>
-        </colgroup>
-        <tbody>
-          <!-- 파일첨부 -->
-          <tr>
-            <th><span class="formLabel">파일첨부</span></th>
-            <td>
-              <div class="formControlWrap full col">
-                <!-- [D] 파일 드래그 오버 상태: isDragOver 클래스 추가 -->
-                <!-- [D] 파일 첨부 전 상태 -->
-                <div class="fileDropzone">
-                  <div class="dropzoneHeader">
-                    <input type="file" multiple>
-                    <span class="ico xl upload"></span>
-                    <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
-                  </div>
-                </div>
-
-                <!-- [D] 파일 첨부 후 상태 -->
-                <!-- [D] 첨부된 파일 목록 -->
-                <!-- <ul class="fileList">
-                  <li class="fileItem">
-                    <div class="fileInfo">
-                      <a class="fileName" href="#;">투자사랑 산악회 챌린지 시작전 메인 소개 이미지.jpg<span class="fileSize">(1542byte)</span></a> 
-                    </div>
-                    <button type="button" class="fileDelete" aria-label="삭제">
-                      <span class="ico deleteTag"></span>
-                    </button>
-                  </li>
-                </ul> -->
-                <div class="flexBetween alignCenter">
-                  <span class="formGuideText">JPG, PNG / 최대 5MB</span>
-                  <button type="button" class="btn outline">파일 선택</button>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <!-- 심의대상 여부 -->
-          <tr>
-            <th><span class="formLabel">심의대상 여부 <span class="required">*</span></span></th>
-            <td>
-              <fieldset class="formCheckGroup">
-                <legend class="srOnly">심의대상 여부 선택</legend>
-                <label class="formCheck">
-                  <input type="checkbox" name="OpDeliberationTarget">
-                  <span class="checkIcon"></span>
-                  <span class="checkLabel">대상</span>
-                </label>
-                <label class="formCheck">
-                  <input type="checkbox" name="OpDeliberationTarget" checked>
-                  <span class="checkIcon"></span>
-                  <span class="checkLabel">대상아님</span>
-                </label>
-              </fieldset>
-            </td>
-          </tr>
-          <!-- 심의번호 -->
-          <tr>
-            <th><label class="formLabel" for="idOpDeliberationNo">심의번호 <span class="required">*</span></label></th>
-            <td>
-              <input type="text" id="idOpDeliberationNo" class="formControl full" placeholder="심의번호를 입력해주세요.">
-            </td>
-          </tr>
-          <!-- 운영기간 -->
-          <tr>
-            <th><span class="formLabel">운영기간 <span class="required">*</span></span></th>
-            <td>
-              <fieldset class="formDateRange">
-                <legend class="srOnly">운영정보 운영기간 설정</legend>
-                <div class="formDatepicker">
-                  <input type="text" class="formControl" value="2026.07.01" title="운영 시작일">
-                  <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-                </div>
-                <span class="dateSeparator">~</span>
-                <div class="formDatepicker">
-                  <input type="text" class="formControl" value="2026.08.31" title="운영 종료일">
-                  <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-                </div>
-              </fieldset>
-            </td>
-          </tr>
-          <!-- 운영메모 -->
-          <tr>
-            <th><label class="formLabel" for="idOpMemo">운영메모</label></th>
-            <td>
-              <div class="formControlWrap full col">
-                <textarea class="formControl" placeholder="상세 내용을 입력해주세요 (최대 1000자)"></textarea>
-                <div class="flexBetween alignCenter">
-                  <button type="button" class="btn outline right">메모 등록</button>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+    </include>
+  </include>
 </div>
 
 <!-- ==================== 섹션 5 :: 관리정보 ==================== -->

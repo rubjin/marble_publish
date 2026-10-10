@@ -1,0 +1,16 @@
+<!--
+  [부품] 상세 / 입력 폼 테이블 한 행 (th 항목명 + td 입력 영역)
+  <include src="../../partials/viewRow.html" label="미션 타이틀" for="idTitle" required>
+    <input type="text" id="idTitle" class="formControl full">
+  </include>
+  - label    : 항목명 (필수)
+  - for      : 연결할 입력창 id - 있으면 <label>, 없으면 <span> 으로 출력 (라디오 그룹 등)
+  - required : 필수 표시(*) (값 없이 속성만 작성)
+  - slot     : 입력 영역
+-->
+<tr>
+  <th>{{#if for}}<label class="formLabel" for="{{ for }}">{{/if}}{{#if !for}}<span class="formLabel">{{/if}}{{ label }}{{#if required}} <span class="required">*</span>{{/if}}{{#if for}}</label>{{/if}}{{#if !for}}</span>{{/if}}</th>
+  <td>
+    {{ slot }}
+  </td>
+</tr>

@@ -3,9 +3,7 @@
 <!-- 실제 콘텐츠 영역 -->
 
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-<div class="pageHeader">
-  <h2 class="pageTitle">스탁뷰 미션 고객 참여 내역</h2>
-</div>
+<include src="../../partials/pageHeader.html" title="스탁뷰 미션 고객 참여 내역"></include>
     
 <!-- 상세 뷰 테이블 (상세 정보 확인용 .tblView) -->
 <!-- 하얀 박스 영역 -->
@@ -60,52 +58,21 @@
 
 <!-- ==================== 섹션 :: 공통설정 ==================== -->
 <!-- 검색 조건 컨트롤 박스 -->
-<div class="searchBox">
-  <div class="searchRow">
-    <div class="searchItem">
-      <span class="searchLabel">참여일자</span>
-      <div class="searchField">
-        <div class="formRow">
-          <div class="formDateRange">
-            <div class="formDatepicker">
-              <input type="text" class="formControl" value="2026.07.01">
-              <button type="button" class="btnCalendar"></button>
-            </div>
-            <span class="dateSeparator">~</span>
-            <div class="formDatepicker">
-              <input type="text" class="formControl" value="2026.08.31">
-              <button type="button" class="btnCalendar"></button>
-            </div>
-          </div>
-          <div class="segment">
-            <label class="segmentItem"><input type="radio" name="p1Date" checked=""><span class="segmentText">당일</span></label>
-            <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">7일</span></label>
-            <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">한달</span></label>
-          </div>
-        </div>
-      </div>
-    </div>
+<include src="../../partials/searchBox.html">
+  <include src="../../partials/searchRow.html">
+    <include src="../../partials/searchItem.html" label="참여일자">
+      <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+    </include>
 
-    <div class="searchItem">
-      <label class="searchLabel" for="p1Keyword">진행상태</label>
-      <div class="searchField">
-        <div class="formRow">
-          <select id="searchType" class="formControl wSm">
-            <option value="all">전체</option>
-            <option value="name">항목명</option>
-            <option value="code">코드</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="searchBtnArea">
-    <button type="button" class="btn outline">초기화</button>
-    <!-- [M] 261008 dark -> primary 버튼 색상 변경 -->
-    <button type="button" class="btn primary">조회</button>
-  </div>
-</div>
+    <include src="../../partials/searchItem.html" label="진행상태" for="searchType">
+      <select id="searchType" class="formControl wSm">
+        <option value="all">전체</option>
+        <option value="name">항목명</option>
+        <option value="code">코드</option>
+      </select>
+    </include>
+  </include>
+</include>
 
 <!-- 실시간 요약 인라인 바 -->
 <div class="summaryStatBox singleLine">
@@ -133,17 +100,7 @@
 <!-- 하얀 박스 영역 -->
 <div class="sectionBox">
   <!-- 테이블 상단 건수 및 액션 바 -->
-  <div class="tblTop">
-    <div class="tblLeft">
-      <h3 class="tblTitle">검색 결과</h3>
-      <span class="tblCount">총 <strong class="count">128</strong>건</span>
-      <select class="formControl wSm">
-        <option value="10">10건씩 보기</option>
-        <option value="20">20건씩 보기</option>
-        <option value="50">50건씩 보기</option>
-      </select>
-    </div>
-  </div>
+  <include src="../../partials/tblTop.html" title="검색 결과" count="128" pageSize></include>
 
   <!-- 데이터 그리드 테이블 -->
   <div class="tblWrap">
@@ -224,17 +181,7 @@
   <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
   <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
  <!-- 테이블 상단 건수 및 액션 바 -->
-  <div class="tblTop">
-    <div class="tblLeft">
-      <h3 class="tblTitle">검색 결과</h3>
-      <span class="tblCount">총 <strong class="count">0</strong>건</span>
-      <select class="formControl wSm">
-        <option value="10">10건씩 보기</option>
-        <option value="20">20건씩 보기</option>
-        <option value="50">50건씩 보기</option>
-      </select>
-    </div>
-  </div>
+  <include src="../../partials/tblTop.html" title="검색 결과" count="0" pageSize></include>
   <div class="tblWrap">
     <table class="tbl tblBordered">
       <colgroup>

@@ -1,10 +1,12 @@
 <!--
   [부품] 페이지 상단 헤더
-  <include src="../../partials/pageHeader.html" title="스탁뷰 미션 참여 내역"></include>
-  - title : 페이지 타이틀 (필수)
-  - slot  : 우측 영역 (브레드크럼, 작성자 정보 등) - 생략 가능
+  <include src="../../partials/pageHeader.html" title="미션등록" breadcrumb="홈,미션관리,미션등록"></include>
+  - title      : 페이지 타이틀 (필수)
+  - breadcrumb : 브레드크럼 경로 (쉼표 구분, 마지막 항목이 현재 페이지) - 생략 가능
+  - slot       : 우측 영역 (작성자 정보, 버튼 등) - 생략 가능
 -->
 <div class="pageHeader">
   <h2 class="pageTitle">{{ title }}</h2>
+  {{#if breadcrumb}}<include src="./breadcrumb.html" items="{{ breadcrumb }}"></include>{{/if}}
   {{#if slot}}<div class="headerRight">{{ slot }}</div>{{/if}}
 </div>

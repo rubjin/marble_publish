@@ -1,0 +1,34 @@
+<!--
+  [부품] 드래그앤드롭 파일 첨부 (단일 파일 / 첨부 전: 드롭존, 첨부 후: 파일 목록)
+  첨부 전: <include src="../../partials/fileAttach.html" guide="대표 이미지입니다.(JPG, PNG / 최대 5MB)"></include>
+  첨부 후: <include src="../../partials/fileAttach.html" file="메인 이미지.jpg" size="1542byte" guide="..."></include>
+  - guide    : 하단 안내 문구
+  - file     : 첨부된 파일명 - 있으면 파일 목록, 없으면 드롭존 출력
+  - size     : 파일 크기 표시 (예: 1542byte, 1.5MB)
+  - accept   : 허용 확장자 (기본: .jpg,.jpeg,.png)
+  - dragOver : 드래그 진입 상태 미리보기 (.isDragOver, 값 없이 속성만 작성)
+  [D] 드래그 진입 시 .fileDropzone.isDragOver / 파일 첨부 시 드롭존 숨김 + .fileList 노출
+-->
+<div class="formControlWrap full col">
+  {{#if !file}}<div class="fileDropzone{{#if dragOver}} isDragOver{{/if}}">
+    <div class="dropzoneHeader">
+      <input type="file" accept="{{ accept | .jpg,.jpeg,.png }}">
+      <span class="ico xl upload"></span>
+      <p class="dropzoneText">파일 선택 또는 이미지를 끌어다 놓으세요.</p>
+    </div>
+  </div>{{/if}}
+  {{#if file}}<ul class="fileList">
+    <li class="fileItem">
+      <div class="fileInfo">
+        <a class="fileName" href="#;">{{ file }}<span class="fileSize">({{ size }})</span></a>
+      </div>
+      <button type="button" class="fileDelete" aria-label="삭제">
+        <span class="ico deleteTag"></span>
+      </button>
+    </li>
+  </ul>{{/if}}
+  <div class="flexBetween alignCenter">
+    <span class="formGuideText">{{ guide }}</span>
+    <button type="button" class="btn outline">파일 선택</button>
+  </div>
+</div>

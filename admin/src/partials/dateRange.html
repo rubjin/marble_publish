@@ -1,21 +1,29 @@
 <!--
   [부품] 기간 선택 (시작일 ~ 종료일 + 기간 숏컷 세그먼트)
-  <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
-  - start / end : 시작일 / 종료일 값
-  - name        : 기간 숏컷 라디오 name (화면 안에서 중복되지 않게)
-  - noShortcut  : 기간 숏컷(당일 / 7일 / 한달) 숨김 (값 없이 속성만 작성)
+  조회 조건:  <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+  등록 폼:    <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" legend="운영기간 설정" startLabel="운영 시작일" endLabel="운영 종료일" noShortcut>
+                <label class="formCheck">...미지정...</label>
+              </include>
+  - start / end           : 시작일 / 종료일 값
+  - startLabel / endLabel : 입력창 설명 (기본: 시작일 / 종료일)
+  - legend                : 있으면 fieldset + 숨김 legend 로 출력 (등록 폼용)
+  - name                  : 기간 숏컷 라디오 name (화면 안에서 중복되지 않게)
+  - noShortcut            : 기간 숏컷(당일 / 7일 / 한달) 숨김 (값 없이 속성만 작성)
+  - slot                  : 종료일 뒤에 붙는 내용 (예: 미지정 체크박스) - 생략 가능
 -->
-<div class="formDateRange">
+{{#if legend}}<fieldset class="formDateRange">
+  <legend class="srOnly">{{ legend }}</legend>{{/if}}{{#if !legend}}<div class="formDateRange">{{/if}}
   <div class="formDatepicker">
-    <input type="text" class="formControl" value="{{ start }}" aria-label="시작일">
+    <input type="text" class="formControl" value="{{ start }}" aria-label="{{ startLabel | 시작일 }}">
     <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
   </div>
   <span class="dateSeparator">~</span>
   <div class="formDatepicker">
-    <input type="text" class="formControl" value="{{ end }}" aria-label="종료일">
+    <input type="text" class="formControl" value="{{ end }}" aria-label="{{ endLabel | 종료일 }}">
     <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
   </div>
-</div>
+  {{ slot }}
+{{#if legend}}</fieldset>{{/if}}{{#if !legend}}</div>{{/if}}
 {{#if !noShortcut}}<div class="segment">
   <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}" checked><span class="segmentText">당일</span></label>
   <label class="segmentItem"><input type="radio" name="{{ name | dateShortcut }}"><span class="segmentText">7일</span></label>

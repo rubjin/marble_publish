@@ -8,7 +8,7 @@
   - unit     : 단위 문구 (예: 단위 : 원) - 있으면 출력
   - pageSize : 페이지 크기 셀렉트(10/20/50건씩 보기) 출력 (값 없이 속성만 작성)
   - guide    : 우측 가이드 문구 (예: ※ ...)
-  - slot     : 우측 버튼 영역 - 생략 가능
+  - slot     : 우측 영역 (버튼, 안내 문구 등) - 생략 가능
 -->
 <div class="tblTop">
   <div class="tblLeft">
@@ -22,5 +22,5 @@
     </select>{{/if}}
   </div>
   {{#if guide}}<div class="tblRight"><p class="tblGuide">{{ guide }}</p></div>{{/if}}
-  {{#if slot}}<div class="tblRight"><div class="btnGroup">{{ slot }}</div></div>{{/if}}
+  {{#if slot}}<div class="tblRight">{{ slot }}</div>{{/if}}
 </div>

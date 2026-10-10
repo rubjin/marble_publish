@@ -1,0 +1,25 @@
+<!--
+  [부품] 상세 / 입력 폼 섹션 (타이틀 + .tblView 테이블)
+  <include src="../../partials/viewSection.html" title="상세 설정">
+    <slot name="actions"><button type="button" class="btn dark">모바일 미리보기</button></slot>
+    <include src="../../partials/viewRow.html" label="미션 타이틀" for="idTitle" required> ... </include>
+  </include>
+  - title   : 섹션 타이틀 (필수)
+  - thWidth : 항목명(th) 너비 (기본: 160px)
+  - actions : 타이틀 우측 영역 (이름 있는 slot) - 생략 가능
+  - slot    : 테이블 행 (partials/viewRow.html)
+-->
+<div class="tblSection">
+  <include src="./tblTop.html" title="{{ title }}">{{ actions }}</include>
+  <div class="tblWrap">
+    <table class="tbl tblView">
+      <colgroup>
+        <col style="width: {{ thWidth | 160px }};">
+        <col>
+      </colgroup>
+      <tbody>
+        {{ slot }}
+      </tbody>
+    </table>
+  </div>
+</div>

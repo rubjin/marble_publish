@@ -1,0 +1,18 @@
+<!--
+  [부품] 라디오 / 체크박스 그룹
+  <include src="../../partials/checkGroup.html" name="MissionStatus" options="운영중,중단,종료" legend="미션상태 선택"></include>
+  - name    : input name (필수)
+  - options : 선택지 (쉼표 구분)
+  - checked : 선택된 항목 (쉼표 구분, 생략 시 첫 번째 항목 선택 / 아무것도 선택 안 하려면 checked="none")
+  - type    : radio | checkbox (기본: radio)
+  - legend  : 스크린리더용 그룹 설명 (기본: 선택)
+-->
+<fieldset class="formCheckGroup">
+  <legend class="srOnly">{{ legend | 선택 }}</legend>
+  {{#each options}}<label class="formCheck">
+    <input type="{{ type | radio }}" name="{{ name }}"{{#if isChecked}} checked{{/if}}>
+    <span class="checkIcon"></span>
+    <span class="checkLabel">{{ item }}</span>
+  </label>
+  {{/each}}
+</fieldset>
