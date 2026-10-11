@@ -3823,19 +3823,6 @@ select.formControl.wAuto {
 .tbl.dataGrid th.isNumber .sortBtn {
   justify-content: flex-end;
 }
-.tbl.dataGrid {
-  /* ---------- 촘촘한 행 (Compact) ---------- */
-}
-.tbl.dataGrid.isCompact thead th {
-  height: 36px;
-  padding: 6px 10px;
-  font-size: 13px;
-}
-.tbl.dataGrid.isCompact tbody td {
-  height: 36px;
-  padding: 6px 10px;
-  font-size: 13px;
-}
 
 /* --------------------------------------------------------------------------
    정렬 (Sorting)

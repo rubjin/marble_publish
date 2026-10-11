@@ -440,7 +440,7 @@ function StateGrid() {
         </div>
       </div>
       <div className={cx('dataGridWrap', { isLoading: loading })}>
-        <table className="tbl dataGrid isCompact isStriped">
+        <table className="tbl dataGrid isStriped">
           <thead>
             <tr><th>No.</th><th>미션명</th><th>상태</th><th>등록일자</th></tr>
           </thead>

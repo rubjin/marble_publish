@@ -155,11 +155,6 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
 
   // 컬럼 테두리(셀 구분선)는 기본 적용 - .isBordered 는 기존 마크업 호환용 (추가 효과 없음)
 
-  /* ---------- 촘촘한 행 (Compact) ---------- */
-  &.isCompact {
-    thead th { height: 36px; padding: 6px 10px; font-size: 13px; }
-    tbody td { height: 36px; padding: 6px 10px; font-size: 13px; }
-  }
 }
 
 /* --------------------------------------------------------------------------
