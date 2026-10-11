@@ -3,43 +3,43 @@
 // ==========================================================================
 
 // Brand & Accent (Yellow)
-$color-yellow-400:   #FFDC00;
-$color-yellow-500:   #FFC72B; 
+$color-yellow-400: #FFDC00;
+$color-yellow-500: #FFC72B;
 
 // Grayscale
-$color-gray-50:  #F8F9FA; 
-$color-gray-100: #F3F5F6; 
-$color-gray-150: #F0F0F3; 
-$color-gray-200: #E7E9ED; 
-$color-gray-300: #D5D7DE; 
-$color-gray-400: #8D919B; 
+$color-gray-50: #F8F9FA;
+$color-gray-100: #F3F5F6;
+$color-gray-150: #F0F0F3;
+$color-gray-200: #E7E9ED;
+$color-gray-300: #D5D7DE;
+$color-gray-400: #8D919B;
 $color-gray-500: #6B7280;
 $color-gray-600: #4F535A;
-$color-gray-700: #404046; 
+$color-gray-700: #404046;
 $color-gray-800: #2F3034;
-$color-gray-900: #1F2937; 
-$color-gray-950: #111827; 
+$color-gray-900: #1F2937;
+$color-gray-950: #111827;
 
 // Status & Accent Colors
-$color-red-50:    #FEE2E2; 
-$color-red-400:   #EE5D50; 
-$color-red-600:   #EF4444; 
-$color-red-alpha: rgba(239, 68, 68, 0.2); 
+$color-red-50: #FEE2E2;
+$color-red-400: #EE5D50;
+$color-red-600: #EF4444;
+$color-red-alpha: rgba(239, 68, 68, 0.2);
 
-$color-green-500: #05CD99; 
+$color-green-500: #05CD99;
 
-$color-orange-50:  #FEFCE8;
-$color-orange-500: #FFCE20; 
+$color-orange-50: #FEFCE8;
+$color-orange-500: #FFCE20;
 
-$color-blue-50:    #F7F8FB; 
-$color-blue-100:   #EDF1FB; 
-$color-blue-200:   #C5D1E2; 
-$color-blue-300:   #639DFF; 
-$color-blue-500:   #287EFF; 
-$color-blue-alpha: rgba(40, 126, 255, 0.15); 
+$color-blue-50: #F7F8FB;
+$color-blue-100: #EDF1FB;
+$color-blue-200: #C5D1E2;
+$color-blue-300: #639DFF;
+$color-blue-500: #287EFF;
+$color-blue-alpha: rgba(40, 126, 255, 0.15);
 
 // Base
-$color-white:       #FFFFFF; // 흰 배경 
+$color-white: #FFFFFF; // 흰 배경 
 $color-transparent: transparent; // 투명 배경
 
 // ==========================================================================
@@ -47,52 +47,52 @@ $color-transparent: transparent; // 투명 배경
 // ==========================================================================
 
 // Backgrounds
-$bg-primary:       $color-yellow-500;               // #FFC72B - .btn.primary, MDI 활성 탭
-$bg-white:         $color-white;                    // #FFFFFF - 컨트롤 기본 배경
-$bg-light:         $color-gray-100;                 // #F3F5F6 - MDI 비활성 탭, 버튼 hover 
-$bg-dark:          $color-gray-600;                 // #4F535A - btn.dark, 토글 on
-$bg-disabled:      $color-gray-150;                 // #F0F0F3 - disabled 입력폼
-$bg-table-header:  rgba(243, 245, 246, 0.8);      // #F3F5F6 - with 80% opacity - 테이블 th 배경
-$bg-danger-light:  $color-red-50;                   // #FEE2E2 - 위험/상승
-$bg-warning-light: $color-orange-50;                // #FEFCE8 - 주의
-$bg-info-light:    $color-blue-50;                  // #F7F8FB - 정보
-$bg-card-active:   $color-blue-100;                 // #EDF1FB - 선택: 그리드 선택 행, 선택형 카드/폼 항목
+$bg-primary: $color-yellow-500; // #FFC72B - .btn.primary, MDI 활성 탭
+$bg-white: $color-white; // #FFFFFF - 컨트롤 기본 배경
+$bg-light: $color-gray-100; // #F3F5F6 - MDI 비활성 탭, 버튼 hover 
+$bg-dark: $color-gray-600; // #4F535A - btn.dark, 토글 on
+$bg-disabled: $color-gray-150; // #F0F0F3 - disabled 입력폼
+$bg-table-header: rgba(243, 245, 246, 0.8); // #F3F5F6 - with 80% opacity - 테이블 th 배경
+$bg-danger-light: $color-red-50; // #FEE2E2 - 위험/상승
+$bg-warning-light: $color-orange-50; // #FEFCE8 - 주의
+$bg-info-light: $color-blue-50; // #F7F8FB - 정보
+$bg-card-active: $color-blue-100; // #EDF1FB - 선택: 그리드 선택 행, 선택형 카드/폼 항목
 
 // Text Colors
-$text-primary:   $color-gray-800;       // #2F3034 - 기본 본문 텍스트
-$text-secondary: $color-gray-600;       // #4F535A - 보조 텍스트: 라벨, 테이블 보조값, MDI 비활성 탭
-$text-tertiary:  $color-gray-400;       // #8D919B - 흐린 텍스트: placeholder, 안내문구, 날짜 구분자(~), 단위
-$text-inverse:   $color-white;          // #FFFFFF - 어두운 배경 위 텍스트
-$text-danger:    $color-red-600;        // #EF4444 - 오류/위험
-$text-success:   $color-green-500;      // #05CD99 - 성공/진행
-$text-warning:   $color-orange-500;     // #FFCE20 - 주의
-$text-info:      $color-blue-500;       // #287EFF - 정보/강조 수치
-$text-link:      $color-blue-300;       // #639DFF - 링크 텍스트
-$text-title:     $color-gray-950;       // #111827 - 제목/최강조
-$text-highlight: $color-gray-900;       // #1F2937 - 강조 라벨
+$text-primary: $color-gray-800; // #2F3034 - 기본 본문 텍스트
+$text-secondary: $color-gray-600; // #4F535A - 보조 텍스트: 라벨, 테이블 보조값, MDI 비활성 탭
+$text-tertiary: $color-gray-400; // #8D919B - 흐린 텍스트: placeholder, 안내문구, 날짜 구분자(~), 단위
+$text-inverse: $color-white; // #FFFFFF - 어두운 배경 위 텍스트
+$text-danger: $color-red-600; // #EF4444 - 오류/위험
+$text-success: $color-green-500; // #05CD99 - 성공/진행
+$text-warning: $color-orange-500; // #FFCE20 - 주의
+$text-info: $color-blue-500; // #287EFF - 정보/강조 수치
+$text-link: $color-blue-300; // #639DFF - 링크 텍스트
+$text-title: $color-gray-950; // #111827 - 제목/최강조
+$text-highlight: $color-gray-900; // #1F2937 - 강조 라벨
 
 // Borders
-$border-light:       $color-gray-150; // #F0F0F3 - 옅은 구분선: 카드/섹션/검색박스 테두리, 테이블 셀, MDI 탭 구분선 
-$border-disabled:    $color-gray-200; // #E7E9ED - 비활성 테두리: disabled 입력폼
-$border-default:     $color-gray-300; // #D5D7DE - 기본 테두리: 입력폼, .btn.outline
-$border-hover:       $color-gray-400; // #8D919B - hover 테두리: 입력폼·버튼 hover
-$border-active:      $color-gray-600; // #4F535A - 활성 테두리: 토글형 버튼 활성 
-$border-danger:      $color-red-400;  // #EE5D50 - 위험 테두리: .btn.danger 
-$border-dark:        #707070;       // #707070 - 테이블 상단 굵은 선
+$border-light: $color-gray-150; // #F0F0F3 - 옅은 구분선: 카드/섹션/검색박스 테두리, 테이블 셀, MDI 탭 구분선 
+$border-disabled: $color-gray-200; // #E7E9ED - 비활성 테두리: disabled 입력폼
+$border-default: $color-gray-300; // #D5D7DE - 기본 테두리: 입력폼, .btn.outline
+$border-hover: $color-gray-400; // #8D919B - hover 테두리: 입력폼·버튼 hover
+$border-active: $color-gray-600; // #4F535A - 활성 테두리: 토글형 버튼 활성 
+$border-danger: $color-red-400; // #EE5D50 - 위험 테두리: .btn.danger 
+$border-dark: #707070; // #707070 - 테이블 상단 굵은 선
 $border-card-active: $color-blue-200; // #C5D1E2 - 선택 상태 테두리
 
 // Focus Rings
 $ring-primary: $color-blue-alpha; // rgba(40, 126, 255, 0.15); - 포커스 
-$ring-danger:  $color-red-alpha;  // rgba(239, 68, 68, 0.2); - 에러 포커스
-$focus-ring:   0 0 0 3px $ring-primary; // 포커스 (datagrid, dnd)
+$ring-danger: $color-red-alpha; // rgba(239, 68, 68, 0.2); - 에러 포커스
+$focus-ring: 0 0 0 3px $ring-primary; // 포커스 (datagrid, dnd)
 
 // ==========================================================================
 // Typography
 // ==========================================================================
-$font-family-base:   'KBFG Text', sans-serif; // 기본 서체
-$font-weight-light:  300; 
-$font-weight-medium: 500; 
-$font-weight-bold:   700; 
+$font-family-base: 'KBFG Text', sans-serif; // 기본 서체
+$font-weight-light: 300;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
 
 // ==========================================================================
 // Box Shadows
@@ -107,109 +107,109 @@ $shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 
 // ==========================================================================
 
 // Buttons - 크기
-$btn-radius:      6px;      // 버튼 모서리 - .btn, 달력, 페이지네이션 번호
-$btn-height-sm:   24px;     // .btn.sm
-$btn-height-md:   34px;     // .btn 기본
-$btn-height-lg:   40px;     // .btn.lg
-$btn-height-xl:   48px;     // 로그인 버튼
-$btn-padding-x-sm: 12px;    // .btn.sm
-$btn-padding-x-md: 12px;    // .btn 기본
-$btn-padding-x-lg: 20px;    // .btn.lg
-$btn-font-size-sm: 12px;    // .btn.sm
-$btn-font-size-md: 14px;    // .btn 기본
-$btn-font-size-lg: 16px;    // .btn.lg
+$btn-radius: 6px; // 버튼 모서리 - .btn, 달력, 페이지네이션 번호
+$btn-height-sm: 24px; // .btn.sm
+$btn-height-md: 34px; // .btn 기본
+$btn-height-lg: 40px; // .btn.lg
+$btn-height-xl: 48px; // 로그인 버튼
+$btn-padding-x-sm: 12px; // .btn.sm
+$btn-padding-x-md: 12px; // .btn 기본
+$btn-padding-x-lg: 20px; // .btn.lg
+$btn-font-size-sm: 12px; // .btn.sm
+$btn-font-size-md: 14px; // .btn 기본
+$btn-font-size-lg: 16px; // .btn.lg
 
 // Buttons - 변형별 컬러 (button.scss)
-$btn-primary-bg:           $bg-primary;       // #FFC72B .btn.primary (조회 등 주요 액션)           
-$btn-primary-bg-hover:     $color-yellow-400; // #FFDC00                                    
-$btn-primary-text:         $text-primary;     // #2F3034
+$btn-primary-bg: $bg-primary; // #FFC72B .btn.primary (조회 등 주요 액션)           
+$btn-primary-bg-hover: $color-yellow-400; // #FFDC00                                    
+$btn-primary-text: $text-primary; // #2F3034
 
-$btn-dark-bg:              $bg-dark;          // #4F535A .btn.dark                                
-$btn-dark-bg-hover:        $color-gray-500;   // #6B7280               
-$btn-dark-text:            $text-inverse;     // #FFFFFF                  
+$btn-dark-bg: $bg-dark; // #4F535A .btn.dark                                
+$btn-dark-bg-hover: $color-gray-500; // #6B7280               
+$btn-dark-text: $text-inverse; // #FFFFFF                  
 
-$btn-outline-bg:           $bg-white;         // #FFFFFF .btn.outline (초기화 등 보조 액션)          
-$btn-outline-bg-hover:     $color-gray-50;    // #F8F9FA
-$btn-outline-border:       $border-default;   // #D5D7DE
-$btn-outline-border-hover: $border-hover;     // #8D919B
-$btn-outline-text:         $color-gray-700;   // #404046
+$btn-outline-bg: $bg-white; // #FFFFFF .btn.outline (초기화 등 보조 액션)          
+$btn-outline-bg-hover: $color-gray-50; // #F8F9FA
+$btn-outline-border: $border-default; // #D5D7DE
+$btn-outline-border-hover: $border-hover; // #8D919B
+$btn-outline-text: $color-gray-700; // #404046
 
-$btn-light-bg:             $bg-light;         // #F3F5F6 .btn.light / .btn.secondary 공통          
-$btn-light-bg-hover:       $color-gray-200;   // #E7E9ED
-$btn-light-text:           $text-primary;     // #2F3034                          
-$btn-light-border:         $border-default;   // #D5D7DE .btn.light 테두리                        
-$btn-secondary-border:     $border-light;     // #F0F0F3 .btn.secondary 테두리                     
+$btn-light-bg: $bg-light; // #F3F5F6 .btn.light / .btn.secondary 공통          
+$btn-light-bg-hover: $color-gray-200; // #E7E9ED
+$btn-light-text: $text-primary; // #2F3034                          
+$btn-light-border: $border-default; // #D5D7DE .btn.light 테두리                        
+$btn-secondary-border: $border-light; // #F0F0F3 .btn.secondary 테두리                     
 
-$btn-active-bg:            $bg-dark;          // #4F535A .btn.light / .btn.secondary 선택 상태 (.isActive)  
-$btn-active-border:        $border-active;    // #4F535A
-$btn-active-text:          $text-inverse;     // #FFFFFF                                  
+$btn-active-bg: $bg-dark; // #4F535A .btn.light / .btn.secondary 선택 상태 (.isActive)  
+$btn-active-border: $border-active; // #4F535A
+$btn-active-text: $text-inverse; // #FFFFFF                                  
 
-$btn-danger-bg-hover:      $bg-danger-light;  // #FEE2E2 .btn.danger                               
-$btn-danger-border:        $border-danger;    // #EE5D50
-$btn-danger-text:          $text-danger;      // #EF4444                   
+$btn-danger-bg-hover: $bg-danger-light; // #FEE2E2 .btn.danger                               
+$btn-danger-border: $border-danger; // #EE5D50
+$btn-danger-text: $text-danger; // #EF4444                   
 
-$btn-ghost-bg-hover:       $color-gray-100;   // #F3F5F6 .btn.ghost                                
+$btn-ghost-bg-hover: $color-gray-100; // #F3F5F6 .btn.ghost                                
 
 // Form Controls - 크기
-$form-radius:    6px;  // 입력폼 모서리 - .formControl, 태그박스
-$form-height:    34px; // .formControl 높이, 폼 내 버튼 높이
+$form-radius: 6px; // 입력폼 모서리 - .formControl, 태그박스
+$form-height: 34px; // .formControl 높이, 폼 내 버튼 높이
 $form-height-xl: 48px; // 로그인 입력폼 (login)
 $form-font-size: 14px; // .formControl 글자 크기
 
 // Form Controls - 상태별 컬러 (form.scss: input, select, textarea, 데이트피커, 태그박스)
-$form-bg:              $bg-white;           // #FFFFFF - 입력폼 배경
-$form-text:            $text-primary;       // #2F3034 - 입력폼 텍스트
-$form-placeholder:     $text-tertiary;      // #8D919B - 입력폼 placeholder
-$form-border:          $border-default;     // #D5D7DE - 입력폼 테두리
-$form-border-hover:    $border-hover;       // #8D919B - 입력폼 hover 테두리
-$form-border-focus:    $color-blue-500;     // #287EFF - 입력폼 focus 테두리
-$form-ring-focus:      $ring-primary;       // rgba(40, 126, 255, 0.15) - 입력폼 focus ring
-$form-border-error:    $text-danger;        // #EF4444 - 입력폼 에러 테두리
-$form-ring-error:      $ring-danger;        // rgba(239, 68, 68, 0.2) - 입력폼 에러 focus ring
-$form-bg-disabled:     $bg-disabled;        // #F0F0F3 - disabled, readonly 배경
-$form-text-disabled:   $text-tertiary;      // #8D919B - disabled, readonly 텍스트
-$form-border-disabled: $border-disabled;    // #E7E9ED - disabled, readonly 테두리
+$form-bg: $bg-white; // #FFFFFF - 입력폼 배경
+$form-text: $text-primary; // #2F3034 - 입력폼 텍스트
+$form-placeholder: $text-tertiary; // #8D919B - 입력폼 placeholder
+$form-border: $border-default; // #D5D7DE - 입력폼 테두리
+$form-border-hover: $border-hover; // #8D919B - 입력폼 hover 테두리
+$form-border-focus: $color-blue-500; // #287EFF - 입력폼 focus 테두리
+$form-ring-focus: $ring-primary; // rgba(40, 126, 255, 0.15) - 입력폼 focus ring
+$form-border-error: $text-danger; // #EF4444 - 입력폼 에러 테두리
+$form-ring-error: $ring-danger; // rgba(239, 68, 68, 0.2) - 입력폼 에러 focus ring
+$form-bg-disabled: $bg-disabled; // #F0F0F3 - disabled, readonly 배경
+$form-text-disabled: $text-tertiary; // #8D919B - disabled, readonly 텍스트
+$form-border-disabled: $border-disabled; // #E7E9ED - disabled, readonly 테두리
 
 // Form Controls - 체크박스 / 라디오 (.formCheck, .formRadioCard)
-$check-bg:                  $bg-white;        // #FFFFFF - 체크박스/라디오 배경              
-$check-border:              $color-gray-300;  // #D5D7DE                                 
-$check-checked-bg:          $text-highlight;  // #1F2937 - 체크 시 배경 + 테두리           
-$check-mark:                $bg-white;        // #FFFFFF - 체크 표시 (체크/라디오 점)        
-$check-disabled-bg:         $bg-light;        // #F3F5F6 - disabled 시 배경                  
-$check-disabled-border:     $border-light;    // #F0F0F3                                                           
-$check-checked-disabled-bg: $color-gray-300;  // #D5D7DE - 체크 + disabled 시 배경 + 테두리  
+$check-bg: $bg-white; // #FFFFFF - 체크박스/라디오 배경              
+$check-border: $color-gray-300; // #D5D7DE                                 
+$check-checked-bg: $text-highlight; // #1F2937 - 체크 시 배경 + 테두리           
+$check-mark: $bg-white; // #FFFFFF - 체크 표시 (체크/라디오 점)        
+$check-disabled-bg: $bg-light; // #F3F5F6 - disabled 시 배경                  
+$check-disabled-border: $border-light; // #F0F0F3                                                           
+$check-checked-disabled-bg: $color-gray-300; // #D5D7DE - 체크 + disabled 시 배경 + 테두리  
 
 // Box - 흰 박스 컨테이너 (.sectionBox 기준)
-$box-bg:      $color-white;
-$box-border:  $border-light;
-$box-radius:  12px;
-$box-shadow:  $shadow-xs;
+$box-bg: $color-white;
+$box-border: $border-light;
+$box-radius: 12px;
+$box-shadow: $shadow-xs;
 $box-padding: 24px 28px; //.sectionBox, .searchBox
 $box-summary-padding: 20px 28px; // .summaryStatBox, .statusSummaryBox 내부 카드 여백
-$box-card-padding: 18px 20px;     // .kpiCard, .statusCardGrid 내부 여백
+$box-card-padding: 18px 20px; // .kpiCard, .statusCardGrid 내부 여백
 
 // Table - .tbl / .tbl.dataGrid 공통
-$tbl-header-bg:       $bg-table-header;    // thead th, .tblInfo th
-$tbl-header-bg-solid: #F5F7F8;           // 헤더 고정(sticky)용 불투명 버전 - 흰 배경 위 $tbl-header-bg 와 동일한 색
-$tbl-header-text:     $text-primary;
-$tbl-th-text:         $text-secondary;    // 세로형 테이블 th (.tblView, .tblInfo)
-$tbl-td-text:         $text-primary;
-$tbl-border-top:      $border-dark;       // 테이블 상단 굵은 선 (.tblView, .tblInfo, .dataGridWrap)
-$tbl-cell-border:     $border-light;      // 행/셀 구분선
-$tbl-row-hover:       $color-gray-50;
-$tbl-row-selected:    $bg-card-active;    // 행 선택 (.isSelected)
+$tbl-header-bg: $bg-table-header; // thead th, .tblInfo th
+$tbl-header-bg-solid: #F5F7F8; // 헤더 고정(sticky)용 불투명 버전 - 흰 배경 위 $tbl-header-bg 와 동일한 색
+$tbl-header-text: $text-primary;
+$tbl-th-text: $text-secondary; // 세로형 테이블 th (.tblView, .tblInfo)
+$tbl-td-text: $text-primary;
+$tbl-border-top: $border-dark; // 테이블 상단 굵은 선 (.tblView, .tblInfo, .dataGridWrap)
+$tbl-cell-border: $border-light; // 행/셀 구분선
+$tbl-row-hover: $color-gray-50;
+$tbl-row-selected: $bg-card-active; // 행 선택 (.isSelected)
 
 // ==========================================================================
 // Z-Index Layering
 // ==========================================================================
-$z-dropdown:  100;  // 데이트피커 레이어, 드래그 오버레이 (calendar, dnd)
-$z-tooltip:   200;  // 툴팁, 차트 툴팁 (tooltip, chart)
+$z-dropdown: 100; // 데이트피커 레이어, 드래그 오버레이 (calendar, dnd)
+$z-tooltip: 200; // 툴팁, 차트 툴팁 (tooltip, chart)
 $z-popup-dim: 1000; // 팝업 딤 (popup)
-$z-popup:     1001; // 팝업 본체 (popup)
-$z-toast:     9999; // 토스트 (toast)
+$z-popup: 1001; // 팝업 본체 (popup)
+$z-toast: 9999; // 토스트 (toast)
 
 // ==========================================================================
 // Asset Paths
 // ==========================================================================
 $path-images: '/src/assets/images' !default; // iconUrl() 등 이미지 경로 함수 (_functions)
-$path-fonts:  '/src/assets/fonts' !default;  // 폰트 경로 함수 (_functions)
+$path-fonts: '/src/assets/fonts' !default; // 폰트 경로 함수 (_functions)

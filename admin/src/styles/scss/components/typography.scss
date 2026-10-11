@@ -3,35 +3,117 @@
 // Typography & Font Sizes
 
 // Font Size Classes
-.fs28 { font-size: 28px !important; line-height: 1.4; }
-.fs24 { font-size: 24px !important; line-height: 1.4; }
-.fs20 { font-size: 20px !important; line-height: 1.45; }
-.fs18 { font-size: 18px !important; line-height: 1.5; }
-.fs16 { font-size: 16px !important; line-height: 1.5; }
-.fs15 { font-size: 15px !important; line-height: 1.5; }
-.fs14 { font-size: 14px !important; line-height: 1.5; }
-.fs13 { font-size: 13px !important; line-height: 1.5; }
-.fs12 { font-size: 12px !important; line-height: 1.5; }
-.fs10 { font-size: 10px !important; line-height: 1.4; }
+.fs28 {
+  font-size: 28px !important;
+  line-height: 1.4;
+}
+
+.fs24 {
+  font-size: 24px !important;
+  line-height: 1.4;
+}
+
+.fs20 {
+  font-size: 20px !important;
+  line-height: 1.45;
+}
+
+.fs18 {
+  font-size: 18px !important;
+  line-height: 1.5;
+}
+
+.fs16 {
+  font-size: 16px !important;
+  line-height: 1.5;
+}
+
+.fs15 {
+  font-size: 15px !important;
+  line-height: 1.5;
+}
+
+.fs14 {
+  font-size: 14px !important;
+  line-height: 1.5;
+}
+
+.fs13 {
+  font-size: 13px !important;
+  line-height: 1.5;
+}
+
+.fs12 {
+  font-size: 12px !important;
+  line-height: 1.5;
+}
+
+.fs10 {
+  font-size: 10px !important;
+  line-height: 1.4;
+}
 
 // Font Weight Classes
-.fwLight { font-weight: $font-weight-light !important; }
-.fwRegular { font-weight: $font-weight-medium !important; }
-.fwMedium { font-weight: $font-weight-medium !important; }
-.fwSemibold { font-weight: $font-weight-medium !important; }
-.fwBold { font-weight: $font-weight-bold !important; }
+.fwLight {
+  font-weight: $font-weight-light !important;
+}
+
+.fwRegular {
+  font-weight: $font-weight-medium !important;
+}
+
+.fwMedium {
+  font-weight: $font-weight-medium !important;
+}
+
+.fwSemibold {
+  font-weight: $font-weight-medium !important;
+}
+
+.fwBold {
+  font-weight: $font-weight-bold !important;
+}
 
 // Text Color Utility
-.textPrimary { color: $color-yellow-500 !important; }
-.textDark { color: $text-title !important; }
-.textMuted { color: $text-secondary !important; }
-.textDisabled { color: $text-tertiary !important; }
-.textWhite { color: $color-white !important; }
-.textInfo { color: $text-info !important; }
-.textSuccess { color: $text-info !important; }
-.textIng { color: $text-success !important; }
-.textWarning { color: $text-warning !important; }
-.textDanger { color: $text-danger !important; }
+.textPrimary {
+  color: $color-yellow-500 !important;
+}
+
+.textDark {
+  color: $text-title !important;
+}
+
+.textMuted {
+  color: $text-secondary !important;
+}
+
+.textDisabled {
+  color: $text-tertiary !important;
+}
+
+.textWhite {
+  color: $color-white !important;
+}
+
+.textInfo {
+  color: $text-info !important;
+}
+
+.textSuccess {
+  color: $text-info !important;
+}
+
+.textIng {
+  color: $text-success !important;
+}
+
+.textWarning {
+  color: $text-warning !important;
+}
+
+.textDanger {
+  color: $text-danger !important;
+}
 
 // Typography Component Scale (Headings & Body)
 // 실제 화면 적용 기준: .pageTitle 22 / .sectionTitle·.popupTitle 18 / .tblTitle 16 / .chartTitle 15
@@ -142,8 +224,3 @@
     color: $text-highlight;
   }
 }
-
-
-
-
-

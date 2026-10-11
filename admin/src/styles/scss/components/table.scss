@@ -41,6 +41,7 @@
       .count {
         color: $text-title;
         font-weight: $font-weight-medium;
+
         &.point {
           color: $color-blue-500;
         }
@@ -112,24 +113,33 @@
     tr {
       border-bottom: 1px solid $tbl-cell-border;
       transition: background-color 0.15s ease;
+
       &:hover {
         background-color: $tbl-row-hover;
       }
+
       &:last-child {
         border-bottom: none;
       }
-      &.rowLink { cursor: pointer; }
+
+      &.rowLink {
+        cursor: pointer;
+      }
     }
-    th, td {
+
+    th,
+    td {
       font-size: 14px;
       text-align: center;
     }
+
     th {
       padding: 20px 10px 20px 4px;
       font-weight: $font-weight-medium;
       white-space: nowrap;
       vertical-align: top;
     }
+
     td {
       padding: 10px 8px;
       vertical-align: middle;
@@ -141,14 +151,24 @@
       color: $text-tertiary;
       white-space: normal;
     }
-    tr:has(.tblEmpty):hover { background-color: transparent; }
+
+    tr:has(.tblEmpty):hover {
+      background-color: transparent;
+    }
   }
-  .formLabel { margin-bottom: 0; min-height: 34px; display: inline-flex; align-items: center;  }
+
+  .formLabel {
+    margin-bottom: 0;
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+  }
 
   // 가운데 정렬
   // 수정자(tblCenter / tblBordered / tblView / tblInfo)는 자식 선택자(>)로 자기 행·셀에만 적용
   // → 셀 안에 중첩된 테이블(.stepCard 의 .tbl 등)로 스타일이 새지 않음
   &.tblCenter {
+
     > thead > tr > th,
     > tbody > tr > td {
       text-align: center;
@@ -171,20 +191,27 @@
 
     > tbody > tr {
       border-bottom: 1px solid $tbl-cell-border;
+
       // 상세 / 입력 폼 테이블은 행 hover 배경 없음
       &:hover {
         background-color: transparent;
       }
+
       &:last-child {
         border-bottom: none;
       }
 
-      > th, > td { text-align: left; }
+      > th,
+      > td {
+        text-align: left;
+      }
+
       > th {
         padding: 14px 12px;
         font-weight: $font-weight-medium;
         color: $tbl-th-text;
       }
+
       > td {
         padding: 14px 12px;
         color: $tbl-td-text;
@@ -200,23 +227,32 @@
 
     > tbody > tr {
       border-bottom: none;
-      &:hover { background-color: transparent; }
 
-      > th, > td {
+      &:hover {
+        background-color: transparent;
+      }
+
+      > th,
+      > td {
         height: 48px;
         padding: 12px 16px;
         text-align: left;
         vertical-align: middle;
         border-bottom: 1px solid $tbl-cell-border;
         border-left: 1px solid $tbl-cell-border;
-        &:first-child { border-left: none; }
+
+        &:first-child {
+          border-left: none;
+        }
       }
+
       > th {
         background-color: $tbl-header-bg;
         font-weight: $font-weight-medium;
         color: $tbl-th-text;
         white-space: nowrap;
       }
+
       > td {
         color: $text-title;
         font-weight: $font-weight-medium;
@@ -230,19 +266,29 @@
       flex-wrap: wrap;
       gap: 6px 12px;
     }
+
     .infoStat {
       display: inline-flex;
       align-items: baseline;
       gap: 4px;
       color: $text-secondary;
       font-weight: $font-weight-medium;
-      strong { color: $text-title; font-weight: $font-weight-bold; }
+
+      strong {
+        color: $text-title;
+        font-weight: $font-weight-bold;
+      }
+
       & + .infoStat {
         // padding-left: 12px;
         // border-left: 1px solid $border-light;
       }
     }
-    .infoTotal { color: $text-tertiary; font-weight: $font-weight-medium; }
+
+    .infoTotal {
+      color: $text-tertiary;
+      font-weight: $font-weight-medium;
+    }
   }
 }
 
@@ -252,20 +298,20 @@
   background-color: transparent;
 
   tbody {
-      tr {
-        border-bottom: none;
+    tr {
+      border-bottom: none;
 
-        &:hover {
-            background-color: transparent;
-          }
-        }
+      &:hover {
+        background-color: transparent;
+      }
+    }
 
-                        th {
-                          padding: 8px 10px 8px 0;
-                        }
+    th {
+      padding: 8px 10px 8px 0;
+    }
 
-                        td {
-                          padding: 8px 0;
-                        }
-                        }
-                        }
+    td {
+      padding: 8px 0;
+    }
+  }
+}

@@ -12,8 +12,9 @@
 
   // 포매터: VS Code 내장 포매터 고정 (확장 설치 / 인터넷 불필요 - 내부망 동작)
   "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
-  "[css]": { "editor.defaultFormatter": "vscode.css-language-features" },
-  "[scss]": { "editor.defaultFormatter": "vscode.css-language-features" },
+  // CSS / SCSS 는 저장 시 파일 전체 정렬 (수정한 줄만 정렬하면 기존 한 줄 규칙 등이 그대로 남음)
+  "[css]": { "editor.defaultFormatter": "vscode.css-language-features", "editor.formatOnSaveMode": "file" },
+  "[scss]": { "editor.defaultFormatter": "vscode.css-language-features", "editor.formatOnSaveMode": "file" },
   "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
   "[javascriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
   "[json]": { "editor.defaultFormatter": "vscode.json-language-features" },
@@ -35,6 +36,12 @@
   "css.format.enable": true,
   "scss.format.newlineBetweenRules": true,
   "scss.format.preserveNewLines": true,
+  "scss.format.newlineBetweenSelectors": true,       // 쉼표 선택자는 줄마다 하나씩
+  "scss.format.spaceAroundSelectorSeparator": true,  // "> th" 처럼 결합자(>, +, ~) 앞뒤 공백 유지 (기본값 false 는 ">th" 로 붙임)
+  "css.format.newlineBetweenRules": true,
+  "css.format.preserveNewLines": true,
+  "css.format.newlineBetweenSelectors": true,
+  "css.format.spaceAroundSelectorSeparator": true,
 
   // JS / JSX 정렬 옵션
   "javascript.format.enable": true,

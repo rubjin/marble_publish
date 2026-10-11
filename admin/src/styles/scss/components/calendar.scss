@@ -8,14 +8,14 @@
    - 권장 옵션: locale={ko}, weekStartsOn={0}, showOutsideDays, navLayout="around"
    ========================================================================== */
 
-$cal-day-size:     36px;
-$cal-btn-size:     32px;
-$cal-radius:       $btn-radius;
-$cal-selected-bg:  $bg-dark;
-$cal-range-bg:     $color-gray-150;
-$cal-today-dot:    $color-yellow-500;
-$cal-sunday:       $color-red-600;
-$cal-saturday:     $color-blue-500;
+$cal-day-size: 36px;
+$cal-btn-size: 32px;
+$cal-radius: $btn-radius;
+$cal-selected-bg: $bg-dark;
+$cal-range-bg: $color-gray-150;
+$cal-today-dot: $color-yellow-500;
+$cal-sunday: $color-red-600;
+$cal-saturday: $color-blue-500;
 
 /* --------------------------------------------------------------------------
    데이트피커 레이어 (입력창 하단 팝오버)
@@ -26,7 +26,9 @@ $cal-saturday:     $color-blue-500;
 .formDateRange {
   position: relative;
 
-  &.isOpen > .datePickerLayer { display: flex; }
+  &.isOpen > .datePickerLayer {
+    display: flex;
+  }
 }
 
 // 데이트피커 입력창은 직접 입력 방지를 위해 readonly 를 쓰므로 비활성 스타일에서 제외
@@ -36,7 +38,9 @@ $cal-saturday:     $color-blue-500;
   border-color: $border-default;
   cursor: pointer;
 
-  &:hover { border-color: $text-tertiary; }
+  &:hover {
+    border-color: $text-tertiary;
+  }
 }
 
 .formDatepicker.isOpen,
@@ -62,9 +66,16 @@ $cal-saturday:     $color-blue-500;
   overflow: hidden;
 
   // 우측 기준 정렬 (화면 우측 끝에 있는 입력창)
-  &.alignRight { left: auto; right: 0; }
+  &.alignRight {
+    left: auto;
+    right: 0;
+  }
+
   // 상단으로 열기
-  &.alignTop { top: auto; bottom: calc(100% + 4px); }
+  &.alignTop {
+    top: auto;
+    bottom: calc(100% + 4px);
+  }
 
   // 가이드/인라인 노출용 (항상 표시, static 배치)
   &.isStatic {
@@ -109,7 +120,10 @@ $cal-saturday:     $color-blue-500;
     cursor: pointer;
     transition: background-color 0.15s, color 0.15s;
 
-    &:hover { background-color: $color-gray-150; color: $text-primary; }
+    &:hover {
+      background-color: $color-gray-150;
+      color: $text-primary;
+    }
 
     &.isActive {
       background-color: $bg-dark;
@@ -138,7 +152,9 @@ $cal-saturday:     $color-blue-500;
     }
   }
 
-  .btnGroup { margin-left: auto; }
+  .btnGroup {
+    margin-left: auto;
+  }
 }
 
 // 인라인 캘린더 (카드 내 항상 펼침형)
@@ -178,7 +194,9 @@ $cal-saturday:     $color-blue-500;
   font-size: 14px;
   color: $text-primary;
 
-  * { box-sizing: border-box; }
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .rdp-months {
@@ -246,7 +264,10 @@ $cal-saturday:     $color-blue-500;
   appearance: none;
   transition: background-color 0.15s, border-color 0.15s;
 
-  &:hover { background-color: $color-gray-50; border-color: $border-hover; }
+  &:hover {
+    background-color: $color-gray-50;
+    border-color: $border-hover;
+  }
 
   &:focus-visible {
     outline: none;
@@ -282,8 +303,13 @@ $cal-saturday:     $color-blue-500;
     top: 2px;
   }
 
-  .rdp-button_previous { left: 0; }
-  .rdp-button_next { right: 0; }
+  .rdp-button_previous {
+    left: 0;
+  }
+
+  .rdp-button_next {
+    right: 0;
+  }
 }
 
 /* 연/월 드롭다운 (captionLayout="dropdown") */
@@ -310,7 +336,9 @@ $cal-saturday:     $color-blue-500;
     transition: border-color 0.2s;
   }
 
-  &:hover .rdp-caption_label { border-color: $border-hover; }
+  &:hover .rdp-caption_label {
+    border-color: $border-hover;
+  }
 
   .rdp-chevron {
     width: 12px;
@@ -318,7 +346,9 @@ $cal-saturday:     $color-blue-500;
     margin-left: 4px;
   }
 
-  &[data-disabled="true"] .rdp-chevron { opacity: 0.35; }
+  &[data-disabled="true"] .rdp-chevron {
+    opacity: 0.35;
+  }
 }
 
 .rdp-dropdown {
@@ -388,21 +418,30 @@ $cal-saturday:     $color-blue-500;
   cursor: pointer;
   transition: background-color 0.15s, color 0.15s;
 
-  &:hover { background-color: $color-gray-100; }
+  &:hover {
+    background-color: $color-gray-100;
+  }
 
   &:focus-visible {
     outline: none;
     box-shadow: $focus-ring;
   }
 
-  &:disabled { cursor: not-allowed; }
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 // 주말 색상 (weekStartsOn={0} 일요일 시작 기준)
 .rdp-weekday:first-child,
-.rdp-week .rdp-day:first-child { color: $cal-sunday; }
+.rdp-week .rdp-day:first-child {
+  color: $cal-sunday;
+}
+
 .rdp-weekday:last-child,
-.rdp-week .rdp-day:last-child { color: $cal-saturday; }
+.rdp-week .rdp-day:last-child {
+  color: $cal-saturday;
+}
 
 /* 날짜 상태 (Modifiers) */
 
@@ -424,7 +463,9 @@ $cal-saturday:     $color-blue-500;
 }
 
 // 이전/다음 달 날짜
-.rdp-outside { color: $color-gray-300 !important; }
+.rdp-outside {
+  color: $color-gray-300 !important;
+}
 
 // 선택 불가 날짜
 .rdp-disabled:not(.rdp-selected) {
@@ -432,11 +473,16 @@ $cal-saturday:     $color-blue-500;
 
   .rdp-day_button {
     text-decoration: line-through;
-    &:hover { background: none; }
+
+    &:hover {
+      background: none;
+    }
   }
 }
 
-.rdp-hidden { visibility: hidden; }
+.rdp-hidden {
+  visibility: hidden;
+}
 
 // 선택된 날짜 (단일 / 다중)
 .rdp-selected .rdp-day_button,

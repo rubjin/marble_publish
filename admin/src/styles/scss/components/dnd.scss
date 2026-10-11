@@ -14,13 +14,15 @@
    ========================================================================== */
 
 $dnd-active-border: $color-blue-500;
-$dnd-over-bg:       $bg-info-light;
+$dnd-over-bg: $bg-info-light;
 
 body.isDndActive {
   cursor: grabbing !important;
   user-select: none;
 
-  * { cursor: grabbing !important; }
+  * {
+    cursor: grabbing !important;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -47,14 +49,19 @@ body.isDndActive {
   border-radius: 8px;
   transition: border-color 0.15s, box-shadow 0.15s, opacity 0.15s;
 
-  &:hover { border-color: $border-hover; }
+  &:hover {
+    border-color: $border-hover;
+  }
 
   // 아이템 전체를 핸들로 사용하는 경우
   &.isHandle {
     cursor: grab;
     touch-action: none;
     user-select: none;
-    &:active { cursor: grabbing; }
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 
   .dndContent {
@@ -85,7 +92,9 @@ body.isDndActive {
     background-color: $color-gray-50;
     box-shadow: none;
 
-    > * { visibility: hidden; }
+    > * {
+      visibility: hidden;
+    }
   }
 
   // 커서를 따라다니는 미리보기
@@ -109,7 +118,9 @@ body.isDndActive {
     outline-offset: -1px;
     box-shadow: none;
 
-    > * { visibility: hidden; }
+    > * {
+      visibility: hidden;
+    }
   }
 
   &.isOverlay {
@@ -118,7 +129,9 @@ body.isDndActive {
     box-shadow: $shadow-lg;
     cursor: grabbing;
 
-    .stepHandle { cursor: grabbing; }
+    .stepHandle {
+      cursor: grabbing;
+    }
   }
 }
 
@@ -166,7 +179,10 @@ body.isDndActive {
     }
   }
 
-  .dndList { flex: 1; min-height: 60px; }
+  .dndList {
+    flex: 1;
+    min-height: 60px;
+  }
 
   &.isOver {
     background-color: $dnd-over-bg;

@@ -6,13 +6,13 @@
    - 기본 모양은 .tbl.tblBordered 와 동일 (바깥 테두리 + 셀 구분선, 옅은 회색) (<table class="tbl dataGrid">)
    ========================================================================== */
 
-$grid-pin-shadow:   rgba(0, 0, 0, 0.08);
+$grid-pin-shadow: rgba(0, 0, 0, 0.08);
 // 고정(sticky) 셀 구분선: border-collapse 테두리는 sticky 셀을 따라오지 않으므로 inset box-shadow 로 그림
-$grid-line:         $tbl-cell-border;   // .tbl.tblBordered 셀 테두리와 동일
-$grid-line-bottom:  inset 0 -1px 0 $grid-line; // 헤더 하단
-$grid-line-top:     inset 0 1px 0 $grid-line;  // 합계 상단
-$grid-line-right:   inset -1px 0 0 $grid-line; // 좌측 고정 경계 / 헤더 세로선
-$grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
+$grid-line: $tbl-cell-border; // .tbl.tblBordered 셀 테두리와 동일
+$grid-line-bottom: inset 0 -1px 0 $grid-line; // 헤더 하단
+$grid-line-top: inset 0 1px 0 $grid-line; // 합계 상단
+$grid-line-right: inset -1px 0 0 $grid-line; // 좌측 고정 경계 / 헤더 세로선
+$grid-line-left: inset 1px 0 0 $grid-line; // 우측 고정 경계
 
 // 그리드 래퍼 (가로 스크롤 / 세로 고정 높이 스크롤)
 .dataGridWrap {
@@ -25,9 +25,17 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
   background-color: $bg-white;
 
   // 세로 스크롤 영역 높이 (헤더 고정)
-  &.h300 { max-height: 300px; }
-  &.h400 { max-height: 400px; }
-  &.h500 { max-height: 500px; }
+  &.h300 {
+    max-height: 300px;
+  }
+
+  &.h400 {
+    max-height: 400px;
+  }
+
+  &.h500 {
+    max-height: 500px;
+  }
 
   // [D] 로딩 중: .isLoading 추가
   &.isLoading {
@@ -60,7 +68,9 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
 }
 
 @keyframes dataGridSpin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .tbl.dataGrid {
@@ -82,13 +92,17 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
       box-shadow: $grid-line-right, $grid-line-bottom;
       @include text-ellipsis;
 
-      &:last-child { box-shadow: $grid-line-bottom; }
+      &:last-child {
+        box-shadow: $grid-line-bottom;
+      }
     }
   }
 
   tbody {
     tr {
-      &:hover { background-color: $tbl-row-hover; }
+      &:hover {
+        background-color: $tbl-row-hover;
+      }
 
       // [D] 행 선택: row.getIsSelected() 시 .isSelected
       &.isSelected,
@@ -97,10 +111,14 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
       }
 
       // [D] 행 클릭 가능: .isClickable
-      &.isClickable { cursor: pointer; }
+      &.isClickable {
+        cursor: pointer;
+      }
 
       // [D] 비활성 행: .isDisabled
-      &.isDisabled td { color: $text-tertiary; }
+      &.isDisabled td {
+        color: $text-tertiary;
+      }
 
     }
 
@@ -110,7 +128,9 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
       border-right: 1px solid $tbl-cell-border;
       @include text-ellipsis;
 
-      &:last-child { border-right: none; }
+      &:last-child {
+        border-right: none;
+      }
 
       // 줄바꿈 허용 셀
       &.isWrap {
@@ -123,13 +143,18 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
     .link {
       color: $text-link;
       text-decoration: none;
-      &:hover { text-decoration: underline; }
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
   // 합계 행 (세로 스크롤 시 하단 고정)
   tfoot {
-    td, th {
+
+    td,
+    th {
       position: sticky;
       bottom: 0;
       z-index: 2;
@@ -140,7 +165,9 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
       color: $text-title;
       text-align: center;
 
-      &:last-child { box-shadow: $grid-line-top; }
+      &:last-child {
+        box-shadow: $grid-line-top;
+      }
     }
   }
 
@@ -174,7 +201,11 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
   user-select: none;
 
   &:hover .sortIcon {
-    &::before, &::after { opacity: 1; }
+
+    &::before,
+    &::after {
+      opacity: 1;
+    }
   }
 
   &:focus-visible {
@@ -183,7 +214,9 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
     box-shadow: $focus-ring;
   }
 
-  .sortText { @include text-ellipsis; }
+  .sortText {
+    @include text-ellipsis;
+  }
 }
 
 // 위/아래 삼각형 (CSS 로 색상 제어)
@@ -208,8 +241,13 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
     transition: opacity 0.15s;
   }
 
-  &::before { border-bottom: 4px solid $color-gray-300; }
-  &::after { border-top: 4px solid $color-gray-300; }
+  &::before {
+    border-bottom: 4px solid $color-gray-300;
+  }
+
+  &::after {
+    border-top: 4px solid $color-gray-300;
+  }
 }
 
 .sortBtn.isAsc .sortIcon::before {
@@ -234,8 +272,13 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
     text-align: center;
     text-overflow: clip;
 
-    .formCheck { vertical-align: middle; }
-    .checkIcon { margin-right: 0; }
+    .formCheck {
+      vertical-align: middle;
+    }
+
+    .checkIcon {
+      margin-right: 0;
+    }
   }
 }
 
@@ -246,6 +289,7 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
        고정 영역 경계 컬럼: getIsLastColumn('left') → .isPinnedEdge / getIsFirstColumn('right') → .isPinnedEdge
    -------------------------------------------------------------------------- */
 .tbl.dataGrid {
+
   .isPinnedLeft,
   .isPinnedRight {
     position: sticky;
@@ -267,19 +311,45 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
 
   // 행 hover / 선택 배경을 고정 셀에도 동일하게 반영
   tbody tr:hover {
-    .isPinnedLeft, .isPinnedRight { background-color: $tbl-row-hover; }
+
+    .isPinnedLeft,
+    .isPinnedRight {
+      background-color: $tbl-row-hover;
+    }
   }
+
   tbody tr.isSelected {
-    .isPinnedLeft, .isPinnedRight { background-color: $tbl-row-selected; }
+
+    .isPinnedLeft,
+    .isPinnedRight {
+      background-color: $tbl-row-selected;
+    }
   }
 
   // 고정 영역 경계: 구분선 + 그림자 (스크롤 시에도 유지)
-  .isPinnedLeft.isPinnedEdge { box-shadow: $grid-line-right, 4px 0 6px -2px $grid-pin-shadow; }
-  .isPinnedRight.isPinnedEdge { box-shadow: $grid-line-left, -4px 0 6px -2px $grid-pin-shadow; }
-  thead th.isPinnedLeft.isPinnedEdge { box-shadow: $grid-line-right, $grid-line-bottom, 4px 0 6px -2px $grid-pin-shadow; }
-  thead th.isPinnedRight.isPinnedEdge { box-shadow: $grid-line-left, $grid-line-bottom, -4px 0 6px -2px $grid-pin-shadow; }
-  tfoot .isPinnedLeft.isPinnedEdge { box-shadow: $grid-line-right, $grid-line-top, 4px 0 6px -2px $grid-pin-shadow; }
-  tfoot .isPinnedRight.isPinnedEdge { box-shadow: $grid-line-left, $grid-line-top, -4px 0 6px -2px $grid-pin-shadow; }
+  .isPinnedLeft.isPinnedEdge {
+    box-shadow: $grid-line-right, 4px 0 6px -2px $grid-pin-shadow;
+  }
+
+  .isPinnedRight.isPinnedEdge {
+    box-shadow: $grid-line-left, -4px 0 6px -2px $grid-pin-shadow;
+  }
+
+  thead th.isPinnedLeft.isPinnedEdge {
+    box-shadow: $grid-line-right, $grid-line-bottom, 4px 0 6px -2px $grid-pin-shadow;
+  }
+
+  thead th.isPinnedRight.isPinnedEdge {
+    box-shadow: $grid-line-left, $grid-line-bottom, -4px 0 6px -2px $grid-pin-shadow;
+  }
+
+  tfoot .isPinnedLeft.isPinnedEdge {
+    box-shadow: $grid-line-right, $grid-line-top, 4px 0 6px -2px $grid-pin-shadow;
+  }
+
+  tfoot .isPinnedRight.isPinnedEdge {
+    box-shadow: $grid-line-left, $grid-line-top, -4px 0 6px -2px $grid-pin-shadow;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -341,10 +411,14 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
   color: $text-tertiary;
   font-size: 14px;
 
-  &:hover { background-color: transparent; }
+  &:hover {
+    background-color: transparent;
+  }
 }
 
-.tbl.dataGrid tbody tr:has(.gridEmpty):hover { background-color: transparent; }
+.tbl.dataGrid tbody tr:has(.gridEmpty):hover {
+  background-color: transparent;
+}
 
 /* --------------------------------------------------------------------------
    그리드 하단 (선택 건수 + 페이지네이션 + 페이지 사이즈)
@@ -387,7 +461,10 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
     cursor: pointer;
     transition: background-color 0.15s, color 0.15s;
 
-    &:hover { background-color: $color-gray-100; color: $text-primary; }
+    &:hover {
+      background-color: $color-gray-100;
+      color: $text-primary;
+    }
 
     &:focus-visible {
       outline: none;
@@ -415,13 +492,33 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
     background-position: center;
     background-size: 16px;
 
-    &:hover { background-color: $color-gray-50; border-color: $border-hover; }
-    &:disabled { background-color: $bg-white; border-color: $border-default; }
+    &:hover {
+      background-color: $color-gray-50;
+      border-color: $border-hover;
+    }
 
-    &.first { background-image: iconUrl('i_chevron_double_16.svg'); transform: scaleX(-1); }
-    &.prev  { background-image: iconUrl('i_chevron_16.svg'); transform: scaleX(-1); }
-    &.next  { background-image: iconUrl('i_chevron_16.svg'); }
-    &.last  { background-image: iconUrl('i_chevron_double_16.svg'); }
+    &:disabled {
+      background-color: $bg-white;
+      border-color: $border-default;
+    }
+
+    &.first {
+      background-image: iconUrl('i_chevron_double_16.svg');
+      transform: scaleX(-1);
+    }
+
+    &.prev {
+      background-image: iconUrl('i_chevron_16.svg');
+      transform: scaleX(-1);
+    }
+
+    &.next {
+      background-image: iconUrl('i_chevron_16.svg');
+    }
+
+    &.last {
+      background-image: iconUrl('i_chevron_double_16.svg');
+    }
   }
 
   .pageNumList {

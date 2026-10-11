@@ -38,8 +38,13 @@
 }
 
 /* 팝업 사이즈 변형 */
-.popupWrap.lg { width: 600px; }
-.popupWrap.sm { width: 320px; }
+.popupWrap.lg {
+  width: 600px;
+}
+
+.popupWrap.sm {
+  width: 320px;
+}
 
 /* 팝업 헤더 */
 .popupHeader {
@@ -82,10 +87,16 @@
       background-color: currentColor;
     }
 
-    &::before { transform: rotate(45deg); }
-    &::after { transform: rotate(-45deg); }
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
   }
 }
+
 /* 팝업 바디 (컨텐츠) */
 .popupBody {
   padding: 24px;
@@ -103,8 +114,3 @@
   justify-content: flex-end;
   gap: 12px;
 }
-
-
-
-
-

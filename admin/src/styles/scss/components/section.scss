@@ -9,9 +9,11 @@
   padding: $box-padding;
   box-shadow: $box-shadow;
   margin-bottom: 16px;
+
   &:last-child {
     margin-bottom: 0;
   }
+
   .sectionTitle {
     font-size: 18px;
     font-weight: $font-weight-bold;

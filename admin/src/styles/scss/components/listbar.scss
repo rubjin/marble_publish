@@ -18,7 +18,7 @@
     align-items: center;
     font-size: 14px;
     color: $color-gray-600;
-    
+
 
     // 아이템 간 세로 바 (|) 구분선
     &:not(:first-child)::before {
@@ -87,8 +87,3 @@
 .listBarVertical + .listBar {
   margin-top: 20px;
 }
-
-
-
-
-

@@ -31,7 +31,8 @@ legend {
   src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff") format("woff2");
   font-weight: 700;
 }
-html, body {
+html,
+body {
   height: 100%;
   overflow: hidden;
 }
@@ -106,7 +107,8 @@ body {
   justify-content: flex-end !important;
 }
 
-.alignTop, .alignStart {
+.alignTop,
+.alignStart {
   align-items: flex-start !important;
 }
 
@@ -114,22 +116,25 @@ body {
   align-items: center !important;
 }
 
-.alignBottom, .alignEnd {
+.alignBottom,
+.alignEnd {
   align-items: flex-end !important;
 }
 
-.alignRight, .right {
+.alignRight,
+.right {
   margin-left: auto !important;
 }
 
-.alignLeft, .left {
+.alignLeft,
+.left {
   margin-right: auto !important;
 }
 
 .flexBetween {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* 기본 상단 정렬 */
+  align-items: flex-start;
   width: 100%;
   gap: 12px;
 }
@@ -145,7 +150,8 @@ body {
 .flexBetween .btn {
   flex-shrink: 0;
 }
-.flexBetween .right, .flexBetween .alignRight {
+.flexBetween .right,
+.flexBetween .alignRight {
   margin-left: auto;
 }
 
@@ -1852,8 +1858,8 @@ body {
 }
 .formControlWrap.hasBtn .btn {
   flex-shrink: 0;
-  height: 34px; /* input과 높이 맞춤 */
-  margin: 0; /* md 버튼의 여백 등에 대비 */
+  height: 34px;
+  margin: 0;
 }
 .formControlWrap .inputPrefix,
 .formControlWrap .inputUnit {
@@ -1934,7 +1940,7 @@ textarea.formControl {
   min-height: 80px;
   padding: 12px;
   resize: vertical;
-  resize: none; /* 필요시 제거 */
+  resize: none;
 }
 
 select.formControl {
@@ -3183,7 +3189,8 @@ select.formControl.wAuto {
 .tbl tbody tr.rowLink {
   cursor: pointer;
 }
-.tbl tbody th, .tbl tbody td {
+.tbl tbody th,
+.tbl tbody td {
   font-size: 14px;
   text-align: center;
 }
@@ -3234,7 +3241,8 @@ select.formControl.wAuto {
 .tbl.tblView > tbody > tr:last-child {
   border-bottom: none;
 }
-.tbl.tblView > tbody > tr > th, .tbl.tblView > tbody > tr > td {
+.tbl.tblView > tbody > tr > th,
+.tbl.tblView > tbody > tr > td {
   text-align: left;
 }
 .tbl.tblView > tbody > tr > th {
@@ -3256,7 +3264,8 @@ select.formControl.wAuto {
 .tbl.tblInfo > tbody > tr:hover {
   background-color: transparent;
 }
-.tbl.tblInfo > tbody > tr > th, .tbl.tblInfo > tbody > tr > td {
+.tbl.tblInfo > tbody > tr > th,
+.tbl.tblInfo > tbody > tr > td {
   height: 48px;
   padding: 12px 16px;
   text-align: left;
@@ -3264,7 +3273,8 @@ select.formControl.wAuto {
   border-bottom: 1px solid #F0F0F3;
   border-left: 1px solid #F0F0F3;
 }
-.tbl.tblInfo > tbody > tr > th:first-child, .tbl.tblInfo > tbody > tr > td:first-child {
+.tbl.tblInfo > tbody > tr > th:first-child,
+.tbl.tblInfo > tbody > tr > td:first-child {
   border-left: none;
 }
 .tbl.tblInfo > tbody > tr > th {
@@ -3799,7 +3809,8 @@ select.formControl.wAuto {
 .tbl.dataGrid tbody .link:hover {
   text-decoration: underline;
 }
-.tbl.dataGrid tfoot td, .tbl.dataGrid tfoot th {
+.tbl.dataGrid tfoot td,
+.tbl.dataGrid tfoot th {
   position: sticky;
   bottom: 0;
   z-index: 2;
@@ -3810,7 +3821,8 @@ select.formControl.wAuto {
   color: #111827;
   text-align: center;
 }
-.tbl.dataGrid tfoot td:last-child, .tbl.dataGrid tfoot th:last-child {
+.tbl.dataGrid tfoot td:last-child,
+.tbl.dataGrid tfoot th:last-child {
   box-shadow: inset 0 1px 0 #F0F0F3;
 }
 .tbl.dataGrid td.isNumber {
@@ -3927,10 +3939,12 @@ select.formControl.wAuto {
   z-index: 3;
   background-color: #F8F9FA;
 }
-.tbl.dataGrid tbody tr:hover .isPinnedLeft, .tbl.dataGrid tbody tr:hover .isPinnedRight {
+.tbl.dataGrid tbody tr:hover .isPinnedLeft,
+.tbl.dataGrid tbody tr:hover .isPinnedRight {
   background-color: #F8F9FA;
 }
-.tbl.dataGrid tbody tr.isSelected .isPinnedLeft, .tbl.dataGrid tbody tr.isSelected .isPinnedRight {
+.tbl.dataGrid tbody tr.isSelected .isPinnedLeft,
+.tbl.dataGrid tbody tr.isSelected .isPinnedRight {
   background-color: #EDF1FB;
 }
 .tbl.dataGrid .isPinnedLeft.isPinnedEdge {

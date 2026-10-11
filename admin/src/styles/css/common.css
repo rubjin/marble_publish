@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -31,7 +30,8 @@ legend {
   src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff") format("woff2");
   font-weight: 700;
 }
-html, body {
+html,
+body {
   height: 100%;
   overflow: hidden;
 }
@@ -106,7 +106,8 @@ body {
   justify-content: flex-end !important;
 }
 
-.alignTop, .alignStart {
+.alignTop,
+.alignStart {
   align-items: flex-start !important;
 }
 
@@ -114,22 +115,25 @@ body {
   align-items: center !important;
 }
 
-.alignBottom, .alignEnd {
+.alignBottom,
+.alignEnd {
   align-items: flex-end !important;
 }
 
-.alignRight, .right {
+.alignRight,
+.right {
   margin-left: auto !important;
 }
 
-.alignLeft, .left {
+.alignLeft,
+.left {
   margin-right: auto !important;
 }
 
 .flexBetween {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* 기본 상단 정렬 */
+  align-items: flex-start;
   width: 100%;
   gap: 12px;
 }
@@ -145,6 +149,7 @@ body {
 .flexBetween .btn {
   flex-shrink: 0;
 }
-.flexBetween .right, .flexBetween .alignRight {
+.flexBetween .right,
+.flexBetween .alignRight {
   margin-left: auto;
 }

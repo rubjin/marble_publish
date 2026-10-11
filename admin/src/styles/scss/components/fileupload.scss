@@ -74,6 +74,7 @@
       font-weight: $font-weight-medium;
       color: $text-tertiary;
       margin-top: 10px;
+
       .highlight {
         color: $text-warning;
         text-decoration: underline;
@@ -100,11 +101,13 @@
   align-items: flex-start;
   flex-direction: column;
   gap: 6px;
+
   &.boxType {
     width: 100%;
-    padding: 10px 16px; 
+    padding: 10px 16px;
     border-radius: 6px;
     background-color: $bg-info-light;
+
     // .fileItem {
     //   padding: 0;
     // }
@@ -162,8 +165,3 @@
     cursor: pointer;
   }
 }
-
-
-
-
-

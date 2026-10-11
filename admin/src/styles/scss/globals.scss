@@ -35,10 +35,10 @@
 @use 'components/tooltip';
 
 // External Library Skins (React 라이브러리 연동 스타일)
-@use 'components/datagrid';   // @tanstack/react-table
-@use 'components/chart';      // lightweight-charts
-@use 'components/calendar';   // react-day-picker
-@use 'components/dnd';        // Drag & Drop (라이브러리 미정)
+@use 'components/datagrid'; // @tanstack/react-table
+@use 'components/chart'; // lightweight-charts
+@use 'components/calendar'; // react-day-picker
+@use 'components/dnd'; // Drag & Drop (라이브러리 미정)
 
 // Standalone Pages
 @use 'pages/login';

@@ -19,7 +19,7 @@
   font-weight: $font-weight-medium;
   color: $text-primary;
   margin-bottom: 8px;
-  
+
   .required {
     color: $text-danger;
     margin-left: 4px;
@@ -31,6 +31,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+
   &.col {
     flex-direction: column;
     align-items: flex-start;
@@ -45,11 +46,13 @@
     width: 100%;
     flex: 1;
     min-width: 0; // flex 컨테이너 내부에서 축소 시 넘침 방지
+
     .formControl {
       width: 100%;
       min-width: 0;
     }
   }
+
   &.between {
     width: 100%;
     justify-content: space-between;
@@ -59,15 +62,15 @@
     display: inline-flex;
     gap: 6px;
     align-items: center;
-    
+
     .formControl {
       flex: 1;
     }
-    
+
     .btn {
       flex-shrink: 0;
-      height: $form-height; /* input과 높이 맞춤 */
-      margin: 0; /* md 버튼의 여백 등에 대비 */
+      height: $form-height; // input과 높이 맞춤
+      margin: 0; // md 버튼의 여백 등에 대비
     }
   }
 
@@ -103,6 +106,7 @@ fieldset {
   padding: 0;
   border: 0;
 }
+
 .formControl {
   width: 200px;
   height: $form-height;
@@ -116,12 +120,15 @@ fieldset {
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
   font-family: inherit;
+
   &.wXs {
     width: 120px;
   }
+
   &.wSm {
     width: 140px;
   }
+
   &::placeholder {
     color: $form-placeholder;
   }
@@ -146,7 +153,7 @@ fieldset {
 
   &.isError {
     border-color: $form-border-error;
-    
+
     &:focus {
       box-shadow: 0 0 0 3px $form-ring-error;
     }
@@ -162,7 +169,7 @@ textarea.formControl {
   min-height: 80px;
   padding: 12px;
   resize: vertical;
-  resize: none; /* 필요시 제거 */
+  resize: none; // 필요시 제거
 }
 
 select.formControl {
@@ -173,11 +180,13 @@ select.formControl {
   background-size: 20px 20px;
   padding-right: 40px;
   @include text-ellipsis;
-  &.wAuto { width: auto; }
-  &:focus,
-  &.isOpen {
-    
+
+  &.wAuto {
+    width: auto;
   }
+
+  &:focus,
+  &.isOpen {}
 }
 
 .formErrorMsg {
@@ -229,7 +238,7 @@ select.formControl {
 
   input[type="checkbox"] + .checkIcon {
     border-radius: 4px;
-    
+
     &::after {
       width: 10px;
       height: 10px;
@@ -386,6 +395,7 @@ select.formControl {
   font-size: 13px;
   color: $text-tertiary;
   font-weight: $font-weight-light;
+
   &.blue {
     color: $text-info;
     margin-top: 8px;
@@ -407,6 +417,7 @@ select.formControl {
   .btn {
     flex-shrink: 0;
   }
+
   .right {
     margin-left: auto;
   }

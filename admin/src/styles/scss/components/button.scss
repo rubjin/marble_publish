@@ -3,60 +3,142 @@
 /* ==========================================================================
    Button Component
    ========================================================================== */
-@mixin btnSm { 
-  min-width: 46px; height: $btn-height-sm; padding: 0px $btn-padding-x-sm; font-size: $btn-font-size-sm;
-  .ico { width: 16px; height: 16px; }
+@mixin btnSm {
+  min-width: 46px;
+  height: $btn-height-sm;
+  padding: 0px $btn-padding-x-sm;
+  font-size: $btn-font-size-sm;
+
+  .ico {
+    width: 16px;
+    height: 16px;
+  }
 }
-@mixin btnLg { 
-  min-width: 100px; height: $btn-height-lg; padding: 0px $btn-padding-x-lg; font-size: $btn-font-size-lg;
+
+@mixin btnLg {
+  min-width: 100px;
+  height: $btn-height-lg;
+  padding: 0px $btn-padding-x-lg;
+  font-size: $btn-font-size-lg;
 }
+
 .btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
-  min-width: 90px; height: $btn-height-md; background-color: $color-transparent; 
-  padding: 0px $btn-padding-x-md; border-radius: $btn-radius; font-weight: $font-weight-medium; font-size: $btn-font-size-md;
-  outline: none; border: none; cursor: pointer; user-select: none; line-height: 1; text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 90px;
+  height: $btn-height-md;
+  background-color: $color-transparent;
+  padding: 0px $btn-padding-x-md;
+  border-radius: $btn-radius;
+  font-weight: $font-weight-medium;
+  font-size: $btn-font-size-md;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+  text-decoration: none;
   transition: background-color 0.2s;
+
   &.primary {
-    background-color: $btn-primary-bg; color: $btn-primary-text;
-    &:hover { background-color: $btn-primary-bg-hover; }
+    background-color: $btn-primary-bg;
+    color: $btn-primary-text;
+
+    &:hover {
+      background-color: $btn-primary-bg-hover;
+    }
   }
+
   &.outline {
-    border: 1px solid $btn-outline-border; background-color: $btn-outline-bg; color: $btn-outline-text;
-    &:hover { background-color: $btn-outline-bg-hover; border-color: $btn-outline-border-hover; }
+    border: 1px solid $btn-outline-border;
+    background-color: $btn-outline-bg;
+    color: $btn-outline-text;
+
+    &:hover {
+      background-color: $btn-outline-bg-hover;
+      border-color: $btn-outline-border-hover;
+    }
   }
+
   &.light {
-    border: 1px solid $btn-light-border; background-color: $btn-light-bg; color: $btn-light-text;
-    &:hover { background-color: $btn-light-bg-hover; }
+    border: 1px solid $btn-light-border;
+    background-color: $btn-light-bg;
+    color: $btn-light-text;
+
+    &:hover {
+      background-color: $btn-light-bg-hover;
+    }
+
     &.isActive {
-      background-color: $btn-active-bg; color: $btn-active-text; border-color: $btn-active-border;
+      background-color: $btn-active-bg;
+      color: $btn-active-text;
+      border-color: $btn-active-border;
     }
   }
+
   &.secondary {
-    border: 1px solid $btn-secondary-border; background-color: $btn-light-bg; color: $btn-light-text;
-    &:hover { background-color: $btn-light-bg-hover; }
+    border: 1px solid $btn-secondary-border;
+    background-color: $btn-light-bg;
+    color: $btn-light-text;
+
+    &:hover {
+      background-color: $btn-light-bg-hover;
+    }
+
     &.isActive {
-      background-color: $btn-active-bg; color: $btn-active-text; border-color: $btn-active-border;
+      background-color: $btn-active-bg;
+      color: $btn-active-text;
+      border-color: $btn-active-border;
     }
   }
+
   &.dark {
-    background-color: $btn-dark-bg; color: $btn-dark-text;
-    &:hover { background-color: $btn-dark-bg-hover; }
+    background-color: $btn-dark-bg;
+    color: $btn-dark-text;
+
+    &:hover {
+      background-color: $btn-dark-bg-hover;
+    }
   }
+
   &.danger {
-    border: 1px solid $btn-danger-border; color: $btn-danger-text;
-    &:hover { background-color: $btn-danger-bg-hover; }
+    border: 1px solid $btn-danger-border;
+    color: $btn-danger-text;
+
+    &:hover {
+      background-color: $btn-danger-bg-hover;
+    }
   }
+
   &.ghost {
     background-color: $color-transparent;
-    &:hover { background-color: $btn-ghost-bg-hover; }
+
+    &:hover {
+      background-color: $btn-ghost-bg-hover;
+    }
   }
- 
-  &.sm { @include btnSm;}
-  &.lg { @include btnLg; }
-  &.full { width: 100%;}
-  &:disabled, &.isDisabled {
-    opacity: 0.5; cursor: not-allowed; pointer-events: none;
+
+  &.sm {
+    @include btnSm;
   }
+
+  &.lg {
+    @include btnLg;
+  }
+
+  &.full {
+    width: 100%;
+  }
+
+  &:disabled,
+  &.isDisabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
   // Icon Button
   .ico {
     flex-shrink: 0;
@@ -69,7 +151,10 @@
   display: flex;
   align-items: center;
   margin-top: 16px;
-  .btn { @include btnLg; }
+
+  .btn {
+    @include btnLg;
+  }
 }
 
 // 버튼 그룹
@@ -77,23 +162,24 @@
   display: flex;
   align-items: center;
   gap: 6px;
+
   &.sm {
     gap: 4px;
+
     .btn {
       @include btnSm;
     }
   }
+
   &.lg {
     gap: 6px;
+
     .btn {
       @include btnLg;
     }
   }
 }
+
 .btnGroupRight {
   margin-left: auto;
 }
-
-
-
-
