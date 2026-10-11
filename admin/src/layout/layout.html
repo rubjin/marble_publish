@@ -48,41 +48,61 @@
 <include src="../partials/searchBox.html">
   <!-- 1줄: 조회일자 -->
   <div class="searchRow">
-    <include src="../partials/searchItem.html" label="조회일자" full>
-      <include src="../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="searchPeriod" shortcuts="오늘,1주일,1개월,3개월,전체"></include>
-    </include>
+    <div class="searchItem full">
+      <span class="searchLabel">조회일자</span>
+      <div class="searchField">
+        <div class="formRow">
+          <include src="../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="searchPeriod" shortcuts="오늘,1주일,1개월,3개월,전체"></include>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- 2줄: 유형 및 상태 -->
   <div class="searchRow">
-    <include src="../partials/searchItem.html" label="유형" for="searchType">
-      <select id="searchType" class="formControl wSm">
-        <option value="">전체</option>
-        <option value="1">OX퀴즈</option>
-        <option value="2">출석체크</option>
-        <option value="3">설문조사</option>
-        <option value="4">챌린지</option>
-      </select>
-    </include>
+    <div class="searchItem">
+      <span class="searchLabel">유형</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select id="searchType" class="formControl wSm">
+            <option value="">전체</option>
+            <option value="1">OX퀴즈</option>
+            <option value="2">출석체크</option>
+            <option value="3">설문조사</option>
+            <option value="4">챌린지</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
-    <include src="../partials/searchItem.html" label="상태">
-      <include src="../partials/checkGroup.html" name="searchStatus" options="전체,운영중,일시중단,종료" legend="상태 선택"></include>
-    </include>
+    <div class="searchItem">
+      <span class="searchLabel">상태</span>
+      <div class="searchField">
+        <div class="formRow">
+          <include src="../partials/checkGroup.html" name="searchStatus" options="전체,운영중,일시중단,종료" legend="상태 선택"></include>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- 3줄: 검색어 -->
   <div class="searchRow">
-    <include src="../partials/searchItem.html" label="검색어" for="searchKeyword" full>
-      <select class="formControl wSm">
-        <option value="all">전체</option>
-        <option value="title">미션명</option>
-        <option value="id">미션ID</option>
-        <option value="author">등록자</option>
-      </select>
-      <div class="formControlWrap">
-        <input type="text" id="searchKeyword" class="formControl full" placeholder="검색어를 입력해주세요" />
+    <div class="searchItem full">
+      <span class="searchLabel">검색어</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="all">전체</option>
+            <option value="title">미션명</option>
+            <option value="id">미션ID</option>
+            <option value="author">등록자</option>
+          </select>
+          <div class="formControlWrap">
+            <input type="text" id="searchKeyword" class="formControl full" placeholder="검색어를 입력해주세요" />
+          </div>
+        </div>
       </div>
-    </include>
+    </div>
   </div>
 </include>
 

@@ -60,17 +60,27 @@
 <!-- 검색 조건 컨트롤 박스 -->
 <include src="../../partials/searchBox.html">
   <div class="searchRow">
-    <include src="../../partials/searchItem.html" label="참여일자">
-      <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
-    </include>
+    <div class="searchItem">
+      <span class="searchLabel">참여일자</span>
+      <div class="searchField">
+        <div class="formRow">
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+        </div>
+      </div>
+    </div>
 
-    <include src="../../partials/searchItem.html" label="진행상태" for="searchType">
-      <select id="searchType" class="formControl wSm">
-        <option value="all">전체</option>
-        <option value="name">항목명</option>
-        <option value="code">코드</option>
-      </select>
-    </include>
+    <div class="searchItem">
+      <span class="searchLabel">진행상태</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select id="searchType" class="formControl wSm">
+            <option value="all">전체</option>
+            <option value="name">항목명</option>
+            <option value="code">코드</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </div>
 </include>
 
