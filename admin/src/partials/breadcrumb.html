@@ -3,13 +3,14 @@
   <include src="../../partials/breadcrumb.html" items="홈,미션관리,미션등록"></include>
   - items : 경로 (쉼표 구분, 마지막 항목이 현재 페이지)
 -->
+
 <nav class="breadcrumb" aria-label="브레드크럼">
   <ol class="breadcrumbList">
     {% for item in items | list %}
     {% if loop.last %}
     <li class="breadcrumbItem isCurrent" aria-current="page">{{ item }}</li>
     {% else %}
-    <li class="breadcrumbItem"><a href="#" class="breadcrumbLink">{{ item }}</a></li>
+    <li class="breadcrumbItem">{{ item }}</li>
     {% endif %}
     {% endfor %}
   </ol>

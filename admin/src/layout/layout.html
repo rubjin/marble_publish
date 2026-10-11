@@ -45,7 +45,7 @@
 <!-- ==========================================================================
   조회 컨트롤 박스 (3줄 검색 박스 + 하단 초기화/조회 버튼)
   ========================================================================== -->
-<include src="../partials/searchBox.html">
+<div class="searchBox">
   <!-- 1줄: 조회일자 -->
   <div class="searchRow">
     <div class="searchItem full">
@@ -104,7 +104,9 @@
       </div>
     </div>
   </div>
-</include>
+
+  <include src="../partials/searchBtnArea.html"></include>
+</div>
 
 
 <!-- ==================== 조회결과 총계 정보 ==================== -->

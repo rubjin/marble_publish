@@ -6,7 +6,7 @@
 
 <!-- ==================== 섹션 :: 공통설정 ==================== -->
 <!-- 검색 조건 컨트롤 박스 -->
-<include src="../../partials/searchBox.html">
+<div class="searchBox">
   <div class="searchRow">
     <div class="searchItem full">
       <span class="searchLabel">조회일자</span>
@@ -29,13 +29,14 @@
             <option value="code">코드</option>
           </select>
           <div class="formControlWrap">
-            <input type="text" id="p1Keyword" class="formControl full" placeholder="고객번호 또는 고객명 입력">
+            <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
           </div>
         </div>
       </div>
     </div>
   </div>
-</include>
+<include src="../../partials/searchBtnArea.html"></include>
+</div>
 <!-- 하얀 박스 영역 -->
 <div class="sectionBox">
   <!-- 테이블 상단 건수 및 액션 바 -->
