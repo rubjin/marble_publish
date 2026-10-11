@@ -1,4 +1,4 @@
-<!-- 
+<!--
   [리액트 컴포넌트 가이드]
   - 컴포넌트: <PageHeader title="..." isFavorite={isFav} onToggleFavorite={...} breadcrumb={...} metaInfo={...} extraActions={...} />
   - 속성 인터페이스:
@@ -24,12 +24,10 @@
   </div>
   <nav class="breadcrumb">
     <ol class="breadcrumbList">
-      <li class="breadcrumbItem">
-        <a href="#" class="breadcrumbLink">홈</a>
-      </li>
-      <li class="breadcrumbItem">
-        <a href="#" class="breadcrumbLink">챌린지관리</a>
-      </li>
+      <!-- [M] 261012 a태그 제거 -->
+      <li class="breadcrumbItem">홈</li>
+      <!-- [M] 261012 a태그 제거 -->
+      <li class="breadcrumbItem">챌린지관리</li>
       <li class="breadcrumbItem isCurrent">
         챌린지 운영 현황
       </li>

@@ -1,4 +1,4 @@
-<!-- 
+<!--
   [리액트 컴포넌트 가이드]
   - 컴포넌트: <Breadcrumb items={[{ label: '홈', href: '/' }, { label: '뎁스2', href: '/depth2' }, { label: '현재페이지' }]} />
   - 속성 인터페이스:
@@ -12,12 +12,10 @@
 <!-- 브레드크럼 (기본) -->
 <nav class="breadcrumb">
   <ol class="breadcrumbList">
-    <li class="breadcrumbItem">
-      <a href="#" class="breadcrumbLink">홈</a>
-    </li>
-    <li class="breadcrumbItem">
-      <a href="#" class="breadcrumbLink">뎁스2</a>
-    </li>
+    <!-- [M] 261012 a태그 제거 -->
+    <li class="breadcrumbItem">홈</li>
+    <!-- [M] 261012 a태그 제거 -->
+    <li class="breadcrumbItem">뎁스2</li>
     <li class="breadcrumbItem isCurrent">
       현재페이지
     </li>
