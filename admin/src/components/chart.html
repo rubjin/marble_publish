@@ -8,8 +8,8 @@
   - 구조
     <div class="chartBox">
       <div class="chartHeader"> .chartTitleWrap(.chartTitle / .chartDesc) + .chartActions
-      <ul class="chartLegend [isBottom]"> .legendItem > .legendMarker[.line|.dot] + 텍스트  (.series1 ~ .series6 = 시리즈 순번)
-      <div class="chartArea [h200|h360|...] [isLoading|isEmpty]" ref={containerRef}>
+      <ul class="chartLegend"> .legendItem > .legendMarker[.line] + 텍스트  (.series1 ~ .series6 = 시리즈 순번)
+      <div class="chartArea [h200|h360] [isLoading|isEmpty]" ref={containerRef}>
         <div class="chartTooltip [isOpen]" />   // subscribeCrosshairMove 로 위치/내용 갱신
 
   - 예시

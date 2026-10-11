@@ -10,7 +10,6 @@
      .isDragging  : 드래그 중인 원본 아이템 (자리 표시용으로 흐리게)
      .isOverlay   : 커서를 따라다니는 드래그 미리보기 (DragOverlay)
      .isOver      : 드롭 가능 영역 위에 올라온 상태
-     .isDisabled  : 드래그 불가 아이템
      body.isDndActive : 드래그 진행 중 (전역 커서/텍스트 선택 제어)
    ========================================================================== */
 
@@ -25,41 +24,7 @@ body.isDndActive {
 }
 
 /* --------------------------------------------------------------------------
-   드래그 핸들 (기존 아이콘 i_drag_30.svg 사용)
-   -------------------------------------------------------------------------- */
-.dndHandle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  border: none;
-  border-radius: 4px;
-  background: transparent iconUrl('i_drag_30.svg') no-repeat center / 30px;
-  cursor: grab;
-  flex-shrink: 0;
-  touch-action: none; // 모바일/터치 드래그 시 스크롤 방지
-  transition: background-color 0.15s;
-
-  &:hover { background-color: $color-gray-150; }
-  &:active { cursor: grabbing; }
-
-  &:focus-visible {
-    outline: none;
-    box-shadow: $focus-ring;
-  }
-
-  &:disabled,
-  &.isDisabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-    background-color: transparent;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   정렬 리스트 (Sortable List)
+   드래그 아이템 (.dndList > .dndItem) - 보드 카드 등
    -------------------------------------------------------------------------- */
 .dndList {
   display: flex;
@@ -68,12 +33,6 @@ body.isDndActive {
   margin: 0;
   padding: 0;
   list-style: none;
-
-  // 가로 정렬
-  &.horizontal {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
 }
 
 .dndItem {
@@ -98,21 +57,6 @@ body.isDndActive {
     &:active { cursor: grabbing; }
   }
 
-  .dndOrder {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 24px;
-    height: 24px;
-    padding: 0 6px;
-    border-radius: 12px;
-    background-color: $color-gray-100;
-    font-size: 12px;
-    font-weight: $font-weight-bold;
-    color: $text-secondary;
-    flex-shrink: 0;
-  }
-
   .dndContent {
     flex: 1;
     min-width: 0;
@@ -134,14 +78,6 @@ body.isDndActive {
     }
   }
 
-  .dndActions {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-left: auto;
-    flex-shrink: 0;
-  }
-
   // 드래그 중인 원본 (자리 표시)
   &.isDragging {
     opacity: 1;
@@ -159,64 +95,6 @@ body.isDndActive {
     cursor: grabbing;
     transform: scale(1.02);
     z-index: $z-dropdown;
-  }
-
-  &.isDisabled {
-    background-color: $bg-disabled;
-    border-color: $border-disabled;
-
-    .dndTitle { color: $text-tertiary; }
-  }
-}
-
-// 가로 정렬용 칩 형태
-.dndList.horizontal .dndItem {
-  min-height: 36px;
-  padding: 4px 12px 4px 4px;
-  gap: 4px;
-  border-radius: 100px;
-}
-
-// 삽입 위치 표시선 (라이브러리가 인디케이터 방식을 쓸 경우)
-// [D] 대상 아이템에 .isDropBefore / .isDropAfter
-.dndItem.isDropBefore::before,
-.dndItem.isDropAfter::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  border-radius: 1px;
-  background-color: $dnd-active-border;
-  pointer-events: none;
-}
-.dndItem.isDropBefore::before { top: -6px; }
-.dndItem.isDropAfter::after { bottom: -6px; }
-
-/* --------------------------------------------------------------------------
-   테이블 행 순서 변경 (.tbl 내부)
-   [D] 이동 중인 행: tr.isOverlay (행 자체가 transform 으로 이동, DragOverlay 미사용)
-       tr.isDragging : 원본 자리를 따로 남기는 라이브러리(인디케이터 방식)용
-   -------------------------------------------------------------------------- */
-.tbl {
-  .colDrag {
-    position: relative; // 내부 .srOnly 기준점
-    width: 48px;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    text-align: center;
-  }
-
-  tbody tr.isDragging {
-    background-color: $color-gray-50;
-
-    td { opacity: 0.4; }
-  }
-
-  tbody tr.isOverlay {
-    background-color: $bg-white;
-    box-shadow: $shadow-lg;
-    outline: 1px solid $dnd-active-border;
   }
 }
 

@@ -4154,12 +4154,6 @@ select.formControl.wAuto {
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
-.chartBox.isPlain {
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-}
 
 .chartGrid {
   display: grid;
@@ -4167,12 +4161,6 @@ select.formControl.wAuto {
   gap: 16px;
   width: 100%;
   margin-bottom: 20px;
-}
-.chartGrid.col3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.chartGrid.col1 {
-  grid-template-columns: minmax(0, 1fr);
 }
 .chartGrid .span2 {
   grid-column: span 2;
@@ -4231,10 +4219,6 @@ select.formControl.wAuto {
   padding: 0;
   list-style: none;
 }
-.chartLegend.isBottom {
-  justify-content: center;
-  margin: 12px 0 0;
-}
 .chartLegend .legendItem {
   display: inline-flex;
   align-items: center;
@@ -4257,10 +4241,6 @@ select.formControl.wAuto {
 .chartLegend .legendItem.isOff .legendMarker {
   opacity: 0.3;
 }
-.chartLegend .legendItem .legendValue {
-  font-weight: 500;
-  color: #111827;
-}
 .chartLegend .legendMarker {
   display: inline-block;
   width: 10px;
@@ -4273,11 +4253,6 @@ select.formControl.wAuto {
   width: 14px;
   height: 3px;
   border-radius: 2px;
-}
-.chartLegend .legendMarker.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
 }
 .chartLegend .series1 {
   --legend-color: var(--chart-series-1);
@@ -4297,12 +4272,6 @@ select.formControl.wAuto {
 .chartLegend .series6 {
   --legend-color: var(--chart-series-6);
 }
-.chartLegend .seriesUp {
-  --legend-color: var(--chart-up);
-}
-.chartLegend .seriesDown {
-  --legend-color: var(--chart-down);
-}
 
 /* --------------------------------------------------------------------------
    차트 영역 (createChart 의 container)
@@ -4313,17 +4282,11 @@ select.formControl.wAuto {
   width: 100%;
   height: 280px;
 }
-.chartArea.h160 {
-  height: 160px;
-}
 .chartArea.h200 {
   height: 200px;
 }
 .chartArea.h360 {
   height: 360px;
-}
-.chartArea.h440 {
-  height: 440px;
 }
 .chartArea.isEmpty canvas {
   visibility: hidden;
@@ -4930,7 +4893,6 @@ select.formControl.wAuto {
      .isDragging  : 드래그 중인 원본 아이템 (자리 표시용으로 흐리게)
      .isOverlay   : 커서를 따라다니는 드래그 미리보기 (DragOverlay)
      .isOver      : 드롭 가능 영역 위에 올라온 상태
-     .isDisabled  : 드래그 불가 아이템
      body.isDndActive : 드래그 진행 중 (전역 커서/텍스트 선택 제어)
    ========================================================================== */
 body.isDndActive {
@@ -4942,41 +4904,7 @@ body.isDndActive * {
 }
 
 /* --------------------------------------------------------------------------
-   드래그 핸들 (기존 아이콘 i_drag_30.svg 사용)
-   -------------------------------------------------------------------------- */
-.dndHandle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  border: none;
-  border-radius: 4px;
-  background: transparent url("/src/assets/images/icon/i_drag_30.svg") no-repeat center/30px;
-  cursor: grab;
-  flex-shrink: 0;
-  touch-action: none;
-  transition: background-color 0.15s;
-}
-.dndHandle:hover {
-  background-color: #F0F0F3;
-}
-.dndHandle:active {
-  cursor: grabbing;
-}
-.dndHandle:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
-}
-.dndHandle:disabled, .dndHandle.isDisabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-  background-color: transparent;
-}
-
-/* --------------------------------------------------------------------------
-   정렬 리스트 (Sortable List)
+   드래그 아이템 (.dndList > .dndItem) - 보드 카드 등
    -------------------------------------------------------------------------- */
 .dndList {
   display: flex;
@@ -4985,10 +4913,6 @@ body.isDndActive * {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-.dndList.horizontal {
-  flex-direction: row;
-  flex-wrap: wrap;
 }
 
 .dndItem {
@@ -5014,20 +4938,6 @@ body.isDndActive * {
 .dndItem.isHandle:active {
   cursor: grabbing;
 }
-.dndItem .dndOrder {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 24px;
-  height: 24px;
-  padding: 0 6px;
-  border-radius: 12px;
-  background-color: #F3F5F6;
-  font-size: 12px;
-  font-weight: 700;
-  color: #4F535A;
-  flex-shrink: 0;
-}
 .dndItem .dndContent {
   flex: 1;
   min-width: 0;
@@ -5050,13 +4960,6 @@ body.isDndActive * {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.dndItem .dndActions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: auto;
-  flex-shrink: 0;
-}
 .dndItem.isDragging {
   opacity: 1;
   border: 1px dashed #8D919B;
@@ -5072,64 +4975,6 @@ body.isDndActive * {
   cursor: grabbing;
   transform: scale(1.02);
   z-index: 100;
-}
-.dndItem.isDisabled {
-  background-color: #F0F0F3;
-  border-color: #E7E9ED;
-}
-.dndItem.isDisabled .dndTitle {
-  color: #8D919B;
-}
-
-.dndList.horizontal .dndItem {
-  min-height: 36px;
-  padding: 4px 12px 4px 4px;
-  gap: 4px;
-  border-radius: 100px;
-}
-
-.dndItem.isDropBefore::before,
-.dndItem.isDropAfter::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  border-radius: 1px;
-  background-color: #287EFF;
-  pointer-events: none;
-}
-
-.dndItem.isDropBefore::before {
-  top: -6px;
-}
-
-.dndItem.isDropAfter::after {
-  bottom: -6px;
-}
-
-/* --------------------------------------------------------------------------
-   테이블 행 순서 변경 (.tbl 내부)
-   [D] 이동 중인 행: tr.isOverlay (행 자체가 transform 으로 이동, DragOverlay 미사용)
-       tr.isDragging : 원본 자리를 따로 남기는 라이브러리(인디케이터 방식)용
-   -------------------------------------------------------------------------- */
-.tbl .colDrag {
-  position: relative;
-  width: 48px;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  text-align: center;
-}
-.tbl tbody tr.isDragging {
-  background-color: #F8F9FA;
-}
-.tbl tbody tr.isDragging td {
-  opacity: 0.4;
-}
-.tbl tbody tr.isOverlay {
-  background-color: #FFFFFF;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  outline: 1px solid #287EFF;
 }
 
 /* --------------------------------------------------------------------------

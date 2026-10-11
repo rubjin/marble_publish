@@ -53,26 +53,15 @@ $chart-series: (
   border: 1px solid $border-light;
   border-radius: 10px;
   box-shadow: $shadow-xs;
-
-  // 카드 테두리 없이 영역만 사용 (다른 박스 내부 배치 시)
-  &.isPlain {
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
 }
 
-// 차트 카드 그리드 (2단 / 3단)
+// 차트 카드 그리드 (2단)
 .chartGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   width: 100%;
   margin-bottom: 20px;
-
-  &.col3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  &.col1 { grid-template-columns: minmax(0, 1fr); }
 
   // 넓게 차지하는 카드
   .span2 { grid-column: span 2; }
@@ -156,12 +145,6 @@ $chart-series: (
   padding: 0;
   list-style: none;
 
-  // 차트 하단 배치
-  &.isBottom {
-    justify-content: center;
-    margin: 12px 0 0;
-  }
-
   .legendItem {
     display: inline-flex;
     align-items: center;
@@ -185,14 +168,9 @@ $chart-series: (
       text-decoration: line-through;
       .legendMarker { opacity: 0.3; }
     }
-
-    .legendValue {
-      font-weight: $font-weight-medium;
-      color: $text-title;
-    }
   }
 
-  // 마커: 기본 사각(바/면), .line 라인, .dot 점
+  // 마커: 기본 사각(면), .line 라인
   .legendMarker {
     display: inline-block;
     width: 10px;
@@ -202,14 +180,11 @@ $chart-series: (
     flex-shrink: 0;
 
     &.line { width: 14px; height: 3px; border-radius: 2px; }
-    &.dot { width: 8px; height: 8px; border-radius: 50%; }
   }
 
   @for $i from 1 through list.length($chart-series) {
     .series#{$i} { --legend-color: var(--chart-series-#{$i}); }
   }
-  .seriesUp { --legend-color: var(--chart-up); }
-  .seriesDown { --legend-color: var(--chart-down); }
 }
 
 /* --------------------------------------------------------------------------
@@ -221,10 +196,8 @@ $chart-series: (
   width: 100%;
   height: 280px;
 
-  &.h160 { height: 160px; }
   &.h200 { height: 200px; }
   &.h360 { height: 360px; }
-  &.h440 { height: 440px; }
 
   // [D] 데이터 없음: .isEmpty + <p class="chartEmpty">
   &.isEmpty canvas { visibility: hidden; }

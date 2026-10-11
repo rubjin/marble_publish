@@ -1,29 +1,28 @@
 <!--
-  [리액트 컴포넌트 가이드 - Drag & Drop (라이브러리 미정)]
+  [리액트 컴포넌트 가이드 - Drag & Drop (보드: 영역 간 이동)]
   - 라이브러리와 무관하게 "상태 클래스"만 바인딩하면 되도록 설계했습니다.
     위치 이동(transform / transition)은 라이브러리가 주는 인라인 style 을 그대로 사용합니다.
   - 스타일: styles/scss/components/dnd.scss
 
+  - 구조
+    .dndBoard > .dndColumn(.isOver) > .dndColumnHeader(.dndColumnTitle + .dndCount) + .dndList > .dndItem.isHandle
+    빈 영역: .dndList 대신 .dndDropzone
+
   - 상태 클래스
-    .isDragging      : 드래그 중인 원본 아이템 (빈 자리 표시)
+    .isDragging      : 드래그 중인 원본 카드 (빈 자리 표시)
     .isOverlay       : 커서를 따라다니는 미리보기 (예: dnd-kit <DragOverlay>)
-    .isOver          : 드롭 영역(.dndColumn / .dndDropzone) 위에 올라온 상태
-    .isDropBefore / .isDropAfter : 삽입 위치 표시선 (인디케이터 방식 라이브러리용)
-    .isDisabled      : 드래그 불가
+    .isOver          : 드롭 대상 영역(.dndColumn) 위에 올라온 상태
     body.isDndActive : 드래그 진행 중 (전역 커서 grabbing, 텍스트 선택 방지)
 
   - 예시 (dnd-kit 기준)
     // 센서: useSensor(PointerSensor, { activationConstraint: { distance: 5 } }) - 5px 이동 후 드래그 시작 (클릭과 구분)
-    const { setNodeRef, setActivatorNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id });
+    const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id });
     <li ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition }}
-        className={cx('dndItem', { isDragging })}>
-      <button type="button" className="dndHandle" aria-label="순서 변경" ref={setActivatorNodeRef} {...attributes} {...listeners} />
+        className={cx('dndItem isHandle', { isDragging })} {...attributes} {...listeners}>
       ...
     </li>
-    <DragOverlay>{activeItem && <div className="dndItem isOverlay">...</div>}</DragOverlay>
-
-  - 테이블 행 : 표 밖에 미리보기를 띄우면 컬럼 너비가 맞지 않으므로 DragOverlay 를 쓰지 않고
-                이동 중인 행 자체에 .isOverlay + style={{ transform: CSS.Translate.toString(transform), transition, position: 'relative', zIndex: 1 }}
+    <DragOverlay>{activeCard && <div className="dndItem isHandle isOverlay">...</div>}</DragOverlay>
+    // 영역: const { setNodeRef } = useDroppable({ id: columnId }) → <section className={cx('dndColumn', { isOver })}>
 -->
 
 <!-- 보드 (영역 간 이동) -->
