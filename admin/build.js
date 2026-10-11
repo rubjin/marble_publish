@@ -182,8 +182,14 @@ function inlineModuleImports(html, baseDir) {
   });
 }
 
-// 개발 서버 전용 페이지 (React 번들 필요 - 정적 dist 에서는 동작하지 않음)
-const DEV_ONLY_HTML = ['guide/library.html'];
+// React 데모 페이지: JSX 를 하나의 일반 스크립트(iife)로 번들링해 dist 에서도 동작 (file:// 직접 열기 포함)
+// - 개발 서버는 <script type="module" src="....jsx"> 그대로 사용, dist 는 번들 파일로 교체
+const REACT_PAGES = {
+  'guide/library.html': { entry: 'src/guide/library/main.jsx', out: 'guide/library/library.js' }
+};
+
+// 개발 서버 전용 페이지 (dist 빌드 제외)
+const DEV_ONLY_HTML = [];
 
 // UI 컴포넌트 파일(src/partials)은 사용법 주석의 예시를 렌더링한 완성 마크업으로 출력
 const PARTIAL_DIR = 'partials/';
@@ -218,6 +224,11 @@ for (const htmlFile of allHtmlFiles) {
   // 사이드바 등 루트 기준 페이지 링크(/pages/...)를 상대 경로로 변환 (dist 파일 직접 열기 대응)
   content = content.replace(/href="\/pages\//g, `href="${prefix}pages/`);
   content = inlineModuleImports(content, path.dirname(htmlFile));
+  const reactPage = REACT_PAGES[relativePath.split(path.sep).join('/')];
+  if (reactPage) {
+    const bundleSrc = path.relative(path.dirname(relativePath), reactPage.out).split(path.sep).join('/');
+    content = content.replace(/<script type="module" src="[^"]*\.jsx"><\/script>/, `<script src="${bundleSrc}"></script>`);
+  }
 
   const destPath = path.resolve(DIST_DIR, relativePath);
   fs.mkdirSync(path.dirname(destPath), { recursive: true });
@@ -232,6 +243,37 @@ if (fs.existsSync(srcDataDir)) {
   console.log('[Worksheet Data] Copied: dist/data');
 }
 
-console.log('\n========================================');
-console.log('Dist build completed successfully in ./dist');
-console.log('========================================\n');
+// React 데모 번들 (vite 빌드 - lib 모드 iife)
+async function buildReactPages() {
+  // 개발 서버의 dist 감시 빌드는 NODE_ENV=development 를 물려받음
+  // → 개발 모드 번들은 CommonJS(React) 변환이 빠져 "exports is not defined" 로 빈 화면이 되므로 production 고정
+  process.env.NODE_ENV = 'production';
+  const { build } = await import('vite');
+  for (const [page, { entry, out }] of Object.entries(REACT_PAGES)) {
+    await build({
+      configFile: false,
+      mode: 'production',
+      root: ROOT_DIR,
+      logLevel: 'warn',
+      define: { 'process.env.NODE_ENV': JSON.stringify('production') },
+      build: {
+        outDir: path.resolve(DIST_DIR, path.dirname(out)),
+        emptyOutDir: false,
+        copyPublicDir: false,
+        lib: { entry: path.resolve(ROOT_DIR, entry), formats: ['iife'], name: 'ReactDemo', fileName: () => path.basename(out) }
+      }
+    });
+    console.log(`[React] Bundled: ${out} (${page})`);
+  }
+}
+
+buildReactPages()
+  .then(() => {
+    console.log('\n========================================');
+    console.log('Dist build completed successfully in ./dist');
+    console.log('========================================\n');
+  })
+  .catch((err) => {
+    console.error('[React] Bundle failed:', err);
+    process.exitCode = 1;
+  });
