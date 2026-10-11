@@ -7,7 +7,7 @@
 
   - 구조
     <div class="chartBox">
-      <div class="chartHeader"> .chartTitleWrap(.chartTitle / .chartDesc / .chartValue) + .chartActions
+      <div class="chartHeader"> .chartTitleWrap(.chartTitle / .chartDesc) + .chartActions
       <ul class="chartLegend [isBottom]"> .legendItem > .legendMarker[.line|.dot] + 텍스트  (.series1 ~ .series6 = 시리즈 순번)
       <div class="chartArea [h200|h360|...] [isLoading|isEmpty]" ref={containerRef}>
         <div class="chartTooltip [isOpen]" />   // subscribeCrosshairMove 로 위치/내용 갱신
@@ -29,8 +29,8 @@
   <div class="chartBox span2">
     <div class="chartHeader">
       <div class="chartTitleWrap">
-        <h3 class="chartTitle">일별 미션 참여 추이</h3>
-        <p class="chartDesc">최근 30일 기준, 매일 00시 집계</p>
+        <h3 class="chartTitle">제목</h3>
+        <p class="chartDesc">설명 문구입니다.</p>
       </div>
       <div class="chartActions">
         <div class="btnGroup sm">
@@ -43,17 +43,17 @@
 
     <ul class="chartLegend">
       <!-- [D] 범례 클릭으로 시리즈 숨김 시 .isOff -->
-      <li><button type="button" class="legendItem series1"><span class="legendMarker line"></span>참여</button></li>
-      <li><button type="button" class="legendItem series2"><span class="legendMarker line"></span>완료</button></li>
-      <li><button type="button" class="legendItem series3 isOff"><span class="legendMarker line"></span>포기</button></li>
+      <li><button type="button" class="legendItem series1"><span class="legendMarker line"></span>항목1</button></li>
+      <li><button type="button" class="legendItem series2"><span class="legendMarker line"></span>항목2</button></li>
+      <li><button type="button" class="legendItem series3 isOff"><span class="legendMarker line"></span>항목3</button></li>
     </ul>
 
     <div class="chartArea h360" id="guideChartLine">
       <div class="chartTooltip">
         <span class="tooltipDate">2026.09.15</span>
         <ul class="tooltipList">
-          <li class="tooltipItem series1"><span class="legendMarker"></span>참여<span class="tooltipValue">1,240</span></li>
-          <li class="tooltipItem series2"><span class="legendMarker"></span>완료<span class="tooltipValue">812</span></li>
+          <li class="tooltipItem series1"><span class="legendMarker"></span>항목1<span class="tooltipValue">1,240</span></li>
+          <li class="tooltipItem series2"><span class="legendMarker"></span>항목2<span class="tooltipValue">812</span></li>
         </ul>
       </div>
     </div>
@@ -63,11 +63,7 @@
   <div class="chartBox">
     <div class="chartHeader">
       <div class="chartTitleWrap">
-        <h3 class="chartTitle">누적 가입자</h3>
-        <p class="chartValue">
-          48,210<span class="unit">명</span>
-          <span class="rate isUp">▲ 12.4%</span>
-        </p>
+        <h3 class="chartTitle">제목</h3>
       </div>
     </div>
     <div class="chartArea h200" id="guideChartArea"></div>

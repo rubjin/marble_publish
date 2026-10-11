@@ -524,7 +524,7 @@
         });
 
         var tooltip = lineEl.querySelector('.chartTooltip');
-        var names = ['참여', '완료', '포기'];
+        var names = ['항목1', '항목2', '항목3'];
         chart.subscribeCrosshairMove(function (param) {
           if (!param.point || !param.time || param.point.x < 0 || param.point.y < 0) {
             tooltip.classList.remove('isOpen');

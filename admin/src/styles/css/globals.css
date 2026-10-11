@@ -4214,31 +4214,6 @@ select.formControl.wAuto {
   font-size: 13px;
   color: #8D919B;
 }
-.chartHeader .chartValue {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  margin-top: 4px;
-  font-size: 22px;
-  font-weight: 700;
-  color: #111827;
-  line-height: 1.2;
-}
-.chartHeader .chartValue .unit {
-  font-size: 14px;
-  font-weight: 500;
-  color: #4F535A;
-}
-.chartHeader .chartValue .rate {
-  font-size: 13px;
-  font-weight: 500;
-}
-.chartHeader .chartValue .rate.isUp {
-  color: #EF4444;
-}
-.chartHeader .chartValue .rate.isDown {
-  color: #287EFF;
-}
 .chartHeader .chartActions {
   display: flex;
   align-items: center;

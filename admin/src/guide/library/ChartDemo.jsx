@@ -23,7 +23,7 @@ function makeDaily(n) {
   return [join, done, quit];
 }
 
-const SERIES_NAMES = ['참여', '완료', '포기'];
+const SERIES_NAMES = ['항목1', '항목2', '항목3'];
 const PERIODS = [7, 30, 90];
 
 /* ==========================================================================
@@ -84,8 +84,8 @@ function LineChartBox() {
     <div className="chartBox span2">
       <div className="chartHeader">
         <div className="chartTitleWrap">
-          <h3 className="chartTitle">일별 미션 참여 추이</h3>
-          <p className="chartDesc">최근 {period}일 기준 (가상 데이터)</p>
+          <h3 className="chartTitle">제목</h3>
+          <p className="chartDesc">설명 문구입니다.</p>
         </div>
         <div className="chartActions">
           <div className="btnGroup sm">
@@ -156,10 +156,6 @@ function AreaChartBox({ title, value, unit, rate, makeData }) {
       <div className="chartHeader">
         <div className="chartTitleWrap">
           <h3 className="chartTitle">{title}</h3>
-          <p className="chartValue">
-            {value}<span className="unit">{unit}</span>
-            <span className={cx('rate', rate.up ? 'isUp' : 'isDown')}>{rate.up ? '▲' : '▼'} {rate.value}</span>
-          </p>
         </div>
         <div className="chartActions">
           <div className="btnGroup sm">
@@ -190,7 +186,7 @@ export default function ChartDemo() {
       <p className="libHint">기간 버튼으로 데이터 전환, 범례 클릭으로 시리즈 표시/숨김, 차트 위에 마우스를 올리면 툴팁이 따라다닙니다.</p>
       <div className="chartGrid">
         <LineChartBox />
-        <AreaChartBox title="누적 가입자" value="48,210" unit="명" rate={{ up: true, value: '12.4%' }} makeData={makeArea} />
+        <AreaChartBox title="제목" value="12,345" unit="단위" rate={{ up: true, value: '12.4%' }} makeData={makeArea} />
       </div>
     </>
   );

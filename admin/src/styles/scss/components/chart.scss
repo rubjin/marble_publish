@@ -113,30 +113,30 @@ $chart-series: (
   }
 
   // 대표 수치 (현재값 + 증감)
-  .chartValue {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    margin-top: 4px;
-    font-size: 22px;
-    font-weight: $font-weight-bold;
-    color: $text-title;
-    line-height: 1.2;
+    // .chartValue {
+    //   display: flex;
+    //   align-items: baseline;
+    //   gap: 6px;
+    //   margin-top: 4px;
+    //   font-size: 22px;
+    //   font-weight: $font-weight-bold;
+    //   color: $text-title;
+    //   line-height: 1.2;
 
-    .unit {
-      font-size: 14px;
-      font-weight: $font-weight-medium;
-      color: $color-gray-600;
-    }
+  //   .unit {
+    //     font-size: 14px;
+    //     font-weight: $font-weight-medium;
+    //     color: $color-gray-600;
+    //   }
 
-    .rate {
-      font-size: 13px;
-      font-weight: $font-weight-medium;
+    //   .rate {
+    //     font-size: 13px;
+    //     font-weight: $font-weight-medium;
 
-      &.isUp { color: $text-danger; }
-      &.isDown { color: $text-info; }
-    }
-  }
+  //     &.isUp { color: $text-danger; }
+    //     &.isDown { color: $text-info; }
+    //   }
+    // }
 
   .chartActions {
     display: flex;
