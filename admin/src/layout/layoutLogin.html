@@ -1,0 +1,12 @@
+<!-- [레이아웃] 로그인 (헤더 / 사이드바 없음)
+  <include src="../../layout/layoutLogin.html" title="로그인">
+    ...화면 콘텐츠 (.loginPage)...
+  </include>
+  - title : <title> 페이지 제목 (생략 시 Admin)
+-->
+<include src="./head.html" title="{{ title }}"></include>
+<body class="loginBody">
+  {{ slot }}
+  <include src="./scripts.html"></include>
+</body>
+</html>

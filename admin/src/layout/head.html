@@ -1,0 +1,12 @@
+<!-- [레이아웃] 문서 시작 ~ </head> (모든 레이아웃 공통)
+  <include src="./head.html" title="미션등록"></include>
+  - title : 페이지 제목 → <title>미션등록 | Admin</title> (생략 시 <title>Admin</title>)
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} | {% endif %}Admin</title>
+  <link rel="stylesheet" href="/src/styles/scss/globals.scss">
+</head>

@@ -1,0 +1,24 @@
+<!-- [레이아웃] 헤더 + 사이드바 (업무 화면 기본)
+  <include src="../../layout/layoutDefault.html" title="미션등록">
+    ...화면 콘텐츠...
+  </include>
+  - title : <title> 페이지 제목 (생략 시 Admin)
+  - 구성  : head.html + aside.html(좌측 메뉴바) + header.html(상단 헤더) + 콘텐츠 + scripts.html
+-->
+<include src="./head.html" title="{{ title }}"></include>
+<body>
+  <div class="boWrap">
+    <!-- 좌측 메뉴바 (260px) -->
+    <include src="./aside.html"></include>
+
+    <!-- 우측 콘텐츠 영역 -->
+    <main class="boContainer">
+      <include src="./header.html"></include>
+      <div class="boContent">
+        {{ slot }}
+      </div>
+    </main>
+  </div>
+  <include src="./scripts.html"></include>
+</body>
+</html>

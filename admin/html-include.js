@@ -36,7 +36,12 @@
  *   바인딩 속성 (속성 값에 {{ }} 를 쓸 때 에디터의 CSS 검사 회피)
  *     UI 컴포넌트:  <col :style="width: {{ thWidth | default('160px', true) }};">  →  출력: <col style="width: 160px;">
  *
- * - UI 컴포넌트 파일 맨 위 <!-- [UI 컴포넌트] ... --> 사용법 주석은 결과물에 포함하지 않음
+ * 레이아웃 (src/layout) - UI 컴포넌트와 같은 방식 (속성 / slot)
+ *   화면:  <include src="../../layout/layoutDefault.html" title="미션등록"> ...화면 콘텐츠... </include>
+ *   - layoutDefault(헤더 + 사이드바) / layoutLogin(로그인) / layoutError(404·500·점검)
+ *   - head.html 의 title 속성 → <title>미션등록 | Admin</title>
+ *
+ * - UI 컴포넌트 / 레이아웃 파일 맨 위 <!-- [UI 컴포넌트] ... --> / <!-- [레이아웃] ... --> 사용법 주석은 결과물에 포함하지 않음
  * - 그 외 템플릿 설명은 Nunjucks 주석 {# ... #} 사용 (HTML 주석 안의 {{ }} 도 치환되므로 주의)
  * - dist/partials 에는 사용법 주석의 예시를 렌더링한 완성 마크업을 출력 (renderExamples)
  */
@@ -45,7 +50,10 @@ const path = require('path');
 const nunjucks = require('nunjucks');
 
 const ATTR_RE = /([^\s=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'))?/g;
-const DOC_COMMENT_RE = /^\s*<!--\s*\[UI 컴포넌트\][\s\S]*?-->\s*/;
+const DOC_COMMENT_RE = /^\s*<!--\s*\[(?:UI 컴포넌트|레이아웃)\][\s\S]*?-->\s*/;
+
+// Nunjucks 템플릿으로 렌더링하는 폴더 (속성 / slot 사용 가능)
+const TEMPLATE_DIRS = ['partials', 'layout'];
 
 // 출력이 비는 자리 표시 (빈 slot 등) - 표시만 남은 줄은 통째로 제거
 const MARK = '\u0001';
@@ -210,11 +218,10 @@ function resolveIncludes(html, opts) {
     Object.keys(named).forEach((k) => {
       props[k] = named[k].trim() ? resolveIncludes(named[k], opts) : '';
     });
-    // UI 컴포넌트 파일 맨 위 사용법 주석(<!-- [UI 컴포넌트] ... -->)은 결과물에서 제외
+    // 파일 맨 위 사용법 주석(<!-- [UI 컴포넌트] ... --> / <!-- [레이아웃] ... -->)은 결과물에서 제외
     const raw = fs.readFileSync(filePath, 'utf8').replace(DOC_COMMENT_RE, '');
-    // src/partials 는 Nunjucks 템플릿으로 렌더링, 그 외 파일은 그대로 삽입
-    const partialsDir = path.resolve(rootDir, 'src', 'partials');
-    const isTemplate = !path.relative(partialsDir, filePath).startsWith('..');
+    // src/partials, src/layout 은 Nunjucks 템플릿으로 렌더링, 그 외 파일은 그대로 삽입
+    const isTemplate = TEMPLATE_DIRS.some((dir) => !path.relative(path.resolve(rootDir, 'src', dir), filePath).startsWith('..'));
     const content = isTemplate ? renderTemplate(raw, { ...props, slot }, filePath) : raw;
     const rendered = resolveIncludes(content, { ...opts, baseDir: path.dirname(filePath) }).replace(/\s+$/, '');
     // include 태그가 줄 맨 앞(들여쓰기만 있는 위치)에 있으면 결과 전체를 같은 들여쓰기로 맞춤

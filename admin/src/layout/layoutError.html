@@ -1,0 +1,12 @@
+<!-- [레이아웃] 에러 / 안내 (404, 500, 서비스 점검 - 헤더 / 사이드바 없음)
+  <include src="../../layout/layoutError.html" title="404에러">
+    ...화면 콘텐츠 (.errorPage)...
+  </include>
+  - title : <title> 페이지 제목 (생략 시 Admin)
+-->
+<include src="./head.html" title="{{ title }}"></include>
+<body class="errorBody">
+  {{ slot }}
+  <include src="./scripts.html"></include>
+</body>
+</html>
