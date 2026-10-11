@@ -160,6 +160,28 @@ function walkHtml(dir) {
   return results;
 }
 
+/**
+ * <script type="module"> 안의 상대 경로 import 를 모듈 소스로 치환 (dist 파일 직접 열기 대응)
+ * - file:// 로 열면 브라우저가 외부 모듈 import 를 차단(CORS)해 차트 등이 그려지지 않음
+ * - import { a, b as c } from './x.js';  →  const { a, b: c } = (() => { ...x.js(export 제거)...; return { a, b }; })();
+ */
+function inlineModuleImports(html, baseDir) {
+  const IMPORT_RE = /^([ \t]*)import\s*\{([^}]*)\}\s*from\s*['"](\.{1,2}\/[^'"]+\.js)['"];?[ \t]*$/gm;
+  return html.replace(/(<script\b[^>]*type="module"[^>]*>)([\s\S]*?)(<\/script>)/g, (m, open, body, close) => {
+    const inlined = body.replace(IMPORT_RE, (line, indent, names, src) => {
+      const file = path.resolve(baseDir, src);
+      if (!fs.existsSync(file)) return line;
+      const specs = names.split(',').map((s) => s.trim()).filter(Boolean).map((s) => s.split(/\s+as\s+/));
+      const source = fs.readFileSync(file, 'utf8').replace(/^export\s+(?=(?:async\s+)?function|const|let|var|class)/gm, '');
+      const exported = specs.map(([name]) => name).join(', ');
+      const bound = specs.map(([name, alias]) => (alias ? `${name}: ${alias}` : name)).join(', ');
+      return `${indent}// ${src} (dist: 파일 직접 열기에서도 동작하도록 빌드 시 인라인)\n` +
+        `${indent}const { ${bound} } = (() => {\n${source}\nreturn { ${exported} };\n})();`;
+    });
+    return open + inlined + close;
+  });
+}
+
 // 개발 서버 전용 페이지 (React 번들 필요 - 정적 dist 에서는 동작하지 않음)
 const DEV_ONLY_HTML = ['guide/library.html'];
 
@@ -183,7 +205,9 @@ for (const htmlFile of allHtmlFiles) {
       onMissing: (src) => console.warn(`[Include Warning] Not found: ${src} in ${htmlFile}`)
     });
   } else {
-    content = resolveIncludes(fs.readFileSync(htmlFile, 'utf8'), htmlFile);
+    // 레이아웃 파일(slot 이 있는 layoutDefault 등)은 콘텐츠 자리에 안내 문구를 넣은 미리보기로 출력
+    const layoutPreview = htmlInclude.renderLayoutPreview(htmlFile, { rootDir: ROOT_DIR });
+    content = layoutPreview || resolveIncludes(fs.readFileSync(htmlFile, 'utf8'), htmlFile);
   }
 
   // Replace .scss references with .css references for dist
@@ -193,6 +217,7 @@ for (const htmlFile of allHtmlFiles) {
   content = content.replace(/src="[^"]*?(?:assets\/)?js\/ui\.js"/g, `src="${prefix}assets/js/ui.js"`);
   // 사이드바 등 루트 기준 페이지 링크(/pages/...)를 상대 경로로 변환 (dist 파일 직접 열기 대응)
   content = content.replace(/href="\/pages\//g, `href="${prefix}pages/`);
+  content = inlineModuleImports(content, path.dirname(htmlFile));
 
   const destPath = path.resolve(DIST_DIR, relativePath);
   fs.mkdirSync(path.dirname(destPath), { recursive: true });

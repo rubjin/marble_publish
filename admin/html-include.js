@@ -261,4 +261,17 @@ function renderExamples(filePath, opts) {
   return `${doc[0].trim()}\n\n${rendered.join('\n\n')}\n`;
 }
 
-module.exports = { resolveIncludes, renderExamples };
+/**
+ * 레이아웃 파일(src/layout 의 {{ slot }} 이 있는 파일) 단독 미리보기 렌더링
+ * - 콘텐츠 자리(slot)에 안내 문구를 넣어 레이아웃 구조만 확인 (개발 서버 /layout/..., dist/layout 에서 사용)
+ * - slot 이 없는 파일(head / header / aside 등 부분 파일)은 null
+ */
+function renderLayoutPreview(filePath, opts) {
+  const raw = fs.readFileSync(filePath, 'utf8');
+  if (!/\{\{\s*slot\s*\}\}/.test(raw)) return null;
+  const placeholder = '<p style="padding: 80px 0; text-align: center; color: #9CA3AF;">콘텐츠 영역 (화면별 콘텐츠가 들어가는 자리)</p>';
+  const html = `<include src="./${path.basename(filePath)}" title="레이아웃 미리보기">\n${placeholder}\n</include>`;
+  return resolveIncludes(html, { ...opts, baseDir: path.dirname(filePath) }) + '\n';
+}
+
+module.exports = { resolveIncludes, renderExamples, renderLayoutPreview };

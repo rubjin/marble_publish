@@ -112,6 +112,11 @@ function rootWorksheetPlugin() {
                     '<style>html, body { height: auto !important; overflow: auto !important; } body { padding: 24px; background-color: #F3F5F6; }</style>' +
                     `</head><body>${preview}</body></html>`;
                 }
+                // 레이아웃(layoutDefault / layoutLogin / layoutError): 콘텐츠 자리에 안내 문구를 넣어 미리보기
+                if (dir === 'layout') {
+                  const preview = htmlInclude.renderLayoutPreview(srcFilePath, { rootDir: __dirname });
+                  if (preview) html = preview;
+                }
                 html = await server.transformIndexHtml(`/src/${relativeReqPath}`, html);
                 res.setHeader('Content-Type', 'text/html; charset=utf-8');
                 return res.end(html);

@@ -41,15 +41,54 @@ window.adminData = [
   {
     "category": "AM",
     "depth1": "공통",
-    "depth2": "공통 레이아웃",
-    "depth3": "",
+    "depth2": "레이아웃",
+    "depth3": "헤더 + 사이드바",
     "depth4": "",
-    "screenId": "layout",
+    "screenId": "layoutDefault",
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
-    "link": "layout/layout.html",
-    "note": "홈, 고객 관리, 미션 관리, 알림 관리, 관리자 관리"
+    "link": "layout/layoutDefault.html",
+    "note": "업무 화면 기본 레이아웃 (head + aside + header + 콘텐츠)"
+  },
+  {
+    "category": "AM",
+    "depth1": "공통",
+    "depth2": "레이아웃",
+    "depth3": "로그인",
+    "depth4": "",
+    "screenId": "layoutLogin",
+    "type": "페이지",
+    "status": "완료",
+    "worker": "주진희",
+    "link": "layout/layoutLogin.html",
+    "note": "로그인 화면 레이아웃 (헤더 / 사이드바 없음)"
+  },
+  {
+    "category": "AM",
+    "depth1": "공통",
+    "depth2": "레이아웃",
+    "depth3": "에러 / 안내",
+    "depth4": "",
+    "screenId": "layoutError",
+    "type": "페이지",
+    "status": "완료",
+    "worker": "주진희",
+    "link": "layout/layoutError.html",
+    "note": "404, 500, 서비스 점검 화면 레이아웃 (헤더 / 사이드바 없음)"
+  },
+  {
+    "category": "AM",
+    "depth1": "샘플 페이지",
+    "depth2": "",
+    "depth3": "",
+    "depth4": "",
+    "screenId": "MISS_008",
+    "type": "페이지",
+    "status": "완료",
+    "worker": "주진희",
+    "link": "pages/M/MISS_008.html",
+    "note": ""
   },
   {
     "category": "AM",
@@ -143,6 +182,6 @@ window.adminData = [
     "link": "pages/MM/OFR_AM_MM_017.html",
     "note": ""
   },
- 
+
 ];
 var adminData = window.adminData;
