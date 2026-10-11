@@ -10,6 +10,7 @@
     {% if loop.last %}
     <li class="breadcrumbItem isCurrent" aria-current="page">{{ item }}</li>
     {% else %}
+    <!-- [M] 261012 a태그 제거 -->
     <li class="breadcrumbItem">{{ item }}</li>
     {% endif %}
     {% endfor %}
