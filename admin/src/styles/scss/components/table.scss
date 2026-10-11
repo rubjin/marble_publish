@@ -94,6 +94,8 @@
   border-spacing: 0;
   font-size: 14px;
   table-layout: fixed;
+  // 회색 영역(가이드 박스 등) 위에서도 행 hover 색($tbl-row-hover)이 구분되도록 흰 배경
+  // background-color: $bg-white;
 
   thead {
     th {
@@ -244,7 +246,26 @@
   }
 }
 
+// STEP 카드(.stepCard) 안의 입력 폼 레이아웃 테이블
+// 카드 회색 배경을 그대로 쓰고, 행 구분선 / 행 hover 배경 없음
+.stepCard .tbl {
+  background-color: transparent;
 
+  tbody {
+      tr {
+        border-bottom: none;
 
+        &:hover {
+            background-color: transparent;
+          }
+        }
 
+                        th {
+                          padding: 8px 10px 8px 0;
+                        }
 
+                        td {
+                          padding: 8px 0;
+                        }
+                        }
+                        }

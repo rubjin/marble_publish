@@ -43,7 +43,7 @@
 
     /* 가이드 박스 */
     .guideBox { padding: 30px; border: 1px dashed #d1d5db; border-radius: 8px 8px 0 0; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
-    .guideBoxBlock { display: block; }
+    .guideBoxBlock { display: block; background-color: #fff; }
 
     /* 사이즈 레이블 */
     .guideSizeLabel {
@@ -267,7 +267,7 @@
     <!-- ==================== 팝업 가이드 ==================== -->
     <section id="sectionPopups" class="guideSection">
       <h2 class="guideTitle">Popups (모달 팝업)</h2>
-      
+
       <!-- 팝업 컴포넌트를 강제로 상자 안에 가둬서 보여주는 래퍼 -->
       <div class="guideBox popupPreviewBox">
         <include src="../components/popup.html"></include>
@@ -278,14 +278,14 @@
       <div class="guideBox guideBoxBlock" style="max-width: 600px;">
         <include src="../components/toast.html"></include>
       </div>
-    
+
       <!-- ==================== 팝업 :: 툴팁 ==================== -->
       <h2 class="guideTitle">Tooltip (툴팁)</h2>
       <div class="guideBox guideBoxBlock" style="display: flex; gap: 20px;">
         <include src="../components/tooltip.html"></include>
       </div>
     </section>
-   
+
 
     <!-- ==================== 테이블 가이드 ==================== -->
     <section id="sectionTable" class="guideSection">
@@ -340,7 +340,7 @@
 
     <!-- ==================== 기타 가이드 ==================== -->
     <section id="sectionEtc" class="guideSection">
-      
+
       <h2 class="guideTitle">Breadcrumb (브레드크럼)</h2>
       <div class="guideBox guideBoxBlock">
         <include src="../components/breadcrumb.html"></include>
