@@ -191,6 +191,8 @@ for (const htmlFile of allHtmlFiles) {
   const prefix = depth > 0 ? '../'.repeat(depth) : './';
   content = content.replace(/href="[^"]*?(?:assets\/)?scss\/(?:globals|main|common)\.scss"/g, `href="${prefix}styles/css/globals.css"`);
   content = content.replace(/src="[^"]*?(?:assets\/)?js\/ui\.js"/g, `src="${prefix}assets/js/ui.js"`);
+  // 사이드바 등 루트 기준 페이지 링크(/pages/...)를 상대 경로로 변환 (dist 파일 직접 열기 대응)
+  content = content.replace(/href="\/pages\//g, `href="${prefix}pages/`);
 
   const destPath = path.resolve(DIST_DIR, relativePath);
   fs.mkdirSync(path.dirname(destPath), { recursive: true });

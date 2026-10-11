@@ -123,6 +123,27 @@
     }
   });
 
+  // 현재 페이지와 같은 링크의 서브메뉴 활성화 (+ 상위 메뉴 펼침)
+  // 연결된 화면이 없으면 마크업에 지정된 isActive / isOpen 상태 유지
+  (function() {
+    var current = location.pathname;
+    var links = document.querySelectorAll('.boSubMenu a[href]:not([href="#"])');
+    var matched = null;
+    links.forEach(function(link) {
+      if (new URL(link.href, location.href).pathname === current) matched = link;
+    });
+    if (!matched) return;
+
+    document.querySelectorAll('.boSubMenu a.isActive').forEach(function(link) {
+      link.classList.remove('isActive');
+    });
+    document.querySelectorAll('.boMenu > li.isOpen').forEach(function(li) {
+      li.classList.remove('isOpen');
+    });
+    matched.classList.add('isActive');
+    matched.closest('.boMenu > li').classList.add('isOpen');
+  })();
+
   // 1depth 메뉴 아코디언 토글 (사이드바 펼침 상태 + 서브메뉴가 있는 경우)
   document.addEventListener('click', function(e) {
     var menuLink = e.target.closest('.boMenu > li > a');
