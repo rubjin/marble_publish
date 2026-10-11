@@ -2292,6 +2292,22 @@ select.formControl.wAuto {
   gap: 6px;
 }
 
+.stepCard .tbl {
+  background-color: transparent;
+}
+.stepCard .tbl tbody tr {
+  border-bottom: none;
+}
+.stepCard .tbl tbody tr:hover {
+  background-color: transparent;
+}
+.stepCard .tbl tbody th {
+  padding: 8px 10px 8px 0;
+}
+.stepCard .tbl tbody td {
+  padding: 8px 0;
+}
+
 /* ==========================================================================
    Search / Filter Box Component (_searchbox.scss)
    ========================================================================== */
@@ -3307,22 +3323,6 @@ select.formControl.wAuto {
 .tbl.tblInfo .infoTotal {
   color: #8D919B;
   font-weight: 500;
-}
-
-.stepCard .tbl {
-  background-color: transparent;
-}
-.stepCard .tbl tbody tr {
-  border-bottom: none;
-}
-.stepCard .tbl tbody tr:hover {
-  background-color: transparent;
-}
-.stepCard .tbl tbody th {
-  padding: 8px 10px 8px 0;
-}
-.stepCard .tbl tbody td {
-  padding: 8px 0;
 }
 
 .barPercent {
