@@ -1068,28 +1068,28 @@ body {
 }
 
 .titPage {
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
   color: #111827;
   line-height: 1.35;
 }
 
 .titSection {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   color: #1F2937;
   line-height: 1.4;
 }
 
 .titSub {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: #1F2937;
   line-height: 1.45;
 }
 
 .titCard {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   color: #1F2937;
   line-height: 1.5;

@@ -34,29 +34,30 @@
 .textDanger { color: $text-danger !important; }
 
 // Typography Component Scale (Headings & Body)
+// 실제 화면 적용 기준: .pageTitle 22 / .sectionTitle·.popupTitle 18 / .tblTitle 16 / .chartTitle 15
 .titPage {
-  font-size: 28px;
+  font-size: 22px;
   font-weight: $font-weight-bold;
   color: $text-title;
   line-height: 1.35;
 }
 
 .titSection {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: $font-weight-bold;
   color: $text-highlight;
   line-height: 1.4;
 }
 
 .titSub {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: $font-weight-bold;
   color: $text-highlight;
   line-height: 1.45;
 }
 
 .titCard {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: $font-weight-bold;
   color: $text-highlight;
   line-height: 1.5;
