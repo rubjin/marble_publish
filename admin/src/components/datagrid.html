@@ -5,7 +5,7 @@
 
   - 구조
     <div class="dataGridWrap [h400] [isLoading]">
-      <table class="tbl dataGrid [isBordered | isCompact | isResizable]">
+      <table class="tbl dataGrid [isCompact | isResizable]">   // 바깥 테두리 + 셀 구분선은 기본 (.tbl.tblBordered 와 동일, isBordered 불필요)
         thead th     : header.column.getCanSort() → <button class="sortBtn [isAsc|isDesc]">
         tbody tr     : row.getIsSelected() → .isSelected
         td/th 정렬    : columnDef.meta.className 으로 .textLeft / .textRight / .isNumber 지정 권장
@@ -179,7 +179,7 @@
            .resizer 에 onMouseDown / onTouchStart = header.getResizeHandler(), 드래그 중 .isResizing -->
   <!-- ※ 가이드의 리사이즈 동작은 guide.html 하단 데모 스크립트로 구현 (개발 연동 시 불필요) -->
   <div class="dataGridWrap h300">
-    <table class="tbl dataGrid isBordered isResizable" style="width: 1400px;">
+    <table class="tbl dataGrid isResizable" style="width: 1400px;">
       <thead>
         <tr>
           <th class="textLeft isPinnedLeft isPinnedEdge" style="width: 220px; left: 0;">

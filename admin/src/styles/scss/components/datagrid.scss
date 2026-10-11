@@ -3,12 +3,12 @@
 /* ==========================================================================
    Data Grid Component (@tanstack/react-table)
    - Headless 라이브러리이므로 마크업은 개발에서 직접 렌더링하고, 본 클래스를 바인딩합니다.
-   - 기본 셀/헤더 스타일은 .tbl 과 동일한 톤을 유지합니다. (<table class="tbl dataGrid">)
+   - 기본 모양은 .tbl.tblBordered 와 동일 (바깥 테두리 + 셀 구분선, 옅은 회색) (<table class="tbl dataGrid">)
    ========================================================================== */
 
 $grid-pin-shadow:   rgba(0, 0, 0, 0.08);
 // 고정(sticky) 셀 구분선: border-collapse 테두리는 sticky 셀을 따라오지 않으므로 inset box-shadow 로 그림
-$grid-line:         $border-default;
+$grid-line:         $tbl-cell-border;   // .tbl.tblBordered 셀 테두리와 동일
 $grid-line-bottom:  inset 0 -1px 0 $grid-line; // 헤더 하단
 $grid-line-top:     inset 0 1px 0 $grid-line;  // 합계 상단
 $grid-line-right:   inset -1px 0 0 $grid-line; // 좌측 고정 경계 / 헤더 세로선
@@ -19,7 +19,8 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
   position: relative;
   width: 100%;
   overflow: auto;
-  border-top: 1px solid $tbl-border-top;
+  // 바깥 테두리 (.tbl.tblBordered 와 동일) - 스크롤 영역(래퍼)에 그려 스크롤 시에도 유지
+  border: 1px solid $tbl-cell-border;
 
   // 세로 스크롤 영역 높이 (헤더 고정)
   &.h300 { max-height: 300px; }
@@ -69,13 +70,15 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
       position: sticky;
       top: 0;
       z-index: 2;
-      height: 44px;
-      padding: 10px 12px;
+      padding: 10px;
       // 헤더 고정 시 스크롤되는 행이 비치지 않도록 불투명 배경 사용
       background-color: $tbl-header-bg-solid;
       color: $tbl-header-text;
-      box-shadow: $grid-line-bottom;
+      // 헤더는 sticky 이므로 테두리 대신 inset 선 (세로선 + 하단선)
+      box-shadow: $grid-line-right, $grid-line-bottom;
       @include text-ellipsis;
+
+      &:last-child { box-shadow: $grid-line-bottom; }
     }
   }
 
@@ -100,10 +103,12 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
     }
 
     td {
-      height: 48px;
-      padding: 10px 12px;
+      padding: 10px 8px;
       color: $tbl-td-text;
+      border-right: 1px solid $tbl-cell-border;
       @include text-ellipsis;
+
+      &:last-child { border-right: none; }
 
       // 줄바꿈 허용 셀
       &.isWrap {
@@ -126,13 +131,14 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
       position: sticky;
       bottom: 0;
       z-index: 2;
-      height: 44px;
-      padding: 10px 12px;
+      padding: 10px 8px;
       background-color: $color-gray-50;
-      box-shadow: $grid-line-top;
+      box-shadow: $grid-line-right, $grid-line-top;
       font-weight: $font-weight-medium;
       color: $text-title;
       text-align: center;
+
+      &:last-child { box-shadow: $grid-line-top; }
     }
   }
 
@@ -147,18 +153,7 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
   th.textRight .sortBtn,
   th.isNumber .sortBtn { justify-content: flex-end; }
 
-  /* ---------- 컬럼 테두리 (셀 구분선) ---------- */
-  &.isBordered {
-    th, td {
-      border-right: 1px solid $tbl-cell-border;
-      &:last-child { border-right: none; }
-    }
-    // 헤더는 sticky 이므로 테두리 대신 inset 선 사용
-    thead th {
-      border-right: none;
-      &:not(:last-child) { box-shadow: $grid-line-right, $grid-line-bottom; }
-    }
-  }
+  // 컬럼 테두리(셀 구분선)는 기본 적용 - .isBordered 는 기존 마크업 호환용 (추가 효과 없음)
 
   /* ---------- 촘촘한 행 (Compact) ---------- */
   &.isCompact {
@@ -360,7 +355,8 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
       width: 2px;
       height: 50%;
       border-radius: 1px;
-      background-color: $color-gray-300;
+      // 셀 구분선이 기본으로 있으므로 평소에는 숨기고 hover / 드래그 시에만 표시
+      background-color: transparent;
       transition: background-color 0.15s;
     }
 
@@ -372,14 +368,6 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
     }
   }
 
-  // 셀 구분선이 있는 경우 평소에는 구분선만 노출, hover / 드래그 시에만 손잡이 표시
-  &.isBordered .resizer::after {
-    background-color: transparent;
-  }
-  &.isBordered .resizer:hover::after,
-  &.isBordered .resizer.isResizing::after {
-    background-color: $color-blue-500;
-  }
 }
 
 /* --------------------------------------------------------------------------

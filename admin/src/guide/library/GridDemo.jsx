@@ -348,7 +348,7 @@ function AdvancedGrid() {
       </div>
 
       <div className="dataGridWrap h300">
-        <table className="tbl dataGrid isBordered isResizable" style={{ width: table.getTotalSize() }}>
+        <table className="tbl dataGrid isResizable" style={{ width: table.getTotalSize() }}>
           <thead>
             {table.getHeaderGroups().map((hg) => (
               <tr key={hg.id}>
