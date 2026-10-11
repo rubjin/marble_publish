@@ -3241,7 +3241,7 @@ select.formControl.wAuto {
   border-bottom: 1px solid #F0F0F3;
 }
 .tbl.tblView > tbody > tr:hover {
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 .tbl.tblView > tbody > tr:last-child {
   border-bottom: none;
@@ -3700,6 +3700,7 @@ select.formControl.wAuto {
   width: 100%;
   overflow: auto;
   border: 1px solid #F0F0F3;
+  background-color: #FFFFFF;
 }
 .dataGridWrap.h300 {
   max-height: 300px;

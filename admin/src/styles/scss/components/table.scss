@@ -169,8 +169,9 @@
 
     > tbody > tr {
       border-bottom: 1px solid $tbl-cell-border;
+      // 상세 / 입력 폼 테이블은 행 hover 배경 없음
       &:hover {
-        background-color: $color-white;
+        background-color: transparent;
       }
       &:last-child {
         border-bottom: none;

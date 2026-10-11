@@ -411,13 +411,13 @@ function StateGrid() {
       <div className={cx('dataGridWrap', { isLoading: loading })}>
         <table className="tbl dataGrid isStriped">
           <thead>
-            <tr><th>No.</th><th>미션명</th><th>상태</th><th>등록일자</th></tr>
+            <tr><th>No.</th><th>내용</th><th>숫자</th><th>등록일자</th></tr>
           </thead>
           <tbody>
             {rows.length === 0 ? (
               <tr><td className="gridEmpty" colSpan={4}>조회된 데이터가 없습니다.</td></tr>
             ) : rows.map((r) => (
-              <tr key={r.id}><td>{r.id}</td><td>{r.title}</td><td>{r.status.label}</td><td>{r.date}</td></tr>
+              <tr key={r.id}><td>{r.id}</td><td>내용입니다.</td><td className="isNumber">{fmt(r.users)}</td><td>{r.date}</td></tr>
             ))}
           </tbody>
         </table>
