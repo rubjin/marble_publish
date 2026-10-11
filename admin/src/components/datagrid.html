@@ -147,11 +147,11 @@
   </div>
 </div>
 
-<!-- 고급 그리드 : 컬럼 고정 + 리사이즈 + 행 펼침 + 합계 (세로 스크롤, 헤더 고정) -->
+<!-- 고급 그리드 : 컬럼 고정 + 리사이즈 + 합계 (세로 스크롤, 헤더 고정) -->
 <div class="tblSection">
   <div class="tblTop">
     <div class="tblLeft">
-      <h3 class="tblTitle">지점별 실적</h3>
+      <h3 class="tblTitle">하단고정 샘플</h3>
       <span class="tblUnit">(단위: 건)</span>
     </div>
     <div class="tblRight">
@@ -168,7 +168,7 @@
       <thead>
         <tr>
           <th class="textLeft isPinnedLeft isPinnedEdge" style="width: 220px; left: 0;">
-            지점명
+            제목
             <div class="resizer"></div>
           </th>
           <th class="isNumber" style="width: 150px;">1월<div class="resizer"></div></th>
@@ -182,13 +182,7 @@
       </thead>
       <tbody>
         <tr>
-          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
-            <span class="expandCell">
-              <!-- [D] 펼침: .isOpen -->
-              <button type="button" class="expandBtn isOpen" aria-label="하위 지점 접기" aria-expanded="true"></button>
-              서울본부
-            </span>
-          </td>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">제목1</td>
           <td class="isNumber">1,204</td>
           <td class="isNumber">1,380</td>
           <td class="isNumber">1,422</td>
@@ -197,38 +191,8 @@
           <td class="isNumber">1,702</td>
           <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">8,848</td>
         </tr>
-        <tr class="isSubRow">
-          <!-- [D] 하위 행 들여쓰기: (row.depth - 1) * 20 + 26px (1단계 26px, 2단계 46px ...) -->
-          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
-            <span class="expandCell" style="padding-left: 26px;">여의도지점</span>
-          </td>
-          <td class="isNumber">640</td>
-          <td class="isNumber">702</td>
-          <td class="isNumber">731</td>
-          <td class="isNumber">790</td>
-          <td class="isNumber">822</td>
-          <td class="isNumber">860</td>
-          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">4,545</td>
-        </tr>
-        <tr class="isSubRow">
-          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
-            <span class="expandCell" style="padding-left: 26px;">강남지점</span>
-          </td>
-          <td class="isNumber">564</td>
-          <td class="isNumber">678</td>
-          <td class="isNumber">691</td>
-          <td class="isNumber">720</td>
-          <td class="isNumber">808</td>
-          <td class="isNumber">842</td>
-          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">4,303</td>
-        </tr>
         <tr>
-          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
-            <span class="expandCell">
-              <button type="button" class="expandBtn" aria-label="하위 지점 펼치기" aria-expanded="false"></button>
-              부산본부
-            </span>
-          </td>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">제목2</td>
           <td class="isNumber">802</td>
           <td class="isNumber">845</td>
           <td class="isNumber">910</td>
@@ -238,12 +202,7 @@
           <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">5,609</td>
         </tr>
         <tr>
-          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">
-            <span class="expandCell">
-              <button type="button" class="expandBtn" aria-label="하위 지점 펼치기" aria-expanded="false"></button>
-              대구본부
-            </span>
-          </td>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">제목3</td>
           <td class="isNumber">512</td>
           <td class="isNumber">530</td>
           <td class="isNumber">588</td>
@@ -252,17 +211,47 @@
           <td class="isNumber">671</td>
           <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">3,543</td>
         </tr>
+        <tr>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">제목4</td>
+          <td class="isNumber">438</td>
+          <td class="isNumber">472</td>
+          <td class="isNumber">495</td>
+          <td class="isNumber">517</td>
+          <td class="isNumber">549</td>
+          <td class="isNumber">580</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">3,051</td>
+        </tr>
+        <tr>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">제목5</td>
+          <td class="isNumber">466</td>
+          <td class="isNumber">489</td>
+          <td class="isNumber">512</td>
+          <td class="isNumber">540</td>
+          <td class="isNumber">566</td>
+          <td class="isNumber">602</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">3,175</td>
+        </tr>
+        <tr>
+          <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">제목6</td>
+          <td class="isNumber">690</td>
+          <td class="isNumber">715</td>
+          <td class="isNumber">742</td>
+          <td class="isNumber">781</td>
+          <td class="isNumber">820</td>
+          <td class="isNumber">858</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">4,606</td>
+        </tr>
       </tbody>
       <tfoot>
         <tr>
           <td class="textLeft isPinnedLeft isPinnedEdge" style="left: 0;">합계</td>
-          <td class="isNumber">2,518</td>
-          <td class="isNumber">2,755</td>
-          <td class="isNumber">2,920</td>
-          <td class="isNumber">3,066</td>
-          <td class="isNumber">3,280</td>
-          <td class="isNumber">3,461</td>
-          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">18,000</td>
+          <td class="isNumber">4,112</td>
+          <td class="isNumber">4,431</td>
+          <td class="isNumber">4,669</td>
+          <td class="isNumber">4,904</td>
+          <td class="isNumber">5,215</td>
+          <td class="isNumber">5,501</td>
+          <td class="isNumber isPinnedRight isPinnedEdge" style="right: 0;">28,832</td>
         </tr>
       </tfoot>
     </table>

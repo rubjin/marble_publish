@@ -3772,9 +3772,6 @@ select.formControl.wAuto {
 .tbl.dataGrid tbody tr.isDisabled td {
   color: #8D919B;
 }
-.tbl.dataGrid tbody tr.isSubRow {
-  background-color: #F8F9FA;
-}
 .tbl.dataGrid tbody td {
   padding: 10px 8px;
   color: #2F3034;
@@ -3904,39 +3901,6 @@ select.formControl.wAuto {
 }
 
 /* --------------------------------------------------------------------------
-   행 펼침 (Expanding / Sub Rows)
-   [D] row.getCanExpand() 시 .expandBtn, row.getIsExpanded() 시 .isOpen
-       하위 행 들여쓰기: row.depth > 0 일 때 style="padding-left: {(row.depth - 1) * 20 + 26}px" 로 .expandCell 에 적용
-   -------------------------------------------------------------------------- */
-.expandCell {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  max-width: 100%;
-}
-
-.expandBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  border: none;
-  border-radius: 4px;
-  background: transparent url("/src/assets/images/icon/i_chevron_16.svg") no-repeat center/16px;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: transform 0.2s, background-color 0.15s;
-}
-.expandBtn:hover {
-  background-color: #E7E9ED;
-}
-.expandBtn.isOpen {
-  transform: rotate(90deg);
-}
-
-/* --------------------------------------------------------------------------
    컬럼 고정 (Column Pinning)
    [D] column.getIsPinned() === 'left'  → .isPinnedLeft  + style="left: {column.getStart('left')}px"
        column.getIsPinned() === 'right' → .isPinnedRight + style="right: {column.getAfter('right')}px"
@@ -3959,9 +3923,6 @@ select.formControl.wAuto {
   background-color: #F8F9FA;
 }
 .tbl.dataGrid tbody tr:hover .isPinnedLeft, .tbl.dataGrid tbody tr:hover .isPinnedRight {
-  background-color: #F8F9FA;
-}
-.tbl.dataGrid tbody tr.isSubRow .isPinnedLeft, .tbl.dataGrid tbody tr.isSubRow .isPinnedRight {
   background-color: #F8F9FA;
 }
 .tbl.dataGrid tbody tr.isSelected .isPinnedLeft, .tbl.dataGrid tbody tr.isSelected .isPinnedRight {

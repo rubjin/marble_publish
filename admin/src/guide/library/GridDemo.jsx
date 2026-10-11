@@ -4,7 +4,6 @@ import {
   getCoreRowModel,
   getSortedRowModel,
   getPaginationRowModel,
-  getExpandedRowModel,
   flexRender
 } from '@tanstack/react-table';
 import { cx, seeded, Checkbox, StateView } from './shared.jsx';
@@ -38,19 +37,11 @@ function makeMissions(count) {
 const MONTHS = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6'];
 function makeBranches() {
   const rand = seeded(5);
-  const row = (name, subRows) => {
-    const r = { name, subRows };
-    MONTHS.forEach((m) => { r[m] = Math.round(300 + rand() * 600); });
-    if (subRows) MONTHS.forEach((m) => { r[m] = subRows.reduce((sum, s) => sum + s[m], 0); });
+  return Array.from({ length: 8 }, (_, i) => `제목${i + 1}`).map((name) => {
+    const r = { name };
+    MONTHS.forEach((m) => { r[m] = Math.round(300 + rand() * 1200); });
     return r;
-  };
-  return [
-    row('서울본부', [row('여의도지점'), row('강남지점'), row('종로지점')]),
-    row('부산본부', [row('서면지점'), row('해운대지점')]),
-    row('대구본부', [row('동성로지점'), row('수성지점')]),
-    row('광주본부', [row('상무지점'), row('충장로지점')]),
-    row('대전본부', [row('둔산지점'), row('유성지점')])
-  ];
+  });
 }
 const rowTotal = (r) => MONTHS.reduce((sum, m) => sum + r[m], 0);
 
@@ -243,7 +234,7 @@ function BasicGrid() {
 }
 
 /* ==========================================================================
-   고급 그리드 : 컬럼 고정 + 리사이즈 + 행 펼침 + 합계 (헤더 고정 세로 스크롤)
+   고급 그리드 : 컬럼 고정 + 리사이즈 + 합계 (헤더 고정 세로 스크롤)
    ========================================================================== */
 function pinClass(column) {
   const pinned = column.getIsPinned();
@@ -265,30 +256,15 @@ function pinStyle(column, width) {
 
 function AdvancedGrid() {
   const data = useMemo(() => makeBranches(), []);
-  const [expanded, setExpanded] = useState({ 0: true });
   const [columnSizing, setColumnSizing] = useState({});
 
   const columns = useMemo(() => [
     {
       accessorKey: 'name',
-      header: '지점명',
+      header: '제목',
       size: 220,
       minSize: 140,
       meta: { className: 'textLeft' },
-      cell: ({ row, getValue }) => (
-        <span className="expandCell" style={row.depth > 0 ? { paddingLeft: 26 + (row.depth - 1) * 20 } : undefined}>
-          {row.getCanExpand() && (
-            <button
-              type="button"
-              className={cx('expandBtn', { isOpen: row.getIsExpanded() })}
-              aria-label={row.getIsExpanded() ? '하위 지점 접기' : '하위 지점 펼치기'}
-              aria-expanded={row.getIsExpanded()}
-              onClick={row.getToggleExpandedHandler()}
-            />
-          )}
-          {getValue()}
-        </span>
-      ),
       footer: '합계'
     },
     ...MONTHS.map((m, i) => ({
@@ -315,15 +291,12 @@ function AdvancedGrid() {
   const table = useReactTable({
     data,
     columns,
-    state: { expanded, columnSizing },
+    state: { columnSizing },
     initialState: { columnPinning: { left: ['name'], right: ['total'] } },
-    onExpandedChange: setExpanded,
     onColumnSizingChange: setColumnSizing,
-    getSubRows: (row) => row.subRows,
     columnResizeMode: 'onChange',
     enableColumnResizing: true,
-    getCoreRowModel: getCoreRowModel(),
-    getExpandedRowModel: getExpandedRowModel()
+    getCoreRowModel: getCoreRowModel()
   });
 
   const cellsOf = (row) => [...row.getLeftVisibleCells(), ...row.getCenterVisibleCells(), ...row.getRightVisibleCells()];
@@ -332,14 +305,12 @@ function AdvancedGrid() {
     <div className="tblSection">
       <div className="tblTop">
         <div className="tblLeft">
-          <h3 className="tblTitle">지점별 실적</h3>
+          <h3 className="tblTitle">하단고정 샘플</h3>
           <span className="tblUnit">(단위: 건)</span>
         </div>
         <div className="tblRight">
           <p className="tblGuide">컬럼 경계를 드래그하여 너비를 조절할 수 있습니다.</p>
           <div className="btnGroup sm">
-            <button type="button" className="btn outline" onClick={() => table.toggleAllRowsExpanded(true)}>모두 펼치기</button>
-            <button type="button" className="btn outline" onClick={() => table.toggleAllRowsExpanded(false)}>모두 접기</button>
             <button type="button" className="btn outline" onClick={() => table.resetColumnSizing()}>너비 초기화</button>
           </div>
         </div>
@@ -372,7 +343,7 @@ function AdvancedGrid() {
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id} className={cx({ isSubRow: row.depth > 0 })}>
+              <tr key={row.id}>
                 {cellsOf(row).map((cell) => (
                   <td
                     key={cell.id}
@@ -404,7 +375,7 @@ function AdvancedGrid() {
       </div>
 
       <StateView>
-        expanded: {JSON.stringify(expanded)}{'\n'}columnSizing: {JSON.stringify(columnSizing)}
+        columnSizing: {JSON.stringify(columnSizing)}
       </StateView>
     </div>
   );
@@ -461,8 +432,8 @@ export default function GridDemo() {
       <h3 className="libDemoTitle">1. 정렬 + 행 선택 + 페이지네이션</h3>
       <p className="libHint">등록일자 헤더를 클릭하면 정렬, 체크박스로 행 선택, 상단 셀렉트로 건수 변경, 하단에서 페이지 이동.</p>
       <BasicGrid />
-      <h3 className="libDemoTitle">2. 컬럼 고정 + 리사이즈 + 행 펼침 + 합계</h3>
-      <p className="libHint">가로·세로 스크롤 시 지점명/합계 컬럼과 헤더·합계 행이 고정됩니다. 헤더 경계 드래그로 너비 조절(더블클릭 시 초기화).</p>
+      <h3 className="libDemoTitle">2. 컬럼 고정 + 리사이즈 + 합계</h3>
+      <p className="libHint">가로·세로 스크롤 시 제목/합계 컬럼과 헤더·합계 행이 고정됩니다. 헤더 경계 드래그로 너비 조절(더블클릭 시 초기화).</p>
       <AdvancedGrid />
       <h3 className="libDemoTitle">3. 로딩 / 빈 데이터</h3>
       <StateGrid />

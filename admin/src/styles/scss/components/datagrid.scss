@@ -100,8 +100,6 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
       // [D] 비활성 행: .isDisabled
       &.isDisabled td { color: $text-tertiary; }
 
-      // [D] 하위 행: row.depth > 0 시 .isSubRow
-      &.isSubRow { background-color: $color-gray-50; }
     }
 
     td {
@@ -240,36 +238,6 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
 }
 
 /* --------------------------------------------------------------------------
-   행 펼침 (Expanding / Sub Rows)
-   [D] row.getCanExpand() 시 .expandBtn, row.getIsExpanded() 시 .isOpen
-       하위 행 들여쓰기: row.depth > 0 일 때 style="padding-left: {(row.depth - 1) * 20 + 26}px" 로 .expandCell 에 적용
-   -------------------------------------------------------------------------- */
-.expandCell {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  max-width: 100%;
-}
-
-.expandBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  border: none;
-  border-radius: 4px;
-  background: transparent iconUrl('i_chevron_16.svg') no-repeat center / 16px;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: transform 0.2s, background-color 0.15s;
-
-  &:hover { background-color: $color-gray-200; }
-  &.isOpen { transform: rotate(90deg); }
-}
-
-/* --------------------------------------------------------------------------
    컬럼 고정 (Column Pinning)
    [D] column.getIsPinned() === 'left'  → .isPinnedLeft  + style="left: {column.getStart('left')}px"
        column.getIsPinned() === 'right' → .isPinnedRight + style="right: {column.getAfter('right')}px"
@@ -298,9 +266,6 @@ $grid-line-left:    inset 1px 0 0 $grid-line;  // 우측 고정 경계
   // 행 hover / 선택 배경을 고정 셀에도 동일하게 반영
   tbody tr:hover {
     .isPinnedLeft, .isPinnedRight { background-color: $tbl-row-hover; }
-  }
-  tbody tr.isSubRow {
-    .isPinnedLeft, .isPinnedRight { background-color: $color-gray-50; }
   }
   tbody tr.isSelected {
     .isPinnedLeft, .isPinnedRight { background-color: $tbl-row-selected; }
