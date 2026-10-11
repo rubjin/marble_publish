@@ -8,13 +8,13 @@
       <table class="tbl dataGrid [isResizable]">   // 바깥 테두리 + 셀 구분선은 기본 (.tbl.tblBordered 와 동일, isBordered 불필요)
         thead th     : header.column.getCanSort() → <button class="sortBtn [isAsc|isDesc]">
         tbody tr     : row.getIsSelected() → .isSelected
-        td/th 정렬    : columnDef.meta.className 으로 .textLeft / .textRight / .isNumber 지정 권장
+        셀 정렬      : columnDef.meta.className 으로 .textLeft / .textRight / .isNumber 지정 (본문 셀에만 적용, 헤더 th 는 항상 가운데 정렬)
         체크박스 컬럼 : th/td.colCheck + .formCheck
                      전체선택(현재 페이지 기준): checked = table.getIsAllPageRowsSelected()
                                                 indeterminate = table.getIsSomePageRowsSelected()
                                                 onChange = table.getToggleAllPageRowsSelectedHandler()
         빈 데이터     : <td class="gridEmpty" colSpan={n}>
-    <div class="dataGridBottom"> .gridSelectedInfo / .pagination / .gridPageSize
+    <div class="dataGridBottom"> .pagination (페이지 크기 셀렉트는 상단 .tblLeft 에 배치)
 
   - 예시
     <th key={header.id} className={header.column.columnDef.meta?.className} style={{ width: header.getSize() }}>
@@ -35,6 +35,11 @@
     <div class="tblLeft">
       <h3 class="tblTitle">미션 목록</h3>
       <span class="tblCount">총 <strong class="count point">128</strong>건</span>
+      <select class="formControl wSm" aria-label="페이지당 건수">
+        <option value="10">10건씩 보기</option>
+        <option value="20">20건씩 보기</option>
+        <option value="50">50건씩 보기</option>
+      </select>
     </div>
     <div class="tblRight">
       <div class="btnGroup">
@@ -67,21 +72,11 @@
             </label>
           </th>
           <th>No.</th>
-          <th class="textLeft">
-            <button type="button" class="sortBtn">
-              <span class="sortText">미션명</span>
-              <span class="sortIcon" aria-hidden="true"></span>
-            </button>
-          </th>
+          <th class="textLeft">내용</th>
           <th>상태</th>
-          <th class="isNumber">
-            <!-- [D] 정렬 중: .isAsc / .isDesc -->
-            <button type="button" class="sortBtn isDesc">
-              <span class="sortText">참여자 수</span>
-              <span class="sortIcon" aria-hidden="true"></span>
-            </button>
-          </th>
+          <th>내용</th>
           <th>
+            <!-- [D] 정렬 중: .isAsc / .isDesc -->
             <button type="button" class="sortBtn isAsc">
               <span class="sortText">등록일자</span>
               <span class="sortIcon" aria-hidden="true"></span>
@@ -98,9 +93,9 @@
             </label>
           </td>
           <td>1</td>
-          <td class="textLeft"><a href="#" class="link">매일 만보 걷기 챌린지</a></td>
+          <td class="textLeft">내용입니다.</td>
           <td><span class="statusDot ing">운영중</span></td>
-          <td class="isNumber">12,480</td>
+          <td>내용입니다.</td>
           <td>2026.06.15</td>
         </tr>
         <tr>
@@ -111,9 +106,9 @@
             </label>
           </td>
           <td>2</td>
-          <td class="textLeft"><a href="#" class="link">주 3회 금융 퀴즈 풀기</a></td>
+          <td class="textLeft">내용입니다.</td>
           <td><span class="statusDot ready">대기</span></td>
-          <td class="isNumber">8,204</td>
+          <td>내용입니다.</td>
           <td>2026.06.18</td>
         </tr>
         <tr>
@@ -124,9 +119,9 @@
             </label>
           </td>
           <td>3</td>
-          <td class="textLeft"><a href="#" class="link">적금 30일 연속 납입 미션</a></td>
+          <td class="textLeft">내용입니다.</td>
           <td><span class="statusDot end">종료</span></td>
-          <td class="isNumber">3,091</td>
+          <td>내용입니다.</td>
           <td>2026.06.20</td>
         </tr>
       </tbody>
@@ -134,8 +129,6 @@
   </div>
 
   <div class="dataGridBottom">
-    <p class="gridSelectedInfo"><strong>1</strong>건 선택</p>
-
     <nav class="pagination" aria-label="페이지 이동">
       <button type="button" class="pageBtn first" aria-label="첫 페이지" disabled></button>
       <button type="button" class="pageBtn prev" aria-label="이전 페이지" disabled></button>
@@ -151,14 +144,6 @@
       <button type="button" class="pageBtn next" aria-label="다음 페이지"></button>
       <button type="button" class="pageBtn last" aria-label="마지막 페이지"></button>
     </nav>
-
-    <div class="gridPageSize">
-      <select class="formControl wSm" aria-label="페이지당 건수">
-        <option value="10">10건씩 보기</option>
-        <option value="20">20건씩 보기</option>
-        <option value="50">50건씩 보기</option>
-      </select>
-    </div>
   </div>
 </div>
 

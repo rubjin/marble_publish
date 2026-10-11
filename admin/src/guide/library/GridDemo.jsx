@@ -144,10 +144,11 @@ function BasicGrid() {
     },
     { accessorKey: 'id', header: 'No.', size: 80, enableSorting: false },
     {
-      accessorKey: 'title',
-      header: '미션명',
+      id: 'content1',
+      header: '내용',
+      enableSorting: false,
       meta: { className: 'textLeft', fluid: true },
-      cell: (info) => <a href="#" className="link" onClick={(e) => e.preventDefault()}>{info.getValue()}</a>
+      cell: () => '내용입니다.'
     },
     {
       accessorKey: 'status',
@@ -156,7 +157,7 @@ function BasicGrid() {
       enableSorting: false,
       cell: (info) => <span className={cx('statusDot', info.getValue().key)}>{info.getValue().label}</span>
     },
-    { accessorKey: 'users', header: '참여자 수', size: 140, meta: { className: 'isNumber' }, cell: (info) => fmt(info.getValue()) },
+    { id: 'content2', header: '숫자', meta: { className: 'isNumber' }, size: 140, enableSorting: false, cell: () => '2,000' },
     { accessorKey: 'date', header: '등록일자', size: 140 }
   ], []);
 
@@ -181,6 +182,14 @@ function BasicGrid() {
         <div className="tblLeft">
           <h3 className="tblTitle">미션 목록</h3>
           <span className="tblCount">총 <strong className="count point">{fmt(data.length)}</strong>건</span>
+          <select
+            className="formControl wSm"
+            aria-label="페이지당 건수"
+            value={pagination.pageSize}
+            onChange={(e) => table.setPageSize(Number(e.target.value))}
+          >
+            {[10, 20, 50].map((n) => <option key={n} value={n}>{n}건씩 보기</option>)}
+          </select>
         </div>
         <div className="tblRight">
           <div className="btnGroup">
@@ -223,18 +232,7 @@ function BasicGrid() {
       </div>
 
       <div className="dataGridBottom">
-        <p className="gridSelectedInfo"><strong>{selectedCount}</strong>건 선택</p>
         <Pagination table={table} />
-        <div className="gridPageSize">
-          <select
-            className="formControl wSm"
-            aria-label="페이지당 건수"
-            value={pagination.pageSize}
-            onChange={(e) => table.setPageSize(Number(e.target.value))}
-          >
-            {[10, 20, 50].map((n) => <option key={n} value={n}>{n}건씩 보기</option>)}
-          </select>
-        </div>
       </div>
 
       <StateView>
@@ -461,7 +459,7 @@ export default function GridDemo() {
   return (
     <>
       <h3 className="libDemoTitle">1. 정렬 + 행 선택 + 페이지네이션</h3>
-      <p className="libHint">헤더(미션명/참여자 수/등록일자)를 클릭하면 정렬, 체크박스로 행 선택, 하단에서 페이지 이동·건수 변경.</p>
+      <p className="libHint">등록일자 헤더를 클릭하면 정렬, 체크박스로 행 선택, 상단 셀렉트로 건수 변경, 하단에서 페이지 이동.</p>
       <BasicGrid />
       <h3 className="libDemoTitle">2. 컬럼 고정 + 리사이즈 + 행 펼침 + 합계</h3>
       <p className="libHint">가로·세로 스크롤 시 지점명/합계 컬럼과 헤더·합계 행이 고정됩니다. 헤더 경계 드래그로 너비 조절(더블클릭 시 초기화).</p>

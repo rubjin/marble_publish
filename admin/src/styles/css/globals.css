@@ -794,7 +794,6 @@ body {
 
 .sectionBox {
   background-color: #FFFFFF;
-  border: 1px solid #F0F0F3;
   border-radius: 12px;
   padding: 24px 28px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -2304,7 +2303,6 @@ select.formControl.wAuto {
    ========================================================================== */
 .searchBox {
   background-color: #FFFFFF;
-  border: 1px solid #F0F0F3;
   border-radius: 12px;
   padding: 24px 28px;
   margin-bottom: 16px;
@@ -3751,6 +3749,7 @@ select.formControl.wAuto {
   top: 0;
   z-index: 2;
   padding: 10px;
+  text-align: center !important;
   background-color: #F5F7F8;
   color: #2F3034;
   box-shadow: inset -1px 0 0 #F0F0F3, inset 0 -1px 0 #F0F0F3;
@@ -3812,16 +3811,9 @@ select.formControl.wAuto {
 .tbl.dataGrid tfoot td:last-child, .tbl.dataGrid tfoot th:last-child {
   box-shadow: inset 0 1px 0 #F0F0F3;
 }
-.tbl.dataGrid .isNumber {
+.tbl.dataGrid td.isNumber {
   text-align: right !important;
   font-variant-numeric: tabular-nums;
-}
-.tbl.dataGrid th.textLeft .sortBtn {
-  justify-content: flex-start;
-}
-.tbl.dataGrid th.textRight .sortBtn,
-.tbl.dataGrid th.isNumber .sortBtn {
-  justify-content: flex-end;
 }
 
 /* --------------------------------------------------------------------------
@@ -4062,20 +4054,6 @@ select.formControl.wAuto {
   min-height: 34px;
   margin-top: 20px;
   gap: 12px;
-}
-.dataGridBottom .gridSelectedInfo {
-  position: absolute;
-  left: 0;
-  font-size: 13px;
-  color: #4F535A;
-}
-.dataGridBottom .gridSelectedInfo strong {
-  color: #287EFF;
-  font-weight: 500;
-}
-.dataGridBottom .gridPageSize {
-  position: absolute;
-  right: 0;
 }
 
 /* --------------------------------------------------------------------------
