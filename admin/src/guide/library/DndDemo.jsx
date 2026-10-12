@@ -53,10 +53,10 @@ function SortableRow({ row, order }) {
 function TableRowDemo() {
   const sensors = useDndSensors();
   const [rows, setRows] = useState([
-    { id: 'c1', name: '건강 챌린지', visible: true },
-    { id: 'c2', name: '금융 챌린지', visible: true },
-    { id: 'c3', name: '생활 챌린지', visible: false },
-    { id: 'c4', name: '학습 챌린지', visible: true }
+    { id: 'c1', name: '리스트1', visible: true },
+    { id: 'c2', name: '리스트2', visible: true },
+    { id: 'c3', name: '리스트3', visible: false },
+    { id: 'c4', name: '리스트4', visible: true }
   ]);
 
   return (
@@ -85,7 +85,7 @@ function TableRowDemo() {
               <tr>
                 <th className="colDrag"><span className="srOnly">순서 변경</span></th>
                 <th>순서</th>
-                <th>카테고리명</th>
+                <th>제목</th>
                 <th>노출 여부</th>
               </tr>
             </thead>
