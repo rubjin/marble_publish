@@ -1041,16 +1041,16 @@ body {
   color: #111827 !important;
 }
 
-.textMuted {
-  color: #4F535A !important;
-}
-
 .textDisabled {
   color: #8D919B !important;
 }
 
 .textWhite {
   color: #FFFFFF !important;
+}
+
+.textMuted {
+  color: #4F535A !important;
 }
 
 .textInfo {

@@ -83,9 +83,6 @@
   color: $text-title !important;
 }
 
-.textMuted {
-  color: $text-secondary !important;
-}
 
 .textDisabled {
   color: $text-tertiary !important;
@@ -93,6 +90,11 @@
 
 .textWhite {
   color: $color-white !important;
+}
+
+//미달성
+.textMuted {
+  color: $text-secondary !important;
 }
 
 //정보
