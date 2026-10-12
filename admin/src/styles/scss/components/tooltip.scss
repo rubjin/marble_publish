@@ -38,6 +38,11 @@
     }
   }
 
+  // 텍스트 트리거 (? 버튼 없이 텍스트에 직접 툴팁)
+  .tooltipText {
+    cursor: pointer;
+  }
+
   // 툴팁 말풍선 본체
   .tooltipContent {
     position: absolute;

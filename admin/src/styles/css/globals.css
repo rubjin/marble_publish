@@ -3581,6 +3581,9 @@ select.formControl.wAuto {
   height: 12px;
   fill: currentColor;
 }
+.tooltipWrap .tooltipText {
+  cursor: pointer;
+}
 .tooltipWrap .tooltipContent {
   position: absolute;
   z-index: 200;
