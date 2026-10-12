@@ -35,16 +35,16 @@ const dndActive = (on) => document.body.classList.toggle('isDndActive', on);
    보드 (영역 간 이동)
    ========================================================================== */
 const COLUMNS = [
-  { id: 'wait', title: '대기' },
-  { id: 'review', title: '검수중' },
-  { id: 'done', title: '완료' }
+  { id: 'wait', title: '스텝1' },
+  { id: 'review', title: '스텝2' },
+  { id: 'done', title: '스텝3' }
 ];
 
 function BoardCard({ card }) {
   return (
     <div className="dndContent">
       <strong className="dndTitle">{card.title}</strong>
-      <span className="dndDesc">담당: {card.owner}</span>
+      <span className="dndDesc">{card.owner}</span>
     </div>
   );
 }
@@ -89,10 +89,10 @@ function BoardDemo() {
   const sensors = useDndSensors();
   const [board, setBoard] = useState({
     wait: [
-      { id: 'k1', title: '추석 맞이 이벤트', owner: '운영팀' },
-      { id: 'k2', title: '신규 가입 웰컴 미션', owner: '기획팀' }
+      { id: 'k1', title: '리스트1', owner: '설명' },
+      { id: 'k2', title: '리스트2', owner: '설명' }
     ],
-    review: [{ id: 'k3', title: '연말 적금 챌린지', owner: '상품팀' }],
+    review: [{ id: 'k3', title: '리스트3', owner: '설명' }],
     done: []
   });
   const [activeId, setActiveId] = useState(null);

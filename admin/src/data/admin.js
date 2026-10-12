@@ -548,10 +548,10 @@ window.adminData = [
     "screenName": "자산성장 트레킹 매수 상세 내역",
     "screenId": "OFR_AM_MM_040P",
     "type": "팝업",
-    "status": "",
-    "worker": "",
+    "status": "완료",
+    "worker": "주진희",
     "link": "pages/MM/OFR_AM_MM_040P.html",
-    "note": ""
+    "note": "261001 기획적용"
   },
   {
     "category": "AM",

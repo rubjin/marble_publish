@@ -2142,7 +2142,7 @@ select.formControl.wAuto {
   font-weight: 300;
 }
 .formGuideText + .formGuideText {
-  margin-top: 4px;
+  margin-top: 2px;
 }
 .formGuideText.blue {
   color: #287EFF;
@@ -3741,6 +3741,28 @@ select.formControl.wAuto {
   min-width: 180px;
   max-width: 300px;
   word-break: keep-all;
+}
+.tooltipWrap .tooltipTitle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+.tooltipWrap .icoNotice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  text-indent: -2px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  color: #2F3034;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .tooltipGroup {

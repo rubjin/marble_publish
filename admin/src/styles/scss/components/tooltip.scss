@@ -196,6 +196,31 @@
     max-width: 300px;
     word-break: keep-all;
   }
+
+  // 툴팁 내부 타이틀 (! 원형 아이콘 + 텍스트)
+  .tooltipTitle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 4px;
+    font-weight: $font-weight-bold;
+  }
+
+  .icoNotice {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    text-indent: -2px;
+    border-radius: 50%;
+    background-color: $color-white;
+    color: $color-gray-800;
+    font-size: 10px;
+    font-weight: $font-weight-bold;
+    line-height: 1;
+  }
 }
 
 // 툴팁 그룹 (라벨과 툴팁 결합 및 다중 툴팁 정렬 래퍼)
