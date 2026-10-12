@@ -191,8 +191,9 @@
   // 다중 라인 (너비 제한 툴팁)
   .tooltipContent.multiLine {
     white-space: normal;
+    width: max-content;
     min-width: 180px;
-    max-width: 260px;
+    max-width: 300px;
     word-break: keep-all;
   }
 }

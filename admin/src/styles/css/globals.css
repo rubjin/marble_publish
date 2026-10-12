@@ -3425,6 +3425,9 @@ select.formControl.wAuto {
 .popupWrap.lg {
   width: 820px;
 }
+.popupWrap.lg .popupBody {
+  min-height: 120px;
+}
 
 .popupWrap.sm {
   width: 320px;
@@ -3474,6 +3477,10 @@ select.formControl.wAuto {
 }
 .popupHeader .btnClose::after {
   transform: rotate(-45deg);
+}
+
+.popupBody {
+  min-height: 80px;
 }
 
 /* 팝업 바디 (컨텐츠) */
@@ -3730,8 +3737,9 @@ select.formControl.wAuto {
 }
 .tooltipWrap .tooltipContent.multiLine {
   white-space: normal;
+  width: max-content;
   min-width: 180px;
-  max-width: 260px;
+  max-width: 300px;
   word-break: keep-all;
 }
 

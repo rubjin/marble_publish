@@ -40,6 +40,10 @@
 /* 팝업 사이즈 변형 */
 .popupWrap.lg {
   width: 820px;
+
+  .popupBody {
+    min-height: 120px;
+  }
 }
 
 .popupWrap.sm {
@@ -95,6 +99,10 @@
       transform: rotate(-45deg);
     }
   }
+}
+
+.popupBody {
+  min-height: 80px;
 }
 
 /* 팝업 바디 (컨텐츠) */

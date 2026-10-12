@@ -535,8 +535,8 @@ window.adminData = [
     "screenName": "자산성장 트레킹 고객 참여 내역",
     "screenId": "OFR_AM_MM_019",
     "type": "페이지",
-    "status": "",
-    "worker": "",
+    "status": "완료",
+    "worker": "주진희",
     "link": "pages/MM/OFR_AM_MM_019.html",
     "note": "261001 기획적용(틀만 잡음-내용정리필요)"
   },
