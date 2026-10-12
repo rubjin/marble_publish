@@ -5,7 +5,7 @@
     <header class="loginHeader">
       <span class="logo">KB증권 Offering System</span>
     </header>
-    
+
     <div class="loginInner">
       <h2 class="loginTitle">로그인</h2>
       <!-- 로그인 폼 -->
@@ -13,12 +13,14 @@
         <!-- 인풋 2개 (사원번호, 비밀번호) -->
         <div class="formGroup">
           <label for="empNo" class="srOnly">사원번호</label>
-          <input type="text" id="empNo" class="loginInput" placeholder="사원번호" autocomplete="username" />
+          <!-- [M] 261012 placeholder 수정 -->
+          <input type="text" id="empNo" class="loginInput" placeholder="사원번호 입력" autocomplete="username" />
         </div>
 
         <div class="formGroup">
           <label for="userPw" class="srOnly">비밀번호</label>
-          <input type="password" id="userPw" class="loginInput" placeholder="비밀번호" autocomplete="current-password" />
+          <!-- [M] 261012 placeholder 수정 -->
+          <input type="password" id="userPw" class="loginInput" placeholder="영문/숫자만 입력" autocomplete="current-password" />
         </div>
 
         <!-- 체크박스 (아이디저장) -->

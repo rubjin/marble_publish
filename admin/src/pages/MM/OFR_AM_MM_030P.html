@@ -1,10 +1,83 @@
-<include src="../../layout/layoutDefault.html" title="스탁뷰 미션 고객 참여 내역">
+<include src="../../layout/layoutDefault.html" title="스탁뷰 미션 종목조회 상세 내역">
 
 <!-- 실제 콘텐츠 영역 -->
 
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-<include src="../../partials/pageHeader.html" title="스탁뷰 미션 고객 참여 내역"></include>
+<include src="../../partials/pageHeader.html" title="스탁뷰 미션 종목조회 상세 내역"></include>
 
 
+<!-- [팝업] -->
+<!-- [D] 퍼블 확인용 .isOpen 상태로 노출 -->
+<div id="popupStockView" class="popupDimmed isOpen">
+  <div class="popupWrap lg">
+    <div class="popupHeader">
+      <h2 class="popupTitle">종목조회 상세 내역</h2>
+      <button type="button" class="btnClose" aria-label="닫기"></button>
+    </div>
+    <div class="popupBody">
+      <!-- 상단 검색 내역 -->
+      <div class="tblWrap">
+        <table class="tbl tblInfo">
+          <colgroup>
+            <col style="width: 100px;">
+            <col>
+            <col style="width: 100px;">
+            <col>
+          </colgroup>
+          <tbody>
+            <tr>
+              <th>조회일자</th>
+              <td>2026.08.25</td>
+              <th>고객명</th>
+              <td>김*민</td>
+            </tr>
+            <tr>
+              <th>고객번호</th>
+              <td>1234567890</td>
+              <th>진행상태</th>
+              <td><span class="textIng">진행중</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tblSection">
+        <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
+        <include src="../../partials/tblTop.html" count="20"></include>
+
+        <!-- 종목조회 내역 테이블 -->
+        <div class="tblWrap">
+          <table class="tbl tblBordered">
+            <colgroup>
+              <col style="width: 100px;">
+              <col style="width: 100px;">
+              <col style="width: auto;">
+              <col style="width: 130px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>조회시간</th>
+                <th>구분</th>
+                <th>종목명</th>
+                <th>티커/종목코드</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>16:15:54</td>
+                <td>국내주식</td>
+                <td class="textLeft">삼성전자</td>
+                <td>005930</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+        </div>
+        <div class="popupFooter">
+          <button type="button" class="btn primary btnClose">확인</button>
+        </div>
+        </div>
+        </div>
 
 </include>

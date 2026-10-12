@@ -1766,10 +1766,6 @@ body {
   opacity: 0.4;
   transition: opacity 0.15s ease, background-color 0.15s ease;
 }
-.mdiTabWrap .mdiTabItem .tabClose .ico {
-  width: 10px;
-  height: 10px;
-}
 .mdiTabWrap .mdiTabItem .tabClose:hover {
   background-color: #E7E9ED;
 }
@@ -3379,7 +3375,7 @@ select.formControl.wAuto {
 
 /* 팝업 사이즈 변형 */
 .popupWrap.lg {
-  width: 600px;
+  width: 800px;
 }
 
 .popupWrap.sm {

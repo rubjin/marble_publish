@@ -187,11 +187,6 @@
       opacity: 0.4;
       transition: opacity 0.15s ease, background-color 0.15s ease;
 
-      .ico {
-        width: 10px;
-        height: 10px;
-      }
-
       &:hover {
         background-color: $color-gray-200;
       }

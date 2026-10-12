@@ -89,7 +89,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/M/MISS_008.html",
-    "note": ""
+    "note": "디자인 없음 기획 케이스 추가"
   },
   {
     "category": "AM",
@@ -102,7 +102,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/M/MISS_009.html",
-    "note": ""
+    "note": "디자인 샘플 적용"
   },
   {
     "category": "AM",
@@ -115,7 +115,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/M/MISS_099.html",
-    "note": ""
+    "note": "디자인 샘플 적용"
   },
   // LI 로그인
   {
@@ -129,7 +129,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/LI/OFR_AM_LI_001.html",
-    "note": ""
+    "note": "260903 기획 적용"
   },
   // HM 홈
   {
@@ -157,7 +157,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/CM/OFR_AM_CM_001.html",
-    "note": ""
+    "note": "260903 기획적용"
   },
  {
     "category": "AM",
@@ -170,7 +170,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/CM/OFR_AM_CM_002.html",
-    "note": ""
+   "note": "260903 기획적용"
   },
   {
     "category": "AM",
@@ -183,7 +183,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/CM/OFR_AM_CM_003.html",
-    "note": ""
+    "note": "260903 기획적용"
   },
   {
     "category": "AM",
@@ -486,7 +486,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/MM/OFR_AM_MM_016.html",
-    "note": ""
+    "note": "261008 기획적용"
   },
   {
     "category": "AM",
@@ -499,7 +499,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/MM/OFR_AM_MM_017.html",
-    "note": ""
+    "note": "261008 기획적용"
   },
   {
     "category": "AM",
