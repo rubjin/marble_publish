@@ -30,7 +30,12 @@
           </tr>
           <tr>
             <th>회차</th>
-            <td>3회차</td>
+            <td>
+              <select class="formControl wSm">
+                <option value="1">1차</option>
+                <option value="2">2차</option>
+              </select>
+            </td>
             <th>신청일시</th>
             <td>2026.07.01 09:12:30</td>
             <th>해지일시</th>
@@ -111,7 +116,7 @@
 <!-- 하얀 박스 영역 -->
 <div class="sectionBox">
   <!-- 테이블 상단 건수 및 액션 바 -->
-  <include src="../../partials/tblTop.html" title="검색 결과" count="128" pageSize></include>
+  <include src="../../partials/tblTop.html" count="128" pageSize></include>
 
   <!-- 데이터 그리드 테이블 -->
   <div class="tblWrap">
@@ -192,7 +197,7 @@
   <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
   <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
  <!-- 테이블 상단 건수 및 액션 바 -->
-  <include src="../../partials/tblTop.html" title="검색 결과" count="0" pageSize></include>
+  <include src="../../partials/tblTop.html" count="0" pageSize></include>
   <div class="tblWrap">
     <table class="tbl tblBordered">
       <colgroup>

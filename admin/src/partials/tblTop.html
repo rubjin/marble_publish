@@ -3,7 +3,7 @@
   <include src="../../partials/tblTop.html" title="검색 결과" count="128" pageSize>
     <button type="button" class="btn primary">신규 등록</button>
   </include>
-  - title    : 테이블 타이틀 (필수)
+  - title    : 테이블 타이틀 - 생략 시 타이틀 미출력 (좌측 여백 없음)
   - count    : 총 건수 - 있으면 "총 N건" 출력
   - point    : 건수 강조색 (값 없이 속성만 작성)
   - unit     : 단위 문구 (예: 단위 : 원) - 있으면 출력
@@ -13,7 +13,9 @@
 -->
 <div class="tblTop">
   <div class="tblLeft">
+    {% if title %}
     <h3 class="tblTitle">{{ title }}</h3>
+    {% endif %}
     {% if count %}
     <span class="tblCount">총 <strong class="count{% if point %} point{% endif %}">{{ count }}</strong>건{% if unit %} <span class="tblUnit">({{ unit }})</span>{% endif %}</span>
     {% elif unit %}

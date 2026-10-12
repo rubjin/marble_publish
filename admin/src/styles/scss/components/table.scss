@@ -275,7 +275,7 @@
       font-weight: $font-weight-medium;
 
       strong {
-        color: $text-title;
+        color: $text-info;
         font-weight: $font-weight-bold;
       }
 
@@ -286,7 +286,7 @@
     }
 
     .infoTotal {
-      color: $text-tertiary;
+      color: $text-primary;
       font-weight: $font-weight-medium;
     }
   }
