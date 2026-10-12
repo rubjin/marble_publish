@@ -38,9 +38,9 @@
     gap: 8px;
   }
 
-  // .formGuideText {
-  //   margin-left: 8px;
-  // }
+  .formGuideText {
+    margin-top: 0px;
+  }
 
   &.full {
     width: 100%;
@@ -392,13 +392,17 @@ select.formControl {
 
 /* Guide Text */
 .formGuideText {
+  margin-top: 8px;
   font-size: 13px;
   color: $text-tertiary;
   font-weight: $font-weight-light;
 
+  + .formGuideText {
+    margin-top: 4px;
+  }
+
   &.blue {
     color: $text-info;
-    margin-top: 8px;
   }
 }
 

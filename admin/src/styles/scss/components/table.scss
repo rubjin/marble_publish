@@ -34,10 +34,14 @@
       margin: 0;
     }
 
-    .tblCount {
+    // 건수 / 부가 문구(조회기준일시 등) 공통 스타일
+    .tblCount,
+    .tblText {
       font-size: 13px;
       color: $text-secondary;
+    }
 
+    .tblCount {
       .count {
         color: $text-title;
         font-weight: $font-weight-medium;

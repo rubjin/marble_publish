@@ -148,3 +148,44 @@
     }
   }
 }
+
+
+.popupBody {
+  padding: 0 24px 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: $color-gray-600;
+  max-height: 60vh;
+  overflow-y: auto;
+
+  // 팝업 상단 조회 조건 영역: 흰 배경 위에서 구분되도록 회색 배경
+  .searchBox {
+    border: 2px solid $border-light;
+    background-color: $bg-light;
+    box-shadow: none;
+    padding: 16px 24px;
+
+    .searchRow {
+      min-height: 32px;
+      padding: 2px 0;
+      gap: 8px 40px;
+    }
+
+    // 라벨 / 값 모두 내용 길이만큼 (고정 너비 없음)
+    .searchItem {
+      flex: 0 1 auto;
+      min-width: 0;
+      gap: 12px 24px;
+    }
+
+    .searchLabel {
+      width: auto;
+    }
+
+    .searchField {
+      flex: 0 1 auto;
+      font-weight: $font-weight-medium;
+      color: $text-title;
+    }
+  }
+}

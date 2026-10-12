@@ -509,10 +509,10 @@ window.adminData = [
     "screenName": "스탁뷰 미션 종목조회 상세 내역",
     "screenId": "OFR_AM_MM_030P",
     "type": "팝업",
-    "status": "",
-    "worker": "",
+    "status": "완료",
+    "worker": "주진희",
     "link": "pages/MM/OFR_AM_MM_030P.html",
-    "note": ""
+    "note": "261008 기획적용"
   },
   {
     "category": "AM",
@@ -522,10 +522,10 @@ window.adminData = [
     "screenName": "자산성장 트레킹 참여 내역",
     "screenId": "OFR_AM_MM_018",
     "type": "페이지",
-    "status": "",
-    "worker": "",
+    "status": "완료",
+    "worker": "주진희",
     "link": "pages/MM/OFR_AM_MM_018.html",
-    "note": ""
+    "note": "261001 기획적용"
   },
   {
     "category": "AM",
@@ -538,7 +538,7 @@ window.adminData = [
     "status": "",
     "worker": "",
     "link": "pages/MM/OFR_AM_MM_019.html",
-    "note": ""
+    "note": "261001 기획적용(틀만 잡음-내용정리필요)"
   },
   {
     "category": "AM",

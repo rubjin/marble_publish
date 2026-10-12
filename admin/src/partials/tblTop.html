@@ -20,6 +20,9 @@
     {% elif unit %}
     <span class="tblUnit">({{ unit }})</span>
     {% endif %}
+    {% if text %}
+    <span class="tblText">{{ text }}</span>
+    {% endif %}
     {% if pageSize %}
     <select class="formControl wSm" aria-label="페이지당 건수">
       <option value="10">10건씩 보기</option>

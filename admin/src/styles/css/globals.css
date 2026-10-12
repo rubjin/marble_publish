@@ -1831,6 +1831,9 @@ body {
   align-items: flex-start;
   gap: 8px;
 }
+.formControlWrap .formGuideText {
+  margin-top: 0px;
+}
 .formControlWrap.full {
   width: 100%;
   flex: 1;
@@ -2132,13 +2135,16 @@ select.formControl.wAuto {
 
 /* Guide Text */
 .formGuideText {
+  margin-top: 8px;
   font-size: 13px;
   color: #8D919B;
   font-weight: 300;
 }
+.formGuideText + .formGuideText {
+  margin-top: 4px;
+}
 .formGuideText.blue {
   color: #287EFF;
-  margin-top: 8px;
 }
 
 /* Form Control Bottom Area (하단 안내문구 + 우측 버튼 등) */
@@ -2425,6 +2431,39 @@ select.formControl.wAuto {
 .searchBox .searchBtnArea .btn {
   min-width: 84px;
   height: 38px;
+}
+
+.popupBody {
+  padding: 0 24px 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4F535A;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.popupBody .searchBox {
+  border: 2px solid #F0F0F3;
+  background-color: #F3F5F6;
+  box-shadow: none;
+  padding: 16px 24px;
+}
+.popupBody .searchBox .searchRow {
+  min-height: 32px;
+  padding: 2px 0;
+  gap: 8px 40px;
+}
+.popupBody .searchBox .searchItem {
+  flex: 0 1 auto;
+  min-width: 0;
+  gap: 12px 24px;
+}
+.popupBody .searchBox .searchLabel {
+  width: auto;
+}
+.popupBody .searchBox .searchField {
+  flex: 0 1 auto;
+  font-weight: 500;
+  color: #111827;
 }
 
 /* ==========================================================================
@@ -3129,7 +3168,8 @@ select.formControl.wAuto {
   color: #111827;
   margin: 0;
 }
-.tblTop .tblLeft .tblCount {
+.tblTop .tblLeft .tblCount,
+.tblTop .tblLeft .tblText {
   font-size: 13px;
   color: #4F535A;
 }
@@ -3429,36 +3469,8 @@ select.formControl.wAuto {
 }
 
 /* 팝업 바디 (컨텐츠) */
-.popupBody {
-  padding: 24px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #4F535A;
-  max-height: 60vh;
-  overflow-y: auto;
-}
-.popupBody .searchBox {
-  background-color: #F3F5F6;
-  box-shadow: none;
-  padding: 16px 24px;
-}
-.popupBody .searchBox .searchRow {
-  min-height: 32px;
-  padding: 2px 0;
-  gap: 8px 40px;
-}
-.popupBody .searchBox .searchItem {
-  flex: 0 1 auto;
-  min-width: 0;
-  gap: 12px 24px;
-}
-.popupBody .searchBox .searchLabel {
-  width: auto;
-}
-.popupBody .searchBox .searchField {
-  flex: 0 1 auto;
-  font-weight: 500;
-  color: #111827;
+:has(.popupFooter) .popupBody {
+  padding: 0 24px;
 }
 
 /* 팝업 푸터 (버튼 영역) */
