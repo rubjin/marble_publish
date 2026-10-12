@@ -101,11 +101,11 @@
           font-weight: $font-weight-medium;
 
           &.isUp {
-            color: $text-danger;
+            color: $text-up;
           }
 
           &.isDown {
-            color: $text-info;
+            color: $text-down;
           }
         }
       }
@@ -324,12 +324,12 @@
         line-height: 1.2;
 
         &.isUp {
-          color: $text-danger;
+          color: $text-up;
           background-color: $bg-danger-light;
         }
 
         &.isDown {
-          color: $text-info;
+          color: $text-down;
           background-color: $bg-info-light;
         }
       }
@@ -359,7 +359,7 @@
     }
   }
 
-  // 1줄 인라인 바 형태 
+  // 1줄 인라인 바 형태
   &.singleLine {
     display: flex;
     align-items: center;

@@ -271,13 +271,8 @@
       display: inline-flex;
       align-items: baseline;
       gap: 4px;
-      color: $text-secondary;
+      color: $text-primary;
       font-weight: $font-weight-medium;
-
-      strong {
-        color: $text-info;
-        font-weight: $font-weight-bold;
-      }
 
       & + .infoStat {
         // padding-left: 12px;

@@ -95,22 +95,27 @@
   color: $color-white !important;
 }
 
+//정보
 .textInfo {
   color: $text-info !important;
 }
 
+//성공
 .textSuccess {
-  color: $text-info !important;
-}
-
-.textIng {
   color: $text-success !important;
 }
 
+//진행중, 운영중
+.textIng {
+  color: $text-ing !important;
+}
+
+//경고, 예정
 .textWarning {
   color: $text-warning !important;
 }
 
+//오류, 종료
 .textDanger {
   color: $text-danger !important;
 }

@@ -50,7 +50,7 @@
 
     //운영중
     &::before {
-      background-color: $text-success; // 
+      background-color: $text-ing; //
     }
   }
 
@@ -66,7 +66,7 @@
 
     //종료
     &::before {
-      background-color: $text-danger; // 
+      background-color: $text-danger; //
     }
   }
 }

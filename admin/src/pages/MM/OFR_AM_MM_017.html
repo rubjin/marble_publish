@@ -45,15 +45,15 @@
             <th>누적 횟수/포인트</th>
             <td>
               <div class="infoStats">
-                <span class="infoStat">완료 <strong>50</strong>회</span>/
-                <span class="infoStat">미완료 <strong>5</strong>회</span>/
-                <span class="infoStat"><strong>2,500</strong>P</span>
+                <span class="infoStat">완료 <span>50</span>회</span>/
+                <span class="infoStat">미완료 <span>5</span>회</span>/
+                <span class="infoStat"><span>2,500</span>P</span>
               </div>
             </td>
             <th>20일 누적미션 현황</th>
-            <td><strong class="textInfo">17</strong><span class="infoTotal"> / 20일</span></td>
+            <td><span>17</span><span class="infoTotal"> / 20일</span></td>
             <th>참여상태</th>
-            <td><span class="textInfo">참여</span></td>
+            <td>참여</td>
           </tr>
         </tbody>
       </table>
@@ -154,7 +154,7 @@
           <td class="textLeft">-</td>
           <td>17/20일</td>
           <td class="textRight">100P</td>
-          <td><span class="textSuccess">지급완료</span></td>
+          <td><span class="textIng">지급중</span></td>
           <td>2026.07.22 10:00:00</td>
         </tr>
         <tr>
@@ -164,7 +164,12 @@
           <td class="textLeft">조회종목 수 미달성</td>
           <td>16/20일</td>
           <td class="textRight">-</td>
-          <td><span class="textDanger">지급오류</span></td>
+          <td>
+            <div class="tooltipWrap top">
+              <span class="textDanger" tabindex="0">지급오류</span>
+              <div class="tooltipContent">마케팅 미동의</div>
+            </div>
+          </td>
           <td>-</td>
         </tr>
         <tr>
@@ -184,7 +189,12 @@
           <td class="textLeft">보상 미수령</td>
           <td>15/20일</td>
           <td class="textRight">-</td>
-          <td><span class="textDanger">지급오류</span></td>
+          <td>
+            <div class="tooltipWrap top">
+              <span class="textDanger" tabindex="0">지급오류</span>
+              <div class="tooltipContent">마케팅 미동의</div>
+            </div>
+          </td>
           <td>-</td>
         </tr>
       </tbody>

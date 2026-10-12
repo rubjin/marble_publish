@@ -3313,12 +3313,8 @@ select.formControl.wAuto {
   display: inline-flex;
   align-items: baseline;
   gap: 4px;
-  color: #4F535A;
+  color: #2F3034;
   font-weight: 500;
-}
-.tbl.tblInfo .infoStat strong {
-  color: #287EFF;
-  font-weight: 700;
 }
 .tbl.tblInfo .infoTotal {
   color: #2F3034;
