@@ -9,6 +9,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.11",
     "link": "guide/convention.html",
     "note": "폴더 구조 및 코딩 컨벤션 안내"
   },
@@ -20,8 +21,9 @@ window.adminData = [
     "screenName": "",
     "screenId": "guide",
     "type": "페이지",
-    "status": "진행중",
+    "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "guide/guide.html",
     "note": "버튼, 뱃지, 탭 등 UI 요소 모음"
   },
@@ -33,8 +35,9 @@ window.adminData = [
     "screenName": "",
     "screenId": "library",
     "type": "페이지",
-    "status": "진행중",
-    "worker": "",
+    "status": "완료",
+    "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "guide/library.html",
     "note": "그리드·달력·차트·드래그앤드롭·파일첨부 실제 동작"
   },
@@ -48,6 +51,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "layout/layoutDefault.html",
     "note": "업무 화면 기본 레이아웃 (head + aside + header + 콘텐츠)"
   },
@@ -61,6 +65,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "layout/layoutLogin.html",
     "note": "로그인 화면 레이아웃 (헤더 / 사이드바 없음)"
   },
@@ -74,6 +79,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "layout/layoutError.html",
     "note": "404, 500, 서비스 점검 화면 레이아웃 (헤더 / 사이드바 없음)"
   },
@@ -88,35 +94,36 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/M/MISS_008.html",
-    "note": "디자인 없음 기획 케이스 추가"
+    "note": "기획 케이스 추가"
   },
-  {
-    "category": "AM",
-    "depth1": "샘플 페이지",
-    "depth2": "",
-    "depth3": "",
-    "screenName": "",
-    "screenId": "MISS_009",
-    "type": "페이지",
-    "status": "완료",
-    "worker": "주진희",
-    "link": "pages/M/MISS_009.html",
-    "note": "디자인 샘플 적용"
-  },
-  {
-    "category": "AM",
-    "depth1": "샘플 페이지",
-    "depth2": "",
-    "depth3": "",
-    "screenName": "",
-    "screenId": "MISS_099",
-    "type": "페이지",
-    "status": "완료",
-    "worker": "주진희",
-    "link": "pages/M/MISS_099.html",
-    "note": "디자인 샘플 적용"
-  },
+  // {
+  //   "category": "AM",
+  //   "depth1": "샘플 페이지",
+  //   "depth2": "",
+  //   "depth3": "",
+  //   "screenName": "",
+  //   "screenId": "MISS_009",
+  //   "type": "페이지",
+  //   "status": "완료",
+  //   "worker": "주진희",
+  //   "link": "pages/M/MISS_009.html",
+  //   "note": "디자인 샘플 적용"
+  // },
+  // {
+  //   "category": "AM",
+  //   "depth1": "샘플 페이지",
+  //   "depth2": "",
+  //   "depth3": "",
+  //   "screenName": "",
+  //   "screenId": "MISS_099",
+  //   "type": "페이지",
+  //   "status": "완료",
+  //   "worker": "주진희",
+  //   "link": "pages/M/MISS_099.html",
+  //   "note": "디자인 샘플 적용"
+  // },
   // LI 로그인
   {
     "category": "AM",
@@ -128,6 +135,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/LI/OFR_AM_LI_001.html",
     "note": "261007 기획 적용"
   },
@@ -142,59 +150,64 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "2026.10.12",
     "link": "pages/HM/OFR_AM_HM_001.html",
     "note": ""
   },
   // CM 공통
   {
     "category": "AM",
-    "depth1": "오류메시지_404",
-    "depth2": "",
+    "depth1": "공통",
+    "depth2": "오류메시지_404",
     "depth3": "",
     "screenName": "오류메시지_404",
     "screenId": "OFR_AM_CM_001",
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/CM/OFR_AM_CM_001.html",
     "note": "261007 기획적용"
   },
  {
     "category": "AM",
-    "depth1": "오류메시지_500",
-    "depth2": "",
+    "depth1": "공통",
+    "depth2": "오류메시지_500",
     "depth3": "",
    "screenName": "오류메시지_500",
     "screenId": "OFR_AM_CM_002",
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/CM/OFR_AM_CM_002.html",
    "note": "261007 기획적용"
   },
   {
     "category": "AM",
-    "depth1": "서비스 점검",
-    "depth2": "",
+    "depth1": "공통",
+    "depth2": "서비스 점검",
     "depth3": "",
     "screenName": "서비스 점검",
     "screenId": "OFR_AM_CM_003",
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/CM/OFR_AM_CM_003.html",
     "note": "261007 기획적용"
   },
   {
     "category": "AM",
-    "depth1": "다운로드사유(P)",
-    "depth2": "",
+    "depth1": "공통",
+    "depth2": "다운로드사유(P)",
     "depth3": "",
     "screenName": "다운로드사유",
     "screenId": "OFR_AM_CM_004P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/CM/OFR_AM_CM_004P.html",
     "note": ""
   },
@@ -210,6 +223,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/CS/OFR_AM_CS_001.html",
     "note": ""
   },
@@ -223,6 +237,7 @@ window.adminData = [
     "type": "탭",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/CS/OFR_AM_CS_002T.html",
     "note": ""
   },
@@ -236,6 +251,7 @@ window.adminData = [
     "type": "탭",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/CS/OFR_AM_CS_003T.html",
     "note": ""
   },
@@ -249,6 +265,7 @@ window.adminData = [
     "type": "탭",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/CS/OFR_AM_CS_004T.html",
     "note": ""
   },
@@ -262,6 +279,7 @@ window.adminData = [
     "type": "탭",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/CS/OFR_AM_CS_005T.html",
     "note": ""
   },
@@ -273,8 +291,9 @@ window.adminData = [
     "screenName": "알림문구",
     "screenId": "OFR_AM_CS_006P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/CS/OFR_AM_CS_006P.html",
     "note": ""
   },
@@ -290,6 +309,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_001.html",
     "note": ""
   },
@@ -303,6 +323,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_002.html",
     "note": ""
   },
@@ -316,6 +337,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_003.html",
     "note": ""
   },
@@ -329,6 +351,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_004.html",
     "note": ""
   },
@@ -342,6 +365,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_005.html",
     "note": ""
   },
@@ -355,6 +379,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_006.html",
     "note": ""
   },
@@ -368,6 +393,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_007.html",
     "note": ""
   },
@@ -381,6 +407,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_008.html",
     "note": ""
   },
@@ -394,6 +421,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_009.html",
     "note": ""
   },
@@ -407,6 +435,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_010.html",
     "note": ""
   },
@@ -418,8 +447,9 @@ window.adminData = [
     "screenName": "관련 콘텐츠 조회",
     "screenId": "OFR_AM_MM_011P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_011P.html",
     "note": ""
   },
@@ -431,8 +461,9 @@ window.adminData = [
     "screenName": "주식 쭈꾸미 미션 참여 내역",
     "screenId": "OFR_AM_MM_012",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_012.html",
     "note": ""
   },
@@ -444,8 +475,9 @@ window.adminData = [
     "screenName": "주식 쭈꾸미 미션 고객 참여 내역",
     "screenId": "OFR_AM_MM_013",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_013.html",
     "note": ""
   },
@@ -457,8 +489,9 @@ window.adminData = [
     "screenName": "오늘의 콕 미션 참여 내역",
     "screenId": "OFR_AM_MM_014",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_014.html",
     "note": ""
   },
@@ -470,8 +503,9 @@ window.adminData = [
     "screenName": "오늘의 콕 미션 고객 참여 내역",
     "screenId": "OFR_AM_MM_015",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_015.html",
     "note": ""
   },
@@ -485,6 +519,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_016.html",
     "note": "261008 기획적용"
   },
@@ -498,6 +533,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_017.html",
     "note": "261008 기획적용"
   },
@@ -511,6 +547,7 @@ window.adminData = [
     "type": "팝업",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_030P.html",
     "note": "261008 기획적용"
   },
@@ -524,6 +561,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_018.html",
     "note": "261001 기획적용"
   },
@@ -537,6 +575,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_019.html",
     "note": "261001 기획적용(틀만 잡음-내용정리필요)"
   },
@@ -550,6 +589,7 @@ window.adminData = [
     "type": "팝업",
     "status": "완료",
     "worker": "주진희",
+    "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_040P.html",
     "note": "261001 기획적용"
   },
@@ -561,8 +601,9 @@ window.adminData = [
     "screenName": "CMA 행운룰렛 미션 참여 내역",
     "screenId": "OFR_AM_MM_020",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_020.html",
     "note": ""
   },
@@ -574,8 +615,9 @@ window.adminData = [
     "screenName": "CMA 행운룰렛 미션 고객 참여 내역 매일미션",
     "screenId": "OFR_AM_MM_021T",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_021T.html",
     "note": ""
   },
@@ -587,8 +629,9 @@ window.adminData = [
     "screenName": "CMA 행운룰렛 미션 매일미션 상세실적",
     "screenId": "OFR_AM_MM_050P",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_050P.html",
     "note": ""
   },
@@ -600,8 +643,9 @@ window.adminData = [
     "screenName": "CMA 행운룰렛 미션 고객 참여 내역 매월미션",
     "screenId": "OFR_AM_MM_051T",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_051T.html",
     "note": ""
   },
@@ -613,8 +657,9 @@ window.adminData = [
     "screenName": "CMA 행운룰렛 미션 매월미션 당첨내역",
     "screenId": "OFR_AM_MM_052P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_052P.html",
     "note": ""
   },
@@ -626,8 +671,9 @@ window.adminData = [
     "screenName": "연금습관성장하기 참여 내역",
     "screenId": "OFR_AM_MM_022",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_022.html",
     "note": ""
   },
@@ -639,8 +685,9 @@ window.adminData = [
     "screenName": "연금습관성장하기 고객 참여 내역",
     "screenId": "OFR_AM_MM_023",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/MM/OFR_AM_MM_023.html",
     "note": ""
   },
@@ -650,12 +697,13 @@ window.adminData = [
     "depth2": "알림내역",
     "depth3": "",
     "screenName": "",
-    "screenId": "",
+    "screenId": "OFR_AM_MM_024",
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "",
-    "note": ""
+    "updated": "",
+    "link": "pages/MM/OFR_AM_MM_024.html",
+    "note": "임시 화면아이디"
   },
   {
     "category": "AM",
@@ -663,12 +711,27 @@ window.adminData = [
     "depth2": "미션등록",
     "depth3": "",
     "screenName": "",
-    "screenId": "",
+    "screenId": "OFR_AM_MM_025",
     "type": "페이지",
-    "status": "",
-    "worker": "",
-    "link": "",
-    "note": ""
+    "status": "완료",
+    "worker": "주진희",
+    "updated": "2026.10.12",
+    "link": "pages/MM/OFR_AM_MM_025.html",
+    "note": "임시 화면아이디"
+  },
+  {
+    "category": "AM",
+    "depth1": "미션관리",
+    "depth2": "미션등록",
+    "depth3": "",
+    "screenName": "",
+    "screenId": "OFR_AM_MM_025_2",
+    "type": "페이지",
+    "status": "완료",
+    "worker": "주진희",
+    "updated": "2026.10.12",
+    "link": "pages/MM/OFR_AM_MM_025_2.html",
+    "note": "임시 화면아이디"
   },
   {
     "category": "AM",
@@ -676,12 +739,13 @@ window.adminData = [
     "depth2": "미션참여내역",
     "depth3": "",
     "screenName": "",
-    "screenId": "",
+    "screenId": "OFR_AM_MM_026",
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "",
-    "note": ""
+    "updated": "",
+    "link": "pages/MM/OFR_AM_MM_026.html",
+    "note": "임시 화면아이디"
   },
   // RM 리워드관리
   {
@@ -694,6 +758,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_001T.html",
     "note": ""
   },
@@ -707,6 +772,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_002T.html",
     "note": ""
   },
@@ -718,8 +784,9 @@ window.adminData = [
     "screenName": "리워드 지급오류 조회",
     "screenId": "OFR_AM_RM_003P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_003P.html",
     "note": ""
   },
@@ -731,8 +798,9 @@ window.adminData = [
     "screenName": "리워드 지급상세 조회",
     "screenId": "OFR_AM_RM_004P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_004P.html",
     "note": ""
   },
@@ -746,6 +814,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_005.html",
     "note": ""
   },
@@ -757,8 +826,9 @@ window.adminData = [
     "screenName": "리워드 한도설정",
     "screenId": "OFR_AM_RM_006P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_006P.html",
     "note": ""
   },
@@ -772,6 +842,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_007T.html",
     "note": ""
   },
@@ -785,6 +856,7 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_008T.html",
     "note": ""
   },
@@ -796,8 +868,9 @@ window.adminData = [
     "screenName": "이상대상 지금검토(P)",
     "screenId": "OFR_AM_RM_009P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_009P.html",
     "note": ""
   },
@@ -809,8 +882,9 @@ window.adminData = [
     "screenName": "이상치 플래그 설정(P)",
     "screenId": "OFR_AM_RM_0010P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
+    "updated": "",
     "link": "pages/RM/OFR_AM_RM_0010P.html",
     "note": ""
   },
@@ -826,7 +900,8 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "pages/RM/OFR_AM_BM_001.html",
+    "updated": "",
+    "link": "pages/BM/OFR_AM_BM_001.html",
     "note": ""
   },
   {
@@ -837,9 +912,10 @@ window.adminData = [
     "screenName": "결제승인",
     "screenId": "OFR_AM_BM_002P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_BM_002P.html",
+    "updated": "",
+    "link": "pages/BM/OFR_AM_BM_002P.html",
     "note": ""
   },
   {
@@ -852,7 +928,8 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "pages/RM/OFR_AM_BM_003.html",
+    "updated": "",
+    "link": "pages/BM/OFR_AM_BM_003.html",
     "note": ""
   },
   {
@@ -865,7 +942,8 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "pages/RM/OFR_AM_BM_004.html",
+    "updated": "",
+    "link": "pages/BM/OFR_AM_BM_004.html",
     "note": ""
   },
   {
@@ -876,9 +954,10 @@ window.adminData = [
     "screenName": "공지사항 등록/수정",
     "screenId": "OFR_AM_BM_005P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_BM_005P.html",
+    "updated": "",
+    "link": "pages/BM/OFR_AM_BM_005P.html",
     "note": ""
   },
   {
@@ -889,9 +968,10 @@ window.adminData = [
     "screenName": "공지사항상세",
     "screenId": "OFR_AM_BM_006P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_BM_006P.html",
+    "updated": "",
+    "link": "pages/BM/OFR_AM_BM_006P.html",
     "note": ""
   },
   // SM 시스템관리
@@ -905,7 +985,8 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_001.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_001.html",
     "note": ""
   },
   {
@@ -918,7 +999,8 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_002.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_002.html",
     "note": ""
   },
   {
@@ -929,9 +1011,10 @@ window.adminData = [
     "screenName": "사용자그룹등록/수정",
     "screenId": "OFR_AM_SM_003P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_003P.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_003P.html",
     "note": ""
   },
   {
@@ -942,9 +1025,10 @@ window.adminData = [
     "screenName": "사용자추가",
     "screenId": "OFR_AM_SM_004P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_004P.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_004P.html",
     "note": ""
   },
   {
@@ -955,9 +1039,10 @@ window.adminData = [
     "screenName": "조직검색",
     "screenId": "OFR_AM_SM_005P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_005P.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_005P.html",
     "note": ""
   },
   {
@@ -968,9 +1053,10 @@ window.adminData = [
     "screenName": "직원검색",
     "screenId": "OFR_AM_SM_006P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_006P.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_006P.html",
     "note": ""
   },
   {
@@ -983,7 +1069,8 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_007.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_007.html",
     "note": ""
   },
   {
@@ -994,9 +1081,10 @@ window.adminData = [
     "screenName": "공통코드등록/수정",
     "screenId": "OFR_AM_SM_008P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_008P.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_008P.html",
     "note": ""
   },
   {
@@ -1007,9 +1095,10 @@ window.adminData = [
     "screenName": "상세코드등록/수정",
     "screenId": "OFR_AM_SM_009P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_009P.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_009P.html",
     "note": ""
   },
   {
@@ -1022,7 +1111,8 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_010.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_010.html",
     "note": ""
   },
   {
@@ -1035,7 +1125,8 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_011.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_011.html",
     "note": ""
   },
   {
@@ -1046,9 +1137,10 @@ window.adminData = [
     "screenName": "변경이력 상세",
     "screenId": "OFR_AM_SM_012P",
     "type": "팝업",
-    "status": "",
+    "status": "진행중",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_012P.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_012P.html",
     "note": ""
   },
   {
@@ -1061,7 +1153,8 @@ window.adminData = [
     "type": "페이지",
     "status": "",
     "worker": "",
-    "link": "pages/RM/OFR_AM_SM_012.html",
+    "updated": "",
+    "link": "pages/SM/OFR_AM_SM_012.html",
     "note": ""
   },
 

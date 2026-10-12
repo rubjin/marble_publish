@@ -170,6 +170,7 @@
       <col style="width: 80px">
       <col style="width: 80px">
       <col style="width: 80px">
+      <col style="width: 100px">
       <col style="width: auto">
     </colgroup>
     <thead>
@@ -182,6 +183,7 @@
         <th class="center">화면종류</th>
         <th class="center">상태</th>
         <th class="center">작업자</th>
+        <th class="center">최종수정일</th>
         <th>비고</th>
       </tr>
     </thead>
@@ -273,7 +275,7 @@
         countNum.textContent = filtered.length;
 
         if (filtered.length === 0) {
-          tableBody.innerHTML = `<tr class="empty-row"><td colspan="9">조건에 맞는 화면이 없습니다.</td></tr>`;
+          tableBody.innerHTML = `<tr class="empty-row"><td colspan="10">조건에 맞는 화면이 없습니다.</td></tr>`;
           return;
         }
 
@@ -382,6 +384,7 @@
           const sClass = statusClassMap[row.status] || 'wait';
           const statusHtml = `<span class="status ${sClass}">${row.status || '대기'}</span>`;
           const workerHtml = row.worker ? `<span>${row.worker}</span>` : `<span class="text-empty">-</span>`;
+          const updatedHtml = row.updated ? `<span>${row.updated}</span>` : `<span class="text-empty">-</span>`;
           const noteHtml = row.note ? `<span>${row.note}</span>` : '';
 
           return `
@@ -394,6 +397,7 @@
               <td class="center">${typeHtml}</td>
               <td class="center">${statusHtml}</td>
               <td class="center">${workerHtml}</td>
+              <td class="center">${updatedHtml}</td>
               <td>${noteHtml}</td>
             </tr>
           `;

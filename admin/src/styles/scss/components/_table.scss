@@ -191,7 +191,7 @@
   // 테두리
   &.tblBordered {
     border: 1px solid $tbl-cell-border;
-
+    background-color: #fff;
     > thead > tr > th,
     > tbody > tr > td {
       border: 1px solid $tbl-cell-border;
