@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import {
   DndContext,
-  DragOverlay,
   PointerSensor,
   KeyboardSensor,
-  closestCorners,
+  closestCenter,
   useSensor,
-  useSensors,
-  useDroppable
+  useSensors
 } from '@dnd-kit/core';
 import {
   SortableContext,
@@ -32,131 +30,74 @@ const dndActive = (on) => document.body.classList.toggle('isDndActive', on);
 
 
 /* ==========================================================================
-   보드 (영역 간 이동)
+   테이블 행 순서 변경 (행 자체가 이동 - 이동 중인 행 .isOverlay)
    ========================================================================== */
-const COLUMNS = [
-  { id: 'wait', title: '스텝1' },
-  { id: 'review', title: '스텝2' },
-  { id: 'done', title: '스텝3' }
-];
-
-function BoardCard({ card }) {
+function SortableRow({ row, order }) {
+  const { setNodeRef, setActivatorNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id: row.id });
   return (
-    <div className="dndContent">
-      <strong className="dndTitle">{card.title}</strong>
-      <span className="dndDesc">{card.owner}</span>
-    </div>
-  );
-}
-
-function SortableCard({ card }) {
-  const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ id: card.id });
-  return (
-    <li
+    <tr
       ref={setNodeRef}
-      style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={cx('dndItem isHandle', { isDragging })}
-      {...attributes}
-      {...listeners}
+      style={{ transform: CSS.Translate.toString(transform), transition, position: 'relative', zIndex: isDragging ? 1 : undefined }}
+      className={cx({ isOverlay: isDragging })}
     >
-      <BoardCard card={card} />
-    </li>
+      <td className="colDrag">
+        <button type="button" className="dndHandle" aria-label="순서 변경" ref={setActivatorNodeRef} {...attributes} {...listeners} />
+      </td>
+      <td>{order}</td>
+      <td className="textLeft">{row.name}</td>
+      <td>{row.visible ? '노출' : '미노출'}</td>
+    </tr>
   );
 }
 
-function BoardColumn({ column, cards, isOver }) {
-  const { setNodeRef } = useDroppable({ id: column.id });
-  return (
-    <section ref={setNodeRef} className={cx('dndColumn', { isOver })}>
-      <div className="dndColumnHeader">
-        <h4 className="dndColumnTitle">{column.title}</h4>
-        <span className="dndCount">{cards.length}</span>
-      </div>
-      <SortableContext items={cards} strategy={verticalListSortingStrategy}>
-        {cards.length === 0 ? (
-          <div className="dndDropzone">여기로 끌어다 놓으세요</div>
-        ) : (
-          <ul className="dndList">
-            {cards.map((c) => <SortableCard key={c.id} card={c} />)}
-          </ul>
-        )}
-      </SortableContext>
-    </section>
-  );
-}
-
-function BoardDemo() {
+function TableRowDemo() {
   const sensors = useDndSensors();
-  const [board, setBoard] = useState({
-    wait: [
-      { id: 'k1', title: '리스트1', owner: '설명' },
-      { id: 'k2', title: '리스트2', owner: '설명' }
-    ],
-    review: [{ id: 'k3', title: '리스트3', owner: '설명' }],
-    done: []
-  });
-  const [activeId, setActiveId] = useState(null);
-  const [overColumn, setOverColumn] = useState(null);
-
-  const findColumn = (id) => (board[id] ? id : Object.keys(board).find((col) => board[col].some((c) => c.id === id)));
-  const activeCard = activeId ? board[findColumn(activeId)].find((c) => c.id === activeId) : null;
-  const sourceColumn = activeId ? findColumn(activeId) : null;
-
-  // 다른 컬럼 위로 올라가면 즉시 해당 컬럼으로 옮김 (자리 미리보기)
-  const handleDragOver = ({ active, over }) => {
-    const to = over ? findColumn(over.id) : null;
-    setOverColumn(to);
-    const from = findColumn(active.id);
-    if (!to || !from || from === to) return;
-    setBoard((prev) => {
-      const card = prev[from].find((c) => c.id === active.id);
-      const overIndex = prev[to].findIndex((c) => c.id === over.id);
-      const insertAt = overIndex >= 0 ? overIndex : prev[to].length;
-      const next = [...prev[to]];
-      next.splice(insertAt, 0, card);
-      return { ...prev, [from]: prev[from].filter((c) => c.id !== active.id), [to]: next };
-    });
-  };
-
-  const handleDragEnd = ({ active, over }) => {
-    setActiveId(null);
-    setOverColumn(null);
-    dndActive(false);
-    if (!over) return;
-    const col = findColumn(active.id);
-    if (col !== findColumn(over.id)) return;
-    const list = board[col];
-    const from = list.findIndex((c) => c.id === active.id);
-    const to = list.findIndex((c) => c.id === over.id);
-    if (to >= 0 && from !== to) setBoard((prev) => ({ ...prev, [col]: arrayMove(prev[col], from, to) }));
-  };
+  const [rows, setRows] = useState([
+    { id: 'c1', name: '건강 챌린지', visible: true },
+    { id: 'c2', name: '금융 챌린지', visible: true },
+    { id: 'c3', name: '생활 챌린지', visible: false },
+    { id: 'c4', name: '학습 챌린지', visible: true }
+  ]);
 
   return (
     <>
       <DndContext
         sensors={sensors}
-        collisionDetection={closestCorners}
-        onDragStart={({ active }) => { setActiveId(active.id); dndActive(true); }}
-        onDragOver={handleDragOver}
-        onDragEnd={handleDragEnd}
-        onDragCancel={() => { setActiveId(null); setOverColumn(null); dndActive(false); }}
+        collisionDetection={closestCenter}
+        onDragStart={() => dndActive(true)}
+        onDragCancel={() => dndActive(false)}
+        onDragEnd={({ active, over }) => {
+          dndActive(false);
+          if (over && active.id !== over.id) {
+            setRows((list) => arrayMove(list, list.findIndex((r) => r.id === active.id), list.findIndex((r) => r.id === over.id)));
+          }
+        }}
       >
-        <div className="dndBoard">
-          {COLUMNS.map((col) => (
-            <BoardColumn
-              key={col.id}
-              column={col}
-              cards={board[col.id]}
-              // 원래 있던 컬럼이 아닌 곳 위에 있을 때만 드롭 영역 강조
-              isOver={!!activeId && overColumn === col.id && overColumn !== sourceColumn}
-            />
-          ))}
+        <div className="tblWrap">
+          <table className="tbl">
+            <colgroup>
+              <col className="colDrag" />
+              <col style={{ width: 80 }} />
+              <col />
+              <col style={{ width: 140 }} />
+            </colgroup>
+            <thead>
+              <tr>
+                <th className="colDrag"><span className="srOnly">순서 변경</span></th>
+                <th>순서</th>
+                <th>카테고리명</th>
+                <th>노출 여부</th>
+              </tr>
+            </thead>
+            <tbody>
+              <SortableContext items={rows} strategy={verticalListSortingStrategy}>
+                {rows.map((r, i) => <SortableRow key={r.id} row={r} order={i + 1} />)}
+              </SortableContext>
+            </tbody>
+          </table>
         </div>
-        <DragOverlay>
-          {activeCard && <div className="dndItem isHandle isOverlay"><BoardCard card={activeCard} /></div>}
-        </DragOverlay>
       </DndContext>
-      <StateView>{COLUMNS.map((c) => `${c.title}: ${board[c.id].map((k) => k.title).join(', ') || '-'}`).join('\n')}</StateView>
+      <StateView>order: {rows.map((r) => r.name).join(' → ')}</StateView>
     </>
   );
 }
@@ -164,9 +105,9 @@ function BoardDemo() {
 export default function DndDemo() {
   return (
     <>
-      <p className="libHint">카드를 끌어서 다른 영역으로 옮기거나 같은 영역 안에서 순서를 바꿉니다. 키보드: 카드에 포커스 후 Space로 잡고 방향키로 이동, Space로 놓기.</p>
-      <h3 className="libDemoTitle">보드 (영역 간 이동)</h3>
-      <BoardDemo />
+      <p className="libHint">핸들(⠿)을 잡고 끌어서 행 순서를 바꿉니다. 키보드: 핸들에 포커스 후 Space로 잡고 방향키로 이동, Space로 놓기.</p>
+      <h3 className="libDemoTitle">테이블 행 순서 변경</h3>
+      <TableRowDemo />
     </>
   );
 }

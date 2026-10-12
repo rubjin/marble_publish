@@ -4977,8 +4977,7 @@ select.formControl.wAuto {
 
    [D] 상태 클래스
      .isDragging  : 드래그 중인 원본 아이템 (자리 표시용으로 흐리게)
-     .isOverlay   : 커서를 따라다니는 드래그 미리보기 (DragOverlay)
-     .isOver      : 드롭 가능 영역 위에 올라온 상태
+     .isOverlay   : 이동 중인 아이템 / 드래그 미리보기 (DragOverlay)
      body.isDndActive : 드래그 진행 중 (전역 커서/텍스트 선택 제어)
    ========================================================================== */
 body.isDndActive {
@@ -4990,77 +4989,61 @@ body.isDndActive * {
 }
 
 /* --------------------------------------------------------------------------
-   드래그 아이템 (.dndList > .dndItem) - 보드 카드 등
+   드래그 핸들 (기존 아이콘 i_drag_30.svg 사용)
    -------------------------------------------------------------------------- */
-.dndList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin: 0;
+.dndHandle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   padding: 0;
-  list-style: none;
+  border: none;
+  border-radius: 4px;
+  background: transparent url("/src/assets/images/icon/i_drag_30.svg") no-repeat center/30px;
+  cursor: grab;
+  flex-shrink: 0;
+  touch-action: none;
+  transition: background-color 0.15s;
+}
+.dndHandle:hover {
+  background-color: #F0F0F3;
+}
+.dndHandle:active {
+  cursor: grabbing;
+}
+.dndHandle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
+}
+.dndHandle:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background-color: transparent;
 }
 
-.dndItem {
+/* --------------------------------------------------------------------------
+   테이블 행 순서 변경 (.tbl 내부)
+   [D] 이동 중인 행: tr.isOverlay (행 자체가 transform 으로 이동, DragOverlay 미사용)
+       tr.isDragging : 원본 자리를 따로 남기는 라이브러리(인디케이터 방식)용
+   -------------------------------------------------------------------------- */
+.tbl .colDrag {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 52px;
-  padding: 10px 16px 10px 10px;
-  background-color: #FFFFFF;
-  border: 1px solid #D5D7DE;
-  border-radius: 8px;
-  transition: border-color 0.15s, box-shadow 0.15s, opacity 0.15s;
+  width: 48px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: center;
 }
-.dndItem:hover {
-  border-color: #8D919B;
-}
-.dndItem.isHandle {
-  cursor: grab;
-  touch-action: none;
-  user-select: none;
-}
-.dndItem.isHandle:active {
-  cursor: grabbing;
-}
-.dndItem .dndContent {
-  flex: 1;
-  min-width: 0;
-}
-.dndItem .dndContent .dndTitle {
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: #2F3034;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.dndItem .dndContent .dndDesc {
-  display: block;
-  margin-top: 2px;
-  font-size: 13px;
-  color: #8D919B;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.dndItem.isDragging {
-  opacity: 1;
-  border: 1px dashed #8D919B;
+.tbl tbody tr.isDragging {
   background-color: #F8F9FA;
-  box-shadow: none;
 }
-.dndItem.isDragging > * {
-  visibility: hidden;
+.tbl tbody tr.isDragging td {
+  opacity: 0.4;
 }
-.dndItem.isOverlay {
-  border-color: #287EFF;
+.tbl tbody tr.isOverlay {
+  background-color: #FFFFFF;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  cursor: grabbing;
-  transform: scale(1.02);
-  z-index: 100;
+  outline: 1px solid #287EFF;
 }
 
 /* --------------------------------------------------------------------------
@@ -5084,80 +5067,6 @@ body.isDndActive * {
 }
 .stepCard.isOverlay .stepHandle {
   cursor: grabbing;
-}
-
-/* --------------------------------------------------------------------------
-   보드 (칸반 형태 - 영역 간 이동)
-   -------------------------------------------------------------------------- */
-.dndBoard {
-  display: grid;
-  grid-auto-columns: minmax(240px, 1fr);
-  grid-auto-flow: column;
-  gap: 16px;
-  width: 100%;
-  overflow-x: auto;
-}
-
-.dndColumn {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  padding: 12px;
-  background-color: #F3F5F6;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  transition: background-color 0.15s, border-color 0.15s;
-}
-.dndColumn .dndColumnHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 12px;
-  padding: 0 4px;
-}
-.dndColumn .dndColumnHeader .dndColumnTitle {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 700;
-  color: #111827;
-}
-.dndColumn .dndColumnHeader .dndCount {
-  font-size: 13px;
-  font-weight: 500;
-  color: #8D919B;
-}
-.dndColumn .dndList {
-  flex: 1;
-  min-height: 60px;
-}
-.dndColumn.isOver {
-  background-color: #F7F8FB;
-  border-color: #287EFF;
-  border-style: dashed;
-}
-
-/* --------------------------------------------------------------------------
-   드롭 영역 (빈 영역 / 아이템 추가 영역)
-   -------------------------------------------------------------------------- */
-.dndDropzone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 12px;
-  border: 1px dashed #D5D7DE;
-  border-radius: 8px;
-  background-color: #F8F9FA;
-  font-size: 13px;
-  color: #8D919B;
-  text-align: center;
-  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
-}
-.dndDropzone.isOver {
-  border-color: #287EFF;
-  background-color: #F7F8FB;
-  color: #287EFF;
 }
 
 /* ==========================================================================

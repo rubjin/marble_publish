@@ -129,7 +129,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/LI/OFR_AM_LI_001.html",
-    "note": "260903 기획 적용"
+    "note": "261007 기획 적용"
   },
   // HM 홈
   {
@@ -157,7 +157,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/CM/OFR_AM_CM_001.html",
-    "note": "260903 기획적용"
+    "note": "261007 기획적용"
   },
  {
     "category": "AM",
@@ -170,7 +170,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/CM/OFR_AM_CM_002.html",
-   "note": "260903 기획적용"
+   "note": "261007 기획적용"
   },
   {
     "category": "AM",
@@ -183,7 +183,7 @@ window.adminData = [
     "status": "완료",
     "worker": "주진희",
     "link": "pages/CM/OFR_AM_CM_003.html",
-    "note": "260903 기획적용"
+    "note": "261007 기획적용"
   },
   {
     "category": "AM",
