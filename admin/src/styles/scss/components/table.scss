@@ -149,6 +149,15 @@
       vertical-align: middle;
     }
 
+    // 셀 내 보조 문구: <td>1코스 투자봉<p class="tblSubText">원화 예수금 200만원 이상</p></td>
+    .tblSubText {
+      margin: 4px 0 0;
+      font-size: 13px;
+      font-weight: $font-weight-medium;
+      color: $text-tertiary;
+      line-height: 1.5;
+    }
+
     // 빈 데이터: <tr><td class="tblEmpty" colspan={n}>검색결과가 없습니다.</td></tr>
     td.tblEmpty {
       height: 200px;

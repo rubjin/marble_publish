@@ -92,7 +92,7 @@
         <tbody>
           <tr>
             <td class="textLeft">1코스 투자봉
-              <p>원화 예수금 200만원 이상</p>
+              <p class="tblSubText">원화 예수금 200만원 이상</p>
             </td>
             <td class="textRight">2,230,000</td>
             <td><span class="textIng">진행중</span></td>
@@ -103,24 +103,29 @@
           </tr>
           <tr>
             <td class="textLeft">2코스 투자봉
-              <p>국내주식 매수 2회, 누적 체결금액 200만원 이상</p>
+              <p class="tblSubText">국내주식 매수 2회, 누적 체결금액 200만원 이상</p>
             </td>
             <td class="textRight">2,230,000</td>
             <td><span class="textSuccess">미션완료</span></td>
             <td>2026.08.25 14:32:18</td>
             <td class="textRight">1,000</td>
-            <td><span class="">지급대기</span></td>
+            <td><span class="textPending">지급대기</span></td>
             <td>2026.07.22 10:00:00</td>
           </tr>
           <tr>
             <td class="textLeft">3코스 정상
-              <p>국내주식 총 평가금액 200만원 이상</p>
+              <p class="tblSubText">국내주식 총 평가금액 200만원 이상</p>
             </td>
-            <td class="textRight">5/2회 <br /> 2,530,000</td>
-            <td><span class="textIng">진행중</span></td>
+            <td class="textRight"><span>17</span><span class="infoTotal"> / 20일</span><br /> 2,530,000</td>
+            <td><span class="textWarning">대기</span></td>
             <td>2026.08.25 14:32:18</td>
             <td class="textRight">1,000</td>
-            <td><span class="textSuccess">지급완료</span></td>
+            <td>
+              <div class="tooltipWrap top">
+                <span class="tooltipText textDanger" tabindex="0">지급오류</span>
+                <div class="tooltipContent">마케팅 미동의</div>
+              </div>
+            </td>
             <td>2026.07.22 10:00:00</td>
           </tr>
         </tbody>
@@ -133,7 +138,7 @@
     <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
     <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
     <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="0" pageSize></include>
+    <include src="../../partials/tblTop.html" text="조회 기준 일시 : 2026.08.31 16:02:22"></include>
     <div class="tblWrap">
       <table class="tbl tblBordered">
         <colgroup>
@@ -158,7 +163,7 @@
         </thead>
         <tbody>
           <tr>
-            <td class="tblEmpty" colspan="8">조회 내역이 없습니다.</td>
+            <td class="tblEmpty" colspan="7">조회 내역이 없습니다.</td>
           </tr>
         </tbody>
       </table>

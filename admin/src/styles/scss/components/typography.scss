@@ -112,8 +112,10 @@
   color: $text-ing !important;
 }
 
-//경고, 예정, 지급대기
-.textWarning {
+//경고
+.textWarning,
+.textPending {
+  //예정, 지급대기
   color: $text-warning !important;
 }
 

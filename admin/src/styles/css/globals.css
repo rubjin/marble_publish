@@ -1065,7 +1065,8 @@ body {
   color: #05CD99 !important;
 }
 
-.textWarning {
+.textWarning,
+.textPending {
   color: #FFCE20 !important;
 }
 
@@ -3255,6 +3256,13 @@ select.formControl.wAuto {
 .tbl tbody td {
   padding: 10px 8px;
   vertical-align: middle;
+}
+.tbl tbody .tblSubText {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #8D919B;
+  line-height: 1.5;
 }
 .tbl tbody td.tblEmpty {
   height: 200px;
