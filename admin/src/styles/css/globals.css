@@ -3375,7 +3375,7 @@ select.formControl.wAuto {
 
 /* 팝업 사이즈 변형 */
 .popupWrap.lg {
-  width: 800px;
+  width: 820px;
 }
 
 .popupWrap.sm {
@@ -3436,6 +3436,29 @@ select.formControl.wAuto {
   color: #4F535A;
   max-height: 60vh;
   overflow-y: auto;
+}
+.popupBody .searchBox {
+  background-color: #F3F5F6;
+  box-shadow: none;
+  padding: 16px 24px;
+}
+.popupBody .searchBox .searchRow {
+  min-height: 32px;
+  padding: 2px 0;
+  gap: 8px 40px;
+}
+.popupBody .searchBox .searchItem {
+  flex: 0 1 auto;
+  min-width: 0;
+  gap: 12px 24px;
+}
+.popupBody .searchBox .searchLabel {
+  width: auto;
+}
+.popupBody .searchBox .searchField {
+  flex: 0 1 auto;
+  font-weight: 500;
+  color: #111827;
 }
 
 /* 팝업 푸터 (버튼 영역) */
