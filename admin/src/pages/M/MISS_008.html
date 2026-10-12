@@ -2,16 +2,9 @@
 
   <!-- 실제 콘텐츠 영역 -->
   <!-- MDI Tab Bar -->
-  <include src="../components/mdi_tap.html"></include>
+  <include src="../../components/mdi_tap.html"></include>
 
-  <!-- 페이지 상단 헤더 (좌측: 타이틀 + 즐겨찾기 버튼 / 우측: 브래드크럼) -->
-  <!-- <include src="../partials/pageHeader.html" title="리워드 한도설정" favorite>
-  <ul class="listBar">
-    <li class="listBarItem"><span class="label">작성자</span> : <span class="value">(123456) / 디지털 Biz부</span></li>
-    <li class="listBarItem"><span class="label">저장일시</span> : <span class="value">2026.08.15 10:30</span></li>
-  </ul>
-  <button type="button" class="btn outline" data-popup="popupHistory">변경이력조회</button>
-</include> -->
+
   <!-- 페이지 상단 헤더 (좌측: 타이틀 + 즐겨찾기 버튼 / 우측: 이력정보) -->
   <div class="pageHeader">
     <div class="headerLeft">
@@ -51,7 +44,7 @@
         <span class="searchLabel">조회일자</span>
         <div class="searchField">
           <div class="formRow">
-            <include src="../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="searchPeriod" shortcuts="오늘,1주일,1개월,3개월,전체"></include>
+            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="searchPeriod" shortcuts="오늘,1주일,1개월,3개월,전체"></include>
           </div>
         </div>
       </div>
@@ -78,7 +71,7 @@
         <span class="searchLabel">상태</span>
         <div class="searchField">
           <div class="formRow">
-            <include src="../partials/checkGroup.html" name="searchStatus" options="전체,운영중,일시중단,종료" legend="상태 선택"></include>
+            <include src="../../partials/checkGroup.html" name="searchStatus" options="전체,운영중,일시중단,종료" legend="상태 선택"></include>
           </div>
         </div>
       </div>
@@ -104,13 +97,13 @@
       </div>
     </div>
 
-    <include src="../partials/searchBtnArea.html"></include>
+    <include src="../../partials/searchBtnArea.html"></include>
   </div>
 
 
   <!-- ==================== 조회결과 총계 정보 ==================== -->
 
-  <include src="../partials/tblTop.html" title="미션별 한도설정" unit="단위 : 원" guide="※ 미션별 한도 합계가 전체 예산을 초과 할 수 없습니다."></include>
+  <include src="../../partials/tblTop.html" title="미션별 한도설정" unit="단위 : 원" guide="※ 미션별 한도 합계가 전체 예산을 초과 할 수 없습니다."></include>
 
   <div class="summaryStatBox singleLine">
     <div class="statItem">
@@ -143,7 +136,7 @@
 
   <div class="sectionBox">
     <div class="tblSection">
-      <include src="../partials/tblTop.html" title="챌린지 운영 현황" count="6" point unit="단위 : 원" pageSize>
+      <include src="../../partials/tblTop.html" title="챌린지 운영 현황" count="6" point unit="단위 : 원" pageSize>
         <div class="btnGroup">
           <button type="button" class="btn outline">챌린지 추가</button>
           <button type="button" class="btn outline">
