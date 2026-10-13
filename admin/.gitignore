@@ -4,7 +4,7 @@
 .pnp.js
 
 # Build and Output directories
-dist/
+/dist/
 build/
 out/
 .temp/

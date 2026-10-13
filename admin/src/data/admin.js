@@ -703,7 +703,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_024.html",
-    "note": "임시 화면아이디"
+    "note": "임시화면ID"
   },
   {
     "category": "AM",
@@ -717,7 +717,7 @@ window.adminData = [
     "worker": "주진희",
     "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_025.html",
-    "note": "임시 화면아이디"
+    "note": "임시화면ID"
   },
   {
     "category": "AM",
@@ -731,7 +731,7 @@ window.adminData = [
     "worker": "주진희",
     "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_025_2.html",
-    "note": "임시 화면아이디"
+    "note": "임시화면ID"
   },
   {
     "category": "AM",
@@ -745,7 +745,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_026.html",
-    "note": "임시 화면아이디"
+    "note": "임시화면ID"
   },
   // RM 리워드관리
   {
@@ -889,6 +889,104 @@ window.adminData = [
     "note": ""
   },
   // SA 통계분석
+  {
+    "category": "AM",
+    "depth1": "통계분석",
+    "depth2": "종합",
+    "depth3": "",
+    "screenName": "종합",
+    "screenId": "OFR_AM_SA_001",
+    "type": "페이지",
+    "status": "",
+    "worker": "",
+    "updated": "",
+    "link": "pages/SA/OFR_AM_SA_001.html",
+    "note": "임시화면ID"
+  },
+  {
+    "category": "AM",
+    "depth1": "통계분석",
+    "depth2": "미션분석",
+    "depth3": "",
+    "screenName": "미션분석_대시보드(T)",
+    "screenId": "OFR_AM_SA_002",
+    "type": "페이지",
+    "status": "",
+    "worker": "",
+    "updated": "",
+    "link": "pages/SA/OFR_AM_SA_002.html",
+    "note": "임시화면ID"
+  },
+  {
+    "category": "AM",
+    "depth1": "통계분석",
+    "depth2": "미션분석",
+    "depth3": "",
+    "screenName": "미션분석_테이블(T)",
+    "screenId": "OFR_AM_SA_003",
+    "type": "페이지",
+    "status": "",
+    "worker": "",
+    "updated": "",
+    "link": "pages/SA/OFR_AM_SA_003.html",
+    "note": "임시화면ID"
+  },
+  {
+    "category": "AM",
+    "depth1": "통계분석",
+    "depth2": "비용분석",
+    "depth3": "",
+    "screenName": "비용분석_대시보드(T)",
+    "screenId": "OFR_AM_SA_004",
+    "type": "페이지",
+    "status": "",
+    "worker": "",
+    "updated": "",
+    "link": "pages/SA/OFR_AM_SA_004.html",
+    "note": "임시화면ID"
+  },
+  {
+    "category": "AM",
+    "depth1": "통계분석",
+    "depth2": "비용분석",
+    "depth3": "",
+    "screenName": "비용분석_테이블(T)",
+    "screenId": "OFR_AM_SA_005",
+    "type": "페이지",
+    "status": "",
+    "worker": "",
+    "updated": "",
+    "link": "pages/SA/OFR_AM_SA_005.html",
+    "note": "임시화면ID"
+  },
+  {
+    "category": "AM",
+    "depth1": "통계분석",
+    "depth2": "고객분석",
+    "depth3": "",
+    "screenName": "고객분석_대시보드(T)",
+    "screenId": "OFR_AM_SA_006",
+    "type": "페이지",
+    "status": "",
+    "worker": "",
+    "updated": "",
+    "link": "pages/SA/OFR_AM_SA_006.html",
+    "note": "임시화면ID"
+  },
+  {
+    "category": "AM",
+    "depth1": "통계분석",
+    "depth2": "고객분석",
+    "depth3": "",
+    "screenName": "고객분석_테이블(T)",
+    "screenId": "OFR_AM_SA_007",
+    "type": "페이지",
+    "status": "",
+    "worker": "",
+    "updated": "",
+    "link": "pages/SA/OFR_AM_SA_007.html",
+    "note": "임시화면ID"
+  },
   // BM 업무관리
   {
     "category": "AM",
