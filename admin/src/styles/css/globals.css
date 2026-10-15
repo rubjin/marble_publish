@@ -1647,6 +1647,41 @@ select.formControl.wAuto {
   min-height: 40px;
   padding: 6px 0;
 }
+.searchBox .searchRow.cols2, .searchBox .searchRow.cols3, .searchBox .searchRow.cols4 {
+  display: grid;
+  gap: 12px 40px;
+}
+.searchBox .searchRow.cols2 .searchItem, .searchBox .searchRow.cols3 .searchItem, .searchBox .searchRow.cols4 .searchItem {
+  min-width: 0;
+}
+.searchBox .searchRow.cols2 .searchItem.span2, .searchBox .searchRow.cols3 .searchItem.span2, .searchBox .searchRow.cols4 .searchItem.span2 {
+  grid-column: span 2;
+}
+.searchBox .searchRow.cols2 .searchItem.span2 .formControl.wSm, .searchBox .searchRow.cols3 .searchItem.span2 .formControl.wSm, .searchBox .searchRow.cols4 .searchItem.span2 .formControl.wSm {
+  width: 140px;
+  flex-shrink: 0;
+}
+.searchBox .searchRow.cols2 .formRow, .searchBox .searchRow.cols3 .formRow, .searchBox .searchRow.cols4 .formRow {
+  flex: 1;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+.searchBox .searchRow.cols2 .formControlWrap, .searchBox .searchRow.cols3 .formControlWrap, .searchBox .searchRow.cols4 .formControlWrap {
+  flex: 1;
+  min-width: 0;
+}
+.searchBox .searchRow.cols2 .formControl, .searchBox .searchRow.cols3 .formControl, .searchBox .searchRow.cols4 .formControl {
+  width: 100%;
+}
+.searchBox .searchRow.cols2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.searchBox .searchRow.cols3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.searchBox .searchRow.cols4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 .searchBox .searchItem {
   display: flex;
   align-items: center;
@@ -1658,7 +1693,8 @@ select.formControl.wAuto {
   width: 100%;
 }
 .searchBox .searchLabel {
-  width: 100px;
+  min-width: 80px;
+  padding-right: 20px;
   flex-shrink: 0;
   font-size: 14px;
   font-weight: 500;
@@ -2175,7 +2211,7 @@ select.formControl.wAuto {
 .summaryStatBox .statCol {
   display: flex;
   align-items: center;
-  flex: 1;
+  flex: 0 0 auto;
   gap: 36px;
 }
 .summaryStatBox .statCol.statColLeft {

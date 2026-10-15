@@ -223,7 +223,7 @@
   .statCol {
     display: flex;
     align-items: center;
-    flex: 1;
+    flex: 0 0 auto;
     gap: 36px;
 
     &.statColLeft {

@@ -9,8 +9,12 @@ const DIST_DIR = path.resolve(ROOT_DIR, 'dist');
 console.log('Starting HTML dist build...\n');
 
 // Clean dist
-if (fs.existsSync(DIST_DIR)) {
-  fs.rmSync(DIST_DIR, { recursive: true, force: true });
+// - Windows 에서 dist 파일이 잠겨 있으면(브라우저/탐색기/동시 빌드) EBUSY·EPERM·ENOTEMPTY 로 실패 → 재시도
+// - 끝내 지우지 못해도 아래에서 파일을 덮어쓰므로 빌드는 계속 진행
+try {
+  fs.rmSync(DIST_DIR, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 });
+} catch (err) {
+  console.warn(`[Clean Warning] dist 삭제 실패 (${err.code}) - 기존 파일을 덮어써서 빌드합니다.`);
 }
 fs.mkdirSync(DIST_DIR, { recursive: true });
 

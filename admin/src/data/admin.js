@@ -770,7 +770,7 @@ window.adminData = [
     "screenName": "리워드 지급현황(미션별)",
     "screenId": "OFR_AM_RM_002T",
     "type": "페이지",
-    "status": "",
+    "status": "진행중",
     "worker": "",
     "updated": "",
     "link": "pages/RM/OFR_AM_RM_002T.html",

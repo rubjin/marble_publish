@@ -22,6 +22,56 @@
     gap: 12px 64px;
     min-height: 40px;
     padding: 6px 0;
+
+    // 다열 정렬 배치: 행이 달라도 항목이 같은 열 위치에 맞춰지도록 그리드 사용
+    &.cols2,
+    &.cols3,
+    &.cols4 {
+      display: grid;
+      gap: 12px 40px;
+
+      .searchItem {
+        min-width: 0;
+
+        // 2칸 차지 (예: 기간 선택처럼 요소가 여러 개인 항목)
+        &.span2 {
+          grid-column: span 2;
+
+          .formControl.wSm {
+            width: 140px;
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      // 셀 너비에 맞춰 입력 요소를 채워 우측 끝선 정렬
+      .formRow {
+        flex: 1;
+        min-width: 0;
+        flex-wrap: nowrap;
+      }
+
+      .formControlWrap {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .formControl {
+        width: 100%;
+      }
+    }
+
+    &.cols2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &.cols3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &.cols4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 
   .searchItem {
@@ -38,7 +88,9 @@
   }
 
   .searchLabel {
-    width: 100px;
+    // width: 100px;
+    min-width: 80px;
+    padding-right: 20px;
     flex-shrink: 0;
     font-size: 14px;
     font-weight: $font-weight-medium;

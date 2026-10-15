@@ -1,0 +1,227 @@
+<include src="../../layout/layoutDefault.html" title="리워드 지급현황">
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="리워드 지급현황" favorite="true" breadcrumb=""></include>
+
+<!-- ==================== 섹션 :: 공통설정 ==================== -->
+ 
+<!-- KPI 4단 통계 요약 카드 그리드 -->
+<div class="kpiCardGrid">
+  <div class="kpiCard">
+    <span class="kpiTitle">총 예산 한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>100,000,000</strong><span class="unit">원</span></div>
+      <p class="kpiSub">(전년 대비 / <span class="rate isUp">+12.5%</span>)</p>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">지급 완료 금액</span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>65,400,000</strong><span class="unit">원</span></div>
+      <p class="kpiSub">(전년 대비 / <span class="rate isUp">+8.2%</span>)</p>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">잔여 한도</span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>34,600,000</strong><span class="unit">원</span></div>
+      <p class="kpiSub">(안전 잔여율 34.6%)</p>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">전체 소진율</span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>65.4</strong><span class="unit">%</span></div>
+      <p class="kpiSub">(목표 대비 정상 소진)</p>
+    </div>
+  </div>
+</div>
+<!-- 검색 조건 컨트롤 박스 -->
+<div class="searchBox">
+  <!-- [D] cols2, cols3, cols4 : 각 2분할, 3분할, 4분할 처리  -->
+  <div class="searchRow cols4">
+    <!-- [D] span2 : 2칸 영역을 차지 -->
+    <div class="searchItem span2">
+      <span class="searchLabel">조회일자</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="1">리워드지급일</option>
+          </select>
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <span class="searchLabel">리워드유형</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="1">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <span class="searchLabel">리워드지급상태</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="1">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchRow cols4">
+    <div class="searchItem">
+      <span class="searchLabel">미션명</span>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <span class="searchLabel">담당자</span>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <span class="searchLabel">담당부서</span>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <include src="../../partials/searchBtnArea.html"></include>
+</div>
+
+<!-- 실시간 요약 인라인 바 -->
+<div class="summaryStatBox singleLine">
+  <div class="statItem">
+    <span class="statLabel">전체 지급완료</span>
+    <div class="statValue"><strong>999,999</strong><span class="unit">건</span></div>
+  </div>
+  <div class="statDivider"></div>
+  <div class="statItem">
+    <span class="statLabel">지급오류</span>
+    <div class="statValue"><strong>10</strong><span class="unit">건</span></div>
+  </div>
+  <div class="statDivider"></div>
+  <div class="statItem">
+    <span class="statLabel">리워드 예정</span>
+    <div class="statValue"><strong>1,500</strong><span class="unit">건</span></div>
+  </div>
+</div>
+
+<!-- 하얀 박스 영역 -->
+<div class="sectionBox">
+  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+  <include src="../../partials/tblTop.html" count="128" unit="단위 : 원"></include>
+
+  <!-- 데이터 그리드 테이블 -->
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: 120px;">
+        <col style="width: 110px;">
+        <col style="width: 100px;">
+        <col style="width: auto;">
+        <col style="width: 120px;">
+        <col style="width: 200px;">
+        <col style="width: 100px;">
+        <col style="width: 160px;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th rowspan="2">참여일자</th>
+          <th colspan="3">일별 미션 현황</th>
+          <th rowspan="2">20일 누적 미션</th>
+          <th rowspan="2">지급 리워드<br>(금융쿠폰/포인트)</th>
+          <th rowspan="2">지급상태</th>
+          <th rowspan="2">지급일시</th>
+        </tr>
+        <tr>
+          <th>조회종목수(개)</th>
+          <th>진행상태</th>
+          <th>미완료 사유</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2026.08.25(화)</td>
+          <td class="textRight"><a href="#" class="link">6</a></td>
+          <td><span class="textIng">진행중</span></td>
+          <td class="textLeft">-</td>
+          <td>17/20일</td>
+          <td class="textRight">100P</td>
+          <td><span class="textIng">지급중</span></td>
+          <td>2026.07.22 10:00:00</td>
+        </tr>
+        <tr>
+          <td>2026.08.25(화)</td>
+          <td class="textRight"><a href="#" class="link">2</a></td>
+          <td><span class="textDanger">미완료</span></td>
+          <td class="textLeft">조회종목 수 미달성</td>
+          <td>16/20일</td>
+          <td class="textRight">-</td>
+          <td>
+            <div class="tooltipWrap top">
+              <span class="tooltipText textDanger" tabindex="0">지급오류</span>
+              <div class="tooltipContent">마케팅 미동의</div>
+            </div>
+          </td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>2026.08.25(화)</td>
+          <td class="textRight"><a href="#" class="link">5</a></td>
+          <td><span class="textSuccess">완료</span></td>
+          <td class="textLeft">-</td>
+          <td>16/20일</td>
+          <td class="textRight">100P</td>
+          <td><span class="textSuccess">지급완료</span></td>
+          <td>2026.07.20 10:00:00</td>
+        </tr>
+        <tr>
+          <td>2026.08.25(화)</td>
+          <td class="textRight"><a href="#" class="link">0</a></td>
+          <td><span class="textDanger">미완료</span></td>
+          <td class="textLeft">보상 미수령</td>
+          <td>15/20일</td>
+          <td class="textRight">-</td>
+          <td>
+            <div class="tooltipWrap top">
+              <span class="tooltipText textDanger" tabindex="0">지급오류</span>
+              <div class="tooltipContent">마케팅 미동의</div>
+            </div>
+          </td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+</include>
