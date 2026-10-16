@@ -14,15 +14,12 @@
 <!-- 검색 조건 컨트롤 박스 -->
 <div class="searchBox">
   <!-- [D] cols2, cols3, cols4 : 각 2분할, 3분할, 4분할 처리  -->
-  <div class="searchRow cols4">
+  <div class="searchRow">
     <!-- [D] span2 : 2칸 영역을 차지 -->
-    <div class="searchItem span2">
+    <div class="searchItem">
       <span class="searchLabel">조회일자</span>
       <div class="searchField">
         <div class="formRow">
-          <select class="formControl wSm">
-            <option value="1">리워드지급일</option>
-          </select>
           <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
         </div>
       </div>
@@ -43,7 +40,7 @@
 </div>
 
 <!-- 실시간 요약 인라인 바 -->
-<include src="../../partials/summaryStat.html" items="총 지급금액|999,999|원; 포인트리|1,500|건; Able포인트|1,500|건; 금융상품쿠폰|1,500|건; 지급오류|50|건|danger"></include>
+<include src="../../partials/summaryStat.html" items="총 지급금액|999,999|원; 포인트리|1,500|건; Able포인트|1,500|건; 금융상품쿠폰|1,500|건; 지급오류|50|건|danger link"></include>
 
 <!-- 하얀 박스 영역 -->
 <div class="sectionBox">
