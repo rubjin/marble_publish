@@ -937,6 +937,7 @@ body {
   padding: 12px 20px;
   font-weight: 500;
   color: #6B7280;
+  text-align: center;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -1133,6 +1134,11 @@ body {
   margin-bottom: 8px;
 }
 .formLabel .required {
+  color: #EF4444;
+  margin-left: 4px;
+}
+
+.required {
   color: #EF4444;
   margin-left: 4px;
 }
