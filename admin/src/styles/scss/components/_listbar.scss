@@ -12,6 +12,13 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  &.main {
+    margin-bottom: 6px;
+    .title {
+      font-size: 15px;
+      font-weight: $font-weight-bold; 
+    }
+  }
 
   .listBarItem {
     display: inline-flex;
@@ -54,6 +61,7 @@
       margin-left: 4px;
       color: $color-gray-600;
     }
+   
   }
 
   // 사이즈 변형

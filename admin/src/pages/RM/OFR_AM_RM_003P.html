@@ -1,7 +1,7 @@
-<include src="../../layout/layoutDefault.html" title="자산성장 트레킹 고객 참여 내역">
+<include src="../../layout/layoutDefault.html" title="리워드 지급현황">
 
   <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-  <include src="../../partials/pageHeader.html" title="자산성장 트레킹 고객 참여 내역" breadcrumb="홈,미션관리,미션참여내역"></include>
+  <include src="../../partials/pageHeader.html" title="리워드 지급현황" breadcrumb=""></include>
 
 
   <!-- [팝업] -->
@@ -9,32 +9,35 @@
   <div id="popupStockView" class="popupDimmed isOpen">
     <div class="popupWrap lg">
       <div class="popupHeader">
-        <h2 class="popupTitle">2코스. 성장봉 매수상세 내역</h2>
+        <h2 class="popupTitle">리워드지급 오류조회</h2>
         <button type="button" class="btnClose" aria-label="닫기"></button>
       </div>
       <div class="popupBody">
         <!-- 상단 검색 내역 -->
-        <div class="searchBox">
+        <div class="listBar main">
+          <span class="listBarItem title">CMA챌린지</span>
+          <span class="listBarItem desc">리워드지급일 : 2026.06.15</span>
+        </div>
+        <!-- <div class="searchBox">
           <div class="searchRow">
             <div class="searchItem">
-              <span class="searchLabel">거래계좌</span>
-              <div class="searchField">123-***-*89 00</div>
+              <span class="searchLabel">포인트리</span>
+              <div class="searchField"><strong class="price">1,500</strong><span class="unit">원</span></div>
             </div>
             <div class="searchItem">
-              <span class="searchLabel">매수 횟수</span>
-              <div class="searchField"><span>5</span><span class="infoTotal"> / 2회</td>
-              </div>
+              <span class="searchLabel">Able포인트</span>
+              <div class="searchField"><strong class="price">1,500</strong><span class="unit">원</span></div>
             </div>
             <div class="searchItem">
-              <span class="searchLabel">누적 체결금액</span>
-              <div class="searchField">2,153,000</div>
+              <span class="searchLabel">금융상품쿠폰</span>
+              <div class="searchField"><strong class="price">0</strong><span class="unit">원</span></div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="tblSection">
           <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
-          <include src="../../partials/tblTop.html" count="20"></include>
+          <include src="../../partials/tblTop.html" count="20" pageSize></include>
 
           <!-- 종목조회 내역 테이블 -->
           <div class="tblWrap">
@@ -89,8 +92,9 @@
               </tbody>
             </table>
           </div>
-          <P class="formGuideText">※ 미션 실적 산정에 반영된 체결 내역을 표시합니다.</P>
-          <P class="formGuideText">※ 매수 횟수 및 누적 체결금액은 반영건을 기준으로 산정됩니다.</P>
+          <include src="../../partials/pagination.html"></include>
+
+
         </div>
       </div>
       <div class="popupFooter">

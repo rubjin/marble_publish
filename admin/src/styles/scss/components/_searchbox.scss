@@ -237,6 +237,9 @@
       flex: 0 1 auto;
       font-weight: $font-weight-medium;
       color: $text-title;
+      .price {
+        font-size: 17px;
+      }
     }
   }
 }

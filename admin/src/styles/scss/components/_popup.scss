@@ -28,6 +28,7 @@
   position: relative;
   width: 400px;
   max-width: 90vw;
+  max-height: 90vh;
   background-color: $color-white;
   border-radius: 12px;
   box-shadow: $shadow-xl;
@@ -55,13 +56,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
   padding: 20px 24px;
+  border-bottom: 1px solid $line-default;
 
   .popupTitle {
     font-size: 18px;
     font-weight: $font-weight-bold;
     color: $text-title;
     margin: 0;
+    
   }
 
   .btnClose {
@@ -102,13 +106,16 @@
 }
 
 .popupBody {
+  padding: 24px;
+  flex: 1 1 auto;
   min-height: 80px;
+  overflow-y: auto;
 }
 
 /* 팝업 바디 (컨텐츠) */
 :has(.popupFooter) {
   .popupBody {
-    padding: 0 24px;
+    padding: 24px 24px 0;
   }
 }
 
@@ -119,5 +126,6 @@
   padding: 20px 24px;
   display: flex;
   justify-content: flex-end;
+  flex-shrink: 0;
   gap: 12px;
 }
