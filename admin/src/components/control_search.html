@@ -8,6 +8,9 @@
   - 레이아웃 구조:
     * .searchBox > .searchRow > .searchItem (.full 또는 2열 배치) > .searchLabel + .searchField
     * .searchBtnArea > 초기화 (.btn.outline) + 조회 (.btn.dark)
+  - 다열 그리드 배치 (행이 달라도 같은 열 위치에 정렬):
+    * .searchRow.cols2 / .cols3 / .cols4 : 2분할 / 3분할 / 4분할
+    * .searchItem.span2 : 2칸 차지 (기간 선택처럼 요소가 여러 개인 항목)
 -->
 
 <!-- ==========================================================================
@@ -112,6 +115,154 @@
   <div class="searchBtnArea">
     <button type="button" class="btn outline">초기화</button>
     <!-- [M] 261012 dark -> primary 버튼 색상 변경 -->
+    <button type="button" class="btn primary">조회</button>
+  </div>
+</div>
+
+<!-- ==========================================================================
+  조회 컨트롤 박스 - 다열 그리드 배치 (cols2 / cols3 / cols4 / span2)
+  ========================================================================== -->
+<!-- Case 1: cols2 (2분할) -->
+<div class="searchBox">
+  <!-- [D] cols2, cols3, cols4 : 각 2분할, 3분할, 4분할 처리 -->
+  <div class="searchRow cols2">
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols2Type">2분할<span class="required">*</span></label>
+      <div class="searchField">
+        <div class="formRow">
+          <select id="searchCols2Type" class="formControl wSm">
+            <option value="">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols2Name">2분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" id="searchCols2Name" class="formControl full" placeholder="입력해주세요" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 2: cols3 (3분할) -->
+  <div class="searchRow cols3">
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols3Type">3분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <select id="searchCols3Type" class="formControl wSm">
+            <option value="">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols3Status">3분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <select id="searchCols3Status" class="formControl wSm">
+            <option value="">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols3Name">3분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" id="searchCols3Name" class="formControl full" placeholder="입력해주세요" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 3: cols4 (4분할) + span2 (2칸 차지) -->
+  <div class="searchRow cols4">
+    <!-- [D] span2 : 2칸 영역을 차지 -->
+    <div class="searchItem span2">
+      <span class="searchLabel">2칸차지</span>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" id="searchCols3Name" class="formControl full" placeholder="입력해주세요" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols4Type">4분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <select id="searchCols4Type" class="formControl wSm">
+            <option value="">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols4Status">4분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <select id="searchCols4Status" class="formControl wSm">
+            <option value="">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 행이 달라도 같은 열 위치에 맞춰 정렬됨 -->
+  <div class="searchRow cols4">
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols4Name">4분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" id="searchCols4Name" class="formControl full" placeholder="입력해주세요" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols4Manager">4분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" id="searchCols4Manager" class="formControl full" placeholder="입력해주세요" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols4Dept">4분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" id="searchCols4Dept" class="formControl full" placeholder="입력해주세요" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <label class="searchLabel" for="searchCols4Author">4분할</label>
+      <div class="searchField">
+        <div class="formRow">
+          <div class="formControlWrap">
+            <input type="text" id="searchCols4Author" class="formControl full" placeholder="입력해주세요" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchBtnArea">
+    <button type="button" class="btn outline">초기화</button>
     <button type="button" class="btn primary">조회</button>
   </div>
 </div>

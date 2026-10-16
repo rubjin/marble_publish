@@ -26,6 +26,11 @@
   }
 }
 
+.required {
+  color: $text-danger;
+  margin-left: 4px;
+}
+
 .formControlWrap {
   position: relative;
   display: inline-flex;
