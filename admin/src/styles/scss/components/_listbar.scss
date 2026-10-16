@@ -38,7 +38,7 @@
       transition: color 0.15s ease;
 
       &:hover {
-        color: $text-primary;
+        color: $text-basic;
         text-decoration: underline;
       }
     }
@@ -46,7 +46,7 @@
     // 라벨 & 값
     .label {
       margin-right: 4px;
-      color: $text-primary;
+      color: $text-basic;
       font-weight: $font-weight-medium;
     }
 

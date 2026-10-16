@@ -7,7 +7,7 @@
 // 콘텐츠 탭 (언더라인형)
 .tab {
   display: flex;
-  border-bottom: 1px solid $border-default;
+  border-bottom: 1px solid $line-default;
   font-size: 15px;
   gap: 4px;
 
@@ -36,7 +36,7 @@
     }
 
     &:hover {
-      color: $text-highlight;
+      color: $text-basic;
     }
 
     &.isActive {
@@ -51,11 +51,11 @@
 
     &:disabled,
     &.isDisabled {
-      color: $border-default;
+      color: $line-default;
       cursor: not-allowed;
 
       &:hover {
-        color: $border-default;
+        color: $line-default;
       }
     }
   }
@@ -86,7 +86,7 @@
     overflow-x: auto;
     margin: 0;
     padding: 0 0 0 6px;
-    border-left: 1px solid $border-light;
+    border-left: 1px solid $line-light;
     list-style: none;
 
     &::-webkit-scrollbar {
@@ -94,7 +94,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: $color-gray-200;
+      background-color: $line-disabled;
       border-radius: 4px;
     }
   }
@@ -121,8 +121,8 @@
     flex-shrink: 0;
 
     &:hover {
-      background-color: $color-gray-200;
-      color: $text-highlight;
+      background-color: $line-disabled;
+      color: $text-basic;
 
       .tabClose {
         opacity: 1;
@@ -189,7 +189,7 @@
       transition: opacity 0.15s ease, background-color 0.15s ease;
 
       &:hover {
-        background-color: $color-gray-200;
+        background-color: $line-disabled;
       }
     }
   }
@@ -200,7 +200,7 @@
     align-items: center;
     flex-shrink: 0;
     padding-left: 6px;
-    border-left: 1px solid $border-light;
+    border-left: 1px solid $line-light;
 
     .btnAllClose {
       display: inline-flex;
@@ -215,11 +215,6 @@
       padding: 0;
       // opacity: 0.6;
       transition: background-color 0.15s ease, opacity 0.15s ease;
-
-      .ico {
-        width: 12px;
-        height: 12px;
-      }
 
       &:hover {
         // background-color: $bg-light;

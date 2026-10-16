@@ -18,7 +18,7 @@
     height: 18px;
     padding: 0;
     border: none;
-    background-color: $color-gray-200;
+    background-color: $line-disabled;
     color: $text-secondary;
     border-radius: 50%;
     font-size: 11px;
@@ -27,7 +27,7 @@
     transition: all 0.2s;
 
     &:hover {
-      background-color: $color-gray-300;
+      background-color: $line-default;
       color: $color-gray-800;
     }
 

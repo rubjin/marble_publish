@@ -85,7 +85,7 @@
 
 
 .textDisabled {
-  color: $text-tertiary !important;
+  color: $text-off !important;
 }
 
 .textWhite {
@@ -94,12 +94,12 @@
 
 //미달성
 .textMuted {
-  color: $text-secondary !important;
+  color: $text-off !important;
 }
 
 //정보
 .textInfo {
-  color: $text-info !important;
+  color: $text-success !important;
 }
 
 //성공
@@ -136,56 +136,56 @@
 .titSection {
   font-size: 18px;
   font-weight: $font-weight-bold;
-  color: $text-highlight;
+  color: $text-basic;
   line-height: 1.4;
 }
 
 .titSub {
   font-size: 16px;
   font-weight: $font-weight-bold;
-  color: $text-highlight;
+  color: $text-basic;
   line-height: 1.45;
 }
 
 .titCard {
   font-size: 15px;
   font-weight: $font-weight-bold;
-  color: $text-highlight;
+  color: $text-basic;
   line-height: 1.5;
 }
 
 .bodyLg {
   font-size: 16px;
   font-weight: $font-weight-medium;
-  color: $text-primary;
+  color: $text-basic;
   line-height: 1.6;
 }
 
 .bodyMd {
   font-size: 14px;
   font-weight: $font-weight-medium;
-  color: $text-primary;
+  color: $text-basic;
   line-height: 1.6;
 }
 
 .bodySm {
   font-size: 13px;
   font-weight: $font-weight-medium;
-  color: $color-gray-600;
+  color: $text-basic;
   line-height: 1.5;
 }
 
 .caption {
   font-size: 12px;
   font-weight: $font-weight-medium;
-  color: $text-secondary;
+  color: $text-basic;
   line-height: 1.5;
 }
 
 .micro {
   font-size: 10px;
   font-weight: $font-weight-medium;
-  color: $text-tertiary;
+  color: $text-off;
   line-height: 1.4;
 }
 
@@ -203,7 +203,7 @@
   justify-content: space-between;
   padding: 16px 20px;
   background-color: $color-white;
-  border: 1px solid $border-light;
+  border: 1px solid $line-light;
   border-radius: 8px;
   gap: 20px;
 
@@ -220,7 +220,7 @@
 
     .meta {
       font-size: 12px;
-      color: $text-tertiary;
+      color: $text-off;
       font-family: monospace;
     }
   }
@@ -230,6 +230,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: $text-highlight;
+    color: $text-basic;
   }
 }

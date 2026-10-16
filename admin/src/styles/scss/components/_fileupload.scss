@@ -41,7 +41,7 @@
   width: 100%;
   padding: 20px;
   background-color: $color-gray-50;
-  border: 2px dashed $color-gray-300;
+  border: 2px dashed $line-default;
   border-radius: 6px;
   transition: all 0.2s ease;
   box-sizing: border-box;
@@ -72,7 +72,7 @@
     .dropzoneText {
       font-size: 14px;
       font-weight: $font-weight-medium;
-      color: $text-tertiary;
+      color: $text-off;
       margin-top: 10px;
 
       .highlight {

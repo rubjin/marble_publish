@@ -154,14 +154,14 @@
       margin: 4px 0 0;
       font-size: 13px;
       font-weight: $font-weight-medium;
-      color: $text-tertiary;
+      color: $text-off;
       line-height: 1.5;
     }
 
     // 빈 데이터: <tr><td class="tblEmpty" colspan={n}>검색결과가 없습니다.</td></tr>
     td.tblEmpty {
       height: 200px;
-      color: $text-tertiary;
+      color: $text-off;
       white-space: normal;
     }
 
@@ -284,17 +284,17 @@
       display: inline-flex;
       align-items: baseline;
       gap: 4px;
-      color: $text-primary;
+      color: $text-basic;
       font-weight: $font-weight-medium;
 
       & + .infoStat {
         // padding-left: 12px;
-        // border-left: 1px solid $border-light;
+        // border-left: 1px solid $line-light;
       }
     }
 
     .infoTotal {
-      color: $text-primary;
+      color: $text-basic;
       font-weight: $font-weight-medium;
     }
   }

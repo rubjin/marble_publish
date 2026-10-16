@@ -43,7 +43,7 @@ body {
   font-weight: 300;
   line-height: 1.5;
   color: #2F3034;
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   letter-spacing: -0.02em;
 }
 
@@ -354,7 +354,7 @@ body {
 }
 
 .textDark {
-  color: #111827 !important;
+  color: #1F192F !important;
 }
 
 .textDisabled {
@@ -366,7 +366,7 @@ body {
 }
 
 .textMuted {
-  color: #4F535A !important;
+  color: #8D919B !important;
 }
 
 .textInfo {
@@ -387,34 +387,34 @@ body {
 }
 
 .textDanger {
-  color: #EF4444 !important;
+  color: #F23F3F !important;
 }
 
 .titPage {
   font-size: 22px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   line-height: 1.35;
 }
 
 .titSection {
   font-size: 18px;
   font-weight: 700;
-  color: #1F2937;
+  color: #2F3034;
   line-height: 1.4;
 }
 
 .titSub {
   font-size: 16px;
   font-weight: 700;
-  color: #1F2937;
+  color: #2F3034;
   line-height: 1.45;
 }
 
 .titCard {
   font-size: 15px;
   font-weight: 700;
-  color: #1F2937;
+  color: #2F3034;
   line-height: 1.5;
 }
 
@@ -435,14 +435,14 @@ body {
 .bodySm {
   font-size: 13px;
   font-weight: 500;
-  color: #4F535A;
+  color: #2F3034;
   line-height: 1.5;
 }
 
 .caption {
   font-size: 12px;
   font-weight: 500;
-  color: #4F535A;
+  color: #2F3034;
   line-height: 1.5;
 }
 
@@ -477,7 +477,7 @@ body {
 .typoItem .info .name {
   font-size: 14px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   margin-bottom: 2px;
 }
 .typoItem .info .meta {
@@ -490,7 +490,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: #1F2937;
+  color: #2F3034;
 }
 
 /* ==========================================================================
@@ -515,7 +515,7 @@ body {
   display: inline-flex;
   align-items: center;
   font-size: 14px;
-  color: #6B7280;
+  color: #656565;
 }
 .breadcrumbItem:not(:last-child)::after {
   content: "";
@@ -528,16 +528,16 @@ body {
   background-size: contain;
 }
 .breadcrumbItem .breadcrumbLink {
-  color: #6B7280;
+  color: #656565;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 .breadcrumbItem .breadcrumbLink:hover {
-  color: #1F2937;
+  color: #2F3034;
   text-decoration: underline;
 }
 .breadcrumbItem.isCurrent, .breadcrumbItem[aria-current=page] {
-  color: #1F2937;
+  color: #1F192F;
   font-weight: 500;
 }
 
@@ -640,15 +640,15 @@ body {
 .btn.outline {
   border: 1px solid #D5D7DE;
   background-color: #FFFFFF;
-  color: #404046;
+  color: #2F3034;
 }
 .btn.outline:hover {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   border-color: #8D919B;
 }
 .btn.light {
   border: 1px solid #D5D7DE;
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   color: #2F3034;
 }
 .btn.light:hover {
@@ -661,7 +661,7 @@ body {
 }
 .btn.secondary {
   border: 1px solid #F0F0F3;
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   color: #2F3034;
 }
 .btn.secondary:hover {
@@ -677,11 +677,11 @@ body {
   color: #FFFFFF;
 }
 .btn.dark:hover {
-  background-color: #6B7280;
+  background-color: #656565;
 }
 .btn.danger {
-  border: 1px solid #EE5D50;
-  color: #EF4444;
+  border: 1px solid #F23F3F;
+  color: #F23F3F;
 }
 .btn.danger:hover {
   background-color: #FEE2E2;
@@ -690,7 +690,7 @@ body {
   background-color: transparent;
 }
 .btn.ghost:hover {
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
 }
 .btn.sm {
   min-width: 46px;
@@ -772,7 +772,7 @@ body {
   display: inline-flex;
   align-items: center;
   padding: 4px;
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   border-radius: 6px;
   user-select: none;
   gap: 4px;
@@ -785,7 +785,7 @@ body {
   padding: 0px 12px;
   font-size: 12px;
   font-weight: 500;
-  color: #6B7280;
+  color: #656565;
   background: transparent;
   border: none;
   border-radius: 6px;
@@ -936,7 +936,7 @@ body {
   min-width: 120px;
   padding: 12px 20px;
   font-weight: 500;
-  color: #6B7280;
+  color: #656565;
   text-align: center;
   background: transparent;
   border: none;
@@ -954,10 +954,10 @@ body {
   transition: background-color 0.15s ease;
 }
 .tab .item:hover {
-  color: #1F2937;
+  color: #2F3034;
 }
 .tab .item.isActive {
-  color: #111827;
+  color: #1F192F;
   font-weight: 700;
 }
 .tab .item.isActive::after {
@@ -1004,7 +1004,7 @@ body {
   height: 4px;
 }
 .mdiTabWrap .mdiTabList::-webkit-scrollbar-thumb {
-  background-color: #E7E9ED;
+  background-color: #F0F0F3;
   border-radius: 4px;
 }
 .mdiTabWrap .mdiTabItem {
@@ -1015,7 +1015,7 @@ body {
   max-width: 180px;
   height: 32px;
   padding: 0 8px 0 12px;
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   border: none;
   border-radius: 6px;
   font-size: 13px;
@@ -1029,8 +1029,8 @@ body {
   flex-shrink: 0;
 }
 .mdiTabWrap .mdiTabItem:hover {
-  background-color: #E7E9ED;
-  color: #1F2937;
+  background-color: #F0F0F3;
+  color: #2F3034;
 }
 .mdiTabWrap .mdiTabItem:hover .tabClose {
   opacity: 1;
@@ -1054,7 +1054,7 @@ body {
 }
 .mdiTabWrap .mdiTabItem.isActive {
   background-color: #FFC72B;
-  color: #111827;
+  color: #1F192F;
   font-weight: 700;
 }
 .mdiTabWrap .mdiTabItem.isActive .tabClose {
@@ -1085,7 +1085,7 @@ body {
   transition: opacity 0.15s ease, background-color 0.15s ease;
 }
 .mdiTabWrap .mdiTabItem .tabClose:hover {
-  background-color: #E7E9ED;
+  background-color: #F0F0F3;
 }
 .mdiTabWrap .mdiTabActions {
   display: flex;
@@ -1106,10 +1106,6 @@ body {
   cursor: pointer;
   padding: 0;
   transition: background-color 0.15s ease, opacity 0.15s ease;
-}
-.mdiTabWrap .mdiTabActions .btnAllClose .ico {
-  width: 12px;
-  height: 12px;
 }
 .mdiTabWrap .mdiTabActions .btnAllClose:hover {
   opacity: 1;
@@ -1134,12 +1130,12 @@ body {
   margin-bottom: 8px;
 }
 .formLabel .required {
-  color: #EF4444;
+  color: #F23F3F;
   margin-left: 4px;
 }
 
 .required {
-  color: #EF4444;
+  color: #F23F3F;
   margin-left: 4px;
 }
 
@@ -1203,6 +1199,25 @@ body {
   padding-right: 36px;
   text-align: right;
 }
+.formControlWrap.hasSearch .formControl {
+  padding-right: 36px;
+}
+.formControlWrap.hasSearch .btnSearch {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: transparent url("/src/assets/images/icon/i_search_16.svg") no-repeat center/contain;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.7;
+}
+.formControlWrap.hasSearch .btnSearch:hover {
+  opacity: 1;
+}
 
 fieldset {
   min-width: 0;
@@ -1242,13 +1257,13 @@ fieldset {
   box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
 }
 .formControl[readonly], .formControl:disabled, .formControl.isDisabled {
-  background-color: #F0F0F3;
+  background-color: #E7E9ED;
   color: #8D919B;
-  border-color: #E7E9ED;
+  border-color: #F0F0F3;
   cursor: not-allowed;
 }
 .formControl.isError {
-  border-color: #EF4444;
+  border-color: #F23F3F;
 }
 .formControl.isError:focus {
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
@@ -1282,7 +1297,7 @@ select.formControl.wAuto {
 .formErrorMsg {
   display: block;
   font-size: 13px;
-  color: #EF4444;
+  color: #F23F3F;
   margin-top: 6px;
 }
 
@@ -1342,16 +1357,16 @@ select.formControl.wAuto {
   background-color: #FFFFFF;
 }
 .formCheck input:checked + .checkIcon {
-  background-color: #1F2937;
-  border-color: #1F2937;
+  background-color: #4F535A;
+  border-color: #4F535A;
 }
 .formCheck input:checked + .checkIcon::after {
   display: block;
 }
 .formCheck input[type=checkbox]:indeterminate + .checkIcon,
 .formCheck input[type=checkbox].isIndeterminate + .checkIcon {
-  background-color: #1F2937;
-  border-color: #1F2937;
+  background-color: #4F535A;
+  border-color: #4F535A;
 }
 .formCheck input[type=checkbox]:indeterminate + .checkIcon::after,
 .formCheck input[type=checkbox].isIndeterminate + .checkIcon::after {
@@ -1362,7 +1377,7 @@ select.formControl.wAuto {
   clip-path: none;
 }
 .formCheck input:disabled + .checkIcon {
-  background-color: #F3F5F6;
+  background-color: #E7E9ED;
   border-color: #F0F0F3;
   cursor: not-allowed;
 }
@@ -1389,6 +1404,7 @@ select.formControl.wAuto {
 .formDatepicker .formControl {
   padding-right: 36px;
   width: 140px;
+  min-width: 140px;
 }
 .formDatepicker .btnCalendar {
   position: absolute;
@@ -1436,7 +1452,7 @@ select.formControl.wAuto {
   align-items: center;
   gap: 6px;
   padding: 7px 7px 7px 12px;
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   border-radius: 100px;
   font-size: 14px;
   color: #4F535A;
@@ -1544,7 +1560,7 @@ select.formControl.wAuto {
 .formRadioCard .cardContent .cardTitle {
   font-size: 15px;
   font-weight: 500;
-  color: #1F2937;
+  color: #2F3034;
   display: block;
   margin-bottom: 4px;
 }
@@ -1560,8 +1576,8 @@ select.formControl.wAuto {
   border-color: #C5D1E2;
 }
 .formRadioCard:has(input:checked) .checkIcon, .formRadioCard.isActive .checkIcon {
-  background-color: #1F2937;
-  border-color: #1F2937;
+  background-color: #4F535A;
+  border-color: #4F535A;
 }
 .formRadioCard:has(input:checked) .checkIcon::after, .formRadioCard.isActive .checkIcon::after {
   display: block;
@@ -1577,7 +1593,7 @@ select.formControl.wAuto {
 }
 
 .stepCard {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   border-radius: 8px;
   padding: 16px 20px;
 }
@@ -1587,7 +1603,7 @@ select.formControl.wAuto {
   justify-content: space-between;
   padding-bottom: 12px;
   margin-bottom: 12px;
-  border-bottom: 1px solid #E7E9ED;
+  border-bottom: 1px solid #F0F0F3;
 }
 .stepCard .stepHeader .stepTitleWrap {
   display: flex;
@@ -1602,7 +1618,7 @@ select.formControl.wAuto {
   min-width: 130px;
   height: 30px;
   padding: 0 12px;
-  background-color: #E7E9ED;
+  background-color: #F0F0F3;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
@@ -1704,7 +1720,7 @@ select.formControl.wAuto {
   flex-shrink: 0;
   font-size: 14px;
   font-weight: 500;
-  color: #1F2937;
+  color: #2F3034;
   line-height: 1.4;
 }
 .searchBox .searchField {
@@ -1718,7 +1734,7 @@ select.formControl.wAuto {
   min-width: 320px;
 }
 .searchBox .segment {
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
 }
 .searchBox .formRow {
   display: flex;
@@ -1745,7 +1761,7 @@ select.formControl.wAuto {
   padding: 8px 16px 8px 0;
   font-size: 14px;
   font-weight: 500;
-  color: #1F2937;
+  color: #2F3034;
   text-align: left;
   vertical-align: middle;
   white-space: nowrap;
@@ -1761,7 +1777,7 @@ select.formControl.wAuto {
   margin-bottom: 0;
   font-size: 14px;
   font-weight: 500;
-  color: #1F2937;
+  color: #2F3034;
 }
 .searchBox .searchTable .formRow {
   display: flex;
@@ -1802,7 +1818,7 @@ select.formControl.wAuto {
 }
 .popupBody .searchBox {
   border: 2px solid #F0F0F3;
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   box-shadow: none;
   padding: 16px 24px;
 }
@@ -1822,7 +1838,7 @@ select.formControl.wAuto {
 .popupBody .searchBox .searchField {
   flex: 0 1 auto;
   font-weight: 500;
-  color: #111827;
+  color: #1F192F;
 }
 
 /* ==========================================================================
@@ -1859,7 +1875,7 @@ select.formControl.wAuto {
   flex-direction: column;
   width: 100%;
   padding: 20px;
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   border: 2px dashed #D5D7DE;
   border-radius: 6px;
   transition: all 0.2s ease;
@@ -1917,7 +1933,7 @@ select.formControl.wAuto {
   width: 100%;
   padding: 10px 16px;
   border-radius: 6px;
-  background-color: #F7F8FB;
+  background-color: #F8F8F9;
 }
 .fileList.boxType .fileItem .fileInfo {
   flex: none;
@@ -1931,7 +1947,7 @@ select.formControl.wAuto {
   font-size: 14px;
 }
 .fileItem:hover {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
 }
 .fileItem .fileInfo {
   display: flex;
@@ -1985,7 +2001,7 @@ select.formControl.wAuto {
   height: 28px;
   padding: 0px 11px;
   border-radius: 30px;
-  background-color: #F0F0F3;
+  background-color: #E7E9ED;
   color: #4F535A;
   line-height: 28px;
 }
@@ -2014,7 +2030,7 @@ select.formControl.wAuto {
   background-color: #FFCE20;
 }
 .statusDot.end::before {
-  background-color: #EF4444;
+  background-color: #F23F3F;
 }
 
 .card {
@@ -2026,7 +2042,7 @@ select.formControl.wAuto {
 .card .thumb {
   width: 100%;
   height: 160px;
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   object-fit: cover;
 }
 .card .content {
@@ -2090,7 +2106,7 @@ select.formControl.wAuto {
 .kpiCardGrid .kpiCard .kpiContent .kpiNumber {
   font-size: 20px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -2110,7 +2126,7 @@ select.formControl.wAuto {
   font-weight: 500;
 }
 .kpiCardGrid .kpiCard .kpiContent .kpiSub .rate.isUp {
-  color: #EF4444;
+  color: #F23F3F;
 }
 .kpiCardGrid .kpiCard .kpiContent .kpiSub .rate.isDown {
   color: #287EFF;
@@ -2156,7 +2172,7 @@ select.formControl.wAuto {
 .infoBox .infoBoxHeader .infoBoxTitle {
   font-size: 15px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   margin: 0;
 }
 .infoBox .infoList {
@@ -2182,14 +2198,14 @@ select.formControl.wAuto {
   white-space: nowrap;
 }
 .infoBox .infoList .infoListItem .value {
-  color: #111827;
+  color: #1F192F;
   font-weight: 500;
   text-align: right;
   white-space: nowrap;
 }
 .infoBox .infoList .infoListItem .value strong {
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
 }
 .infoBox .infoList .infoListItem .value.point,
 .infoBox .infoList .infoListItem .value .point {
@@ -2197,7 +2213,7 @@ select.formControl.wAuto {
   font-weight: 700;
 }
 .infoBox .infoList .infoListItem .value .danger {
-  color: #EF4444;
+  color: #F23F3F;
   font-weight: 500;
 }
 
@@ -2229,7 +2245,7 @@ select.formControl.wAuto {
 .summaryStatBox .statDivider {
   width: 1px;
   height: 44px;
-  background-color: #E7E9ED;
+  background-color: #F0F0F3;
   flex-shrink: 0;
 }
 .summaryStatBox .statItem {
@@ -2251,7 +2267,7 @@ select.formControl.wAuto {
   gap: 4px;
   font-size: 20px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   line-height: 1.2;
 }
 .summaryStatBox .statItem .statValue.col {
@@ -2262,7 +2278,6 @@ select.formControl.wAuto {
 }
 .summaryStatBox .statItem .statValue a {
   color: #287EFF;
-  text-decoration: none;
   transition: color 0.15s ease;
 }
 .summaryStatBox .statItem .statValue a:hover {
@@ -2271,18 +2286,18 @@ select.formControl.wAuto {
 }
 .summaryStatBox .statItem .statValue.danger,
 .summaryStatBox .statItem .statValue .danger {
-  color: #EF4444;
+  color: #F23F3F;
 }
 .summaryStatBox .statItem .statValue.danger strong,
 .summaryStatBox .statItem .statValue.danger a,
 .summaryStatBox .statItem .statValue .danger strong,
 .summaryStatBox .statItem .statValue .danger a {
-  color: #EF4444;
+  color: #F23F3F;
 }
 .summaryStatBox .statItem .statValue .price {
   font-size: 20px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
 }
 .summaryStatBox .statItem .statValue .unit {
   font-size: 14px;
@@ -2305,12 +2320,12 @@ select.formControl.wAuto {
   line-height: 1.2;
 }
 .summaryStatBox .statItem .statValue .rate.isUp {
-  color: #EF4444;
+  color: #F23F3F;
   background-color: #FEE2E2;
 }
 .summaryStatBox .statItem .statValue .rate.isDown {
   color: #287EFF;
-  background-color: #F7F8FB;
+  background-color: #F8F8F9;
 }
 .summaryStatBox.splitType {
   display: grid;
@@ -2356,7 +2371,7 @@ select.formControl.wAuto {
 .summaryStatBox.singleLine .statItem .statValue {
   font-size: 18px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   line-height: 1.2;
 }
 .summaryStatBox.singleLine .statItem .statValue strong {
@@ -2419,7 +2434,7 @@ select.formControl.wAuto {
   gap: 2px;
   font-size: 24px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -2429,14 +2444,14 @@ select.formControl.wAuto {
 .statusSummaryBox .statusItem .statusValue .unit {
   font-size: 14px;
   font-weight: 500;
-  color: #111827;
+  color: #1F192F;
   margin-left: 2px;
 }
 .statusSummaryBox .statusItem .statusValue.danger {
-  color: #EF4444;
+  color: #F23F3F;
 }
 .statusSummaryBox .statusItem .statusValue.danger .unit {
-  color: #EF4444;
+  color: #F23F3F;
 }
 
 .statusCardGrid {
@@ -2479,7 +2494,7 @@ select.formControl.wAuto {
   gap: 2px;
   font-size: 24px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -2489,14 +2504,14 @@ select.formControl.wAuto {
 .statusCardGrid .statusCard .statusValue .unit {
   font-size: 14px;
   font-weight: 500;
-  color: #111827;
+  color: #1F192F;
   margin-left: 2px;
 }
 .statusCardGrid .statusCard .statusValue.danger {
-  color: #EF4444;
+  color: #F23F3F;
 }
 .statusCardGrid .statusCard .statusValue.danger .unit {
-  color: #EF4444;
+  color: #F23F3F;
 }
 
 .tblSection {
@@ -2524,7 +2539,7 @@ select.formControl.wAuto {
 .tblTop .tblLeft .tblTitle {
   font-size: 16px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   margin: 0;
 }
 .tblTop .tblLeft .tblCount,
@@ -2533,7 +2548,7 @@ select.formControl.wAuto {
   color: #4F535A;
 }
 .tblTop .tblLeft .tblCount .count {
-  color: #111827;
+  color: #1F192F;
   font-weight: 500;
 }
 .tblTop .tblLeft .tblCount .count.point {
@@ -2592,7 +2607,7 @@ select.formControl.wAuto {
   transition: background-color 0.15s ease;
 }
 .tbl tbody tr:hover {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
 }
 .tbl tbody tr:last-child {
   border-bottom: none;
@@ -2649,7 +2664,7 @@ select.formControl.wAuto {
   border: 1px solid #F0F0F3;
 }
 .tbl.tblView {
-  border-top: 1px solid #707070;
+  border-top: 1px solid #4F535A;
 }
 .tbl.tblView > tbody > tr {
   border-bottom: 1px solid #F0F0F3;
@@ -2675,7 +2690,7 @@ select.formControl.wAuto {
 }
 .tbl.tblInfo {
   border-collapse: separate;
-  border-top: 1px solid #707070;
+  border-top: 1px solid #4F535A;
 }
 .tbl.tblInfo > tbody > tr {
   border-bottom: none;
@@ -2703,7 +2718,7 @@ select.formControl.wAuto {
   white-space: nowrap;
 }
 .tbl.tblInfo > tbody > tr > td {
-  color: #111827;
+  color: #1F192F;
   font-weight: 500;
 }
 .tbl.tblInfo .infoStats {
@@ -2735,7 +2750,7 @@ select.formControl.wAuto {
   flex: 1;
   height: 8px;
   overflow: hidden;
-  background: #F3F5F6;
+  background: #EFF4FB;
   border-radius: 999px;
 }
 
@@ -2802,7 +2817,7 @@ select.formControl.wAuto {
 .popupHeader .popupTitle {
   font-size: 18px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   margin: 0;
 }
 .popupHeader .btnClose {
@@ -2819,7 +2834,7 @@ select.formControl.wAuto {
   transition: color 0.2s;
 }
 .popupHeader .btnClose:hover {
-  color: #111827;
+  color: #1F192F;
 }
 .popupHeader .btnClose {
   /* 닫기 X 아이콘 CSS로 그리기 */
@@ -2969,7 +2984,7 @@ select.formControl.wAuto {
   height: 18px;
   padding: 0;
   border: none;
-  background-color: #E7E9ED;
+  background-color: #F0F0F3;
   color: #4F535A;
   border-radius: 50%;
   font-size: 11px;
@@ -3172,7 +3187,7 @@ select.formControl.wAuto {
   width: 28px;
   height: 28px;
   margin: -14px 0 0 -14px;
-  border: 3px solid #E7E9ED;
+  border: 3px solid #F0F0F3;
   border-top-color: #4F535A;
   border-radius: 50%;
   animation: dataGridSpin 0.8s linear infinite;
@@ -3203,7 +3218,7 @@ select.formControl.wAuto {
   box-shadow: inset 0 -1px 0 #F0F0F3;
 }
 .tbl.dataGrid tbody tr:hover {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
 }
 .tbl.dataGrid tbody tr.isSelected, .tbl.dataGrid tbody tr.isSelected:hover {
   background-color: #EDF1FB;
@@ -3242,10 +3257,10 @@ select.formControl.wAuto {
   bottom: 0;
   z-index: 2;
   padding: 10px 8px;
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   box-shadow: inset -1px 0 0 #F0F0F3, inset 0 1px 0 #F0F0F3;
   font-weight: 500;
-  color: #111827;
+  color: #1F192F;
   text-align: center;
 }
 .tbl.dataGrid tfoot td:last-child,
@@ -3317,12 +3332,12 @@ select.formControl.wAuto {
 }
 
 .sortBtn.isAsc .sortIcon::before {
-  border-bottom-color: #1F2937;
+  border-bottom-color: #2F3034;
   opacity: 1;
 }
 
 .sortBtn.isDesc .sortIcon::after {
-  border-top-color: #1F2937;
+  border-top-color: #2F3034;
   opacity: 1;
 }
 
@@ -3364,11 +3379,11 @@ select.formControl.wAuto {
 .tbl.dataGrid tfoot .isPinnedLeft,
 .tbl.dataGrid tfoot .isPinnedRight {
   z-index: 3;
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
 }
 .tbl.dataGrid tbody tr:hover .isPinnedLeft,
 .tbl.dataGrid tbody tr:hover .isPinnedRight {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
 }
 .tbl.dataGrid tbody tr.isSelected .isPinnedLeft,
 .tbl.dataGrid tbody tr.isSelected .isPinnedRight {
@@ -3493,7 +3508,7 @@ select.formControl.wAuto {
 }
 .pagination .pageBtn:hover,
 .pagination .pageNum:hover {
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   color: #2F3034;
 }
 .pagination .pageBtn:focus-visible,
@@ -3521,7 +3536,7 @@ select.formControl.wAuto {
   background-size: 16px;
 }
 .pagination .pageBtn:hover {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   border-color: #8D919B;
 }
 .pagination .pageBtn:disabled {
@@ -3572,16 +3587,16 @@ select.formControl.wAuto {
   --chart-font-family: KBFG Text, sans-serif;
   --chart-font-size: 12;
   --chart-grid: #F0F0F3;
-  --chart-border: #E7E9ED;
+  --chart-border: #F0F0F3;
   --chart-crosshair: #8D919B;
   --chart-label-bg: #2F3034;
   --chart-series-1: #287EFF;
   --chart-series-2: #FFC72B;
   --chart-series-3: #05CD99;
-  --chart-series-4: #EE5D50;
+  --chart-series-4: #F23F3F;
   --chart-series-5: #4F535A;
   --chart-series-6: #639DFF;
-  --chart-up: #EF4444;
+  --chart-up: #F23F3F;
   --chart-down: #287EFF;
 }
 
@@ -3637,7 +3652,7 @@ select.formControl.wAuto {
   margin: 0;
   font-size: 15px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -3752,7 +3767,7 @@ select.formControl.wAuto {
   width: 28px;
   height: 28px;
   margin: -14px 0 0 -14px;
-  border: 3px solid #E7E9ED;
+  border: 3px solid #F0F0F3;
   border-top-color: #4F535A;
   border-radius: 50%;
   animation: chartSpin 0.8s linear infinite;
@@ -3773,7 +3788,7 @@ select.formControl.wAuto {
   justify-content: center;
   gap: 4px;
   margin: 0;
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   border-radius: 8px;
   font-size: 14px;
   color: #8D919B;
@@ -3935,7 +3950,7 @@ select.formControl.wAuto {
   width: 112px;
   padding: 12px 8px;
   border-right: 1px solid #F0F0F3;
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
 }
 .datePickerPreset .presetBtn {
   display: flex;
@@ -3977,7 +3992,7 @@ select.formControl.wAuto {
   color: #4F535A;
 }
 .datePickerFooter .datePickerValue strong {
-  color: #111827;
+  color: #1F192F;
   font-weight: 500;
 }
 .datePickerFooter .btnGroup {
@@ -4054,7 +4069,7 @@ select.formControl.wAuto {
   gap: 2px;
   font-size: 15px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   white-space: nowrap;
 }
 
@@ -4088,7 +4103,7 @@ select.formControl.wAuto {
 }
 .rdp-button_previous:hover,
 .rdp-button_next:hover {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
   border-color: #8D919B;
 }
 .rdp-button_previous:focus-visible,
@@ -4230,7 +4245,7 @@ select.formControl.wAuto {
   transition: background-color 0.15s, color 0.15s;
 }
 .rdp-day_button:hover {
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
 }
 .rdp-day_button:focus-visible {
   outline: none;
@@ -4242,7 +4257,7 @@ select.formControl.wAuto {
 
 .rdp-weekday:first-child,
 .rdp-week .rdp-day:first-child {
-  color: #EF4444;
+  color: #F23F3F;
 }
 
 .rdp-weekday:last-child,
@@ -4394,7 +4409,7 @@ body.isDndActive * {
   text-align: center;
 }
 .tbl tbody tr.isDragging {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
 }
 .tbl tbody tr.isDragging td {
   opacity: 0.4;
@@ -4433,7 +4448,7 @@ body.isDndActive * {
   height: 100vh;
   overflow: hidden;
   display: flex;
-  background-color: #6B7280;
+  background-color: #656565;
 }
 
 .boSidebar {
@@ -4443,7 +4458,7 @@ body.isDndActive * {
   bottom: 0;
   width: 240px;
   height: 100vh;
-  background-color: #6B7280;
+  background-color: #656565;
   color: #FFFFFF;
   flex-shrink: 0;
   display: flex;
@@ -4511,7 +4526,7 @@ body.isDndActive * {
   transform: translateY(-50%);
   margin-left: 8px;
   padding: 6px 12px;
-  background-color: #404046;
+  background-color: #2F3034;
   color: #FFFFFF;
   font-size: 13px;
   font-weight: 500;
@@ -4528,7 +4543,7 @@ body.isDndActive * {
   top: 50%;
   transform: translateY(-50%);
   border: 4px solid transparent;
-  border-right-color: #404046;
+  border-right-color: #2F3034;
   z-index: 1001;
   pointer-events: none;
 }
@@ -4579,7 +4594,7 @@ body.isDndActive * {
   gap: 10px;
   height: 40px;
   padding: 8px 12px;
-  color: #E7E9ED;
+  color: #F0F0F3;
   text-decoration: none;
   border-radius: 8px;
   font-size: 14px;
@@ -4727,7 +4742,7 @@ body.isDndActive * {
   word-break: keep-all;
 }
 .boSidebar .sideBottom .sideBtns .btnSide:hover {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
 }
 .boSidebar .sideBottom .btnFold {
   margin-top: 30px;
@@ -4825,7 +4840,7 @@ body.isDndActive * {
   transform: translateY(-50%);
   margin-left: 8px;
   padding: 6px 12px;
-  background-color: #404046;
+  background-color: #2F3034;
   color: #FFFFFF;
   font-size: 13px;
   font-weight: 500;
@@ -4842,7 +4857,7 @@ body.isDndActive * {
   top: 50%;
   transform: translateY(-50%);
   border: 4px solid transparent;
-  border-right-color: #404046;
+  border-right-color: #2F3034;
 }
 .boSidebar.isCollapsed .boMenu > li .boSubMenu {
   display: none;
@@ -4855,7 +4870,7 @@ body.isDndActive * {
   margin: 0 0 0 8px;
   padding: 8px;
   min-width: 120px;
-  background-color: #404046;
+  background-color: #2F3034;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   z-index: 1000;
@@ -4866,7 +4881,7 @@ body.isDndActive * {
   right: 100%;
   top: 14px;
   border: 5px solid transparent;
-  border-right-color: #404046;
+  border-right-color: #2F3034;
 }
 .boSidebar.isCollapsed .boMenu > li:hover .boSubMenu::after {
   content: "";
@@ -4889,7 +4904,7 @@ body.isDndActive * {
   height: 32px;
   padding: 6px 10px;
   font-size: 13px;
-  color: #E7E9ED;
+  color: #F0F0F3;
   border-radius: 6px;
   text-decoration: none;
   white-space: nowrap;
@@ -4941,7 +4956,7 @@ body.isDndActive * {
   display: flex;
   flex-direction: column;
   padding: 32px;
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   border-radius: 30px 0 0 0;
   box-sizing: border-box;
   transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -4982,7 +4997,7 @@ body.isDndActive * {
 .boHeader .headerLeft h1 {
   font-size: 20px;
   font-weight: 700;
-  color: #1F2937;
+  color: #1F192F;
   margin: 0;
 }
 .boHeader .headerLeft .headerDate,
@@ -5026,7 +5041,7 @@ body.isDndActive * {
 .pageHeader .pageTitle {
   font-size: 22px;
   font-weight: 700;
-  color: #1F2937;
+  color: #1F192F;
   margin: 0;
   line-height: 30px;
 }
@@ -5331,7 +5346,7 @@ body.isDndActive * {
    에러 페이지
    ========================================================================== */
 .errorBody {
-  background-color: #F8F9FA;
+  background-color: #F3F5F6;
 }
 
 .errorPage {
@@ -5340,7 +5355,7 @@ body.isDndActive * {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   padding: 40px 24px;
   box-sizing: border-box;
 }
@@ -5385,7 +5400,7 @@ body.isDndActive * {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F3F5F6;
+  background-color: #EFF4FB;
   margin-bottom: 16px;
 }
 .errorVisual .errorIconWrap.warning {
@@ -5412,7 +5427,7 @@ body.isDndActive * {
 .errorTitle {
   font-size: 24px;
   font-weight: 700;
-  color: #111827;
+  color: #1F192F;
   line-height: 1.35;
   margin: 0 0 16px 0;
   word-break: keep-all;

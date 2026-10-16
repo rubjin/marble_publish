@@ -22,12 +22,12 @@ $chart-series: (
 :root {
   // 레이아웃
   --chart-bg: #{$bg-white};
-  --chart-text: #{$text-tertiary};
+  --chart-text: #{$text-off};
   --chart-font-family: #{$font-family-base};
   --chart-font-size: 12;
-  --chart-grid: #{$border-light};
-  --chart-border: #{$color-gray-200};
-  --chart-crosshair: #{$border-hover};
+  --chart-grid: #{$line-light};
+  --chart-border: #{$line-disabled};
+  --chart-crosshair: #{$line-hover};
   --chart-label-bg: #{$color-gray-800};
 
   // 시리즈
@@ -36,7 +36,7 @@ $chart-series: (
   }
 
   // 상승 / 하락 (국내 기준: 상승 빨강, 하락 파랑 - KPI 카드 .isUp/.isDown 과 동일)
-  --chart-up: #{$color-red-600};
+  --chart-up: #{$color-red-400};
   --chart-down: #{$color-blue-500};
 }
 
@@ -50,7 +50,7 @@ $chart-series: (
   min-width: 0;
   padding: 20px 24px;
   background-color: $bg-white;
-  border: 1px solid $border-light;
+  border: 1px solid $line-light;
   border-radius: 10px;
   box-shadow: $shadow-xs;
 }
@@ -103,7 +103,7 @@ $chart-series: (
   .chartDesc {
     margin: 0;
     font-size: 13px;
-    color: $text-tertiary;
+    color: $text-off;
   }
 
 
@@ -144,7 +144,7 @@ $chart-series: (
     }
 
     &.isOff {
-      color: $text-tertiary;
+      color: $text-off;
       text-decoration: line-through;
 
       .legendMarker {
@@ -217,7 +217,7 @@ $chart-series: (
       width: 28px;
       height: 28px;
       margin: -14px 0 0 -14px;
-      border: 3px solid $color-gray-200;
+      border: 3px solid $line-disabled;
       border-top-color: $color-gray-600;
       border-radius: 50%;
       animation: chartSpin 0.8s linear infinite;
@@ -244,7 +244,7 @@ $chart-series: (
   background-color: $color-gray-50;
   border-radius: 8px;
   font-size: 14px;
-  color: $text-tertiary;
+  color: $text-off;
 }
 
 /* --------------------------------------------------------------------------
@@ -277,7 +277,7 @@ $chart-series: (
     display: block;
     margin-bottom: 6px;
     font-weight: $font-weight-medium;
-    color: $color-gray-300;
+    color: $line-default;
   }
 
   .tooltipList {

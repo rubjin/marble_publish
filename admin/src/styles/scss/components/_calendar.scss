@@ -14,7 +14,7 @@ $cal-radius: $btn-radius;
 $cal-selected-bg: $bg-dark;
 $cal-range-bg: $color-gray-150;
 $cal-today-dot: $color-yellow-500;
-$cal-sunday: $color-red-600;
+$cal-sunday: $color-red-400;
 $cal-saturday: $color-blue-500;
 
 /* --------------------------------------------------------------------------
@@ -34,12 +34,12 @@ $cal-saturday: $color-blue-500;
 // 데이트피커 입력창은 직접 입력 방지를 위해 readonly 를 쓰므로 비활성 스타일에서 제외
 .formDatepicker .formControl[readonly]:not(:disabled):not(.isDisabled) {
   background-color: $bg-white;
-  color: $text-primary;
-  border-color: $border-default;
+  color: $text-basic;
+  border-color: $line-default;
   cursor: pointer;
 
   &:hover {
-    border-color: $text-tertiary;
+    border-color: $text-off;
   }
 }
 
@@ -60,7 +60,7 @@ $cal-saturday: $color-blue-500;
   // 부모(입력창) 너비에 맞춰 줄어들지 않도록 내용 기준 너비
   width: max-content;
   background-color: $bg-white;
-  border: 1px solid $border-default;
+  border: 1px solid $line-default;
   border-radius: 8px;
   box-shadow: $shadow-md;
   overflow: hidden;
@@ -100,7 +100,7 @@ $cal-saturday: $color-blue-500;
   gap: 2px;
   width: 112px;
   padding: 12px 8px;
-  border-right: 1px solid $border-light;
+  border-right: 1px solid $line-light;
   background-color: $color-gray-50;
 
   .presetBtn {
@@ -122,7 +122,7 @@ $cal-saturday: $color-blue-500;
 
     &:hover {
       background-color: $color-gray-150;
-      color: $text-primary;
+      color: $text-basic;
     }
 
     &.isActive {
@@ -140,7 +140,7 @@ $cal-saturday: $color-blue-500;
   justify-content: space-between;
   gap: 12px;
   padding: 12px 16px;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid $line-light;
 
   .datePickerValue {
     font-size: 13px;
@@ -163,7 +163,7 @@ $cal-saturday: $color-blue-500;
   flex-direction: column;
   padding: 16px;
   background-color: $bg-white;
-  border: 1px solid $border-light;
+  border: 1px solid $line-light;
   border-radius: 10px;
   box-shadow: $shadow-xs;
 }
@@ -186,13 +186,13 @@ $cal-saturday: $color-blue-500;
   --rdp-nav_button-height: 28px;
   --rdp-nav_button-width: 28px;
   --rdp-months-gap: 24px;
-  --rdp-today-color: #{$text-primary};
+  --rdp-today-color: #{$text-basic};
 
   position: relative;
   box-sizing: border-box;
   font-family: $font-family-base;
   font-size: 14px;
-  color: $text-primary;
+  color: $text-basic;
 
   * {
     box-sizing: border-box;
@@ -214,7 +214,7 @@ $cal-saturday: $color-blue-500;
 // 여러 달 표시 시 구분선
 .rdp-month + .rdp-month {
   padding-left: 24px;
-  border-left: 1px solid $border-light;
+  border-left: 1px solid $line-light;
 }
 
 .rdp-month_caption {
@@ -256,7 +256,7 @@ $cal-saturday: $color-blue-500;
   height: 28px;
   margin: 0;
   padding: 0;
-  border: 1px solid $border-default;
+  border: 1px solid $line-default;
   border-radius: $cal-radius;
   background-color: $bg-white;
   color: $text-secondary;
@@ -266,7 +266,7 @@ $cal-saturday: $color-blue-500;
 
   &:hover {
     background-color: $color-gray-50;
-    border-color: $border-hover;
+    border-color: $line-hover;
   }
 
   &:focus-visible {
@@ -279,7 +279,7 @@ $cal-saturday: $color-blue-500;
     opacity: 0.35;
     cursor: not-allowed;
     background-color: $bg-white;
-    border-color: $border-default;
+    border-color: $line-default;
   }
 }
 
@@ -328,7 +328,7 @@ $cal-saturday: $color-blue-500;
   .rdp-caption_label {
     height: 30px;
     padding: 0 6px 0 10px;
-    border: 1px solid $border-default;
+    border: 1px solid $line-default;
     border-radius: $form-radius;
     background-color: $bg-white;
     font-size: 14px;
@@ -337,7 +337,7 @@ $cal-saturday: $color-blue-500;
   }
 
   &:hover .rdp-caption_label {
-    border-color: $border-hover;
+    border-color: $line-hover;
   }
 
   .rdp-chevron {
@@ -382,7 +382,7 @@ $cal-saturday: $color-blue-500;
   padding: 0;
   font-size: 12px;
   font-weight: $font-weight-medium;
-  color: $text-tertiary;
+  color: $text-off;
   text-align: center;
 }
 
@@ -464,12 +464,12 @@ $cal-saturday: $color-blue-500;
 
 // 이전/다음 달 날짜
 .rdp-outside {
-  color: $color-gray-300 !important;
+  color: $line-default !important;
 }
 
 // 선택 불가 날짜
 .rdp-disabled:not(.rdp-selected) {
-  color: $color-gray-300 !important;
+  color: $line-default !important;
 
   .rdp-day_button {
     text-decoration: line-through;
@@ -499,7 +499,7 @@ $cal-saturday: $color-blue-500;
 // 기간 선택 (mode="range")
 .rdp-range_middle {
   background-color: $cal-range-bg;
-  color: $text-primary !important;
+  color: $text-basic !important;
 
   .rdp-day_button,
   .rdp-day_button:hover {

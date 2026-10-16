@@ -1,7 +1,7 @@
 @use 'abstracts' as *;
 
 .card {
-  border: 1px solid $color-gray-300;
+  border: 1px solid $line-default;
   border-radius: 8px;
   overflow: hidden;
   background-color: $color-white;
@@ -101,7 +101,7 @@
           font-weight: $font-weight-medium;
 
           &.isUp {
-            color: $text-up;
+            color: $text-danger;
           }
 
           &.isDown {
@@ -147,7 +147,7 @@
     justify-content: space-between;
     padding-bottom: 12px;
     margin-bottom: 14px;
-    border-bottom: 1px solid $border-light;
+    border-bottom: 1px solid $line-light;
 
     .infoBoxTitle {
       font-size: 15px;
@@ -193,7 +193,7 @@
 
         &.point,
         .point {
-          color: $text-info;
+          color: $text-success;
           font-weight: $font-weight-bold;
         }
 
@@ -238,7 +238,7 @@
   .statDivider {
     width: 1px;
     height: 44px;
-    background-color: $color-gray-200;
+    background-color: $line-disabled;
     flex-shrink: 0;
   }
 
@@ -275,12 +275,11 @@
       }
 
       a {
-        color: $text-info;
-        text-decoration: none;
+        color: $text-success;
         transition: color 0.15s ease;
 
         &:hover {
-          color: $text-primary;
+          color: $text-basic;
           text-decoration: underline;
         }
       }
@@ -324,7 +323,7 @@
         line-height: 1.2;
 
         &.isUp {
-          color: $text-up;
+          color: $text-danger;
           background-color: $bg-danger-light;
         }
 

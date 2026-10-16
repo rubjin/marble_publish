@@ -17,7 +17,7 @@
   display: block;
   font-size: 14px;
   font-weight: $font-weight-medium;
-  color: $text-primary;
+  color: $text-basic;
   margin-bottom: 8px;
 
   .required {
@@ -102,6 +102,31 @@
   &.hasUnit .formControl {
     padding-right: 36px;
     text-align: right;
+  }
+
+  // 인풋 내부 우측 검색 아이콘 버튼
+  &.hasSearch {
+    .formControl {
+      padding-right: 36px;
+    }
+
+    .btnSearch {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background: transparent iconUrl('i_search_16.svg') no-repeat center / contain;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
 
@@ -301,12 +326,12 @@ select.formControl {
 
   .checkLabel {
     font-size: 14px;
-    color: $text-primary;
+    color: $text-basic;
     font-weight: $font-weight-medium;
   }
 
   input:disabled ~ .checkLabel {
-    color: $text-tertiary;
+    color: $text-off;
     cursor: not-allowed;
   }
 }
@@ -320,6 +345,7 @@ select.formControl {
   .formControl {
     padding-right: 36px;
     width: 140px;
+    min-width: 140px;
   }
 
   .btnCalendar {
@@ -347,7 +373,7 @@ select.formControl {
   gap: 8px;
 
   .dateSeparator {
-    color: $text-tertiary;
+    color: $text-off;
     font-size: 14px;
   }
 }
@@ -399,7 +425,7 @@ select.formControl {
 .formGuideText {
   margin-top: 8px;
   font-size: 13px;
-  color: $text-tertiary;
+  color: $text-off;
   font-weight: $font-weight-light;
 
   + .formGuideText {
@@ -407,7 +433,7 @@ select.formControl {
   }
 
   &.blue {
-    color: $text-info;
+    color: $text-success;
   }
 }
 
@@ -448,7 +474,7 @@ select.formControl {
   min-width: 240px;
   padding: 16px;
   background-color: $bg-white;
-  border: 1px solid $border-default;
+  border: 1px solid $line-default;
   border-radius: 8px;
   cursor: pointer;
   position: relative;
@@ -492,7 +518,7 @@ select.formControl {
     .cardTitle {
       font-size: 15px;
       font-weight: $font-weight-medium;
-      color: $text-highlight;
+      color: $text-basic;
       display: block;
       margin-bottom: 4px;
     }
@@ -546,7 +572,7 @@ select.formControl {
     justify-content: space-between;
     padding-bottom: 12px;
     margin-bottom: 12px;
-    border-bottom: 1px solid $color-gray-200;
+    border-bottom: 1px solid $line-disabled;
 
     .stepTitleWrap {
       display: flex;
@@ -562,11 +588,11 @@ select.formControl {
         min-width: 130px;
         height: 30px;
         padding: 0 12px;
-        background-color: $color-gray-200;
+        background-color: $line-disabled;
         border-radius: 6px;
         font-size: 14px;
         font-weight: $font-weight-medium;
-        color: $text-primary;
+        color: $text-basic;
         margin: 0;
         line-height: 30px;
         text-align: center;

@@ -25,7 +25,7 @@
 }
 
 .loginInner {
-  border: 2px solid $border-default;
+  border: 2px solid $line-default;
   border-radius: 20px;
   padding: 24px;
 
@@ -85,7 +85,7 @@
     background-color: #ffffff;
     border: 1px solid #ffffff;
     border-radius: 6px;
-    color: $text-primary;
+    color: $text-basic;
     box-sizing: border-box;
     transition: all 0.2s ease;
 

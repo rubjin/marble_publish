@@ -97,7 +97,7 @@ body.isDndActive {
    -------------------------------------------------------------------------- */
 .stepCard {
   &.isDragging {
-    outline: 1px dashed $border-hover;
+    outline: 1px dashed $line-hover;
     outline-offset: -1px;
     box-shadow: none;
 
