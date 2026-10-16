@@ -1209,7 +1209,7 @@ body {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  background: transparent url("/src/assets/images/icon/i_search_16.svg") no-repeat center/contain;
+  background: transparent url("/src/assets/images/icon/i_search_24.svg") no-repeat center/contain;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -1933,7 +1933,7 @@ select.formControl.wAuto {
   width: 100%;
   padding: 10px 16px;
   border-radius: 6px;
-  background-color: #F8F8F9;
+  background-color: #F7F8F9;
 }
 .fileList.boxType .fileItem .fileInfo {
   flex: none;
@@ -2325,7 +2325,7 @@ select.formControl.wAuto {
 }
 .summaryStatBox .statItem .statValue .rate.isDown {
   color: #287EFF;
-  background-color: #F8F8F9;
+  background-color: #F7F8F9;
 }
 .summaryStatBox.splitType {
   display: grid;
