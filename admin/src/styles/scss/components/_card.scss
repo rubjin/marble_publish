@@ -66,6 +66,15 @@
       margin: 0;
       white-space: nowrap;
       padding-top: 2px;
+
+      // 기준 기간 (예: (2026)) - 제목 아래 줄, 작고 흐리게
+      .kpiPeriod {
+        display: block;
+        margin-top: 2px;
+        font-size: 12px;
+        font-weight: $font-weight-light;
+        color: $text-off;
+      }
     }
 
     .kpiContent {

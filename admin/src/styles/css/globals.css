@@ -2113,6 +2113,13 @@ select.formControl.wAuto {
   white-space: nowrap;
   padding-top: 2px;
 }
+.kpiCardGrid .kpiCard .kpiTitle .kpiPeriod {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #8D919B;
+}
 .kpiCardGrid .kpiCard .kpiContent {
   display: flex;
   flex-direction: column;
