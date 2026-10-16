@@ -928,7 +928,6 @@ body {
 .tab {
   display: flex;
   border-bottom: 1px solid #D5D7DE;
-  font-size: 15px;
   gap: 4px;
 }
 .tab .item {
@@ -936,7 +935,8 @@ body {
   min-width: 120px;
   padding: 12px 20px;
   font-weight: 500;
-  color: #656565;
+  color: #2F3034;
+  font-size: 15px;
   text-align: center;
   background: transparent;
   border: none;
@@ -953,16 +953,13 @@ body {
   background-color: transparent;
   transition: background-color 0.15s ease;
 }
-.tab .item:hover {
-  color: #2F3034;
-}
 .tab .item.isActive {
-  color: #1F192F;
+  color: #2F3034;
   font-weight: 700;
 }
 .tab .item.isActive::after {
   height: 3px;
-  background-color: #FFC72B;
+  background-color: #4F535A;
 }
 .tab .item:disabled, .tab .item.isDisabled {
   color: #D5D7DE;

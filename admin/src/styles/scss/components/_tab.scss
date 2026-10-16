@@ -8,15 +8,15 @@
 .tab {
   display: flex;
   border-bottom: 1px solid $line-default;
-  font-size: 15px;
   gap: 4px;
-
+  
   .item {
     position: relative;
     min-width: 120px;
     padding: 12px 20px;
     font-weight: $font-weight-medium;
-    color: $color-gray-500;
+    color: $text-basic;
+    font-size: 15px;
     text-align: center;
     background: transparent;
     border: none;
@@ -35,17 +35,13 @@
       transition: background-color 0.15s ease;
     }
 
-    &:hover {
-      color: $text-basic;
-    }
-
     &.isActive {
-      color: $text-title;
+      color: $text-basic;
       font-weight: $font-weight-bold;
 
       &::after {
         height: 3px;
-        background-color: $bg-primary;
+        background-color: $line-active;
       }
     }
 
