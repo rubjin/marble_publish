@@ -2245,7 +2245,7 @@ select.formControl.wAuto {
 .summaryStatBox {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
   border-radius: 12px;
@@ -2253,7 +2253,15 @@ select.formControl.wAuto {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   width: 100%;
   margin-bottom: 20px;
-  gap: 32px;
+  gap: 24px;
+}
+.summaryStatBox:not(.singleLine) > .statItem {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.summaryStatBox.valueRight > .statItem .statValue,
+.summaryStatBox > .statItem.valueRight .statValue {
+  justify-content: flex-end;
 }
 .summaryStatBox .statCol {
   display: flex;

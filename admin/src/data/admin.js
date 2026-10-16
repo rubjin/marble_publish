@@ -812,9 +812,9 @@ window.adminData = [
     "screenName": "리워드 한도관리",
     "screenId": "OFR_AM_RM_005",
     "type": "페이지",
-    "status": "",
-    "worker": "",
-    "updated": "",
+    "status": "진행중",
+    "worker": "주진희",
+    "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_005.html",
     "note": ""
   },
