@@ -214,6 +214,7 @@
     border: 2px solid $line-light;
     background-color: $bg-light;
     box-shadow: none;
+    margin-bottom: 20px;
     padding: 16px 24px;
 
     .searchRow {
@@ -230,6 +231,8 @@
     }
 
     .searchLabel {
+      min-width: unset;
+      padding-right: 0;
       width: auto;
     }
 

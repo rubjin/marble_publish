@@ -758,7 +758,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
-    "updated": "2026.10.16",
+    "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_001T.html",
     "note": ""
   },
@@ -772,7 +772,7 @@ window.adminData = [
     "type": "페이지",
     "status": "완료",
     "worker": "주진희",
-    "updated": "2026.10.16",
+    "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_002T.html",
     "note": ""
   },
@@ -785,8 +785,8 @@ window.adminData = [
     "screenId": "OFR_AM_RM_003P",
     "type": "팝업",
     "status": "진행중",
-    "worker": "",
-    "updated": "",
+    "worker": "주진희",
+    "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_003P.html",
     "note": ""
   },
@@ -799,8 +799,8 @@ window.adminData = [
     "screenId": "OFR_AM_RM_004P",
     "type": "팝업",
     "status": "진행중",
-    "worker": "",
-    "updated": "",
+    "worker": "주진희",
+    "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_004P.html",
     "note": ""
   },

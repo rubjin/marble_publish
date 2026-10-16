@@ -553,11 +553,19 @@ body {
   padding: 0;
 }
 .listBar.main {
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
-.listBar.main .title {
-  font-size: 15px;
+.listBar.main .listBarItem:not(:first-child)::before {
+  height: 12px;
+  background-color: #D5D7DE;
+}
+.listBar.main .listBarItem.title {
+  font-size: 16px;
   font-weight: 700;
+  color: #1F192F;
+}
+.listBar.main + .tblSection {
+  margin-top: 20px;
 }
 .listBar .listBarItem {
   display: inline-flex;
@@ -1824,6 +1832,7 @@ select.formControl.wAuto {
   border: 2px solid #F0F0F3;
   background-color: #EFF4FB;
   box-shadow: none;
+  margin-bottom: 20px;
   padding: 16px 24px;
 }
 .popupBody .searchBox .searchRow {
@@ -1837,6 +1846,8 @@ select.formControl.wAuto {
   gap: 12px 24px;
 }
 .popupBody .searchBox .searchLabel {
+  min-width: unset;
+  padding-right: 0;
   width: auto;
 }
 .popupBody .searchBox .searchField {
@@ -2556,7 +2567,7 @@ select.formControl.wAuto {
 }
 .tblTop .tblLeft .tblCount .count {
   color: #1F192F;
-  font-weight: 500;
+  font-weight: 700;
 }
 .tblTop .tblLeft .tblCount .count.point {
   color: #287EFF;
@@ -2808,7 +2819,7 @@ select.formControl.wAuto {
   width: 820px;
 }
 .popupWrap.lg .popupBody {
-  min-height: 120px;
+  min-height: 450px;
 }
 
 .popupWrap.sm {
@@ -2882,6 +2893,12 @@ select.formControl.wAuto {
   justify-content: flex-end;
   flex-shrink: 0;
   gap: 12px;
+}
+.popupFooter .btn {
+  min-width: 100px;
+  height: 40px;
+  padding: 0px 20px;
+  font-size: 16px;
 }
 
 /* ==========================================================================

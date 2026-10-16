@@ -12,11 +12,26 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  // 팝업 / 영역 상단 대표 정보 (제목 | 라벨 값): <ul class="listBar main"><li class="listBarItem title">...</li>...</ul>
   &.main {
-    margin-bottom: 6px;
-    .title {
-      font-size: 15px;
-      font-weight: $font-weight-bold; 
+    margin-bottom: 12px;
+
+    .listBarItem {
+      &:not(:first-child)::before {
+        height: 12px;
+        background-color: $line-default;
+      }
+
+      &.title {
+        font-size: 16px;
+        font-weight: $font-weight-bold;
+        color: $text-title;
+      }
+    }
+
+    // 요약 박스 없이 바로 테이블이 올 때 - 요약 박스(.summaryStatBox, margin-bottom 20px)가 있는 화면과 같은 간격
+    + .tblSection {
+      margin-top: 20px;
     }
   }
 
