@@ -1,21 +1,25 @@
 <!--
   [UI 컴포넌트] 한 라인 요약 바 (항목 사이 구분선 자동 출력)
   <include src="../../partials/summaryStat.html" items="총 지급금액|999,999|원; 포인트리|1,500|건; 지급오류|50|건|danger"></include>
+  <include src="../../partials/summaryStat.html" items="전체 지급완료|999,000|건; 지급오류|10|건|danger link"></include>
   - items : 요약 항목 목록 - 항목은 세미콜론(;), 항목 안의 값은 파이프(|)로 구분 (값에 쉼표가 들어가므로 쉼표 구분 미사용)
-            라벨|값|단위|danger
-            * 단위   : 생략 가능 (예: "총 회원수|1,200")
-            * danger : 값을 빨간색으로 강조 (예: 지급오류) - 생략 가능
+            라벨|값|단위|옵션
+            * 단위 : 생략 가능 (예: "총 회원수|1,200")
+            * 옵션 : 공백으로 여러 개 지정 가능 - 생략 가능
+                     danger → 값을 빨간색으로 강조 (예: 지급오류)
+                     link   → 값을 <a href="#"> 링크로 출력
 -->
 <div class="summaryStatBox singleLine">
   {% for item in items.split(';') %}
   {% set f = item.split('|') %}
+  {% set opts = (f[3] | trim).split(' ') if f[3] else [] %}
   {% if f[0] | trim %}
   {% if not loop.first %}
   <div class="statDivider"></div>
   {% endif %}
   <div class="statItem">
     <span class="statLabel">{{ f[0] | trim }}</span>
-    <div class="statValue{% if f[3] and (f[3] | trim) == 'danger' %} danger{% endif %}"><strong>{{ f[1] | trim }}</strong>{% if f[2] and (f[2] | trim) %}<span class="unit">{{ f[2] | trim }}</span>{% endif %}</div>
+    <div class="statValue{% if 'danger' in opts %} danger{% endif %}">{% if 'link' in opts %}<a href="#">{{ f[1] | trim }}</a>{% else %}<strong>{{ f[1] | trim }}</strong>{% endif %}{% if f[2] and (f[2] | trim) %}<span class="unit">{{ f[2] | trim }}</span>{% endif %}</div>
   </div>
   {% endif %}
   {% endfor %}

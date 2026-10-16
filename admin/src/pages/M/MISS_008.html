@@ -95,34 +95,7 @@
 
   <include src="../../partials/tblTop.html" title="미션별 한도설정" unit="단위 : 원" guide="※ 미션별 한도 합계가 전체 예산을 초과 할 수 없습니다."></include>
 
-  <div class="summaryStatBox singleLine">
-    <div class="statItem">
-      <span class="statLabel">전체 지급완료</span>
-      <div class="statValue">
-        <strong>999,000</strong><span class="unit">건</span>
-      </div>
-    </div>
-
-    <!-- 세로 구분선 -->
-    <div class="statDivider"></div>
-
-    <div class="statItem">
-      <span class="statLabel">지급오류</span>
-      <div class="statValue danger">
-        <a href="#">10</a><span class="unit">건</span>
-      </div>
-    </div>
-
-    <!-- 세로 구분선 -->
-    <div class="statDivider"></div>
-
-    <div class="statItem">
-      <span class="statLabel">리워드 예정</span>
-      <div class="statValue">
-        <strong>1,500</strong><span class="unit">건</span>
-      </div>
-    </div>
-  </div>
+  <include src="../../partials/summaryStat.html" items="전체 지급완료|999,000|건; 지급오류|10|건|danger link; 리워드 예정|1,500|건"></include>
 
   <div class="sectionBox">
     <div class="tblSection">
