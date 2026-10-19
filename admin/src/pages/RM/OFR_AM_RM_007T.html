@@ -1,0 +1,86 @@
+<include src="../../layout/layoutDefault.html" title="리워드 한도관리">
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="리워드 한도관리" breadcrumb="">기준일: 2026.07.15</include>
+
+<!-- ==================== 섹션 :: 공통설정 ==================== -->
+ 
+<!-- KPI 4단 통계 요약 카드 그리드 -->
+<div class="kpiCardGrid">
+  <div class="kpiCard">
+    <span class="kpiTitle">총 예산<span class="kpiPeriod">(2026)</span></span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>100,000,000</strong><span class="unit">원</span></div>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">당일 지급금<span class="kpiPeriod">(2026.07.10)</span></span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>65,400,000</strong><span class="unit">원</span></div>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">누적지급금<span class="kpiPeriod">(2026.07.10)</span></span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>34,600,000</strong><span class="unit">원</span></div>
+    </div>
+  </div>
+
+  <div class="kpiCard">
+    <span class="kpiTitle">예산 소진율<span class="kpiPeriod">(임계치: 80%)</span></span>
+    <div class="kpiContent">
+      <div class="kpiNumber"><strong>80.0</strong><span class="unit">%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 하얀 박스 영역 -->
+<div class="sectionBox">
+  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+  <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
+    <span class="statusDot ing">임계치 80% 적용</span>
+    <span class="statusDot ing">운영중</span>
+    <span class="statusDot ing">운영중</span>
+    <span class="statusDot ing">운영중</span>
+  </include>
+
+  <!-- 데이터 그리드 테이블 -->
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: auto;">
+        <col style="width: 120px;">
+        <col style="width: 140px;">
+        <col style="width: 90px;">
+        <col style="width: 160px;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>리워드지급일</th>
+          <th>지급금</th>
+          <th>총 누적지급금</th>
+          <th>예산 소진율</th>
+          <th>지급여부</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2026.07.10</td>
+          <td class="textRight">1,000,000,000</td>
+          <td class="textRight">50,000,000</td>
+          <td></td>
+          <td>지급보류</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+
+</include>

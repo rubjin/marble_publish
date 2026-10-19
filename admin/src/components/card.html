@@ -11,6 +11,11 @@
 
   - 그리드 컨테이너: <KpiCardGrid columns={3 | 4}>{children}</KpiCardGrid>
     * columns: 4 (기본 4단), 3 (3단 그리드: .col3)
+
+  - 결재선 스텝퍼: <ApprovalLine items={[...]} />
+    * items: { role: string, user: string, dept: string, status?: 'done' | 'current' | 'wait', buttonText?: string }[]
+    * status: done (.isDone 체크 표시 + 연결선 활성화), current (.isCurrent 진행중 강조), wait (기본, 클래스 없음)
+    * buttonText: 버튼 노출 시 텍스트 (done 단계는 disabled 처리)
 -->
 
 <!-- ==========================================================================
@@ -98,3 +103,37 @@
     </div>
   </div>
 </div>
+
+<div style="width: 100%; height: 20px;"></div>
+
+<!-- ==========================================================================
+  결재선 정보 스텝퍼 (.approvalLine)
+  - .isDone: 완료 단계 (체크 표시 + 이어지는 연결선 활성화)
+  - .isCurrent: 진행중 단계
+  - 클래스 없음: 대기 단계
+  ========================================================================== -->
+<ol class="approvalLine">
+  <li class="approvalLineItem isDone">
+    <span class="lineDot"></span>
+    <span class="lineRole">업무담당자</span>
+    <p class="lineUser">이서연(123456)<br />/마케팅플랫폼</p>
+    <button type="button" class="btn primary sm" disabled>승인완료</button>
+  </li>
+  <li class="approvalLineItem isDone">
+    <span class="lineDot"></span>
+    <span class="lineRole">1차 결재</span>
+    <p class="lineUser">김부장(123456)<br />/마케팅플랫폼</p>
+    <button type="button" class="btn primary sm" disabled>승인완료</button>
+  </li>
+  <li class="approvalLineItem isCurrent">
+    <span class="lineDot"></span>
+    <span class="lineRole">2차 결재</span>
+    <p class="lineUser">김과장(123456)<br />/마케팅플랫폼</p>
+    <button type="button" class="btn primary sm">결재 진행중</button>
+  </li>
+  <li class="approvalLineItem">
+    <span class="lineDot"></span>
+    <span class="lineRole">3차 결재</span>
+    <p class="lineUser">박부장(654321)<br />/마케팅플랫폼</p>
+  </li>
+</ol>
