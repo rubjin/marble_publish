@@ -132,58 +132,6 @@
       }
     }
   }
-
-  .searchTable {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-
-    th {
-      width: 100px;
-      padding: 8px 16px 8px 0;
-      font-size: 14px;
-      font-weight: $font-weight-medium;
-      color: $text-basic;
-      text-align: left;
-      vertical-align: middle;
-      white-space: nowrap;
-    }
-
-    td {
-      padding: 8px 16px 8px 0;
-      vertical-align: middle;
-
-      &:last-child {
-        padding-right: 0;
-      }
-    }
-
-    .formLabel {
-      margin-bottom: 0;
-      font-size: 14px;
-      font-weight: $font-weight-medium;
-      color: $text-basic;
-    }
-
-    .formRow {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-
-      &.full {
-        flex: 1;
-        min-width: 0;
-        width: 100%;
-
-        .formControlWrap {
-          flex: 1;
-          min-width: 0;
-        }
-      }
-    }
-  }
-
   .searchBtnArea {
     display: flex;
     align-items: center;

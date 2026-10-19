@@ -9,8 +9,8 @@ $color-yellow-500: #FFC72B;
 // Grayscale
 $color-gray-50: #F3F5F6; //본문 배경컬러
 $color-gray-100: #EFF4FB; //바 차트 트랙bg
-$color-gray-150: #F0F0F3; //폼 버튼 비활성 테두리
-$color-gray-200: #E7E9ED; //폼, 버튼 비활성 배경, step 드레그 bg
+$color-gray-150: #F0F0F3; //폼 버튼 비활성 배경
+$color-gray-200: #E7E9ED; //폼, 버튼 비활성 테두리, step 드레그 bg
 $color-gray-300: #D5D7DE; //폼, 버튼 아웃라인
 $color-gray-400: #8D919B; //흐린 텍스$color-gray-300트: placeholder, 안내문구, 날짜 구분자(~), 단위
 $color-gray-500: #656565; //sidebar 배경컬러
@@ -48,7 +48,7 @@ $bg-primary: $color-yellow-500; // #FFC72B - .btn.primary, MDI 활성 탭
 $bg-white: $color-white; // #FFFFFF - 컨트롤 기본 배경
 $bg-light: $color-gray-100; // #F3F5F6 - MDI 비활성 탭, 버튼 hover
 $bg-dark: $color-gray-600; // #4F535A - btn.dark, 토글 on
-$bg-disabled: $color-gray-200; // #E7E9ED - disabled 배경
+$bg-disabled: $color-gray-150; // #FOFOF3 - disabled 배경
 $bg-table-header: rgba(#F3F5F6, 0.8); // #F3F5F6 - with 80% opacity - 테이블 th 배경
 $bg-danger-light: $color-red-50; // #FEE2E2 - 위험/상승
 $bg-warning-light: $color-orange-50; // #FEFCE8 - 주의
@@ -74,7 +74,7 @@ $text-title: $color-gray-900; // #1f192f - 제목/최강조
 
 // Borders
 $line-light: $color-gray-150; // #F0F0F3 - 옅은 구분선: 카드/섹션/검색박스 테두리, 테이블 셀, MDI 탭 구분선
-$line-disabled: $color-gray-150; // #F0F0F3 - 비활성 테두리: disabled 입력폼
+$line-disabled: $color-gray-200; // #E7E9ED - 비활성 테두리: disabled 입력폼
 $line-default: $color-gray-300; // #D5D7DE - 기본 테두리: 입력폼, .btn.outline
 $line-hover: $color-gray-400; // #8D919B - hover 테두리: 입력폼·버튼 hover
 $line-active: $color-gray-600; // #4F535A - 활성 테두리: 토글형 버튼 활성

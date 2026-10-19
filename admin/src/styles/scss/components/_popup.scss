@@ -41,7 +41,10 @@
 /* 팝업 사이즈 변형 */
 .popupWrap.lg {
   width: 820px;
-
+  .popupHeader {
+    padding: 20px 24px;
+    border-bottom: 1px solid $line-default;
+  }
   .popupBody {
     min-height: 450px;
   }
@@ -51,14 +54,14 @@
   width: 320px;
 }
 
+
 /* 팝업 헤더 */
 .popupHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
-  padding: 20px 24px;
-  border-bottom: 1px solid $line-default;
+  padding: 20px 24px 0;
 
   .popupTitle {
     font-size: 18px;

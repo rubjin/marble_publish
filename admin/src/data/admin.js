@@ -760,7 +760,7 @@ window.adminData = [
     "worker": "주진희",
     "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_001T.html",
-    "note": ""
+    "note": "20261012 기획적용"
   },
   {
     "category": "AM",
@@ -774,7 +774,7 @@ window.adminData = [
     "worker": "주진희",
     "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_002T.html",
-    "note": ""
+    "note": "20261012 기획적용"
   },
   {
     "category": "AM",
@@ -784,7 +784,7 @@ window.adminData = [
     "screenName": "리워드 지급오류 조회",
     "screenId": "OFR_AM_RM_003P",
     "type": "팝업",
-    "status": "진행중",
+    "status": "완료",
     "worker": "주진희",
     "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_003P.html",
@@ -798,7 +798,7 @@ window.adminData = [
     "screenName": "리워드 지급상세 조회",
     "screenId": "OFR_AM_RM_004P",
     "type": "팝업",
-    "status": "진행중",
+    "status": "완료",
     "worker": "주진희",
     "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_004P.html",
@@ -812,7 +812,7 @@ window.adminData = [
     "screenName": "리워드 한도관리",
     "screenId": "OFR_AM_RM_005",
     "type": "페이지",
-    "status": "진행중",
+    "status": "완료",
     "worker": "주진희",
     "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_005.html",
@@ -822,8 +822,22 @@ window.adminData = [
     "category": "AM",
     "depth1": "리워드 관리",
     "depth2": "리워드 한도관리",
-    "depth3": "리워드 한도설정(P)",
+    "depth3": "리워드 한도설정",
     "screenName": "리워드 한도설정",
+    "screenId": "OFR_AM_RM_006",
+    "type": "페이지",
+    "status": "진행중",
+    "worker": "",
+    "updated": "",
+    "link": "pages/RM/OFR_AM_RM_006.html",
+    "note": ""
+  },
+    {
+    "category": "AM",
+    "depth1": "리워드 관리",
+    "depth2": "리워드 한도관리",
+    "depth3": "리워드 한도설정",
+    "screenName": "리워드 한도설정(P)",
     "screenId": "OFR_AM_RM_006P",
     "type": "팝업",
     "status": "진행중",

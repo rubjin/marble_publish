@@ -31,6 +31,25 @@
   margin-left: 4px;
 }
 
+
+.formRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  &.full {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+
+    .formControlWrap {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+}
+
 .formControlWrap {
   position: relative;
   display: inline-flex;
@@ -80,27 +99,27 @@
   }
 
   // 좌측/우측 단위 (내부 텍스트형)
-  .inputPrefix,
-  .inputUnit {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 14px;
-    color: $text-secondary;
-    pointer-events: none;
-    line-height: 1;
-  }
+  // .inputPrefix,
+  // .inputUnit {
+  //   position: absolute;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   font-size: 14px;
+  //   color: $text-secondary;
+  //   pointer-events: none;
+  //   line-height: 1;
+  // }
 
-  .inputPrefix {
-    left: 12px;
-  }
+  // .inputPrefix {
+  //   left: 12px;
+  // }
 
-  .inputUnit {
-    right: 12px;
-  }
+  // .inputUnit {
+  //   right: 12px;
+  // }
 
   &.hasUnit .formControl {
-    padding-right: 36px;
+    padding-right: 28px;
     text-align: right;
   }
 
@@ -350,7 +369,7 @@ select.formControl {
 
   .btnCalendar {
     position: absolute;
-    right: 8px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
     width: 20px;

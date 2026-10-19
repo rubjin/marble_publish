@@ -1016,7 +1016,7 @@ body {
   height: 4px;
 }
 .mdiTabWrap .mdiTabList::-webkit-scrollbar-thumb {
-  background-color: #F0F0F3;
+  background-color: #E7E9ED;
   border-radius: 4px;
 }
 .mdiTabWrap .mdiTabItem {
@@ -1041,7 +1041,7 @@ body {
   flex-shrink: 0;
 }
 .mdiTabWrap .mdiTabItem:hover {
-  background-color: #F0F0F3;
+  background-color: #E7E9ED;
   color: #2F3034;
 }
 .mdiTabWrap .mdiTabItem:hover .tabClose {
@@ -1097,7 +1097,7 @@ body {
   transition: opacity 0.15s ease, background-color 0.15s ease;
 }
 .mdiTabWrap .mdiTabItem .tabClose:hover {
-  background-color: #F0F0F3;
+  background-color: #E7E9ED;
 }
 .mdiTabWrap .mdiTabActions {
   display: flex;
@@ -1151,6 +1151,22 @@ body {
   margin-left: 4px;
 }
 
+.formRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.formRow.full {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+.formRow.full .formControlWrap {
+  flex: 1;
+  min-width: 0;
+}
+
 .formControlWrap {
   position: relative;
   display: inline-flex;
@@ -1191,24 +1207,8 @@ body {
   height: 34px;
   margin: 0;
 }
-.formControlWrap .inputPrefix,
-.formControlWrap .inputUnit {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
-  color: #4F535A;
-  pointer-events: none;
-  line-height: 1;
-}
-.formControlWrap .inputPrefix {
-  left: 12px;
-}
-.formControlWrap .inputUnit {
-  right: 12px;
-}
 .formControlWrap.hasUnit .formControl {
-  padding-right: 36px;
+  padding-right: 28px;
   text-align: right;
 }
 .formControlWrap.hasSearch .formControl {
@@ -1269,9 +1269,9 @@ fieldset {
   box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
 }
 .formControl[readonly], .formControl:disabled, .formControl.isDisabled {
-  background-color: #E7E9ED;
+  background-color: #F0F0F3;
   color: #8D919B;
-  border-color: #F0F0F3;
+  border-color: #E7E9ED;
   cursor: not-allowed;
 }
 .formControl.isError {
@@ -1389,7 +1389,7 @@ select.formControl.wAuto {
   clip-path: none;
 }
 .formCheck input:disabled + .checkIcon {
-  background-color: #E7E9ED;
+  background-color: #F0F0F3;
   border-color: #F0F0F3;
   cursor: not-allowed;
 }
@@ -1420,7 +1420,7 @@ select.formControl.wAuto {
 }
 .formDatepicker .btnCalendar {
   position: absolute;
-  right: 8px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -1615,7 +1615,7 @@ select.formControl.wAuto {
   justify-content: space-between;
   padding-bottom: 12px;
   margin-bottom: 12px;
-  border-bottom: 1px solid #F0F0F3;
+  border-bottom: 1px solid #E7E9ED;
 }
 .stepCard .stepHeader .stepTitleWrap {
   display: flex;
@@ -1630,7 +1630,7 @@ select.formControl.wAuto {
   min-width: 130px;
   height: 30px;
   padding: 0 12px;
-  background-color: #F0F0F3;
+  background-color: #E7E9ED;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
@@ -1760,49 +1760,6 @@ select.formControl.wAuto {
   width: 100%;
 }
 .searchBox .formRow.full .formControlWrap {
-  flex: 1;
-  min-width: 0;
-}
-.searchBox .searchTable {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.searchBox .searchTable th {
-  width: 100px;
-  padding: 8px 16px 8px 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: #2F3034;
-  text-align: left;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-.searchBox .searchTable td {
-  padding: 8px 16px 8px 0;
-  vertical-align: middle;
-}
-.searchBox .searchTable td:last-child {
-  padding-right: 0;
-}
-.searchBox .searchTable .formLabel {
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: #2F3034;
-}
-.searchBox .searchTable .formRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.searchBox .searchTable .formRow.full {
-  flex: 1;
-  min-width: 0;
-  width: 100%;
-}
-.searchBox .searchTable .formRow.full .formControlWrap {
   flex: 1;
   min-width: 0;
 }
@@ -2019,7 +1976,7 @@ select.formControl.wAuto {
   height: 28px;
   padding: 0px 11px;
   border-radius: 30px;
-  background-color: #E7E9ED;
+  background-color: #F0F0F3;
   color: #4F535A;
   line-height: 28px;
 }
@@ -2156,16 +2113,6 @@ select.formControl.wAuto {
 .kpiCardGrid .kpiCard .kpiContent .kpiSub .rate.isDown {
   color: #287EFF;
 }
-@media (max-width: 1200px) {
-  .kpiCardGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (max-width: 768px) {
-  .kpiCardGrid {
-    grid-template-columns: 1fr;
-  }
-}
 
 .infoBoxWrap {
   display: grid;
@@ -2278,7 +2225,7 @@ select.formControl.wAuto {
 .summaryStatBox .statDivider {
   width: 1px;
   height: 44px;
-  background-color: #F0F0F3;
+  background-color: #E7E9ED;
   flex-shrink: 0;
 }
 .summaryStatBox .statItem {
@@ -2608,6 +2555,9 @@ select.formControl.wAuto {
   color: #4F535A;
   margin: 0;
 }
+.tblTop .tblGuide {
+  flex: 0 0 auto;
+}
 
 .btnGroup {
   display: inline-flex;
@@ -2833,6 +2783,10 @@ select.formControl.wAuto {
 .popupWrap.lg {
   width: 820px;
 }
+.popupWrap.lg .popupHeader {
+  padding: 20px 24px;
+  border-bottom: 1px solid #D5D7DE;
+}
 .popupWrap.lg .popupBody {
   min-height: 450px;
 }
@@ -2847,8 +2801,7 @@ select.formControl.wAuto {
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
-  padding: 20px 24px;
-  border-bottom: 1px solid #D5D7DE;
+  padding: 20px 24px 0;
 }
 .popupHeader .popupTitle {
   font-size: 18px;
@@ -3021,6 +2974,7 @@ select.formControl.wAuto {
   position: relative;
   display: inline-flex;
   align-items: center;
+  text-align: left;
 }
 .tooltipWrap .tooltipBtn {
   display: inline-flex;
@@ -3030,7 +2984,7 @@ select.formControl.wAuto {
   height: 18px;
   padding: 0;
   border: none;
-  background-color: #F0F0F3;
+  background-color: #E7E9ED;
   color: #4F535A;
   border-radius: 50%;
   font-size: 11px;
@@ -3233,7 +3187,7 @@ select.formControl.wAuto {
   width: 28px;
   height: 28px;
   margin: -14px 0 0 -14px;
-  border: 3px solid #F0F0F3;
+  border: 3px solid #E7E9ED;
   border-top-color: #4F535A;
   border-radius: 50%;
   animation: dataGridSpin 0.8s linear infinite;
@@ -3633,7 +3587,7 @@ select.formControl.wAuto {
   --chart-font-family: KBFG Text, sans-serif;
   --chart-font-size: 12;
   --chart-grid: #F0F0F3;
-  --chart-border: #F0F0F3;
+  --chart-border: #E7E9ED;
   --chart-crosshair: #8D919B;
   --chart-label-bg: #2F3034;
   --chart-series-1: #287EFF;
@@ -3813,7 +3767,7 @@ select.formControl.wAuto {
   width: 28px;
   height: 28px;
   margin: -14px 0 0 -14px;
-  border: 3px solid #F0F0F3;
+  border: 3px solid #E7E9ED;
   border-top-color: #4F535A;
   border-radius: 50%;
   animation: chartSpin 0.8s linear infinite;
@@ -4640,7 +4594,7 @@ body.isDndActive * {
   gap: 10px;
   height: 40px;
   padding: 8px 12px;
-  color: #F0F0F3;
+  color: #E7E9ED;
   text-decoration: none;
   border-radius: 8px;
   font-size: 14px;
@@ -4950,7 +4904,7 @@ body.isDndActive * {
   height: 32px;
   padding: 6px 10px;
   font-size: 13px;
-  color: #F0F0F3;
+  color: #E7E9ED;
   border-radius: 6px;
   text-decoration: none;
   white-space: nowrap;
@@ -5171,6 +5125,10 @@ body.isDndActive * {
 }
 .sectionBox .btnArea.left {
   justify-content: flex-start;
+}
+
+[class*=section] + [class*=section] {
+  margin-top: 28px;
 }
 
 /* ==========================================================================

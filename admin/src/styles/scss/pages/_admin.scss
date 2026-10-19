@@ -825,3 +825,7 @@
     }
   }
 }
+
+[class*="section"] + [class*="section"] {
+  margin-top: 28px;
+}

@@ -121,13 +121,7 @@
     }
   }
 
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+ 
 }
 
 // 정보 요약 박스 그리드 (테이블 상단 3개 요약 박스 - 한 라인 배치)
