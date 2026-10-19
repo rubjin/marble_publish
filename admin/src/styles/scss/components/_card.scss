@@ -504,6 +504,271 @@
 
 }
 
+// 결재 상태바 (진행단계: 저장/결재진행중/결재완료 | 결재상태: 대기/승인/반려 | 결재완료 시 처리일시)
+.approvalStatusBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background-color: $box-bg;
+  border: 1px solid $box-border;
+  border-radius: $box-radius;
+  padding: $box-padding;
+  padding-top: 40px;
+  box-shadow: $box-shadow;
+  margin: 20px 0;
+
+  // 진행단계 스텝퍼 (원형 번호 위 / 단계명 아래 세로 정렬 + 연결선)
+  $step-width: 84px; // 단계 1칸 너비
+  $step-gap: 100px; // 단계 사이 간격
+  $step-dot-size: 28px; // 기본 원 크기
+  $step-dot-done-size: 36px; // 완료(.isDone) 원 크기
+  $step-line-space: 32px; // 원 중심에서 연결선까지 거리 (큰 원 반지름 + 여백)
+
+  .approvalStepper {
+    display: flex;
+    align-items: flex-start;
+    gap: $step-gap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .approvalStep {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: $step-width;
+    white-space: nowrap;
+
+    // 단계 사이 연결선 (이전 원 ~ 현재 원 사이, 원 높이 기준 가운데)
+    & + .approvalStep::before {
+      content: '';
+      position: absolute;
+      top: calc($step-dot-done-size / 2) - 1px;
+      left: calc($step-width / 2) - $step-width - $step-gap + $step-line-space;
+      width: $step-width + $step-gap - $step-line-space * 2;
+      height: 2px;
+      border-radius: 1px;
+      background-color: $line-default;
+    }
+
+    .stepDot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: $step-dot-size;
+      height: $step-dot-size;
+      // 원 크기가 달라도 단계명 위치가 같도록 큰 원 높이만큼 영역 확보
+      margin: calc(($step-dot-done-size - $step-dot-size) / 2) 0;
+      border-radius: 50%;
+      border: 2px solid $line-default;
+      background-color: $bg-white;
+      font-size: 13px;
+      font-weight: $font-weight-bold;
+      color: $text-off;
+      box-sizing: border-box;
+    }
+
+    .stepText {
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      color: $text-off;
+    }
+
+    .stepStat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    // 진행중 단계
+    &.isCurrent {
+      .stepDot {
+        border-color: $text-success;
+        color: $text-success;
+        box-shadow: 0 0 0 4px $bg-card-active;
+      }
+
+      .stepText {
+        font-weight: $font-weight-bold;
+        color: $text-title;
+      }
+    }
+
+    // 완료된 단계 (번호 대신 체크 표시)
+    &.isDone {
+      .stepDot {
+        position: relative;
+        width: $step-dot-done-size;
+        height: $step-dot-done-size;
+        margin: 0;
+        border-color: $text-success;
+        background-color: $text-success;
+        font-size: 0;
+
+        &::after {
+          content: '';
+          width: 12px;
+          height: 6px;
+          margin-top: -3px;
+          border-left: 2px solid $text-inverse;
+          border-bottom: 2px solid $text-inverse;
+          transform: rotate(-45deg);
+        }
+      }
+
+      .stepText {
+        color: $text-title;
+      }
+
+      // 완료 단계로 이어지는 연결선 활성화
+      &::before {
+        background-color: $text-success;
+      }
+    }
+  }
+
+  // 결재완료 시 처리일시 (YYYY.MM.DD HH:MM:SS) - 단계명/상태 배지 아래
+  .approvalDate {
+    font-size: 13px;
+    color: $text-off;
+  }
+
+  // 결재상태 배지 (점 + 텍스트 pill)
+  .approvalState {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: $font-weight-bold;
+    background-color: $bg-light; // 대기 (기본)
+    color: $text-secondary;
+
+    &::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: currentColor;
+    }
+
+    &.isApprove {
+      background-color: $bg-card-active; // 승인
+      color: $text-success;
+    }
+
+    &.isReject {
+      background-color: $bg-danger-light; // 반려
+      color: $text-danger;
+    }
+  }
+}
+
+// 결재선 정보 스텝퍼 (원 + 연결선 / 원 아래 단계명·결재자·버튼 세로 정렬)
+.approvalLine {
+  $line-dot-size: 36px; // 원 크기
+  $line-space: 8px; // 원과 연결선 사이 여백
+
+  display: flex;
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 24px 12px 16px;
+  background: $bg-light;
+  border-radius: $box-radius;
+
+  .approvalLineItem {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    text-align: center;
+
+    // 단계 사이 연결선 (이전 원 가장자리 ~ 현재 원 가장자리)
+    & + .approvalLineItem::before {
+      content: '';
+      position: absolute;
+      top: calc($line-dot-size / 2) - 1px;
+      left: calc(-50% + #{calc($line-dot-size / 2) + $line-space});
+      right: calc(50% + #{calc($line-dot-size / 2) + $line-space});
+      height: 2px;
+      border-radius: 1px;
+      background-color: $line-default;
+    }
+
+    .btn {
+      margin-top: 4px;
+    }
+
+    // 진행중 단계
+    &.isCurrent .lineDot {
+      border-color: $text-success;
+      color: $text-success;
+      box-shadow: 0 0 0 4px $bg-card-active;
+    }
+
+    // 완료 단계 (번호 대신 체크 표시 + 이어지는 연결선 활성화)
+    &.isDone {
+      .lineDot {
+        border-color: $text-success;
+        background-color: $text-success;
+        font-size: 0;
+
+        &::after {
+          content: '';
+          width: 12px;
+          height: 6px;
+          margin-top: -3px;
+          border-left: 2px solid $text-inverse;
+          border-bottom: 2px solid $text-inverse;
+          transform: rotate(-45deg);
+        }
+      }
+
+      &::before {
+        background-color: $text-success;
+      }
+    }
+  }
+
+  .lineDot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $line-dot-size;
+    height: $line-dot-size;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    border: 2px solid $line-default;
+    background-color: $bg-white;
+    font-size: 14px;
+    font-weight: $font-weight-bold;
+    color: $text-off;
+    box-sizing: border-box;
+  }
+
+  .lineRole {
+    font-size: 14px;
+    font-weight: $font-weight-bold;
+    color: $text-title;
+  }
+
+  .lineUser {
+    margin: 0;
+    padding: 0 8px;
+    font-size: 13px;
+    color: $text-secondary;
+    word-break: keep-all;
+  }
+}
+
 // 상태 카드 (각각 독립된 개별 박스)
 .statusCardGrid {
   display: grid;

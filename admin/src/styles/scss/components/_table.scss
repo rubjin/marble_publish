@@ -162,6 +162,17 @@
       line-height: 1.5;
     }
 
+    // 셀 한 줄 말줄임: <td class="tdEllipsis"><a href="#" class="link" title="전체 텍스트">...</a></td>
+    td.tdEllipsis {
+      @include text-ellipsis;
+
+      > a,
+      > span {
+        display: block;
+        @include text-ellipsis;
+      }
+    }
+
     // 빈 데이터: <tr><td class="tblEmpty" colspan={n}>검색결과가 없습니다.</td></tr>
     td.tblEmpty {
       height: 200px;

@@ -231,7 +231,93 @@
   </div>
 </div>
 
- <!-- 결재 상태바: 단계에 따라 저장, 결재진행중/대기 나타내기 -->
+<!-- 결재 상태바: 단계에 따라 저장, 결재진행중/대기 나타내기 -->
+<!-- [D] 진행단계(.approvalStep): 저장 > 결재진행중 > 결재완료 -->
+<!--     현재 단계 .isCurrent / 지난 단계·결재완료 .isDone / 이후 단계 (클래스 없음) -->
+<!-- [D] 결재상태(.approvalState)는 해당 단계명 아래에 노출 -->
+<!--     결재진행중 단계 → 대기 (클래스 없음) / 결재완료 단계 → 승인 .isApprove, 반려 .isReject -->
+<!-- [D] 결재완료 시에만 처리일시(.approvalDate) 노출 : (YYYY.MM.DD HH:MM:SS) -->
+
+<!-- 저장 -->
+<div class="approvalStatusBar">
+  <ol class="approvalStepper">
+    <li class="approvalStep isCurrent">
+      <span class="stepDot">1</span>
+      <span class="stepText">저장</span>
+    </li>
+    <li class="approvalStep">
+      <span class="stepDot">2</span>
+      <span class="stepText">결재진행중</span>
+    </li>
+    <li class="approvalStep">
+      <span class="stepDot">3</span>
+      <span class="stepText">결재완료</span>
+    </li>
+  </ol>
+</div>
+
+<!-- 결재진행중 -->
+<div class="approvalStatusBar">
+  <ol class="approvalStepper">
+    <li class="approvalStep isDone">
+      <span class="stepDot">1</span>
+      <span class="stepText">저장</span>
+    </li>
+    <li class="approvalStep isCurrent">
+      <span class="stepDot">2</span>
+      <span class="stepText">결재진행중</span>
+      <span class="approvalState">대기</span>
+    </li>
+    <li class="approvalStep">
+      <span class="stepDot">3</span>
+      <span class="stepText">결재완료</span>
+    </li>
+  </ol>
+</div>
+
+<!-- 결재완료(승인) -->
+<div class="approvalStatusBar">
+  <ol class="approvalStepper">
+    <li class="approvalStep isDone">
+      <span class="stepDot">1</span>
+      <span class="stepText">저장</span>
+    </li>
+    <li class="approvalStep isDone">
+      <span class="stepDot">2</span>
+      <span class="stepText">결재진행중</span>
+    </li>
+    <li class="approvalStep isDone">
+      <span class="stepDot">3</span>
+      <span class="stepText">결재완료</span>
+      <div class="stepStat">
+        <span class="approvalState isApprove">승인</span>
+        <span class="approvalDate">(2026.07.15 10:00:00)</span>
+      </div>
+    </li>
+  </ol>
+</div>
+
+<!-- 결재완료(반려) -->
+<div class="approvalStatusBar">
+  <ol class="approvalStepper">
+    <li class="approvalStep isDone">
+      <span class="stepDot">1</span>
+      <span class="stepText">저장</span>
+    </li>
+    <li class="approvalStep isDone">
+      <span class="stepDot">2</span>
+      <span class="stepText">결재진행중</span>
+    </li>
+    <li class="approvalStep isDone">
+      <span class="stepDot">3</span>
+      <span class="stepText">결재완료</span>
+      <div class="stepStat">
+        <span class="approvalState isReject">반려</span>
+        <span class="approvalDate">(2026.07.15 10:00:00)</span>
+      </div>
+    </li>
+  </ol>
+</div>
 
 <!-- [S] 업무관계자 탭 -->
 <div class="section">
@@ -398,21 +484,21 @@
         <tbody>
           <tr>
             <td>3</td>
-            <td class="textLeft"><a href="#" class="link">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
+            <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
             <td>홍길동(123456)</td>
             <td>디지털BK Biz부</td>
             <td>2026.09.25 10:00:00</td>
           </tr>
           <tr>
             <td>2</td>
-            <td class="textLeft"><a href="#" class="link">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
+            <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
             <td>홍길동(123456)</td>
             <td>디지털BK Biz부</td>
             <td>2026.09.25 10:00:00</td>
           </tr>
           <tr>
             <td>1</td>
-            <td class="textLeft"><a href="#" class="link">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
+            <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
             <td>홍길동(123456)</td>
             <td>디지털BK Biz부</td>
             <td>2026.09.25 10:00:00</td>

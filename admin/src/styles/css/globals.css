@@ -2434,6 +2434,217 @@ select.formControl.wAuto {
   color: #F23F3F;
 }
 
+.approvalStatusBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background-color: #FFFFFF;
+  border: 1px solid #F0F0F3;
+  border-radius: 12px;
+  padding: 24px 28px;
+  padding-top: 40px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  margin: 20px 0;
+}
+.approvalStatusBar .approvalStepper {
+  display: flex;
+  align-items: flex-start;
+  gap: 100px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.approvalStatusBar .approvalStep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 84px;
+  white-space: nowrap;
+}
+.approvalStatusBar .approvalStep + .approvalStep::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: -110px;
+  width: 120px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #D5D7DE;
+}
+.approvalStatusBar .approvalStep .stepDot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 4px 0;
+  border-radius: 50%;
+  border: 2px solid #D5D7DE;
+  background-color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  color: #8D919B;
+  box-sizing: border-box;
+}
+.approvalStatusBar .approvalStep .stepText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #8D919B;
+}
+.approvalStatusBar .approvalStep .stepStat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.approvalStatusBar .approvalStep.isCurrent .stepDot {
+  border-color: #287EFF;
+  color: #287EFF;
+  box-shadow: 0 0 0 4px #EDF1FB;
+}
+.approvalStatusBar .approvalStep.isCurrent .stepText {
+  font-weight: 700;
+  color: #1F192F;
+}
+.approvalStatusBar .approvalStep.isDone .stepDot {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  border-color: #287EFF;
+  background-color: #287EFF;
+  font-size: 0;
+}
+.approvalStatusBar .approvalStep.isDone .stepDot::after {
+  content: "";
+  width: 12px;
+  height: 6px;
+  margin-top: -3px;
+  border-left: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+  transform: rotate(-45deg);
+}
+.approvalStatusBar .approvalStep.isDone .stepText {
+  color: #1F192F;
+}
+.approvalStatusBar .approvalStep.isDone::before {
+  background-color: #287EFF;
+}
+.approvalStatusBar .approvalDate {
+  font-size: 13px;
+  color: #8D919B;
+}
+.approvalStatusBar .approvalState {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #EFF4FB;
+  color: #4F535A;
+}
+.approvalStatusBar .approvalState::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+.approvalStatusBar .approvalState.isApprove {
+  background-color: #EDF1FB;
+  color: #287EFF;
+}
+.approvalStatusBar .approvalState.isReject {
+  background-color: #FEE2E2;
+  color: #F23F3F;
+}
+
+.approvalLine {
+  display: flex;
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 24px 12px 16px;
+  background: #EFF4FB;
+  border-radius: 12px;
+}
+.approvalLine .approvalLineItem {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  text-align: center;
+}
+.approvalLine .approvalLineItem + .approvalLineItem::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: calc(-50% + 26px);
+  right: calc(50% + 26px);
+  height: 2px;
+  border-radius: 1px;
+  background-color: #D5D7DE;
+}
+.approvalLine .approvalLineItem .btn {
+  margin-top: 4px;
+}
+.approvalLine .approvalLineItem.isCurrent .lineDot {
+  border-color: #287EFF;
+  color: #287EFF;
+  box-shadow: 0 0 0 4px #EDF1FB;
+}
+.approvalLine .approvalLineItem.isDone .lineDot {
+  border-color: #287EFF;
+  background-color: #287EFF;
+  font-size: 0;
+}
+.approvalLine .approvalLineItem.isDone .lineDot::after {
+  content: "";
+  width: 12px;
+  height: 6px;
+  margin-top: -3px;
+  border-left: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+  transform: rotate(-45deg);
+}
+.approvalLine .approvalLineItem.isDone::before {
+  background-color: #287EFF;
+}
+.approvalLine .lineDot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 4px;
+  border-radius: 50%;
+  border: 2px solid #D5D7DE;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  color: #8D919B;
+  box-sizing: border-box;
+}
+.approvalLine .lineRole {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1F192F;
+}
+.approvalLine .lineUser {
+  margin: 0;
+  padding: 0 8px;
+  font-size: 13px;
+  color: #4F535A;
+  word-break: keep-all;
+}
+
 .statusCardGrid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -2619,6 +2830,18 @@ select.formControl.wAuto {
   font-weight: 500;
   color: #8D919B;
   line-height: 1.5;
+}
+.tbl tbody td.tdEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tbl tbody td.tdEllipsis > a,
+.tbl tbody td.tdEllipsis > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .tbl tbody td.tblEmpty {
   height: 200px;
