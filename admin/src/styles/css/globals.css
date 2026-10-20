@@ -1346,6 +1346,9 @@ select.formControl.wAuto {
   margin-right: 8px;
   transition: all 0.2s;
 }
+.formCheck .checkIcon:last-child {
+  margin-right: 0;
+}
 .formCheck .checkIcon::after {
   content: "";
   display: none;
@@ -2228,6 +2231,25 @@ select.formControl.wAuto {
   background-color: #E7E9ED;
   flex-shrink: 0;
 }
+.summaryStatBox .statGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.summaryStatBox .statGroup .statGroupTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1F192F;
+  white-space: nowrap;
+}
+.summaryStatBox .statGroup .statGroupItems {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.summaryStatBox .statGroup .statGroupItems .statItem {
+  gap: 8px;
+}
 .summaryStatBox .statItem {
   display: flex;
   flex-direction: column;
@@ -2339,7 +2361,7 @@ select.formControl.wAuto {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   white-space: nowrap;
 }
 .summaryStatBox.singleLine .statItem .statLabel {
@@ -2931,7 +2953,7 @@ select.formControl.wAuto {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px 12px;
+  gap: 6px;
 }
 .tbl.tblInfo .infoStat {
   display: inline-flex;

@@ -279,6 +279,11 @@ select.formControl {
     margin-right: 8px;
     transition: all 0.2s;
 
+    // 라벨 없이 아이콘만 사용 (테이블 행 선택 등)
+    &:last-child {
+      margin-right: 0;
+    }
+
     &::after {
       content: '';
       display: none;

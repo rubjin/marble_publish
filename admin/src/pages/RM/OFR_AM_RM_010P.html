@@ -28,37 +28,102 @@
           <div class="tblWrap">
             <table class="tbl tblBordered">
               <colgroup>
-                <col style="width: 60px;">
-                <col style="width: 100px;">
+                <col style="width: 50px;">
+                <col style="width: 120px;">
                 <col style="width: 200px;">
                 <col style="width: 100px;">
-                <col style="width: 100px;">
-                <col style="width: 100px;">
-                <col style="width: 100px;">
+                <col style="width: 140px;">
+                <col style="width: 140px;">
+                <col style="width: 140px;">
               </colgroup>
               <thead>
                 <tr>
-                  <th></th>
+                  <th>
+                    <label class="formCheck">
+                      <input type="checkbox" aria-label="전체 선택" />
+                      <span class="checkIcon"></span>
+                    </label>
+                  </th>
                   <th>검토구분</th>
                   <th>상세</th>
-                  <th>사용여부</th>
-                  <th>승인설정</th>
+                  <th>사용여부<span class="required">*</span></th>
+                  <th>승인설정<span class="required">*</span></th>
                   <th>설정1</th>
                   <th>설정2</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td></td>
-                  <td>월평균고액</td>
-                  <td class="textLeft">월 평균치 200% 이상(평균 대비 고액)</td>
-                  <td>사용</td>
-                  <td>선택</td>
-                  <td>선택</td>
-                  <td>선택</td>
+                  <td>
+                    <label class="formCheck">
+                      <input type="checkbox" aria-label="행 선택" />
+                      <span class="checkIcon"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <input type="text" class="formControl full" value="월평균고액" placeholder="검토구분 입력" />
+                  </td>
+                  <td>
+                    <input type="text" class="formControl full" value="월평균고액" placeholder="검토구분 입력" />
+                    <!-- <textarea class="formControl full" rows="2" placeholder="상세 내용 입력">월 평균치 200% 이상(평균 대비 고액)</textarea> -->
+                  </td>
+                  <td>
+                    <select class="formControl full">
+                      <option value="Y">사용</option>
+                      <option value="N">사용안함</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="formControl full">
+                      <option value="">선택</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="formControl full">
+                      <option value="">선택</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="formControl full">
+                      <option value="">선택</option>
+                    </select>
+                  </td>
                 </tr>
                 <tr>
-                  <td class="tblEmpty" colspan="7">조회 내역이 없습니다.</td>
+                  <td>
+                    <label class="formCheck">
+                      <input type="checkbox" aria-label="행 선택" />
+                      <span class="checkIcon"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <input type="text" class="formControl full" value="월평균고액" placeholder="검토구분 입력" />
+                  </td>
+                  <td>
+                    <input type="text" class="formControl full" value="월평균고액" placeholder="검토구분 입력" />
+                    <!-- <textarea class="formControl full" rows="2" placeholder="상세 내용 입력">월 평균치 200% 이상(평균 대비 고액)</textarea> -->
+                  </td>
+                  <td>
+                    <select class="formControl full">
+                      <option value="Y">사용</option>
+                      <option value="N">사용안함</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="formControl full">
+                      <option value="">담당자승인</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="formControl full">
+                      <option value="">선택</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="formControl full">
+                      <option value="">선택</option>
+                    </select>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -67,7 +132,7 @@
       </div>
       <div class="popupFooter">
         <button type="button" class="btn outline">취소</button>
-        <button type="button" class="btn primary btnClose">확인</button>
+        <button type="button" class="btn primary btnClose">저장</button>
       </div>
     </div>
   </div>

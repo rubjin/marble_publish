@@ -2,24 +2,44 @@
   [UI 컴포넌트] 한 라인 요약 바 (항목 사이 구분선 자동 출력)
   <include src="../../partials/summaryStat.html" items="총 지급금액|999,999|원; 포인트리|1,500|건; 지급오류|50|건|danger"></include>
   <include src="../../partials/summaryStat.html" items="전체 지급완료|999,000|건; 지급오류|10|건|danger link"></include>
+  <include src="../../partials/summaryStat.html" items="룰렛참여권:지급|3|장; 룰렛참여권:사용|2|장; 포인트|100|P"></include>
   - items : 요약 항목 목록 - 항목은 세미콜론(;), 항목 안의 값은 파이프(|)로 구분 (값에 쉼표가 들어가므로 쉼표 구분 미사용)
             라벨|값|단위|옵션
+            * 라벨 : "그룹명:라벨" 형식이면 그룹으로 묶음 (연속된 같은 그룹명끼리 .statGroup 으로 출력, 구분선은 그룹 단위)
             * 단위 : 생략 가능 (예: "총 회원수|1,200")
             * 옵션 : 공백으로 여러 개 지정 가능 - 생략 가능
                      danger → 값을 빨간색으로 강조 (예: 지급오류)
                      link   → 값을 <a href="#"> 링크로 출력
 -->
+{% set list = [] %}
+{% for raw in items.split(';') %}{% if raw.split('|')[0] | trim %}{% set _ = list.push(raw | trim) %}{% endif %}{% endfor %}
 <div class="summaryStatBox singleLine">
-  {% for item in items.split(';') %}
+  {% for item in list %}
   {% set f = item.split('|') %}
   {% set opts = (f[3] | trim).split(' ') if f[3] else [] %}
-  {% if f[0] | trim %}
+  {% set name = f[0] | trim %}
+  {% set grp = (name.split(':')[0] | trim) if ':' in name else '' %}
+  {% set label = (name.split(':')[1] | trim) if ':' in name else name %}
+  {% set prevName = list[loop.index0 - 1].split('|')[0] if not loop.first else '' %}
+  {% set prevGrp = (prevName.split(':')[0] | trim) if ':' in prevName else '' %}
+  {% set nextName = list[loop.index0 + 1].split('|')[0] if not loop.last else '' %}
+  {% set nextGrp = (nextName.split(':')[0] | trim) if ':' in nextName else '' %}
+  {% if loop.first or not grp or grp != prevGrp %}
   {% if not loop.first %}
   <div class="statDivider"></div>
   {% endif %}
+  {% if grp %}
+  <div class="statGroup">
+    <span class="statLabel">{{ grp }}</span>
+    <div class="statGroupItems">
+  {% endif %}
+  {% endif %}
   <div class="statItem">
-    <span class="statLabel">{{ f[0] | trim }}</span>
+    <span class="statLabel">{{ label }}</span>
     <div class="statValue{% if 'danger' in opts %} danger{% endif %}">{% if 'link' in opts %}<a href="#">{{ f[1] | trim }}</a>{% else %}<strong>{{ f[1] | trim }}</strong>{% endif %}{% if f[2] and (f[2] | trim) %}<span class="unit">{{ f[2] | trim }}</span>{% endif %}</div>
+  </div>
+  {% if grp and grp != nextGrp %}
+    </div>
   </div>
   {% endif %}
   {% endfor %}

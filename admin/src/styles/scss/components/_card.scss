@@ -260,6 +260,29 @@
     flex-shrink: 0;
   }
 
+  // 그룹 항목 (그룹명 + 하위 항목 가로 나열)
+  .statGroup {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .statGroupTitle {
+      font-size: 14px;
+      font-weight: $font-weight-bold;
+      color: $text-title;
+      white-space: nowrap;
+    }
+
+    .statGroupItems {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      .statItem {
+         gap: 8px;
+      }
+    }
+  }
+
   .statItem {
     display: flex;
     flex-direction: column;
@@ -389,7 +412,7 @@
       display: inline-flex;
       flex-direction: row;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
       white-space: nowrap;
 
       .statLabel {

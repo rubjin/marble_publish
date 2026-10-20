@@ -457,13 +457,13 @@ window.adminData = [
     "category": "AM",
     "depth1": "미션관리",
     "depth2": "미션 참여 내역",
-    "depth3": "주식 쭈꾸미 미션 참여 내역",
-    "screenName": "주식 쭈꾸미 미션 참여 내역",
+    "depth3": "주식 꾸준히 미션 참여 내역",
+    "screenName": "주식 꾸준히 미션 참여 내역",
     "screenId": "OFR_AM_MM_012",
     "type": "페이지",
     "status": "진행중",
-    "worker": "",
-    "updated": "",
+    "worker": "주진희",
+    "updated": "2026.10.20",
     "link": "pages/MM/OFR_AM_MM_012.html",
     "note": ""
   },
@@ -472,7 +472,7 @@ window.adminData = [
     "depth1": "미션관리",
     "depth2": "미션 참여 내역",
     "depth3": "",
-    "screenName": "주식 쭈꾸미 미션 고객 참여 내역",
+    "screenName": "주식 꾸준히 미션 고객 참여 내역",
     "screenId": "OFR_AM_MM_013",
     "type": "페이지",
     "status": "진행중",
@@ -601,11 +601,11 @@ window.adminData = [
     "screenName": "CMA 행운룰렛 미션 참여 내역",
     "screenId": "OFR_AM_MM_020",
     "type": "페이지",
-    "status": "진행중",
-    "worker": "",
-    "updated": "",
+    "status": "완료",
+    "worker": "주진희",
+    "updated": "2026.10.20",
     "link": "pages/MM/OFR_AM_MM_020.html",
-    "note": ""
+    "note": "셀 항목 수정필요"
   },
   {
     "category": "AM",
@@ -615,9 +615,9 @@ window.adminData = [
     "screenName": "CMA 행운룰렛 미션 고객 참여 내역 매일미션",
     "screenId": "OFR_AM_MM_021T",
     "type": "페이지",
-    "status": "진행중",
-    "worker": "",
-    "updated": "",
+    "status": "완료",
+    "worker": "주진희",
+    "updated": "2026.10.20",
     "link": "pages/MM/OFR_AM_MM_021T.html",
     "note": ""
   },
@@ -643,9 +643,9 @@ window.adminData = [
     "screenName": "CMA 행운룰렛 미션 고객 참여 내역 매월미션",
     "screenId": "OFR_AM_MM_051T",
     "type": "페이지",
-    "status": "진행중",
-    "worker": "",
-    "updated": "",
+    "status": "완료",
+    "worker": "주진희",
+    "updated": "2026.10.20",
     "link": "pages/MM/OFR_AM_MM_051T.html",
     "note": ""
   },
@@ -671,11 +671,11 @@ window.adminData = [
     "screenName": "연금습관성장하기 참여 내역",
     "screenId": "OFR_AM_MM_022",
     "type": "페이지",
-    "status": "진행중",
+    "status": "",
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_022.html",
-    "note": ""
+    "note": "기획없음"
   },
   {
     "category": "AM",
@@ -685,11 +685,11 @@ window.adminData = [
     "screenName": "연금습관성장하기 고객 참여 내역",
     "screenId": "OFR_AM_MM_023",
     "type": "페이지",
-    "status": "진행중",
+    "status": "",
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_023.html",
-    "note": ""
+    "note": "기획없음"
   },
   {
     "category": "AM",
@@ -703,7 +703,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_024.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   {
     "category": "AM",
@@ -717,7 +717,7 @@ window.adminData = [
     "worker": "주진희",
     "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_025.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   {
     "category": "AM",
@@ -731,7 +731,7 @@ window.adminData = [
     "worker": "주진희",
     "updated": "2026.10.12",
     "link": "pages/MM/OFR_AM_MM_025_2.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   {
     "category": "AM",
@@ -745,7 +745,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_026.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   // RM 리워드관리
   {
@@ -854,9 +854,9 @@ window.adminData = [
     "screenName": "리워드 지급검토관리(예산현황)",
     "screenId": "OFR_AM_RM_007T",
     "type": "페이지",
-    "status": "",
-    "worker": "",
-    "updated": "",
+    "status": "진행중",
+    "worker": "주진희",
+    "updated": "2026.10.20",
     "link": "pages/RM/OFR_AM_RM_007T.html",
     "note": ""
   },
@@ -868,9 +868,9 @@ window.adminData = [
     "screenName": "리워드 지급검토관리(검토대상)",
     "screenId": "OFR_AM_RM_008T",
     "type": "페이지",
-    "status": "",
-    "worker": "",
-    "updated": "",
+    "status": "진행중",
+    "worker": "주진희",
+    "updated": "2026.10.20",
     "link": "pages/RM/OFR_AM_RM_008T.html",
     "note": ""
   },
@@ -896,7 +896,7 @@ window.adminData = [
     "screenName": "이상치 플래그 설정(P)",
     "screenId": "OFR_AM_RM_010P",
     "type": "팝업",
-    "status": "진행중",
+    "status": "완료",
     "worker": "주진희",
     "updated": "2026.10.19",
     "link": "pages/RM/OFR_AM_RM_010P.html",
@@ -915,7 +915,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/SA/OFR_AM_SA_001.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   {
     "category": "AM",
@@ -929,7 +929,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/SA/OFR_AM_SA_002.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   {
     "category": "AM",
@@ -943,7 +943,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/SA/OFR_AM_SA_003.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   {
     "category": "AM",
@@ -957,7 +957,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/SA/OFR_AM_SA_004.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   {
     "category": "AM",
@@ -971,7 +971,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/SA/OFR_AM_SA_005.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   {
     "category": "AM",
@@ -985,7 +985,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/SA/OFR_AM_SA_006.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   {
     "category": "AM",
@@ -999,7 +999,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/SA/OFR_AM_SA_007.html",
-    "note": "임시화면ID"
+    "note": "임시화면ID, 기획없음"
   },
   // BM 업무관리
   {
