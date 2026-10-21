@@ -120,6 +120,11 @@
       }
     }
 
+    // 수치 우측 하단 정렬 (타이틀은 좌측 상단): <div class="kpiCard valueBottom">
+    &.valueBottom .kpiContent {
+      align-self: flex-end;
+    }
+
     // 진행률형 카드 (상단: 타이틀 + 상태뱃지 / 수치 · 중단: 진행률 바 · 하단: 보조 정보 좌우)
     &.kpiProgress {
       flex-direction: column;

@@ -2,7 +2,8 @@
   [리액트 컴포넌트 가이드]
   - 컴포넌트: <Icon name="..." size="default" /> 또는 <SidebarMenuIcon index={1..7} />
   - 속성 인터페이스:
-    * name: string (e.g., 'calendar', 'download', 'logout', 'deleteTag', 'upload', 'drag', 'side1'~'side7', 'sideSub')
+    * name: string (e.g., 'calendar', 'download', 'logout', 'deleteTag', 'upload', 'drag', 'notice', 'side1'~'side7', 'sideSub')
+      - notice: 원형 느낌표 (이미지 없이 CSS, 문구 앞에 붙일 때는 .noticeMark 사용)
     * size?: 'sm' | 'default' | 'md' | 'lg' | 'xl'
       - sm: 16px
       - default: 20px
@@ -25,6 +26,7 @@
 <span class="ico statusAdd"></span>
 <span class="ico statusPoint"></span>
 <span class="ico select"></span>
+<span class="ico notice"></span>
 
 <!-- Medium (24px) -->
 <span class="ico md breadcrumb"></span>

@@ -274,6 +274,41 @@ body {
 .ico.upload {
   background-image: url("/src/assets/images/icon/i_upload_36.svg");
 }
+.ico.notice::before {
+  content: "!";
+  display: inline-block;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #4F535A;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+}
+
+.noticeMark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.noticeMark::before {
+  content: "!";
+  display: inline-block;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #4F535A;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+}
 
 .isActive .ico.sideSub {
   background-image: url("/src/assets/images/icon/side_sub_active.svg");
@@ -2210,6 +2245,9 @@ select.formControl.wAuto {
 }
 .kpiCardGrid .kpiCard .kpiContent .kpiSub .rate.isDown {
   color: #287EFF;
+}
+.kpiCardGrid .kpiCard.valueBottom .kpiContent {
+  align-self: flex-end;
 }
 .kpiCardGrid .kpiCard.kpiProgress {
   flex-direction: column;

@@ -15,6 +15,11 @@
       - 'end' / 'danger' : 빨간색 불릿 (종료, 중단)
     * label: string | React.ReactNode
     * className?: string
+
+  - 컴포넌트 3: <NoticeMark>임계치 80% 적용</NoticeMark>
+    → <span className="noticeMark">{children}</span> (문구 앞 원형 느낌표, 글꼴은 주변을 따름)
+    * 아이콘만 필요할 때: <span className="ico notice" aria-hidden="true" />
+    * 스타일: abstracts/_mixins.scss notice-mark / components/_icon.scss
 -->
 
 <!-- 뱃지 (Badges) -->
@@ -40,3 +45,8 @@
 
 <!-- Case 2-3: 종료/중지 (Red Dot) -->
 <span class="statusDot end">종료</span>
+
+<div style="width: 100%; height: 2px;"></div><!-- 구분선 -->
+
+<!-- Notice Mark (문구 앞 원형 느낌표: 안내 / 기준 표시) -->
+<span class="noticeMark">임계치 80% 적용</span>

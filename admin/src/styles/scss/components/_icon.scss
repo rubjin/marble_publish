@@ -137,6 +137,23 @@
   &.upload {
     background-image: iconUrl('i_upload_36.svg');
   }
+
+  // 원형 느낌표 (이미지 없이 CSS): <span class="ico notice" aria-hidden="true"></span>
+  &.notice::before {
+    @include notice-mark;
+  }
+}
+
+// 문구 앞 원형 느낌표 (안내 / 기준 표시 등 어디서나 사용): <span class="noticeMark">임계치 80% 적용</span>
+.noticeMark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+
+  &::before {
+    @include notice-mark;
+  }
 }
 
 .isActive {
