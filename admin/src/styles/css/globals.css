@@ -936,6 +936,82 @@ body {
   font-size: 15px;
 }
 
+/* ==========================================================================
+   Toggle Group (2지선다 슬라이딩 선택 토글 - 예: 당일 / 당월)
+   - 항목 2개 기준 (선택 배경이 좌우로 슬라이딩)
+   <div class="toggleGroup">
+     <label class="toggleItem"><input type="radio" name="x" checked><span class="toggleText">당일</span></label>
+     <label class="toggleItem"><input type="radio" name="x"><span class="toggleText">당월</span></label>
+   </div>
+   ========================================================================== */
+.toggleGroup {
+  position: relative;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: center;
+  padding: 3px;
+  background-color: #E7E9ED;
+  border-radius: 9999px;
+  user-select: none;
+}
+.toggleGroup::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc((100% - 6px) / 2);
+  background-color: #FFC72B;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toggleGroup:has(.toggleItem:nth-child(2) input:checked)::before {
+  transform: translateX(100%);
+}
+.toggleGroup:has(input:disabled)::before {
+  opacity: 0.5;
+}
+.toggleGroup .toggleItem {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 26px;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4F535A;
+  border-radius: 9999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.25s ease, box-shadow 0.2s ease;
+}
+.toggleGroup .toggleItem input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggleGroup .toggleItem:hover {
+  color: #2F3034;
+}
+.toggleGroup .toggleItem:has(input:checked) {
+  color: #2F3034;
+  font-weight: 700;
+}
+.toggleGroup .toggleItem:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.4);
+}
+.toggleGroup .toggleItem:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .tabWrap {
   margin-bottom: 20px;
 }
@@ -1982,6 +2058,18 @@ select.formControl.wAuto {
   padding: 6px 12px;
   font-size: 14px;
 }
+.badge.normal {
+  background-color: #05CD99;
+  color: #FFFFFF;
+}
+.badge.warning {
+  background-color: #FFCE20;
+  color: #2F3034;
+}
+.badge.danger {
+  background-color: #F23F3F;
+  color: #FFFFFF;
+}
 .badge.account {
   height: 28px;
   padding: 0px 11px;
@@ -2011,10 +2099,10 @@ select.formControl.wAuto {
 .statusDot.ing::before {
   background-color: #05CD99;
 }
-.statusDot.ready::before {
+.statusDot.ready::before, .statusDot.warning::before {
   background-color: #FFCE20;
 }
-.statusDot.end::before {
+.statusDot.end::before, .statusDot.danger::before {
   background-color: #F23F3F;
 }
 
@@ -2122,6 +2210,34 @@ select.formControl.wAuto {
 }
 .kpiCardGrid .kpiCard .kpiContent .kpiSub .rate.isDown {
   color: #287EFF;
+}
+.kpiCardGrid .kpiCard.kpiProgress {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.kpiCardGrid .kpiCard.kpiProgress .kpiHead,
+.kpiCardGrid .kpiCard.kpiProgress .kpiFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.kpiCardGrid .kpiCard.kpiProgress .kpiHead .kpiTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 0;
+}
+.kpiCardGrid .kpiCard.kpiProgress .kpiFoot {
+  font-size: 12px;
+  color: #8D919B;
+  white-space: nowrap;
+}
+.kpiCardGrid .kpiCard.kpiProgress .kpiFoot strong {
+  font-weight: 700;
+  color: #2F3034;
 }
 
 .infoBoxWrap {
@@ -2981,6 +3097,15 @@ select.formControl.wAuto {
   gap: 12px;
   width: 100%;
 }
+.barPercent.normal .barPercentFill {
+  background: #05CD99;
+}
+.barPercent.warning .barPercentFill {
+  background: #FFCE20;
+}
+.barPercent.danger .barPercentFill {
+  background: #F23F3F;
+}
 
 .barPercentTrack {
   flex: 1;
@@ -2994,6 +3119,16 @@ select.formControl.wAuto {
   height: 100%;
   background: #FFC72B;
   border-radius: inherit;
+}
+
+.barPercentValue {
+  flex-shrink: 0;
+  min-width: 44px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2F3034;
+  text-align: right;
+  white-space: nowrap;
 }
 
 /* ==========================================================================

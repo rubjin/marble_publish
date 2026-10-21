@@ -842,7 +842,7 @@ window.adminData = [
     "type": "페이지",
     "status": "진행중",
     "worker": "주진희",
-    "updated": "2026.10.20",
+    "updated": "2026.10.21",
     "link": "pages/RM/OFR_AM_RM_007T.html",
     "note": ""
   },

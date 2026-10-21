@@ -79,3 +79,30 @@
     <span class="toggleLabel">Disabled (ON)</span>
   </label>
 </div>
+
+<!--
+  [선택 토글 (Toggle Group)]
+  - 2지선다 선택 (예: 당일 / 당월) - 선택 항목 엘로우(primary) 컬러
+  - .toggleGroup > label.toggleItem > input[type="radio"] + .toggleText
+  - 같은 그룹의 radio 는 name 동일하게 (화면 안에서 중복되지 않게)
+  - 상태: input:checked (선택) / input:disabled (비활성)
+-->
+<div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-top: 16px;">
+  <!-- Case: 당일 선택 -->
+  <div class="toggleGroup" role="radiogroup" aria-label="조회 기간 선택">
+    <label class="toggleItem"><input type="radio" name="periodToggle1" checked><span class="toggleText">당일</span></label>
+    <label class="toggleItem"><input type="radio" name="periodToggle1"><span class="toggleText">당월</span></label>
+  </div>
+
+  <!-- Case: 당월 선택 -->
+  <div class="toggleGroup" role="radiogroup" aria-label="조회 기간 선택">
+    <label class="toggleItem"><input type="radio" name="periodToggle2"><span class="toggleText">당일</span></label>
+    <label class="toggleItem"><input type="radio" name="periodToggle2" checked><span class="toggleText">당월</span></label>
+  </div>
+
+  <!-- Case: Disabled -->
+  <div class="toggleGroup" role="radiogroup" aria-label="조회 기간 선택">
+    <label class="toggleItem"><input type="radio" name="periodToggle3" checked disabled><span class="toggleText">당일</span></label>
+    <label class="toggleItem"><input type="radio" name="periodToggle3" disabled><span class="toggleText">당월</span></label>
+  </div>
+</div>

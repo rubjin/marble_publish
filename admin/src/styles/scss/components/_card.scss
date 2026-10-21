@@ -119,9 +119,41 @@
         }
       }
     }
-  }
 
- 
+    // 진행률형 카드 (상단: 타이틀 + 상태뱃지 / 수치 · 중단: 진행률 바 · 하단: 보조 정보 좌우)
+    &.kpiProgress {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: 10px;
+
+      .kpiHead,
+      .kpiFoot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .kpiHead .kpiTitle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding-top: 0;
+      }
+
+      .kpiFoot {
+        font-size: 12px;
+        color: $text-off;
+        white-space: nowrap;
+
+        strong {
+          font-weight: $font-weight-bold;
+          color: $text-basic;
+        }
+      }
+    }
+  }
 }
 
 // 정보 요약 박스 그리드 (테이블 상단 3개 요약 박스 - 한 라인 배치)

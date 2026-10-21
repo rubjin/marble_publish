@@ -17,6 +17,22 @@
     font-size: 14px;
   }
 
+  // 상태 뱃지 (정상 / 주의 / 위험) - 예: 예산 소진율
+  &.normal {
+    background-color: $text-ing;
+    color: $color-white;
+  }
+
+  &.warning {
+    background-color: $text-warning;
+    color: $text-basic;
+  }
+
+  &.danger {
+    background-color: $text-danger;
+    color: $color-white;
+  }
+
   &.account {
     height: 28px;
     padding: 0px 11px;
@@ -54,7 +70,8 @@
     }
   }
 
-  &.ready {
+  &.ready,
+  &.warning  {
 
     //예정
     &::before {
@@ -62,7 +79,8 @@
     }
   }
 
-  &.end {
+  &.end,
+  &.danger {
 
     //종료
     &::before {

@@ -1,10 +1,24 @@
 @use 'abstracts' as *;
 
+// 진행률 바 : <div class="barPercent [normal|warning|danger]"> track + fill (+ value)
 .barPercent {
   display: flex;
   align-items: center;
   gap: 12px;
   width: 100%;
+
+  // 상태별 채움 컬러 (정상 / 주의 / 위험)
+  &.normal .barPercentFill {
+    background: $text-ing;
+  }
+
+  &.warning .barPercentFill {
+    background: $text-warning;
+  }
+
+  &.danger .barPercentFill {
+    background: $text-danger;
+  }
 }
 
 .barPercentTrack {
@@ -19,4 +33,15 @@
   height: 100%;
   background: $color-yellow-500;
   border-radius: inherit;
+}
+
+// 바 우측 퍼센트 텍스트 (예: 80.0%)
+.barPercentValue {
+  flex-shrink: 0;
+  min-width: 44px;
+  font-size: 13px;
+  font-weight: $font-weight-bold;
+  color: $text-basic;
+  text-align: right;
+  white-space: nowrap;
 }

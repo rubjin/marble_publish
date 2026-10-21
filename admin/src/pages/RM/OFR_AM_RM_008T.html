@@ -9,63 +9,25 @@
 <div class="tabWrap">
   <nav class="tab">
     <!-- [D] 활성 상태: isActive 클래스 추가 -->
-    <button type="button" class="item isActive">리워드 예산현황</button>
-    <button type="button" class="item">리워드 검토대상</button>
+    <button type="button" class="item">리워드 예산현황</button>
+    <button type="button" class="item isActive">리워드 검토대상</button>
   </nav>
 </div>
 
-<div class="section">
-  <include src="../../partials/tblTop.html" title="총 예산현황"></include>
-  <!-- KPI 4단 통계 요약 카드 그리드 -->
-  <div class="kpiCardGrid">
-    <div class="kpiCard">
-      <span class="kpiTitle">총 예산<span class="kpiPeriod">(2026)</span></span>
-      <div class="kpiContent">
-        <div class="kpiNumber"><strong>100,000,000</strong><span class="unit">원</span></div>
-      </div>
-    </div>
-
-    <div class="kpiCard">
-      <span class="kpiTitle">당일 지급금<span class="kpiPeriod">(2026.07.10)</span></span>
-      <div class="kpiContent">
-        <div class="kpiNumber"><strong>65,400,000</strong><span class="unit">원</span></div>
-      </div>
-    </div>
-
-    <div class="kpiCard">
-      <span class="kpiTitle">누적지급금<span class="kpiPeriod">(2026.07.10)</span></span>
-      <div class="kpiContent">
-        <div class="kpiNumber"><strong>34,600,000</strong><span class="unit">원</span></div>
-      </div>
-    </div>
-
-    <div class="kpiCard">
-      <span class="kpiTitle">예산 소진율<span class="kpiPeriod">(임계치: 80%)</span></span>
-      <div class="kpiContent">
-        <div class="kpiNumber"><strong>80.0</strong><span class="unit">%</span></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <include src="../../partials/tblTop.html" title="일별 리워드지급현황"></include>
-  <!-- 검색 조건 컨트롤 박스 -->
-  <div class="searchBox">
-    <div class="searchRow">
-      <div class="searchItem full">
-        <span class="searchLabel">조회일자</span>
-        <div class="searchField">
-          <div class="formRow">
-            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
-          </div>
+<!-- 검색 조건 컨트롤 박스 -->
+<div class="searchBox">
+  <div class="searchRow">
+    <div class="searchItem full">
+      <span class="searchLabel">조회일자</span>
+      <div class="searchField">
+        <div class="formRow">
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
         </div>
       </div>
     </div>
-    <include src="../../partials/searchBtnArea.html"></include>
   </div>
+  <include src="../../partials/searchBtnArea.html"></include>
 </div>
-
 
 <!-- 하얀 박스 영역 -->
 <div class="sectionBox">
