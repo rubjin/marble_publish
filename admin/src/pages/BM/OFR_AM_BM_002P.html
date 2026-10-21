@@ -1,7 +1,7 @@
-<include src="../../layout/layoutDefault.html" title="자산성장 트레킹 고객 참여 내역">
+<include src="../../layout/layoutDefault.html" title="리워드 한도설정">
 
   <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-  <include src="../../partials/pageHeader.html" title="자산성장 트레킹 고객 참여 내역" breadcrumb="홈,미션관리,미션참여내역"></include>
+  <include src="../../partials/pageHeader.html" title="리워드 한도설정"></include>
 
 
   <!-- [팝업] -->
@@ -9,91 +9,169 @@
   <div id="popupStockView" class="popupDimmed isOpen">
     <div class="popupWrap lg">
       <div class="popupHeader">
-        <h2 class="popupTitle">2코스. 성장봉 매수상세 내역</h2>
+        <h2 class="popupTitle">결재승인</h2>
         <button type="button" class="btnClose" aria-label="닫기"></button>
       </div>
       <div class="popupBody">
-        <!-- 상단 검색 내역 -->
-        <div class="searchBox">
-          <div class="searchRow">
-            <div class="searchItem">
-              <span class="searchLabel">거래계좌</span>
-              <div class="searchField">123-***-*89 00</div>
-            </div>
-            <div class="searchItem">
-              <span class="searchLabel">매수 횟수</span>
-              <div class="searchField"><span>5</span><span class="infoTotal"> / 2회</td>
-              </div>
-            </div>
-            <div class="searchItem">
-              <span class="searchLabel">누적 체결금액</span>
-              <div class="searchField">2,153,000</div>
-            </div>
-          </div>
-        </div>
+       
+        <!-- 결재선 정보 -->
+        <!-- [D] 결재 단계 순서대로 노출 (업무담당자 > 1차 > 2차 > 3차 결재), 업무담당자에만 승인요청 버튼 -->
+        <!-- [D] 단계 상태: 완료 .isDone (체크) / 진행중 .isCurrent / 대기 (클래스 없음, 번호) -->
+        <ol class="approvalLine">
+          <li class="approvalLineItem isDone">
+            <span class="lineDot"></span>
+            <span class="lineRole">업무담당자</span>
+            <p class="lineUser">이서연(123456)<br />/마케팅플랫폼</p>
+            <button type="button" class="btn primary sm" disabled>승인완료</button>
+          </li>
+          <li class="approvalLineItem isDone">
+            <span class="lineDot"></span>
+            <span class="lineRole">1차 결재</span>
+            <p class="lineUser">김부장(123456)<br />/마케팅플랫폼</p>
+            <button type="button" class="btn primary sm" disabled>승인완료</button>
+          </li>
+          <li class="approvalLineItem isCurrent">
+            <span class="lineDot"></span>
+            <span class="lineRole">2차 결재</span>
+            <p class="lineUser">김과장(123456)<br />/마케팅플랫폼</p>
+            <button type="button" class="btn primary sm">결재 진행중</button>
+          </li>
+          <li class="approvalLineItem">
+            <span class="lineDot"></span>
+            <span class="lineRole">3차 결재</span>
+            <p class="lineUser">박부장(654321)<br />/마케팅플랫폼</p>
+          </li>
+        </ol>
 
         <div class="tblSection">
           <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
-          <include src="../../partials/tblTop.html" count="20"></include>
+          <include src="../../partials/tblTop.html" title="결재승인정보" count="20"></include>
 
-          <!-- 종목조회 내역 테이블 -->
+          <!-- 결재승인정보 테이블 -->
           <div class="tblWrap">
             <table class="tbl tblBordered">
               <colgroup>
-                <col style="width: 160px;">
-                <col style="width: auto;">
-                <col style="width: 60px;">
-                <col style="width: 80px;">
-                <col style="width: 80px;">
-                <col style="width: 150px;">
-                <col style="width: 90px;">
+                <col style="width: 25%;">
+                <col style="width: 25%;">
+                <col style="width: 25%;">
+                <col style="width: 25%;">
               </colgroup>
               <thead>
                 <tr>
-                  <th>체결일시</th>
-                  <th>종목명</th>
-                  <th>거래소</th>
-                  <th>주문번호</th>
-                  <th>체결수량</th>
-                  <th>체결가격</th>
-                  <th>실적반영</th>
+                  <th>미션명</th>
+                  <th>항목</th>
+                  <th>변경전</th>
+                  <th>변경후</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>2026.08.29 16:15:54</td>
-                  <td class="textLeft">(005930)삼성전자</td>
-                  <td>KRX</td>
-                  <td>80246675</td>
-                  <td>1주</td>
-                  <td class="textRight">1,250,000</td>
-                  <td><span class="textSuccess">반영</span></td>
+                  <td class="textLeft">쭈꾸미(Dv1OA125035)</td>
+                  <td>미션총한도(연)</td>
+                  <td>80%</td>
+                  <td>85%</td>
+                </tr>
+                  <tr>
+                  <td class="textLeft">쭈꾸미(Dv1OA125035)</td>
+                  <td>미션총한도(연)</td>
+                  <td>80%</td>
+                  <td>85%</td>
                 </tr>
                 <tr>
-                  <td>2026.08.29 16:15:54</td>
-                  <td class="textLeft">(105560)KB금융</td>
-                  <td>KRX</td>
-                  <td>80246675</td>
-                  <td>81주</td>
-                  <td class="textRight">1,250,000</td>
-                  <td>
-                    <div class="tooltipWrap top">
-                      <span class="tooltipText textDanger" tabindex="0">미반영</span>
-                      <div class="tooltipContent">미반영 사유</div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tblEmpty" colspan="7">조회 내역이 없습니다.</td>
+                  <td class="tblEmpty" colspan="4">조회 내역이 없습니다.</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <P class="formGuideText">※ 미션 실적 산정에 반영된 체결 내역을 표시합니다.</P>
-          <P class="formGuideText">※ 매수 횟수 및 누적 체결금액은 반영건을 기준으로 산정됩니다.</P>
         </div>
+
+        <!-- 승인요청정보 -->
+        <div class="tblSection">
+          <div class="tblTop">
+            <div class="tblLeft">
+              <h3 class="tblTitle">승인요청정보</h3>
+            </div>
+          </div>
+
+          <div class="tblWrap">
+            <table class="tbl tblView">
+              <colgroup>
+                <col style="width: 140px;">
+                <col>
+                <col style="width: 140px;">
+                <col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>업무명</th>
+                  <td colspan="3">리워드 한도설정</td>
+                </tr>
+                <tr>
+                  <th>요청자</th>
+                  <td>이서연(1234567) / 마케팅플랫폼</td>
+                  <th>요청일시</th>
+                  <td>2026.07.07 07:00:50</td>
+                </tr>
+                <tr>
+                  <th><label class="formLabel">승인요청사유</label></th>
+                  <td colspan="3">
+                    <textarea class="formControl full" placeholder="사유를 입력해주세요 (반려할 경우 반드시 입력하세요)"></textarea>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 결재승인 의견 -->
+        <div class="tblSection">
+          <div class="tblTop">
+            <div class="tblLeft">
+              <h3 class="tblTitle">결재승인 의견</h3>
+            </div>
+          </div>
+
+          <div class="tblWrap">
+            <table class="tbl tblView">
+              <colgroup>
+                <col style="width: 140px;">
+                <col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label class="formLabel">결재처리</label>
+                  </th>
+                  <td>
+                    <fieldset class="formCheckGroup">
+                      <legend class="srOnly">결재처리 여부 선택</legend>
+                      <label class="formCheck">
+                        <input type="radio" name="ApprovalStatus" checked="">
+                        <span class="checkIcon"></span>
+                        <span class="checkLabel">승인</span>
+                      </label>
+                      <label class="formCheck">
+                        <input type="radio" name="ApprovalStatus">
+                        <span class="checkIcon"></span>
+                        <span class="checkLabel">반려</span>
+                      </label>
+                    </fieldset>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="formLabel">결재의견</label></th>
+                  <td>
+                    <textarea class="formControl full" placeholder="사유를 입력해주세요 (반려할 경우 반드시 입력하세요)"></textarea>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
       <div class="popupFooter">
+        <button type="button" class="btn outline">취소</button>
         <button type="button" class="btn primary btnClose">확인</button>
       </div>
     </div>

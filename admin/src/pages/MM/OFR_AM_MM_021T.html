@@ -9,54 +9,42 @@
 <!-- 하얀 박스 영역 -->
 <div class="sectionBox">
   <div class="tblSection">
-    <div class="tblWrap">
-      <table class="tbl tblInfo">
-        <colgroup>
-          <col style="width: 150px;">
-          <col>
-          <col style="width: 150px;">
-          <col>
-          <col style="width: 150px;">
-          <col>
-        </colgroup>
-        <tbody>
-          <tr>
-            <th>고객명</th>
-            <td>김*민</td>
-            <th>고객번호</th>
-            <td>9012345678</td>
-            <th>앱푸시 여부</th>
-            <td>동의</td>
-          </tr>
-          <tr>
-            <th>회차</th>
-            <td>
-              <select class="formControl wSm">
-                <option value="1">1차</option>
-                <option value="2">2차</option>
-              </select>
-            </td>
-            <th>신청일시</th>
-            <td>2026.07.01 09:12:30</td>
-            <th>해지일시</th>
-            <td>-</td>
-          </tr>
-          <tr>
-            <th>신청계좌</th>
-            <td>123-***-*89 00</td>
-            <th>누적 포인트/쿠폰</th>
-            <td>
-              <div class="infoStats">
-                <span class="infoStat"><span>1,500</span>P</span>/
-                <span class="infoStat"><span>50</span>장</span>
-              </div>
-            </td>
-            <th>참여상태</th>
-            <td>참여</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <include src="../../partials/infoSection.html" title="">
+      <tr>
+        <th>고객명</th>
+        <td>김*민</td>
+        <th>고객번호</th>
+        <td>9012345678</td>
+        <th>앱푸시 여부</th>
+        <td>동의</td>
+      </tr>
+      <tr>
+        <th>회차</th>
+        <td>
+          <select class="formControl wSm">
+            <option value="1">1차</option>
+            <option value="2">2차</option>
+          </select>
+        </td>
+        <th>신청일시</th>
+        <td>2026.07.01 09:12:30</td>
+        <th>해지일시</th>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th>신청계좌</th>
+        <td>123-***-*89 00</td>
+        <th>누적 포인트/쿠폰</th>
+        <td>
+          <div class="infoStats">
+            <span class="infoStat"><span>1,500</span>P</span>/
+            <span class="infoStat"><span>50</span>장</span>
+          </div>
+        </td>
+        <th>참여상태</th>
+        <td>참여</td>
+      </tr>
+    </include>
   </div>
 </div>
 

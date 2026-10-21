@@ -208,6 +208,72 @@
   });
 
   // ==========================================
+  // 툴팁 (Tooltip) - 스크롤 영역 안에서 잘림 방지
+  // .tblWrap / .popupBody 는 overflow 가 있어 absolute 말풍선이 잘리므로
+  // 열릴 때 화면(viewport) 기준 fixed 좌표로 띄움 (.tooltipContent.isFixed)
+  // ==========================================
+  var TOOLTIP_GAP = 8;   // 트리거와 말풍선 간격 (_tooltip.scss 의 calc(100% + 8px) 와 동일)
+  var VIEWPORT_PAD = 8;  // 화면 가장자리 최소 여백
+  var activeTooltip = null;
+
+  function findScrollTooltip(target) {
+    var wrap = target.closest ? target.closest('.tooltipWrap') : null;
+    return wrap && wrap.closest('.tblWrap, .popupBody') ? wrap : null;
+  }
+
+  function placeTooltip(wrap) {
+    var content = wrap.querySelector('.tooltipContent');
+    if (!content) return;
+    var rect = wrap.getBoundingClientRect();
+    var style = content.style;
+
+    content.classList.add('isFixed');
+    style.top = style.right = style.bottom = style.left = 'auto';
+    style.removeProperty('--arrowShift');
+
+    // 좌측 / 우측 : 세로 중앙 정렬
+    if (wrap.classList.contains('left') || wrap.classList.contains('right')) {
+      style.top = (rect.top + rect.height / 2) + 'px';
+      if (wrap.classList.contains('left')) {
+        style.right = (window.innerWidth - rect.left + TOOLTIP_GAP) + 'px';
+      } else {
+        style.left = (rect.right + TOOLTIP_GAP) + 'px';
+      }
+      return;
+    }
+
+    // 상단(기본) / 하단 : 가로 중앙 정렬, 화면 밖으로 나가면 안쪽으로 밀고 꼬리는 트리거 위치 유지
+    var center = rect.left + rect.width / 2;
+    var half = content.offsetWidth / 2;
+    var x = Math.min(Math.max(center, half + VIEWPORT_PAD), window.innerWidth - half - VIEWPORT_PAD);
+    style.left = x + 'px';
+    style.setProperty('--arrowShift', (center - x) + 'px');
+    if (wrap.classList.contains('bottom')) {
+      style.top = (rect.bottom + TOOLTIP_GAP) + 'px';
+    } else {
+      style.bottom = (window.innerHeight - rect.top + TOOLTIP_GAP) + 'px';
+    }
+  }
+
+  function openScrollTooltip(e) {
+    var wrap = findScrollTooltip(e.target);
+    if (wrap) {
+      activeTooltip = wrap;
+      placeTooltip(wrap);
+    }
+  }
+
+  document.addEventListener('mouseover', openScrollTooltip);
+  document.addEventListener('focusin', openScrollTooltip);
+
+  // 스크롤 / 리사이즈 시 열려 있는 툴팁 위치 갱신 (테이블 가로 스크롤 포함 → capture)
+  function updateActiveTooltip() {
+    if (activeTooltip) placeTooltip(activeTooltip);
+  }
+  window.addEventListener('scroll', updateActiveTooltip, true);
+  window.addEventListener('resize', updateActiveTooltip);
+
+  // ==========================================
   // 라디오 카드 (Radio Card) 활성화 상태 동기화
   // ==========================================
   document.addEventListener('change', function(e) {

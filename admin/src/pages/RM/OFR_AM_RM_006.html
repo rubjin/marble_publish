@@ -9,68 +9,56 @@
 <!-- 하얀 박스 영역 -->
 <div class="sectionBox">
   <div class="tblSection">
-    <div class="tblWrap">
-      <table class="tbl tblInfo">
-        <colgroup>
-          <col style="width: 150px;">
-          <col>
-          <col style="width: 150px;">
-          <col>
-          <col style="width: 150px;">
-          <col>
-        </colgroup>
-        <tbody>
-          <tr>
-            <th>기준연도<span class="required">*</span></th>
-            <td>
-              <select class="formControl">
-                <option value="">선택해주세요</option>
-                <option value="1">옵션 1</option>
-                <option value="2">옵션 2</option>
-                <option value="3">옵션 3</option>
-              </select>
-            </td>
-            <th>운영기간<span class="required">*</span></th>
-            <td colspan="3">
-              <include src="../../partials/dateRange.html" start="YYYY.MM.DD" end="YYYY.MM.DD" name="p1Date" noShortcut></include>
-            </td>
-          </tr>
-          <tr>
-            <th>리워드 총한도(연)<span class="required">*</span></th>
-            <td>
-              <div class="formControlWrap hasUnit">
-                <input type="text" class="formControl" placeholder="0" value="50,000">
-                <span class="inputUnit">원</span>
-              </div>
-            </td>
-            <th>원간예산한도</th>
-            <td>
-              <div class="formControlWrap">
-                <select class="formControl wSm">
-                  <option value="1">선택</option>
-                </select>
-                <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
-              </div>
-            </td>
-            <th>임계치 알림기준<span class="required">*</span></th>
-            <td>
-              <div class="formControlWrap hasUnit">
-                <input type="text" class="formControl wXs" placeholder="0" value="80">
-                <span class="inputUnit">%</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th>설명</th>
-            <td colspan="5">
-              <div class="formControlWrap full">
-                <textarea class="formControl" rows="4" placeholder="상세 내용을 입력해주세요 (최대 1000자)"></textarea>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <include src="../../partials/infoSection.html" title="">
+      <tr>
+        <th>기준연도<span class="required">*</span></th>
+        <td>
+          <select class="formControl">
+            <option value="">선택해주세요</option>
+            <option value="1">옵션 1</option>
+            <option value="2">옵션 2</option>
+            <option value="3">옵션 3</option>
+          </select>
+        </td>
+        <th>운영기간<span class="required">*</span></th>
+        <td colspan="3">
+          <include src="../../partials/dateRange.html" start="YYYY.MM.DD" end="YYYY.MM.DD" name="p1Date" noShortcut></include>
+        </td>
+      </tr>
+      <tr>
+        <th>리워드 총한도(연)<span class="required">*</span></th>
+        <td>
+          <div class="formControlWrap hasUnit">
+            <input type="text" class="formControl" placeholder="0" value="50,000">
+            <span class="inputUnit">원</span>
+          </div>
+        </td>
+        <th>원간예산한도</th>
+        <td>
+          <div class="formControlWrap">
+            <select class="formControl wSm">
+              <option value="1">선택</option>
+            </select>
+            <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
+          </div>
+        </td>
+        <th>임계치 알림기준<span class="required">*</span></th>
+        <td>
+          <div class="formControlWrap hasUnit">
+            <input type="text" class="formControl wXs" placeholder="0" value="80">
+            <span class="inputUnit">%</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>설명</th>
+        <td colspan="5">
+          <div class="formControlWrap full">
+            <textarea class="formControl" rows="4" placeholder="상세 내용을 입력해주세요 (최대 1000자)"></textarea>
+          </div>
+        </td>
+      </tr>
+    </include>
   </div>
 </div>
 

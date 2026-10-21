@@ -7,55 +7,43 @@
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
     <div class="tblSection">
-      <div class="tblWrap">
-        <table class="tbl tblInfo">
-          <colgroup>
-            <col style="width: 150px;">
-            <col>
-            <col style="width: 150px;">
-            <col>
-            <col style="width: 150px;">
-            <col>
-          </colgroup>
-          <tbody>
-            <tr>
-              <th>고객명</th>
-              <td>김*민</td>
-              <th>고객번호</th>
-              <td>9012345678</td>
-              <th>앱푸시 여부</th>
-              <td>동의</td>
-            </tr>
-            <tr>
-              <th>회차</th>
-              <td>
-                <select class="formControl wSm">
-                  <option value="1">1차</option>
-                  <option value="2">2차</option>
-                </select>
-              </td>
-              <th>신청일시</th>
-              <td>2026.07.01 09:12:30</td>
-              <th>해지일시</th>
-              <td>-</td>
-            </tr>
-            <tr>
-              <th>누적 횟수/포인트</th>
-              <td>
-                <div class="infoStats">
-                  <span class="infoStat">완료 <span>50</span>회</span>/
-                  <span class="infoStat">미완료 <span>5</span>회</span>/
-                  <span class="infoStat"><span>2,500</span>P</span>
-                </div>
-              </td>
-              <th>20일 누적미션 현황</th>
-              <td><span>17</span><span class="infoTotal"> / 20일</span></td>
-              <th>참여상태</th>
-              <td>참여</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <include src="../../partials/infoSection.html" title="">
+        <tr>
+          <th>고객명</th>
+          <td>김*민</td>
+          <th>고객번호</th>
+          <td>9012345678</td>
+          <th>앱푸시 여부</th>
+          <td>동의</td>
+        </tr>
+        <tr>
+          <th>회차</th>
+          <td>
+            <select class="formControl wSm">
+              <option value="1">1차</option>
+              <option value="2">2차</option>
+            </select>
+          </td>
+          <th>신청일시</th>
+          <td>2026.07.01 09:12:30</td>
+          <th>해지일시</th>
+          <td>-</td>
+        </tr>
+        <tr>
+          <th>누적 횟수/포인트</th>
+          <td>
+            <div class="infoStats">
+              <span class="infoStat">완료 <span>50</span>회</span>/
+              <span class="infoStat">미완료 <span>5</span>회</span>/
+              <span class="infoStat"><span>2,500</span>P</span>
+            </div>
+          </td>
+          <th>20일 누적미션 현황</th>
+          <td><span>17</span><span class="infoTotal"> / 20일</span></td>
+          <th>참여상태</th>
+          <td>참여</td>
+        </tr>
+      </include>
     </div>
   </div>
 

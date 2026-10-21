@@ -1,0 +1,34 @@
+<!--
+  [UI 컴포넌트] 상세 / 입력 폼 섹션 (타이틀 + .tblInfo 테이블)
+  <include src="../../partials/infoSection.html" title="상세 설정">
+    <slot name="actions"><button type="button" class="btn dark">모바일 미리보기</button></slot>
+    <tr>
+      <th><label class="formLabel" for="idTitle">미션 타이틀 <span class="required">*</span></label></th>
+      <td><input type="text" id="idTitle" class="formControl full"></td>
+    </tr>
+  </include>
+  - title   : 섹션 타이틀 - 생략 가능 (title / actions 모두 없으면 상단 영역 미출력)
+  - cols    : 한 줄에 들어가는 항목(th + td) 개수 (기본: 3 → 6셀 / 2 → 4셀 / 1 → 2셀)
+              항목이 적은 행은 마지막 td 에 colspan 지정 (예: cols="3" 에서 항목 1개 → td colspan="5")
+  - thWidth : 항목명(th) 너비 (기본: 160px)
+  - actions : 타이틀 우측 영역 (이름 있는 slot) - 생략 가능
+  - slot    : 테이블 행 (<tr><th><label class="formLabel">항목명</label></th><td>입력 영역</td></tr>)
+-->
+<div class="tblSection">
+  {% if title or actions %}
+  <include src="./tblTop.html" title="{{ title }}">{{ actions }}</include>
+  {% endif %}
+  <div class="tblWrap">
+    <table class="tbl tblInfo">
+      <colgroup>
+        {% for i in range(0, cols | default(3, true) | int) %}
+        <col :style="width: {{ thWidth | default('160px', true) }};">
+        <col>
+        {% endfor %}
+      </colgroup>
+      <tbody>
+        {{ slot }}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -106,7 +106,7 @@
 
     // 키워드 입력창 최소 너비 확보
     .formControlWrap {
-      min-width: 320px;
+      min-width: 316px;
     }
   }
 
@@ -192,5 +192,9 @@
         font-size: 17px;
       }
     }
+  }
+  .searchBtnArea {
+    margin-top: 0;
+    border-top: none;
   }
 }

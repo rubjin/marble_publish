@@ -1,74 +1,60 @@
-<include src="../../layout/layoutDefault.html" title="스탁뷰 미션 고객 참여 내역">
+<include src="../../layout/layoutDefault.html" title="CMA 행운룰렛 미션 고객 참여내역">
 
   <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-  <include src="../../partials/pageHeader.html" title="스탁뷰 미션 고객 참여 내역" breadcrumb="홈,미션관리,미션참여내역"></include>
+  <include src="../../partials/pageHeader.html" title="CMA 행운룰렛 미션 고객 참여내역" breadcrumb=""></include>
 
 
   <!-- [팝업] -->
   <!-- [D] 퍼블 확인용 .isOpen 상태로 노출 -->
-  <div id="popupStockView" class="popupDimmed isOpen">
-    <div class="popupWrap lg">
+  <div id="" class="popupDimmed isOpen">
+    <div class="popupWrap md">
       <div class="popupHeader">
-        <h2 class="popupTitle">종목조회 상세 내역</h2>
+        <h2 class="popupTitle">매일미션 상세 실적</h2>
         <button type="button" class="btnClose" aria-label="닫기"></button>
       </div>
       <div class="popupBody">
-        <!-- 상단 검색 내역 -->
-        <div class="searchBox">
-          <div class="searchRow">
-            <div class="searchItem">
-              <span class="searchLabel">조회일자</span>
-              <div class="searchField">2026.08.25</div>
-            </div>
-            <div class="searchItem">
-              <span class="searchLabel">고객명</span>
-              <div class="searchField">김*민</div>
-            </div>
-            <div class="searchItem">
-              <span class="searchLabel">고객번호</span>
-              <div class="searchField">1234567890</div>
-            </div>
-            <div class="searchItem">
-              <span class="searchLabel">진행상태</span>
-              <div class="searchField">진행중</div>
-            </div>
-          </div>
-        </div>
-
         <div class="tblSection">
           <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
-          <include src="../../partials/tblTop.html" count="20"></include>
+          <include src="../../partials/tblTop.html" guide="일자: 2026.09.03"></include>
 
           <!-- 종목조회 내역 테이블 -->
           <div class="tblWrap">
             <table class="tbl tblBordered">
               <colgroup>
-                <col style="width: 100px;">
-                <col style="width: 100px;">
-                <col style="width: auto;">
-                <col style="width: 130px;">
+                <col style="width: 50%;">
+                <col style="width: 50%;">
               </colgroup>
               <thead>
                 <tr>
-                  <th>조회시간</th>
                   <th>구분</th>
-                  <th>종목명</th>
-                  <th>티커/종목코드</th>
+                  <th>금액</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>16:15:54</td>
-                  <td>국내주식</td>
-                  <td class="textLeft">삼성전자</td>
-                  <td>005930</td>
+                  <td class="textLeft">전일CMA잔고</td>
+                  <td class="textRight">1,500,000원</td>
                 </tr>
                 <tr>
-                  <td class="tblEmpty" colspan="4">조회 내역이 없습니다.</td>
+                  <td class="textLeft">입금(고)액</td>
+                  <td class="textRight">500,000원</td>
+                </tr>
+                <tr>
+                  <td class="textLeft">출금(고)액</td>
+                  <td class="textRight">300,000원</td>
+                </tr>
+                <tr>
+                  <td class="textLeft">순입금액=(입금(고)액-출금(고)액)</td>
+                  <td class="textRight">200,000원</td>
+                </tr>
+                <tr>
+                  <td class="textLeft">달성여부</td>
+                  <td class="textRight"><span class="textSuccess">달성</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <P class="formGuideText">※ 전일 CMA잔고 100만원 이상이면서 순입금액 실적 10만원 이상인 경우 달성</P>
         </div>
       </div>
       <div class="popupFooter">

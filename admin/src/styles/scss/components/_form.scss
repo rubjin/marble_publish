@@ -177,6 +177,9 @@ fieldset {
   &.wSm {
     width: 140px;
   }
+  &.wMd {
+    width: 260px;
+  }
 
   &::placeholder {
     color: $form-placeholder;

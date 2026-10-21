@@ -7,18 +7,37 @@
       <td><input type="text" id="idTitle" class="formControl full"></td>
     </tr>
   </include>
-  - title   : 섹션 타이틀 (필수)
+  한 줄에 항목 2개 (th + td 2쌍):
+  <include src="../../partials/viewSection.html" title="기본 정보" cols="2">
+    <tr>
+      <th><label class="formLabel">등록일시</label></th>
+      <td>2026.08.22 13:45</td>
+      <th><label class="formLabel">등록자</label></th>
+      <td>홍길동</td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">비고</label></th>
+      <td colspan="3">항목이 1개인 행은 td colspan 으로 나머지 칸 병합</td>
+    </tr>
+  </include>
+  - title   : 섹션 타이틀 - 생략 가능 (title / actions 모두 없으면 상단 영역 미출력)
+  - cols    : 한 줄에 들어가는 항목(th + td) 개수 (기본: 1 → 2셀 / 2 → 4셀 / 3 → 6셀)
+              항목이 적은 행은 마지막 td 에 colspan="(cols × 2) - 1" 지정
   - thWidth : 항목명(th) 너비 (기본: 160px)
   - actions : 타이틀 우측 영역 (이름 있는 slot) - 생략 가능
   - slot    : 테이블 행 (<tr><th><label class="formLabel">항목명</label></th><td>입력 영역</td></tr>)
 -->
 <div class="tblSection">
+  {% if title or actions %}
   <include src="./tblTop.html" title="{{ title }}">{{ actions }}</include>
+  {% endif %}
   <div class="tblWrap">
     <table class="tbl tblView">
       <colgroup>
+        {% for i in range(0, cols | default(1, true) | int) %}
         <col :style="width: {{ thWidth | default('160px', true) }};">
         <col>
+        {% endfor %}
       </colgroup>
       <tbody>
         {{ slot }}

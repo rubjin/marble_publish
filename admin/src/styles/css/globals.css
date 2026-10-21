@@ -1258,6 +1258,9 @@ fieldset {
 .formControl.wSm {
   width: 140px;
 }
+.formControl.wMd {
+  width: 260px;
+}
 .formControl::placeholder {
   color: #8D919B;
 }
@@ -1746,7 +1749,7 @@ select.formControl.wAuto {
   flex-wrap: wrap;
 }
 .searchBox .searchField .formControlWrap {
-  min-width: 320px;
+  min-width: 316px;
 }
 .searchBox .segment {
   background-color: #EFF4FB;
@@ -1817,6 +1820,10 @@ select.formControl.wAuto {
 }
 .popupBody .searchBox .searchField .price {
   font-size: 17px;
+}
+.popupBody .searchBtnArea {
+  margin-top: 0;
+  border-top: none;
 }
 
 /* ==========================================================================
@@ -2837,7 +2844,6 @@ select.formControl.wAuto {
   text-align: center;
 }
 .tbl tbody th {
-  padding: 20px 10px 20px 4px;
   font-weight: 500;
   white-space: nowrap;
   vertical-align: top;
@@ -2875,7 +2881,6 @@ select.formControl.wAuto {
 }
 .tbl .formLabel {
   margin-bottom: 0;
-  min-height: 34px;
   display: inline-flex;
   align-items: center;
 }
@@ -2905,15 +2910,16 @@ select.formControl.wAuto {
 }
 .tbl.tblView > tbody > tr > th,
 .tbl.tblView > tbody > tr > td {
+  height: 50px;
   text-align: left;
 }
 .tbl.tblView > tbody > tr > th {
-  padding: 14px 12px;
+  padding: 16px 14px 8px 0;
   font-weight: 500;
   color: #4F535A;
 }
 .tbl.tblView > tbody > tr > td {
-  padding: 14px 12px;
+  padding: 8px 14px 8px 0;
   color: #2F3034;
 }
 .tbl.tblInfo {
@@ -2928,8 +2934,8 @@ select.formControl.wAuto {
 }
 .tbl.tblInfo > tbody > tr > th,
 .tbl.tblInfo > tbody > tr > td {
-  height: 48px;
-  padding: 12px 16px;
+  height: 50px;
+  padding: 8px 14px;
   text-align: left;
   vertical-align: middle;
   border-bottom: 1px solid #F0F0F3;
@@ -2940,12 +2946,14 @@ select.formControl.wAuto {
   border-left: none;
 }
 .tbl.tblInfo > tbody > tr > th {
+  padding: 10px 14px 8px;
   background-color: rgba(243, 245, 246, 0.8);
   font-weight: 500;
   color: #4F535A;
   white-space: nowrap;
 }
 .tbl.tblInfo > tbody > tr > td {
+  padding: 8px 14px;
   color: #1F192F;
   font-weight: 500;
 }
@@ -3034,6 +3042,10 @@ select.formControl.wAuto {
 }
 .popupWrap.lg .popupBody {
   min-height: 450px;
+}
+
+.popupWrap.md {
+  width: 600px;
 }
 
 .popupWrap.sm {
@@ -3353,6 +3365,12 @@ select.formControl.wAuto {
 }
 .tooltipWrap.right:hover .tooltipContent, .tooltipWrap.right:focus-within .tooltipContent, .tooltipWrap.right.isOpen .tooltipContent {
   transform: translateY(-50%) translateX(0);
+}
+.tooltipWrap .tooltipContent.isFixed {
+  position: fixed;
+}
+.tooltipWrap .tooltipContent.isFixed::after {
+  margin-left: var(--arrowShift, 0px);
 }
 .tooltipWrap .tooltipContent.multiLine {
   white-space: normal;
