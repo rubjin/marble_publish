@@ -221,7 +221,7 @@ window.adminData = [
     "screenName": "",
     "screenId": "OFR_AM_CS_001",
     "type": "페이지",
-    "status": "",
+    "status": "삭제",
     "worker": "",
     "updated": "",
     "link": "pages/CS/OFR_AM_CS_001.html",
@@ -311,7 +311,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_001.html",
-    "note": ""
+    "note": "기획없음"
   },
   {
     "category": "AM",
@@ -325,7 +325,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_002.html",
-    "note": ""
+    "note": "기획없음"
   },
   {
     "category": "AM",
@@ -339,7 +339,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_003.html",
-    "note": ""
+    "note": "기획없음"
   },
   {
     "category": "AM",
@@ -353,7 +353,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_004.html",
-    "note": ""
+    "note": "기획없음"
   },
   {
     "category": "AM",
@@ -367,7 +367,7 @@ window.adminData = [
     "worker": "",
     "updated": "",
     "link": "pages/MM/OFR_AM_MM_005.html",
-    "note": ""
+    "note": "기획없음"
   },
   {
     "category": "AM",
@@ -1173,9 +1173,9 @@ window.adminData = [
   },
   {
     "category": "AM",
-    "depth1": "공통코드관리",
-    "depth2": "목록",
-    "depth3": "",
+    "depth1": "시스템 관리",
+    "depth2": "공통코드관리",
+    "depth3": "목록",
     "screenName": "공통코드관리",
     "screenId": "OFR_AM_SM_007",
     "type": "페이지",
@@ -1187,8 +1187,8 @@ window.adminData = [
   },
   {
     "category": "AM",
-    "depth1": "공통코드관리",
-    "depth2": "",
+    "depth1": "시스템 관리",
+    "depth2": "공통코드관리",
     "depth3": "",
     "screenName": "공통코드등록/수정",
     "screenId": "OFR_AM_SM_008P",
@@ -1201,8 +1201,8 @@ window.adminData = [
   },
   {
     "category": "AM",
-    "depth1": "공통코드관리",
-    "depth2": "",
+    "depth1": "시스템 관리",
+    "depth2": "공통코드관리",
     "depth3": "",
     "screenName": "상세코드등록/수정",
     "screenId": "OFR_AM_SM_009P",

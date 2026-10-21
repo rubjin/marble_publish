@@ -68,6 +68,12 @@
     .status.ing { background-color: #fef3c7; color: #d97706; }
     .status.wait { background-color: #f3f4f6; color: #6b7280; }
     .status.hold { background-color: #fee2e2; color: #dc2626; }
+    .status.del { background-color: #e5e7eb; color: #9ca3af; }
+
+    /* 삭제 화면 행 */
+    tbody tr.is-deleted td:not(.depth1):not(.depth2) { color: #aaa; background-color: #fafafa; text-decoration: line-through; }
+    tbody tr.is-deleted td a { color: #aaa; }
+    tbody tr.is-deleted td .status { text-decoration: none; }
 
     .depth-cell.empty { color: #ccc; }
     .text-empty { color: #ccc; }
@@ -79,6 +85,7 @@
     .dashboard .text-ing { color: #d97706; }
     .dashboard .text-wait { color: #6b7280; }
     .dashboard .text-hold { color: #dc2626; }
+    .dashboard .text-del { color: #9ca3af; }
 
     .toolbar {
       margin-top: 14px;
@@ -144,6 +151,7 @@
       <span>진행중: <strong id="cntIng" class="text-ing">0</strong>건</span>
       <span>대기: <strong id="cntWait" class="text-wait">0</strong>건</span>
       <span>보류: <strong id="cntHold" class="text-hold">0</strong>건</span>
+      <span>삭제: <strong id="cntDel" class="text-del">0</strong>건</span>
       <span>진척률: <strong id="cntProgress" style="color:#d9a400">0</strong>%</span>
     </div>
 
@@ -155,6 +163,7 @@
         <option value="진행중">진행중</option>
         <option value="대기">대기</option>
         <option value="보류">보류</option>
+        <option value="삭제">삭제</option>
       </select>
       <span class="count">조회 결과: <strong id="countNum">0</strong>건</span>
     </div>
@@ -229,21 +238,25 @@
       const countNum = $('#countNum');
 
       function updateDashboard(list) {
-        let total = list.length;
-        let done = 0, ing = 0, wait = 0, hold = 0;
+        let done = 0, ing = 0, wait = 0, hold = 0, del = 0;
 
         list.forEach(item => {
           if (item.status === '완료') done++;
           else if (item.status === '진행중') ing++;
           else if (item.status === '보류') hold++;
+          else if (item.status === '삭제') del++;
           else wait++;
         });
+
+        // 삭제 건은 전체 / 진척률 모수에서 제외
+        const total = list.length - del;
 
         $('#cntTotal').textContent = total;
         $('#cntDone').textContent = done;
         $('#cntIng').textContent = ing;
         $('#cntWait').textContent = wait;
         $('#cntHold').textContent = hold;
+        $('#cntDel').textContent = del;
         $('#cntProgress').textContent = total > 0 ? Math.round((done / total) * 100) : 0;
       }
 
@@ -326,7 +339,8 @@
           '완료': 'done',
           '진행중': 'ing',
           '대기': 'wait',
-          '보류': 'hold'
+          '보류': 'hold',
+          '삭제': 'del'
         };
 
         tableBody.innerHTML = filtered.map((row, idx) => {
@@ -346,7 +360,7 @@
           if (s2 > 0) {
             const rs = s2 > 1 ? ` rowspan="${s2}"` : '';
             const text2 = row.depth2 || '-';
-            depth2Html = `<td${rs}>${text2}</td>`;
+            depth2Html = `<td class="depth2"${rs}>${text2}</td>`;
           }
 
           // 3Depth 셀
@@ -387,8 +401,10 @@
           const updatedHtml = row.updated ? `<span>${row.updated}</span>` : `<span class="text-empty">-</span>`;
           const noteHtml = row.note ? `<span>${row.note}</span>` : '';
 
+          const rowClass = row.status === '삭제' ? ' class="is-deleted"' : '';
+
           return `
-            <tr>
+            <tr${rowClass}>
               ${depth1Html}
               ${depth2Html}
               ${depth3Html}
