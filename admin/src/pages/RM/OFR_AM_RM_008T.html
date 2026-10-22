@@ -21,6 +21,9 @@
       <span class="searchLabel">조회일자</span>
       <div class="searchField">
         <div class="formRow">
+          <select class="formControl wSm">
+            <option value="1">지급예정일</option>
+          </select>
           <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
         </div>
       </div>
@@ -33,45 +36,163 @@
 <div class="sectionBox">
   <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
   <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
-    <span class="noticeMark">임계치 80% 적용</span>
-    <span class="statusDot ing">정상(80%미만)</span>
-    <span class="statusDot ing">주의(80~89)</span>
-    <span class="statusDot ing">위험(90%이상)</span>
+    <div class="btnGroup">
+      <button type="button" class="btn outline"><span class="ico download"></span><span>엑셀 다운로드</span></button>
+      <button type="button" class="btn outline">지급검토 설정</button>
+      <button type="button" class="btn primary">지급검토</button>
+      <button type="button" class="btn primary">결재승인</button>
+    </div>
   </include>
 
   <!-- 데이터 그리드 테이블 -->
   <div class="tblWrap">
     <table class="tbl tblBordered">
       <colgroup>
-        <col style="width: 120px;">
-        <col style="width: 180px;">
-        <col style="width: 180px;">
+        <col style="width: 50px;">
+        <col style="width: 100px;">
         <col style="width: auto;">
-        <col style="width: 140px;">
+        <col style="width: 160px;">
+        <col style="width: 100px;">
+        <col style="width: 80px;">
+        <col style="width: 120px;">
+        <col style="width: 110px;">
+        <col style="width: 100px;">
+        <col style="width: 100px;">
+        <col style="width: 80px;">
+        <col style="width: 190px;">
       </colgroup>
       <thead>
         <tr>
-          <th>리워드지급일</th>
-          <th>지급금</th>
-          <th>총 누적지급금</th>
-          <th>예산 소진율</th>
-          <th>지급여부</th>
+          <th class="colCheck">
+            <!-- [D] 일부 선택 시 input.indeterminate = true -->
+            <label class="formCheck">
+              <input type="checkbox" aria-label="전체 선택">
+              <span class="checkIcon"></span>
+            </label>
+          </th>
+          <th>미션참여일</th>
+          <th>미션명</th>
+          <th>리워드유형</th>
+          <th>리워드금액</th>
+          <th>참여건수</th>
+          <th>합산리워드</th>
+          <th>지급검토결과</th>
+          <th>지급예정일</th>
+          <th>결재유형</th>
+          <th>결재상태</th>
+          <th>담당자</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>2026.07.10</td>
-          <td class="textRight">1,000,000,000</td>
-          <td class="textRight">50,000,000</td>
-          <td></td>
-          <td><span class="textPending">지급보류</span></td>
+          <td class="colCheck">
+            <label class="formCheck">
+              <input type="checkbox" aria-label="행 선택">
+              <span class="checkIcon"></span>
+            </label>
+          </td>
+          <td>2026.07.06</td>
+          <td class="textLeft">스탁뷰(Dv1OA125035)</td>
+          <td>금융상품쿠폰/국내주식</td>
+          <td class="textRight">10,000원</td>
+          <td class="textRight">1,000</td>
+          <td class="textRight">1,000,000원</td>
+          <td><span class="textDanger">정합성오류</span></td>
+          <td>2026.07.07</td>
+          <td>담당자승인</td>
+          <td><span class="textSuccess">승인</span></td>
+          <td>홍길동(123456)/마케팅플랫폼</td>
+        </tr>
+        <tr>
+          <td class="colCheck">
+            <label class="formCheck">
+              <input type="checkbox" aria-label="행 선택">
+              <span class="checkIcon"></span>
+            </label>
+          </td>
+          <td>2026.07.06</td>
+          <td class="textLeft">스탁뷰(Dv1OA125035)</td>
+          <td>금융상품쿠폰/국내주식</td>
+          <td class="textRight">10,000원</td>
+          <td class="textRight">1,000</td>
+          <td class="textRight">1,000,000원</td>
+          <td><span class="textSuccess">정상</span></td>
+          <td>2026.07.07</td>
+          <td>담당자승인</td>
+          <td><span class="textSuccess">승인</span></td>
+          <td>홍길동(123456)/마케팅플랫폼</td>
         </tr>
       </tbody>
     </table>
   </div>
+  <include src="../../partials/pagination.html"></include>
 
 </div>
 
+<!-- [S] 업무관계자 탭 -->
+<div class="section">
+  <div class="tabWrap">
+    <nav class="tab">
+      <!-- [D] 활성 상태: isActive 클래스 추가 -->
+      <button type="button" class="item isActive">업무관계자</button>
+    </nav>
+  </div>
+
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" unit="">
+      <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
+      <div class="formControlWrap">
+        <p class="tblGuide">※ 결재구분 선택 후 직원추가하세요.</p>
+        <select class="formControl full">
+          <option value="">결재구분선택</option>
+          <option value="1">1차결재</option>
+          <option value="2">2차결재</option>
+          <option value="3">3차결재</option>
+        </select>
+        <button type="button" class="btn primary">
+          직원추가
+        </button>
+      </div>
+    </include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>결재구분</th>
+            <th>직원명</th>
+            <th>부서명</th>
+            <th>관리</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>업무담당</td>
+            <td>김국민(123456)</td>
+            <td>마케팅플랫폼</td>
+            <td><a href="#" class="link">변경</a></td>
+          </tr>
+          <tr>
+            <td>업무담당</td>
+            <td>김국민(123456)</td>
+            <td>마케팅플랫폼</td>
+            <td><a href="#" class="link textDanger">삭제</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- [E] 업무관계자 탭 -->
 
 
 </include>

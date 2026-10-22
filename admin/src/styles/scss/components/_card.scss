@@ -33,19 +33,20 @@
 
 // 통계카드 (좌측: 타이틀 / 우측: 숫자 & 비교값 정렬)
 .kpiCardGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  // display: grid;
+  // grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
   gap: 10px;
   width: 100%;
   margin-bottom: 20px;
 
-  &.col3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+  // &.col3 {
+  //   grid-template-columns: repeat(3, minmax(0, 1fr));
+  // }
 
-  &.col2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  // &.col2 {
+  //   grid-template-columns: repeat(2, minmax(0, 1fr));
+  // }
 
   .kpiCard {
     background-color: $box-bg;
@@ -58,6 +59,7 @@
     align-items: flex-start;
     gap: 16px;
     min-width: 0;
+    flex: 1;
 
     .kpiTitle {
       font-size: 13px;

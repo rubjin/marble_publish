@@ -1,0 +1,112 @@
+<include src="../../layout/layoutDefault.html" title="고객조회">
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="고객조회" breadcrumb=""></include>
+
+
+<!-- 검색 조건 컨트롤 박스 -->
+<div class="searchBox">
+  <div class="searchRow">
+    <div class="searchItem full">
+      <span class="searchLabel">고객정보<span class="required">*</span></span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="1">고객번호</option>
+          </select>
+          <div class="formControlWrap">
+            <input type="text" id="searchKeyword" class="formControl full" placeholder="검색어를 입력해주세요" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include src="../../partials/searchBtnArea.html"></include>
+</div>
+
+<div class="section">
+  <div class="tabWrap">
+    <nav class="tab">
+      <!-- [D] 활성 상태: isActive 클래스 추가 -->
+      <button type="button" class="item isActive">고객현황</button>
+      <button type="button" class="item">참여내역</button>
+      <button type="button" class="item">리워드내역</button>
+      <button type="button" class="item">알림내역</button>
+    </nav>
+  </div>
+
+  <!-- 하얀 박스 영역 -->
+  <div class="section">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="" unit="">
+      <p class="tblGuide">기준일시: 2026.08.30 13:00</p>
+      <div class="segment">
+        <label class="segmentItem"><input type="radio" name="p1Date" checked><span class="segmentText">일</span></label>
+        <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">주</span></label>
+        <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">월</span></label>
+        <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">전체</span></label>
+      </div>
+    </include>
+
+
+    <div class="kpiCardGrid">
+      <div class="kpiCard">
+        <span class="kpiTitle">미션참여</span>
+        <div class="kpiContent">
+          <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
+          <p class="kpiSub">(전일 대비 / <span class="rate isUp">+0.1</span>회)</p>
+        </div>
+      </div>
+
+      <div class="kpiCard">
+        <span class="kpiTitle">미션달성</span>
+        <div class="kpiContent">
+          <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
+          <p class="kpiSub">(전일 대비 / <span class="rate isDown">-0.1</span>회)</p>
+        </div>
+      </div>
+
+      <div class="kpiCard">
+        <span class="kpiTitle">리워드</span>
+        <div class="kpiContent">
+          <div class="kpiNumber">총<strong>38,000</strong><span class="unit">원</span><span class="kpiSub">(포인트 30,000P/쿠폰 8,000원)</span></div>
+           <p class="kpiSub">(전일 대비 / <span class="rate isDown">0</span>원)</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="chartGrid">
+      <!-- 라인 차트 (다중 시리즈 + 범례 + 기간 선택 + 툴팁) -->
+      <div class="chartBox span2">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">자산성장추이</h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <!-- [D] 범례 클릭으로 시리즈 숨김 시 .isOff -->
+          <li><button type="button" class="legendItem series1"><span class="legendMarker line"></span>순입금액</button></li>
+          <li><button type="button" class="legendItem series2"><span class="legendMarker line"></span>총자산평가금</button></li>
+        </ul>
+
+        <div class="chartArea h360" id="guideChartLine">
+          <div class="chartTooltip">
+            <span class="tooltipDate">2026.09.15</span>
+            <ul class="tooltipList">
+              <li class="tooltipItem series1"><span class="legendMarker"></span>순입금액<span class="tooltipValue">1,000만원</span></li>
+              <li class="tooltipItem series2"><span class="legendMarker"></span>총자산평가금<span class="tooltipValue">1,100만원</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+</div>
+
+
+</include>

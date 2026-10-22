@@ -2171,17 +2171,10 @@ select.formControl.wAuto {
 }
 
 .kpiCardGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
   gap: 10px;
   width: 100%;
   margin-bottom: 20px;
-}
-.kpiCardGrid.col3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.kpiCardGrid.col2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .kpiCardGrid .kpiCard {
   background-color: #FFFFFF;
@@ -2194,6 +2187,7 @@ select.formControl.wAuto {
   align-items: flex-start;
   gap: 16px;
   min-width: 0;
+  flex: 1;
 }
 .kpiCardGrid .kpiCard .kpiTitle {
   font-size: 13px;
