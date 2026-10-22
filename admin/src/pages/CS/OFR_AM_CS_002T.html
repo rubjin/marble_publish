@@ -48,8 +48,7 @@
       <button type="button" class="item">알림내역</button>
     </nav>
   </div>
-
-  <!-- 탭 콘텐츠 : 하얀 박스 하나로 묶음 (안의 KPI 카드 / 차트는 테두리 없이 평면 처리) -->
+  <!-- 탭 + 탭 콘텐츠 : 하얀 박스 하나로 묶음 (탭은 박스 머리, 안의 KPI 카드 / 차트는 평면 처리) -->
   <div class="sectionBox">
     <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
     <include src="../../partials/tblTop.html" count="" unit="">
@@ -123,7 +122,7 @@
 <!-- [D] 경로는 화면 파일 기준 상대 경로 (dist 빌드 시 chartTheme.js 가 인라인되도록 ./ ../ 로 시작) -->
 <script src="../../assets/js/vendor/lightweight-charts.standalone.production.js"></script>
 <script type="module">
-  import { getChartOptions, getSeriesOptions, formatNumber, fitEdges } from '../../assets/js/chartTheme.js';
+  import { getChartOptions, getSeriesOptions, formatNumber } from '../../assets/js/chartTheme.js';
 
   function run() {
     var LC = window.LightweightCharts;
@@ -156,8 +155,7 @@
       s.setData(data);
       return s;
     });
-    // 좌우 공백 최소화 (첫 / 마지막 날짜가 차트 양 끝에 붙도록)
-    fitEdges(chart, dates.length);
+    chart.timeScale().fitContent();
 
     // 범례 클릭 → 시리즈 표시 / 숨김
     el.closest('.chartBox').querySelectorAll('.chartLegend .legendItem').forEach(function (btn, i) {

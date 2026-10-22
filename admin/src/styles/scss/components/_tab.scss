@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use 'abstracts' as *;
 
 .tabWrap {
@@ -13,7 +14,7 @@
   .item {
     position: relative;
     min-width: 120px;
-    padding: 12px 20px;
+    padding: 18px 20px;
     font-weight: $font-weight-medium;
     color: $text-basic;
     font-size: 15px;
@@ -216,5 +217,20 @@
       // background-color: $bg-light;
       opacity: 1;
     }
+  }
+}
+
+
+
+/* ==========================================================================
+   상위 상속이 필요한 케이스
+   ========================================================================== */
+.sectionBox .tabWrap {
+  // 박스 안쪽 여백($box-padding)을 상쇄해 박스 위·좌우 끝까지 붙임
+  margin: (-1 * list.nth($box-padding, 1)) (-1 * list.nth($box-padding, 2)) 24px;
+  border-bottom: 1px solid $line-light;
+
+  .tab {
+    border-bottom: none;
   }
 }

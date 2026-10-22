@@ -1059,7 +1059,7 @@ body {
 .tab .item {
   position: relative;
   min-width: 120px;
-  padding: 12px 20px;
+  padding: 18px 20px;
   font-weight: 500;
   color: #2F3034;
   font-size: 15px;
@@ -1235,6 +1235,17 @@ body {
 }
 .mdiTabActions .btnAllClose:hover {
   opacity: 1;
+}
+
+/* ==========================================================================
+   상위 상속이 필요한 케이스
+   ========================================================================== */
+.sectionBox .tabWrap {
+  margin: -24px -28px 24px;
+  border-bottom: 1px solid #F0F0F3;
+}
+.sectionBox .tabWrap .tab {
+  border-bottom: none;
 }
 
 /* ==========================================================================
@@ -1943,14 +1954,9 @@ select.formControl.wAuto {
   color: #2F3034;
 }
 
-.popupBody {
-  padding: 0 24px 24px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #4F535A;
-  max-height: 60vh;
-  overflow-y: auto;
-}
+/* ==========================================================================
+   상위 상속이 필요한 케이스
+   ========================================================================== */
 .popupBody .searchBox {
   border: 2px solid #F0F0F3;
   background-color: #EFF4FB;
@@ -1984,6 +1990,32 @@ select.formControl.wAuto {
 .popupBody .searchBtnArea {
   margin-top: 0;
   border-top: none;
+}
+
+.sectionBox .searchBox {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 24px;
+  background-color: #F3F5F6;
+  box-shadow: none;
+  padding: 12px 20px;
+}
+.sectionBox .searchBox .searchRow {
+  grid-column: 1;
+}
+.sectionBox .searchBox .searchBtnArea {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.sectionBox .searchBox .segment,
+.popupBody .searchBox .segment {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 0 1px #D5D7DE;
 }
 
 /* ==========================================================================
@@ -2229,12 +2261,6 @@ select.formControl.wAuto {
 .kpiCardGrid .kpiCard {
   flex: 1 1 0;
   min-width: 200px;
-}
-
-.sectionBox .kpiCard {
-  background-color: #F3F5F6;
-  border-color: transparent;
-  box-shadow: none;
 }
 
 .kpiCard {
@@ -2969,6 +2995,24 @@ select.formControl.wAuto {
 }
 .statusCardGrid .statusCard .statusValue.danger .unit {
   color: #F23F3F;
+}
+
+/* ==========================================================================
+   상위 상속이 필요한 케이스
+   ========================================================================== */
+.sectionBox .summaryStatBox {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 4px;
+  margin-bottom: 12px;
+}
+
+.sectionBox .kpiCard {
+  background-color: #F3F5F6;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .tblSection {
