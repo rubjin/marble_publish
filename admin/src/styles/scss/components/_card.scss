@@ -200,6 +200,19 @@
   }
 }
 
+// 문구 박스 (발송 문구 / 안내 문구 등 조회 전용 텍스트를 회색 면 박스 안에 표시)
+// <div class="msgBox">문구 1줄<br />문구 2줄</div>
+.msgBox {
+  padding: 16px 20px;
+  background-color: $color-gray-50;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $text-basic;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
 // 정보 요약 박스 그리드 (테이블 상단 3개 요약 박스 - 한 라인 배치)
 .infoBoxWrap {
   display: grid;

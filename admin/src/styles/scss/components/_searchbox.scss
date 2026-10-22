@@ -54,7 +54,7 @@
   // }
 
   // 검색박스 안 조회 결과 정보 (예: 고객조회 → 고객 기본정보) : 버튼 영역 아래 굵은 선으로 구분
-  .infoInline {
+  .searchRow + .infoInline {
     margin: 20px -28px 0;
     padding: 20px 28px 0;
     border-top: 1px solid $line-default;
@@ -195,7 +195,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 24px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   padding: 0 4px;
 
   .infoName {
@@ -267,7 +267,7 @@
     border: 2px solid $line-light;
     background-color: $bg-light;
     box-shadow: none;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     padding: 16px 24px;
 
     .searchRow {
@@ -295,6 +295,14 @@
       color: $text-title;
       .price {
         font-size: 17px;
+      }
+    }
+
+    // 다열 그리드(.cols2~4) 검색 조건 : 입력 영역이 칸 너비를 채우도록 (위 내용 길이 기준 설정 해제)
+    .searchRow:is(.cols2, .cols3, .cols4) {
+      .searchItem,
+      .searchField {
+        flex: 1 1 auto;
       }
     }
   }

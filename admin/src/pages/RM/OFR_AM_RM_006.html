@@ -289,198 +289,72 @@
       </li>
     </ol>
   </div>
+</section>
 
-  <!-- [S] 업무관계자 탭 -->
-  <div class="section">
-    <div class="tabWrap">
-      <nav class="tab">
-        <!-- [D] 활성 상태: isActive 클래스 추가 -->
-        <button type="button" class="item isActive">업무관계자</button>
-        <button type="button" class="item">승인현황</button>
-        <button type="button" class="item">변경이력</button>
-      </nav>
-    </div>
+<!-- [S] 업무관계자 탭 -->
+<section class="section">
+  <div class="tabWrap">
+    <nav class="tab">
+      <!-- [D] 활성 상태: isActive 클래스 추가 -->
+      <button type="button" class="item isActive">업무관계자</button>
+      <button type="button" class="item">승인현황</button>
+      <button type="button" class="item">변경이력</button>
+    </nav>
+  </div>
 
-    <!-- 하얀 박스 영역 -->
-    <div class="sectionBox">
-      <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-      <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
-        <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
-        <div class="formControlWrap">
-          <p class="tblGuide">※ 결재구분 선택 후 직원추가하세요.</p>
-          <select class="formControl full">
-            <option value="">결재구분선택</option>
-            <option value="1">1차결재</option>
-            <option value="2">2차결재</option>
-            <option value="3">3차결재</option>
-          </select>
-          <button type="button" class="btn primary">
-            직원추가
-          </button>
-        </div>
-      </include>
-
-      <!-- 데이터 그리드 테이블 -->
-      <div class="tblWrap">
-        <table class="tbl tblBordered">
-          <colgroup>
-            <col style="width: 25%;">
-            <col style="width: 25%;">
-            <col style="width: 25%;">
-            <col style="width: 25%;">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>결재구분</th>
-              <th>직원명</th>
-              <th>부서명</th>
-              <th>관리</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>업무담당</td>
-              <td>김국민(123456)</td>
-              <td>마케팅플랫폼</td>
-              <td><a href="#" class="link">변경</a></td>
-            </tr>
-            <tr>
-              <td>업무담당</td>
-              <td>김국민(123456)</td>
-              <td>마케팅플랫폼</td>
-              <td><a href="#" class="link textDanger">삭제</a></td>
-            </tr>
-          </tbody>
-        </table>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
+      <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
+      <div class="formControlWrap">
+        <p class="tblGuide">※ 결재구분 선택 후 직원추가하세요.</p>
+        <select class="formControl full">
+          <option value="">결재구분선택</option>
+          <option value="1">1차결재</option>
+          <option value="2">2차결재</option>
+          <option value="3">3차결재</option>
+        </select>
+        <button type="button" class="btn primary">
+          직원추가
+        </button>
       </div>
+    </include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>결재구분</th>
+            <th>직원명</th>
+            <th>부서명</th>
+            <th>관리</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>업무담당</td>
+            <td>김국민(123456)</td>
+            <td>마케팅플랫폼</td>
+            <td><a href="#" class="link">변경</a></td>
+          </tr>
+          <tr>
+            <td>업무담당</td>
+            <td>김국민(123456)</td>
+            <td>마케팅플랫폼</td>
+            <td><a href="#" class="link textDanger">삭제</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <!-- [E] 업무관계자 탭 -->
-
-  <!-- [S] 승인현황 탭 -->
-  <div class="section">
-    <!-- 결재 상태바 -->
-    <div class="tabWrap">
-      <nav class="tab">
-        <!-- [D] 활성 상태: isActive 클래스 추가 -->
-        <button type="button" class="item">업무관계자</button>
-        <button type="button" class="item isActive">승인현황</button>
-        <button type="button" class="item">변경이력</button>
-      </nav>
-    </div>
-
-    <!-- 하얀 박스 영역 -->
-    <div class="sectionBox">
-      <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-      <include src="../../partials/tblTop.html" count="128" unit=""></include>
-
-      <!-- 데이터 그리드 테이블 -->
-      <div class="tblWrap">
-        <table class="tbl tblBordered">
-          <colgroup>
-            <col style="width: 140px;">
-            <col style="width: 200px;">
-            <col style="width: 200px;">
-            <col style="width: 300px;">
-            <col style="width: auto;">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>결재구분</th>
-              <th>처리자</th>
-              <th>부서명</th>
-              <th>결재상태</th>
-              <th>처리일시</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>업무담당</td>
-              <td>김국민(123456)</td>
-              <td>마케팅플랫폼</td>
-              <td>승인</td>
-              <td>2026.09.25 10:00:00</td>
-              <td class="textLeft">등록된 결재 요청내용입니다.</td>
-            </tr>
-            <tr>
-              <td>1차결재</td>
-              <td>김국민(123456)</td>
-              <td>마케팅플랫폼</td>
-              <td>대기</td>
-              <td>-</td>
-              <td class="textLeft">-</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <!-- [E] 승인현황 탭 -->
-
-  <!-- [S] 변경이력 탭 -->
-  <div class="section">
-    <div class="tabWrap">
-      <nav class="tab">
-        <!-- [D] 활성 상태: isActive 클래스 추가 -->
-        <button type="button" class="item">업무관계자</button>
-        <button type="button" class="item">승인현황</button>
-        <button type="button" class="item isActive">변경이력</button>
-      </nav>
-    </div>
-
-    <!-- 하얀 박스 영역 -->
-    <div class="sectionBox">
-      <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-      <include src="../../partials/tblTop.html" count="128" pageSize></include>
-
-      <!-- 데이터 그리드 테이블 -->
-      <div class="tblWrap">
-        <table class="tbl tblBordered">
-          <colgroup>
-            <col style="width: 60px;">
-            <col style="width: auto;">
-            <col style="width: 200px;">
-            <col style="width: 200px;">
-            <col style="width: 300px;">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>변경항목</th>
-              <th>처리자</th>
-              <th>부서명</th>
-              <th>변경일시</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>3</td>
-              <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
-              <td>홍길동(123456)</td>
-              <td>디지털BK Biz부</td>
-              <td>2026.09.25 10:00:00</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
-              <td>홍길동(123456)</td>
-              <td>디지털BK Biz부</td>
-              <td>2026.09.25 10:00:00</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
-              <td>홍길동(123456)</td>
-              <td>디지털BK Biz부</td>
-              <td>2026.09.25 10:00:00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <!-- [E] 변경이력 탭 -->
-
 
   <!-- 페이지 하단 버튼 영역 -->
   <div class="btnArea pageBottom">
@@ -493,4 +367,130 @@
     </div>
   </div>
 </section>
+<!-- [E] 업무관계자 탭 -->
+
+<!-- [S] 승인현황 탭 -->
+<section class="section">
+  <!-- 결재 상태바 -->
+  <div class="tabWrap">
+    <nav class="tab">
+      <!-- [D] 활성 상태: isActive 클래스 추가 -->
+      <button type="button" class="item">업무관계자</button>
+      <button type="button" class="item isActive">승인현황</button>
+      <button type="button" class="item">변경이력</button>
+    </nav>
+  </div>
+
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" unit=""></include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 140px;">
+          <col style="width: 200px;">
+          <col style="width: 200px;">
+          <col style="width: 300px;">
+          <col style="width: auto;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>결재구분</th>
+            <th>처리자</th>
+            <th>부서명</th>
+            <th>결재상태</th>
+            <th>처리일시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>업무담당</td>
+            <td>김국민(123456)</td>
+            <td>마케팅플랫폼</td>
+            <td>승인</td>
+            <td>2026.09.25 10:00:00</td>
+            <td class="textLeft">등록된 결재 요청내용입니다.</td>
+          </tr>
+          <tr>
+            <td>1차결재</td>
+            <td>김국민(123456)</td>
+            <td>마케팅플랫폼</td>
+            <td>대기</td>
+            <td>-</td>
+            <td class="textLeft">-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- [E] 승인현황 탭 -->
+
+<!-- [S] 변경이력 탭 -->
+<section class="section">
+  <div class="tabWrap">
+    <nav class="tab">
+      <!-- [D] 활성 상태: isActive 클래스 추가 -->
+      <button type="button" class="item">업무관계자</button>
+      <button type="button" class="item">승인현황</button>
+      <button type="button" class="item isActive">변경이력</button>
+    </nav>
+  </div>
+
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" pageSize></include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 60px;">
+          <col style="width: auto;">
+          <col style="width: 200px;">
+          <col style="width: 200px;">
+          <col style="width: 300px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>변경항목</th>
+            <th>처리자</th>
+            <th>부서명</th>
+            <th>변경일시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3</td>
+            <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
+            <td>홍길동(123456)</td>
+            <td>디지털BK Biz부</td>
+            <td>2026.09.25 10:00:00</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
+            <td>홍길동(123456)</td>
+            <td>디지털BK Biz부</td>
+            <td>2026.09.25 10:00:00</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
+            <td>홍길동(123456)</td>
+            <td>디지털BK Biz부</td>
+            <td>2026.09.25 10:00:00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- [E] 변경이력 탭 -->
+
 </include>

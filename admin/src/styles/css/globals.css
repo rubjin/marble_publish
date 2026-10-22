@@ -223,6 +223,9 @@ body {
 .ico.download {
   background-image: url("/src/assets/images/icon/i_download_16.svg");
 }
+.ico.attach {
+  background-image: url("/src/assets/images/icon/i_attach_16.svg");
+}
 .ico.mdiTabHome {
   background-image: url("/src/assets/images/icon/mdi_tab_home.svg");
 }
@@ -1808,7 +1811,7 @@ select.formControl.wAuto {
   width: 100%;
   box-sizing: border-box;
 }
-.searchBox .infoInline {
+.searchBox .searchRow + .infoInline {
   margin: 20px -28px 0;
   padding: 20px 28px 0;
   border-top: 1px solid #D5D7DE;
@@ -1936,7 +1939,6 @@ select.formControl.wAuto {
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 24px;
-  margin-bottom: 20px;
   padding: 0 4px;
 }
 .infoInline .infoName {
@@ -1989,7 +1991,6 @@ select.formControl.wAuto {
   border: 2px solid #F0F0F3;
   background-color: #EFF4FB;
   box-shadow: none;
-  margin-bottom: 20px;
   padding: 16px 24px;
 }
 .popupBody .searchBox .searchRow {
@@ -2014,6 +2015,10 @@ select.formControl.wAuto {
 }
 .popupBody .searchBox .searchField .price {
   font-size: 17px;
+}
+.popupBody .searchBox .searchRow:is(.cols2, .cols3, .cols4) .searchItem,
+.popupBody .searchBox .searchRow:is(.cols2, .cols3, .cols4) .searchField {
+  flex: 1 1 auto;
 }
 .popupBody .searchBtnArea {
   margin-top: 0;
@@ -2410,6 +2415,17 @@ select.formControl.wAuto {
 .kpiCard.kpiProgress .kpiFoot strong {
   font-weight: 700;
   color: #2F3034;
+}
+
+.msgBox {
+  padding: 16px 20px;
+  background-color: #F3F5F6;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #2F3034;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .infoBoxWrap {
@@ -3280,6 +3296,21 @@ select.formControl.wAuto {
   font-weight: 500;
 }
 
+.titleWithIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.titleWithIcon > a,
+.titleWithIcon > span:not(.ico) {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .barPercent {
   display: flex;
   align-items: center;
@@ -3428,6 +3459,9 @@ select.formControl.wAuto {
   flex: 1 1 auto;
   min-height: 80px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* 팝업 바디 (컨텐츠) */

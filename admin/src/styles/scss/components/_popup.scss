@@ -116,6 +116,10 @@
   flex: 1 1 auto;
   min-height: 80px;
   overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* 팝업 바디 (컨텐츠) */

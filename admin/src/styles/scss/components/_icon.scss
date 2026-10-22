@@ -68,6 +68,11 @@
     background-image: iconUrl('i_download_16.svg');
   }
 
+  // 파일첨부 (예: 게시글 제목 옆 첨부파일 있음 표시)
+  &.attach {
+    background-image: iconUrl('i_attach_16.svg');
+  }
+
   &.mdiTabHome {
     background-image: iconUrl('mdi_tab_home.svg');
   }

@@ -1,0 +1,69 @@
+<include src="../../layout/layoutDefault.html" title="계정권한정보">
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="계정권한정보" breadcrumb=""></include>
+
+<section class="section">
+  <!-- 검색 조건 컨트롤 박스 -->
+  <div class="searchBox">
+    <div class="infoInline">
+      <strong class="infoName">김*민<span class="infoSub">(1234567)</span></strong>
+      <dl class="infoMeta">
+        <div class="infoMetaItem"><dd>디지털BK Biz부</dd></div>
+        <div class="infoMetaItem"><dt>마지막 로그인정보</dt><dd>2026.02.01 10:00:50</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox tblSection">
+    <include src="../../partials/infoSection.html" title="대직정보">
+      <tr>
+        <th>위탁자</th>
+        <td>홍길동(8888888)/디지털BK Biz부</td>
+        <th>대직기간</th>
+        <td>2026.02.01 10:00 ~ 2026.02.05 24:00</td>
+      </tr>
+    </include>
+  </div>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" title="대직자 정보조회" count="128" pageSize>
+    </include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 180px;">
+          <col style="width: 180px;">
+          <col style="width: auto;">
+          <col style="width: auto;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>대직시작일</th>
+            <th>대직종료일</th>
+            <th>위탁자</th>
+            <th>대직자</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026.08.25 13:00</td>
+            <td>2026.08.25 13:00</td>
+            <td>홍길동(1234567)/디지털BK Biz부</td>
+            <td>홍길동(1234567)/디지털BK Biz부</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <include src="../../partials/pagination.html"></include>
+  </div>
+</section>
+
+
+</include>

@@ -319,3 +319,21 @@
     }
   }
 }
+
+// 셀 안 텍스트 + 아이콘 (예: 게시글 제목 + 첨부파일 아이콘)
+// <span class="titleWithIcon"><a href="#" class="link">제목</a><span class="ico sm attach"></span></span>
+.titleWithIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  vertical-align: middle;
+
+  > a,
+  > span:not(.ico) {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,78 @@
+<include src="../../layout/layoutDefault.html" title="접속이력">
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="접속이력" breadcrumb=""></include>
+
+<section class="section">
+  <!-- 검색 조건 컨트롤 박스 -->
+  <div class="searchBox">
+    <!-- [D] cols2, cols3, cols4 : 각 2분할, 3분할, 4분할 처리  -->
+    <div class="searchRow">
+      <!-- [D] span2 : 2칸 영역을 차지 -->
+      <div class="searchItem">
+        <span class="searchLabel">배치실행일</span>
+        <div class="searchField">
+          <div class="formRow">
+            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+          </div>
+        </div>
+      </div>
+    </div>
+    <include src="../../partials/searchBtnArea.html" noReset></include>
+  </div>
+
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" pageSize>
+    </include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 70px;">
+          <col style="width: 170px;">
+          <col style="width: 150px;">
+          <col style="width: auto;">
+          <col style="width: 130px;">
+          <col style="width: 100px;">
+          <col style="width: 160px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>NO</th>
+            <th>접속일시</th>
+            <th>접속자명/ID</th>
+            <th>조직명</th>
+            <th>접속유형</th>
+            <th>접속결과</th>
+            <th>접속OS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10</td>
+            <td>2026.08.25 13:00:00</td>
+            <td>홍길동(123456)</td>
+            <td>마케팅플랫폼</td>
+            <td>세션타임아웃</td>
+            <td>
+              <!-- [D] 접속 실패 시 툴팁으로 실패 사유 노출 -->
+              <div class="tooltipWrap top">
+                <span class="tooltipText textDanger" tabindex="0">실패</span>
+                <div class="tooltipContent">실패 사유</div>
+              </div>
+            </td>
+            <td>Window11/chrome</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <include src="../../partials/pagination.html"></include>
+  </div>
+</section>
+
+
+</include>
