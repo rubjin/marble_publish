@@ -782,7 +782,7 @@
   border-radius: $box-radius;
   padding: $box-padding;
   box-shadow: $box-shadow;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
 
   &:last-child {
     margin-bottom: 0;
@@ -827,5 +827,13 @@
 }
 
 [class*="section"] + [class*="section"] {
-  margin-top: 28px;
+  // margin-top: 28px;
+}
+
+
+section.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  + .section { margin-top: 24px;}
 }

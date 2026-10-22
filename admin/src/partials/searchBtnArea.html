@@ -2,11 +2,15 @@
   [UI 컴포넌트] 검색 조건 박스 하단 버튼 (초기화 / 조회)
   <include src="../../partials/searchBtnArea.html"></include>
   <include src="../../partials/searchBtnArea.html" resetText="다시 입력" searchText="검색"></include>
+  <include src="../../partials/searchBtnArea.html" noReset></include>
   - resetText  : 초기화 버튼 문구 (기본: 초기화)
   - searchText : 조회 버튼 문구 (기본: 조회)
+  - noReset    : 초기화 버튼 숨김 - 조회 버튼만 노출 (값 없이 속성만 작성)
   ※ .searchBox 안 마지막에 사용
 -->
 <div class="searchBtnArea">
+  {% if not noReset %}
   <button type="button" class="btn outline">{{ resetText | default('초기화', true) }}</button>
+  {% endif %}
   <button type="button" class="btn primary">{{ searchText | default('조회', true) }}</button>
 </div>

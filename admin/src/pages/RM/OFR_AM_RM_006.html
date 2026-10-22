@@ -5,10 +5,9 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="리워드 한도설정" breadcrumb=""></include>
 
-<!-- 상세 뷰 테이블 (상세 정보 확인용 .tblView) -->
-<!-- 하얀 박스 영역 -->
-<div class="sectionBox">
-  <div class="tblSection">
+<section class="section"> 
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox tblSection">
     <include src="../../partials/infoSection.html" title="">
       <tr>
         <th>기준연도<span class="required">*</span></th>
@@ -60,14 +59,13 @@
       </tr>
     </include>
   </div>
-</div>
+</section>
+<section class="section"> 
+  <div class="tblSection">
+    <include src="../../partials/tblTop.html" title="미션별 한도설정" unit="단위: 원" guide="※ 미션별 한도 합계가 전체 예산을 초과할 수 없습니다."></include>
 
-<div class="section">
-  <include src="../../partials/tblTop.html" title="미션별 한도설정" unit="단위: 원" guide="※ 미션별 한도 합계가 전체 예산을 초과할 수 없습니다."></include>
-
-  <include src="../../partials/summaryStat.html" items="미션 총한도 합계|80,000,000|원; 리워드 잔여금액|20,000,000|원"></include>
-
-  
+    <include src="../../partials/summaryStat.html" items="미션 총한도 합계|80,000,000|원; 리워드 잔여금액|20,000,000|원"></include>
+  </div>
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
     <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
@@ -202,297 +200,297 @@
       </table>
     </div>
   </div>
-</div>
 
-<!-- 결재 상태바: 단계에 따라 저장, 결재진행중/대기 나타내기 -->
-<!-- [D] 진행단계(.approvalStep): 저장 > 결재진행중 > 결재완료 -->
-<!--     현재 단계 .isCurrent / 지난 단계·결재완료 .isDone / 이후 단계 (클래스 없음) -->
-<!-- [D] 결재상태(.approvalState)는 해당 단계명 아래에 노출 -->
-<!--     결재진행중 단계 → 대기 (클래스 없음) / 결재완료 단계 → 승인 .isApprove, 반려 .isReject -->
-<!-- [D] 결재완료 시에만 처리일시(.approvalDate) 노출 : (YYYY.MM.DD HH:MM:SS) -->
 
-<!-- 저장 -->
-<div class="approvalStatusBar">
-  <ol class="approvalStepper">
-    <li class="approvalStep isCurrent">
-      <span class="stepDot">1</span>
-      <span class="stepText">저장</span>
-    </li>
-    <li class="approvalStep">
-      <span class="stepDot">2</span>
-      <span class="stepText">결재진행중</span>
-    </li>
-    <li class="approvalStep">
-      <span class="stepDot">3</span>
-      <span class="stepText">결재완료</span>
-    </li>
-  </ol>
-</div>
+  <!-- 결재 상태바: 단계에 따라 저장, 결재진행중/대기 나타내기 -->
+  <!-- [D] 진행단계(.approvalStep): 저장 > 결재진행중 > 결재완료 -->
+  <!--     현재 단계 .isCurrent / 지난 단계·결재완료 .isDone / 이후 단계 (클래스 없음) -->
+  <!-- [D] 결재상태(.approvalState)는 해당 단계명 아래에 노출 -->
+  <!--     결재진행중 단계 → 대기 (클래스 없음) / 결재완료 단계 → 승인 .isApprove, 반려 .isReject -->
+  <!-- [D] 결재완료 시에만 처리일시(.approvalDate) 노출 : (YYYY.MM.DD HH:MM:SS) -->
 
-<!-- 결재진행중 -->
-<div class="approvalStatusBar">
-  <ol class="approvalStepper">
-    <li class="approvalStep isDone">
-      <span class="stepDot">1</span>
-      <span class="stepText">저장</span>
-    </li>
-    <li class="approvalStep isCurrent">
-      <span class="stepDot">2</span>
-      <span class="stepText">결재진행중</span>
-      <span class="approvalState">대기</span>
-    </li>
-    <li class="approvalStep">
-      <span class="stepDot">3</span>
-      <span class="stepText">결재완료</span>
-    </li>
-  </ol>
-</div>
-
-<!-- 결재완료(승인) -->
-<div class="approvalStatusBar">
-  <ol class="approvalStepper">
-    <li class="approvalStep isDone">
-      <span class="stepDot">1</span>
-      <span class="stepText">저장</span>
-    </li>
-    <li class="approvalStep isDone">
-      <span class="stepDot">2</span>
-      <span class="stepText">결재진행중</span>
-    </li>
-    <li class="approvalStep isDone">
-      <span class="stepDot">3</span>
-      <span class="stepText">결재완료</span>
-      <div class="stepStat">
-        <span class="approvalState isApprove">승인</span>
-        <span class="approvalDate">(2026.07.15 10:00:00)</span>
-      </div>
-    </li>
-  </ol>
-</div>
-
-<!-- 결재완료(반려) -->
-<div class="approvalStatusBar">
-  <ol class="approvalStepper">
-    <li class="approvalStep isDone">
-      <span class="stepDot">1</span>
-      <span class="stepText">저장</span>
-    </li>
-    <li class="approvalStep isDone">
-      <span class="stepDot">2</span>
-      <span class="stepText">결재진행중</span>
-    </li>
-    <li class="approvalStep isDone">
-      <span class="stepDot">3</span>
-      <span class="stepText">결재완료</span>
-      <div class="stepStat">
-        <span class="approvalState isReject">반려</span>
-        <span class="approvalDate">(2026.07.15 10:00:00)</span>
-      </div>
-    </li>
-  </ol>
-</div>
-
-<!-- [S] 업무관계자 탭 -->
-<div class="section">
-  <div class="tabWrap">
-    <nav class="tab">
-      <!-- [D] 활성 상태: isActive 클래스 추가 -->
-      <button type="button" class="item isActive">업무관계자</button>
-      <button type="button" class="item">승인현황</button>
-      <button type="button" class="item">변경이력</button>
-    </nav>
+  <!-- 저장 -->
+  <div class="approvalStatusBar">
+    <ol class="approvalStepper">
+      <li class="approvalStep isCurrent">
+        <span class="stepDot">1</span>
+        <span class="stepText">저장</span>
+      </li>
+      <li class="approvalStep">
+        <span class="stepDot">2</span>
+        <span class="stepText">결재진행중</span>
+      </li>
+      <li class="approvalStep">
+        <span class="stepDot">3</span>
+        <span class="stepText">결재완료</span>
+      </li>
+    </ol>
   </div>
 
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
-      <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
-      <div class="formControlWrap">
-        <p class="tblGuide">※ 결재구분 선택 후 직원추가하세요.</p>
-        <select class="formControl full">
-          <option value="">결재구분선택</option>
-          <option value="1">1차결재</option>
-          <option value="2">2차결재</option>
-          <option value="3">3차결재</option>
-        </select>
-        <button type="button" class="btn primary">
-          직원추가
-        </button>
-      </div>
-    </include>
+  <!-- 결재진행중 -->
+  <div class="approvalStatusBar">
+    <ol class="approvalStepper">
+      <li class="approvalStep isDone">
+        <span class="stepDot">1</span>
+        <span class="stepText">저장</span>
+      </li>
+      <li class="approvalStep isCurrent">
+        <span class="stepDot">2</span>
+        <span class="stepText">결재진행중</span>
+        <span class="approvalState">대기</span>
+      </li>
+      <li class="approvalStep">
+        <span class="stepDot">3</span>
+        <span class="stepText">결재완료</span>
+      </li>
+    </ol>
+  </div>
 
-    <!-- 데이터 그리드 테이블 -->
-    <div class="tblWrap">
-      <table class="tbl tblBordered">
-        <colgroup>
-          <col style="width: 25%;">
-          <col style="width: 25%;">
-          <col style="width: 25%;">
-          <col style="width: 25%;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>결재구분</th>
-            <th>직원명</th>
-            <th>부서명</th>
-            <th>관리</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>업무담당</td>
-            <td>김국민(123456)</td>
-            <td>마케팅플랫폼</td>
-            <td><a href="#" class="link">변경</a></td>
-          </tr>
-          <tr>
-            <td>업무담당</td>
-            <td>김국민(123456)</td>
-            <td>마케팅플랫폼</td>
-            <td><a href="#" class="link textDanger">삭제</a></td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- 결재완료(승인) -->
+  <div class="approvalStatusBar">
+    <ol class="approvalStepper">
+      <li class="approvalStep isDone">
+        <span class="stepDot">1</span>
+        <span class="stepText">저장</span>
+      </li>
+      <li class="approvalStep isDone">
+        <span class="stepDot">2</span>
+        <span class="stepText">결재진행중</span>
+      </li>
+      <li class="approvalStep isDone">
+        <span class="stepDot">3</span>
+        <span class="stepText">결재완료</span>
+        <div class="stepStat">
+          <span class="approvalState isApprove">승인</span>
+          <span class="approvalDate">(2026.07.15 10:00:00)</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- 결재완료(반려) -->
+  <div class="approvalStatusBar">
+    <ol class="approvalStepper">
+      <li class="approvalStep isDone">
+        <span class="stepDot">1</span>
+        <span class="stepText">저장</span>
+      </li>
+      <li class="approvalStep isDone">
+        <span class="stepDot">2</span>
+        <span class="stepText">결재진행중</span>
+      </li>
+      <li class="approvalStep isDone">
+        <span class="stepDot">3</span>
+        <span class="stepText">결재완료</span>
+        <div class="stepStat">
+          <span class="approvalState isReject">반려</span>
+          <span class="approvalDate">(2026.07.15 10:00:00)</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- [S] 업무관계자 탭 -->
+  <div class="section">
+    <div class="tabWrap">
+      <nav class="tab">
+        <!-- [D] 활성 상태: isActive 클래스 추가 -->
+        <button type="button" class="item isActive">업무관계자</button>
+        <button type="button" class="item">승인현황</button>
+        <button type="button" class="item">변경이력</button>
+      </nav>
+    </div>
+
+    <!-- 하얀 박스 영역 -->
+    <div class="sectionBox">
+      <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+      <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
+        <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
+        <div class="formControlWrap">
+          <p class="tblGuide">※ 결재구분 선택 후 직원추가하세요.</p>
+          <select class="formControl full">
+            <option value="">결재구분선택</option>
+            <option value="1">1차결재</option>
+            <option value="2">2차결재</option>
+            <option value="3">3차결재</option>
+          </select>
+          <button type="button" class="btn primary">
+            직원추가
+          </button>
+        </div>
+      </include>
+
+      <!-- 데이터 그리드 테이블 -->
+      <div class="tblWrap">
+        <table class="tbl tblBordered">
+          <colgroup>
+            <col style="width: 25%;">
+            <col style="width: 25%;">
+            <col style="width: 25%;">
+            <col style="width: 25%;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>결재구분</th>
+              <th>직원명</th>
+              <th>부서명</th>
+              <th>관리</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>업무담당</td>
+              <td>김국민(123456)</td>
+              <td>마케팅플랫폼</td>
+              <td><a href="#" class="link">변경</a></td>
+            </tr>
+            <tr>
+              <td>업무담당</td>
+              <td>김국민(123456)</td>
+              <td>마케팅플랫폼</td>
+              <td><a href="#" class="link textDanger">삭제</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-<!-- [E] 업무관계자 탭 -->
+  <!-- [E] 업무관계자 탭 -->
 
-<!-- [S] 승인현황 탭 -->
-<div class="section">
-  <!-- 결재 상태바 -->
-  <div class="tabWrap">
-    <nav class="tab">
-      <!-- [D] 활성 상태: isActive 클래스 추가 -->
-      <button type="button" class="item">업무관계자</button>
-      <button type="button" class="item isActive">승인현황</button>
-      <button type="button" class="item">변경이력</button>
-    </nav>
-  </div>
+  <!-- [S] 승인현황 탭 -->
+  <div class="section">
+    <!-- 결재 상태바 -->
+    <div class="tabWrap">
+      <nav class="tab">
+        <!-- [D] 활성 상태: isActive 클래스 추가 -->
+        <button type="button" class="item">업무관계자</button>
+        <button type="button" class="item isActive">승인현황</button>
+        <button type="button" class="item">변경이력</button>
+      </nav>
+    </div>
 
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="128" unit=""></include>
+    <!-- 하얀 박스 영역 -->
+    <div class="sectionBox">
+      <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+      <include src="../../partials/tblTop.html" count="128" unit=""></include>
 
-    <!-- 데이터 그리드 테이블 -->
-    <div class="tblWrap">
-      <table class="tbl tblBordered">
-        <colgroup>
-          <col style="width: 140px;">
-          <col style="width: 200px;">
-          <col style="width: 200px;">
-          <col style="width: 300px;">
-          <col style="width: auto;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>결재구분</th>
-            <th>처리자</th>
-            <th>부서명</th>
-            <th>결재상태</th>
-            <th>처리일시</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>업무담당</td>
-            <td>김국민(123456)</td>
-            <td>마케팅플랫폼</td>
-            <td>승인</td>
-            <td>2026.09.25 10:00:00</td>
-            <td class="textLeft">등록된 결재 요청내용입니다.</td>
-          </tr>
-          <tr>
-            <td>1차결재</td>
-            <td>김국민(123456)</td>
-            <td>마케팅플랫폼</td>
-            <td>대기</td>
-            <td>-</td>
-            <td class="textLeft">-</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- 데이터 그리드 테이블 -->
+      <div class="tblWrap">
+        <table class="tbl tblBordered">
+          <colgroup>
+            <col style="width: 140px;">
+            <col style="width: 200px;">
+            <col style="width: 200px;">
+            <col style="width: 300px;">
+            <col style="width: auto;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>결재구분</th>
+              <th>처리자</th>
+              <th>부서명</th>
+              <th>결재상태</th>
+              <th>처리일시</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>업무담당</td>
+              <td>김국민(123456)</td>
+              <td>마케팅플랫폼</td>
+              <td>승인</td>
+              <td>2026.09.25 10:00:00</td>
+              <td class="textLeft">등록된 결재 요청내용입니다.</td>
+            </tr>
+            <tr>
+              <td>1차결재</td>
+              <td>김국민(123456)</td>
+              <td>마케팅플랫폼</td>
+              <td>대기</td>
+              <td>-</td>
+              <td class="textLeft">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-<!-- [E] 승인현황 탭 -->
+  <!-- [E] 승인현황 탭 -->
 
-<!-- [S] 변경이력 탭 -->
-<div class="section">
-  <div class="tabWrap">
-    <nav class="tab">
-      <!-- [D] 활성 상태: isActive 클래스 추가 -->
-      <button type="button" class="item">업무관계자</button>
-      <button type="button" class="item">승인현황</button>
-      <button type="button" class="item isActive">변경이력</button>
-    </nav>
-  </div>
+  <!-- [S] 변경이력 탭 -->
+  <div class="section">
+    <div class="tabWrap">
+      <nav class="tab">
+        <!-- [D] 활성 상태: isActive 클래스 추가 -->
+        <button type="button" class="item">업무관계자</button>
+        <button type="button" class="item">승인현황</button>
+        <button type="button" class="item isActive">변경이력</button>
+      </nav>
+    </div>
 
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="128" pageSize></include>
+    <!-- 하얀 박스 영역 -->
+    <div class="sectionBox">
+      <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+      <include src="../../partials/tblTop.html" count="128" pageSize></include>
 
-    <!-- 데이터 그리드 테이블 -->
-    <div class="tblWrap">
-      <table class="tbl tblBordered">
-        <colgroup>
-          <col style="width: 60px;">
-          <col style="width: auto;">
-          <col style="width: 200px;">
-          <col style="width: 200px;">
-          <col style="width: 300px;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>변경항목</th>
-            <th>처리자</th>
-            <th>부서명</th>
-            <th>변경일시</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>3</td>
-            <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
-            <td>홍길동(123456)</td>
-            <td>디지털BK Biz부</td>
-            <td>2026.09.25 10:00:00</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
-            <td>홍길동(123456)</td>
-            <td>디지털BK Biz부</td>
-            <td>2026.09.25 10:00:00</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
-            <td>홍길동(123456)</td>
-            <td>디지털BK Biz부</td>
-            <td>2026.09.25 10:00:00</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- 데이터 그리드 테이블 -->
+      <div class="tblWrap">
+        <table class="tbl tblBordered">
+          <colgroup>
+            <col style="width: 60px;">
+            <col style="width: auto;">
+            <col style="width: 200px;">
+            <col style="width: 200px;">
+            <col style="width: 300px;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>변경항목</th>
+              <th>처리자</th>
+              <th>부서명</th>
+              <th>변경일시</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3</td>
+              <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
+              <td>홍길동(123456)</td>
+              <td>디지털BK Biz부</td>
+              <td>2026.09.25 10:00:00</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
+              <td>홍길동(123456)</td>
+              <td>디지털BK Biz부</td>
+              <td>2026.09.25 10:00:00</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td class="textLeft tdEllipsis"><a href="#" class="link" title="일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.">일간지급한도, 중복지급 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다. 길이 테스트 입니다. 길이가 늘어날 경우 ... 처리 합니다.</a></td>
+              <td>홍길동(123456)</td>
+              <td>디지털BK Biz부</td>
+              <td>2026.09.25 10:00:00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-<!-- [E] 변경이력 탭 -->
+  <!-- [E] 변경이력 탭 -->
 
 
-<!-- 페이지 하단 버튼 영역 -->
-<div class="btnArea pageBottom">
-  <div class="btnGroup">
-    <button type="button" class="btn outline">목록</button>
+  <!-- 페이지 하단 버튼 영역 -->
+  <div class="btnArea pageBottom">
+    <div class="btnGroup">
+      <button type="button" class="btn outline">목록</button>
+    </div>
+    <div class="btnGroup btnGroupRight">
+      <button type="button" class="btn outline">승인 요청</button>
+      <button type="button" class="btn primary">저장</button>
+    </div>
   </div>
-  <div class="btnGroup btnGroupRight">
-    <button type="button" class="btn outline">승인 요청</button>
-    <button type="button" class="btn primary">저장</button>
-  </div>
-</div>
-
+</section>
 </include>

@@ -39,7 +39,7 @@
   flex-wrap: wrap;
   gap: 10px;
   width: 100%;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 
   .kpiCard {
     flex: 1 1 0;
@@ -296,7 +296,7 @@
   padding: $box-summary-padding;
   box-shadow: $box-shadow;
   width: 100%;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   gap: 24px;
 
   // 기본형: 항목을 같은 너비로 나눠 구분선 간격을 균등하게 (값 길이와 무관)
@@ -615,7 +615,7 @@
   padding: $box-padding;
   padding-top: 40px;
   box-shadow: $box-shadow;
-  margin: 20px 0;
+  // margin: 20px 0;
 
   // 진행단계 스텝퍼 (원형 번호 위 / 단계명 아래 세로 정렬 + 연결선)
   $step-width: 84px; // 단계 1칸 너비

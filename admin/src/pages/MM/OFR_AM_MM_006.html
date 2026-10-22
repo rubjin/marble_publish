@@ -1,10 +1,9 @@
 <include src="../../layout/layoutDefault.html" title="오늘의 콕 콘텐츠 목록">
 
-  <!-- 실제 콘텐츠 영역 -->
+<!-- 실제 콘텐츠 영역 -->
+<include src="../../partials/pageHeader.html" title="오늘의 콕 콘텐츠 목록" breadcrumb=""></include>
 
-  <include src="../../partials/pageHeader.html" title="오늘의 콕 콘텐츠 목록" breadcrumb=""></include>
-
-  
+<section class="section">
   <!-- 검색 조건 컨트롤 박스 -->
   <div class="searchBox">
     <div class="searchRow">
@@ -67,6 +66,9 @@
     </div>
     <include src="../../partials/searchBtnArea.html"></include>
   </div>
+</section>
+
+<section class="section">
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
     <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
@@ -132,7 +134,6 @@
     </div>
     <include src="../../partials/pagination.html"></include>
   </div>
-
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
     <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
@@ -173,5 +174,6 @@
       </table>
     </div>
   </div>
+</section>
 
 </include>

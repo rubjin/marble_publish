@@ -6,194 +6,137 @@
 <include src="../../partials/pageHeader.html" title="고객조회" breadcrumb=""></include>
 
 
-<!-- 검색 조건 컨트롤 박스 -->
-<div class="searchBox">
-  <div class="searchRow">
-    <div class="searchItem full">
-      <span class="searchLabel">고객정보<span class="required">*</span></span>
-      <div class="searchField">
-        <div class="formRow">
-          <select class="formControl wSm">
-            <option value="1">고객번호</option>
-          </select>
-          <div class="formControlWrap">
-            <input type="text" id="searchKeyword" class="formControl full" placeholder="고객번호를 입력해주세요" />
-            <button type="button" class="btn primary">조회</button>
+<section class="section">
+  <!-- 검색 조건 컨트롤 박스 -->
+  <div class="searchBox narrow">
+    <div class="searchRow">
+      <div class="searchItem full">
+        <span class="searchLabel">고객정보<span class="required">*</span></span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl wSm">
+              <option value="1">고객번호</option>
+            </select>
+            <div class="formControlWrap">
+              <input type="text" id="searchKeyword" class="formControl full" placeholder="고객번호를 입력해주세요" />
+              <button type="button" class="btn primary">조회</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- [D] 고객 조회 후 노출 -->
+    <div class="infoInline">
+      <strong class="infoName">김*민<span class="infoSub">(1234567)</span></strong>
+      <dl class="infoMeta">
+        <div class="infoMetaItem"><dt>생년월일</dt><dd>1988.05.05</dd></div>
+        <div class="infoMetaItem"><dt>휴대폰번호</dt><dd>010-12**-45**</dd></div>
+        <div class="infoMetaItem"><dt>가입일</dt><dd>2024.01.01</dd></div>
+        <div class="infoMetaItem"><dt>마케팅동의</dt><dd class="textInfo">동의<span class="infoSub">(2026.05.30)</span></dd></div>
+      </dl>
+    </div>
   </div>
-
-  <!-- 고객 기본정보 (검색박스 안 조회 결과 - 상단 굵은 선으로 구분) -->
-  <!-- [D] 고객 조회 후 노출 -->
-  <div class="infoInline">
-    <strong class="infoName">김*민<span class="infoSub">(1234567)</span></strong>
-    <dl class="infoMeta">
-      <div class="infoMetaItem"><dt>생년월일</dt><dd>1988.05.05</dd></div>
-      <div class="infoMetaItem"><dt>휴대폰번호</dt><dd>010-12**-45**</dd></div>
-      <div class="infoMetaItem"><dt>가입일</dt><dd>2024.01.01</dd></div>
-      <div class="infoMetaItem"><dt>마케팅동의</dt><dd class="textInfo">동의<span class="infoSub">(2026.05.30)</span></dd></div>
-    </dl>
-  </div>
-</div>
-
-<div class="section">
+</section>
+<section class="section">
   <div class="tabWrap">
     <nav class="tab">
       <!-- [D] 활성 상태: isActive 클래스 추가 -->
-      <button type="button" class="item isActive">고객현황</button>
+      <button type="button" class="item">고객현황</button>
       <button type="button" class="item">참여내역</button>
       <button type="button" class="item">리워드내역</button>
-      <button type="button" class="item">알림내역</button>
+      <button type="button" class="item isActive">알림내역</button>
     </nav>
   </div>
 
-  <!-- 탭 콘텐츠 : 하얀 박스 하나로 묶음 (안의 KPI 카드 / 차트는 테두리 없이 평면 처리) -->
-  <div class="sectionBox">
-    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="" unit="">
-      <p class="tblGuide">기준일시: 2026.08.30 13:00</p>
-      <div class="segment">
-        <label class="segmentItem"><input type="radio" name="p1Date" checked><span class="segmentText">일</span></label>
-        <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">주</span></label>
-        <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">월</span></label>
-        <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">전체</span></label>
-      </div>
-    </include>
-
-
-    <div class="kpiCardGrid">
-      <div class="kpiCard">
-        <span class="kpiTitle">미션참여</span>
-        <div class="kpiContent">
-          <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
-          <p class="kpiSub">(전일 대비 / <span class="rate isUp">+0.1</span>회)</p>
-        </div>
-      </div>
-
-      <div class="kpiCard">
-        <span class="kpiTitle">미션달성</span>
-        <div class="kpiContent">
-          <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
-          <p class="kpiSub">(전일 대비 / <span class="rate isDown">-0.1</span>회)</p>
-        </div>
-      </div>
-
-      <div class="kpiCard">
-        <span class="kpiTitle">리워드</span>
-        <div class="kpiContent">
-          <div class="kpiNumber"><span class="prefix">총</span><strong>38,000</strong><span class="unit">원</span></div>
-          <p class="kpiDetail">포인트 30,000P / 쿠폰 8,000원</p>
-          <p class="kpiSub">(전일 대비 / <span class="rate isFlat">0</span>원)</p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="chartGrid">
-      <!-- 라인 차트 (다중 시리즈 + 범례 + 기간 선택 + 툴팁) -->
-      <div class="chartBox span2">
-        <div class="chartHeader">
-          <div class="chartTitleWrap">
-            <h3 class="chartTitle">자산성장추이</h3>
+  <!-- 검색 조건 컨트롤 박스 -->
+  <div class="searchBox">
+    <div class="searchRow ">
+      <div class="searchItem">
+        <span class="searchLabel">발송일자<span class="required">*</span></span>
+        <div class="searchField">
+          <div class="formRow">
+            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
           </div>
         </div>
-
-        <ul class="chartLegend">
-          <!-- [D] 범례 클릭으로 시리즈 숨김 시 .isOff -->
-          <li><button type="button" class="legendItem series1"><span class="legendMarker line"></span>순입금액</button></li>
-          <li><button type="button" class="legendItem series2"><span class="legendMarker line"></span>총자산평가금</button></li>
-        </ul>
-
-        <div class="chartArea h360" id="assetGrowthChart">
-          <!-- [D] 툴팁 내용 / 위치는 아래 스크립트에서 crosshair 이동 시 갱신 -->
-          <div class="chartTooltip"></div>
+      </div>
+      <div class="searchItem">
+        <span class="searchLabel">채널</span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl">
+              <option value="1">전체</option>
+            </select>
+          </div>
         </div>
       </div>
-      <p class="formGuideText">※ 두 선의 차이가 <strong class="blue">시장손익</strong>입니다.<br />
-        순입금액=고객이 넣은 돈(행동성), 총자산평가금=거기에 시장 변동이 더해진 값. 달성횟수 구간별 자산증가율(dose-response)등 상세 분석은 <strong class="blue">통계·분석 > 고객분석</strong>에서 확인할 수 있습니다.
-      </p>
+      <div class="searchItem">
+        <span class="searchLabel">발송상태</span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl">
+              <option value="1">전체</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="searchRow">
+      <div class="searchItem">
+        <span class="searchLabel">미션명</span>
+        <div class="searchField">
+          <div class="formRow">
+            <div class="formControlWrap">
+              <input type="text" class="formControl full" placeholder="미션명 또는 미션코드 입력">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <include src="../../partials/searchBtnArea.html"></include>
+  </div>
+
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" pageSize>
+    </include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 150px;">
+          <col style="width: auto;">
+          <col style="width: 70px;">
+          <col style="width: 100px;">
+          <col style="width: 100px;">
+          <col style="width: 100px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>발송일시</th>
+            <th>미션명</th>
+            <th>회차</th>
+            <th>채널</th>
+            <th>발송상태</th>
+            <th>발송문구</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026.07.14 12:00</td>
+            <td class="textLeft">오늘의콕 퀴즈(DV1OA125035)</td>
+            <td>1</td>
+            <td>앱푸시</td>
+            <td><span class="textDanger">발송실패</span></td>
+            <!-- [D] 상세보기 클릭 시 알림문구 팝업(OFR_AM_CS_006P) 노출 -->
+            <td><a href="#" class="link">상세보기</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <include src="../../partials/pagination.html"></include>
 
   </div>
-</div>
-
-<!-- 자산성장추이 차트 (lightweight-charts standalone + 공통 테마) -->
-<!-- [D] 경로는 화면 파일 기준 상대 경로 (dist 빌드 시 chartTheme.js 가 인라인되도록 ./ ../ 로 시작) -->
-<script src="../../assets/js/vendor/lightweight-charts.standalone.production.js"></script>
-<script type="module">
-  import { getChartOptions, getSeriesOptions, formatNumber } from '../../assets/js/chartTheme.js';
-
-  function run() {
-    var LC = window.LightweightCharts;
-    var el = document.getElementById('assetGrowthChart');
-    if (!LC || !el) return;
-
-    // [D] 퍼블 확인용 데모 데이터 (단위: 만원) - 실제 데이터로 교체
-    var names = ['순입금액', '총자산평가금'];
-    var dates = ['2026-08-24', '2026-08-25', '2026-08-26', '2026-08-27', '2026-08-28', '2026-08-29', '2026-08-30'];
-    var depositValues = [900, 920, 950, 960, 980, 1000, 1000];
-    var assetValues = [950, 940, 990, 1010, 1040, 1080, 1100];
-    var deposit = dates.map(function (t, i) { return { time: t, value: depositValues[i] }; });
-    var asset = dates.map(function (t, i) { return { time: t, value: assetValues[i] }; });
-
-    // 가로축 라벨: yyyy.MM.dd (time 은 'yyyy-MM-dd' 문자열 또는 { year, month, day })
-    function formatDate(time) {
-      if (typeof time === 'string') return time.replace(/-/g, '.');
-      var pad = function (n) { return String(n).padStart(2, '0'); };
-      return time.year + '.' + pad(time.month) + '.' + pad(time.day);
-    }
-
-    var chart = LC.createChart(el, getChartOptions({
-      // 세로축(가격 축) 미노출
-      rightPriceScale: { visible: false },
-      crosshair: { horzLine: { visible: false, labelVisible: false } },
-      timeScale: { tickMarkFormatter: formatDate }
-    }));
-    var seriesList = [deposit, asset].map(function (data, i) {
-      var s = chart.addSeries(LC.LineSeries, getSeriesOptions('line', i));
-      s.setData(data);
-      return s;
-    });
-    chart.timeScale().fitContent();
-
-    // 범례 클릭 → 시리즈 표시 / 숨김
-    el.closest('.chartBox').querySelectorAll('.chartLegend .legendItem').forEach(function (btn, i) {
-      btn.addEventListener('click', function () {
-        var off = btn.classList.toggle('isOff');
-        seriesList[i].applyOptions({ visible: !off });
-      });
-    });
-
-    // 툴팁
-    var tooltip = el.querySelector('.chartTooltip');
-    chart.subscribeCrosshairMove(function (param) {
-      if (!param.point || !param.time || param.point.x < 0 || param.point.y < 0) {
-        tooltip.classList.remove('isOpen');
-        return;
-      }
-      var rows = seriesList.map(function (s, i) {
-        var v = param.seriesData.get(s);
-        if (!v || !s.options().visible) return '';
-        return '<li class="tooltipItem series' + (i + 1) + '"><span class="legendMarker"></span>' + names[i] +
-               '<span class="tooltipValue">' + formatNumber(v.value) + '만원</span></li>';
-      }).join('');
-      tooltip.innerHTML = '<span class="tooltipDate">' + formatDate(param.time) + '</span><ul class="tooltipList">' + rows + '</ul>';
-
-      var w = tooltip.offsetWidth, h = tooltip.offsetHeight;
-      var x = param.point.x + 16;
-      if (x + w > el.clientWidth) x = param.point.x - w - 16;
-      var y = Math.max(0, Math.min(param.point.y - h / 2, el.clientHeight - h));
-      tooltip.style.left = x + 'px';
-      tooltip.style.top = y + 'px';
-      tooltip.classList.add('isOpen');
-    });
-  }
-
-  if (document.readyState === 'complete') run();
-  else window.addEventListener('load', run);
-</script>
-
+</section>
 
 </include>

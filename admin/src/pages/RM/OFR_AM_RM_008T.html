@@ -1,136 +1,136 @@
 <include src="../../layout/layoutDefault.html" title="리워드 지급검토관리">
 
 <!-- 실제 콘텐츠 영역 -->
-
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="리워드 지급검토관리" breadcrumb="">기준일: 2026.07.15</include>
 
+<section class="section">
+  <div class="tabWrap">
+    <nav class="tab">
+      <!-- [D] 활성 상태: isActive 클래스 추가 -->
+      <button type="button" class="item">리워드 예산현황</button>
+      <button type="button" class="item isActive">리워드 검토대상</button>
+    </nav>
+  </div>
 
-<div class="tabWrap">
-  <nav class="tab">
-    <!-- [D] 활성 상태: isActive 클래스 추가 -->
-    <button type="button" class="item">리워드 예산현황</button>
-    <button type="button" class="item isActive">리워드 검토대상</button>
-  </nav>
-</div>
-
-<!-- 검색 조건 컨트롤 박스 -->
-<div class="searchBox">
-  <div class="searchRow">
-    <div class="searchItem full">
-      <span class="searchLabel">조회일자</span>
-      <div class="searchField">
-        <div class="formRow">
-          <select class="formControl wSm">
-            <option value="1">지급예정일</option>
-          </select>
-          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+  <!-- 검색 조건 컨트롤 박스 -->
+  <div class="searchBox">
+    <div class="searchRow">
+      <div class="searchItem full">
+        <span class="searchLabel">조회일자</span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl wSm">
+              <option value="1">지급예정일</option>
+            </select>
+            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+          </div>
         </div>
       </div>
     </div>
+    <include src="../../partials/searchBtnArea.html"></include>
   </div>
-  <include src="../../partials/searchBtnArea.html"></include>
-</div>
 
-<!-- 하얀 박스 영역 -->
-<div class="sectionBox">
-  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-  <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
-    <div class="btnGroup">
-      <button type="button" class="btn outline"><span class="ico download"></span><span>엑셀 다운로드</span></button>
-      <button type="button" class="btn outline">지급검토 설정</button>
-      <button type="button" class="btn primary">지급검토</button>
-      <button type="button" class="btn primary">결재승인</button>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
+      <div class="btnGroup">
+        <button type="button" class="btn outline"><span class="ico download"></span><span>엑셀 다운로드</span></button>
+        <button type="button" class="btn outline">지급검토 설정</button>
+        <button type="button" class="btn primary">지급검토</button>
+        <button type="button" class="btn primary">결재승인</button>
+      </div>
+    </include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 50px;">
+          <col style="width: 100px;">
+          <col style="width: auto;">
+          <col style="width: 160px;">
+          <col style="width: 100px;">
+          <col style="width: 80px;">
+          <col style="width: 120px;">
+          <col style="width: 110px;">
+          <col style="width: 100px;">
+          <col style="width: 100px;">
+          <col style="width: 80px;">
+          <col style="width: 190px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="colCheck">
+              <!-- [D] 일부 선택 시 input.indeterminate = true -->
+              <label class="formCheck">
+                <input type="checkbox" aria-label="전체 선택">
+                <span class="checkIcon"></span>
+              </label>
+            </th>
+            <th>미션참여일</th>
+            <th>미션명</th>
+            <th>리워드유형</th>
+            <th>리워드금액</th>
+            <th>참여건수</th>
+            <th>합산리워드</th>
+            <th>지급검토결과</th>
+            <th>지급예정일</th>
+            <th>결재유형</th>
+            <th>결재상태</th>
+            <th>담당자</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="colCheck">
+              <label class="formCheck">
+                <input type="checkbox" aria-label="행 선택">
+                <span class="checkIcon"></span>
+              </label>
+            </td>
+            <td>2026.07.06</td>
+            <td class="textLeft">스탁뷰(Dv1OA125035)</td>
+            <td>금융상품쿠폰/국내주식</td>
+            <td class="textRight">10,000원</td>
+            <td class="textRight">1,000</td>
+            <td class="textRight">1,000,000원</td>
+            <td><span class="textDanger">정합성오류</span></td>
+            <td>2026.07.07</td>
+            <td>담당자승인</td>
+            <td><span class="textSuccess">승인</span></td>
+            <td>홍길동(123456)/마케팅플랫폼</td>
+          </tr>
+          <tr>
+            <td class="colCheck">
+              <label class="formCheck">
+                <input type="checkbox" aria-label="행 선택">
+                <span class="checkIcon"></span>
+              </label>
+            </td>
+            <td>2026.07.06</td>
+            <td class="textLeft">스탁뷰(Dv1OA125035)</td>
+            <td>금융상품쿠폰/국내주식</td>
+            <td class="textRight">10,000원</td>
+            <td class="textRight">1,000</td>
+            <td class="textRight">1,000,000원</td>
+            <td><span class="textSuccess">정상</span></td>
+            <td>2026.07.07</td>
+            <td>담당자승인</td>
+            <td><span class="textSuccess">승인</span></td>
+            <td>홍길동(123456)/마케팅플랫폼</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </include>
+    <include src="../../partials/pagination.html"></include>
 
-  <!-- 데이터 그리드 테이블 -->
-  <div class="tblWrap">
-    <table class="tbl tblBordered">
-      <colgroup>
-        <col style="width: 50px;">
-        <col style="width: 100px;">
-        <col style="width: auto;">
-        <col style="width: 160px;">
-        <col style="width: 100px;">
-        <col style="width: 80px;">
-        <col style="width: 120px;">
-        <col style="width: 110px;">
-        <col style="width: 100px;">
-        <col style="width: 100px;">
-        <col style="width: 80px;">
-        <col style="width: 190px;">
-      </colgroup>
-      <thead>
-        <tr>
-          <th class="colCheck">
-            <!-- [D] 일부 선택 시 input.indeterminate = true -->
-            <label class="formCheck">
-              <input type="checkbox" aria-label="전체 선택">
-              <span class="checkIcon"></span>
-            </label>
-          </th>
-          <th>미션참여일</th>
-          <th>미션명</th>
-          <th>리워드유형</th>
-          <th>리워드금액</th>
-          <th>참여건수</th>
-          <th>합산리워드</th>
-          <th>지급검토결과</th>
-          <th>지급예정일</th>
-          <th>결재유형</th>
-          <th>결재상태</th>
-          <th>담당자</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="colCheck">
-            <label class="formCheck">
-              <input type="checkbox" aria-label="행 선택">
-              <span class="checkIcon"></span>
-            </label>
-          </td>
-          <td>2026.07.06</td>
-          <td class="textLeft">스탁뷰(Dv1OA125035)</td>
-          <td>금융상품쿠폰/국내주식</td>
-          <td class="textRight">10,000원</td>
-          <td class="textRight">1,000</td>
-          <td class="textRight">1,000,000원</td>
-          <td><span class="textDanger">정합성오류</span></td>
-          <td>2026.07.07</td>
-          <td>담당자승인</td>
-          <td><span class="textSuccess">승인</span></td>
-          <td>홍길동(123456)/마케팅플랫폼</td>
-        </tr>
-        <tr>
-          <td class="colCheck">
-            <label class="formCheck">
-              <input type="checkbox" aria-label="행 선택">
-              <span class="checkIcon"></span>
-            </label>
-          </td>
-          <td>2026.07.06</td>
-          <td class="textLeft">스탁뷰(Dv1OA125035)</td>
-          <td>금융상품쿠폰/국내주식</td>
-          <td class="textRight">10,000원</td>
-          <td class="textRight">1,000</td>
-          <td class="textRight">1,000,000원</td>
-          <td><span class="textSuccess">정상</span></td>
-          <td>2026.07.07</td>
-          <td>담당자승인</td>
-          <td><span class="textSuccess">승인</span></td>
-          <td>홍길동(123456)/마케팅플랫폼</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
-  <include src="../../partials/pagination.html"></include>
-
-</div>
+</section>
 
 <!-- [S] 업무관계자 탭 -->
-<div class="section">
+<section class="section">
   <div class="tabWrap">
     <nav class="tab">
       <!-- [D] 활성 상태: isActive 클래스 추가 -->
@@ -191,7 +191,7 @@
       </table>
     </div>
   </div>
-</div>
+</section>
 <!-- [E] 업무관계자 탭 -->
 
 

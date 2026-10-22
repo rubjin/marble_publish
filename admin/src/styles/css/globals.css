@@ -774,7 +774,6 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  margin-top: 16px;
 }
 .pageBottom .btn {
   min-width: 100px;
@@ -1054,12 +1053,11 @@ body {
 .tab {
   display: flex;
   border-bottom: 1px solid #D5D7DE;
-  gap: 4px;
 }
 .tab .item {
   position: relative;
   min-width: 120px;
-  padding: 18px 20px;
+  padding: 12px 20px;
   font-weight: 500;
   color: #2F3034;
   font-size: 15px;
@@ -1246,6 +1244,10 @@ body {
 }
 .sectionBox .tabWrap .tab {
   border-bottom: none;
+}
+
+.section .tabWrap {
+  margin-bottom: 0px;
 }
 
 /* ==========================================================================
@@ -1802,7 +1804,6 @@ select.formControl.wAuto {
   background-color: #FFFFFF;
   border-radius: 12px;
   padding: 24px 28px;
-  margin-bottom: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   width: 100%;
   box-sizing: border-box;
@@ -1811,6 +1812,33 @@ select.formControl.wAuto {
   margin: 20px -28px 0;
   padding: 20px 28px 0;
   border-top: 1px solid #D5D7DE;
+}
+.searchBox.narrow {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.searchBox.narrow .infoInline {
+  margin-top: 12px;
+  padding-top: 12px;
+}
+.searchBox.singleLine {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 24px;
+  margin-bottom: 0px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.searchBox.singleLine .searchRow {
+  grid-column: 1;
+}
+.searchBox.singleLine .searchBtnArea {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
 }
 
 .searchRow {
@@ -2256,7 +2284,6 @@ select.formControl.wAuto {
   flex-wrap: wrap;
   gap: 10px;
   width: 100%;
-  margin-bottom: 20px;
 }
 .kpiCardGrid .kpiCard {
   flex: 1 1 0;
@@ -2472,7 +2499,6 @@ select.formControl.wAuto {
   padding: 20px 28px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   width: 100%;
-  margin-bottom: 20px;
   gap: 24px;
 }
 .summaryStatBox:not(.singleLine) > .statItem {
@@ -2737,7 +2763,6 @@ select.formControl.wAuto {
   padding: 24px 28px;
   padding-top: 40px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  margin: 20px 0;
 }
 .approvalStatusBar .approvalStepper {
   display: flex;
@@ -3017,7 +3042,6 @@ select.formControl.wAuto {
 
 .tblSection {
   width: 100%;
-  margin-bottom: 24px;
 }
 .tblSection:last-child {
   margin-bottom: 0;
@@ -5660,7 +5684,6 @@ body.isDndActive * {
   border-radius: 12px;
   padding: 24px 28px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  margin-bottom: 16px;
 }
 .sectionBox:last-child {
   margin-bottom: 0;
@@ -5696,8 +5719,13 @@ body.isDndActive * {
   justify-content: flex-start;
 }
 
-[class*=section] + [class*=section] {
-  margin-top: 28px;
+section.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+section.section + .section {
+  margin-top: 24px;
 }
 
 /* ==========================================================================

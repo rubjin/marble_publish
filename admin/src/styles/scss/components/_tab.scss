@@ -9,12 +9,12 @@
 .tab {
   display: flex;
   border-bottom: 1px solid $line-default;
-  gap: 4px;
+  // gap: 4px;
   
   .item {
     position: relative;
     min-width: 120px;
-    padding: 18px 20px;
+    padding: 12px 20px;
     font-weight: $font-weight-medium;
     color: $text-basic;
     font-size: 15px;
@@ -233,4 +233,8 @@
   .tab {
     border-bottom: none;
   }
+}
+
+.section .tabWrap {
+  margin-bottom: 0px;
 }

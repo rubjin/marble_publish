@@ -5,113 +5,115 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="오늘의 콕 OX퀴즈 등록" breadcrumb=""></include>
 
-<!-- 하얀 박스 영역 -->
-<div class="sectionBox">
-  <include src="../../partials/viewSection.html" title="공통 설정">
-    <tr>
-      <th><label class="formLabel">게시일 <span class="required">*</span></label></th>
-      <td>
-        <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" shortcuts="전일,당일,다음일"></include>
-      </td>
-    </tr>
-    <tr>
-      <th><label class="formLabel" for="idContents">관련 콘텐츠 <span class="required">*</span></label></th>
-      <td>
-        <div class="formControlWrap">
-          <input type="text" id="idContents" class="formControl wSm" value="" readonly>
-          <input type="text" id="" class="formControl wMd" value="" readonly>
-          <button type="button" class="btn outline">찾아보기</button>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><label class="formLabel" for="">퀴즈 제목 <span class="required">*</span></label></th>
-      <td>
-        <div class="formControlWrap full">
-          <input type="text" class="formControl" value="" placeholder="공백 포함 20자 이내 입력">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><label class="formLabel" for="">퀴즈 질문 <span class="required">*</span></label></th>
-      <td>
-        <div class="formControlWrap full">
-          <input type="text" class="formControl" value="" placeholder="공백 포함 20자 이내 입력">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><label class="formLabel">정답 선택지 <span class="required">*</span></label></th>
-      <td>
-        <fieldset class="formCheckGroup">
+<section class="section">
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <include src="../../partials/viewSection.html" title="공통 설정">
+      <tr>
+        <th><label class="formLabel">게시일 <span class="required">*</span></label></th>
+        <td>
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" shortcuts="전일,당일,다음일"></include>
+        </td>
+      </tr>
+      <tr>
+        <th><label class="formLabel" for="idContents">관련 콘텐츠 <span class="required">*</span></label></th>
+        <td>
           <div class="formControlWrap">
-            <label class="formCheck">
-              <input type="radio" name="QuizAnswer" checked>
-              <span class="checkIcon"></span>
-              <span class="checkLabel">O</span>
-            </label>
-            <input type="text" class="formControl" value="맞아요" placeholder="">
+            <input type="text" id="idContents" class="formControl wSm" value="" readonly>
+            <input type="text" id="" class="formControl wMd" value="" readonly>
+            <button type="button" class="btn outline">찾아보기</button>
           </div>
-          <div class="formControlWrap">
-            <label class="formCheck">
-              <input type="radio" name="QuizAnswer">
-              <span class="checkIcon"></span>
-              <span class="checkLabel">X</span>
-            </label>
-            <input type="text" class="formControl" value="아니어요" placeholder="">
+        </td>
+      </tr>
+      <tr>
+        <th><label class="formLabel" for="">퀴즈 제목 <span class="required">*</span></label></th>
+        <td>
+          <div class="formControlWrap full">
+            <input type="text" class="formControl" value="" placeholder="공백 포함 20자 이내 입력">
           </div>
-        </fieldset>
-      </td>
-    </tr>
-    <tr>
-      <th><label class="formLabel" for="">정답 문구 <span class="required">*</span></label></th>
-      <td>
-        <div class="formControlWrap full">
-          <input type="text" class="formControl" value="" placeholder="공백 포함 40자 이내 입력">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><label class="formLabel" for="">오답 문구 <span class="required">*</span></label></th>
-      <td>
-        <div class="formControlWrap full">
-          <input type="text" class="formControl" value="" placeholder="공백 포함 40자 이내 입력">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <th><label class="formLabel">사용여부 <span class="required">*</span></label></th>
-      <td>
-        <include src="../../partials/checkGroup.html" name="UseOption" options="사용,미사용" legend="사용여부 선택"></include>
-      </td>
-    </tr>
-    <tr>
-      <th><label class="formLabel">등록일시</label></th>
-      <td>2026.08.22 13:45</td>
-    </tr>
-    <tr>
-      <th><label class="formLabel">등록자</label></th>
-      <td>홍길동 / 디지털콘텐츠팀</td>
-    </tr>
-    <tr>
-      <th><label class="formLabel">최종 수정일시</label></th>
-      <td>2026.08.22 13:45</td>
-    </tr>
-    <tr>
-      <th><label class="formLabel">최종 수정자</label></th>
-      <td>홍길동 / 디지털콘텐츠팀</td>
-    </tr>
-  </include>
-</div>
+        </td>
+      </tr>
+      <tr>
+        <th><label class="formLabel" for="">퀴즈 질문 <span class="required">*</span></label></th>
+        <td>
+          <div class="formControlWrap full">
+            <input type="text" class="formControl" value="" placeholder="공백 포함 20자 이내 입력">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th><label class="formLabel">정답 선택지 <span class="required">*</span></label></th>
+        <td>
+          <fieldset class="formCheckGroup">
+            <div class="formControlWrap">
+              <label class="formCheck">
+                <input type="radio" name="QuizAnswer" checked>
+                <span class="checkIcon"></span>
+                <span class="checkLabel">O</span>
+              </label>
+              <input type="text" class="formControl" value="맞아요" placeholder="">
+            </div>
+            <div class="formControlWrap">
+              <label class="formCheck">
+                <input type="radio" name="QuizAnswer">
+                <span class="checkIcon"></span>
+                <span class="checkLabel">X</span>
+              </label>
+              <input type="text" class="formControl" value="아니어요" placeholder="">
+            </div>
+          </fieldset>
+        </td>
+      </tr>
+      <tr>
+        <th><label class="formLabel" for="">정답 문구 <span class="required">*</span></label></th>
+        <td>
+          <div class="formControlWrap full">
+            <input type="text" class="formControl" value="" placeholder="공백 포함 40자 이내 입력">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th><label class="formLabel" for="">오답 문구 <span class="required">*</span></label></th>
+        <td>
+          <div class="formControlWrap full">
+            <input type="text" class="formControl" value="" placeholder="공백 포함 40자 이내 입력">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th><label class="formLabel">사용여부 <span class="required">*</span></label></th>
+        <td>
+          <include src="../../partials/checkGroup.html" name="UseOption" options="사용,미사용" legend="사용여부 선택"></include>
+        </td>
+      </tr>
+      <tr>
+        <th><label class="formLabel">등록일시</label></th>
+        <td>2026.08.22 13:45</td>
+      </tr>
+      <tr>
+        <th><label class="formLabel">등록자</label></th>
+        <td>홍길동 / 디지털콘텐츠팀</td>
+      </tr>
+      <tr>
+        <th><label class="formLabel">최종 수정일시</label></th>
+        <td>2026.08.22 13:45</td>
+      </tr>
+      <tr>
+        <th><label class="formLabel">최종 수정자</label></th>
+        <td>홍길동 / 디지털콘텐츠팀</td>
+      </tr>
+    </include>
+  </div>
 
-<!-- 페이지 하단 버튼 영역 -->
-<div class="btnArea pageBottom">
-  <div class="btnGroup">
-    <button type="button" class="btn outline">목록</button>
+  <!-- 페이지 하단 버튼 영역 -->
+  <div class="btnArea pageBottom">
+    <div class="btnGroup">
+      <button type="button" class="btn outline">목록</button>
+    </div>
+    <div class="btnGroup btnGroupRight">
+      <button type="button" class="btn primary">저장</button>
+    </div>
   </div>
-  <div class="btnGroup btnGroupRight">
-    <button type="button" class="btn primary">저장</button>
-  </div>
-</div>
+</section>
 
 </include>

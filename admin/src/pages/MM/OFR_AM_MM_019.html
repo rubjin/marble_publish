@@ -1,52 +1,52 @@
 <include src="../../layout/layoutDefault.html" title="자산성장 트레킹 고객 참여 내역">
 
-  <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-  <include src="../../partials/pageHeader.html" title="자산성장 트레킹 고객 참여 내역" breadcrumb=""></include>
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="자산성장 트레킹 고객 참여 내역" breadcrumb=""></include>
 
-  <!-- 상세 뷰 테이블 (상세 정보 확인용 .tblView) -->
+<section class="section">
   <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <div class="tblSection">
-      <include src="../../partials/infoSection.html" title="">
-        <tr>
-          <th>고객명</th>
-          <td>김*민</td>
-          <th>고객번호</th>
-          <td>9012345678</td>
-          <th>앱푸시 여부</th>
-          <td>동의</td>
-        </tr>
-        <tr>
-          <th>회차</th>
-          <td>
-            <select class="formControl wSm">
-              <option value="1">1차</option>
-              <option value="2">2차</option>
-            </select>
-          </td>
-          <th>신청일시</th>
-          <td>2026.07.01 09:12:30</td>
-          <th>해지일시</th>
-          <td>-</td>
-        </tr>
-        <tr>
-          <th>누적 횟수/포인트</th>
-          <td>
-            <div class="infoStats">
-              <span class="infoStat">완료 <span>50</span>회</span>/
-              <span class="infoStat">미완료 <span>5</span>회</span>/
-              <span class="infoStat"><span>2,500</span>P</span>
-            </div>
-          </td>
-          <th>20일 누적미션 현황</th>
-          <td><span>17</span><span class="infoTotal"> / 20일</span></td>
-          <th>참여상태</th>
-          <td>참여</td>
-        </tr>
-      </include>
-    </div>
+  <div class="sectionBox tblSection">
+    <include src="../../partials/infoSection.html" title="">
+      <tr>
+        <th>고객명</th>
+        <td>김*민</td>
+        <th>고객번호</th>
+        <td>9012345678</td>
+        <th>앱푸시 여부</th>
+        <td>동의</td>
+      </tr>
+      <tr>
+        <th>회차</th>
+        <td>
+          <select class="formControl wSm">
+            <option value="1">1차</option>
+            <option value="2">2차</option>
+          </select>
+        </td>
+        <th>신청일시</th>
+        <td>2026.07.01 09:12:30</td>
+        <th>해지일시</th>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th>누적 횟수/포인트</th>
+        <td>
+          <div class="infoStats">
+            <span class="infoStat">완료 <span>50</span>회</span>/
+            <span class="infoStat">미완료 <span>5</span>회</span>/
+            <span class="infoStat"><span>2,500</span>P</span>
+          </div>
+        </td>
+        <th>20일 누적미션 현황</th>
+        <td><span>17</span><span class="infoTotal"> / 20일</span></td>
+        <th>참여상태</th>
+        <td>참여</td>
+      </tr>
+    </include>
   </div>
+</section>
 
+<section class="section">
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
     <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
@@ -157,5 +157,6 @@
     <P class="formGuideText">※ 코스별 실적은 진행중에는 조회 기준일시 실적 내용을 표기하며, 미션완료, 미달성 해지 시 최종 확정된 실적을 표시합니다.</P>
     <P class="formGuideText">※ 3코스 정상미션의 국내주식 평가금액은 D+30일 KRX종가 기준으로 최종 확정됩니다.</P>
   </div>
+</section>
 
 </include>

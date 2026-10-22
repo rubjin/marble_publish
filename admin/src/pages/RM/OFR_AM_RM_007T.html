@@ -1,171 +1,168 @@
 <include src="../../layout/layoutDefault.html" title="리워드 지급검토관리">
 
 <!-- 실제 콘텐츠 영역 -->
-
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="리워드 지급검토관리" breadcrumb="">기준일: 2026.07.15</include>
 
+<section class="section">
+  <div class="tabWrap">
+    <nav class="tab">
+      <!-- [D] 활성 상태: isActive 클래스 추가 -->
+      <button type="button" class="item isActive">리워드 예산현황</button>
+      <button type="button" class="item">리워드 검토대상</button>
+    </nav>
+  </div>
 
-<div class="tabWrap">
-  <nav class="tab">
-    <!-- [D] 활성 상태: isActive 클래스 추가 -->
-    <button type="button" class="item isActive">리워드 예산현황</button>
-    <button type="button" class="item">리워드 검토대상</button>
-  </nav>
-</div>
-
-<div class="section">
-  <include src="../../partials/tblTop.html" title="총 예산현황">
-    <p class="tblGuide">기준일: 2026.07.10 11:00:20</p>
-    <div class="toggleGroup" role="radiogroup" aria-label="조회 기간 선택">
-      <label class="toggleItem"><input type="radio" name="periodToggle1" checked><span class="toggleText">당일</span></label>
-      <label class="toggleItem"><input type="radio" name="periodToggle1"><span class="toggleText">당월</span></label>
-    </div>
-  </include>
-  <!-- KPI 4단 통계 요약 카드 그리드 -->
-  <!-- [D] 금액 우측 하단 정렬: .kpiCard.valueBottom -->
-  <div class="kpiCardGrid">
-    <div class="kpiCard valueBottom">
-      <span class="kpiTitle">총 예산<span class="kpiPeriod">(2026)</span></span>
-      <div class="kpiContent">
-        <div class="kpiNumber"><strong>100,000,000</strong><span class="unit">원</span></div>
+  <div class="tblSection">
+    <include src="../../partials/tblTop.html" title="총 예산현황">
+      <p class="tblGuide">기준일: 2026.07.10 11:00:20</p>
+      <div class="toggleGroup" role="radiogroup" aria-label="조회 기간 선택">
+        <label class="toggleItem"><input type="radio" name="periodToggle1" checked><span class="toggleText">당일</span></label>
+        <label class="toggleItem"><input type="radio" name="periodToggle1"><span class="toggleText">당월</span></label>
       </div>
-    </div>
-
-    <div class="kpiCard valueBottom">
-      <span class="kpiTitle">당일 지급금<span class="kpiPeriod">(2026.07.10)</span></span>
-      <div class="kpiContent">
-        <div class="kpiNumber"><strong>65,400,000</strong><span class="unit">원</span></div>
-      </div>
-    </div>
-
-    <div class="kpiCard valueBottom">
-      <span class="kpiTitle">누적지급금<span class="kpiPeriod">(2026.07.10)</span></span>
-      <div class="kpiContent">
-        <div class="kpiNumber"><strong>34,600,000</strong><span class="unit">원</span></div>
-      </div>
-    </div>
-
-    <!-- [D] 예산 소진율 상태: 정상(80% 미만) normal / 주의(80~89%) warning / 위험(90% 이상) danger
-    → .badge, .barPercent 에 같은 상태 클래스 적용, .barPercentFill width 에 소진율 바인딩 -->
-    <div class="kpiCard kpiProgress">
-      <div class="kpiHead">
-        <span class="kpiTitle">예산 소진율<span class="statusDot warning">주의</span></span>
+    </include>
+    <!-- KPI 4단 통계 요약 카드 그리드 -->
+    <!-- [D] 금액 우측 하단 정렬: .kpiCard.valueBottom -->
+    <div class="kpiCardGrid">
+      <div class="kpiCard valueBottom">
+        <span class="kpiTitle">총 예산<span class="kpiPeriod">(2026)</span></span>
         <div class="kpiContent">
-          <div class="kpiNumber"><strong>80.0</strong><span class="unit">%</span></div>
+          <div class="kpiNumber"><strong>100,000,000</strong><span class="unit">원</span></div>
         </div>
       </div>
-      <div class="barPercent warning">
-        <div class="barPercentTrack">
-          <div class="barPercentFill" style="width: 80%;"></div>
+
+      <div class="kpiCard valueBottom">
+        <span class="kpiTitle">당일 지급금<span class="kpiPeriod">(2026.07.10)</span></span>
+        <div class="kpiContent">
+          <div class="kpiNumber"><strong>65,400,000</strong><span class="unit">원</span></div>
         </div>
       </div>
-      <div class="kpiFoot">
-        <span>(임계치: 80%)</span>
-        <span>잔여한도 <strong>20,000,000</strong>원</span>
+
+      <div class="kpiCard valueBottom">
+        <span class="kpiTitle">누적지급금<span class="kpiPeriod">(2026.07.10)</span></span>
+        <div class="kpiContent">
+          <div class="kpiNumber"><strong>34,600,000</strong><span class="unit">원</span></div>
+        </div>
+      </div>
+
+      <!-- [D] 예산 소진율 상태: 정상(80% 미만) normal / 주의(80~89%) warning / 위험(90% 이상) danger
+      → .badge, .barPercent 에 같은 상태 클래스 적용, .barPercentFill width 에 소진율 바인딩 -->
+      <div class="kpiCard kpiProgress">
+        <div class="kpiHead">
+          <span class="kpiTitle">예산 소진율<span class="statusDot warning">주의</span></span>
+          <div class="kpiContent">
+            <div class="kpiNumber"><strong>80.0</strong><span class="unit">%</span></div>
+          </div>
+        </div>
+        <div class="barPercent warning">
+          <div class="barPercentTrack">
+            <div class="barPercentFill" style="width: 80%;"></div>
+          </div>
+        </div>
+        <div class="kpiFoot">
+          <span>(임계치: 80%)</span>
+          <span>잔여한도 <strong>20,000,000</strong>원</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="section">
-  <include src="../../partials/tblTop.html" title="일별 리워드지급현황"></include>
-  <!-- 검색 조건 컨트롤 박스 -->
-  <div class="searchBox">
-    <div class="searchRow">
-      <div class="searchItem full">
-        <span class="searchLabel">조회일자</span>
-        <div class="searchField">
-          <div class="formRow">
-            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+  <div class="tblSection">
+    <include src="../../partials/tblTop.html" title="일별 리워드지급현황"></include>
+    <!-- 검색 조건 컨트롤 박스 -->
+    <div class="searchBox">
+      <div class="searchRow">
+        <div class="searchItem full">
+          <span class="searchLabel">조회일자</span>
+          <div class="searchField">
+            <div class="formRow">
+              <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+            </div>
           </div>
         </div>
       </div>
+      <include src="../../partials/searchBtnArea.html"></include>
     </div>
-    <include src="../../partials/searchBtnArea.html"></include>
-  </div>
-</div>
-
-
-<!-- 하얀 박스 영역 -->
-<div class="sectionBox">
-  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-  <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
-    <span class="noticeMark">임계치 80% 적용</span>
-    <span class="statusDot ing">정상(80%미만)</span>
-    <span class="statusDot warning">주의(80~89)</span>
-    <span class="statusDot danger">위험(90%이상)</span>
-  </include>
-
-  <!-- 데이터 그리드 테이블 -->
-  <div class="tblWrap">
-    <table class="tbl tblBordered">
-      <colgroup>
-        <col style="width: 120px;">
-        <col style="width: 180px;">
-        <col style="width: 180px;">
-        <col style="width: auto;">
-        <col style="width: 140px;">
-      </colgroup>
-      <thead>
-        <tr>
-          <th>리워드지급일</th>
-          <th>지급금</th>
-          <th>총 누적지급금</th>
-          <th>예산 소진율</th>
-          <th>지급여부</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- [D] 예산 소진율 상태 클래스: 정상 normal / 주의 warning / 위험 danger (퍼블 확인용 3건) -->
-        <tr>
-          <td>2026.07.10</td>
-          <td class="textRight">1,000,000,000</td>
-          <td class="textRight">50,000,000</td>
-          <td>
-            <div class="barPercent warning">
-              <div class="barPercentTrack">
-                <div class="barPercentFill" style="width: 80%;"></div>
-              </div>
-              <span class="barPercentValue">80.0%</span>
-            </div>
-          </td>
-          <td><span class="">지급보류</span></td>
-        </tr>
-        <tr>
-          <td>2026.07.09</td>
-          <td class="textRight">1,000,000,000</td>
-          <td class="textRight">50,000,000</td>
-          <td>
-            <div class="barPercent normal">
-              <div class="barPercentTrack">
-                <div class="barPercentFill" style="width: 50%;"></div>
-              </div>
-              <span class="barPercentValue">50.0%</span>
-            </div>
-          </td>
-          <td><span class="">지급보류</span></td>
-        </tr>
-        <tr>
-          <td>2026.07.08</td>
-          <td class="textRight">1,000,000,000</td>
-          <td class="textRight">50,000,000</td>
-          <td>
-            <div class="barPercent danger">
-              <div class="barPercentTrack">
-                <div class="barPercentFill" style="width: 95%;"></div>
-              </div>
-              <span class="barPercentValue">95.0%</span>
-            </div>
-          </td>
-          <td><span class="textSuccess">지급완료</span></td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 
-</div>
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
+      <span class="noticeMark">임계치 80% 적용</span>
+      <span class="statusDot ing">정상(80%미만)</span>
+      <span class="statusDot warning">주의(80~89)</span>
+      <span class="statusDot danger">위험(90%이상)</span>
+    </include>
 
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 120px;">
+          <col style="width: 180px;">
+          <col style="width: 180px;">
+          <col style="width: auto;">
+          <col style="width: 140px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>리워드지급일</th>
+            <th>지급금</th>
+            <th>총 누적지급금</th>
+            <th>예산 소진율</th>
+            <th>지급여부</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- [D] 예산 소진율 상태 클래스: 정상 normal / 주의 warning / 위험 danger (퍼블 확인용 3건) -->
+          <tr>
+            <td>2026.07.10</td>
+            <td class="textRight">1,000,000,000</td>
+            <td class="textRight">50,000,000</td>
+            <td>
+              <div class="barPercent warning">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 80%;"></div>
+                </div>
+                <span class="barPercentValue">80.0%</span>
+              </div>
+            </td>
+            <td><span class="">지급보류</span></td>
+          </tr>
+          <tr>
+            <td>2026.07.09</td>
+            <td class="textRight">1,000,000,000</td>
+            <td class="textRight">50,000,000</td>
+            <td>
+              <div class="barPercent normal">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 50%;"></div>
+                </div>
+                <span class="barPercentValue">50.0%</span>
+              </div>
+            </td>
+            <td><span class="">지급보류</span></td>
+          </tr>
+          <tr>
+            <td>2026.07.08</td>
+            <td class="textRight">1,000,000,000</td>
+            <td class="textRight">50,000,000</td>
+            <td>
+              <div class="barPercent danger">
+                <div class="barPercentTrack">
+                  <div class="barPercentFill" style="width: 95%;"></div>
+                </div>
+                <span class="barPercentValue">95.0%</span>
+              </div>
+            </td>
+            <td><span class="textSuccess">지급완료</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
+  </div>
+</section>
 
 </include>

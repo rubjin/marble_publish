@@ -3,103 +3,103 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="리워드 지급현황" breadcrumb=""></include>
 
-<div class="tabWrap">
-  <nav class="tab">
-    <!-- [D] 활성 상태: isActive 클래스 추가 -->
-    <button type="button" class="item isActive">리워드별</button>
-    <button type="button" class="item">미션별</button>
-  </nav>
-</div>
+<section class="section">
+  <div class="tabWrap">
+    <nav class="tab">
+      <!-- [D] 활성 상태: isActive 클래스 추가 -->
+      <button type="button" class="item isActive">리워드별</button>
+      <button type="button" class="item">미션별</button>
+    </nav>
+  </div>
 
-<!-- 검색 조건 컨트롤 박스 -->
-<div class="searchBox">
-  <!-- [D] cols2, cols3, cols4 : 각 2분할, 3분할, 4분할 처리  -->
-  <div class="searchRow">
-    <!-- [D] span2 : 2칸 영역을 차지 -->
-    <div class="searchItem">
-      <span class="searchLabel">조회일자</span>
-      <div class="searchField">
-        <div class="formRow">
-          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+  <!-- 검색 조건 컨트롤 박스 -->
+  <div class="searchBox">
+    <!-- [D] cols2, cols3, cols4 : 각 2분할, 3분할, 4분할 처리  -->
+    <div class="searchRow">
+      <!-- [D] span2 : 2칸 영역을 차지 -->
+      <div class="searchItem">
+        <span class="searchLabel">조회일자</span>
+        <div class="searchField">
+          <div class="formRow">
+            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+          </div>
+        </div>
+      </div>
+      <div class="searchItem">
+        <span class="searchLabel">리워드유형</span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl wSm">
+              <option value="1">전체</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
-    <div class="searchItem">
-      <span class="searchLabel">리워드유형</span>
-      <div class="searchField">
-        <div class="formRow">
-          <select class="formControl wSm">
-            <option value="1">전체</option>
-          </select>
-        </div>
+
+    <include src="../../partials/searchBtnArea.html"></include>
+  </div>
+
+  <!-- 실시간 요약 인라인 바 -->
+  <include src="../../partials/summaryStat.html" items="총 지급금액|999,999|원; 포인트리|1,500|건; Able포인트|1,500|건; 금융상품쿠폰|1,500|건; 지급오류|50|건|danger link"></include>
+
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" pageSize>
+      <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
+      <div class="btnGroup">
+        <button type="button" class="btn outline">
+          <span class="ico download"></span>
+          <span>엑셀 다운로드</span>
+        </button>
       </div>
+    </include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 140px;">
+          <col style="width: auto;">
+          <col style="width: 160px;">
+          <col style="width: 140px;">
+          <col style="width: 140px;">
+          <col style="width: 200px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>지급일</th>
+            <th>리워드유형</th>
+            <th>지급대상자(명)</th>
+            <th>지급성공</th>
+            <th>지급오류</th>
+            <th>리워드지급금(원)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026.07.15</td>
+            <td class="textLeft">포인트리</td>
+            <td class="textRight">500</td>
+            <td class="textRight">1,099</td>
+            <td class="textRight"><a href="#" class="link textDanger">1</a></td>
+            <td class="textRight">9,000,000</td>
+          </tr>
+          <tr>
+            <td>2026.07.15</td>
+            <td class="textLeft">포인트리</td>
+            <td class="textRight">500</td>
+            <td class="textRight">1,099</td>
+            <td class="textRight">-</td>
+            <td class="textRight">9,000,000</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <include src="../../partials/pagination.html"></include>
   </div>
-
-  <include src="../../partials/searchBtnArea.html"></include>
-</div>
-
-<!-- 실시간 요약 인라인 바 -->
-<include src="../../partials/summaryStat.html" items="총 지급금액|999,999|원; 포인트리|1,500|건; Able포인트|1,500|건; 금융상품쿠폰|1,500|건; 지급오류|50|건|danger link"></include>
-
-<!-- 하얀 박스 영역 -->
-<div class="sectionBox">
-  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-  <include src="../../partials/tblTop.html" count="128" pageSize>
-     <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
-    <div class="btnGroup">
-      <button type="button" class="btn outline">
-        <span class="ico download"></span>
-        <span>엑셀 다운로드</span>
-      </button>
-    </div>
-  </include>
-
-  <!-- 데이터 그리드 테이블 -->
-  <div class="tblWrap">
-    <table class="tbl tblBordered">
-      <colgroup>
-        <col style="width: 140px;">
-        <col style="width: auto;">
-        <col style="width: 160px;">
-        <col style="width: 140px;">
-        <col style="width: 140px;">
-        <col style="width: 200px;">
-      </colgroup>
-      <thead>
-        <tr>
-          <th>지급일</th>
-          <th>리워드유형</th>
-          <th>지급대상자(명)</th>
-          <th>지급성공</th>
-          <th>지급오류</th>
-          <th>리워드지급금(원)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2026.07.15</td>
-          <td class="textLeft">포인트리</td>
-          <td class="textRight">500</td>
-          <td class="textRight">1,099</td>
-          <td class="textRight"><a href="#" class="link textDanger">1</a></td>
-          <td class="textRight">9,000,000</td>
-        </tr>
-        <tr>
-          <td>2026.07.15</td>
-          <td class="textLeft">포인트리</td>
-          <td class="textRight">500</td>
-          <td class="textRight">1,099</td>
-          <td class="textRight">-</td>
-          <td class="textRight">9,000,000</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <include src="../../partials/pagination.html"></include>
-</div>
-
-
+</section>
 
 </include>

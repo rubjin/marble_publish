@@ -3,164 +3,164 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="리워드 지급현황" breadcrumb=""></include>
 
-<div class="tabWrap">
-  <nav class="tab">
-    <!-- [D] 활성 상태: isActive 클래스 추가 -->
-    <button type="button" class="item">리워드별</button>
-    <button type="button" class="item isActive">미션별</button>
-  </nav>
-</div>
-
-<!-- 검색 조건 컨트롤 박스 -->
-<div class="searchBox">
-  <!-- [D] cols2, cols3, cols4 : 각 2분할, 3분할, 4분할 처리  -->
-  <div class="searchRow cols4">
-    <!-- [D] span2 : 2칸 영역을 차지 -->
-    <div class="searchItem span2">
-      <span class="searchLabel">조회일자<span class="required">*</span></span>
-      <div class="searchField">
-        <div class="formRow">
-          <select class="formControl wSm">
-            <option value="1">리워드지급일</option>
-          </select>
-          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
-        </div>
-      </div>
-    </div>
-    <div class="searchItem">
-      <span class="searchLabel">리워드유형</span>
-      <div class="searchField">
-        <div class="formRow">
-          <select class="formControl wSm">
-            <option value="1">전체</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="searchItem">
-      <span class="searchLabel">리워드지급상태</span>
-      <div class="searchField">
-        <div class="formRow">
-          <select class="formControl wSm">
-            <option value="1">전체</option>
-          </select>
-        </div>
-      </div>
-    </div>
+<section class="section">
+  <div class="tabWrap">
+    <nav class="tab">
+      <!-- [D] 활성 상태: isActive 클래스 추가 -->
+      <button type="button" class="item">리워드별</button>
+      <button type="button" class="item isActive">미션별</button>
+    </nav>
   </div>
 
-  <div class="searchRow cols4">
-    <div class="searchItem">
-      <span class="searchLabel">미션명</span>
-      <div class="searchField">
-        <div class="formRow">
-          <div class="formControlWrap">
-            <input type="text" class="formControl full" placeholder="미션명 또는 미션코드 입력">
+  <!-- 검색 조건 컨트롤 박스 -->
+  <div class="searchBox">
+    <!-- [D] cols2, cols3, cols4 : 각 2분할, 3분할, 4분할 처리  -->
+    <div class="searchRow cols4">
+      <!-- [D] span2 : 2칸 영역을 차지 -->
+      <div class="searchItem span2">
+        <span class="searchLabel">조회일자<span class="required">*</span></span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl wSm">
+              <option value="1">리워드지급일</option>
+            </select>
+            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+          </div>
+        </div>
+      </div>
+      <div class="searchItem">
+        <span class="searchLabel">리워드유형</span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl">
+              <option value="1">전체</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="searchItem">
+        <span class="searchLabel">리워드지급상태</span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl">
+              <option value="1">전체</option>
+            </select>
           </div>
         </div>
       </div>
     </div>
-    <div class="searchItem">
-      <span class="searchLabel">담당자</span>
-      <div class="searchField">
-        <div class="formRow">
-          <div class="formControlWrap hasSearch">
-            <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
-            <button type="button" class="btnSearch" aria-label="담당자 검색"></button>
+
+    <div class="searchRow cols4">
+      <div class="searchItem">
+        <span class="searchLabel">미션명</span>
+        <div class="searchField">
+          <div class="formRow">
+            <div class="formControlWrap">
+              <input type="text" class="formControl full" placeholder="미션명 또는 미션코드 입력">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="searchItem">
+        <span class="searchLabel">담당자</span>
+        <div class="searchField">
+          <div class="formRow">
+            <div class="formControlWrap hasSearch">
+              <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
+              <button type="button" class="btnSearch" aria-label="담당자 검색"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="searchItem">
+        <span class="searchLabel">담당부서</span>
+        <div class="searchField">
+          <div class="formRow">
+            <div class="formControlWrap hasSearch">
+              <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
+              <button type="button" class="btnSearch" aria-label="담당부서 검색"></button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="searchItem">
-      <span class="searchLabel">담당부서</span>
-      <div class="searchField">
-        <div class="formRow">
-          <div class="formControlWrap hasSearch">
-            <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
-            <button type="button" class="btnSearch" aria-label="담당부서 검색"></button>
-          </div>
-        </div>
+
+    <include src="../../partials/searchBtnArea.html"></include>
+  </div>
+
+  <!-- 실시간 요약 인라인 바 -->
+  <include src="../../partials/summaryStat.html" items="전체 지급완료|999,999|건; 지급오류|10|건|danger link; 리워드 예정|1,500|건"></include>
+
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" pageSize>
+      <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
+      <div class="btnGroup">
+        <button type="button" class="btn outline">
+          <span class="ico download"></span>
+          <span>엑셀 다운로드</span>
+        </button>
       </div>
+    </include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 110px;">
+          <col style="width: auto;">
+          <col style="width: 100px;">
+          <col style="width: 120px;">
+          <col style="width: 110px;">
+          <col style="width: 130px;">
+          <col style="width: 100px;">
+          <col style="width: 120px;">
+          <col style="width: 220px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>미션완료일</th>
+            <th>미션명</th>
+            <th>지급대상자</th>
+            <th>리워드 유형</th>
+            <th>리워드지급일</th>
+            <th>리워드지급금(원)</th>
+            <th>지급상태</th>
+            <th>지급성공/오류</th>
+            <th>미션담당자/부서</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026.07.15</td>
+            <td class="textLeft">쭈꾸미(Dv1OA125035)</td>
+            <td class="textRight">500</td>
+            <td>포인트리(10)</td>
+            <td>2026.07.15</td>
+            <td class="textRight"><a href="#" class="link">50,000</a></td>
+            <td>지급대기</td>
+            <td class="textRight">1,500/0</td>
+            <td>홍길동(123456)/마케팅플랫폼</td>
+          </tr>
+          <tr>
+            <td>2026.07.15</td>
+            <td class="textLeft">쭈꾸미(Dv1OA125035)</td>
+            <td class="textRight">500</td>
+            <td>포인트리(10)</td>
+            <td>2026.07.15</td>
+            <td class="textRight"><a href="#" class="link">50,000</a></td>
+            <td>지급대기</td>
+            <td class="textRight">90/<a href="#" class="link textDanger">10</a></td>
+            <td>홍길동(123456)/마케팅플랫폼</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <include src="../../partials/pagination.html"></include>
   </div>
-
-  <include src="../../partials/searchBtnArea.html"></include>
-</div>
-
-<!-- 실시간 요약 인라인 바 -->
-<include src="../../partials/summaryStat.html" items="전체 지급완료|999,999|건; 지급오류|10|건|danger link; 리워드 예정|1,500|건"></include>
-
-
-<!-- 하얀 박스 영역 -->
-<div class="sectionBox">
-  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-  <include src="../../partials/tblTop.html" count="128" pageSize>
-    <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
-    <div class="btnGroup">
-      <button type="button" class="btn outline">
-        <span class="ico download"></span>
-        <span>엑셀 다운로드</span>
-      </button>
-    </div>
-  </include>
-
-  <!-- 데이터 그리드 테이블 -->
-  <div class="tblWrap">
-    <table class="tbl tblBordered">
-      <colgroup>
-        <col style="width: 110px;">
-        <col style="width: auto;">
-        <col style="width: 100px;">
-        <col style="width: 120px;">
-        <col style="width: 110px;">
-        <col style="width: 130px;">
-        <col style="width: 100px;">
-        <col style="width: 120px;">
-        <col style="width: 220px;">
-      </colgroup>
-      <thead>
-        <tr>
-          <th>미션완료일</th>
-          <th>미션명</th>
-          <th>지급대상자</th>
-          <th>리워드 유형</th>
-          <th>리워드지급일</th>
-          <th>리워드지급금(원)</th>
-          <th>지급상태</th>
-          <th>지급성공/오류</th>
-          <th>미션담당자/부서</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2026.07.15</td>
-          <td class="textLeft">쭈꾸미(Dv1OA125035)</td>
-          <td class="textRight">500</td>
-          <td>포인트리(10)</td>
-          <td>2026.07.15</td>
-          <td class="textRight"><a href="#" class="link">50,000</a></td>
-          <td>지급대기</td>
-          <td class="textRight">1,500/0</td>
-          <td>홍길동(123456)/마케팅플랫폼</td>
-        </tr>
-        <tr>
-          <td>2026.07.15</td>
-          <td class="textLeft">쭈꾸미(Dv1OA125035)</td>
-          <td class="textRight">500</td>
-          <td>포인트리(10)</td>
-          <td>2026.07.15</td>
-          <td class="textRight"><a href="#" class="link">50,000</a></td>
-          <td>지급대기</td>
-          <td class="textRight">90/<a href="#" class="link textDanger">10</a></td>
-          <td>홍길동(123456)/마케팅플랫폼</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <include src="../../partials/pagination.html"></include>
-</div>
-
+</section>
 
 
 </include>

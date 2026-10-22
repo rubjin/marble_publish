@@ -4,11 +4,33 @@
    Search / Filter Box Component (_searchbox.scss)
    ========================================================================== */
 
+@mixin searchBoxSingleLine {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 24px;
+  margin-bottom: 0px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  .searchRow {
+    grid-column: 1;
+  }
+
+  .searchBtnArea {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+}
+
 .searchBox {
   background-color: $box-bg;
   border-radius: $box-radius;
   padding: $box-padding;
-  margin-bottom: 16px;
+  // margin-bottom: 24px;
   box-shadow: $box-shadow;
   width: 100%;
   box-sizing: border-box;
@@ -36,6 +58,17 @@
     margin: 20px -28px 0;
     padding: 20px 28px 0;
     border-top: 1px solid $line-default;
+  }
+  &.narrow {
+    padding-top: 12px; 
+    padding-bottom: 12px; 
+    .infoInline {
+      margin-top: 12px;
+      padding-top: 12px;
+    }
+  }
+  &.singleLine {
+    @include searchBoxSingleLine;
   }
 }
 
