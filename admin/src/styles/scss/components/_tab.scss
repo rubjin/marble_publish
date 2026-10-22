@@ -72,150 +72,149 @@
   margin-bottom: 20px;
   gap: 6px;
   box-shadow: $box-shadow;
+}
+.mdiTabList {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0 0 0 6px;
+  border-left: 1px solid $line-light;
+  list-style: none;
 
-  .mdiTabList {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex: 1;
-    min-width: 0;
-    overflow-x: auto;
-    margin: 0;
-    padding: 0 0 0 6px;
-    border-left: 1px solid $line-light;
-    list-style: none;
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
 
-    &::-webkit-scrollbar {
-      height: 4px;
-    }
+  &::-webkit-scrollbar-thumb {
+    background-color: $line-disabled;
+    border-radius: 4px;
+  }
+}
 
-    &::-webkit-scrollbar-thumb {
-      background-color: $line-disabled;
-      border-radius: 4px;
+.mdiTabItem {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 180px;
+  height: 32px;
+  padding: 0 8px 0 12px;
+  background-color: $bg-light;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+  color: $text-secondary;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: $line-disabled;
+    color: $text-basic;
+
+    .tabClose {
+      opacity: 1;
     }
   }
 
-  .mdiTabItem {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    max-width: 180px;
-    height: 32px;
-    padding: 0 8px 0 12px;
-    background-color: $bg-light;
-    border: none;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: $font-weight-medium;
-    color: $text-secondary;
-    cursor: pointer;
-    white-space: nowrap;
-    user-select: none;
-    transition: background-color 0.15s ease, color 0.15s ease;
-    text-decoration: none;
-    flex-shrink: 0;
+  // 홈 고정 탭 (항상 노출)
+  &.isHome {
+    justify-content: center;
+    width: 32px;
+    padding: 0;
+    background-color: transparent;
 
-    &:hover {
-      background-color: $line-disabled;
-      color: $text-basic;
-
-      .tabClose {
-        opacity: 1;
-      }
-    }
-
-    // 홈 고정 탭 (항상 노출)
-    &.isHome {
-      justify-content: center;
-      width: 32px;
-      padding: 0;
-      background-color: transparent;
-
-      .tabIcon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 18px;
-        height: 18px;
-
-        .ico {
-          width: 18px;
-          height: 18px;
-        }
-      }
-    }
-
-    // 활성화된 탭 (브랜드 컬러 배경 - 사이드바 활성 메뉴와 통일)
-    &.isActive {
-      background-color: $bg-primary;
-      color: $text-title;
-      font-weight: $font-weight-bold;
-
-      .tabClose {
-        opacity: 0.8;
-
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.08);
-          opacity: 1;
-        }
-      }
-    }
-
-    .tabText {
-      max-width: 140px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    // 개별 탭 닫기 버튼
-    .tabClose {
+    .tabIcon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 18px;
       height: 18px;
-      border: none;
-      background: transparent;
-      border-radius: 4px;
-      cursor: pointer;
-      padding: 0;
-      opacity: 0.4;
-      transition: opacity 0.15s ease, background-color 0.15s ease;
 
-      &:hover {
-        background-color: $line-disabled;
+      .ico {
+        width: 18px;
+        height: 18px;
       }
     }
   }
 
-  // 우측 액션 영역 (전체닫기 아이콘 버튼)
-  .mdiTabActions {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    padding-left: 6px;
-    border-left: 1px solid $line-light;
+  // 활성화된 탭 (브랜드 컬러 배경 - 사이드바 활성 메뉴와 통일)
+  &.isActive {
+    background-color: $bg-primary;
+    color: $text-title;
+    font-weight: $font-weight-bold;
 
-    .btnAllClose {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background-color: transparent;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      padding: 0;
-      // opacity: 0.6;
-      transition: background-color 0.15s ease, opacity 0.15s ease;
+    .tabClose {
+      opacity: 0.8;
 
       &:hover {
-        // background-color: $bg-light;
+        background-color: rgba(0, 0, 0, 0.08);
         opacity: 1;
       }
+    }
+  }
+
+  .tabText {
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // 개별 탭 닫기 버튼
+  .tabClose {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.4;
+    transition: opacity 0.15s ease, background-color 0.15s ease;
+
+    &:hover {
+      background-color: $line-disabled;
+    }
+  }
+}
+
+// 우측 액션 영역 (전체닫기 아이콘 버튼)
+.mdiTabActions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-left: 6px;
+  border-left: 1px solid $line-light;
+
+  .btnAllClose {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0;
+    // opacity: 0.6;
+    transition: background-color 0.15s ease, opacity 0.15s ease;
+
+    &:hover {
+      // background-color: $bg-light;
+      opacity: 1;
     }
   }
 }

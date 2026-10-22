@@ -3,14 +3,18 @@
   - 컴포넌트: <KpiCard title="..." value="..." unit="..." subInfo="..." rate="..." isUp={...} />
   - 속성 인터페이스 (<KpiCard />):
     * title: string (카드 타이틀)
+    * period?: string (기준 기간, 타이틀 아래 .kpiPeriod)
+    * prefix?: string (수치 앞 접두어, e.g. '총' → .prefix)
     * value: string | number (주요 수치/금액)
     * unit?: string (단위, e.g. '원', '%', '건')
+    * detail?: string (수치 내역, e.g. '포인트 30,000P / 쿠폰 8,000원' → .kpiDetail)
     * subText?: string (전년 대비 등 부가 텍스트)
     * rate?: string (증감률, e.g. '+12.5%', '-3.2%')
-    * rateType?: 'up' | 'down' | 'neutral' (up: .isUp 녹색/상승, down: .isDown 빨간색/하락)
+    * rateType?: 'up' | 'down' | 'neutral' (up: .isUp ▲ 빨간색/상승, down: .isDown ▼ 파란색/하락, neutral: .isFlat 회색/변동없음)
 
-  - 그리드 컨테이너: <KpiCardGrid columns={3 | 4}>{children}</KpiCardGrid>
-    * columns: 4 (기본 4단), 3 (3단 그리드: .col3)
+  - 그리드 컨테이너: <KpiCardGrid>{children}</KpiCardGrid>
+    * 카드 개수만큼 같은 너비로 자동 분할 (최소 200px, 좁으면 줄바꿈) - .col3 등 단수 클래스 불필요
+    * 흰 박스(.sectionBox) 안에 넣으면 테두리·그림자 없는 회색 면 카드로 자동 전환 (탭 콘텐츠 등 한 그룹으로 묶을 때)
 
   - 결재선 스텝퍼: <ApprovalLine items={[...]} />
     * items: { role: string, user: string, dept: string, status?: 'done' | 'current' | 'wait', buttonText?: string }[]
@@ -71,8 +75,8 @@
 
 <div style="width: 100%; height: 20px;"></div>
 
-<!-- Case 2: 3단 그리드 (.kpiCardGrid.col3) -->
-<div class="kpiCardGrid col3">
+<!-- Case 2: 3개 (카드 개수만큼 자동 분할) -->
+<div class="kpiCardGrid">
   <div class="kpiCard">
     <span class="kpiTitle">총 예산한도</span>
     <div class="kpiContent">
@@ -100,6 +104,36 @@
         <strong>10,000,000</strong><span class="unit">원</span>
       </div>
       <p class="kpiSub">(전년 대비 0원 / <span class="rate isUp">+00.0%</span>)</p>
+    </div>
+  </div>
+</div>
+
+<div style="width: 100%; height: 20px;"></div>
+
+<!-- Case 3: 흰 박스(.sectionBox) 안 - 회색 면 카드 + 접두어 / 내역 / 변동없음 -->
+<div class="sectionBox">
+  <div class="kpiCardGrid">
+    <div class="kpiCard">
+      <span class="kpiTitle">미션참여</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
+        <p class="kpiSub">(전일 대비 / <span class="rate isUp">+0.1</span>회)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">미션달성</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
+        <p class="kpiSub">(전일 대비 / <span class="rate isDown">-0.1</span>회)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">리워드</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><span class="prefix">총</span><strong>38,000</strong><span class="unit">원</span></div>
+        <p class="kpiDetail">포인트 30,000P / 쿠폰 8,000원</p>
+        <p class="kpiSub">(전일 대비 / <span class="rate isFlat">0</span>원)</p>
+      </div>
     </div>
   </div>
 </div>

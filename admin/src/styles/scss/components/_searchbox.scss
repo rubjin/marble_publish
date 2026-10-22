@@ -13,137 +13,205 @@
   width: 100%;
   box-sizing: border-box;
 
-  .searchRow {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    // gap: 12px 24px;
-    gap: 12px 64px;
-    min-height: 40px;
-    padding: 6px 0;
+  // .formRow {
+  //   display: flex;
+  //   align-items: center;
+  //   gap: 8px;
+  //   flex-wrap: wrap;
 
-    // 다열 정렬 배치: 행이 달라도 항목이 같은 열 위치에 맞춰지도록 그리드 사용
-    &.cols2,
-    &.cols3,
-    &.cols4 {
-      display: grid;
-      gap: 12px 40px;
+  //   &.full {
+  //     flex: 1;
+  //     min-width: 0;
+  //     width: 100%;
 
-      .searchItem {
-        min-width: 0;
+  //     .formControlWrap {
+  //       flex: 1;
+  //       min-width: 0;
+  //     }
+  //   }
+  // }
 
-        // 2칸 차지 (예: 기간 선택처럼 요소가 여러 개인 항목)
-        &.span2 {
-          grid-column: span 2;
+  // 검색박스 안 조회 결과 정보 (예: 고객조회 → 고객 기본정보) : 버튼 영역 아래 굵은 선으로 구분
+  .infoInline {
+    margin: 20px -28px 0;
+    padding: 20px 28px 0;
+    border-top: 1px solid $line-default;
+  }
+}
 
-          .formControl.wSm {
-            width: 140px;
-            flex-shrink: 0;
-          }
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  // gap: 12px 24px;
+  gap: 12px 64px;
+  min-height: 40px;
+  padding: 6px 0;
+
+  // 다열 정렬 배치: 행이 달라도 항목이 같은 열 위치에 맞춰지도록 그리드 사용
+  &.cols2,
+  &.cols3,
+  &.cols4 {
+    display: grid;
+    gap: 12px 40px;
+
+    .searchItem {
+      min-width: 0;
+
+      // 2칸 차지 (예: 기간 선택처럼 요소가 여러 개인 항목)
+      &.span2 {
+        grid-column: span 2;
+
+        .formControl.wSm {
+          width: 140px;
+          flex-shrink: 0;
         }
       }
-
-      // 셀 너비에 맞춰 입력 요소를 채워 우측 끝선 정렬
-      .formRow {
-        flex: 1;
-        min-width: 0;
-        flex-wrap: nowrap;
-      }
-
-      .formControlWrap {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .formControl {
-        width: 100%;
-      }
     }
 
-    &.cols2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    &.cols3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    &.cols4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
-
-  .searchItem {
-    display: flex;
-    align-items: center;
-    // flex: 1 1 0%;
-    flex: 0 1 auto; // 2열 배치 시 우측 항목이 좌측 입력창 바로 뒤에 붙도록
-    min-width: 280px;
-
-    &.full {
-      flex: 1 1 100%;
-      width: 100%;
-    }
-  }
-
-  .searchLabel {
-    // width: 100px;
-    min-width: 80px;
-    padding-right: 20px;
-    flex-shrink: 0;
-    font-size: 14px;
-    font-weight: $font-weight-medium;
-    color: $text-basic;
-    line-height: 1.4;
-  }
-
-  .searchField {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-
-    // 키워드 입력창 최소 너비 확보
-    .formControlWrap {
-      min-width: 316px;
-    }
-  }
-
-  // 흰 배경에서 세그먼트 영역이 구분되도록 배경 보정
-  .segment {
-    background-color: $bg-light;
-  }
-
-  .formRow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-
-    &.full {
+    // 셀 너비에 맞춰 입력 요소를 채워 우측 끝선 정렬
+    .formRow {
       flex: 1;
       min-width: 0;
-      width: 100%;
+      flex-wrap: nowrap;
+    }
 
-      .formControlWrap {
-        flex: 1;
-        min-width: 0;
-      }
+    .formControlWrap {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .formControl {
+      width: 100%;
     }
   }
-  .searchBtnArea {
+
+  &.cols2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  &.cols3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  &.cols4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.searchItem {
+  display: flex;
+  align-items: center;
+  // flex: 1 1 0%;
+  flex: 0 1 auto; // 2열 배치 시 우측 항목이 좌측 입력창 바로 뒤에 붙도록
+  min-width: 280px;
+
+  &.full {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+.searchLabel {
+  // width: 100px;
+  min-width: 80px;
+  padding-right: 20px;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  color: $text-basic;
+  line-height: 1.4;
+}
+
+.searchField {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  // 키워드 입력창 최소 너비 확보
+  .formControlWrap {
+    min-width: 316px;
+  }
+}
+
+.searchBtnArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 18px;
+  border-top: 1px solid $line-light;
+
+  .btn {
+    min-width: 84px;
+    height: 38px;
+  }
+}
+
+// 한 줄 정보 바 (박스 없이 텍스트로 나열 - 예: 고객 조회 시 고객 기본정보)
+// <div class="infoInline">
+//   <strong class="infoName">김*민<span class="infoSub">(1234567)</span></strong>
+//   <dl class="infoMeta"><div class="infoMetaItem"><dt>생년월일</dt><dd>1988.05.05</dd></div> ...</dl>
+// </div>
+.infoInline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-bottom: 20px;
+  padding: 0 4px;
+
+  .infoName {
+    font-size: 18px;
+    font-weight: $font-weight-bold;
+    color: $text-title;
+    white-space: nowrap;
+  }
+
+  .infoSub {
+    margin-left: 4px;
+    font-size: 13px;
+    font-weight: $font-weight-light;
+    color: $text-off;
+  }
+
+  .infoMeta {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 14px;
-    padding-top: 18px;
-    border-top: 1px solid $line-light;
+    flex-wrap: wrap;
+    gap: 8px 0;
+    margin: 0;
+  }
 
-    .btn {
-      min-width: 84px;
-      height: 38px;
+  .infoMetaItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+
+    // 항목 사이 세로 구분선
+    & + .infoMetaItem::before {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 12px;
+      margin: 0 16px;
+      background-color: $line-default;
+    }
+
+    dt {
+      color: $text-secondary;
+    }
+
+    dd {
+      margin: 0;
+      font-weight: $font-weight-medium;
+      color: $text-basic;
     }
   }
 }

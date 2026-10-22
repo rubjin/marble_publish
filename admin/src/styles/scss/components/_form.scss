@@ -459,9 +459,10 @@ select.formControl {
     margin-top: 2px;
   }
 
-  &.blue {
+  &.blue, .blue {
     color: $text-success;
   }
+  strong { font-weight: $font-weight-bold; }
 }
 
 /* Form Control Bottom Area (하단 안내문구 + 우측 버튼 등) */

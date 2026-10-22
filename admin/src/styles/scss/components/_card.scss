@@ -32,132 +32,175 @@
 }
 
 // 통계카드 (좌측: 타이틀 / 우측: 숫자 & 비교값 정렬)
+// - 카드 개수만큼 같은 너비로 나눔 (2~4개 자동, .col3 등 클래스 불필요)
+// - 카드가 최소 너비(200px)보다 좁아지면 다음 줄로 넘어감
 .kpiCardGrid {
-  // display: grid;
-  // grid-template-columns: repeat(4, minmax(0, 1fr));
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   width: 100%;
   margin-bottom: 20px;
 
-  // &.col3 {
-  //   grid-template-columns: repeat(3, minmax(0, 1fr));
-  // }
-
-  // &.col2 {
-  //   grid-template-columns: repeat(2, minmax(0, 1fr));
-  // }
-
   .kpiCard {
-    background-color: $box-bg;
-    border: 1px solid $box-border;
-    border-radius: $box-radius;
-    padding: $box-card-padding;
-    box-shadow: $box-shadow;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 16px;
-    min-width: 0;
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 200px;
+  }
+}
 
-    .kpiTitle {
-      font-size: 13px;
-      font-weight: $font-weight-medium;
-      color: $color-gray-600;
+// 흰 박스(.sectionBox) 안의 KPI 카드 : 박스 안 박스로 겹쳐 보이지 않도록 테두리·그림자 없이 회색 면으로 구분
+.sectionBox .kpiCard {
+  background-color: $color-gray-50;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.kpiCard {
+  background-color: $box-bg;
+  border: 1px solid $box-border;
+  border-radius: $box-radius;
+  padding: $box-card-padding;
+  box-shadow: $box-shadow;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+
+  .kpiTitle {
+    font-size: 13px;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    margin: 0;
+    white-space: nowrap;
+    padding-top: 2px;
+
+    // 기준 기간 (예: (2026)) - 제목 아래 줄, 작고 흐리게
+    .kpiPeriod {
+      display: block;
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: $font-weight-light;
+      color: $text-off;
+    }
+  }
+
+  .kpiContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 6px;
+    min-width: 0;
+
+    .kpiNumber {
+      font-size: 20px;
+      font-weight: $font-weight-bold;
+      color: $text-title;
+      line-height: 1.2;
+      white-space: nowrap;
+
+      // 수치 앞 접두어 (예: 총)
+      .prefix {
+        margin-right: 4px;
+        font-size: 14px;
+        font-weight: $font-weight-medium;
+        color: $text-secondary;
+      }
+
+      .unit {
+        font-size: 14px;
+        font-weight: $font-weight-medium;
+        color: $text-secondary;
+        margin-left: 2px;
+      }
+    }
+
+    // 수치 내역 (예: 포인트 30,000P / 쿠폰 8,000원) - 수치 바로 아래
+    .kpiDetail {
+      margin: -2px 0 0;
+      font-size: 12px;
+      color: $text-secondary;
+      white-space: nowrap;
+    }
+
+    .kpiSub {
+      font-size: 12px;
+      color: $text-off;
       margin: 0;
       white-space: nowrap;
-      padding-top: 2px;
 
-      // 기준 기간 (예: (2026)) - 제목 아래 줄, 작고 흐리게
-      .kpiPeriod {
-        display: block;
-        margin-top: 2px;
-        font-size: 12px;
-        font-weight: $font-weight-light;
-        color: $text-off;
+      // 증감 (상승 ▲ 빨강 / 하락 ▼ 파랑 / 변동없음 - 회색) : 색 + 화살표로 구분
+      .rate {
+        font-weight: $font-weight-medium;
+
+        &.isUp,
+        &.isDown {
+          &::before {
+            display: inline-block;
+            margin-right: 2px;
+            font-size: 8px;
+            vertical-align: 2px;
+          }
+        }
+
+        &.isUp {
+          color: $text-danger;
+
+          &::before {
+            content: '▲';
+          }
+        }
+
+        &.isDown {
+          color: $text-down;
+
+          &::before {
+            content: '▼';
+          }
+        }
+
+        &.isFlat {
+          color: $text-secondary;
+        }
       }
     }
+  }
 
-    .kpiContent {
+  // 수치 우측 하단 정렬 (타이틀은 좌측 상단): <div class="kpiCard valueBottom">
+  &.valueBottom .kpiContent {
+    align-self: flex-end;
+  }
+
+  // 진행률형 카드 (상단: 타이틀 + 상태뱃지 / 수치 · 중단: 진행률 바 · 하단: 보조 정보 좌우)
+  &.kpiProgress {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 10px;
+
+    .kpiHead,
+    .kpiFoot {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      text-align: right;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kpiHead .kpiTitle {
+      display: inline-flex;
+      align-items: center;
       gap: 6px;
-      min-width: 0;
+      padding-top: 0;
+    }
 
-      .kpiNumber {
-        font-size: 20px;
+    .kpiFoot {
+      font-size: 12px;
+      color: $text-off;
+      white-space: nowrap;
+
+      strong {
         font-weight: $font-weight-bold;
-        color: $text-title;
-        line-height: 1.2;
-        white-space: nowrap;
-
-        .unit {
-          font-size: 14px;
-          font-weight: $font-weight-medium;
-          color: $color-gray-600;
-          margin-left: 2px;
-        }
-      }
-
-      .kpiSub {
-        font-size: 12px;
-        color: $color-gray-400;
-        margin: 0;
-        white-space: nowrap;
-
-        .rate {
-          font-weight: $font-weight-medium;
-
-          &.isUp {
-            color: $text-danger;
-          }
-
-          &.isDown {
-            color: $text-down;
-          }
-        }
-      }
-    }
-
-    // 수치 우측 하단 정렬 (타이틀은 좌측 상단): <div class="kpiCard valueBottom">
-    &.valueBottom .kpiContent {
-      align-self: flex-end;
-    }
-
-    // 진행률형 카드 (상단: 타이틀 + 상태뱃지 / 수치 · 중단: 진행률 바 · 하단: 보조 정보 좌우)
-    &.kpiProgress {
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: flex-start;
-      gap: 10px;
-
-      .kpiHead,
-      .kpiFoot {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .kpiHead .kpiTitle {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding-top: 0;
-      }
-
-      .kpiFoot {
-        font-size: 12px;
-        color: $text-off;
-        white-space: nowrap;
-
-        strong {
-          font-weight: $font-weight-bold;
-          color: $text-basic;
-        }
+        color: $text-basic;
       }
     }
   }
@@ -183,66 +226,66 @@
   justify-content: center;
   min-width: 0;
 
-  .infoBoxHeader {
+}
+.infoBoxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid $line-light;
+
+  .infoBoxTitle {
+    font-size: 15px;
+    font-weight: $font-weight-bold;
+    color: $text-title;
+    margin: 0;
+  }
+}
+
+.infoList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  justify-content: space-around;
+
+  .infoListItem {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 12px;
-    margin-bottom: 14px;
-    border-bottom: 1px solid $line-light;
+    font-size: 13px;
+    line-height: 1.4;
 
-    .infoBoxTitle {
-      font-size: 15px;
-      font-weight: $font-weight-bold;
-      color: $text-title;
-      margin: 0;
+    .label {
+      color: $text-secondary;
+      font-weight: $font-weight-medium;
+      white-space: nowrap;
     }
-  }
 
-  .infoList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
-    justify-content: space-around;
+    .value {
+      color: $text-title;
+      font-weight: $font-weight-medium;
+      text-align: right;
+      white-space: nowrap;
 
-    .infoListItem {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 13px;
-      line-height: 1.4;
-
-      .label {
-        color: $text-secondary;
-        font-weight: $font-weight-medium;
-        white-space: nowrap;
+      strong {
+        font-weight: $font-weight-bold;
+        color: $text-title;
       }
 
-      .value {
-        color: $text-title;
+      &.point,
+      .point {
+        color: $text-success;
+        font-weight: $font-weight-bold;
+      }
+
+      .danger {
+        color: $text-danger;
         font-weight: $font-weight-medium;
-        text-align: right;
-        white-space: nowrap;
-
-        strong {
-          font-weight: $font-weight-bold;
-          color: $text-title;
-        }
-
-        &.point,
-        .point {
-          color: $text-success;
-          font-weight: $font-weight-bold;
-        }
-
-        .danger {
-          color: $text-danger;
-          font-weight: $font-weight-medium;
-        }
       }
     }
   }

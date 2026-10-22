@@ -55,10 +55,18 @@ $chart-series: (
   box-shadow: $shadow-xs;
 }
 
+// 흰 박스(.sectionBox) 안의 차트 카드 : 박스 안 박스로 겹쳐 보이지 않도록 테두리·그림자·여백 제거
+.sectionBox .chartBox {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 // 차트 카드 그리드 (2단)
 .chartGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  // grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   width: 100%;
   margin-bottom: 20px;

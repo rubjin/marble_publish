@@ -1111,7 +1111,8 @@ body {
   gap: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
-.mdiTabWrap .mdiTabList {
+
+.mdiTabList {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1123,14 +1124,15 @@ body {
   border-left: 1px solid #F0F0F3;
   list-style: none;
 }
-.mdiTabWrap .mdiTabList::-webkit-scrollbar {
+.mdiTabList::-webkit-scrollbar {
   height: 4px;
 }
-.mdiTabWrap .mdiTabList::-webkit-scrollbar-thumb {
+.mdiTabList::-webkit-scrollbar-thumb {
   background-color: #E7E9ED;
   border-radius: 4px;
 }
-.mdiTabWrap .mdiTabItem {
+
+.mdiTabItem {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -1151,49 +1153,49 @@ body {
   text-decoration: none;
   flex-shrink: 0;
 }
-.mdiTabWrap .mdiTabItem:hover {
+.mdiTabItem:hover {
   background-color: #E7E9ED;
   color: #2F3034;
 }
-.mdiTabWrap .mdiTabItem:hover .tabClose {
+.mdiTabItem:hover .tabClose {
   opacity: 1;
 }
-.mdiTabWrap .mdiTabItem.isHome {
+.mdiTabItem.isHome {
   justify-content: center;
   width: 32px;
   padding: 0;
   background-color: transparent;
 }
-.mdiTabWrap .mdiTabItem.isHome .tabIcon {
+.mdiTabItem.isHome .tabIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 18px;
   height: 18px;
 }
-.mdiTabWrap .mdiTabItem.isHome .tabIcon .ico {
+.mdiTabItem.isHome .tabIcon .ico {
   width: 18px;
   height: 18px;
 }
-.mdiTabWrap .mdiTabItem.isActive {
+.mdiTabItem.isActive {
   background-color: #FFC72B;
   color: #1F192F;
   font-weight: 700;
 }
-.mdiTabWrap .mdiTabItem.isActive .tabClose {
+.mdiTabItem.isActive .tabClose {
   opacity: 0.8;
 }
-.mdiTabWrap .mdiTabItem.isActive .tabClose:hover {
+.mdiTabItem.isActive .tabClose:hover {
   background-color: rgba(0, 0, 0, 0.08);
   opacity: 1;
 }
-.mdiTabWrap .mdiTabItem .tabText {
+.mdiTabItem .tabText {
   max-width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.mdiTabWrap .mdiTabItem .tabClose {
+.mdiTabItem .tabClose {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1207,17 +1209,18 @@ body {
   opacity: 0.4;
   transition: opacity 0.15s ease, background-color 0.15s ease;
 }
-.mdiTabWrap .mdiTabItem .tabClose:hover {
+.mdiTabItem .tabClose:hover {
   background-color: #E7E9ED;
 }
-.mdiTabWrap .mdiTabActions {
+
+.mdiTabActions {
   display: flex;
   align-items: center;
   flex-shrink: 0;
   padding-left: 6px;
   border-left: 1px solid #F0F0F3;
 }
-.mdiTabWrap .mdiTabActions .btnAllClose {
+.mdiTabActions .btnAllClose {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1230,7 +1233,7 @@ body {
   padding: 0;
   transition: background-color 0.15s ease, opacity 0.15s ease;
 }
-.mdiTabWrap .mdiTabActions .btnAllClose:hover {
+.mdiTabActions .btnAllClose:hover {
   opacity: 1;
 }
 
@@ -1611,8 +1614,11 @@ select.formControl.wAuto {
 .formGuideText + .formGuideText {
   margin-top: 2px;
 }
-.formGuideText.blue {
+.formGuideText.blue, .formGuideText .blue {
   color: #287EFF;
+}
+.formGuideText strong {
+  font-weight: 700;
 }
 
 /* Form Control Bottom Area (하단 안내문구 + 우측 버튼 등) */
@@ -1790,7 +1796,13 @@ select.formControl.wAuto {
   width: 100%;
   box-sizing: border-box;
 }
-.searchBox .searchRow {
+.searchBox .infoInline {
+  margin: 20px -28px 0;
+  padding: 20px 28px 0;
+  border-top: 1px solid #D5D7DE;
+}
+
+.searchRow {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -1798,52 +1810,54 @@ select.formControl.wAuto {
   min-height: 40px;
   padding: 6px 0;
 }
-.searchBox .searchRow.cols2, .searchBox .searchRow.cols3, .searchBox .searchRow.cols4 {
+.searchRow.cols2, .searchRow.cols3, .searchRow.cols4 {
   display: grid;
   gap: 12px 40px;
 }
-.searchBox .searchRow.cols2 .searchItem, .searchBox .searchRow.cols3 .searchItem, .searchBox .searchRow.cols4 .searchItem {
+.searchRow.cols2 .searchItem, .searchRow.cols3 .searchItem, .searchRow.cols4 .searchItem {
   min-width: 0;
 }
-.searchBox .searchRow.cols2 .searchItem.span2, .searchBox .searchRow.cols3 .searchItem.span2, .searchBox .searchRow.cols4 .searchItem.span2 {
+.searchRow.cols2 .searchItem.span2, .searchRow.cols3 .searchItem.span2, .searchRow.cols4 .searchItem.span2 {
   grid-column: span 2;
 }
-.searchBox .searchRow.cols2 .searchItem.span2 .formControl.wSm, .searchBox .searchRow.cols3 .searchItem.span2 .formControl.wSm, .searchBox .searchRow.cols4 .searchItem.span2 .formControl.wSm {
+.searchRow.cols2 .searchItem.span2 .formControl.wSm, .searchRow.cols3 .searchItem.span2 .formControl.wSm, .searchRow.cols4 .searchItem.span2 .formControl.wSm {
   width: 140px;
   flex-shrink: 0;
 }
-.searchBox .searchRow.cols2 .formRow, .searchBox .searchRow.cols3 .formRow, .searchBox .searchRow.cols4 .formRow {
+.searchRow.cols2 .formRow, .searchRow.cols3 .formRow, .searchRow.cols4 .formRow {
   flex: 1;
   min-width: 0;
   flex-wrap: nowrap;
 }
-.searchBox .searchRow.cols2 .formControlWrap, .searchBox .searchRow.cols3 .formControlWrap, .searchBox .searchRow.cols4 .formControlWrap {
+.searchRow.cols2 .formControlWrap, .searchRow.cols3 .formControlWrap, .searchRow.cols4 .formControlWrap {
   flex: 1;
   min-width: 0;
 }
-.searchBox .searchRow.cols2 .formControl, .searchBox .searchRow.cols3 .formControl, .searchBox .searchRow.cols4 .formControl {
+.searchRow.cols2 .formControl, .searchRow.cols3 .formControl, .searchRow.cols4 .formControl {
   width: 100%;
 }
-.searchBox .searchRow.cols2 {
+.searchRow.cols2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.searchBox .searchRow.cols3 {
+.searchRow.cols3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.searchBox .searchRow.cols4 {
+.searchRow.cols4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-.searchBox .searchItem {
+
+.searchItem {
   display: flex;
   align-items: center;
   flex: 0 1 auto;
   min-width: 280px;
 }
-.searchBox .searchItem.full {
+.searchItem.full {
   flex: 1 1 100%;
   width: 100%;
 }
-.searchBox .searchLabel {
+
+.searchLabel {
   min-width: 80px;
   padding-right: 20px;
   flex-shrink: 0;
@@ -1852,35 +1866,19 @@ select.formControl.wAuto {
   color: #2F3034;
   line-height: 1.4;
 }
-.searchBox .searchField {
+
+.searchField {
   flex: 1;
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 }
-.searchBox .searchField .formControlWrap {
+.searchField .formControlWrap {
   min-width: 316px;
 }
-.searchBox .segment {
-  background-color: #EFF4FB;
-}
-.searchBox .formRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.searchBox .formRow.full {
-  flex: 1;
-  min-width: 0;
-  width: 100%;
-}
-.searchBox .formRow.full .formControlWrap {
-  flex: 1;
-  min-width: 0;
-}
-.searchBox .searchBtnArea {
+
+.searchBtnArea {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1889,9 +1887,60 @@ select.formControl.wAuto {
   padding-top: 18px;
   border-top: 1px solid #F0F0F3;
 }
-.searchBox .searchBtnArea .btn {
+.searchBtnArea .btn {
   min-width: 84px;
   height: 38px;
+}
+
+.infoInline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+.infoInline .infoName {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1F192F;
+  white-space: nowrap;
+}
+.infoInline .infoSub {
+  margin-left: 4px;
+  font-size: 13px;
+  font-weight: 300;
+  color: #8D919B;
+}
+.infoInline .infoMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 0;
+  margin: 0;
+}
+.infoInline .infoMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.infoInline .infoMetaItem + .infoMetaItem::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 16px;
+  background-color: #D5D7DE;
+}
+.infoInline .infoMetaItem dt {
+  color: #4F535A;
+}
+.infoInline .infoMetaItem dd {
+  margin: 0;
+  font-weight: 500;
+  color: #2F3034;
 }
 
 .popupBody {
@@ -2172,11 +2221,23 @@ select.formControl.wAuto {
 
 .kpiCardGrid {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   width: 100%;
   margin-bottom: 20px;
 }
 .kpiCardGrid .kpiCard {
+  flex: 1 1 0;
+  min-width: 200px;
+}
+
+.sectionBox .kpiCard {
+  background-color: #F3F5F6;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.kpiCard {
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
   border-radius: 12px;
@@ -2187,9 +2248,8 @@ select.formControl.wAuto {
   align-items: flex-start;
   gap: 16px;
   min-width: 0;
-  flex: 1;
 }
-.kpiCardGrid .kpiCard .kpiTitle {
+.kpiCard .kpiTitle {
   font-size: 13px;
   font-weight: 500;
   color: #4F535A;
@@ -2197,14 +2257,14 @@ select.formControl.wAuto {
   white-space: nowrap;
   padding-top: 2px;
 }
-.kpiCardGrid .kpiCard .kpiTitle .kpiPeriod {
+.kpiCard .kpiTitle .kpiPeriod {
   display: block;
   margin-top: 2px;
   font-size: 12px;
   font-weight: 300;
   color: #8D919B;
 }
-.kpiCardGrid .kpiCard .kpiContent {
+.kpiCard .kpiContent {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -2212,62 +2272,89 @@ select.formControl.wAuto {
   gap: 6px;
   min-width: 0;
 }
-.kpiCardGrid .kpiCard .kpiContent .kpiNumber {
+.kpiCard .kpiContent .kpiNumber {
   font-size: 20px;
   font-weight: 700;
   color: #1F192F;
   line-height: 1.2;
   white-space: nowrap;
 }
-.kpiCardGrid .kpiCard .kpiContent .kpiNumber .unit {
+.kpiCard .kpiContent .kpiNumber .prefix {
+  margin-right: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4F535A;
+}
+.kpiCard .kpiContent .kpiNumber .unit {
   font-size: 14px;
   font-weight: 500;
   color: #4F535A;
   margin-left: 2px;
 }
-.kpiCardGrid .kpiCard .kpiContent .kpiSub {
+.kpiCard .kpiContent .kpiDetail {
+  margin: -2px 0 0;
+  font-size: 12px;
+  color: #4F535A;
+  white-space: nowrap;
+}
+.kpiCard .kpiContent .kpiSub {
   font-size: 12px;
   color: #8D919B;
   margin: 0;
   white-space: nowrap;
 }
-.kpiCardGrid .kpiCard .kpiContent .kpiSub .rate {
+.kpiCard .kpiContent .kpiSub .rate {
   font-weight: 500;
 }
-.kpiCardGrid .kpiCard .kpiContent .kpiSub .rate.isUp {
+.kpiCard .kpiContent .kpiSub .rate.isUp::before, .kpiCard .kpiContent .kpiSub .rate.isDown::before {
+  display: inline-block;
+  margin-right: 2px;
+  font-size: 8px;
+  vertical-align: 2px;
+}
+.kpiCard .kpiContent .kpiSub .rate.isUp {
   color: #F23F3F;
 }
-.kpiCardGrid .kpiCard .kpiContent .kpiSub .rate.isDown {
+.kpiCard .kpiContent .kpiSub .rate.isUp::before {
+  content: "▲";
+}
+.kpiCard .kpiContent .kpiSub .rate.isDown {
   color: #287EFF;
 }
-.kpiCardGrid .kpiCard.valueBottom .kpiContent {
+.kpiCard .kpiContent .kpiSub .rate.isDown::before {
+  content: "▼";
+}
+.kpiCard .kpiContent .kpiSub .rate.isFlat {
+  color: #4F535A;
+}
+.kpiCard.valueBottom .kpiContent {
   align-self: flex-end;
 }
-.kpiCardGrid .kpiCard.kpiProgress {
+.kpiCard.kpiProgress {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
   gap: 10px;
 }
-.kpiCardGrid .kpiCard.kpiProgress .kpiHead,
-.kpiCardGrid .kpiCard.kpiProgress .kpiFoot {
+.kpiCard.kpiProgress .kpiHead,
+.kpiCard.kpiProgress .kpiFoot {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
 }
-.kpiCardGrid .kpiCard.kpiProgress .kpiHead .kpiTitle {
+.kpiCard.kpiProgress .kpiHead .kpiTitle {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding-top: 0;
 }
-.kpiCardGrid .kpiCard.kpiProgress .kpiFoot {
+.kpiCard.kpiProgress .kpiFoot {
   font-size: 12px;
   color: #8D919B;
   white-space: nowrap;
 }
-.kpiCardGrid .kpiCard.kpiProgress .kpiFoot strong {
+.kpiCard.kpiProgress .kpiFoot strong {
   font-weight: 700;
   color: #2F3034;
 }
@@ -2291,7 +2378,8 @@ select.formControl.wAuto {
   justify-content: center;
   min-width: 0;
 }
-.infoBox .infoBoxHeader {
+
+.infoBoxHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2299,13 +2387,14 @@ select.formControl.wAuto {
   margin-bottom: 14px;
   border-bottom: 1px solid #F0F0F3;
 }
-.infoBox .infoBoxHeader .infoBoxTitle {
+.infoBoxHeader .infoBoxTitle {
   font-size: 15px;
   font-weight: 700;
   color: #1F192F;
   margin: 0;
 }
-.infoBox .infoList {
+
+.infoList {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2315,34 +2404,34 @@ select.formControl.wAuto {
   flex: 1;
   justify-content: space-around;
 }
-.infoBox .infoList .infoListItem {
+.infoList .infoListItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 13px;
   line-height: 1.4;
 }
-.infoBox .infoList .infoListItem .label {
+.infoList .infoListItem .label {
   color: #4F535A;
   font-weight: 500;
   white-space: nowrap;
 }
-.infoBox .infoList .infoListItem .value {
+.infoList .infoListItem .value {
   color: #1F192F;
   font-weight: 500;
   text-align: right;
   white-space: nowrap;
 }
-.infoBox .infoList .infoListItem .value strong {
+.infoList .infoListItem .value strong {
   font-weight: 700;
   color: #1F192F;
 }
-.infoBox .infoList .infoListItem .value.point,
-.infoBox .infoList .infoListItem .value .point {
+.infoList .infoListItem .value.point,
+.infoList .infoListItem .value .point {
   color: #287EFF;
   font-weight: 700;
 }
-.infoBox .infoList .infoListItem .value .danger {
+.infoList .infoListItem .value .danger {
   color: #F23F3F;
   font-weight: 500;
 }
@@ -4045,9 +4134,15 @@ select.formControl.wAuto {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
+.sectionBox .chartBox {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .chartGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   width: 100%;
   margin-bottom: 20px;
