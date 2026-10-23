@@ -540,3 +540,129 @@ $grid-line-left: inset 1px 0 0 $grid-line; // 우측 고정 경계
     letter-spacing: 1px;
   }
 }
+
+/* --------------------------------------------------------------------------
+   권한 설정 그리드 (<table class="tbl dataGrid permGrid">)
+   - 2단 헤더 고정 / 헤더 체크박스(열 전체 선택) / 메뉴 그룹(1depth·2depth) 구분 / 메뉴접근 열 구분
+   -------------------------------------------------------------------------- */
+$perm-head-row: 42px; // 헤더 1행 높이 (2행 sticky 기준 위치)
+
+.tbl.dataGrid.permGrid {
+  thead {
+    tr:first-child th {
+      height: $perm-head-row;
+    }
+
+    tr:nth-child(2) th {
+      height: $perm-head-row;
+    }
+
+    // 2단 헤더 : 2행은 1행 아래에 고정
+    tr:nth-child(2) th {
+      top: $perm-head-row;
+    }
+
+    // 헤더 체크박스 + 라벨 (열 전체 선택)
+    .formCheck {
+      gap: 6px;
+    }
+
+    .checkLabel {
+      font-weight: $font-weight-medium;
+      color: $tbl-header-text;
+    }
+  }
+
+  // 메뉴 그룹 셀 (rowspan) : 회색 면 + 굵은 글씨로 그룹 구분
+  .permDepth1,
+  .permDepth2 {
+    background-color: $color-gray-50;
+    color: $text-basic;
+  }
+
+  .permDepth1 {
+    font-weight: $font-weight-bold;
+  }
+
+  .permDepth2 {
+    font-weight: $font-weight-medium;
+  }
+
+  // 메뉴접근 열 : 화면권한 묶음과 구분 (우측 진한 경계선)
+  th.permAccess {
+    box-shadow: inset -1px 0 0 $line-default, inset 0 -1px 0 $tbl-cell-border;
+  }
+
+  td.permAccess {
+    border-right-color: $line-default;
+  }
+
+  // 메뉴접근 미체크 행 : 화면명 흐리게 (체크박스는 disabled)
+  tbody tr.isDisabled td:not(.permDepth1):not(.permDepth2) {
+    color: $text-off;
+  }
+}
+
+// 메뉴 그룹 셀은 위쪽 정렬 (세로 스크롤 시 그룹명이 그룹 첫 행 옆에 보이도록)
+.tbl.dataGrid.permGrid .permDepth1,
+.tbl.dataGrid.permGrid .permDepth2 {
+  vertical-align: top;
+  padding-top: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   권한관리 좌우 배치 (한 박스 안 : 좌측 사용자그룹 목록 / 우측 선택 그룹 권한설정)
+   <div class="permLayout"><div class="permGroupPane">...</div><div class="permSettingPane">...</div></div>
+   -------------------------------------------------------------------------- */
+.permLayout {
+  display: grid;
+  grid-template-columns: 440px minmax(0, 1fr);
+
+  // 좌측 목록 : 우측과 세로 구분선
+  .permGroupPane {
+    min-width: 0;
+    padding-right: 24px;
+    border-right: 1px solid $line-light;
+  }
+
+  .permSettingPane {
+    min-width: 0;
+    padding-left: 24px;
+  }
+
+  // 좌측 목록 : 헤더 높이를 우측 2단 헤더 전체 높이와 같게, 행 높이도 우측과 같게 → 좌우 행 라인 정렬
+  .permGroupGrid {
+    thead th {
+      height: $perm-head-row * 2;
+      line-height: 1.35;
+      white-space: normal;
+    }
+
+    tbody td {
+      height: 45px;
+    }
+  }
+
+  // 좌우 상단 타이틀 높이 통일 (우측 버튼 높이에 맞춤)
+  .tblTop {
+    min-height: 34px;
+  }
+
+  @media (max-width: 1400px) {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+
+    .permGroupPane {
+      padding-right: 0;
+      border-right: none;
+    }
+
+    .permSettingPane {
+      padding-left: 0;
+    }
+
+    .permGroupPane .dataGridWrap {
+      max-height: 260px;
+    }
+  }
+}

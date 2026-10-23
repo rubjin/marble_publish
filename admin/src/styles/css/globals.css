@@ -2045,6 +2045,13 @@ select.formControl.wAuto {
   border-top: none;
 }
 
+.sectionBox > .infoInline {
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  background-color: #F3F5F6;
+  border-radius: 8px;
+}
+
 .sectionBox .searchBox .segment,
 .popupBody .searchBox .segment {
   background-color: #FFFFFF;
@@ -3159,6 +3166,9 @@ select.formControl.wAuto {
 .tbl tbody tr.rowLink {
   cursor: pointer;
 }
+.tbl tbody tr.isSelected, .tbl tbody tr.isSelected:hover {
+  background-color: #EDF1FB;
+}
 .tbl tbody th,
 .tbl tbody td {
   font-size: 14px;
@@ -4193,6 +4203,98 @@ select.formControl.wAuto {
   padding-bottom: 6px;
   color: #8D919B;
   letter-spacing: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   권한 설정 그리드 (<table class="tbl dataGrid permGrid">)
+   - 2단 헤더 고정 / 헤더 체크박스(열 전체 선택) / 메뉴 그룹(1depth·2depth) 구분 / 메뉴접근 열 구분
+   -------------------------------------------------------------------------- */
+.tbl.dataGrid.permGrid thead tr:first-child th {
+  height: 42px;
+}
+.tbl.dataGrid.permGrid thead tr:nth-child(2) th {
+  height: 42px;
+}
+.tbl.dataGrid.permGrid thead tr:nth-child(2) th {
+  top: 42px;
+}
+.tbl.dataGrid.permGrid thead .formCheck {
+  gap: 6px;
+}
+.tbl.dataGrid.permGrid thead .checkLabel {
+  font-weight: 500;
+  color: #2F3034;
+}
+.tbl.dataGrid.permGrid .permDepth1,
+.tbl.dataGrid.permGrid .permDepth2 {
+  background-color: #F3F5F6;
+  color: #2F3034;
+}
+.tbl.dataGrid.permGrid .permDepth1 {
+  font-weight: 700;
+}
+.tbl.dataGrid.permGrid .permDepth2 {
+  font-weight: 500;
+}
+.tbl.dataGrid.permGrid th.permAccess {
+  box-shadow: inset -1px 0 0 #D5D7DE, inset 0 -1px 0 #F0F0F3;
+}
+.tbl.dataGrid.permGrid td.permAccess {
+  border-right-color: #D5D7DE;
+}
+.tbl.dataGrid.permGrid tbody tr.isDisabled td:not(.permDepth1):not(.permDepth2) {
+  color: #8D919B;
+}
+
+.tbl.dataGrid.permGrid .permDepth1,
+.tbl.dataGrid.permGrid .permDepth2 {
+  vertical-align: top;
+  padding-top: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   권한관리 좌우 배치 (한 박스 안 : 좌측 사용자그룹 목록 / 우측 선택 그룹 권한설정)
+   <div class="permLayout"><div class="permGroupPane">...</div><div class="permSettingPane">...</div></div>
+   -------------------------------------------------------------------------- */
+.permLayout {
+  display: grid;
+  grid-template-columns: 440px minmax(0, 1fr);
+}
+.permLayout .permGroupPane {
+  min-width: 0;
+  padding-right: 24px;
+  border-right: 1px solid #F0F0F3;
+}
+.permLayout .permSettingPane {
+  min-width: 0;
+  padding-left: 24px;
+}
+.permLayout .permGroupGrid thead th {
+  height: 84px;
+  line-height: 1.35;
+  white-space: normal;
+}
+.permLayout .permGroupGrid tbody td {
+  height: 45px;
+}
+.permLayout .tblTop {
+  min-height: 34px;
+}
+@media (max-width: 1400px) {
+  .permLayout {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+  }
+  .permLayout .permGroupPane {
+    padding-right: 0;
+    border-right: none;
+  }
+  .permLayout .permSettingPane {
+    padding-left: 0;
+  }
+  .permLayout .permGroupPane .dataGridWrap {
+    max-height: 260px;
+  }
 }
 
 /* ==========================================================================

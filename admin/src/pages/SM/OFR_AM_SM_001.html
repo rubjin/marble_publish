@@ -5,147 +5,244 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="권한관리" breadcrumb=""></include>
 
-<section class="section"> 
-
-</section>
-
-<section class="section"> 
+<!-- [S] 권한관리 : 좌측 사용자그룹 선택 → 우측 선택 그룹 권한 설정 (한 박스 안 좌우 배치) -->
+<section class="section">
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
-    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
-       <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
-      <div class="btnGroup">
-        <button type="button" class="btn outline">
-          한도설정
-        </button>
+    <div class="permLayout">
+      <!-- 좌측 : 사용자그룹 목록 -->
+      <div class="permGroupPane">
+        <include src="../../partials/tblTop.html" title="사용자그룹" count="5"></include>
+
+        <!-- [D] 행 클릭 시 해당 그룹 선택(.isSelected) → 우측 권한설정에 선택 그룹 권한 노출 -->
+        <div class="dataGridWrap h500">
+          <table class="tbl dataGrid permGroupGrid">
+            <colgroup>
+              <col>
+              <col style="width: 60px;">
+              <col style="width: 60px;">
+              <col style="width: 72px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>사용자그룹명/ID</th>
+                <th>권한<br>부서</th>
+                <th>권한<br>인원</th>
+                <th>사용여부</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="rowLink">
+                <td class="textLeft">스탁뷰챌린지 관리자(AA123456)</td>
+                <td class="textRight">3</td>
+                <td class="textRight">10</td>
+                <td><span class="textDanger">미사용</span></td>
+              </tr>
+              <tr class="rowLink isSelected">
+                <td class="textLeft">주식꾸준히 관리자(AA123456)</td>
+                <td class="textRight">2</td>
+                <td class="textRight">8</td>
+                <td>사용</td>
+              </tr>
+              <tr class="rowLink">
+                <td class="textLeft">연금챌린지 관리자(AA123456)</td>
+                <td class="textRight">1</td>
+                <td class="textRight">4</td>
+                <td>사용</td>
+              </tr>
+              <tr class="rowLink">
+                <td class="textLeft">CMA챌린지 관리자(AA123456)</td>
+                <td class="textRight">2</td>
+                <td class="textRight">8</td>
+                <td>사용</td>
+              </tr>
+              <tr class="rowLink">
+                <td class="textLeft">투자사항산악회 관리자(AA123456)</td>
+                <td class="textRight">1</td>
+                <td class="textRight">4</td>
+                <td>사용</td>
+              </tr>
+              <tr class="rowLink">
+                <td class="textLeft">리워드한도 관리자(AA123456)</td>
+                <td class="textRight">4</td>
+                <td class="textRight">15</td>
+                <td>사용</td>
+              </tr>
+              <tr class="rowLink">
+                <td class="textLeft">운영 관리자(AA123456)</td>
+                <td class="textRight">1</td>
+                <td class="textRight">2</td>
+                <td>사용</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </include>
-  
-    <!-- 데이터 그리드 테이블 -->
-    <div class="tblWrap">
-      <table class="tbl tblBordered">
-        <colgroup>
-          <col style="width: auto;">
-          <col style="width: 120px;">
-          <col style="width: 160px;">
-          <col style="width: 160px;">
-          <col style="width: 160px;">
-          <col style="width: 110px;">
-          <col style="width: 110px;">
-          <col style="width: 130px;">
-          <col style="width: 200px;">
-          <col style="width: 180px;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>미션명(코드)</th>
-            <th>리워드유형(코드)</th>
-            <th>미션 총한도(연)<span class="required">*</span></th>
-            <th>최대지급액(1인당)</th>
-            <th>일별 지급한도</th>
-            <th>임계치 알림기준<span class="required">*</span></th>
-            <th>중복지급<span class="required">*</span></th>
-            <th>리워드 지급방식</th>
-            <th>예산 소진처리</th>
-            <th>예산 이월정책</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="textLeft">쭈꾸미(Dv1OA125035)</td>
-            <td>포인트리(10)</td>
-            <td>
-              <input type="text" class="formControl full textRight" placeholder="0" value="1,000,000,000" />
-            </td>
-            <td>
-              <input type="text" class="formControl full textRight" placeholder="0" value="10,000" />
-            </td>
-            <td>
-              <input type="text" class="formControl full textRight" placeholder="0" value="1,000,000" />
-            </td>
-            <td>
-              <div class="formControlWrap full hasUnit">
-                <input type="text" class="formControl" placeholder="0" value="80" />
-                <span class="inputUnit">%</span>
-              </div>
-            </td>
-            <td>
-              <select class="formControl full">
-                <option value="N">불가</option>
-                <option value="Y">허용</option>
-              </select>
-            </td>
-            <td>
-              <select class="formControl full">
-                <option value="1">배치</option>
-                <option value="2">실시간</option>
-              </select>
-            </td>
-            <td>
-              <select class="formControl full">
-                <option value="1">지급불가(자동중단)</option>
-                <option value="2">예산추가(관리자승인)</option>
-                <option value="3">계속지급(알림발송)</option>
-              </select>
-            </td>
-            <td>
-              <select class="formControl full">
-                <option value="1">익월 이월</option>
-                <option value="2">미사용 예산소멸</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td class="textLeft">쭈꾸미(Dv1OA125035)</td>
-            <td>포인트리(10)</td>
-            <td>
-              <input type="text" class="formControl full textRight" placeholder="0" value="1,000,000,000" />
-            </td>
-            <td>
-              <input type="text" class="formControl full textRight" placeholder="0" value="10,000" />
-            </td>
-            <td>
-              <input type="text" class="formControl full textRight" placeholder="0" value="1,000,000" />
-            </td>
-            <td>
-              <div class="formControlWrap full hasUnit">
-                <input type="text" class="formControl" placeholder="0" value="80" />
-                <span class="inputUnit">%</span>
-              </div>
-            </td>
-            <td>
-              <select class="formControl full">
-                <option value="N">불가</option>
-                <option value="Y">허용</option>
-              </select>
-            </td>
-            <td>
-              <select class="formControl full">
-                <option value="1">배치</option>
-                <option value="2">실시간</option>
-              </select>
-            </td>
-            <td>
-              <select class="formControl full">
-                <option value="1">지급불가(자동중단)</option>
-                <option value="2">예산추가(관리자승인)</option>
-                <option value="3">계속지급(알림발송)</option>
-              </select>
-            </td>
-            <td>
-              <select class="formControl full">
-                <option value="1">익월 이월</option>
-                <option value="2">미사용 예산소멸</option>
-              </select>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+
+      <!-- 우측 : 선택 그룹 권한 설정 -->
+      <div class="permSettingPane">
+        <!-- [D] text : 좌측에서 선택한 사용자그룹명 -->
+        <include src="../../partials/tblTop.html" title="권한설정" text="주식꾸준히 미션관리자(AA)">
+          <div class="btnGroup">
+            <button type="button" class="btn primary">저장</button>
+          </div>
+        </include>
+
+        <!-- 권한 설정 그리드 : 헤더 고정 세로 스크롤(h500) / 헤더 체크박스로 열 전체 선택 -->
+        <!-- [D] 헤더 체크박스 : 열 전체 선택 / 일부 선택 시 input.indeterminate = true (퍼블 확인용 .isIndeterminate) -->
+        <!-- [D] 메뉴접근 미체크 행 : tr.isDisabled + 해당 행 화면권한 체크박스 disabled -->
+        <!-- [D] 같은 1depth / 2depth 메뉴가 연속되면 rowspan 으로 병합 -->
+        <div class="dataGridWrap h500">
+          <table class="tbl dataGrid permGrid">
+            <colgroup>
+              <col style="width: 130px;">
+              <col style="width: 170px;">
+              <col>
+              <col style="width: 110px;">
+              <col style="width: 100px;">
+              <col style="width: 100px;">
+              <col style="width: 100px;">
+              <col style="width: 100px;">
+              <col style="width: 110px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="3">메뉴명</th>
+                <th rowspan="2" class="colCheck permAccess"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">메뉴접근</span></label></th>
+                <th colspan="5">화면권한</th>
+              </tr>
+              <tr>
+                <th>1depth</th>
+                <th>2depth</th>
+                <th>화면</th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조회</span></label></th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">등록</span></label></th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">수정</span></label></th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">삭제</span></label></th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">다운로드</span></label></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="permDepth1" rowspan="2">고객관리</td>
+                <td class="permDepth2" rowspan="2">고객조회</td>
+                <td class="textLeft">-</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr>
+                <td class="textLeft">-</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr>
+                <td class="permDepth1" rowspan="4">미션/홈관리</td>
+                <td class="permDepth2" rowspan="2">개별 미션 관리</td>
+                <td class="textLeft">미션 목록</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr>
+                <td class="textLeft">오늘의 콕 콘텐츠 목록</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr>
+                <td class="permDepth2" rowspan="2">미션 참여 내역</td>
+                <td class="textLeft">주식 꾸준히 미션 참여 내역</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr>
+                <td class="textLeft">스탁뷰 미션 참여 내역</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr>
+                <td class="permDepth1" rowspan="3">리워드관리</td>
+                <td class="permDepth2" rowspan="2">리워드 지급현황</td>
+                <td class="textLeft">리워드별</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr>
+                <td class="textLeft">미션별</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr>
+                <td class="permDepth2" rowspan="1">리워드 한도관리</td>
+                <td class="textLeft">목록</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr>
+                <td class="permDepth1" rowspan="2">업무관리</td>
+                <td class="permDepth2" rowspan="1">결재함</td>
+                <td class="textLeft">목록</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr class="isDisabled">
+                <td class="permDepth2" rowspan="1">공지사항</td>
+                <td class="textLeft">목록</td>
+                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
+</section>
+<!-- [E] 권한관리 -->
 
-
+<section class="section">
   <!-- 결재 상태바: 단계에 따라 저장, 결재진행중/대기 나타내기 -->
   <!-- [D] 진행단계(.approvalStep): 저장 > 결재진행중 > 결재완료 -->
   <!--     현재 단계 .isCurrent / 지난 단계·결재완료 .isDone / 이후 단계 (클래스 없음) -->

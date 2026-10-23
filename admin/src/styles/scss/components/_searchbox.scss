@@ -335,6 +335,15 @@
   }
 }
 
+// 흰 박스(.sectionBox) 바로 안의 한 줄 정보 바 (예: 권한관리 > 선택한 그룹명)
+// : 아래 테이블 타이틀과 구분되도록 회색 면 띠로 표시 (.sectionBox .searchBox 와 같은 회색 면)
+.sectionBox > .infoInline {
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  background-color: $color-gray-50;
+  border-radius: 8px;
+}
+
 // 회색 면 검색박스(흰 박스 안 / 팝업 안) 의 기간 숏컷 세그먼트 : 기본 회색 트랙이 배경에 묻히므로
 // 흰 트랙 + 입력창과 같은 테두리로 구분 (inset 그림자 → 높이 변화 없음)
 .sectionBox .searchBox,
