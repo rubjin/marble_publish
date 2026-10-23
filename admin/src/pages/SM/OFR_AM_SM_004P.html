@@ -1,7 +1,7 @@
-<include src="../../layout/layoutDefault.html" title="자산성장 트레킹 고객 참여 내역">
+<include src="../../layout/layoutDefault.html" title="사용자 관리">
 
   <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-  <include src="../../partials/pageHeader.html" title="자산성장 트레킹 고객 참여 내역" breadcrumb=""></include>
+  <include src="../../partials/pageHeader.html" title="사용자 관리" breadcrumb=""></include>
 
 
   <!-- [팝업] -->
@@ -9,92 +9,154 @@
   <div id="" class="popupDimmed isOpen">
     <div class="popupWrap lg">
       <div class="popupHeader">
-        <h2 class="popupTitle">2코스. 성장봉 매수상세 내역</h2>
+        <h2 class="popupTitle">사용자 추가</h2>
         <button type="button" class="btnClose" aria-label="닫기"></button>
       </div>
       <div class="popupBody">
-        <!-- 상단 검색 내역 -->
+        <!-- 상단 검색 조건 : 부점명 / 코드 -->
         <div class="searchBox">
           <div class="searchRow">
-            <div class="searchItem">
-              <span class="searchLabel">거래계좌</span>
-              <div class="searchField">123-***-*89 00</div>
-            </div>
-            <div class="searchItem">
-              <span class="searchLabel">매수 횟수</span>
-              <div class="searchField"><span>5</span><span class="infoTotal"> / 2회</td>
+            <div class="searchItem full">
+              <label class="searchLabel" for="orgKeyword">부점명/코드</label>
+              <div class="searchField">
+                <div class="formControlWrap">
+                  <input type="text" id="orgKeyword" class="formControl full" placeholder="부점명 또는 부점코드 입력">
+                  <button type="button" class="btn primary">조회</button>
+                </div>
               </div>
-            </div>
-            <div class="searchItem">
-              <span class="searchLabel">누적 체결금액</span>
-              <div class="searchField">2,153,000</div>
             </div>
           </div>
         </div>
 
-        <div class="tblSection">
-          <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
-          <include src="../../partials/tblTop.html" count="20"></include>
+        <!-- 좌측 조직도 선택 → 우측 선택 목록 (좌우 반반) -->
+        <div class="splitLayout sideHalf">
+          <!-- 좌측 : 조직도 -->
+          <div class="splitSide">
+            <include src="../../partials/tblTop.html" title="조직목록">
+               <label class="toggle primary">
+                <input type="checkbox" checked="">
+                <span class="toggleTrack"></span>
+                <span class="toggleLabel">전체펼침</span>
+              </label>
+            </include>
 
-          <!-- 종목조회 내역 테이블 -->
-          <div class="tblWrap">
-            <table class="tbl tblBordered">
-              <colgroup>
-                <col style="width: 160px;">
-                <col style="width: auto;">
-                <col style="width: 60px;">
-                <col style="width: 80px;">
-                <col style="width: 80px;">
-                <col style="width: 150px;">
-                <col style="width: 90px;">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>체결일시</th>
-                  <th>종목명</th>
-                  <th>거래소</th>
-                  <th>주문번호</th>
-                  <th>체결수량</th>
-                  <th>체결가격</th>
-                  <th>실적반영</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>2026.08.29 16:15:54</td>
-                  <td class="textLeft">(005930)삼성전자</td>
-                  <td>KRX</td>
-                  <td>80246675</td>
-                  <td>1주</td>
-                  <td class="textRight">1,250,000</td>
-                  <td><span class="textSuccess">반영</span></td>
-                </tr>
-                <tr>
-                  <td>2026.08.29 16:15:54</td>
-                  <td class="textLeft">(105560)KB금융</td>
-                  <td>KRX</td>
-                  <td>80246675</td>
-                  <td>81주</td>
-                  <td class="textRight">1,250,000</td>
-                  <td>
-                    <div class="tooltipWrap top">
-                      <span class="tooltipText textDanger" tabindex="0">미반영</span>
-                      <div class="tooltipContent">미반영 사유</div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tblEmpty" colspan="7">조회 내역이 없습니다.</td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- [D] 토글(.treeToggle) 클릭 시 .treeItem.isOpen 펼침/접힘 (ui.js) / 하위 없는 노드 span.treeToggle.isLeaf -->
+            <!-- [D] 체크 시 우측 선택 목록에 추가, 해제 시 제거 -->
+            <div class="listPanel h360">
+              <ul class="treeView">
+                <li class="treeItem isOpen">
+                  <div class="treeNode">
+                    <button type="button" class="treeToggle"></button>
+                    <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">대표이사</span></label>
+                  </div>
+                  <ul class="treeGroup">
+                    <li class="treeItem isOpen">
+                      <div class="treeNode">
+                        <button type="button" class="treeToggle"></button>
+                        <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조직1_1</span></label>
+                      </div>
+                      <ul class="treeGroup">
+                        <li class="treeItem">
+                          <div class="treeNode">
+                            <span class="treeToggle isLeaf"></span>
+                            <label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span><span class="checkLabel">조직2_1</span></label>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="treeItem isOpen">
+                      <div class="treeNode">
+                        <button type="button" class="treeToggle"></button>
+                        <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조직1_2</span></label>
+                      </div>
+                      <ul class="treeGroup">
+                        <li class="treeItem isOpen">
+                          <div class="treeNode">
+                            <button type="button" class="treeToggle"></button>
+                            <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조직2_2</span></label>
+                          </div>
+                          <ul class="treeGroup">
+                            <li class="treeItem">
+                              <div class="treeNode">
+                                <span class="treeToggle isLeaf"></span>
+                                <label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span><span class="checkLabel">조직2_3</span></label>
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-          <P class="formGuideText">※ 미션 실적 산정에 반영된 체결 내역을 표시합니다.</P>
-          <P class="formGuideText">※ 매수 횟수 및 누적 체결금액은 반영건을 기준으로 산정됩니다.</P>
+
+          <!-- 두 영역 사이 화살표 : 좌측 조직도 선택 → 우측 선택 목록 -->
+          <div class="splitArrow"></div>
+
+          <!-- 우측 : 선택 목록 -->
+          <div class="splitMain">
+            <include src="../../partials/tblTop.html" title="선택 조직" count="3"></include>
+
+            <!-- [D] 뱃지 : 조직 .badge.info / 직원 .badge.gray -->
+            <!-- [D] 삭제(.selectDelete) 클릭 시 목록에서 제거 + 좌측 조직도 체크 해제 / 선택 항목 없을 때 .selectEmpty 노출 -->
+            <div class="listPanel h360">
+              <ul class="selectList">
+                <li class="selectItem">
+                  <span class="badge info">조직</span>
+                  <span class="selectName">조직2_1</span>
+                  <button type="button" class="selectDelete"></button>
+                </li>
+                <li class="selectItem">
+                  <span class="badge info">조직</span>
+                  <span class="selectName">조직2_3</span>
+                  <button type="button" class="selectDelete"></button>
+                </li>
+                <li class="selectItem">
+                  <span class="badge gray">직원</span>
+                  <span class="selectName">김국민(123456)</span>
+                  <button type="button" class="selectDelete"></button>
+                </li>
+                <li class="selectItem">
+                  <span class="badge info">조직</span>
+                  <span class="selectName">조직2_1</span>
+                  <button type="button" class="selectDelete"></button>
+                </li>
+                <li class="selectItem">
+                  <span class="badge info">조직</span>
+                  <span class="selectName">조직2_3</span>
+                  <button type="button" class="selectDelete"></button>
+                </li>
+                <li class="selectItem">
+                  <span class="badge gray">직원</span>
+                  <span class="selectName">김국민(123456)</span>
+                  <button type="button" class="selectDelete"></button>
+                </li>
+                <li class="selectItem">
+                  <span class="badge info">조직</span>
+                  <span class="selectName">조직2_1</span>
+                  <button type="button" class="selectDelete"></button>
+                </li>
+                <li class="selectItem">
+                  <span class="badge info">조직</span>
+                  <span class="selectName">조직2_3</span>
+                  <button type="button" class="selectDelete"></button>
+                </li>
+                <li class="selectItem">
+                  <span class="badge gray">직원</span>
+                  <span class="selectName">김국민(123456)</span>
+                  <button type="button" class="selectDelete"></button>
+                </li>
+              </ul>
+              <!-- <p class="selectEmpty">선택된 조직 / 직원이 없습니다.</p> -->
+            </div>
+          </div>
         </div>
       </div>
       <div class="popupFooter">
-        <button type="button" class="btn primary btnClose">확인</button>
+        <button type="button" class="btn outline">취소</button>
+        <button type="button" class="btn primary btnClose">저장</button>
       </div>
     </div>
   </div>

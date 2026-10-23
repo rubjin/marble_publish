@@ -2226,6 +2226,14 @@ select.formControl.wAuto {
   background-color: #F23F3F;
   color: #FFFFFF;
 }
+.badge.info {
+  background-color: #EDF1FB;
+  color: #287EFF;
+}
+.badge.gray {
+  background-color: #EFF4FB;
+  color: #4F535A;
+}
 .badge.account {
   height: 28px;
   padding: 0px 11px;
@@ -4207,7 +4215,7 @@ select.formControl.wAuto {
 
 /* --------------------------------------------------------------------------
    권한 설정 그리드 (<table class="tbl dataGrid permGrid">)
-   - 2단 헤더 고정 / 헤더 체크박스(열 전체 선택) / 메뉴 그룹(1depth·2depth) 구분 / 메뉴접근 열 구분
+   - 2단 헤더 고정 / 헤더 체크박스(열 전체 선택) / 메뉴 그룹(1depth·2depth) 구분 / 1depth·2depth 메뉴접근 체크
    -------------------------------------------------------------------------- */
 .tbl.dataGrid.permGrid thead tr:first-child th {
   height: 42px;
@@ -4236,12 +4244,6 @@ select.formControl.wAuto {
 .tbl.dataGrid.permGrid .permDepth2 {
   font-weight: 500;
 }
-.tbl.dataGrid.permGrid th.permAccess {
-  box-shadow: inset -1px 0 0 #D5D7DE, inset 0 -1px 0 #F0F0F3;
-}
-.tbl.dataGrid.permGrid td.permAccess {
-  border-right-color: #D5D7DE;
-}
 .tbl.dataGrid.permGrid tbody tr.isDisabled td:not(.permDepth1):not(.permDepth2) {
   color: #8D919B;
 }
@@ -4253,48 +4255,113 @@ select.formControl.wAuto {
 }
 
 /* --------------------------------------------------------------------------
-   권한관리 좌우 배치 (한 박스 안 : 좌측 사용자그룹 목록 / 우측 선택 그룹 권한설정)
-   <div class="permLayout"><div class="permGroupPane">...</div><div class="permSettingPane">...</div></div>
+   좌우 분할 배치 (한 박스 안 : 좌측 목록에서 선택 → 우측 상세 / 설정) - 예: 권한관리
+   <div class="splitLayout">
+     <div class="splitSide">좌측 목록</div>
+     <div class="splitArrow"></div>   (선택 : 두 영역 사이 화살표)
+     <div class="splitMain">우측 상세 / 설정</div>
+   </div>
    -------------------------------------------------------------------------- */
-.permLayout {
+.splitLayout {
   display: grid;
-  grid-template-columns: 440px minmax(0, 1fr);
+  --split-side-width: 440px;
+  grid-template-columns: var(--split-side-width) 56px minmax(0, 1fr);
 }
-.permLayout .permGroupPane {
+.splitLayout.sideHalf {
+  --split-side-width: minmax(0, 1fr);
+}
+.splitLayout .splitSide,
+.splitLayout .splitMain {
   min-width: 0;
-  padding-right: 24px;
-  border-right: 1px solid #F0F0F3;
 }
-.permLayout .permSettingPane {
-  min-width: 0;
-  padding-left: 24px;
+.splitLayout .splitArrow {
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #D5D7DE;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
-.permLayout .permGroupGrid thead th {
+.splitLayout .splitArrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #4F535A;
+  border-right: 2px solid #4F535A;
+  transform: translate(-65%, -50%) rotate(45deg);
+}
+.splitLayout .splitSideGrid.headRow2 thead th {
   height: 84px;
   line-height: 1.35;
   white-space: normal;
 }
-.permLayout .permGroupGrid tbody td {
+.splitLayout .splitSideGrid.headRow2 tbody td {
   height: 45px;
 }
-.permLayout .tblTop {
+.splitLayout .tblTop {
   min-height: 34px;
 }
-@media (max-width: 1400px) {
-  .permLayout {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 24px;
-  }
-  .permLayout .permGroupPane {
-    padding-right: 0;
-    border-right: none;
-  }
-  .permLayout .permSettingPane {
-    padding-left: 0;
-  }
-  .permLayout .permGroupPane .dataGridWrap {
-    max-height: 260px;
-  }
+
+/* --------------------------------------------------------------------------
+   권한설정 : 1depth 메뉴 그룹 (tbody.permGroup) / 1depth·2depth 메뉴접근 체크
+   -------------------------------------------------------------------------- */
+.tbl.dataGrid.permGrid tbody.permGroup + tbody.permGroup > tr:first-child > td {
+  border-top: 1px solid #D5D7DE;
+}
+.tbl.dataGrid.permGrid td.permDepth1,
+.tbl.dataGrid.permGrid td.permDepth2 {
+  padding-left: 14px;
+  text-align: left;
+}
+.tbl.dataGrid.permGrid td.permDepth1 .formCheck,
+.tbl.dataGrid.permGrid td.permDepth2 .formCheck {
+  align-items: flex-start;
+}
+.tbl.dataGrid.permGrid td.permDepth1 .checkLabel,
+.tbl.dataGrid.permGrid td.permDepth2 .checkLabel {
+  color: #2F3034;
+  white-space: normal;
+  word-break: keep-all;
+}
+.tbl.dataGrid.permGrid td.permDepth1 .checkLabel {
+  font-weight: 700;
+}
+.tbl.dataGrid.permGrid td.permDepth2 .checkLabel {
+  font-weight: 500;
+}
+.tbl.dataGrid.permGrid tbody.permGroup.isDisabled > tr > td:not(.permDepth1) {
+  color: #8D919B;
+}
+.tbl.dataGrid.permGrid tbody.permGroup.isDisabled > tr > td:not(.permDepth1) .checkLabel {
+  color: #8D919B;
+}
+
+.splitSideGrid tbody tr.isSelected td {
+  font-weight: 500;
+  color: #1F192F;
+}
+.splitSideGrid tbody tr.isSelected td:first-child {
+  box-shadow: inset 3px 0 0 #FFC72B;
+}
+
+.splitMain .tblTop .tblText {
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: #EDF1FB;
+  color: #1F192F;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tbl.dataGrid.permGrid thead th.permDepthHead {
+  padding-left: 14px;
+  text-align: left !important;
 }
 
 /* ==========================================================================
@@ -4353,14 +4420,6 @@ select.formControl.wAuto {
 }
 .chartGrid .span2 {
   grid-column: span 2;
-}
-@media (max-width: 1200px) {
-  .chartGrid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .chartGrid .span2 {
-    grid-column: auto;
-  }
 }
 
 /* 헤더 (좌측: 타이틀 & 수치 / 우측: 기간 세그먼트, 버튼 등) */
@@ -5170,6 +5229,148 @@ body.isDndActive * {
 }
 .stepCard.isOverlay .stepHandle {
   cursor: grabbing;
+}
+
+/* ==========================================================================
+   Tree / Select List Component (_tree.scss)
+   - 조직도 등 계층 트리 (.treeView) + 선택 항목 목록 (.selectList)
+   - 두 영역은 같은 테두리 박스(.listPanel)에 담아 높이를 맞춤
+   ========================================================================== */
+.listPanel {
+  height: 320px;
+  overflow-y: auto;
+  border: 1px solid #F0F0F3;
+  background-color: #FFFFFF;
+}
+.listPanel.h360 {
+  height: 360px;
+}
+.listPanel.h400 {
+  height: 400px;
+}
+
+/* --------------------------------------------------------------------------
+   트리 (.treeView)
+   <ul class="treeView">
+     <li class="treeItem isOpen">                      // 펼침 : .isOpen
+       <div class="treeNode">
+         <button type="button" class="treeToggle"></button>   // 하위 없음 : span.treeToggle.isLeaf
+         <label class="formCheck">...<span class="checkLabel">대표이사</span></label>
+       </div>
+       <ul class="treeGroup"> ...하위 .treeItem... </ul>
+     </li>
+   </ul>
+   [D] 토글 클릭 시 .treeItem.isOpen 토글 (ui.js 공통 동작)
+   -------------------------------------------------------------------------- */
+.treeView {
+  margin: 0;
+  padding: 10px 12px;
+  list-style: none;
+}
+.treeView .treeGroup {
+  display: none;
+  margin: 0;
+  padding: 0 0 0 22px;
+  list-style: none;
+}
+.treeView .treeItem.isOpen > .treeGroup {
+  display: block;
+}
+.treeView .treeNode {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.treeView .treeNode:hover {
+  background-color: #F3F5F6;
+}
+.treeView .treeNode .checkLabel {
+  font-size: 14px;
+  color: #2F3034;
+}
+.treeView .treeToggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.treeView .treeToggle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid #4F535A;
+  border-right: 1.5px solid #4F535A;
+  transform: translate(-70%, -50%) rotate(45deg);
+  transition: transform 0.15s ease;
+}
+.treeView .treeToggle.isLeaf {
+  cursor: default;
+}
+.treeView .treeToggle.isLeaf::before {
+  display: none;
+}
+.treeView .treeItem.isOpen > .treeNode > .treeToggle::before {
+  transform: translate(-50%, -70%) rotate(135deg);
+}
+
+/* --------------------------------------------------------------------------
+   선택 항목 목록 (.selectList)
+   <ul class="selectList">
+     <li class="selectItem">
+       <span class="badge info">조직</span>
+       <span class="selectName">조직2_1</span>
+       <button type="button" class="selectDelete"></button>
+     </li>
+   </ul>
+   -------------------------------------------------------------------------- */
+.selectList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.selectList .selectItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 6px 12px;
+  border-bottom: 1px solid #F0F0F3;
+}
+.selectList .selectName {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  color: #2F3034;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.selectList .selectDelete {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent url("/src/assets/images/icon/i_tagDelete_20.svg") no-repeat center;
+  cursor: pointer;
+}
+
+.selectEmpty {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #8D919B;
 }
 
 .boWrap {

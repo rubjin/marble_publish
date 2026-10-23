@@ -1,7 +1,7 @@
-<include src="../../layout/layoutDefault.html" title="자산성장 트레킹 고객 참여 내역">
+<include src="../../layout/layoutDefault.html" title="개인정보조회사유">
 
   <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
-  <include src="../../partials/pageHeader.html" title="자산성장 트레킹 고객 참여 내역" breadcrumb=""></include>
+  <include src="../../partials/pageHeader.html" title="개인정보조회사유" breadcrumb=""></include>
 
 
   <!-- [팝업] -->
@@ -9,92 +9,32 @@
   <div id="" class="popupDimmed isOpen">
     <div class="popupWrap lg">
       <div class="popupHeader">
-        <h2 class="popupTitle">2코스. 성장봉 매수상세 내역</h2>
+        <h2 class="popupTitle">개인정보조회사유</h2>
         <button type="button" class="btnClose" aria-label="닫기"></button>
       </div>
       <div class="popupBody">
-        <!-- 상단 검색 내역 -->
-        <div class="searchBox">
-          <div class="searchRow">
-            <div class="searchItem">
-              <span class="searchLabel">거래계좌</span>
-              <div class="searchField">123-***-*89 00</div>
-            </div>
-            <div class="searchItem">
-              <span class="searchLabel">매수 횟수</span>
-              <div class="searchField"><span>5</span><span class="infoTotal"> / 2회</td>
-              </div>
-            </div>
-            <div class="searchItem">
-              <span class="searchLabel">누적 체결금액</span>
-              <div class="searchField">2,153,000</div>
-            </div>
-          </div>
-        </div>
-
         <div class="tblSection">
-          <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
-          <include src="../../partials/tblTop.html" count="20"></include>
-
-          <!-- 종목조회 내역 테이블 -->
-          <div class="tblWrap">
-            <table class="tbl tblBordered">
-              <colgroup>
-                <col style="width: 160px;">
-                <col style="width: auto;">
-                <col style="width: 60px;">
-                <col style="width: 80px;">
-                <col style="width: 80px;">
-                <col style="width: 150px;">
-                <col style="width: 90px;">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>체결일시</th>
-                  <th>종목명</th>
-                  <th>거래소</th>
-                  <th>주문번호</th>
-                  <th>체결수량</th>
-                  <th>체결가격</th>
-                  <th>실적반영</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>2026.08.29 16:15:54</td>
-                  <td class="textLeft">(005930)삼성전자</td>
-                  <td>KRX</td>
-                  <td>80246675</td>
-                  <td>1주</td>
-                  <td class="textRight">1,250,000</td>
-                  <td><span class="textSuccess">반영</span></td>
-                </tr>
-                <tr>
-                  <td>2026.08.29 16:15:54</td>
-                  <td class="textLeft">(105560)KB금융</td>
-                  <td>KRX</td>
-                  <td>80246675</td>
-                  <td>81주</td>
-                  <td class="textRight">1,250,000</td>
-                  <td>
-                    <div class="tooltipWrap top">
-                      <span class="tooltipText textDanger" tabindex="0">미반영</span>
-                      <div class="tooltipContent">미반영 사유</div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tblEmpty" colspan="7">조회 내역이 없습니다.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <P class="formGuideText">※ 미션 실적 산정에 반영된 체결 내역을 표시합니다.</P>
-          <P class="formGuideText">※ 매수 횟수 및 누적 체결금액은 반영건을 기준으로 산정됩니다.</P>
+          <include src="../../partials/viewSection.html" title="">
+            <tr>
+              <th><label class="formLabel">구분 <span class="required">*</span></label></th>
+              <td>
+                <include src="../../partials/checkGroup.html" name="noticeUse" options="분석업무,고객제공,대외기관 요청/제공,업무마감,기타" legend="사용여부 선택"></include>
+              </td>
+            </tr>
+            <tr>
+              <th><label class="formLabel" for="noticeContent">사유 <span class="required">*</span></label></th>
+              <td>
+                <div class="formControlWrap full">
+                  <textarea id="noticeContent" class="formControl full" rows="4" maxlength="1000" placeholder="다운로드 사유 입력"></textarea>
+                </div>
+              </td>
+            </tr>
+          </include>
         </div>
       </div>
       <div class="popupFooter">
-        <button type="button" class="btn primary btnClose">확인</button>
+        <button type="button" class="btn outline">취소</button>
+        <button type="button" class="btn primary btnClose">저장</button>
       </div>
     </div>
   </div>

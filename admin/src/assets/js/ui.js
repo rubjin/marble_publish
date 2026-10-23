@@ -274,6 +274,16 @@
   window.addEventListener('resize', updateActiveTooltip);
 
   // ==========================================
+  // 트리 (Tree View) 펼침 / 접힘 : .treeToggle 클릭 시 .treeItem.isOpen 토글
+  // ==========================================
+  document.addEventListener('click', function(e) {
+    var toggle = e.target.closest('.treeView .treeToggle:not(.isLeaf)');
+    if (toggle) {
+      toggle.closest('.treeItem').classList.toggle('isOpen');
+    }
+  });
+
+  // ==========================================
   // 라디오 카드 (Radio Card) 활성화 상태 동기화
   // ==========================================
   document.addEventListener('change', function(e) {

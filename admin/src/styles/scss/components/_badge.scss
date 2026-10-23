@@ -33,6 +33,17 @@
     color: $color-white;
   }
 
+  // 구분 뱃지 (예: 조직 / 직원)
+  &.info {
+    background-color: $tbl-row-selected;
+    color: $text-success;
+  }
+
+  &.gray {
+    background-color: $bg-light;
+    color: $text-secondary;
+  }
+
   &.account {
     height: 28px;
     padding: 0px 11px;

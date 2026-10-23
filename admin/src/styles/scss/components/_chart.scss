@@ -75,14 +75,6 @@ $chart-series: (
   .span2 {
     grid-column: span 2;
   }
-
-  @media (max-width: 1200px) {
-    grid-template-columns: minmax(0, 1fr);
-
-    .span2 {
-      grid-column: auto;
-    }
-  }
 }
 
 /* 헤더 (좌측: 타이틀 & 수치 / 우측: 기간 세그먼트, 버튼 등) */

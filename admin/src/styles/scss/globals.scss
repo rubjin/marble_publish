@@ -37,6 +37,7 @@
 @use 'components/chart'; // lightweight-charts
 @use 'components/calendar'; // react-day-picker
 @use 'components/dnd'; // Drag & Drop (라이브러리 미정)
+@use 'components/tree'; // 트리(조직도) / 선택 항목 목록
 
 // 공통 페이지
 @use 'pages/admin';

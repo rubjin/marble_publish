@@ -5,18 +5,44 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="권한관리" breadcrumb=""></include>
 
+<section class="section">
+  <!-- 검색 조건 컨트롤 박스 : 사용자그룹 조회 -->
+  <div class="searchBox">
+    <div class="searchRow">
+      <div class="searchItem">
+        <label class="searchLabel" for="permGroupKeyword">사용자그룹명</label>
+        <div class="searchField">
+          <div class="formControlWrap">
+            <input type="text" id="permGroupKeyword" class="formControl full" placeholder="사용자그룹명 또는 사용자ID 입력">
+          </div>
+        </div>
+      </div>
+      <div class="searchItem">
+        <label class="searchLabel" for="permGroupUse">사용여부</label>
+        <div class="searchField">
+          <select id="permGroupUse" class="formControl">
+            <option value="">전체</option>
+            <option value="Y">사용</option>
+            <option value="N">미사용</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <include src="../../partials/searchBtnArea.html"></include>
+  </div>
+</section>
 <!-- [S] 권한관리 : 좌측 사용자그룹 선택 → 우측 선택 그룹 권한 설정 (한 박스 안 좌우 배치) -->
 <section class="section">
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
-    <div class="permLayout">
+    <div class="splitLayout">
       <!-- 좌측 : 사용자그룹 목록 -->
-      <div class="permGroupPane">
+      <div class="splitSide">
         <include src="../../partials/tblTop.html" title="사용자그룹" count="5"></include>
 
-        <!-- [D] 행 클릭 시 해당 그룹 선택(.isSelected) → 우측 권한설정에 선택 그룹 권한 노출 -->
+        <!-- [D] 행 클릭 시 해당 그룹 선택(.isSelected) → 우측 권한설정에 선택 그룹 권한 노출 / 미사용 그룹 행 .isDisabled (흐리게) -->
         <div class="dataGridWrap h500">
-          <table class="tbl dataGrid permGroupGrid">
+          <table class="tbl dataGrid splitSideGrid headRow2">
             <colgroup>
               <col>
               <col style="width: 60px;">
@@ -32,7 +58,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="rowLink">
+              <tr class="rowLink isDisabled">
                 <td class="textLeft">스탁뷰챌린지 관리자(AA123456)</td>
                 <td class="textRight">3</td>
                 <td class="textRight">10</td>
@@ -79,159 +105,327 @@
         </div>
       </div>
 
+      <!-- 두 테이블 사이 화살표 : 좌측 그룹 선택 → 우측 권한설정 -->
+      <div class="splitArrow"></div>
+
       <!-- 우측 : 선택 그룹 권한 설정 -->
-      <div class="permSettingPane">
-        <!-- [D] text : 좌측에서 선택한 사용자그룹명 -->
-        <include src="../../partials/tblTop.html" title="권한설정" text="주식꾸준히 미션관리자(AA)">
+      <div class="splitMain">
+        <include src="../../partials/tblTop.html" title="권한설정" text="주식꾸준히 관리자(AA123456)">
           <div class="btnGroup">
-            <button type="button" class="btn primary">저장</button>
+            <button type="button" class="btn outline">초기화</button>
           </div>
         </include>
 
         <!-- 권한 설정 그리드 : 헤더 고정 세로 스크롤(h500) / 헤더 체크박스로 열 전체 선택 -->
         <!-- [D] 헤더 체크박스 : 열 전체 선택 / 일부 선택 시 input.indeterminate = true (퍼블 확인용 .isIndeterminate) -->
-        <!-- [D] 메뉴접근 미체크 행 : tr.isDisabled + 해당 행 화면권한 체크박스 disabled -->
-        <!-- [D] 같은 1depth / 2depth 메뉴가 연속되면 rowspan 으로 병합 -->
+        <!-- [D] 메뉴접근 2단계 : 1depth / 2depth 체크박스 (상위 미체크 시 하위는 체크값 유지 + disabled → 상위 다시 체크 시 하위 상태 복원) -->
+        <!--     1depth(.permDepth1Check) 미체크 : tbody.permGroup.isDisabled + 그룹 안 2depth·화면권한 체크박스 전체 disabled -->
+        <!--     2depth(.permDepth2Check) 미체크 : 같은 data-depth2 행 tr.isDisabled + 조회·등록·수정·삭제·다운로드(.permAuthCheck) 전체 disabled -->
+        <!-- [D] 1depth / 2depth 헤더 체크박스(.permDepth1All / .permDepth2All) : 해당 depth 전체 선택·해제 / 일부 선택 시 indeterminate -->
+        <!-- [D] 조회·등록·수정·삭제·다운로드 헤더 체크박스(.permAuthAll) : 활성(enabled) 칸 기준 열 전체 선택·해제 / 일부 선택 시 indeterminate / 활성 칸 없으면 disabled -->
+        <!-- [D] 1depth 메뉴 단위로 tbody.permGroup 분리 (그룹 구분선) / 같은 1depth·2depth 는 rowspan 병합 / 2depth 행 묶음 : tr[data-depth2] -->
         <div class="dataGridWrap h500">
           <table class="tbl dataGrid permGrid">
             <colgroup>
-              <col style="width: 130px;">
+              <col style="width: 140px;">
               <col style="width: 170px;">
               <col>
-              <col style="width: 110px;">
               <col style="width: 100px;">
               <col style="width: 100px;">
               <col style="width: 100px;">
               <col style="width: 100px;">
-              <col style="width: 110px;">
+              <col style="width: 100px;">
             </colgroup>
             <thead>
               <tr>
                 <th colspan="3">메뉴명</th>
-                <th rowspan="2" class="colCheck permAccess"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">메뉴접근</span></label></th>
                 <th colspan="5">화면권한</th>
               </tr>
               <tr>
-                <th>1depth</th>
-                <th>2depth</th>
+                <th class="permDepthHead"><label class="formCheck"><input type="checkbox" class="permDepth1All isIndeterminate"><span class="checkIcon"></span><span class="checkLabel">1depth</span></label></th>
+                <th class="permDepthHead"><label class="formCheck"><input type="checkbox" class="permDepth2All isIndeterminate"><span class="checkIcon"></span><span class="checkLabel">2depth</span></label></th>
                 <th>화면</th>
-                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조회</span></label></th>
-                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">등록</span></label></th>
-                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">수정</span></label></th>
-                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">삭제</span></label></th>
-                <th class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">다운로드</span></label></th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthAll" checked><span class="checkIcon"></span><span class="checkLabel">조회</span></label></th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthAll isIndeterminate"><span class="checkIcon"></span><span class="checkLabel">등록</span></label></th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthAll isIndeterminate"><span class="checkIcon"></span><span class="checkLabel">수정</span></label></th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthAll isIndeterminate"><span class="checkIcon"></span><span class="checkLabel">삭제</span></label></th>
+                <th class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthAll isIndeterminate"><span class="checkIcon"></span><span class="checkLabel">다운로드</span></label></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td class="permDepth1" rowspan="2">고객관리</td>
-                <td class="permDepth2" rowspan="2">고객조회</td>
+            <tbody class="permGroup">
+              <tr data-depth2="1-1">
+                <td class="permDepth1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth1Check" checked><span class="checkIcon"></span><span class="checkLabel">고객관리</span></label>
+                </td>
+                <td class="permDepth2">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" checked><span class="checkIcon"></span><span class="checkLabel">고객조회</span></label>
+                </td>
                 <td class="textLeft">-</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked><span class="checkIcon"></span></label></td>
               </tr>
-              <tr>
+            </tbody>
+            <tbody class="permGroup">
+              <tr data-depth2="2-1">
+                <td class="permDepth1" rowspan="8">
+                  <label class="formCheck"><input type="checkbox" class="permDepth1Check" checked><span class="checkIcon"></span><span class="checkLabel">미션/홈관리</span></label>
+                </td>
+                <td class="permDepth2">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" checked><span class="checkIcon"></span><span class="checkLabel">미션홈 관리</span></label>
+                </td>
                 <td class="textLeft">-</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked><span class="checkIcon"></span></label></td>
               </tr>
-              <tr>
-                <td class="permDepth1" rowspan="4">미션/홈관리</td>
-                <td class="permDepth2" rowspan="2">개별 미션 관리</td>
-                <td class="textLeft">미션 목록</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              <tr data-depth2="2-2" class="isDisabled">
+                <td class="permDepth2" rowspan="7">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check"><span class="checkIcon"></span><span class="checkLabel">미션관리</span></label>
+                </td>
+                <td class="textLeft">스탁뷰 미션(BBSV00000001)</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
               </tr>
-              <tr>
-                <td class="textLeft">오늘의 콕 콘텐츠 목록</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              <tr data-depth2="2-2" class="isDisabled">
+                <td class="textLeft">오늘의콕 챌린지(BBSV00000001)</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
               </tr>
-              <tr>
-                <td class="permDepth2" rowspan="2">미션 참여 내역</td>
-                <td class="textLeft">주식 꾸준히 미션 참여 내역</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              <tr data-depth2="2-2" class="isDisabled">
+                <td class="textLeft">자산성장트레킹(BBSV00000001)</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
               </tr>
-              <tr>
-                <td class="textLeft">스탁뷰 미션 참여 내역</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              <tr data-depth2="2-2" class="isDisabled">
+                <td class="textLeft">CMA행운룰렛미션(BBSV00000001)</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
               </tr>
-              <tr>
-                <td class="permDepth1" rowspan="3">리워드관리</td>
-                <td class="permDepth2" rowspan="2">리워드 지급현황</td>
-                <td class="textLeft">리워드별</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              <tr data-depth2="2-2" class="isDisabled">
+                <td class="textLeft">연금습관성장하기(BBSV00000001)</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
               </tr>
-              <tr>
-                <td class="textLeft">미션별</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
+              <tr data-depth2="2-2" class="isDisabled">
+                <td class="textLeft">주식꾸준히 미션(BBSV00000001)</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
               </tr>
-              <tr>
-                <td class="permDepth2" rowspan="1">리워드 한도관리</td>
-                <td class="textLeft">목록</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+              <tr data-depth2="2-2" class="isDisabled">
+                <td class="textLeft">미션명(미션코드)</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" checked disabled><span class="checkIcon"></span></label></td>
               </tr>
-              <tr>
-                <td class="permDepth1" rowspan="2">업무관리</td>
-                <td class="permDepth2" rowspan="1">결재함</td>
-                <td class="textLeft">목록</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
+            </tbody>
+            <tbody class="permGroup">
+              <tr data-depth2="3-1">
+                <td class="permDepth1" rowspan="3">
+                  <label class="formCheck"><input type="checkbox" class="permDepth1Check"><span class="checkIcon"></span><span class="checkLabel">리워드관리</span></label>
+                </td>
+                <td class="permDepth2">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check"><span class="checkIcon"></span><span class="checkLabel">리워드 지급현황</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
               </tr>
-              <tr class="isDisabled">
-                <td class="permDepth2" rowspan="1">공지사항</td>
-                <td class="textLeft">목록</td>
-                <td class="colCheck permAccess"><label class="formCheck"><input type="checkbox"><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
-                <td class="colCheck"><label class="formCheck"><input type="checkbox" disabled><span class="checkIcon"></span></label></td>
+              <tr data-depth2="3-2">
+                 <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check"><span class="checkIcon"></span><span class="checkLabel">리워드 한도관리</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="3-3">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check"><span class="checkIcon"></span><span class="checkLabel">리워드 지급검토관리</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
+              </tr>
+            </tbody>
+            <tbody class="permGroup isDisabled">
+              <tr data-depth2="4-1">
+                <td class="permDepth1" rowspan="4">
+                  <label class="formCheck"><input type="checkbox" class="permDepth1Check"><span class="checkIcon"></span><span class="checkLabel">통계분석</span></label>
+                </td>
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">종합</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="4-2">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">미션분석</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="4-3">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">비용분석</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="4-4">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">고객분석</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+            </tbody>
+            <tbody class="permGroup isDisabled">
+              <tr data-depth2="5-1">
+                <td class="permDepth1" rowspan="3">
+                  <label class="formCheck"><input type="checkbox" class="permDepth1Check"><span class="checkIcon"></span><span class="checkLabel">업무관리</span></label>
+                </td>
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">결재함</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="5-2">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">계정권한정보</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="5-3">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">공지사항</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+            </tbody>
+            <tbody class="permGroup isDisabled">
+              <tr data-depth2="6-1">
+                <td class="permDepth1" rowspan="5">
+                  <label class="formCheck"><input type="checkbox" class="permDepth1Check"><span class="checkIcon"></span><span class="checkLabel">시스템관리</span></label>
+                </td>
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">권한관리</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="6-2">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">사용자관리</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="6-3">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">공통코드관리</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="6-4">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">배치실행이력</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+              </tr>
+              <tr data-depth2="6-5">
+                <td class="permDepth2" rowspan="1">
+                  <label class="formCheck"><input type="checkbox" class="permDepth2Check" disabled><span class="checkIcon"></span><span class="checkLabel">접속이력</span></label>
+                </td>
+                <td class="textLeft">-</td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
+                <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck" disabled><span class="checkIcon"></span></label></td>
               </tr>
             </tbody>
           </table>
@@ -533,5 +727,100 @@
   </div>
 </section>
 <!-- [E] 변경이력 탭 -->
+
+<!-- [D] 퍼블 확인용 동작 : 1depth / 2depth 메뉴접근 체크에 따라 하위 체크박스 활성 / 비활성 + 헤더 전체 선택 (개발 시 상태 바인딩으로 대체) -->
+<script>
+  (function () {
+    var grid = document.querySelector('.permGrid');
+    if (!grid) return;
+
+    var depth1All = grid.querySelector('.permDepth1All');
+    var depth2All = grid.querySelector('.permDepth2All');
+    var authAll = grid.querySelectorAll('.permAuthAll'); // 조회·등록·수정·삭제·다운로드 (열 순서)
+
+    // 1depth 그룹 전체 상태 동기화 (상위 미체크 시 하위는 체크값 유지 + disabled)
+    function syncGroup(group) {
+      var groupOn = group.querySelector('.permDepth1Check').checked;
+      group.classList.toggle('isDisabled', !groupOn);
+
+      group.querySelectorAll('tr').forEach(function (tr) {
+        // 2depth 체크박스 : 같은 data-depth2 묶음의 첫 행에 있음
+        var depth2 = group.querySelector('tr[data-depth2="' + tr.dataset.depth2 + '"] .permDepth2Check');
+        depth2.disabled = !groupOn;
+        var rowOn = groupOn && depth2.checked;
+
+        tr.classList.toggle('isDisabled', groupOn && !rowOn);
+        tr.querySelectorAll('.permAuthCheck').forEach(function (check) {
+          check.disabled = !rowOn;
+        });
+      });
+    }
+
+    // 헤더 체크박스 상태 : 전체 체크 → checked / 일부 → indeterminate / 없음 → 해제
+    function setHeaderState(headCheck, list) {
+      var checked = list.filter(function (check) { return check.checked; }).length;
+      var some = checked > 0 && checked < list.length;
+      headCheck.checked = list.length > 0 && checked === list.length;
+      headCheck.indeterminate = some;
+      headCheck.classList.toggle('isIndeterminate', some);
+    }
+
+    // 화면권한 열 체크박스 목록 (활성 칸만)
+    function authColumn(index) {
+      return Array.prototype.map.call(grid.querySelectorAll('tbody tr'), function (tr) {
+        return tr.querySelectorAll('.permAuthCheck')[index];
+      }).filter(function (check) { return !check.disabled; });
+    }
+
+    function syncHeaders() {
+      setHeaderState(depth1All, Array.prototype.slice.call(grid.querySelectorAll('.permDepth1Check')));
+      setHeaderState(depth2All, Array.prototype.slice.call(grid.querySelectorAll('.permDepth2Check')));
+      authAll.forEach(function (headCheck, index) {
+        var column = authColumn(index);
+        headCheck.disabled = column.length === 0; // 활성 칸이 없으면 헤더도 disabled
+        setHeaderState(headCheck, column);
+      });
+    }
+
+    function syncAll() {
+      grid.querySelectorAll('.permGroup').forEach(syncGroup);
+      syncHeaders();
+    }
+
+    grid.addEventListener('change', function (e) {
+      var target = e.target;
+
+      // 1depth / 2depth 전체 선택·해제
+      if (target === depth1All || target === depth2All) {
+        var selector = target === depth1All ? '.permDepth1Check' : '.permDepth2Check';
+        grid.querySelectorAll(selector).forEach(function (check) {
+          check.checked = target.checked;
+        });
+        syncAll();
+        return;
+      }
+
+      // 조회·등록·수정·삭제·다운로드 열 전체 선택·해제 (활성 칸만)
+      var authIndex = Array.prototype.indexOf.call(authAll, target);
+      if (authIndex > -1) {
+        authColumn(authIndex).forEach(function (check) {
+          check.checked = target.checked;
+        });
+        syncHeaders();
+        return;
+      }
+
+      if (target.matches('.permDepth1Check, .permDepth2Check')) {
+        syncGroup(target.closest('.permGroup'));
+        syncHeaders();
+        return;
+      }
+
+      if (target.matches('.permAuthCheck')) syncHeaders();
+    });
+
+    syncAll();
+  })();
+</script>
 
 </include>
