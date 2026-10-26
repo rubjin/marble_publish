@@ -4,66 +4,63 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="오늘의 콕 미션 고객 참여 내역" breadcrumb=""></include>
 
-<section class="section">
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <div class="tblSection">
-      <include src="../../partials/infoSection.html" title="">
-        <tr>
-          <th>고객명</th>
-          <td>김*민</td>
-          <th>고객번호</th>
-          <td>9012345678</td>
-          <th>앱푸시 여부</th>
-          <td>동의</td>
-        </tr>
-        <tr>
-          <th>회차</th>
-          <td>
-            <select class="formControl wSm">
-              <option value="1">1차</option>
-              <option value="2">2차</option>
-            </select>
-          </td>
-          <th>신청일시</th>
-          <td>2026.07.01 09:12:30</td>
-          <th>해지일시</th>
-          <td>-</td>
-        </tr>
-        <tr>
-          <th>누적 횟수/포인트</th>
-          <td>
-            <div class="infoStats">
-              <span class="infoStat">완료 <span>150</span>회</span>/
-              <span class="infoStat">미완료 <span>50</span>회</span>/
-              <span class="infoStat"><span>1,500</span>P</span>
-            </div>
-          </td>
-          <th>콘텐츠 읽기 횟수/포인트</th>
-          <td>
-            <div class="infoStats">
-              <span class="infoStat">완료 <span>150</span>회</span>/
-              <span class="infoStat">미완료 <span>50</span>회</span>/
-              <span class="infoStat"><span>1,500</span>P</span>
-            </div>
-          </td>
-          <th>OX퀴즈 읽기 횟수/포인트</th>
-          <td>
-            <div class="infoStats">
-              <span class="infoStat">완료 <span>150</span>회</span>/
-              <span class="infoStat">미완료 <span>50</span>회</span>/
-              <span class="infoStat"><span>1,500</span>P</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th>진행상태</th>
-          <td colspan="5">참여</td>
-        </tr>
-      </include>
-    </div>
-  </div>
+<!-- 하얀 박스 영역 -->
+<section class="section sectionBox">
+  <include src="../../partials/infoSection.html" title="">
+    <tr>
+      <th>고객명</th>
+      <td>김*민</td>
+      <th>고객번호</th>
+      <td>9012345678</td>
+      <th>앱푸시 여부</th>
+      <td>동의</td>
+    </tr>
+    <tr>
+      <th>회차</th>
+      <td>
+        <select class="formControl wSm">
+          <option value="1">1차</option>
+          <option value="2">2차</option>
+        </select>
+      </td>
+      <th>신청일시</th>
+      <td>2026.07.01 09:12:30</td>
+      <th>해지일시</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>누적 횟수/포인트</th>
+      <td>
+        <div class="infoStats">
+          <span class="infoStat">완료 <span>150</span>회</span>/
+          <span class="infoStat">미완료 <span>50</span>회</span>/
+          <span class="infoStat"><span>1,500</span>P</span>
+        </div>
+      </td>
+      <th>콘텐츠 읽기 횟수/포인트</th>
+      <td>
+        <div class="infoStats">
+          <span class="infoStat">완료 <span>150</span>회</span>/
+          <span class="infoStat">미완료 <span>50</span>회</span>/
+          <span class="infoStat"><span>1,500</span>P</span>
+        </div>
+      </td>
+      <th>OX퀴즈 읽기 횟수/포인트</th>
+      <td>
+        <div class="infoStats">
+          <span class="infoStat">완료 <span>150</span>회</span>/
+          <span class="infoStat">미완료 <span>50</span>회</span>/
+          <span class="infoStat"><span>1,500</span>P</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>진행상태</th>
+      <td colspan="5">참여</td>
+    </tr>
+  </include>
 </section>
+
 <section class="section">
   <!-- 검색 조건 컨트롤 박스 -->
   <div class="searchBox">
@@ -150,57 +147,16 @@
             </td>
             <td>2026.08.25 13:00:00</td>
           </tr>
-        </tbody>
-      </table>
-    </div>
-    <include src="../../partials/pagination.html"></include>
-  </div>
-
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
-    <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
-  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="0" pageSize></include>
-    <div class="tblWrap">
-      <table class="tbl tblBordered">
-        <colgroup>
-          <col style="width: 120px;">
-          <col style="width: 120px;">
-          <col style="width: 80px;">
-          <col style="width: 100px;">
-          <col style="width: 90px;">
-          <col style="width: 160px;">
-          <col style="width: 80px;">
-          <col style="width: 100px;">
-          <col style="width: 90px;">
-          <col style="width: 160px;">
-        </colgroup>
-        <thead>
           <tr>
-            <th rowspan="2">참여일자</th>
-            <th rowspan="2">전체 지급포인트(P)</th>
-            <th colspan="4">콘텐츠 읽기</th>
-            <th colspan="4">OX퀴즈</th>
-          </tr>
-          <tr>
-            <th>진행상태</th>
-            <th>지급포인트(P)</th>
-            <th>지급상태</th>
-            <th>포인트 지급일시</th>
-            <th>진행상태</th>
-            <th>지급포인트(P)</th>
-            <th>지급상태</th>
-            <th>포인트 지급일시</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
+            <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+            <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
             <td class="tblEmpty" colspan="10">조회 내역이 없습니다.</td>
           </tr>
         </tbody>
       </table>
     </div>
+    <include src="../../partials/pagination.html"></include>
   </div>
 </section>
+ 
 </include>

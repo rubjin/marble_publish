@@ -15,6 +15,18 @@ legend {
   padding: 0;
 }
 
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
 @font-face {
   font-family: "KBFG Text";
   src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff") format("woff2");

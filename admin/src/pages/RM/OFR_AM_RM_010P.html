@@ -3,7 +3,6 @@
   <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
   <include src="../../partials/pageHeader.html" title="자산성장 트레킹 고객 참여 내역" breadcrumb=""></include>
 
-
   <!-- [팝업] -->
   <!-- [D] 퍼블 확인용 .isOpen 상태로 노출 -->
   <div id="" class="popupDimmed isOpen">
@@ -13,17 +12,14 @@
         <button type="button" class="btnClose" aria-label="닫기"></button>
       </div>
       <div class="popupBody">
-
-        <div class="tblSection">
+        <div class="section">
           <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
           <include src="../../partials/tblTop.html" count="20">
-          <div class="btnGroup">
-            <button type="button" class="btn danger">삭제</button>
-            <button type="button" class="btn dark">추가</button>
-          </div>
-
+            <div class="btnGroup">
+              <button type="button" class="btn danger">삭제</button>
+              <button type="button" class="btn dark">추가</button>
+            </div>
           </include>
-
           <!-- 종목조회 내역 테이블 -->
           <div class="tblWrap">
             <table class="tbl tblBordered">

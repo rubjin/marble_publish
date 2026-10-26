@@ -4,47 +4,45 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="스탁뷰 미션 고객 참여 내역" breadcrumb=""></include>
 
-<section class="section">
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox tblSection">
-    <include src="../../partials/infoSection.html" title="">
-      <tr>
-        <th>고객명</th>
-        <td>김*민</td>
-        <th>고객번호</th>
-        <td>9012345678</td>
-        <th>앱푸시 여부</th>
-        <td>동의</td>
-      </tr>
-      <tr>
-        <th>회차</th>
-        <td>
-          <select class="formControl wSm">
-            <option value="1">1차</option>
-            <option value="2">2차</option>
-          </select>
-        </td>
-        <th>신청일시</th>
-        <td>2026.07.01 09:12:30</td>
-        <th>해지일시</th>
-        <td>-</td>
-      </tr>
-      <tr>
-        <th>누적 횟수/포인트</th>
-        <td>
-          <div class="infoStats">
-            <span class="infoStat">완료 <span>50</span>회</span>/
-            <span class="infoStat">미완료 <span>5</span>회</span>/
-            <span class="infoStat"><span>2,500</span>P</span>
-          </div>
-        </td>
-        <th>20일 누적미션 현황</th>
-        <td><span>17</span><span class="infoTotal"> / 20일</span></td>
-        <th>참여상태</th>
-        <td>참여</td>
-      </tr>
-    </include>
-  </div>
+<!-- 하얀 박스 영역 -->
+<section class="section sectionBox">
+  <include src="../../partials/infoSection.html" title="">
+    <tr>
+      <th>고객명</th>
+      <td>김*민</td>
+      <th>고객번호</th>
+      <td>9012345678</td>
+      <th>앱푸시 여부</th>
+      <td>동의</td>
+    </tr>
+    <tr>
+      <th>회차</th>
+      <td>
+        <select class="formControl wSm">
+          <option value="1">1차</option>
+          <option value="2">2차</option>
+        </select>
+      </td>
+      <th>신청일시</th>
+      <td>2026.07.01 09:12:30</td>
+      <th>해지일시</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>누적 횟수/포인트</th>
+      <td>
+        <div class="infoStats">
+          <span class="infoStat">완료 <span>50</span>회</span>/
+          <span class="infoStat">미완료 <span>5</span>회</span>/
+          <span class="infoStat"><span>2,500</span>P</span>
+        </div>
+      </td>
+      <th>20일 누적미션 현황</th>
+      <td><span>17</span><span class="infoTotal"> / 20일</span></td>
+      <th>참여상태</th>
+      <td>참여</td>
+    </tr>
+  </include>
 </section>
 
 <section class="section">
@@ -72,7 +70,7 @@
         </div>
       </div>
     </div>
-  <include src="../../partials/searchBtnArea.html"></include>
+    <include src="../../partials/searchBtnArea.html"></include>
   </div>
 
   <!-- 실시간 요약 인라인 바 -->
@@ -162,51 +160,15 @@
             </td>
             <td>-</td>
           </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
-    <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
-  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="0" pageSize></include>
-    <div class="tblWrap">
-      <table class="tbl tblBordered">
-        <colgroup>
-          <col style="width: 120px;">
-          <col style="width: 110px;">
-          <col style="width: 100px;">
-          <col style="width: auto;">
-          <col style="width: 120px;">
-          <col style="width: 200px;">
-          <col style="width: 100px;">
-          <col style="width: 160px;">
-        </colgroup>
-        <thead>
           <tr>
-            <th rowspan="2">참여일자</th>
-            <th colspan="3">일별 미션 현황</th>
-            <th rowspan="2">20일 누적 미션</th>
-            <th rowspan="2">지급 리워드<br>(금융쿠폰/포인트)</th>
-            <th rowspan="2">지급상태</th>
-            <th rowspan="2">지급일시</th>
-          </tr>
-          <tr>
-            <th>조회종목수(개)</th>
-            <th>진행상태</th>
-            <th>미완료 사유</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
+            <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+            <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
             <td class="tblEmpty" colspan="8">조회 내역이 없습니다.</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+  
 </section>
 </include>

@@ -43,83 +43,83 @@
 
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
-  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-  <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
-     <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
-    <div class="btnGroup">
-      <button type="button" class="btn primary">
-        <span>한도설정</span>
-      </button>
-    </div>
-  </include>
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
+      <!-- [D] 버튼이 하나일때는 btnGroup 지워도됨 -->
+      <div class="btnGroup">
+        <button type="button" class="btn primary">
+          <span>한도설정</span>
+        </button>
+      </div>
+    </include>
 
-  <!-- 데이터 그리드 테이블 -->
-  <div class="tblWrap">
-    <table class="tbl tblBordered">
-      <colgroup>
-        <col style="width: auto;">
-        <col style="width: 120px;">
-        <col style="width: 110px;">
-        <col style="width: 150px;">
-        <col style="width: 140px;">
-        <col style="width: 140px;">
-        <col style="width: 90px;">
-        <col style="width: 160px;">
-      </colgroup>
-      <thead>
-        <tr>
-          <th>미션명(코드)</th>
-          <th>리워드유형</th>
-          <th>미션운영상태</th>
-          <th>미션 총한도(연)</th>
-          <th>누적지급액</th>
-          <th>잔여금액</th>
-          <th>소진율</th>
-          <th>예산소진시 처리</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="textLeft"><a href="#" class="link">쭈꾸미(Dv1OA125035)</a></td>
-          <td>포인트리(10)</td>
-          <td><span class="textIng">진행중</span></td>
-          <td class="textRight">1,000,000,000</td>
-          <td class="textRight">50,000,000</td>
-          <td class="textRight">1,000,000</td>
-          <td class="textRight">10.0%</td>
-          <td>자동중단(지급불가)</td>
-        </tr>
-        <tr>
-          <td class="textLeft"><a href="#" class="link">쭈꾸미(Dv1OA125035)</a></td>
-          <td>포인트리(10)</td>
-          <td><span class="textDanger">종료</span></td>
-          <td class="textRight">1,000,000,000</td>
-          <td class="textRight">50,000,000</td>
-          <td class="textRight">1,000,000</td>
-          <td class="textRight">10.0%</td>
-          <td>자동중단(지급불가)</td>
-        </tr>
-        <tr>
-          <td class="textLeft"><a href="#" class="link">쭈꾸미(Dv1OA125035)</a></td>
-          <td>포인트리(10)</td>
-          <td><span class="textMuted">중지</span></td>
-          <td class="textRight">1,000,000,000</td>
-          <td class="textRight">50,000,000</td>
-          <td class="textRight">1,000,000</td>
-          <td class="textRight">
-            <div class="tooltipGroup">
-              <span class="textDanger">70.0%</span>
-              <div class="tooltipWrap bottom">
-                <button type="button" class="tooltipBtn">!</button>
-                <div class="tooltipContent">주꾸미 미션 한도 소진율이 <strong>70%</strong>이며,<br /> 임계치(<strong>80%</strong>)도달 시 알림이 발송되고 <strong>자동 중단</strong> 됩니다.</div>
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: auto;">
+          <col style="width: 120px;">
+          <col style="width: 110px;">
+          <col style="width: 150px;">
+          <col style="width: 140px;">
+          <col style="width: 140px;">
+          <col style="width: 90px;">
+          <col style="width: 160px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>미션명(코드)</th>
+            <th>리워드유형</th>
+            <th>미션운영상태</th>
+            <th>미션 총한도(연)</th>
+            <th>누적지급액</th>
+            <th>잔여금액</th>
+            <th>소진율</th>
+            <th>예산소진시 처리</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="textLeft"><a href="#" class="link">쭈꾸미(Dv1OA125035)</a></td>
+            <td>포인트리(10)</td>
+            <td><span class="textIng">진행중</span></td>
+            <td class="textRight">1,000,000,000</td>
+            <td class="textRight">50,000,000</td>
+            <td class="textRight">1,000,000</td>
+            <td class="textRight">10.0%</td>
+            <td>자동중단(지급불가)</td>
+          </tr>
+          <tr>
+            <td class="textLeft"><a href="#" class="link">쭈꾸미(Dv1OA125035)</a></td>
+            <td>포인트리(10)</td>
+            <td><span class="textDanger">종료</span></td>
+            <td class="textRight">1,000,000,000</td>
+            <td class="textRight">50,000,000</td>
+            <td class="textRight">1,000,000</td>
+            <td class="textRight">10.0%</td>
+            <td>자동중단(지급불가)</td>
+          </tr>
+          <tr>
+            <td class="textLeft"><a href="#" class="link">쭈꾸미(Dv1OA125035)</a></td>
+            <td>포인트리(10)</td>
+            <td><span class="textMuted">중지</span></td>
+            <td class="textRight">1,000,000,000</td>
+            <td class="textRight">50,000,000</td>
+            <td class="textRight">1,000,000</td>
+            <td class="textRight">
+              <div class="tooltipGroup">
+                <span class="textDanger">70.0%</span>
+                <div class="tooltipWrap bottom">
+                  <button type="button" class="tooltipBtn">!</button>
+                  <div class="tooltipContent">주꾸미 미션 한도 소진율이 <strong>70%</strong>이며,<br /> 임계치(<strong>80%</strong>)도달 시 알림이 발송되고 <strong>자동 중단</strong> 됩니다.</div>
+                </div>
               </div>
-            </div>
-          </td>
-          <td>자동중단(지급불가)</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+            </td>
+            <td>자동중단(지급불가)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   </div>
 </section>

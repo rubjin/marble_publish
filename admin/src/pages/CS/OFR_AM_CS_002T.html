@@ -6,37 +6,35 @@
 <include src="../../partials/pageHeader.html" title="고객조회" breadcrumb=""></include>
 
 
-<section class="section">
-  <!-- 검색 조건 컨트롤 박스 -->
-  <div class="searchBox narrow">
-    <div class="searchRow">
-      <div class="searchItem full">
-        <span class="searchLabel">고객정보<span class="required">*</span></span>
-        <div class="searchField">
-          <div class="formRow">
-            <select class="formControl wSm">
-              <option value="1">고객번호</option>
-            </select>
-            <div class="formControlWrap">
-              <input type="text" id="searchKeyword" class="formControl full" placeholder="고객번호를 입력해주세요" />
-              <button type="button" class="btn primary">조회</button>
-            </div>
+<!-- 검색 조건 컨트롤 박스 -->
+<section class="section searchBox narrow">
+  <div class="searchRow">
+    <div class="searchItem full">
+      <span class="searchLabel">고객정보<span class="required">*</span></span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="1">고객번호</option>
+          </select>
+          <div class="formControlWrap">
+            <input type="text" id="searchKeyword" class="formControl full" placeholder="고객번호를 입력해주세요" />
+            <button type="button" class="btn primary">조회</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- 고객 기본정보 (검색박스 안 조회 결과 - 상단 굵은 선으로 구분) -->
-    <!-- [D] 고객 조회 후 노출 -->
-    <div class="infoInline">
-      <strong class="infoName">김*민<span class="infoSub">(1234567)</span></strong>
-      <dl class="infoMeta">
-        <div class="infoMetaItem"><dt>생년월일</dt><dd>1988.05.05</dd></div>
-        <div class="infoMetaItem"><dt>휴대폰번호</dt><dd>010-12**-45**</dd></div>
-        <div class="infoMetaItem"><dt>가입일</dt><dd>2024.01.01</dd></div>
-        <div class="infoMetaItem"><dt>마케팅동의</dt><dd class="textInfo">동의<span class="infoSub">(2026.05.30)</span></dd></div>
-      </dl>
-    </div>
+  <!-- 고객 기본정보 (검색박스 안 조회 결과 - 상단 굵은 선으로 구분) -->
+  <!-- [D] 고객 조회 후 노출 -->
+  <div class="infoInline">
+    <strong class="infoName">김*민<span class="infoSub">(1234567)</span></strong>
+    <dl class="infoMeta">
+      <div class="infoMetaItem"><dt>생년월일</dt><dd>1988.05.05</dd></div>
+      <div class="infoMetaItem"><dt>휴대폰번호</dt><dd>010-12**-45**</dd></div>
+      <div class="infoMetaItem"><dt>가입일</dt><dd>2024.01.01</dd></div>
+      <div class="infoMetaItem"><dt>마케팅동의</dt><dd class="textInfo">동의<span class="infoSub">(2026.05.30)</span></dd></div>
+    </dl>
   </div>
 </section>
   
@@ -111,16 +109,18 @@
           <div class="chartTooltip"></div>
         </div>
       </div>
-      <p class="formGuideText">※ 두 선의 차이가 <strong class="blue">시장손익</strong>입니다.<br />
-        순입금액=고객이 넣은 돈(행동성), 총자산평가금=거기에 시장 변동이 더해진 값. 달성횟수 구간별 자산증가율(dose-response)등 상세 분석은 <strong class="blue">통계·분석 > 고객분석</strong>에서 확인할 수 있습니다.
-      </p>
+      <ul class="formGuideList">
+        <li class="formGuideText">※ 두 선의 차이가 <strong class="blue">시장손익</strong>입니다.<br />
+          순입금액=고객이 넣은 돈(행동성), 총자산평가금=거기에 시장 변동이 더해진 값. 달성횟수 구간별 자산증가율(dose-response)등 상세 분석은 <strong class="blue">통계·분석 > 고객분석</strong>에서 확인할 수 있습니다.
+        </li>
+      </ul>
     </div>
 
   </div>
 </section>
 
 <!-- 자산성장추이 차트 (lightweight-charts standalone + 공통 테마) -->
-<!-- [D] 경로는 화면 파일 기준 상대 경로 (dist 빌드 시 chartTheme.js 가 인라인되도록 ./ ../ 로 시작) -->
+<!-- [D] 경로는 화면 파일 기준 상대 경로 -->
 <script src="../../assets/js/vendor/lightweight-charts.standalone.production.js"></script>
 <script type="module">
   import { getChartOptions, getSeriesOptions, formatNumber } from '../../assets/js/chartTheme.js';

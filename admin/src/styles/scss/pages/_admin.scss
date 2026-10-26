@@ -777,16 +777,14 @@
 
 // Section Layout (하얀 박스 영역 + 하단 버튼 영역)
 .sectionBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   // 하얀 박스 영역
   background-color: $box-bg;
   border-radius: $box-radius;
   padding: $box-padding;
   box-shadow: $box-shadow;
-  // margin-bottom: 16px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   .sectionTitle {
     font-size: 18px;
@@ -826,14 +824,21 @@
   }
 }
 
-[class*="section"] + [class*="section"] {
-  // margin-top: 28px;
-}
 
-
-section.section {
+.section {
   display: flex;
   flex-direction: column;
   gap: 16px;
   + .section { margin-top: 24px;}
+  &.sectionBox {
+    gap: 12px;
+  }
+  &.gap12 {
+    gap: 12px;
+  }
 }
+// .popupBody .section {
+//   gap: 12px;
+// }
+.section .tblTop { margin-bottom: -8px;} //section 간격 16 - 8 = 8px
+.sectionBox .tblTop { margin-bottom: -4px;} //sectionBox 간격 12 - 4 = 8px

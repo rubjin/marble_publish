@@ -6,7 +6,7 @@
 <include src="../../partials/pageHeader.html" title="권한관리" breadcrumb=""></include>
 
 <section class="section">
-  <!-- 검색 조건 컨트롤 박스 : 사용자그룹 조회 -->
+  <!-- 검색 조건 -->
   <div class="searchBox">
     <div class="searchRow">
       <div class="searchItem">
@@ -30,9 +30,8 @@
     </div>
     <include src="../../partials/searchBtnArea.html"></include>
   </div>
-</section>
-<!-- [S] 권한관리 : 좌측 사용자그룹 선택 → 우측 선택 그룹 권한 설정 (한 박스 안 좌우 배치) -->
-<section class="section">
+
+  <!-- [S] 권한관리 : 좌측 사용자그룹 선택 → 우측 선택 그룹 권한 설정 (한 박스 안 좌우 배치) -->
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
     <div class="splitLayout">
@@ -109,7 +108,7 @@
       <div class="splitArrow"></div>
 
       <!-- 우측 : 선택 그룹 권한 설정 -->
-      <div class="splitMain">
+      <div class="splitSide">
         <include src="../../partials/tblTop.html" title="권한설정" text="주식꾸준히 관리자(AA123456)">
           <div class="btnGroup">
             <button type="button" class="btn outline">초기화</button>
@@ -259,7 +258,7 @@
                 <td class="colCheck"><label class="formCheck"><input type="checkbox" class="permAuthCheck"><span class="checkIcon"></span></label></td>
               </tr>
               <tr data-depth2="3-2">
-                 <td class="permDepth2" rowspan="1">
+                  <td class="permDepth2" rowspan="1">
                   <label class="formCheck"><input type="checkbox" class="permDepth2Check"><span class="checkIcon"></span><span class="checkLabel">리워드 한도관리</span></label>
                 </td>
                 <td class="textLeft">-</td>
@@ -433,10 +432,8 @@
       </div>
     </div>
   </div>
-</section>
-<!-- [E] 권한관리 -->
+  <!-- [E] 권한관리 -->
 
-<section class="section">
   <!-- 결재 상태바: 단계에 따라 저장, 결재진행중/대기 나타내기 -->
   <!-- [D] 진행단계(.approvalStep): 저장 > 결재진행중 > 결재완료 -->
   <!--     현재 단계 .isCurrent / 지난 단계·결재완료 .isDone / 이후 단계 (클래스 없음) -->
@@ -445,7 +442,7 @@
   <!-- [D] 결재완료 시에만 처리일시(.approvalDate) 노출 : (YYYY.MM.DD HH:MM:SS) -->
 
   <!-- 저장 -->
-  <div class="approvalStatusBar">
+  <!-- <div class="approvalStatusBar">
     <ol class="approvalStepper">
       <li class="approvalStep isCurrent">
         <span class="stepDot">1</span>
@@ -460,10 +457,10 @@
         <span class="stepText">결재완료</span>
       </li>
     </ol>
-  </div>
+  </div> -->
 
   <!-- 결재진행중 -->
-  <div class="approvalStatusBar">
+  <!-- <div class="approvalStatusBar">
     <ol class="approvalStepper">
       <li class="approvalStep isDone">
         <span class="stepDot">1</span>
@@ -479,10 +476,10 @@
         <span class="stepText">결재완료</span>
       </li>
     </ol>
-  </div>
+  </div> -->
 
   <!-- 결재완료(승인) -->
-  <div class="approvalStatusBar">
+  <!-- <div class="approvalStatusBar">
     <ol class="approvalStepper">
       <li class="approvalStep isDone">
         <span class="stepDot">1</span>
@@ -501,7 +498,7 @@
         </div>
       </li>
     </ol>
-  </div>
+  </div> -->
 
   <!-- 결재완료(반려) -->
   <div class="approvalStatusBar">
@@ -590,18 +587,18 @@
       </table>
     </div>
   </div>
-
-  <!-- 페이지 하단 버튼 영역 -->
-  <div class="btnArea pageBottom">
-    <div class="btnGroup">
-      <button type="button" class="btn outline">목록</button>
-    </div>
-    <div class="btnGroup btnGroupRight">
-      <button type="button" class="btn outline">승인 요청</button>
-      <button type="button" class="btn primary">저장</button>
-    </div>
-  </div>
+  
 </section>
+<!-- 페이지 하단 버튼 영역 -->
+<div class="btnArea pageBottom">
+  <div class="btnGroup">
+    <button type="button" class="btn outline">목록</button>
+  </div>
+  <div class="btnGroup btnGroupRight">
+    <button type="button" class="btn outline">승인 요청</button>
+    <button type="button" class="btn primary">저장</button>
+  </div>
+</div>
 <!-- [E] 업무관계자 탭 -->
 
 <!-- [S] 승인현황 탭 -->

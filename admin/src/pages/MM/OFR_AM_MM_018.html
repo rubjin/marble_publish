@@ -3,214 +3,153 @@
 <!-- 실제 콘텐츠 영역 -->
 <include src="../../partials/pageHeader.html" title="자산성장 트레킹 참여 내역" breadcrumb=""></include>
 
-<section class="section">
-  <!-- 검색 조건 컨트롤 박스 -->
-  <div class="searchBox">
-    <div class="searchRow">
-      <div class="searchItem full">
-        <span class="searchLabel">조회일자</span>
-        <div class="searchField">
-          <div class="formRow">
-            <select class="formControl wSm">
-              <option value="1">신청일시</option>
-            </select>
-            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
-          </div>
+<!-- 검색 조건 컨트롤 박스 -->
+<section class="section searchBox">
+  <div class="searchRow">
+    <div class="searchItem full">
+      <span class="searchLabel">조회일자</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="1">신청일시</option>
+          </select>
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
         </div>
       </div>
     </div>
-
-    <div class="searchRow">
-      <div class="searchItem full">
-        <span class="searchLabel">고객정보</span>
-        <div class="searchField">
-          <div class="formRow">
-            <select class="formControl wSm">
-              <option value="1">고객번호</option>
-            </select>
-            <div class="formControlWrap">
-              <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <include src="../../partials/searchBtnArea.html"></include>
   </div>
+
+  <div class="searchRow">
+    <div class="searchItem full">
+      <span class="searchLabel">고객정보</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="1">고객번호</option>
+          </select>
+          <div class="formControlWrap">
+            <input type="text" class="formControl full" placeholder="고객번호 또는 고객명 입력">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include src="../../partials/searchBtnArea.html"></include>
 </section>
 
-<section class="section">
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="128" pageSize></include>
+<!-- 하얀 박스 영역 -->
+<section class="section sectionBox">
+  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+  <include src="../../partials/tblTop.html" count="128" pageSize></include>
 
-    <!-- 데이터 그리드 테이블 -->
-    <div class="tblWrap">
-      <table class="tbl tblBordered">
-        <colgroup>
-          <col style="width: 100px;">
-          <col style="width: 80px;">
-          <col style="width: 100px;">
-          <col style="width: 40px;">
-          <col style="width: 100px;">
-          <col style="width: 80px;">
-          <col style="width: 80px;">
-          <col style="width: 80px;">
-          <col style="width: 80px;">
-          <col style="width: 100px;">
-          <col style="width: 100px;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th colspan="3">고객정보</th>
-            <th colspan="7">
-              <div class="tooltipGroup">
-                <span>미션참여정보</span>
-                <div class="tooltipWrap bottom">
-                  <button type="button" class="tooltipBtn">?</button>
-                  <div class="tooltipContent multiLine textLeft">
-                    <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
-                    1코스(투자봉) : 대상 계좌에 원화 예수금 200만원 이상 달성하여 성장봉 도착<br />
-                    2코스(성장봉) : 30일 내 2회 이상 국내주식 / ETF매수(누적 200만원)하여 정상 도착<br />
-                    3코스(정상) : 신청 30일이후 대상 계좌 국내주식 평가 금액 200만원 이상일 경우 완료
-                  </div>
+  <!-- 데이터 그리드 테이블 -->
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: 100px;">
+        <col style="width: 80px;">
+        <col style="width: 100px;">
+        <col style="width: 40px;">
+        <col style="width: 100px;">
+        <col style="width: 80px;">
+        <col style="width: 80px;">
+        <col style="width: 80px;">
+        <col style="width: 80px;">
+        <col style="width: 100px;">
+        <col style="width: 100px;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th colspan="3">고객정보</th>
+          <th colspan="7">
+            <div class="tooltipGroup">
+              <span>미션참여정보</span>
+              <div class="tooltipWrap bottom">
+                <button type="button" class="tooltipBtn">?</button>
+                <div class="tooltipContent multiLine textLeft">
+                  <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+                  1코스(투자봉) : 대상 계좌에 원화 예수금 200만원 이상 달성하여 성장봉 도착<br />
+                  2코스(성장봉) : 30일 내 2회 이상 국내주식 / ETF매수(누적 200만원)하여 정상 도착<br />
+                  3코스(정상) : 신청 30일이후 대상 계좌 국내주식 평가 금액 200만원 이상일 경우 완료
                 </div>
               </div>
-            </th>
-            <th rowspan="2">누적지급<br />포인트(P)</th>
-          </tr>
-          <tr>
-            <th>고객명</th>
-            <th>고객번호</th>
-            <th>신청계좌</th>
-            <th>회차</th>
-            <th>신청일시</th>
-            <th>종료일</th>
-            <th>D-Day</th>
-            <th>참여상태</th>
-            <th>현재코스</th>
-            <th>해지일시</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
-            <td>김*민</td>
-            <td>9012345678</td>
-            <td>123-***-*9000</td>
-            <td>1</td>
-            <td>2026.07.01 09:12:30</td>
-            <td>2026.08.01</td>
-            <td>D-27</td>
-            <td><span class="textIng">참여</span></td>
-            <td>투자봉</td>
-            <td>2026.07.01 09:12:30</td>
-            <td class="textRight">10,000</td>
-          </tr>
-          <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
-            <td>김*민</td>
-            <td>5678901234</td>
-            <td>123-***-*9000</td>
-            <td>1</td>
-            <td>2026.07.03 14:05:11</td>
-            <td>-</td>
-            <td>-</td>
-            <td><span class="textDanger">해지</span></td>
-            <td>투자봉</td>
-            <td>2026.07.01 09:12:30</td>
-            <td class="textRight">5,000</td>
-          </tr>
-          <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
-            <td>김*민</td>
-            <td>1000034567</td>
-            <td>123-***-*9000</td>
-            <td>1</td>
-            <td>2026.07.05 18:40:02</td>
-            <td>-</td>
-            <td>-</td>
-            <td><span class="textSuccess">달성</span></td>
-            <td>투자봉</td>
-            <td>2026.07.01 09:12:30</td>
-            <td class="textRight">0</td>
-          </tr>
-          <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
-            <td>김*민</td>
-            <td>1000034567</td>
-            <td>123-***-*9000</td>
-            <td>1</td>
-            <td>2026.07.05 18:40:02</td>
-            <td>-</td>
-            <td>-</td>
-            <td><span class="textMuted">미달성</span></td>
-            <td>-</td>
-            <td>2026.07.01 09:12:30</td>
-            <td class="textRight">0</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
-    <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
-    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="0" pageSize></include>
-    <div class="tblWrap">
-      <table class="tbl tblBordered">
-        <colgroup>
-          <col style="width: 100px;">
-          <col style="width: 80px;">
-          <col style="width: 100px;">
-          <col style="width: 40px;">
-          <col style="width: 100px;">
-          <col style="width: 80px;">
-          <col style="width: 80px;">
-          <col style="width: 80px;">
-          <col style="width: 80px;">
-          <col style="width: 100px;">
-          <col style="width: 100px;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th colspan="3">고객정보</th>
-            <th colspan="7">
-              <div class="tooltipGroup">
-                <span>미션참여정보</span>
-                <div class="tooltipWrap bottom">
-                  <button type="button" class="tooltipBtn">?</button>
-                  <div class="tooltipContent multiLine textLeft">
-                    <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
-                    1코스(투자봉) : 대상 계좌에 원화 예수금 200만원 이상 달성하여 성장봉 도착<br />
-                    2코스(성장봉) : 30일 내 2회 이상 국내주식 / ETF매수(누적 200만원)하여 정상 도착<br />
-                    3코스(정상) : 신청 30일이후 대상 계좌 국내주식 평가 금액 200만원 이상일 경우 완료
-                  </div>
-                </div>
-              </div>
-            </th>
-            <th rowspan="2">누적지급<br />포인트(P)</th>
-          </tr>
-          <tr>
-            <th>고객명</th>
-            <th>고객번호</th>
-            <th>신청계좌</th>
-            <th>회차</th>
-            <th>신청일시</th>
-            <th>종료일</th>
-            <th>D-Day</th>
-            <th>참여상태</th>
-            <th>현재코스</th>
-            <th>해지일시</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="tblEmpty" colspan="11">조회 내역이 없습니다.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            </div>
+          </th>
+          <th rowspan="2">누적지급<br />포인트(P)</th>
+        </tr>
+        <tr>
+          <th>고객명</th>
+          <th>고객번호</th>
+          <th>신청계좌</th>
+          <th>회차</th>
+          <th>신청일시</th>
+          <th>종료일</th>
+          <th>D-Day</th>
+          <th>참여상태</th>
+          <th>현재코스</th>
+          <th>해지일시</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
+          <td>김*민</td>
+          <td>9012345678</td>
+          <td>123-***-*9000</td>
+          <td>1</td>
+          <td>2026.07.01 09:12:30</td>
+          <td>2026.08.01</td>
+          <td>D-27</td>
+          <td><span class="textIng">참여</span></td>
+          <td>투자봉</td>
+          <td>2026.07.01 09:12:30</td>
+          <td class="textRight">10,000</td>
+        </tr>
+        <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
+          <td>김*민</td>
+          <td>5678901234</td>
+          <td>123-***-*9000</td>
+          <td>1</td>
+          <td>2026.07.03 14:05:11</td>
+          <td>-</td>
+          <td>-</td>
+          <td><span class="textDanger">해지</span></td>
+          <td>투자봉</td>
+          <td>2026.07.01 09:12:30</td>
+          <td class="textRight">5,000</td>
+        </tr>
+        <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
+          <td>김*민</td>
+          <td>1000034567</td>
+          <td>123-***-*9000</td>
+          <td>1</td>
+          <td>2026.07.05 18:40:02</td>
+          <td>-</td>
+          <td>-</td>
+          <td><span class="textSuccess">달성</span></td>
+          <td>투자봉</td>
+          <td>2026.07.01 09:12:30</td>
+          <td class="textRight">0</td>
+        </tr>
+        <tr class="rowLink" onclick="location.href='OFR_AM_MM_017.html'">
+          <td>김*민</td>
+          <td>1000034567</td>
+          <td>123-***-*9000</td>
+          <td>1</td>
+          <td>2026.07.05 18:40:02</td>
+          <td>-</td>
+          <td>-</td>
+          <td><span class="textMuted">미달성</span></td>
+          <td>-</td>
+          <td>2026.07.01 09:12:30</td>
+          <td class="textRight">0</td>
+        </tr>
+        <tr>
+          <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+          <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
+          <td class="tblEmpty" colspan="11">조회 내역이 없습니다.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 

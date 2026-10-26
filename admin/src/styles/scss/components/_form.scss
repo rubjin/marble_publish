@@ -449,8 +449,10 @@ select.formControl {
 }
 
 /* Guide Text */
+.formGuideList {
+  // margin-top: 8px;
+}
 .formGuideText {
-  margin-top: 8px;
   font-size: 13px;
   color: $text-off;
   font-weight: $font-weight-light;

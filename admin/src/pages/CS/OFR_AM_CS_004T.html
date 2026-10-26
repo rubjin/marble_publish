@@ -6,37 +6,36 @@
 <include src="../../partials/pageHeader.html" title="고객조회" breadcrumb=""></include>
 
 
-<section class="section">
-  <!-- 검색 조건 컨트롤 박스 -->
-  <div class="searchBox narrow">
-    <div class="searchRow">
-      <div class="searchItem full">
-        <span class="searchLabel">고객정보<span class="required">*</span></span>
-        <div class="searchField">
-          <div class="formRow">
-            <select class="formControl wSm">
-              <option value="1">고객번호</option>
-            </select>
-            <div class="formControlWrap">
-              <input type="text" id="searchKeyword" class="formControl full" placeholder="고객번호를 입력해주세요" />
-              <button type="button" class="btn primary">조회</button>
-            </div>
+<!-- 검색 조건 컨트롤 박스 -->
+<section class="section searchBox narrow">
+  <div class="searchRow">
+    <div class="searchItem full">
+      <span class="searchLabel">고객정보<span class="required">*</span></span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="1">고객번호</option>
+          </select>
+          <div class="formControlWrap">
+            <input type="text" id="searchKeyword" class="formControl full" placeholder="고객번호를 입력해주세요" />
+            <button type="button" class="btn primary">조회</button>
           </div>
         </div>
       </div>
     </div>
-    <!-- [D] 고객 조회 후 노출 -->
-    <div class="infoInline">
-      <strong class="infoName">김*민<span class="infoSub">(1234567)</span></strong>
-      <dl class="infoMeta">
-        <div class="infoMetaItem"><dt>생년월일</dt><dd>1988.05.05</dd></div>
-        <div class="infoMetaItem"><dt>휴대폰번호</dt><dd>010-12**-45**</dd></div>
-        <div class="infoMetaItem"><dt>가입일</dt><dd>2024.01.01</dd></div>
-        <div class="infoMetaItem"><dt>마케팅동의</dt><dd class="textInfo">동의<span class="infoSub">(2026.05.30)</span></dd></div>
-      </dl>
-    </div>
+  </div>
+  <!-- [D] 고객 조회 후 노출 -->
+  <div class="infoInline">
+    <strong class="infoName">김*민<span class="infoSub">(1234567)</span></strong>
+    <dl class="infoMeta">
+      <div class="infoMetaItem"><dt>생년월일</dt><dd>1988.05.05</dd></div>
+      <div class="infoMetaItem"><dt>휴대폰번호</dt><dd>010-12**-45**</dd></div>
+      <div class="infoMetaItem"><dt>가입일</dt><dd>2024.01.01</dd></div>
+      <div class="infoMetaItem"><dt>마케팅동의</dt><dd class="textInfo">동의<span class="infoSub">(2026.05.30)</span></dd></div>
+    </dl>
   </div>
 </section>
+
 <section class="section">
   <div class="tabWrap">
     <nav class="tab">

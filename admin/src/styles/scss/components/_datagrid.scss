@@ -606,7 +606,7 @@ $perm-head-row: 42px; // 헤더 1행 높이 (2행 sticky 기준 위치)
    <div class="splitLayout">
      <div class="splitSide">좌측 목록</div>
      <div class="splitArrow"></div>   (선택 : 두 영역 사이 화살표)
-     <div class="splitMain">우측 상세 / 설정</div>
+     <div class="splitSide">우측 상세 / 설정</div>
    </div>
    -------------------------------------------------------------------------- */
 .splitLayout {
@@ -619,16 +619,18 @@ $perm-head-row: 42px; // 헤더 1행 높이 (2행 sticky 기준 위치)
   &.sideHalf {
     --split-side-width: minmax(0, 1fr);
   }
+  .splitSide {
+    .tblTop { margin-bottom: 8px; }
+  }
 
-  .splitSide,
-  .splitMain {
+  .splitSide {
     min-width: 0;
     // box-shadow: $shadow-lg;
     // border-radius: 12px;
     // padding: 24px;
     // background: #ffffff;
   }
-  .splitMain {
+  .splitSide {
     // border: 1px solid $line-default;
   }
 
@@ -733,10 +735,11 @@ $perm-head-row: 42px; // 헤더 1행 높이 (2행 sticky 기준 위치)
 }
 
 // 권한관리 우측 타이틀 옆 선택 그룹명 : 좌측 선택 행과 같은 배경색 → 좌측에서 선택한 그룹과 같은 대상임을 색으로 연결
-.splitMain .tblTop .tblText {
+.splitSide .tblTop .tblText {
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: 20px;
   background-color: $tbl-row-selected;
+  background-color: rgba(#FFC72B, 0.6);
   color: $text-title;
   font-size: 14px;
   font-weight: $font-weight-bold;

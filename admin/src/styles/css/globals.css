@@ -16,6 +16,18 @@ legend {
   padding: 0;
 }
 
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
 @font-face {
   font-family: "KBFG Text";
   src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff") format("woff2");
@@ -590,9 +602,6 @@ body {
   margin: 0;
   padding: 0;
 }
-.listBar.main {
-  margin-bottom: 12px;
-}
 .listBar.main .listBarItem:not(:first-child)::before {
   height: 12px;
   background-color: #D5D7DE;
@@ -601,9 +610,6 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: #1F192F;
-}
-.listBar.main + .tblSection {
-  margin-top: 20px;
 }
 .listBar .listBarItem {
   display: inline-flex;
@@ -777,6 +783,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
+  margin-top: 16px;
 }
 .pageBottom .btn {
   min-width: 100px;
@@ -1622,7 +1629,6 @@ select.formControl.wAuto {
 
 /* Guide Text */
 .formGuideText {
-  margin-top: 8px;
   font-size: 13px;
   color: #8D919B;
   font-weight: 300;
@@ -1803,6 +1809,10 @@ select.formControl.wAuto {
 /* ==========================================================================
    Search / Filter Box Component (_searchbox.scss)
    ========================================================================== */
+.section.searchBox {
+  gap: 0;
+}
+
 .searchBox {
   background-color: #FFFFFF;
   border-radius: 12px;
@@ -2162,9 +2172,6 @@ select.formControl.wAuto {
   gap: 4px;
   padding: 8px 0px;
   font-size: 14px;
-}
-.fileItem:hover {
-  background-color: #F3F5F6;
 }
 .fileItem .fileInfo {
   display: flex;
@@ -3067,15 +3074,10 @@ select.formControl.wAuto {
 
 .sectionBox .kpiCard {
   background-color: #F3F5F6;
-  border-color: transparent;
-  box-shadow: none;
 }
 
 .tblSection {
   width: 100%;
-}
-.tblSection:last-child {
-  margin-bottom: 0;
 }
 
 .tblTop {
@@ -3083,7 +3085,7 @@ select.formControl.wAuto {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 12px;
+  min-height: 34px;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -3414,7 +3416,7 @@ select.formControl.wAuto {
   border-bottom: 1px solid #D5D7DE;
 }
 .popupWrap.lg .popupBody {
-  min-height: 450px;
+  max-height: 450px;
 }
 
 .popupWrap.md {
@@ -3479,7 +3481,6 @@ select.formControl.wAuto {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 /* 팝업 바디 (컨텐츠) */
@@ -4259,7 +4260,7 @@ select.formControl.wAuto {
    <div class="splitLayout">
      <div class="splitSide">좌측 목록</div>
      <div class="splitArrow"></div>   (선택 : 두 영역 사이 화살표)
-     <div class="splitMain">우측 상세 / 설정</div>
+     <div class="splitSide">우측 상세 / 설정</div>
    </div>
    -------------------------------------------------------------------------- */
 .splitLayout {
@@ -4270,8 +4271,10 @@ select.formControl.wAuto {
 .splitLayout.sideHalf {
   --split-side-width: minmax(0, 1fr);
 }
-.splitLayout .splitSide,
-.splitLayout .splitMain {
+.splitLayout .splitSide .tblTop {
+  margin-bottom: 8px;
+}
+.splitLayout .splitSide {
   min-width: 0;
 }
 .splitLayout .splitArrow {
@@ -4350,10 +4353,11 @@ select.formControl.wAuto {
   box-shadow: inset 3px 0 0 #FFC72B;
 }
 
-.splitMain .tblTop .tblText {
+.splitSide .tblTop .tblText {
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: 20px;
   background-color: #EDF1FB;
+  background-color: rgba(255, 199, 43, 0.6);
   color: #1F192F;
   font-size: 14px;
   font-weight: 700;
@@ -4414,9 +4418,7 @@ select.formControl.wAuto {
 
 .chartGrid {
   display: grid;
-  gap: 16px;
   width: 100%;
-  margin-bottom: 20px;
 }
 .chartGrid .span2 {
   grid-column: span 2;
@@ -6017,13 +6019,13 @@ body.isDndActive * {
 }
 
 .sectionBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   background-color: #FFFFFF;
   border-radius: 12px;
   padding: 24px 28px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-.sectionBox:last-child {
-  margin-bottom: 0;
 }
 .sectionBox .sectionTitle {
   font-size: 18px;
@@ -6056,13 +6058,27 @@ body.isDndActive * {
   justify-content: flex-start;
 }
 
-section.section {
+.section {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-section.section + .section {
+.section + .section {
   margin-top: 24px;
+}
+.section.sectionBox {
+  gap: 12px;
+}
+.section.gap12 {
+  gap: 12px;
+}
+
+.section .tblTop {
+  margin-bottom: -8px;
+}
+
+.sectionBox .tblTop {
+  margin-bottom: -4px;
 }
 
 /* ==========================================================================

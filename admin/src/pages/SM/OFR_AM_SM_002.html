@@ -5,8 +5,8 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="권한관리" breadcrumb=""></include>
 
+<!-- 검색 조건 컨트롤 박스 -->
 <section class="section">
-  <!-- 검색 조건 컨트롤 박스 : 사용자그룹 조회 -->
   <div class="searchBox">
     <div class="searchRow">
       <div class="searchItem">
@@ -30,9 +30,8 @@
     </div>
     <include src="../../partials/searchBtnArea.html"></include>
   </div>
-</section>
-<!-- [S] 사용자관리 : 좌측 사용자그룹 선택 → 우측 선택 그룹 사용자 목록 (한 박스 안 좌우 배치) -->
-<section class="section">
+
+  <!-- [S] 사용자관리 : 좌측 사용자그룹 선택 → 우측 선택 그룹 사용자 목록 (한 박스 안 좌우 배치) -->
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
     <div class="splitLayout sideHalf">
@@ -110,10 +109,8 @@
       </div>
     </div>
   </div>
-</section>
-<!-- [E] 사용자관리 -->
+  <!-- [E] 사용자관리 -->
 
-<section class="section">
   <!-- 결재 상태바: 단계에 따라 저장, 결재진행중/대기 나타내기 -->
   <!-- [D] 진행단계(.approvalStep): 저장 > 결재진행중 > 결재완료 -->
   <!--     현재 단계 .isCurrent / 지난 단계·결재완료 .isDone / 이후 단계 (클래스 없음) -->
@@ -122,7 +119,7 @@
   <!-- [D] 결재완료 시에만 처리일시(.approvalDate) 노출 : (YYYY.MM.DD HH:MM:SS) -->
 
   <!-- 저장 -->
-  <div class="approvalStatusBar">
+  <!-- <div class="approvalStatusBar">
     <ol class="approvalStepper">
       <li class="approvalStep isCurrent">
         <span class="stepDot">1</span>
@@ -137,10 +134,10 @@
         <span class="stepText">결재완료</span>
       </li>
     </ol>
-  </div>
+  </div> -->
 
   <!-- 결재진행중 -->
-  <div class="approvalStatusBar">
+  <!-- <div class="approvalStatusBar">
     <ol class="approvalStepper">
       <li class="approvalStep isDone">
         <span class="stepDot">1</span>
@@ -156,10 +153,10 @@
         <span class="stepText">결재완료</span>
       </li>
     </ol>
-  </div>
+  </div> -->
 
   <!-- 결재완료(승인) -->
-  <div class="approvalStatusBar">
+  <!-- <div class="approvalStatusBar">
     <ol class="approvalStepper">
       <li class="approvalStep isDone">
         <span class="stepDot">1</span>
@@ -178,7 +175,7 @@
         </div>
       </li>
     </ol>
-  </div>
+  </div> -->
 
   <!-- 결재완료(반려) -->
   <div class="approvalStatusBar">
@@ -213,7 +210,6 @@
       <button type="button" class="item">변경이력</button>
     </nav>
   </div>
-
   <!-- 하얀 박스 영역 -->
   <div class="sectionBox">
     <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
@@ -267,18 +263,17 @@
       </table>
     </div>
   </div>
-
-  <!-- 페이지 하단 버튼 영역 -->
-  <div class="btnArea pageBottom">
-    <div class="btnGroup">
-      <button type="button" class="btn outline">목록</button>
-    </div>
-    <div class="btnGroup btnGroupRight">
-      <button type="button" class="btn outline">승인 요청</button>
-      <button type="button" class="btn primary">저장</button>
-    </div>
-  </div>
 </section>
+<!-- 페이지 하단 버튼 영역 -->
+<div class="btnArea pageBottom">
+  <div class="btnGroup">
+    <button type="button" class="btn outline">목록</button>
+  </div>
+  <div class="btnGroup btnGroupRight">
+    <button type="button" class="btn outline">승인 요청</button>
+    <button type="button" class="btn primary">저장</button>
+  </div>
+</div>
 <!-- [E] 업무관계자 탭 -->
 
 <!-- [S] 승인현황 탭 -->

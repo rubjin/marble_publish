@@ -15,54 +15,53 @@
     </div>
   </div>
 </section>
-<section class="section">
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox tblSection">
-    <include src="../../partials/infoSection.html" title="대직정보">
-      <tr>
-        <th>위탁자</th>
-        <td>홍길동(8888888)/디지털BK Biz부</td>
-        <th>대직기간</th>
-        <td>2026.02.01 10:00 ~ 2026.02.05 24:00</td>
-      </tr>
-    </include>
-  </div>
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" title="대직자 정보조회" count="128" pageSize>
-    </include>
+<!-- 하얀 박스 영역 -->
+<section class="section sectionBox">
+  <include src="../../partials/infoSection.html" title="대직정보">
+    <tr>
+      <th>위탁자</th>
+      <td>홍길동(8888888)/디지털BK Biz부</td>
+      <th>대직기간</th>
+      <td>2026.02.01 10:00 ~ 2026.02.05 24:00</td>
+    </tr>
+  </include>
+</section>
 
-    <!-- 데이터 그리드 테이블 -->
-    <div class="tblWrap">
-      <table class="tbl tblBordered">
-        <colgroup>
-          <col style="width: 180px;">
-          <col style="width: 180px;">
-          <col style="width: auto;">
-          <col style="width: auto;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>대직시작일</th>
-            <th>대직종료일</th>
-            <th>위탁자</th>
-            <th>대직자</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2026.08.25 13:00</td>
-            <td>2026.08.25 13:00</td>
-            <td>홍길동(1234567)/디지털BK Biz부</td>
-            <td>홍길동(1234567)/디지털BK Biz부</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<!-- 하얀 박스 영역 -->
+<section class="section sectionBox">
+  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+  <include src="../../partials/tblTop.html" title="대직자 정보조회" count="128" pageSize>
+  </include>
 
-    <include src="../../partials/pagination.html"></include>
+  <!-- 데이터 그리드 테이블 -->
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: 180px;">
+        <col style="width: 180px;">
+        <col style="width: auto;">
+        <col style="width: auto;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>대직시작일</th>
+          <th>대직종료일</th>
+          <th>위탁자</th>
+          <th>대직자</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2026.08.25 13:00</td>
+          <td>2026.08.25 13:00</td>
+          <td>홍길동(1234567)/디지털BK Biz부</td>
+          <td>홍길동(1234567)/디지털BK Biz부</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+  <include src="../../partials/pagination.html"></include>
 </section>
 
 

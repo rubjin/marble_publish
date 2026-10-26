@@ -13,76 +13,73 @@
     </nav>
   </div>
 
-  <div class="tblSection">
-    <include src="../../partials/tblTop.html" title="총 예산현황">
-      <p class="tblGuide">기준일: 2026.07.10 11:00:20</p>
-      <div class="toggleGroup" role="radiogroup">
-        <label class="toggleItem"><input type="radio" name="periodToggle1" checked><span class="toggleText">당일</span></label>
-        <label class="toggleItem"><input type="radio" name="periodToggle1"><span class="toggleText">당월</span></label>
+  <include src="../../partials/tblTop.html" title="총 예산현황">
+    <p class="tblGuide">기준일: 2026.07.10 11:00:20</p>
+    <div class="toggleGroup" role="radiogroup">
+      <label class="toggleItem"><input type="radio" name="periodToggle1" checked><span class="toggleText">당일</span></label>
+      <label class="toggleItem"><input type="radio" name="periodToggle1"><span class="toggleText">당월</span></label>
+    </div>
+  </include>
+  <!-- KPI 4단 통계 요약 카드 그리드 -->
+  <!-- [D] 금액 우측 하단 정렬: .kpiCard.valueBottom -->
+  <div class="kpiCardGrid">
+    <div class="kpiCard valueBottom">
+      <span class="kpiTitle">총 예산<span class="kpiPeriod">(2026)</span></span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>100,000,000</strong><span class="unit">원</span></div>
       </div>
-    </include>
-    <!-- KPI 4단 통계 요약 카드 그리드 -->
-    <!-- [D] 금액 우측 하단 정렬: .kpiCard.valueBottom -->
-    <div class="kpiCardGrid">
-      <div class="kpiCard valueBottom">
-        <span class="kpiTitle">총 예산<span class="kpiPeriod">(2026)</span></span>
-        <div class="kpiContent">
-          <div class="kpiNumber"><strong>100,000,000</strong><span class="unit">원</span></div>
-        </div>
-      </div>
+    </div>
 
-      <div class="kpiCard valueBottom">
-        <span class="kpiTitle">당일 지급금<span class="kpiPeriod">(2026.07.10)</span></span>
+    <div class="kpiCard valueBottom">
+      <span class="kpiTitle">당일 지급금<span class="kpiPeriod">(2026.07.10)</span></span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>65,400,000</strong><span class="unit">원</span></div>
+      </div>
+    </div>
+
+    <div class="kpiCard valueBottom">
+      <span class="kpiTitle">누적지급금<span class="kpiPeriod">(2026.07.10)</span></span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>34,600,000</strong><span class="unit">원</span></div>
+      </div>
+    </div>
+
+    <!-- [D] 예산 소진율 상태: 정상(80% 미만) normal / 주의(80~89%) warning / 위험(90% 이상) danger
+    → .badge, .barPercent 에 같은 상태 클래스 적용, .barPercentFill width 에 소진율 바인딩 -->
+    <div class="kpiCard kpiProgress">
+      <div class="kpiHead">
+        <span class="kpiTitle">예산 소진율<span class="statusDot warning">주의</span></span>
         <div class="kpiContent">
-          <div class="kpiNumber"><strong>65,400,000</strong><span class="unit">원</span></div>
+          <div class="kpiNumber"><strong>80.0</strong><span class="unit">%</span></div>
         </div>
       </div>
-
-      <div class="kpiCard valueBottom">
-        <span class="kpiTitle">누적지급금<span class="kpiPeriod">(2026.07.10)</span></span>
-        <div class="kpiContent">
-          <div class="kpiNumber"><strong>34,600,000</strong><span class="unit">원</span></div>
+      <div class="barPercent warning">
+        <div class="barPercentTrack">
+          <div class="barPercentFill" style="width: 80%;"></div>
         </div>
       </div>
-
-      <!-- [D] 예산 소진율 상태: 정상(80% 미만) normal / 주의(80~89%) warning / 위험(90% 이상) danger
-      → .badge, .barPercent 에 같은 상태 클래스 적용, .barPercentFill width 에 소진율 바인딩 -->
-      <div class="kpiCard kpiProgress">
-        <div class="kpiHead">
-          <span class="kpiTitle">예산 소진율<span class="statusDot warning">주의</span></span>
-          <div class="kpiContent">
-            <div class="kpiNumber"><strong>80.0</strong><span class="unit">%</span></div>
-          </div>
-        </div>
-        <div class="barPercent warning">
-          <div class="barPercentTrack">
-            <div class="barPercentFill" style="width: 80%;"></div>
-          </div>
-        </div>
-        <div class="kpiFoot">
-          <span>(임계치: 80%)</span>
-          <span>잔여한도 <strong>20,000,000</strong>원</span>
-        </div>
+      <div class="kpiFoot">
+        <span>(임계치: 80%)</span>
+        <span>잔여한도 <strong>20,000,000</strong>원</span>
       </div>
     </div>
   </div>
-
-  <div class="tblSection">
-    <include src="../../partials/tblTop.html" title="일별 리워드지급현황"></include>
-    <!-- 검색 조건 컨트롤 박스 -->
-    <div class="searchBox">
-      <div class="searchRow">
-        <div class="searchItem full">
-          <span class="searchLabel">조회일자</span>
-          <div class="searchField">
-            <div class="formRow">
-              <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
-            </div>
+</section>
+<section class="section">
+  <include src="../../partials/tblTop.html" title="일별 리워드지급현황"></include>
+  <!-- 검색 조건 컨트롤 박스 -->
+  <div class="searchBox">
+    <div class="searchRow">
+      <div class="searchItem full">
+        <span class="searchLabel">조회일자</span>
+        <div class="searchField">
+          <div class="formRow">
+            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
           </div>
         </div>
       </div>
-      <include src="../../partials/searchBtnArea.html"></include>
     </div>
+    <include src="../../partials/searchBtnArea.html"></include>
   </div>
 
   <!-- 하얀 박스 영역 -->
@@ -161,8 +158,8 @@
         </tbody>
       </table>
     </div>
-
   </div>
 </section>
+
 
 </include>

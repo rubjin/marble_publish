@@ -5,132 +5,128 @@
 <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
 <include src="../../partials/pageHeader.html" title="권한관리" breadcrumb=""></include>
 
-<section class="section">
-  <!-- 검색 조건 컨트롤 박스 : 사용자그룹 조회 -->
-  <div class="searchBox">
-    <div class="searchRow">
-      <div class="searchItem">
-        <label class="searchLabel" for="permGroupKeyword">사용자그룹명</label>
-        <div class="searchField">
-          <div class="formControlWrap">
-            <input type="text" id="permGroupKeyword" class="formControl full" placeholder="사용자그룹명 또는 사용자ID 입력">
-          </div>
-        </div>
-      </div>
-      <div class="searchItem">
-        <label class="searchLabel" for="permGroupUse">사용여부</label>
-        <div class="searchField">
-          <select id="permGroupUse" class="formControl">
-            <option value="">전체</option>
-            <option value="Y">사용</option>
-            <option value="N">미사용</option>
-          </select>
+<!-- 검색 조건 컨트롤 박스 : 사용자그룹 조회 -->
+<section class="section searchBox">
+  <div class="searchRow">
+    <div class="searchItem">
+      <label class="searchLabel" for="permGroupKeyword">사용자그룹명</label>
+      <div class="searchField">
+        <div class="formControlWrap">
+          <input type="text" id="permGroupKeyword" class="formControl full" placeholder="사용자그룹명 또는 사용자ID 입력">
         </div>
       </div>
     </div>
-    <include src="../../partials/searchBtnArea.html"></include>
+    <div class="searchItem">
+      <label class="searchLabel" for="permGroupUse">사용여부</label>
+      <div class="searchField">
+        <select id="permGroupUse" class="formControl">
+          <option value="">전체</option>
+          <option value="Y">사용</option>
+          <option value="N">미사용</option>
+        </select>
+      </div>
+    </div>
   </div>
+  <include src="../../partials/searchBtnArea.html"></include>
 </section>
 <!-- [S] 공통코드관리 : 좌측 공통코드 선택 → 우측 선택 공통코드의 상세코드 목록 (한 박스 안 좌우 배치) -->
-<section class="section">
-  <!-- 하얀 박스 영역 -->
-  <div class="sectionBox">
-    <div class="splitLayout sideHalf">
-      <!-- 좌측 : 공통코드 목록 -->
-      <div class="splitSide">
-        <include src="../../partials/tblTop.html" title="공통코드" count="1" pageSize>
-          <button type="button" class="btn primary">공통코드등록</button>
-        </include>
+<!-- 하얀 박스 영역 -->
+<section class="section sectionBox">
+  <div class="splitLayout sideHalf">
+    <!-- 좌측 : 공통코드 목록 -->
+    <div class="splitSide">
+      <include src="../../partials/tblTop.html" title="공통코드" count="1" pageSize>
+        <button type="button" class="btn primary">공통코드등록</button>
+      </include>
 
-        <!-- [D] 행 클릭 시 해당 공통코드 선택(.isSelected) → 우측 상세코드 목록 노출 -->
-        <!-- [D] 수정 버튼 클릭 시 공통코드 등록/수정 팝업(OFR_AM_SM_008P) 노출 (행 선택과 별개 동작) -->
-        <div class="dataGridWrap h500">
-          <table class="tbl dataGrid splitSideGrid">
-            <colgroup>
-              <col style="width: 80px;">
-              <col>
-              <col style="width: 76px;">
-              <col style="width: 130px;">
-              <col style="width: 100px;">
-              <col style="width: 68px;">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>공통코드</th>
-                <th>공통코드명</th>
-                <th>사용여부</th>
-                <th>등록자</th>
-                <th>등록일자</th>
-                <th>관리</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="rowLink isSelected">
-                <td>AA</td>
-                <td class="textLeft">리워드구분</td>
-                <td><span class="textDanger">미사용</span></td>
-                <td>홍길동(123456)</td>
-                <td>2026.08.20</td>
-                <td><button type="button" class="btn outline sm">수정</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <include src="../../partials/pagination.html"></include>
+      <!-- [D] 행 클릭 시 해당 공통코드 선택(.isSelected) → 우측 상세코드 목록 노출 -->
+      <!-- [D] 수정 버튼 클릭 시 공통코드 등록/수정 팝업(OFR_AM_SM_008P) 노출 (행 선택과 별개 동작) -->
+      <div class="dataGridWrap h500">
+        <table class="tbl dataGrid splitSideGrid">
+          <colgroup>
+            <col style="width: 80px;">
+            <col>
+            <col style="width: 76px;">
+            <col style="width: 130px;">
+            <col style="width: 100px;">
+            <col style="width: 68px;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>공통코드</th>
+              <th>공통코드명</th>
+              <th>사용여부</th>
+              <th>등록자</th>
+              <th>등록일자</th>
+              <th>관리</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="rowLink isSelected">
+              <td>AA</td>
+              <td class="textLeft">리워드구분</td>
+              <td><span class="textDanger">미사용</span></td>
+              <td>홍길동(123456)</td>
+              <td>2026.08.20</td>
+              <td><button type="button" class="btn outline sm">수정</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <!-- 두 테이블 사이 화살표 : 좌측 공통코드 선택 → 우측 상세코드 -->
-      <div class="splitArrow"></div>
+      <include src="../../partials/pagination.html"></include>
+    </div>
 
-      <!-- 우측 : 선택 공통코드의 상세코드 목록 -->
-      <div class="splitMain">
-        <!-- [D] text : 좌측에서 선택한 공통코드(공통코드명) -->
-        <include src="../../partials/tblTop.html" title="상세코드" count="1" text="AA(리워드구분)">
-          <div class="btnGroup">
-            <button type="button" class="btn outline">초기화</button>
-            <button type="button" class="btn outline">순서저장</button>
-            <button type="button" class="btn primary">상세코드등록</button>
-          </div>
-        </include>
+    <!-- 두 테이블 사이 화살표 : 좌측 공통코드 선택 → 우측 상세코드 -->
+    <div class="splitArrow"></div>
 
-        <!-- [D] 순서변경 : 핸들(.dndHandle) 드래그로 행 순서 변경 → 순서저장 버튼으로 반영 (드래그 중인 행 tr.isOverlay, components/dnd.html 참고) -->
-        <!-- [D] 상세코드 클릭 시 상세코드 등록/수정 팝업(OFR_AM_SM_009P) 노출 -->
-        <div class="dataGridWrap h500">
-          <table class="tbl dataGrid">
-            <colgroup>
-              <col style="width: 76px;">
-              <col style="width: 60px;">
-              <col style="width: 90px;">
-              <col>
-              <col style="width: 76px;">
-              <col style="width: 130px;">
-              <col style="width: 100px;">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>순서변경</th>
-                <th>순서</th>
-                <th>상세코드</th>
-                <th>상세코드명</th>
-                <th>사용여부</th>
-                <th>등록자</th>
-                <th>등록일자</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="colDrag"><button type="button" class="dndHandle"></button></td>
-                <td>10</td>
-                <td><a href="#" class="link">SJ 링크</a></td>
-                <td class="textLeft">주식 꾸준히 미션</td>
-                <td><span class="textDanger">미사용</span></td>
-                <td>홍길동(123456)</td>
-                <td>2026.08.20</td>
-              </tr>
-            </tbody>
-          </table>
+    <!-- 우측 : 선택 공통코드의 상세코드 목록 -->
+    <div class="splitSide">
+      <!-- [D] text : 좌측에서 선택한 공통코드(공통코드명) -->
+      <include src="../../partials/tblTop.html" title="상세코드" count="1" text="AA(리워드구분)">
+        <div class="btnGroup">
+          <button type="button" class="btn outline">초기화</button>
+          <button type="button" class="btn outline">순서저장</button>
+          <button type="button" class="btn primary">상세코드등록</button>
         </div>
+      </include>
+
+      <!-- [D] 순서변경 : 핸들(.dndHandle) 드래그로 행 순서 변경 → 순서저장 버튼으로 반영 (드래그 중인 행 tr.isOverlay, components/dnd.html 참고) -->
+      <!-- [D] 상세코드 클릭 시 상세코드 등록/수정 팝업(OFR_AM_SM_009P) 노출 -->
+      <div class="dataGridWrap h500">
+        <table class="tbl dataGrid">
+          <colgroup>
+            <col style="width: 76px;">
+            <col style="width: 60px;">
+            <col style="width: 90px;">
+            <col>
+            <col style="width: 76px;">
+            <col style="width: 130px;">
+            <col style="width: 100px;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>순서변경</th>
+              <th>순서</th>
+              <th>상세코드</th>
+              <th>상세코드명</th>
+              <th>사용여부</th>
+              <th>등록자</th>
+              <th>등록일자</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="colDrag"><button type="button" class="dndHandle"></button></td>
+              <td>10</td>
+              <td><a href="#" class="link">SJ 링크</a></td>
+              <td class="textLeft">주식 꾸준히 미션</td>
+              <td><span class="textDanger">미사용</span></td>
+              <td>홍길동(123456)</td>
+              <td>2026.08.20</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

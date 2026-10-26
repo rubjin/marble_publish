@@ -969,6 +969,4 @@
 // 흰 박스(.sectionBox) 안의 KPI 카드 : 박스 안 박스로 겹쳐 보이지 않도록 테두리·그림자 없이 회색 면으로 구분
 .sectionBox .kpiCard {
   background-color: $color-gray-50;
-  border-color: transparent;
-  box-shadow: none;
 }

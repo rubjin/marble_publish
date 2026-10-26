@@ -14,7 +14,7 @@
       </div>
       <div class="popupBody">
         <!-- 상단 검색 조건 : 부점명 / 코드 -->
-        <div class="searchBox">
+        <div class="section searchBox">
           <div class="searchRow">
             <div class="searchItem full">
               <label class="searchLabel" for="orgKeyword">부점명/코드</label>
@@ -28,128 +28,130 @@
           </div>
         </div>
 
-        <!-- 좌측 조직도 선택 → 우측 선택 목록 (좌우 반반) -->
-        <div class="splitLayout sideHalf">
-          <!-- 좌측 : 조직도 -->
-          <div class="splitSide">
-            <include src="../../partials/tblTop.html" title="조직목록">
-               <label class="toggle primary">
-                <input type="checkbox" checked="">
-                <span class="toggleTrack"></span>
-                <span class="toggleLabel">전체펼침</span>
-              </label>
-            </include>
+        <div class="section">
+          <!-- 좌측 조직도 선택 → 우측 선택 목록 (좌우 반반) -->
+          <div class="splitLayout sideHalf">
+            <!-- 좌측 : 조직도 -->
+            <div class="splitSide">
+              <include src="../../partials/tblTop.html" title="조직목록">
+                <label class="toggle primary">
+                  <input type="checkbox" checked="">
+                  <span class="toggleTrack"></span>
+                  <span class="toggleLabel">전체펼침</span>
+                </label>
+              </include>
 
-            <!-- [D] 토글(.treeToggle) 클릭 시 .treeItem.isOpen 펼침/접힘 (ui.js) / 하위 없는 노드 span.treeToggle.isLeaf -->
-            <!-- [D] 체크 시 우측 선택 목록에 추가, 해제 시 제거 -->
-            <div class="listPanel h360">
-              <ul class="treeView">
-                <li class="treeItem isOpen">
-                  <div class="treeNode">
-                    <button type="button" class="treeToggle"></button>
-                    <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">대표이사</span></label>
-                  </div>
-                  <ul class="treeGroup">
-                    <li class="treeItem isOpen">
-                      <div class="treeNode">
-                        <button type="button" class="treeToggle"></button>
-                        <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조직1_1</span></label>
-                      </div>
-                      <ul class="treeGroup">
-                        <li class="treeItem">
-                          <div class="treeNode">
-                            <span class="treeToggle isLeaf"></span>
-                            <label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span><span class="checkLabel">조직2_1</span></label>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="treeItem isOpen">
-                      <div class="treeNode">
-                        <button type="button" class="treeToggle"></button>
-                        <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조직1_2</span></label>
-                      </div>
-                      <ul class="treeGroup">
-                        <li class="treeItem isOpen">
-                          <div class="treeNode">
-                            <button type="button" class="treeToggle"></button>
-                            <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조직2_2</span></label>
-                          </div>
-                          <ul class="treeGroup">
-                            <li class="treeItem">
-                              <div class="treeNode">
-                                <span class="treeToggle isLeaf"></span>
-                                <label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span><span class="checkLabel">조직2_3</span></label>
-                              </div>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+              <!-- [D] 토글(.treeToggle) 클릭 시 .treeItem.isOpen 펼침/접힘 (ui.js) / 하위 없는 노드 span.treeToggle.isLeaf -->
+              <!-- [D] 체크 시 우측 선택 목록에 추가, 해제 시 제거 -->
+              <div class="listPanel h360">
+                <ul class="treeView">
+                  <li class="treeItem isOpen">
+                    <div class="treeNode">
+                      <button type="button" class="treeToggle"></button>
+                      <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">대표이사</span></label>
+                    </div>
+                    <ul class="treeGroup">
+                      <li class="treeItem isOpen">
+                        <div class="treeNode">
+                          <button type="button" class="treeToggle"></button>
+                          <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조직1_1</span></label>
+                        </div>
+                        <ul class="treeGroup">
+                          <li class="treeItem">
+                            <div class="treeNode">
+                              <span class="treeToggle isLeaf"></span>
+                              <label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span><span class="checkLabel">조직2_1</span></label>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="treeItem isOpen">
+                        <div class="treeNode">
+                          <button type="button" class="treeToggle"></button>
+                          <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조직1_2</span></label>
+                        </div>
+                        <ul class="treeGroup">
+                          <li class="treeItem isOpen">
+                            <div class="treeNode">
+                              <button type="button" class="treeToggle"></button>
+                              <label class="formCheck"><input type="checkbox"><span class="checkIcon"></span><span class="checkLabel">조직2_2</span></label>
+                            </div>
+                            <ul class="treeGroup">
+                              <li class="treeItem">
+                                <div class="treeNode">
+                                  <span class="treeToggle isLeaf"></span>
+                                  <label class="formCheck"><input type="checkbox" checked><span class="checkIcon"></span><span class="checkLabel">조직2_3</span></label>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-          <!-- 두 영역 사이 화살표 : 좌측 조직도 선택 → 우측 선택 목록 -->
-          <div class="splitArrow"></div>
+            <!-- 두 영역 사이 화살표 : 좌측 조직도 선택 → 우측 선택 목록 -->
+            <div class="splitArrow"></div>
 
-          <!-- 우측 : 선택 목록 -->
-          <div class="splitMain">
-            <include src="../../partials/tblTop.html" title="선택 조직" count="3"></include>
+            <!-- 우측 : 선택 목록 -->
+            <div class="splitSide">
+              <include src="../../partials/tblTop.html" title="선택 조직" count="3"></include>
 
-            <!-- [D] 뱃지 : 조직 .badge.info / 직원 .badge.gray -->
-            <!-- [D] 삭제(.selectDelete) 클릭 시 목록에서 제거 + 좌측 조직도 체크 해제 / 선택 항목 없을 때 .selectEmpty 노출 -->
-            <div class="listPanel h360">
-              <ul class="selectList">
-                <li class="selectItem">
-                  <span class="badge info">조직</span>
-                  <span class="selectName">조직2_1</span>
-                  <button type="button" class="selectDelete"></button>
-                </li>
-                <li class="selectItem">
-                  <span class="badge info">조직</span>
-                  <span class="selectName">조직2_3</span>
-                  <button type="button" class="selectDelete"></button>
-                </li>
-                <li class="selectItem">
-                  <span class="badge gray">직원</span>
-                  <span class="selectName">김국민(123456)</span>
-                  <button type="button" class="selectDelete"></button>
-                </li>
-                <li class="selectItem">
-                  <span class="badge info">조직</span>
-                  <span class="selectName">조직2_1</span>
-                  <button type="button" class="selectDelete"></button>
-                </li>
-                <li class="selectItem">
-                  <span class="badge info">조직</span>
-                  <span class="selectName">조직2_3</span>
-                  <button type="button" class="selectDelete"></button>
-                </li>
-                <li class="selectItem">
-                  <span class="badge gray">직원</span>
-                  <span class="selectName">김국민(123456)</span>
-                  <button type="button" class="selectDelete"></button>
-                </li>
-                <li class="selectItem">
-                  <span class="badge info">조직</span>
-                  <span class="selectName">조직2_1</span>
-                  <button type="button" class="selectDelete"></button>
-                </li>
-                <li class="selectItem">
-                  <span class="badge info">조직</span>
-                  <span class="selectName">조직2_3</span>
-                  <button type="button" class="selectDelete"></button>
-                </li>
-                <li class="selectItem">
-                  <span class="badge gray">직원</span>
-                  <span class="selectName">김국민(123456)</span>
-                  <button type="button" class="selectDelete"></button>
-                </li>
-              </ul>
-              <!-- <p class="selectEmpty">선택된 조직 / 직원이 없습니다.</p> -->
+              <!-- [D] 뱃지 : 조직 .badge.info / 직원 .badge.gray -->
+              <!-- [D] 삭제(.selectDelete) 클릭 시 목록에서 제거 + 좌측 조직도 체크 해제 / 선택 항목 없을 때 .selectEmpty 노출 -->
+              <div class="listPanel h360">
+                <ul class="selectList">
+                  <li class="selectItem">
+                    <span class="badge info">조직</span>
+                    <span class="selectName">조직2_1</span>
+                    <button type="button" class="selectDelete"></button>
+                  </li>
+                  <li class="selectItem">
+                    <span class="badge info">조직</span>
+                    <span class="selectName">조직2_3</span>
+                    <button type="button" class="selectDelete"></button>
+                  </li>
+                  <li class="selectItem">
+                    <span class="badge gray">직원</span>
+                    <span class="selectName">김국민(123456)</span>
+                    <button type="button" class="selectDelete"></button>
+                  </li>
+                  <li class="selectItem">
+                    <span class="badge info">조직</span>
+                    <span class="selectName">조직2_1</span>
+                    <button type="button" class="selectDelete"></button>
+                  </li>
+                  <li class="selectItem">
+                    <span class="badge info">조직</span>
+                    <span class="selectName">조직2_3</span>
+                    <button type="button" class="selectDelete"></button>
+                  </li>
+                  <li class="selectItem">
+                    <span class="badge gray">직원</span>
+                    <span class="selectName">김국민(123456)</span>
+                    <button type="button" class="selectDelete"></button>
+                  </li>
+                  <li class="selectItem">
+                    <span class="badge info">조직</span>
+                    <span class="selectName">조직2_1</span>
+                    <button type="button" class="selectDelete"></button>
+                  </li>
+                  <li class="selectItem">
+                    <span class="badge info">조직</span>
+                    <span class="selectName">조직2_3</span>
+                    <button type="button" class="selectDelete"></button>
+                  </li>
+                  <li class="selectItem">
+                    <span class="badge gray">직원</span>
+                    <span class="selectName">김국민(123456)</span>
+                    <button type="button" class="selectDelete"></button>
+                  </li>
+                </ul>
+                <!-- <p class="selectEmpty">선택된 조직 / 직원이 없습니다.</p> -->
+              </div>
             </div>
           </div>
         </div>

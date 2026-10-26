@@ -4,87 +4,87 @@
 <include src="../../partials/pageHeader.html" title="오늘의 콕 OX퀴즈 등록" breadcrumb=""></include>
 
 
-  <!-- [팝업] -->
-  <!-- [D] 퍼블 확인용 .isOpen 상태로 노출 -->
-  <div id="" class="popupDimmed isOpen">
-    <div class="popupWrap lg">
-      <div class="popupHeader">
-        <h2 class="popupTitle">관련 콘텐츠 조회</h2>
-        <button type="button" class="btnClose" aria-label="닫기"></button>
-      </div>
-      <div class="popupBody">
-        <!-- 상단 검색 내역 -->
-        <div class="searchBox">
-          <div class="searchRow">
-            <div class="searchItem">
-              <span class="searchLabel">등록일</span>
-              <div class="searchField">
-                <div class="formRow">
-                  <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date" shortcuts="당일,7일,한달,일년"></include>
-                </div>
+<!-- [팝업] -->
+<!-- [D] 퍼블 확인용 .isOpen 상태로 노출 -->
+<div id="" class="popupDimmed isOpen">
+  <div class="popupWrap lg">
+    <div class="popupHeader">
+      <h2 class="popupTitle">관련 콘텐츠 조회</h2>
+      <button type="button" class="btnClose" aria-label="닫기"></button>
+    </div>
+    <div class="popupBody">
+      <!-- 상단 검색 내역 -->
+      <div class="section searchBox">
+        <div class="searchRow">
+          <div class="searchItem">
+            <span class="searchLabel">등록일</span>
+            <div class="searchField">
+              <div class="formRow">
+                <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date" shortcuts="당일,7일,한달,일년"></include>
               </div>
             </div>
-            <div class="searchItem">
-              <span class="searchLabel">검색어</span>
-              <div class="searchField">
-                <div class="formRow">
-                  <select class="formControl wSm">
-                    <option value="">전체</option>
-                  </select>
-                  <div class="formControlWrap">
-                    <input type="text" class="formControl full" placeholder="콘텐츠 ID 또는 제목 및 등록자 입력">
-                  </div>
+          </div>
+          <div class="searchItem">
+            <span class="searchLabel">검색어</span>
+            <div class="searchField">
+              <div class="formRow">
+                <select class="formControl wSm">
+                  <option value="">전체</option>
+                </select>
+                <div class="formControlWrap">
+                  <input type="text" class="formControl full" placeholder="콘텐츠 ID 또는 제목 및 등록자 입력">
                 </div>
               </div>
             </div>
           </div>
-          <include src="../../partials/searchBtnArea.html"></include>
         </div>
-
-        <div class="tblSection">
-          <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
-          <include src="../../partials/tblTop.html" count="20" pageSize></include>
-
-          <div class="tblWrap">
-            <table class="tbl tblBordered">
-              <colgroup>
-                <col style="width: 140px;">
-                <col style="width: 140px;">
-                <col style="width: 80px;">
-                <col style="width: 300px;">
-                <col style="width: 160px;">
-                <col style="width: 90px;">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>콘텐츠그룹ID</th>
-                  <th>콘텐츠ID</th>
-                  <th>유형</th>
-                  <th>콘텐츠제목</th>
-                  <th>등록일시</th>
-                  <th>등록자</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>A000000010632</td>
-                  <td>A000000010632</td>
-                  <td>Article</td>
-                  <td class="textLeft">어느새 1,300원대로 내려온 환율</td>
-                  <td>2026.08.01 07:51:38</td>
-                  <td>홍길동</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <include src="../../partials/pagination.html"></include>
-        </div>
+        <include src="../../partials/searchBtnArea.html"></include>
       </div>
-      <div class="popupFooter">
-        <button type="button" class="btn primary btnClose">확인</button>
+
+      <div class="section">
+        <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
+        <include src="../../partials/tblTop.html" count="20" pageSize></include>
+
+        <div class="tblWrap">
+          <table class="tbl tblBordered">
+            <colgroup>
+              <col style="width: 140px;">
+              <col style="width: 140px;">
+              <col style="width: 80px;">
+              <col style="width: 300px;">
+              <col style="width: 160px;">
+              <col style="width: 90px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>콘텐츠그룹ID</th>
+                <th>콘텐츠ID</th>
+                <th>유형</th>
+                <th>콘텐츠제목</th>
+                <th>등록일시</th>
+                <th>등록자</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A000000010632</td>
+                <td>A000000010632</td>
+                <td>Article</td>
+                <td class="textLeft">어느새 1,300원대로 내려온 환율</td>
+                <td>2026.08.01 07:51:38</td>
+                <td>홍길동</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <include src="../../partials/pagination.html"></include>
       </div>
     </div>
+    <div class="popupFooter">
+      <button type="button" class="btn primary btnClose">확인</button>
+    </div>
   </div>
+</div>
 
 </include>
