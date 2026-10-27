@@ -5905,7 +5905,6 @@ body.isDndActive * {
   transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .boContainer > * {
-  min-width: 1136px;
   min-width: 1276px;
 }
 .boContainer::-webkit-scrollbar {
