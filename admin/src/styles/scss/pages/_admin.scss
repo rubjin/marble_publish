@@ -619,8 +619,7 @@
 
   // 내부 콘텐츠 최소 너비 유지로 좌우 스크롤 생성
   > * {
-    min-width: 1616px;
-    // min-width: 1016px; //임시
+    min-width: 1276px; //임시
   }
 
   &::-webkit-scrollbar {

@@ -168,7 +168,7 @@ function BasicGrid() {
   const selectedCount = Object.keys(rowSelection).length;
 
   return (
-    <div className="tblSection">
+    <div className="section">
       <div className="tblTop">
         <div className="tblLeft">
           <h3 className="tblTitle">미션 목록</h3>
@@ -302,7 +302,7 @@ function AdvancedGrid() {
   const cellsOf = (row) => [...row.getLeftVisibleCells(), ...row.getCenterVisibleCells(), ...row.getRightVisibleCells()];
 
   return (
-    <div className="tblSection">
+    <div className="section">
       <div className="tblTop">
         <div className="tblLeft">
           <h3 className="tblTitle">하단고정 샘플</h3>
@@ -396,7 +396,7 @@ function StateGrid() {
   };
 
   return (
-    <div className="tblSection">
+    <div className="section">
       <div className="tblTop">
         <div className="tblLeft">
           <h3 className="tblTitle">로딩 / 빈 데이터</h3>

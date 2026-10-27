@@ -27,7 +27,7 @@
   - actions : 타이틀 우측 영역 (이름 있는 slot) - 생략 가능
   - slot    : 테이블 행 (<tr><th><label class="formLabel">항목명</label></th><td>입력 영역</td></tr>)
 -->
-<div class="tblSection">
+<div class="section">
   {% if title or actions %}
   <include src="./tblTop.html" title="{{ title }}">{{ actions }}</include>
   {% endif %}

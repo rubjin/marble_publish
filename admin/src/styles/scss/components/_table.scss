@@ -3,8 +3,8 @@
 // Table Component
 
 // Table Container (테이블 상단 + 테이블 래퍼 그룹)
-.tblSection {
-  width: 100%;
+// .tblSection {
+  // width: 100%;
   // margin-bottom: 24px;
   // .tblTop {
   //   margin-bottom: 12px;
@@ -12,7 +12,7 @@
   // &:last-child {
   //   margin-bottom: 0;
   // }
-}
+// }
 
 // Table Top (좌측 타이틀 + 건수 / 우측 버튼그룹)
 .tblTop {
@@ -22,13 +22,15 @@
   width: 100%;
   min-height: 34px;
   // margin-bottom: 12px;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
+  white-space: nowrap;
   gap: 12px;
 
   .tblLeft {
     display: flex;
     align-items: center;
     gap: 12px;
+    overflow: hidden;
 
     .tblTitle {
       font-size: 16px;

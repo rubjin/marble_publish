@@ -18,7 +18,7 @@
       <span class="searchLabel">사용여부</span>
       <div class="searchField">
         <div class="formRow">
-          <select class="formControl">
+          <select class="formControl wSm">
             <option value="">전체</option>
           </select>
         </div>
@@ -28,7 +28,7 @@
       <span class="searchLabel">등록여부</span>
       <div class="searchField">
         <div class="formRow">
-          <select class="formControl">
+          <select class="formControl wSm">
             <option value="">전체</option>
           </select>
         </div>
@@ -126,50 +126,15 @@
           <td>2026.08.22 13:45</td>
           <td>홍길순</td>
         </tr>
-      </tbody>
-    </table>
-  </div>
-  <include src="../../partials/pagination.html"></include>
-</section>
-<!-- 하얀 박스 영역 -->
-<section class="section sectionBox">
-  <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
-  <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
-  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-  <include src="../../partials/tblTop.html" count="0" pageSize></include>
-  <div class="tblWrap">
-    <table class="tbl tblBordered">
-      <colgroup>
-        <col style="width: 130px;">
-        <col style="width: 110px;">
-        <col style="width: 150px;">
-        <col style="width: auto;">
-        <col style="width: 80px;">
-        <col style="width: 140px;">
-        <col style="width: 90px;">
-        <col style="width: 140px;">
-        <col style="width: 90px;">
-      </colgroup>
-      <thead>
         <tr>
-          <th>게시일</th>
-          <th>콘텐츠 구분</th>
-          <th>관련 콘텐츠ID</th>
-          <th>관련 콘텐츠 제목</th>
-          <th>사용여부</th>
-          <th>등록일시</th>
-          <th>등록자</th>
-          <th>최종 수정일시</th>
-          <th>최종 수정자</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+          <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+          <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
           <td class="tblEmpty" colspan="9">조회 내역이 없습니다.</td>
         </tr>
       </tbody>
     </table>
   </div>
+  <include src="../../partials/pagination.html"></include>
 </section>
 
 </include>

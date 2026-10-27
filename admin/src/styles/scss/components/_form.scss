@@ -99,24 +99,24 @@
   }
 
   // 좌측/우측 단위 (내부 텍스트형)
-  // .inputPrefix,
-  // .inputUnit {
-  //   position: absolute;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   font-size: 14px;
-  //   color: $text-secondary;
-  //   pointer-events: none;
-  //   line-height: 1;
-  // }
+  .inputPrefix,
+  .inputUnit {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: $text-secondary;
+    pointer-events: none;
+    line-height: 1;
+  }
 
   // .inputPrefix {
   //   left: 12px;
   // }
 
-  // .inputUnit {
-  //   right: 12px;
-  // }
+  .inputUnit {
+    right: 12px;
+  }
 
   &.hasUnit .formControl {
     padding-right: 28px;

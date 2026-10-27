@@ -26,101 +26,99 @@
 </div>
 
 <!-- 입력 폼 영역 -->
-<div class="sectionBox">
-  <div class="tblSection">
-    <div class="tblTop">
-      <div class="tblLeft">
-        <h3 class="tblTitle">기본 정보 입력</h3>
-      </div>
+<div class="section">
+  <div class="tblTop">
+    <div class="tblLeft">
+      <h3 class="tblTitle">기본 정보 입력</h3>
     </div>
-    <div class="tblWrap">
-      <table class="tbl tblView">
-        <colgroup>
-          <col class="patternFormColLabel" />
-          <col />
-        </colgroup>
-        <tbody>
-          <!-- 2-1. 항목명 -->
-          <tr>
-            <th><label class="formLabel" for="idItemName">항목명 <span class="required">*</span></label></th>
-            <td>
-              <input type="text" id="idItemName" class="formControl full" placeholder="항목명을 입력해주세요" value="2026 대표 운영 프로그램" />
-            </td>
-          </tr>
+  </div>
+  <div class="tblWrap">
+    <table class="tbl tblView">
+      <colgroup>
+        <col class="patternFormColLabel" />
+        <col />
+      </colgroup>
+      <tbody>
+        <!-- 2-1. 항목명 -->
+        <tr>
+          <th><label class="formLabel" for="idItemName">항목명 <span class="required">*</span></label></th>
+          <td>
+            <input type="text" id="idItemName" class="formControl full" placeholder="항목명을 입력해주세요" value="2026 대표 운영 프로그램" />
+          </td>
+        </tr>
 
-          <!-- 2-2. 유형 선택 -->
-          <tr>
-            <th><label class="formLabel" for="idProgramType">유형 선택 <span class="required">*</span></label></th>
-            <td>
-              <div class="formControlWrap">
-                <select id="idProgramType" class="formControl">
-                  <option value="">유형을 선택하세요</option>
-                  <option value="1" selected>기본 프로그램</option>
-                  <option value="2">특별 프로그램</option>
-                </select>
-              </div>
-            </td>
-          </tr>
+        <!-- 2-2. 유형 선택 -->
+        <tr>
+          <th><label class="formLabel" for="idProgramType">유형 선택 <span class="required">*</span></label></th>
+          <td>
+            <div class="formControlWrap">
+              <select id="idProgramType" class="formControl">
+                <option value="">유형을 선택하세요</option>
+                <option value="1" selected>기본 프로그램</option>
+                <option value="2">특별 프로그램</option>
+              </select>
+            </div>
+          </td>
+        </tr>
 
-          <!-- 2-3. 운영 기간 -->
-          <tr>
-            <th><span class="formLabel">운영 기간 <span class="required">*</span></span></th>
-            <td>
-              <div class="formDateRange">
-                <div class="formDatepicker">
-                  <input type="text" class="formControl" value="2026.07.01" title="운영 시작일" />
-                  <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-                </div>
-                <span class="dateSeparator">~</span>
-                <div class="formDatepicker">
-                  <input type="text" class="formControl" value="2026.08.31" title="운영 종료일" />
-                  <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
-                </div>
+        <!-- 2-3. 운영 기간 -->
+        <tr>
+          <th><span class="formLabel">운영 기간 <span class="required">*</span></span></th>
+          <td>
+            <div class="formDateRange">
+              <div class="formDatepicker">
+                <input type="text" class="formControl" value="2026.07.01" title="운영 시작일" />
+                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
               </div>
-            </td>
-          </tr>
+              <span class="dateSeparator">~</span>
+              <div class="formDatepicker">
+                <input type="text" class="formControl" value="2026.08.31" title="운영 종료일" />
+                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+              </div>
+            </div>
+          </td>
+        </tr>
 
-          <!-- 2-4. 지급 한도 금액 -->
-          <tr>
-            <th><label class="formLabel" for="idPayLimit">지급 한도 금액</label></th>
-            <td>
-              <div class="formControlWrap hasUnit">
-                <input type="text" id="idPayLimit" class="formControl" value="50,000,000" />
-                <span class="inputUnit">원</span>
-              </div>
-            </td>
-          </tr>
+        <!-- 2-4. 지급 한도 금액 -->
+        <tr>
+          <th><label class="formLabel" for="idPayLimit">지급 한도 금액</label></th>
+          <td>
+            <div class="formControlWrap hasUnit">
+              <input type="text" id="idPayLimit" class="formControl" value="50,000,000" />
+              <span class="inputUnit">원</span>
+            </div>
+          </td>
+        </tr>
 
-          <!-- 2-5. 연결 태그 설정 -->
-          <tr>
-            <th><span class="formLabel">연결 태그 설정</span></th>
-            <td>
-              <div class="formControlWrap full col">
-                <div class="tagBox">
-                  <span class="tagChip">메인 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-                  <span class="tagChip">이벤트 존 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-                  <span class="tagChip">혜택 안내 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
-                </div>
-                <div class="formControlBottom">
-                  <span class="formGuideText">노출할 화면 위치를 지정합니다.</span>
-                  <button type="button" class="btn dark">항목 선택</button>
-                </div>
+        <!-- 2-5. 연결 태그 설정 -->
+        <tr>
+          <th><span class="formLabel">연결 태그 설정</span></th>
+          <td>
+            <div class="formControlWrap full col">
+              <div class="tagBox">
+                <span class="tagChip">메인 홈 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+                <span class="tagChip">이벤트 존 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
+                <span class="tagChip">혜택 안내 <button type="button" class="tagDelete" aria-label="삭제"></button></span>
               </div>
-            </td>
-          </tr>
+              <div class="formControlBottom">
+                <span class="formGuideText">노출할 화면 위치를 지정합니다.</span>
+                <button type="button" class="btn dark">항목 선택</button>
+              </div>
+            </div>
+          </td>
+        </tr>
 
-          <!-- 2-6. 상세 안내 설명 (Textarea) -->
-          <tr>
-            <th><label class="formLabel" for="idDetailDesc">상세 안내 설명</label></th>
-            <td>
-              <div class="formControlWrap full">
-                <textarea id="idDetailDesc" class="formControl" rows="4" placeholder="상세 설명을 입력해주세요">참여 고객을 대상으로 자동 정산되는 표준 운영 프로그램입니다.</textarea>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <!-- 2-6. 상세 안내 설명 (Textarea) -->
+        <tr>
+          <th><label class="formLabel" for="idDetailDesc">상세 안내 설명</label></th>
+          <td>
+            <div class="formControlWrap full">
+              <textarea id="idDetailDesc" class="formControl" rows="4" placeholder="상세 설명을 입력해주세요">참여 고객을 대상으로 자동 정산되는 표준 운영 프로그램입니다.</textarea>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 

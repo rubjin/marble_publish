@@ -1344,6 +1344,19 @@ body {
   height: 34px;
   margin: 0;
 }
+.formControlWrap .inputPrefix,
+.formControlWrap .inputUnit {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #4F535A;
+  pointer-events: none;
+  line-height: 1;
+}
+.formControlWrap .inputUnit {
+  right: 12px;
+}
 .formControlWrap.hasUnit .formControl {
   padding-right: 28px;
   text-align: right;
@@ -1902,7 +1915,6 @@ select.formControl.wAuto {
   display: flex;
   align-items: center;
   flex: 0 1 auto;
-  min-width: 280px;
 }
 .searchItem.full {
   flex: 1 1 100%;
@@ -3076,23 +3088,20 @@ select.formControl.wAuto {
   background-color: #F3F5F6;
 }
 
-.tblSection {
-  width: 100%;
-}
-
 .tblTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   min-height: 34px;
-  flex-wrap: wrap;
+  white-space: nowrap;
   gap: 12px;
 }
 .tblTop .tblLeft {
   display: flex;
   align-items: center;
   gap: 12px;
+  overflow: hidden;
 }
 .tblTop .tblLeft .tblTitle {
   font-size: 16px;
@@ -4361,6 +4370,8 @@ select.formControl.wAuto {
   color: #1F192F;
   font-size: 14px;
   font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tbl.dataGrid.permGrid thead th.permDepthHead {
@@ -5894,7 +5905,8 @@ body.isDndActive * {
   transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .boContainer > * {
-  min-width: 1616px;
+  min-width: 1136px;
+  min-width: 1276px;
 }
 .boContainer::-webkit-scrollbar {
   width: 12px;
