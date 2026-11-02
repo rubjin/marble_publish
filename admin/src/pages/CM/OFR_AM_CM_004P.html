@@ -22,10 +22,14 @@
               </td>
             </tr>
             <tr>
-              <th><label class="formLabel" for="noticeContent">사유 <span class="required">*</span></label></th>
+              <th><label class="formLabel" for="noticeContent">사유</label></th>
               <td>
+                <!-- [D] .current 에 입력 글자수 / 뒤 숫자는 maxlength 값 -->
                 <div class="formControlWrap full">
-                  <textarea id="noticeContent" class="formControl full" rows="4" maxlength="1000" placeholder="다운로드 사유 입력"></textarea>
+                  <div class="textareaBox">
+                    <textarea id="noticeContent" class="formControl full" rows="4" maxlength="1000" placeholder="개인정보조회 사유 입력"></textarea>
+                    <p class="textCount"><span class="current">0</span>/1,000</p>
+                  </div>
                 </div>
               </td>
             </tr>

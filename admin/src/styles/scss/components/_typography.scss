@@ -124,6 +124,20 @@
   color: $text-danger !important;
 }
 
+//상승
+.textUp {
+  color: $text-down !important;
+}
+//하락
+.textDown {
+  color: $text-danger !important;
+}
+//중립
+.textFlat {
+  color: $text-secondary !important;
+}
+
+
 // Typography Component Scale (Headings & Body)
 // 실제 화면 적용 기준: .pageTitle 22 / .sectionTitle·.popupTitle 18 / .tblTitle 16 / .chartTitle 15
 .titPage {

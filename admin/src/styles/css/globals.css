@@ -440,6 +440,18 @@ body {
   color: #F23F3F !important;
 }
 
+.textUp {
+  color: #287EFF !important;
+}
+
+.textDown {
+  color: #F23F3F !important;
+}
+
+.textFlat {
+  color: #4F535A !important;
+}
+
 .titPage {
   font-size: 22px;
   font-weight: 700;
@@ -822,6 +834,35 @@ body {
 
 .btnGroupRight {
   margin-left: auto;
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.chipGroup .chipItem {
+  height: 30px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 13px;
+  color: #4F535A;
+  white-space: nowrap;
+  background-color: #FFFFFF;
+  border: 1px solid #D5D7DE;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+.chipGroup .chipItem:hover {
+  border-color: #4F535A;
+}
+.chipGroup .chipItem.isActive {
+  color: #FFFFFF;
+  font-weight: 500;
+  background-color: #4F535A;
+  border-color: #4F535A;
 }
 
 /* ==========================================================================
@@ -1294,6 +1335,9 @@ body {
   gap: 8px;
   flex-wrap: wrap;
 }
+.formRow.gapLg {
+  column-gap: 24px;
+}
 .formRow.full {
   flex: 1;
   min-width: 0;
@@ -1302,6 +1346,12 @@ body {
 .formRow.full .formControlWrap {
   flex: 1;
   min-width: 0;
+}
+
+.formField {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .formControlWrap {
@@ -1381,6 +1431,10 @@ body {
   opacity: 1;
 }
 
+.formControlWrap + .formGuideText {
+  margin-top: 6px;
+}
+
 fieldset {
   min-width: 0;
   margin: 0;
@@ -1403,7 +1457,7 @@ fieldset {
   font-family: inherit;
 }
 .formControl.wXs {
-  width: 120px;
+  width: 100px;
 }
 .formControl.wSm {
   width: 140px;
@@ -1443,6 +1497,41 @@ textarea.formControl {
   padding: 12px;
   resize: vertical;
   resize: none;
+}
+
+.textareaBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #D5D7DE;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+.textareaBox:hover {
+  border-color: #8D919B;
+}
+.textareaBox:focus-within {
+  border-color: #287EFF;
+  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
+}
+.textareaBox textarea.formControl {
+  padding-bottom: 0;
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.textareaBox .textCount {
+  align-self: flex-end;
+  padding: 4px 12px 10px;
+}
+
+.textCount {
+  font-size: 13px;
+  color: #8D919B;
+}
+.textCount .current {
+  color: #2F3034;
 }
 
 select.formControl {
@@ -1616,6 +1705,7 @@ select.formControl.wAuto {
 }
 
 .tagChip {
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -2329,6 +2419,32 @@ select.formControl.wAuto {
   min-width: 200px;
 }
 
+.isUp::before,
+.isDown::before {
+  display: inline-block;
+  margin-right: 2px;
+  font-size: 8px;
+  vertical-align: 2px;
+}
+
+.isUp {
+  color: #287EFF;
+}
+.isUp::before {
+  content: "▲";
+}
+
+.isDown {
+  color: #F23F3F;
+}
+.isDown::before {
+  content: "▼";
+}
+
+.isFlat {
+  color: #4F535A;
+}
+
 .kpiCard {
   background-color: #FFFFFF;
   border: 1px solid #F0F0F3;
@@ -2397,27 +2513,6 @@ select.formControl.wAuto {
 }
 .kpiCard .kpiContent .kpiSub .rate {
   font-weight: 500;
-}
-.kpiCard .kpiContent .kpiSub .rate.isUp::before, .kpiCard .kpiContent .kpiSub .rate.isDown::before {
-  display: inline-block;
-  margin-right: 2px;
-  font-size: 8px;
-  vertical-align: 2px;
-}
-.kpiCard .kpiContent .kpiSub .rate.isUp {
-  color: #F23F3F;
-}
-.kpiCard .kpiContent .kpiSub .rate.isUp::before {
-  content: "▲";
-}
-.kpiCard .kpiContent .kpiSub .rate.isDown {
-  color: #287EFF;
-}
-.kpiCard .kpiContent .kpiSub .rate.isDown::before {
-  content: "▼";
-}
-.kpiCard .kpiContent .kpiSub .rate.isFlat {
-  color: #4F535A;
 }
 .kpiCard.valueBottom .kpiContent {
   align-self: flex-end;
@@ -4431,6 +4526,28 @@ select.formControl.wAuto {
   display: grid;
   width: 100%;
 }
+.chartGrid.col2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+.chartGrid.col2 > .chartBox {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0;
+}
+.chartGrid.col2 > .chartBox > .chartHeader {
+  grid-row: 1;
+  align-self: start;
+}
+.chartGrid.col2 > .chartBox > .chartLegend {
+  grid-row: 2;
+  align-self: end;
+}
+.chartGrid.col2 > .chartBox > .chartArea {
+  grid-row: 3;
+}
 .chartGrid .span2 {
   grid-column: span 2;
 }
@@ -4449,6 +4566,13 @@ select.formControl.wAuto {
   gap: 4px;
   min-width: 0;
 }
+.chartHeader .chartTitleWrap.inline {
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
 .chartHeader .chartTitle {
   margin: 0;
   font-size: 15px;
@@ -4463,6 +4587,12 @@ select.formControl.wAuto {
   font-size: 13px;
   color: #8D919B;
 }
+.chartHeader .chartUnit {
+  margin-left: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #8D919B;
+}
 .chartHeader .chartActions {
   display: flex;
   align-items: center;
@@ -4475,6 +4605,7 @@ select.formControl.wAuto {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 6px 16px;
   margin: 0 0 12px;
   padding: 0;
@@ -4549,6 +4680,9 @@ select.formControl.wAuto {
 .chartArea.h360 {
   height: 360px;
 }
+.chartArea:has(> .labelLines2) {
+  margin-bottom: 16px;
+}
 .chartArea.isEmpty canvas {
   visibility: hidden;
 }
@@ -4593,6 +4727,234 @@ select.formControl.wAuto {
   border-radius: 8px;
   font-size: 14px;
   color: #8D919B;
+}
+
+/* --------------------------------------------------------------------------
+   카테고리형 차트 (그룹 막대 / 라인)
+   - 가로축이 카테고리(미션명, 월 등)이고 세로축 눈금이 고정인 차트
+     (lightweight-charts 는 시간축 전용 + 눈금 자동 계산이라 HTML/SVG 로 구현)
+   [D] .chartArea 안에 스크립트로 생성
+       .categoryChart > .axisY(세로축 라벨) + .plot > .gridLine + [.lineSvg + .lineDot] + .group > [.barItem | .barStack > .barItem] + .label
+       막대 높이: style="height: {값/최대값*100}%", 시리즈 숨김: .series{n}.isOff
+   -------------------------------------------------------------------------- */
+.categoryChart {
+  display: flex;
+  height: 100%;
+  padding-top: 16px;
+  padding-bottom: 28px;
+  font-size: 12px;
+  color: var(--chart-text);
+}
+.categoryChart .axisY {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.categoryChart .axisY li {
+  position: absolute;
+  right: 8px;
+  transform: translateY(50%);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.categoryChart .plot {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  border-bottom: 1px solid var(--chart-border);
+}
+.categoryChart .gridLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--chart-grid);
+}
+.categoryChart .group {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  padding: 0 4px;
+  border-radius: 4px 4px 0 0;
+  cursor: default;
+}
+.categoryChart .group:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.categoryChart .barItem {
+  flex: 0 1 12px;
+  min-width: 2px;
+  border-radius: 2px 2px 0 0;
+  background-color: var(--legend-color, var(--chart-series-1));
+  transition: height 0.3s ease;
+}
+.categoryChart .barItem.isOff {
+  display: none;
+}
+.categoryChart.single .barItem {
+  flex-basis: 32px;
+}
+.categoryChart.labelLines2 {
+  height: calc(100% + 16px);
+  padding-bottom: 44px;
+}
+.categoryChart.labelLines2 .label {
+  white-space: normal;
+}
+.categoryChart .barStack {
+  display: flex;
+  flex: 0 1 28px;
+  flex-direction: column-reverse;
+  min-width: 4px;
+  height: 100%;
+}
+.categoryChart .barStack .barItem {
+  flex: none;
+  border-radius: 0;
+}
+.categoryChart .lineSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.categoryChart .lineSvg polyline {
+  fill: none;
+  stroke: var(--legend-color, var(--chart-series-1));
+  stroke-width: 2;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.categoryChart .lineSvg .isOff {
+  display: none;
+}
+.categoryChart .lineDot {
+  position: absolute;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  margin: 0 0 -4px -4px;
+  border: 2px solid var(--chart-bg);
+  border-radius: 50%;
+  background-color: var(--legend-color, var(--chart-series-1));
+  pointer-events: none;
+}
+.categoryChart .lineDot.isOff {
+  display: none;
+}
+.categoryChart .label {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  text-align: center;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.categoryChart .series1 {
+  --legend-color: var(--chart-series-1);
+}
+.categoryChart .series2 {
+  --legend-color: var(--chart-series-2);
+}
+.categoryChart .series3 {
+  --legend-color: var(--chart-series-3);
+}
+.categoryChart .series4 {
+  --legend-color: var(--chart-series-4);
+}
+.categoryChart .series5 {
+  --legend-color: var(--chart-series-5);
+}
+.categoryChart .series6 {
+  --legend-color: var(--chart-series-6);
+}
+
+/* --------------------------------------------------------------------------
+   도넛(원형) 차트 - SVG 마크업
+   [D] 원 둘레 100 기준 (r="15.915")
+       조각: stroke-dasharray="{비율} {100-비율}", stroke-dashoffset="{25 - 앞 조각 비율 합}" (12시 방향 시작)
+       트랙(.donutTrack) = 나머지(잔액) 영역
+   -------------------------------------------------------------------------- */
+.donutChart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.donutChart .donutSvg {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 1;
+}
+.donutChart .donutSvg circle {
+  fill: none;
+  stroke-width: 6;
+}
+.donutChart .donutTrack {
+  stroke: #E7E9ED;
+}
+.donutChart .donutSeg {
+  stroke: var(--legend-color, var(--chart-series-1));
+}
+.donutChart .donutCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+}
+.donutChart .donutLabel {
+  font-size: 13px;
+  color: #8D919B;
+}
+.donutChart .donutValue {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1F192F;
+}
+.donutChart .donutValue .unit {
+  margin-left: 2px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.donutChart .series1 {
+  --legend-color: var(--chart-series-1);
+}
+.donutChart .series2 {
+  --legend-color: var(--chart-series-2);
+}
+.donutChart .series3 {
+  --legend-color: var(--chart-series-3);
+}
+.donutChart .series4 {
+  --legend-color: var(--chart-series-4);
+}
+.donutChart .series5 {
+  --legend-color: var(--chart-series-5);
+}
+.donutChart .series6 {
+  --legend-color: var(--chart-series-6);
 }
 
 /* --------------------------------------------------------------------------
@@ -6090,6 +6452,41 @@ body.isDndActive * {
 
 .sectionBox .tblTop {
   margin-bottom: -4px;
+}
+
+.btnFoldToggle {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #D5D7DE;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+.btnFoldToggle::before, .btnFoldToggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 1.5px;
+  background-color: #4F535A;
+  transform: translate(-50%, -50%);
+}
+.btnFoldToggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.foldBox.isOpen .btnFoldToggle::after {
+  display: none;
+}
+.foldBox:not(.isOpen) > .section:not(:first-child),
+.foldBox:not(.isOpen) > .section:first-child > .tblWrap {
+  display: none;
+}
+.foldBox:not(.isOpen) > .section:first-child > .tblTop {
+  margin-bottom: 0;
 }
 
 /* ==========================================================================

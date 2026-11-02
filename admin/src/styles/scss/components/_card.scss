@@ -47,6 +47,36 @@
   }
 }
 
+.isUp,
+.isDown {
+  &::before {
+    display: inline-block;
+    margin-right: 2px;
+    font-size: 8px;
+    vertical-align: 2px;
+  }
+}
+
+.isUp {
+  color: $text-down;
+  
+  &::before {
+    content: '▲';
+  }
+}
+
+.isDown {
+  color: $text-danger;
+
+  &::before {
+    content: '▼';
+  }
+}
+
+.isFlat {
+  color: $text-secondary;
+}
+
 
 .kpiCard {
   background-color: $box-bg;
@@ -127,35 +157,6 @@
       .rate {
         font-weight: $font-weight-medium;
 
-        &.isUp,
-        &.isDown {
-          &::before {
-            display: inline-block;
-            margin-right: 2px;
-            font-size: 8px;
-            vertical-align: 2px;
-          }
-        }
-
-        &.isUp {
-          color: $text-danger;
-
-          &::before {
-            content: '▲';
-          }
-        }
-
-        &.isDown {
-          color: $text-down;
-
-          &::before {
-            content: '▼';
-          }
-        }
-
-        &.isFlat {
-          color: $text-secondary;
-        }
       }
     }
   }

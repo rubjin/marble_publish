@@ -1,0 +1,601 @@
+<include src="../../layout/layoutDefault.html" title="미션분석">
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="미션분석" breadcrumb=""></include>
+
+
+<!-- 검색 조건 컨트롤 박스 -->
+<section class="section searchBox">
+  <div class="searchRow">
+    <div class="searchItem">
+      <span class="searchLabel">조회기간</span>
+      <div class="searchField">
+        <div class="formRow">
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date" shortcuts="일,주,월,누적"></include>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include src="../../partials/searchBtnArea.html"></include>
+</section>
+  
+<section class="section">
+  <div class="kpiCardGrid">
+    <div class="kpiCard">
+      <span class="kpiTitle">전체미션(운영중)</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>5/7</strong><span class="unit">건</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">총 진입고객</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>125,430</strong><span class="unit">명</span></div>
+       <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">총 참여고객</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>86,210</strong><span class="unit">명</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">총 달성고객</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>42,580</strong><span class="unit">명</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">총 평균달성률</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>28.7</strong><span class="unit">%</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="" unit="" title="전체 미션비교">
+      <div class="tooltipGroup">
+        <p class="tblGuide">(기준일자: 2026.08.30)</p>
+        <div class="tooltipWrap left">
+          <button type="button" class="tooltipBtn">?</button>
+          <div class="tooltipContent multiLine textLeft">
+            <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+           툴팁내용
+          </div>
+        </div>
+      </div>
+    </include>
+
+    <div class="chartGrid col2">
+      <!-- 그룹 막대 차트 : 미션별 고객수 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">미션별 고객수<span class="chartUnit">(단위: 명)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>미진입</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>오퍼링진입</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker"></span>미션진입</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker"></span>미션참여</span></li>
+          <li><span class="legendItem series5"><span class="legendMarker"></span>Level4(미션달성)</span></li>
+        </ul>
+
+        <div class="chartArea" id="missionCustomerChart">
+          <!-- [D] 툴팁 내용 / 위치는 아래 스크립트에서 막대 그룹 hover 시 갱신 -->
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 그룹 막대 차트 : 미션별 단계 전환율 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">미션별 단계 전환율<span class="chartUnit">(단위: %)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>진입률</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>참여율</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker"></span>진입참여율</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker"></span>달성율</span></li>
+          <li><span class="legendItem series5"><span class="legendMarker"></span>해지율</span></li>
+        </ul>
+
+        <div class="chartArea" id="missionRateChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 미션별 추이비교 : 미션 1개 선택 케이스 (단계별 시리즈) -->
+  <div class="sectionBox">
+    <!-- 타이틀 옆 미션 선택 버튼이 있어 tblTop 파셜 대신 직접 마크업 -->
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">미션별 추이비교</h3>
+        <!-- [D] 다중선택 버튼 : 선택 항목 .isActive (여러 개 선택 가능) -->
+        <div class="chipGroup">
+          <button type="button" class="chipItem isActive">전체</button>
+          <button type="button" class="chipItem">주식쭈꾸미</button>
+          <button type="button" class="chipItem">오늘의 콕</button>
+          <button type="button" class="chipItem">스탁뷰</button>
+          <button type="button" class="chipItem">자산성장트레킹</button>
+          <button type="button" class="chipItem">CMA행운룰렛</button>
+          <button type="button" class="chipItem">연금습관성장하기</button>
+        </div>
+      </div>
+      <div class="tblRight">
+        <div class="tooltipGroup">
+          <p class="tblGuide">(기준일자: 2026.08.01 ~ 2026.08.30)</p>
+          <div class="tooltipWrap left">
+            <button type="button" class="tooltipBtn">?</button>
+            <div class="tooltipContent multiLine textLeft">
+              <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+              툴팁내용
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chartGrid col2">
+      <!-- 라인 차트 : 단계별 고객수 추이 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">단계별 고객수 추이<span class="chartUnit">(단위: 명)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>오퍼링진입</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>미션진입</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>미션참여</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker line"></span>미션달성</span></li>
+        </ul>
+
+        <div class="chartArea" id="stageCustomerTrendChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 라인 차트 : 단계별 전환율 추이 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">단계별 전환율 추이<span class="chartUnit">(단위: %)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>진입률</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>참여율</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>진입참여율</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker line"></span>해지율</span></li>
+        </ul>
+
+        <div class="chartArea" id="stageRateTrendChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 미션별 추이비교 : 미션 다중선택 케이스 (선택 미션별 시리즈 + 단계 선택) -->
+  <div class="sectionBox">
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">미션별 추이비교</h3>
+        <div class="chipGroup">
+          <button type="button" class="chipItem">전체</button>
+          <button type="button" class="chipItem isActive">주식쭈꾸미</button>
+          <button type="button" class="chipItem isActive">오늘의 콕</button>
+          <button type="button" class="chipItem isActive">스탁뷰</button>
+          <button type="button" class="chipItem">자산성장트레킹</button>
+          <button type="button" class="chipItem">CMA행운룰렛</button>
+          <button type="button" class="chipItem">연금습관성장하기</button>
+        </div>
+      </div>
+      <div class="tblRight">
+        <div class="tooltipGroup">
+          <p class="tblGuide">(기준일자: 2026.08.01 ~ 2026.08.30)</p>
+          <div class="tooltipWrap left">
+            <button type="button" class="tooltipBtn">?</button>
+            <div class="tooltipContent multiLine textLeft">
+              <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+              툴팁내용
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chartGrid col2">
+      <!-- 라인 차트 : 미션별 고객수 추이 (단계 선택) -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap inline">
+            <h3 class="chartTitle">미션별 고객수 추이<span class="chartUnit">(단위: 명)</span></h3>
+            <!-- [D] 선택된 항목에 .isActive 클래스 바인딩 -->
+            <div class="segment">
+              <button type="button" class="segmentItem isActive">진입</button>
+              <button type="button" class="segmentItem">참여</button>
+              <button type="button" class="segmentItem">달성</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- [D] 범례 = 선택한 미션 (선택 순서대로 .series1 ~) -->
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>주식쭈꾸미</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>오늘의 콕</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>스탁뷰</span></li>
+        </ul>
+
+        <div class="chartArea" id="multiCustomerTrendChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 라인 차트 : 미션별 전환율 추이 (단계 선택) -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap inline">
+            <h3 class="chartTitle">미션별 전환율 추이<span class="chartUnit">(단위: %)</span></h3>
+            <div class="segment">
+              <button type="button" class="segmentItem isActive">진입</button>
+              <button type="button" class="segmentItem">참여</button>
+              <button type="button" class="segmentItem">달성</button>
+            </div>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>주식쭈꾸미</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>오늘의 콕</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>스탁뷰</span></li>
+        </ul>
+
+        <div class="chartArea" id="multiRateTrendChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 개인화 참여군 / 자발 참여군 비교 -->
+  <div class="sectionBox">
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">개인화 참여군/자발참여군 비교</h3>
+        <!-- [D] 선택 미션 기준으로 데이터 재조회 -->
+        <select class="formControl wSm">
+          <option value="">전체</option>
+          <option value="">주식쭈꾸미</option>
+          <option value="">오늘의 콕</option>
+          <option value="">스탁뷰</option>
+          <option value="">자산성장트레킹</option>
+          <option value="">CMA행운룰렛</option>
+          <option value="">연금습관성장하기</option>
+        </select>
+      </div>
+      <div class="tblRight">
+        <div class="tooltipGroup">
+          <p class="tblGuide">(기준일자: 2026.08.01 ~ 2026.08.30)</p>
+          <div class="tooltipWrap left">
+            <button type="button" class="tooltipBtn">?</button>
+            <div class="tooltipContent multiLine textLeft">
+              <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+              개인화 참여군(Push) : 개인화 메시지(Push)를 통해 미션에 참여한 고객<br />
+              자발 참여군(Pull) : 메시지 없이 직접 미션에 참여한 고객
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chartGrid col2">
+      <!-- 누적 막대 차트 : 개인화 참여군(Push) -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">개인화 참여군(Push)<span class="chartUnit">(단위: 명)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>미션진입</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>미션참여</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker"></span>미션달성</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker"></span>종료고객</span></li>
+        </ul>
+
+        <div class="chartArea" id="pushGroupChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 누적 막대 차트 : 자발 참여군(Pull) -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">자발 참여군(Pull)<span class="chartUnit">(단위: 명)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>미션진입</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>미션참여</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker"></span>미션달성</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker"></span>종료고객</span></li>
+        </ul>
+
+        <div class="chartArea" id="pullGroupChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 라인 차트 : 개인화/자발 고객 근접률 추이 (전체 너비) -->
+      <div class="chartBox span2">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">개인화/자발 고객 근접률 추이<span class="chartUnit">(단위: %)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>참여근접률</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>달성근접률</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>해지근접률</span></li>
+        </ul>
+
+        <div class="chartArea" id="proximityTrendChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 미션분석 차트 (카테고리형 가로축 막대 / 라인 - HTML·SVG 렌더링 + 공통 차트 테마 클래스) -->
+<script type="module">
+  import { formatNumber } from '../../assets/js/chartTheme.js';
+
+  /**
+   * 카테고리형 차트 렌더링 (그룹 막대 / 라인)
+   * @param {HTMLElement} el      .chartArea 컨테이너
+   * @param {object} opt
+   *   - type       : 'bar' | 'stack'(누적 막대) | 'line' (기본 'bar')
+   *   - categories : 가로축 항목
+   *   - names      : 시리즈명 (범례 순서와 동일)
+   *   - values     : [시리즈][항목] 값
+   *   - max, step  : 세로축 최대값 / 눈금 간격
+   *   - format     : 값 표기 함수 (세로축 라벨 / 툴팁)
+   */
+  function renderCategoryChart(el, opt) {
+    var isLine = opt.type === 'line';
+    var count = opt.categories.length;
+    var ticks = [];
+    for (var t = 0; t <= opt.max; t += opt.step) ticks.push(t);
+    var ratio = function (v) { return Math.min(v / opt.max * 100, 100); };
+    var pct = function (v) { return ratio(v) + '%'; };
+    var centerX = function (ci) { return (ci + 0.5) / count * 100; };
+
+    // 라인 : 카테고리 중앙에 점을 찍고 SVG 로 연결
+    var lineHtml = !isLine ? '' :
+      '<svg class="lineSvg" viewBox="0 0 100 100" preserveAspectRatio="none">' +
+      opt.names.map(function (n, si) {
+        var points = opt.values[si].map(function (v, ci) { return centerX(ci) + ',' + (100 - ratio(v)); }).join(' ');
+        return '<polyline class="series' + (si + 1) + '" points="' + points + '"></polyline>';
+      }).join('') + '</svg>' +
+      opt.names.map(function (n, si) {
+        return opt.values[si].map(function (v, ci) {
+          return '<span class="lineDot series' + (si + 1) + '" style="left: ' + centerX(ci) + '%; bottom: ' + pct(v) + ';"></span>';
+        }).join('');
+      }).join('');
+
+    var html = '<div class="categoryChart"><ul class="axisY">' +
+      ticks.map(function (v) { return '<li style="bottom: ' + pct(v) + ';">' + opt.format(v) + '</li>'; }).join('') +
+      '</ul><div class="plot">' +
+      ticks.map(function (v) { return v ? '<span class="gridLine" style="bottom: ' + pct(v) + ';"></span>' : ''; }).join('') +
+      lineHtml +
+      opt.categories.map(function (c, ci) {
+        var bars = isLine ? '' : opt.names.map(function (n, si) {
+          return '<span class="barItem series' + (si + 1) + '" style="height: ' + pct(opt.values[si][ci]) + ';"></span>';
+        }).join('');
+        if (opt.type === 'stack') bars = '<div class="barStack">' + bars + '</div>';
+        return '<div class="group" data-index="' + ci + '">' + bars + '<span class="label">' + c + '</span></div>';
+      }).join('') +
+      '</div></div>';
+
+    var tooltip = el.querySelector('.chartTooltip');
+    el.insertAdjacentHTML('afterbegin', html);
+
+    // 툴팁 (카테고리 영역 hover)
+    el.querySelectorAll('.group').forEach(function (group) {
+      group.addEventListener('mousemove', function (e) {
+        var ci = Number(group.dataset.index);
+        var rows = opt.names.map(function (n, si) {
+          return '<li class="tooltipItem series' + (si + 1) + '"><span class="legendMarker"></span>' + n +
+                 '<span class="tooltipValue">' + opt.format(opt.values[si][ci]) + '</span></li>';
+        }).join('');
+        tooltip.innerHTML = '<span class="tooltipDate">' + opt.categories[ci] + '</span><ul class="tooltipList">' + rows + '</ul>';
+
+        var rect = el.getBoundingClientRect();
+        var px = e.clientX - rect.left, py = e.clientY - rect.top;
+        var w = tooltip.offsetWidth, h = tooltip.offsetHeight;
+        var x = px + 16;
+        if (x + w > el.clientWidth) x = px - w - 16;
+        var y = Math.max(0, Math.min(py - h / 2, el.clientHeight - h));
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+        tooltip.classList.add('isOpen');
+      });
+      group.addEventListener('mouseleave', function () {
+        tooltip.classList.remove('isOpen');
+      });
+    });
+  }
+
+  // [D] 퍼블 확인용 데모 데이터 - 실제 데이터로 교체
+  var missions = ['주식쭈꾸미', '오늘의 콕', '스탁뷰', '자산성장트레킹', 'CMA행운룰렛', '연금습관성장하기'];
+
+  renderCategoryChart(document.getElementById('missionCustomerChart'), {
+    categories: missions,
+    names: ['미진입', '오퍼링진입', '미션진입', '미션참여', 'Level4(미션달성)'],
+    values: [
+      [5200, 4100, 3600, 2800, 4500, 3000],
+      [4600, 3800, 3100, 2500, 4000, 2700],
+      [3900, 3200, 2600, 2100, 3400, 2200],
+      [3100, 2500, 1900, 1600, 2700, 1700],
+      [1800, 1400, 1000, 900, 1500, 800]
+    ],
+    max: 6000,
+    step: 1000,
+    format: function (v) { return formatNumber(v); }
+  });
+
+  renderCategoryChart(document.getElementById('missionRateChart'), {
+    categories: missions,
+    names: ['진입률', '참여율', '진입참여율', '달성율', '해지율'],
+    values: [
+      [84.8, 84.2, 83.9, 84.0, 85.0, 81.5],
+      [79.5, 78.1, 73.1, 76.2, 79.4, 77.3],
+      [67.4, 65.8, 61.3, 64.0, 67.5, 63.0],
+      [58.1, 56.0, 52.6, 56.3, 55.6, 47.1],
+      [12.3, 9.8, 15.4, 11.2, 8.7, 14.6]
+    ],
+    max: 100,
+    step: 50,
+    format: function (v) { return formatNumber(v) + '%'; }
+  });
+
+  // 미션별 추이비교
+  var months = ['2026.02', '2026.03', '2026.04', '2026.05', '2026.06', '2026.07', '2026.08'];
+
+  renderCategoryChart(document.getElementById('stageCustomerTrendChart'), {
+    type: 'line',
+    categories: months,
+    names: ['오퍼링진입', '미션진입', '미션참여', '미션달성'],
+    values: [
+      [5200, 5600, 6100, 5900, 6500, 7000, 7400],
+      [4100, 4500, 4900, 4700, 5300, 5600, 6000],
+      [2800, 3100, 3500, 3300, 3800, 4100, 4400],
+      [1200, 1400, 1700, 1600, 1900, 2100, 2300]
+    ],
+    max: 8000,
+    step: 2000,
+    format: function (v) { return formatNumber(v); }
+  });
+
+  renderCategoryChart(document.getElementById('stageRateTrendChart'), {
+    type: 'line',
+    categories: months,
+    names: ['진입률', '참여율', '진입참여율', '해지율'],
+    values: [
+      [78.85, 80.36, 80.33, 79.66, 81.54, 80.00, 81.08],
+      [68.29, 68.89, 71.43, 70.21, 71.70, 73.21, 73.33],
+      [53.85, 55.36, 57.38, 55.93, 58.46, 58.57, 59.46],
+      [12.40, 11.85, 10.92, 11.37, 9.84, 9.51, 8.76]
+    ],
+    max: 80,
+    step: 20,
+    format: function (v) { return v.toFixed(2) + '%'; }
+  });
+
+  // 미션별 추이비교 - 다중선택 케이스 (선택 미션별 시리즈)
+  var selectedMissions = ['주식쭈꾸미', '오늘의 콕', '스탁뷰'];
+
+  renderCategoryChart(document.getElementById('multiCustomerTrendChart'), {
+    type: 'line',
+    categories: months,
+    names: selectedMissions,
+    values: [
+      [5470, 5930, 6460, 6230, 6840, 7220, 7600],
+      [4460, 4840, 5270, 5080, 5580, 5890, 6200],
+      [3600, 3900, 4250, 4100, 4500, 4750, 5000]
+    ],
+    max: 8000,
+    step: 2000,
+    format: function (v) { return formatNumber(v); }
+  });
+
+  renderCategoryChart(document.getElementById('multiRateTrendChart'), {
+    type: 'line',
+    categories: months,
+    names: selectedMissions,
+    values: [
+      [75.62, 75.71, 76.29, 75.92, 76.65, 77.04, 77.26],
+      [70.07, 69.88, 70.49, 70.13, 70.37, 71.10, 71.63],
+      [64.15, 64.27, 64.12, 64.55, 65.03, 64.69, 65.26]
+    ],
+    max: 80,
+    step: 20,
+    format: function (v) { return v.toFixed(2) + '%'; }
+  });
+
+  // 개인화 참여군 / 자발 참여군 비교 (누적 막대)
+  var stageNames = ['미션진입', '미션참여', '미션달성', '종료고객'];
+
+  renderCategoryChart(document.getElementById('pushGroupChart'), {
+    type: 'stack',
+    categories: months,
+    names: stageNames,
+    values: [
+      [5200, 5600, 6100, 5800, 6400, 6900, 7300],
+      [3800, 4100, 4500, 4300, 4700, 5100, 5400],
+      [2100, 2300, 2600, 2400, 2800, 3100, 3300],
+      [900, 1000, 1100, 1200, 1300, 1400, 1500]
+    ],
+    max: 20000,
+    step: 5000,
+    format: function (v) { return formatNumber(v); }
+  });
+
+  renderCategoryChart(document.getElementById('pullGroupChart'), {
+    type: 'stack',
+    categories: months,
+    names: stageNames,
+    values: [
+      [3400, 3600, 3900, 3700, 4100, 4400, 4600],
+      [2200, 2400, 2600, 2500, 2800, 3000, 3200],
+      [1100, 1200, 1400, 1300, 1500, 1700, 1800],
+      [700, 750, 800, 850, 900, 950, 1000]
+    ],
+    max: 20000,
+    step: 5000,
+    format: function (v) { return formatNumber(v); }
+  });
+
+  renderCategoryChart(document.getElementById('proximityTrendChart'), {
+    type: 'line',
+    categories: months,
+    names: ['참여근접률', '달성근접률', '해지근접률'],
+    values: [
+      [112.4, 115.8, 121.3, 118.6, 124.9, 131.2, 135.7],
+      [96.5, 101.2, 104.8, 99.7, 108.3, 112.6, 117.4],
+      [42.1, 39.8, 37.5, 40.2, 35.6, 33.9, 31.4]
+    ],
+    max: 150,
+    step: 50,
+    format: function (v) { return formatNumber(v) + '%'; }
+  });
+</script>
+
+
+</include>

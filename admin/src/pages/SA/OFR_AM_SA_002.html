@@ -1,0 +1,297 @@
+<include src="../../layout/layoutDefault.html" title="비용분석">
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="비용분석" breadcrumb=""></include>
+
+
+<!-- 검색 조건 컨트롤 박스 -->
+<section class="section searchBox">
+  <div class="searchRow">
+    <div class="searchItem">
+      <span class="searchLabel">조회기간</span>
+      <div class="searchField">
+        <div class="formRow">
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date" shortcuts="일,주,월,누적"></include>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include src="../../partials/searchBtnArea.html"></include>
+</section>
+  
+<section class="section">
+  <div class="kpiCardGrid">
+    <div class="kpiCard">
+      <span class="kpiTitle">총 예산</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>100,000,000</strong><span class="unit">원</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">당일 지급금</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>125,430</strong><span class="unit">원</span></div>
+       <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">누적지급금</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>86,210</strong><span class="unit">원</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">잔여한도</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>42,580</strong><span class="unit">원</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">한도 소진율</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>28.7</strong><span class="unit">%</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 전체 비용분석 -->
+  <div class="sectionBox">
+    <include src="../../partials/tblTop.html" title="전체 비용분석">
+      <div class="tooltipGroup">
+        <p class="tblGuide">(기준일자: 2026.08.01 ~ 2026.08.30)</p>
+        <div class="tooltipWrap left">
+          <button type="button" class="tooltipBtn">?</button>
+          <div class="tooltipContent multiLine textLeft">
+            <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+           툴팁내용
+          </div>
+        </div>
+      </div>
+    </include>
+
+    <div class="chartGrid col2">
+      <!-- 도넛 차트 : 유형별 한도사용현황(연간누적) -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">유형별 한도사용현황(연간누적) <span class="chartUnit">(단위: 만원)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>포인트</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>금융상품쿠폰</span></li>
+        </ul>
+
+        <div class="chartArea h360">
+          <!-- [D] 총 한도 10,000 기준 : 포인트 3,000(30%) / 금융상품쿠폰 4,000(40%) / 잔액 3,000(30%, 트랙) -->
+          <div class="donutChart">
+            <svg class="donutSvg" viewBox="0 0 42 42">
+              <circle class="donutTrack" cx="21" cy="21" r="15.915"></circle>
+              <circle class="donutSeg series1" cx="21" cy="21" r="15.915" stroke-dasharray="30 70" stroke-dashoffset="25"></circle>
+              <circle class="donutSeg series2" cx="21" cy="21" r="15.915" stroke-dasharray="40 60" stroke-dashoffset="-5"></circle>
+            </svg>
+            <div class="donutCenter">
+              <span class="donutLabel">총 한도</span>
+              <strong class="donutValue">10,000<span class="unit">만원</span></strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 누적 막대 차트 : 리워드 지급현황 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">리워드 지급현황<span class="chartUnit">(단위: 만원)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>포인트</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>금융쿠폰</span></li>
+        </ul>
+
+        <div class="chartArea h360" id="rewardPaymentChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 미션별 비용분석 -->
+  <div class="sectionBox">
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">미션별 비용분석</h3>
+        <!-- [D] 선택된 항목에 .isActive 클래스 바인딩 -->
+        <div class="segment">
+          <button type="button" class="segmentItem isActive">전체</button>
+          <button type="button" class="segmentItem">포인트</button>
+          <button type="button" class="segmentItem">금융상품쿠폰</button>
+        </div>
+      </div>
+      <div class="tblRight">
+        <div class="tooltipGroup">
+          <p class="tblGuide">(기준일자: 2026.08.01 ~ 2026.08.30)</p>
+          <div class="tooltipWrap left">
+            <button type="button" class="tooltipBtn">?</button>
+            <div class="tooltipContent multiLine textLeft">
+              <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+              툴팁내용
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chartGrid">
+      <!-- 라인 차트 : 미션별 리워드 지급추이 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">미션별 리워드 지급추이<span class="chartUnit">(단위: 만원)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>주식쭈꾸미</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>오늘의 콕</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>스탁뷰</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker line"></span>자산성장트레킹</span></li>
+          <li><span class="legendItem series5"><span class="legendMarker line"></span>CMA 행운룰렛</span></li>
+          <li><span class="legendItem series6"><span class="legendMarker line"></span>연금습관성장하기</span></li>
+        </ul>
+
+        <div class="chartArea h360" id="missionRewardTrendChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 비용분석 차트 (카테고리형 가로축 막대 / 라인 - HTML·SVG 렌더링 + 공통 차트 테마 클래스) -->
+<!-- [D] 도넛 차트는 SVG 마크업으로 작성 (스크립트 없음) -->
+<script type="module">
+  import { formatNumber } from '../../assets/js/chartTheme.js';
+
+  /**
+   * 카테고리형 차트 렌더링 (누적 막대 / 라인)
+   * @param {HTMLElement} el      .chartArea 컨테이너
+   * @param {object} opt
+   *   - type       : 'bar' | 'stack'(누적 막대) | 'line' (기본 'bar')
+   *   - categories : 가로축 항목
+   *   - names      : 시리즈명 (범례 순서와 동일)
+   *   - values     : [시리즈][항목] 값
+   *   - max, step  : 세로축 최대값 / 눈금 간격
+   *   - format     : 값 표기 함수 (세로축 라벨 / 툴팁)
+   */
+  function renderCategoryChart(el, opt) {
+    var isLine = opt.type === 'line';
+    var count = opt.categories.length;
+    var ticks = [];
+    for (var t = 0; t <= opt.max; t += opt.step) ticks.push(t);
+    var ratio = function (v) { return Math.min(v / opt.max * 100, 100); };
+    var pct = function (v) { return ratio(v) + '%'; };
+    var centerX = function (ci) { return (ci + 0.5) / count * 100; };
+
+    // 라인 : 카테고리 중앙에 점을 찍고 SVG 로 연결
+    var lineHtml = !isLine ? '' :
+      '<svg class="lineSvg" viewBox="0 0 100 100" preserveAspectRatio="none">' +
+      opt.names.map(function (n, si) {
+        var points = opt.values[si].map(function (v, ci) { return centerX(ci) + ',' + (100 - ratio(v)); }).join(' ');
+        return '<polyline class="series' + (si + 1) + '" points="' + points + '"></polyline>';
+      }).join('') + '</svg>' +
+      opt.names.map(function (n, si) {
+        return opt.values[si].map(function (v, ci) {
+          return '<span class="lineDot series' + (si + 1) + '" style="left: ' + centerX(ci) + '%; bottom: ' + pct(v) + ';"></span>';
+        }).join('');
+      }).join('');
+
+    var html = '<div class="categoryChart"><ul class="axisY">' +
+      ticks.map(function (v) { return '<li style="bottom: ' + pct(v) + ';">' + opt.format(v) + '</li>'; }).join('') +
+      '</ul><div class="plot">' +
+      ticks.map(function (v) { return v ? '<span class="gridLine" style="bottom: ' + pct(v) + ';"></span>' : ''; }).join('') +
+      lineHtml +
+      opt.categories.map(function (c, ci) {
+        var bars = isLine ? '' : opt.names.map(function (n, si) {
+          return '<span class="barItem series' + (si + 1) + '" style="height: ' + pct(opt.values[si][ci]) + ';"></span>';
+        }).join('');
+        if (opt.type === 'stack') bars = '<div class="barStack">' + bars + '</div>';
+        return '<div class="group" data-index="' + ci + '">' + bars + '<span class="label">' + c + '</span></div>';
+      }).join('') +
+      '</div></div>';
+
+    var tooltip = el.querySelector('.chartTooltip');
+    el.insertAdjacentHTML('afterbegin', html);
+
+    // 툴팁 (카테고리 영역 hover)
+    el.querySelectorAll('.group').forEach(function (group) {
+      group.addEventListener('mousemove', function (e) {
+        var ci = Number(group.dataset.index);
+        var rows = opt.names.map(function (n, si) {
+          return '<li class="tooltipItem series' + (si + 1) + '"><span class="legendMarker"></span>' + n +
+                 '<span class="tooltipValue">' + opt.format(opt.values[si][ci]) + '</span></li>';
+        }).join('');
+        tooltip.innerHTML = '<span class="tooltipDate">' + opt.categories[ci] + '</span><ul class="tooltipList">' + rows + '</ul>';
+
+        var rect = el.getBoundingClientRect();
+        var px = e.clientX - rect.left, py = e.clientY - rect.top;
+        var w = tooltip.offsetWidth, h = tooltip.offsetHeight;
+        var x = px + 16;
+        if (x + w > el.clientWidth) x = px - w - 16;
+        var y = Math.max(0, Math.min(py - h / 2, el.clientHeight - h));
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+        tooltip.classList.add('isOpen');
+      });
+      group.addEventListener('mouseleave', function () {
+        tooltip.classList.remove('isOpen');
+      });
+    });
+  }
+
+  // [D] 퍼블 확인용 데모 데이터 - 실제 데이터로 교체
+  var months = ['2026.02', '2026.03', '2026.04', '2026.05', '2026.06', '2026.07', '2026.08'];
+
+  // 리워드 지급현황 (누적 막대)
+  renderCategoryChart(document.getElementById('rewardPaymentChart'), {
+    type: 'stack',
+    categories: months,
+    names: ['포인트', '금융쿠폰'],
+    values: [
+      [2400, 2600, 2900, 2700, 3100, 3300, 3600],
+      [3100, 3400, 3800, 3500, 4000, 4300, 4700]
+    ],
+    max: 10000,
+    step: 2000,
+    format: function (v) { return formatNumber(v); }
+  });
+
+  // 미션별 리워드 지급추이 (라인)
+  renderCategoryChart(document.getElementById('missionRewardTrendChart'), {
+    type: 'line',
+    categories: months,
+    names: ['주식쭈꾸미', '오늘의 콕', '스탁뷰', '자산성장트레킹', 'CMA 행운룰렛', '연금습관성장하기'],
+    values: [
+      [3200, 3500, 3900, 3600, 4100, 4400, 4700],
+      [2600, 2800, 3100, 2900, 3300, 3500, 3800],
+      [1900, 2100, 2300, 2200, 2500, 2700, 2900],
+      [1500, 1600, 1800, 1700, 2000, 2200, 2400],
+      [2800, 3000, 3300, 3100, 3600, 3900, 4200],
+      [1100, 1200, 1400, 1300, 1500, 1700, 1800]
+    ],
+    max: 5000,
+    step: 1000,
+    format: function (v) { return formatNumber(v); }
+  });
+</script>
+
+</include>

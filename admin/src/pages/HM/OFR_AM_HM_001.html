@@ -1,0 +1,227 @@
+<include src="../../layout/layoutDefault.html" title="미션 오퍼링 운영현황">
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="미션 오퍼링 운영현황" breadcrumb="">
+    (기준일자: 2026.08.30 10:00)
+</include>
+
+<section class="section">
+  <div class="kpiCardGrid">
+    <div class="kpiCard">
+      <span class="kpiTitle">누적 미션참여 고객</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>86,210</strong><span class="unit">명</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">신규 첨여고객(당일)</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>1,580</strong><span class="unit">명</span></div>
+       <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">미션달성 고객(당일)</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>1,430</strong><span class="unit">명</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+    <div class="kpiCard">
+      <span class="kpiTitle">해지고객(당일)</span>
+      <div class="kpiContent">
+        <div class="kpiNumber"><strong>100</strong><span class="unit">명</span></div>
+        <p class="kpiSub"><span class="rate isUp">1</span>(전월 대비 <span class="">+20</span>%)</p>
+      </div>
+    </div>
+  </div>
+
+  <include src="../../partials/summaryStat.html" items="리워드지급(당일)|10,210|건; 지급오류(당일)|0|건|danger link; 총 예산소진율|60.0|%; 한도 임박 미션|1|건 (CMA행운룰렛)|link;"></include>
+
+  <div class="sectionBox">
+    <div class="chartGrid col2">
+      <!-- 라인 차트 : 미션참여 고객 전환율 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">미션참여 고객 전환율</h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>진입률</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>참여율</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>달성율</span></li>
+        </ul>
+
+        <div class="chartArea h360" id="conversionRateChart">
+          <!-- [D] 툴팁 내용 / 위치는 아래 스크립트에서 hover 시 갱신 -->
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 라인 차트 : 미션별 달성률 추이 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">미션별 달성률 추이</h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>주식쭈꾸미</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>오늘의 콕</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>스탁뷰</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker line"></span>자산성장트레킹</span></li>
+          <li><span class="legendItem series5"><span class="legendMarker line"></span>CMA행운룰렛</span></li>
+          <li><span class="legendItem series6"><span class="legendMarker line"></span>연금습관성장하기</span></li>
+        </ul>
+
+        <div class="chartArea h360" id="missionAchieveRateChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 라인 차트 : 미션참여/달성 고객 자산변동 추이 (전체 너비) -->
+      <div class="chartBox span2">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">미션참여/달성 고객 자산변동 추이</h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>총자산변동금</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>NNM</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>평가손익금</span></li>
+        </ul>
+
+        <div class="chartArea h360" id="assetChangeTrendChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 운영현황 차트 (카테고리형 가로축 라인 - SVG 렌더링 + 공통 차트 테마 클래스) -->
+<script type="module">
+  import { formatNumber } from '../../assets/js/chartTheme.js';
+
+  /**
+   * 카테고리형 라인 차트 렌더링
+   * @param {HTMLElement} el      .chartArea 컨테이너
+   * @param {object} opt
+   *   - categories : 가로축 항목
+   *   - names      : 시리즈명 (범례 순서와 동일)
+   *   - values     : [시리즈][항목] 값
+   *   - max, step  : 세로축 최대값 / 눈금 간격
+   *   - format     : 값 표기 함수 (세로축 라벨 / 툴팁)
+   */
+  function renderLineChart(el, opt) {
+    var count = opt.categories.length;
+    var ticks = [];
+    for (var t = 0; t <= opt.max; t += opt.step) ticks.push(t);
+    var ratio = function (v) { return Math.min(v / opt.max * 100, 100); };
+    var pct = function (v) { return ratio(v) + '%'; };
+    var centerX = function (ci) { return (ci + 0.5) / count * 100; };
+
+    // 카테고리 중앙에 점을 찍고 SVG 로 연결
+    var lineHtml = '<svg class="lineSvg" viewBox="0 0 100 100" preserveAspectRatio="none">' +
+      opt.names.map(function (n, si) {
+        var points = opt.values[si].map(function (v, ci) { return centerX(ci) + ',' + (100 - ratio(v)); }).join(' ');
+        return '<polyline class="series' + (si + 1) + '" points="' + points + '"></polyline>';
+      }).join('') + '</svg>' +
+      opt.names.map(function (n, si) {
+        return opt.values[si].map(function (v, ci) {
+          return '<span class="lineDot series' + (si + 1) + '" style="left: ' + centerX(ci) + '%; bottom: ' + pct(v) + ';"></span>';
+        }).join('');
+      }).join('');
+
+    var html = '<div class="categoryChart"><ul class="axisY">' +
+      ticks.map(function (v) { return '<li style="bottom: ' + pct(v) + ';">' + opt.format(v) + '</li>'; }).join('') +
+      '</ul><div class="plot">' +
+      ticks.map(function (v) { return v ? '<span class="gridLine" style="bottom: ' + pct(v) + ';"></span>' : ''; }).join('') +
+      lineHtml +
+      opt.categories.map(function (c, ci) {
+        return '<div class="group" data-index="' + ci + '"><span class="label">' + c + '</span></div>';
+      }).join('') +
+      '</div></div>';
+
+    var tooltip = el.querySelector('.chartTooltip');
+    el.insertAdjacentHTML('afterbegin', html);
+
+    // 툴팁 (카테고리 영역 hover)
+    el.querySelectorAll('.group').forEach(function (group) {
+      group.addEventListener('mousemove', function (e) {
+        var ci = Number(group.dataset.index);
+        var rows = opt.names.map(function (n, si) {
+          return '<li class="tooltipItem series' + (si + 1) + '"><span class="legendMarker"></span>' + n +
+                 '<span class="tooltipValue">' + opt.format(opt.values[si][ci]) + '</span></li>';
+        }).join('');
+        tooltip.innerHTML = '<span class="tooltipDate">' + opt.categories[ci] + '</span><ul class="tooltipList">' + rows + '</ul>';
+
+        var rect = el.getBoundingClientRect();
+        var px = e.clientX - rect.left, py = e.clientY - rect.top;
+        var w = tooltip.offsetWidth, h = tooltip.offsetHeight;
+        var x = px + 16;
+        if (x + w > el.clientWidth) x = px - w - 16;
+        var y = Math.max(0, Math.min(py - h / 2, el.clientHeight - h));
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+        tooltip.classList.add('isOpen');
+      });
+      group.addEventListener('mouseleave', function () {
+        tooltip.classList.remove('isOpen');
+      });
+    });
+  }
+
+  // [D] 퍼블 확인용 데모 데이터 - 실제 데이터로 교체
+  renderLineChart(document.getElementById('conversionRateChart'), {
+    categories: ['2026.08.01', '2026.08.02', '2026.08.03', '2026.08.04', '2026.08.05', '2026.08.06', '2026.08.07'],
+    names: ['진입률', '참여율', '달성율'],
+    values: [
+      [82.35, 83.10, 81.92, 84.27, 85.06, 84.71, 86.18],
+      [64.12, 65.48, 63.97, 66.35, 67.20, 66.84, 68.53],
+      [38.46, 39.72, 38.15, 40.63, 41.88, 41.27, 43.05]
+    ],
+    max: 100,
+    step: 20,
+    format: function (v) { return v.toFixed(2) + '%'; }
+  });
+
+  renderLineChart(document.getElementById('missionAchieveRateChart'), {
+    categories: ['2026.08.01', '2026.08.02', '2026.08.03', '2026.08.04', '2026.08.05', '2026.08.06'],
+    names: ['주식쭈꾸미', '오늘의 콕', '스탁뷰', '자산성장트레킹', 'CMA행운룰렛', '연금습관성장하기'],
+    values: [
+      [58, 61, 63, 62, 66, 69],
+      [52, 54, 57, 55, 59, 61],
+      [47, 49, 50, 52, 53, 56],
+      [41, 43, 46, 45, 48, 50],
+      [63, 65, 68, 70, 72, 75],
+      [35, 37, 38, 40, 42, 44]
+    ],
+    max: 100,
+    step: 50,
+    format: function (v) { return v + '%'; }
+  });
+
+  renderLineChart(document.getElementById('assetChangeTrendChart'), {
+    categories: ['2026.01', '2026.02', '2026.03', '2026.04', '2026.05', '2026.06', '2026.07', '2026.08'],
+    names: ['총자산변동금', 'NNM', '평가손익금'],
+    values: [
+      [4200, 4600, 5100, 4800, 5500, 6100, 6600, 7200],
+      [2800, 3000, 3300, 3200, 3600, 3900, 4200, 4500],
+      [1400, 1600, 1800, 1600, 1900, 2200, 2400, 2700]
+    ],
+    max: 8000,
+    step: 2000,
+    format: formatNumber
+  });
+</script>
+
+</include>

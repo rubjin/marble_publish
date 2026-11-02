@@ -78,6 +78,18 @@
   </div>
 </div>
 
+<!-- 텍스트에어리어 + 글자수 (.textareaBox > textarea + .textCount : 입력창 안 우측 하단) -->
+<!-- [D] .current 에 입력 글자수 / 뒤 숫자는 maxlength 값 -->
+<div class="formGroup">
+  <label class="formLabel">상세 내용</label>
+  <div class="formControlWrap full">
+    <div class="textareaBox">
+      <textarea class="formControl" rows="4" maxlength="1000" placeholder="상세 내용을 입력해주세요"></textarea>
+      <p class="textCount"><span class="current">0</span>/1,000</p>
+    </div>
+  </div>
+</div>
+
 <!-- 첨부파일 (인풋형 선택 + 박스형 목록: .fileList) -->
 <div class="formGroup">
   <label class="formLabel" for="formAttachFile">첨부파일</label>
@@ -113,7 +125,7 @@
         <div class="fileInfo">
           <a class="fileName" href="#;">업로드한 파일명이 출력됩니다(다운로드 가능).jpg<span class="fileSize">(1542byte)</span></a>
         </div>
-        <button type="button" class="fileDelete" aria-label="삭제">
+        <button type="button" class="fileDelete">
           <span class="ico deleteTag"></span>
         </button>
       </li>

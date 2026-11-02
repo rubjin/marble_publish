@@ -38,6 +38,11 @@
   gap: 8px;
   flex-wrap: wrap;
 
+  // 그룹 간 간격 넓힘 (체크그룹 / .formField 등 묶음 단위 구분)
+  &.gapLg {
+    column-gap: 24px;
+  }
+
   &.full {
     flex: 1;
     min-width: 0;
@@ -48,6 +53,13 @@
       min-width: 0;
     }
   }
+}
+
+// 라벨 + 입력 한 묶음 : <div class="formField"><label class="formLabel">..</label><div class="formControlWrap">..</div></div>
+.formField {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .formControlWrap {
@@ -148,6 +160,9 @@
     }
   }
 }
+.formControlWrap + .formGuideText {
+  margin-top: 6px;
+}
 
 fieldset {
   min-width: 0;
@@ -171,7 +186,7 @@ fieldset {
   font-family: inherit;
 
   &.wXs {
-    width: 120px;
+    width: 100px;
   }
 
   &.wSm {
@@ -222,6 +237,47 @@ textarea.formControl {
   padding: 12px;
   resize: vertical;
   resize: none; // 필요시 제거
+}
+
+// 텍스트에어리어 + 글자수 : .textareaBox 가 테두리를 갖고 textarea 아래 줄에 .textCount 배치 (입력 텍스트와 겹치지 않음)
+.textareaBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: $form-bg;
+  border: 1px solid $form-border;
+  border-radius: $form-radius;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color: $form-border-hover;
+  }
+
+  &:focus-within {
+    border-color: $form-border-focus;
+    box-shadow: 0 0 0 3px $form-ring-focus;
+  }
+
+  textarea.formControl {
+    padding-bottom: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .textCount {
+    align-self: flex-end;
+    padding: 4px 12px 10px;
+  }
+}
+
+.textCount {
+  font-size: 13px;
+  color: $text-off;
+
+  .current {
+    color: $text-basic;
+  }
 }
 
 select.formControl {
@@ -420,6 +476,7 @@ select.formControl {
 }
 
 .tagChip {
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   gap: 6px;

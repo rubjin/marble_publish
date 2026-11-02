@@ -1,0 +1,82 @@
+<include src="../../layout/layoutDefault.html" title="오늘의 콕 OX퀴즈 등록">
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="오늘의 콕 OX퀴즈 등록" breadcrumb=""></include>
+
+
+<!-- [팝업] -->
+<!-- [D] 퍼블 확인용 .isOpen 상태로 노출 -->
+<div id="" class="popupDimmed isOpen">
+  <div class="popupWrap lg">
+    <div class="popupHeader">
+      <h2 class="popupTitle">리워드 캠페인ID 조회</h2>
+      <button type="button" class="btnClose" aria-label="닫기"></button>
+    </div>
+    <div class="popupBody">
+      <!-- 상단 검색 내역 -->
+      <div class="section searchBox singleLine">
+        <div class="searchRow">
+          <div class="searchItem">
+            <span class="searchLabel">캠페인 정보</span>
+            <div class="searchField">
+              <div class="formRow">
+                <select class="formControl wSm">
+                  <option value="">캠페인명</option>
+                </select>
+                <div class="formControlWrap">
+                  <input type="text" class="formControl full" placeholder="캠페인명 입력">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <include src="../../partials/searchBtnArea.html" noReset></include>
+      </div>
+
+      <div class="section">
+        <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
+        <include src="../../partials/tblTop.html" count="20" pageSize></include>
+
+        <div class="tblWrap">
+          <table class="tbl tblBordered">
+            <colgroup>
+              <col style="width: 140px;">
+              <col style="width: 140px;">
+              <col style="width: 300px;">
+              <col style="width: 160px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>캠페인명</th>
+                <th>캠페인ID</th>
+                <th>설정된 미션 정보</th>
+                <th>등록일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="textLeft">자산성장 트레킹v1</td>
+                <td>XXQDv12125035</td>
+                <td class="textLeft">미션 1차(SV001001)</td>
+                <td>2026.08.01</td>
+              </tr>
+              <tr>
+                <td class="textLeft">자산성장 트레킹v1</td>
+                <td>XXQDv12125035</td>
+                <td class="textLeft">미션 1차(SV001001)</td>
+                <td>2026.08.01</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <include src="../../partials/pagination.html"></include>
+      </div>
+    </div>
+    <div class="popupFooter">
+      <button type="button" class="btn primary btnClose">확인</button>
+    </div>
+  </div>
+</div>
+
+</include>

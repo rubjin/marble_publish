@@ -7,6 +7,7 @@
 
 
 <!-- 검색 조건 컨트롤 박스 -->
+<!-- [style] 아래 고객정보 나오는 경우 narrow 추가 -->
 <section class="section searchBox narrow">
   <div class="searchRow">
     <div class="searchItem full">
@@ -34,6 +35,7 @@
       <div class="infoMetaItem"><dt>휴대폰번호</dt><dd>010-12**-45**</dd></div>
       <div class="infoMetaItem"><dt>가입일</dt><dd>2024.01.01</dd></div>
       <div class="infoMetaItem"><dt>마케팅동의</dt><dd class="textInfo">동의<span class="infoSub">(2026.05.30)</span></dd></div>
+      <div class="infoMetaItem"><dt>이벤트/혜택앱푸시</dt><dd class="textInfo">동의</dd></div>
     </dl>
   </div>
 </section>
@@ -45,51 +47,52 @@
       <button type="button" class="item isActive">고객현황</button>
       <button type="button" class="item">참여내역</button>
       <button type="button" class="item">리워드내역</button>
-      <button type="button" class="item">알림내역</button>
     </nav>
   </div>
   <div class="sectionBox">
-    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
-    <include src="../../partials/tblTop.html" count="" unit="">
-      <p class="tblGuide">기준일시: 2026.08.30 13:00</p>
-      <div class="segment">
-        <label class="segmentItem"><input type="radio" name="p1Date" checked><span class="segmentText">일</span></label>
-        <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">주</span></label>
-        <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">월</span></label>
-        <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">전체</span></label>
-      </div>
-    </include>
-
-
-    <div class="kpiCardGrid">
-      <div class="kpiCard">
-        <span class="kpiTitle">미션참여</span>
-        <div class="kpiContent">
-          <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
-          <p class="kpiSub">(전일 대비 / <span class="rate isUp">+0.1</span>회)</p>
+    <div class="section">
+      <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+      <include src="../../partials/tblTop.html" count="" unit="">
+        <p class="tblGuide">기준일시: 2026.08.30 13:00</p>
+        <div class="segment">
+          <label class="segmentItem"><input type="radio" name="p1Date" checked><span class="segmentText">일</span></label>
+          <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">주</span></label>
+          <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">월</span></label>
+          <label class="segmentItem"><input type="radio" name="p1Date"><span class="segmentText">전체</span></label>
         </div>
-      </div>
+      </include>
 
-      <div class="kpiCard">
-        <span class="kpiTitle">미션달성</span>
-        <div class="kpiContent">
-          <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
-          <p class="kpiSub">(전일 대비 / <span class="rate isDown">-0.1</span>회)</p>
+
+      <div class="kpiCardGrid">
+        <div class="kpiCard">
+          <span class="kpiTitle">미션참여</span>
+          <div class="kpiContent">
+            <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
+            <p class="kpiSub">(전일 대비 <span class="rate textUp">+0.1회/+0.0%</span>)</p>
+          </div>
         </div>
-      </div>
 
-      <div class="kpiCard">
-        <span class="kpiTitle">리워드</span>
-        <div class="kpiContent">
-          <div class="kpiNumber"><span class="prefix">총</span><strong>38,000</strong><span class="unit">원</span></div>
-          <p class="kpiDetail">포인트 30,000P / 쿠폰 8,000원</p>
-          <p class="kpiSub">(전일 대비 / <span class="rate isFlat">0</span>원)</p>
+        <div class="kpiCard">
+          <span class="kpiTitle">미션달성</span>
+          <div class="kpiContent">
+            <div class="kpiNumber"><strong>5</strong><span class="unit">회</span></div>
+            <p class="kpiSub">(전일 대비 <span class="rate textDown">-0.1회/-0.0%</span>)</p>
+          </div>
+        </div>
+
+        <div class="kpiCard">
+          <span class="kpiTitle">리워드</span>
+          <div class="kpiContent">
+            <div class="kpiNumber"><span class="prefix">총</span><strong>38,000</strong><span class="unit">원</span></div>
+            <p class="kpiDetail">포인트 30,000P / 쿠폰 8,000원</p>
+            <p class="kpiSub">(전일 대비 <span class="rate isFlat">0원/0.0%</span>)</p>
+          </div>
         </div>
       </div>
     </div>
 
 
-    <div class="chartGrid">
+    <div class="section chartGrid">
       <!-- 라인 차트 (다중 시리즈 + 범례 + 기간 선택 + 툴팁) -->
       <div class="chartBox">
         <div class="chartHeader">

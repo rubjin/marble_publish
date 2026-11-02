@@ -183,3 +183,37 @@
 .btnGroupRight {
   margin-left: auto;
 }
+
+// 라운드형 다중선택 버튼 (타이틀 옆 필터 등)
+// [D] 선택 항목 .isActive (여러 개 선택 가능)
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+
+  .chipItem {
+    height: 30px;
+    padding: 0 14px;
+    font-family: inherit;
+    font-size: 13px;
+    color: $text-secondary;
+    white-space: nowrap;
+    background-color: $bg-white;
+    border: 1px solid $line-default;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      border-color: $line-active;
+    }
+
+    &.isActive {
+      color: $bg-white;
+      font-weight: $font-weight-medium;
+      background-color: $line-active;
+      border-color: $line-active;
+    }
+  }
+}

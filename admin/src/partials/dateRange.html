@@ -8,9 +8,18 @@
   - name        : 기간 숏컷 라디오 name (화면 안에서 중복되지 않게)
   - shortcuts   : 기간 숏컷 문구 (쉼표 구분, 기본: 당일,7일,한달 / 첫 번째 항목 선택)
   - noShortcut  : 기간 숏컷 숨김 (값 없이 속성만 작성)
+  - single      : 단일 날짜 선택 (start 값만 사용, 숏컷 숨김 / 값 없이 속성만 작성)
+                  예) <include src="../../partials/dateRange.html" start="2026.08.30" single></include>
   - slot        : 종료일 뒤에 붙는 내용 (예: 미지정 체크박스) - 생략 가능
   ※ fieldset + 숨김 legend "기간 선택", 입력창 aria-label "시작일" / "종료일" 로 통일
 -->
+{% if single %}
+<div class="formDatepicker">
+  <input type="text" class="formControl" value="{{ start }}" aria-label="날짜 선택">
+  <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+</div>
+{{ slot }}
+{% else %}
 <fieldset class="formDateRange">
   <legend class="srOnly">기간 선택</legend>
   <div class="formDatepicker">
@@ -24,7 +33,8 @@
   </div>
   {{ slot }}
 </fieldset>
-{% if not noShortcut %}
+{% endif %}
+{% if not noShortcut and not single %}
 <div class="segment">
   {% for item in shortcuts | default('당일,7일,한달', true) | list %}
   <label class="segmentItem"><input type="radio" name="{{ name | default('dateShortcut', true) }}"{% if loop.first %} checked{% endif %}><span class="segmentText">{{ item }}</span></label>

@@ -1,0 +1,146 @@
+<include src="../../layout/layoutDefault.html" title="개별 미션 관리">
+
+<!-- 실제 콘텐츠 영역 -->
+<include src="../../partials/pageHeader.html" title="개별 미션 관리" breadcrumb=""></include>
+
+<!-- 검색 조건 컨트롤 박스 -->
+<section class="section searchBox">
+  <div class="searchRow">
+    <div class="searchItem">
+      <span class="searchLabel">미션 기간</span>
+      <div class="searchField">
+        <div class="formRow">
+          <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date" noShortcut></include>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <span class="searchLabel">미션 정보</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl wSm">
+            <option value="">미션ID</option>
+          </select>
+          <div class="formControlWrap">
+            <input type="text" class="formControl full" placeholder="미션ID 입력">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="searchRow">
+    <div class="searchItem">
+      <span class="searchLabel">리워드 유형</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl">
+            <option value="">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <span class="searchLabel">운영 상태</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl">
+            <option value="">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="searchItem">
+      <span class="searchLabel">예산 소진율</span>
+      <div class="searchField">
+        <div class="formRow">
+          <select class="formControl">
+            <option value="">전체</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include src="../../partials/searchBtnArea.html"></include>
+</section>
+
+<!-- 하얀 박스 영역 -->
+<section class="section sectionBox">
+  <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+  <include src="../../partials/tblTop.html" count="128" unit="단위: 원">
+    <p class="tblGuide">기준일: 2026.07.10 11:00:20</p>
+    <div class="btnGroup">
+      <button type="button" class="btn outline">
+        <span class="ico download"></span>
+        <span>엑셀 다운로드</span>
+      </button>
+    </div>
+  </include>
+
+  <!-- 데이터 그리드 테이블 -->
+  <div class="tblWrap">
+    <table class="tbl tblBordered">
+      <colgroup>
+        <col style="width: 50px;">
+        <col style="width: 200px;">
+        <col style="width: 100px;">
+        <col style="width: 180px;">
+        <col style="width: 100px;">
+        <col style="width: 90px;">
+        <col style="width: 110px;">
+        <col style="width: 110px;">
+        <col style="width: 250px;">
+        <col style="width: 150px;">
+        <col style="width: 80px;">
+        <col style="width: 200px;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>미션명</th>
+          <th>미션ID</th>
+          <th>미션 기간</th>
+          <th>리워드 유형</th>
+          <th>고객 참여 수</th>
+          <th>미션한도금액</th>
+          <th>총 누적지급금</th>
+          <th>예산 소진율</th>
+          <th>운영 상태</th>
+          <th>노출 여부</th>
+          <th>담당자</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="textLeft">스탁뷰 미션(1차)</td>
+          <td>SV001001</td>
+          <td>2026.01.01~2026.12.31</td>
+          <td>Able포인트</td>
+          <td class="textRight">15,000</td>
+          <td class="textRight">1,000,000</td>
+          <td class="textRight">5,000,000</td>
+          <td>
+            <!-- [D] .barPercentFill width = 예산 소진율 / 상태별 .normal .warning .danger -->
+            <div class="barPercent">
+              <div class="barPercentTrack">
+                <div class="barPercentFill" style="width: 50%;"></div>
+              </div>
+              <span class="barPercentValue">50.0%</span>
+            </div>
+          </td>
+          <td>일시 중단(2026.10.01)</td>
+          <td>미노출</td>
+          <td>홍길동(123456)/플랫폼서비스</td>
+        </tr>
+        <tr>
+          <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+          <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
+          <td class="tblEmpty" colspan="12">조회 내역이 없습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <include src="../../partials/pagination.html"></include>
+</section>
+
+</include>

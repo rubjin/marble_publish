@@ -1,0 +1,286 @@
+<include src="../../layout/layoutDefault.html" title="미션 관리">
+
+<!-- 실제 콘텐츠 영역 -->
+<include src="../../partials/pageHeader.html" title="미션 관리" breadcrumb=""></include>
+
+<!-- 하얀 박스 영역 -->
+<div class="section sectionBox">
+  <include src="../../partials/viewSection.html" title="운영 공통">
+    <tr>
+      <th><label class="formLabel" for="idMissionID">미션명/ID</label></th>
+      <td>미션 1차(SV001001)</td>
+    </tr>
+    <tr>
+      <th><label class="formLabel" for="idMissionType">미션 분류 <span class="required">*</span></label></th>
+      <td>
+        <input type="text" id="idMissionType" class="formControl" placeholder="" value="학습형 미션" readonly>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">미션 기간</label></th>
+      <td>
+        <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" noShortcut></include>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel" for="idTime">리워드 지급 시간 <span class="required">*</span></label></th>
+      <td>
+        <select id="idTime" class="formControl">
+          <option value="">10:00</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel" for="idAlertCampaignID">알림 캠페인 ID <span class="required">*</span></label></th>
+      <td>
+        <div class="formField">
+          <div class="formControlWrap hasSearch">
+            <input type="text" id="idAlertCampaignID" class="formControl" placeholder="">
+            <button type="button" class="btnSearch" aria-label="담당자 검색"></button>
+          </div>
+          <span class="tagChip">01Dv1OA125035 <button type="button" class="tagDelete"></button></span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel" for="idRewardCampaignID">리워드 캠페인 ID <span class="required">*</span></label></th>
+      <td>
+        <div class="formField">
+          <div class="formControlWrap hasSearch">
+            <input type="text" id="idRewardCampaignID" class="formControl" placeholder="">
+            <button type="button" class="btnSearch" aria-label="담당자 검색"></button>
+          </div>
+          <span class="tagChip">01Dv1OA125035 <button type="button" class="tagDelete"></button></span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel" for="idMemo1">미션 설명 <span class="required">*</span></label></th>
+      <td>
+        <!-- [D] .current 에 입력 글자수 / 뒤 숫자는 maxlength 값 -->
+        <div class="textareaBox">
+          <textarea id="idMemo1" class="formControl full" maxlength="1000" placeholder=""></textarea>
+          <p class="textCount"><span class="current">20</span>/1,000</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel" for="idMemo2">유의사항 <span class="required">*</span></label></th>
+      <td>
+        <textarea id="idMemo2" class="formControl full" placeholder="오답 메세지를 입력해주세요."></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">운영 상태 <span class="required">*</span></label></th>
+      <td>
+        <div class="formControlWrap">
+          <include src="../../partials/checkGroup.html" name="MissionStatus" options="운영중,일시 중단,조기 종료, 운영 종료" legend="운영상태 선택"></include>
+        </div>
+        <p class="formGuideText blue">※ 미션의 운영 여부를 설정하며 운영 설정 시 홈에 노출됩니다.</p>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel" for="idDeliberationNo">준법 감시인 심사필 <span class="required">*</span></label></th>
+      <td>
+        <input type="text" id="idDeliberationNo" class="formControl full" placeholder="" value="제 2026-2470호(2026.09.17~2027.09.16)">
+      </td>
+    </tr>
+  </include>
+</div>
+
+<!-- 하얀 박스 영역 -->
+<!-- [D] 접기/펼치기 : .btnFoldToggle 클릭 시 .sectionBox.foldBox 에 .isOpen 토글 (첫 타이틀만 남기고 나머지 영역 숨김) -->
+<div class="section sectionBox foldBox isOpen">
+  <include src="../../partials/viewSection.html" title="참여 대상">
+    <slot name="actions"><button type="button" class="btnFoldToggle"></button></slot>
+    <tr>
+      <th><label class="formLabel">무거래 기간 <span class="required">*</span></label></th>
+      <td>
+        <!-- 체크그룹 + .formField(라벨 + 단위 결합 인풋) : 그룹 간 간격 .formRow.gapLg -->
+        <div class="formRow gapLg">
+          <div class="formControlWrap">
+            <include src="../../partials/checkGroup.html" name="NoTradePeriod" options="사용,미사용" legend="무거래 기간 선택"></include>
+          </div>
+          <div class="formField">
+            <select id="p1Type" class="formControl wSm">
+              <option value="">전체</option>
+              <option value="1">유형 A</option>
+              <option value="2">유형 B</option>
+            </select>
+            <div class="formControlWrap hasUnit">
+              <input type="text" id="idTargetAmount1" class="formControl wXs" placeholder="0" value="30">
+              <span class="inputUnit">일</span>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">예수금&<br />국내 주식평가금 <span class="required">*</span></label></th>
+      <td>
+        <div class="formRow gapLg">
+          <div class="formControlWrap">
+            <include src="../../partials/checkGroup.html" name="DepositStock" options="사용,미사용" legend="국내 주식평가금 선택"></include>
+          </div>
+          <div class="formField">
+            <label class="formLabel" for="idTargetAmount2">예수금</label>
+            <div class="formControlWrap hasUnit">
+              <input type="text" id="idTargetAmount2" class="formControl" placeholder="0" value="10,000,000">
+              <span class="inputUnit">원</span>
+            </div>
+          </div>
+          <div class="formField">
+            <label class="formLabel" for="idTargetAmount2_2">국내 주식평가금</label>
+            <div class="formControlWrap hasUnit">
+              <input type="text" id="idTargetAmount2_2" class="formControl" placeholder="0" value="10,000,000">
+              <span class="inputUnit">원</span>
+            </div>
+          </div>
+          <div class="formField">
+            <label class="formLabel" for="idTargetAmount2_3">총 금액</label>
+            <div class="formControlWrap hasUnit">
+              <input type="text" id="idTargetAmount2_3" class="formControl" placeholder="0" value="20,000,000" readonly>
+              <span class="inputUnit">원</span>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">총 자산평가금 <span class="required">*</span></label></th>
+      <td>
+        <div class="formRow gapLg">
+          <div class="formControlWrap">
+            <include src="../../partials/checkGroup.html" name="TotalAsset" options="사용,미사용" legend="총 자산평가금 선택"></include>
+          </div>
+          <div class="formControlWrap hasUnit">
+            <input type="text" id="idTargetAmount3" class="formControl" placeholder="0" value="10,000,000">
+            <span class="inputUnit">원</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">약정 여부 <span class="required">*</span></label></th>
+      <td>
+        <div class="formRow gapLg">
+          <div class="formControlWrap">
+            <include src="../../partials/checkGroup.html" name="Contract" options="사용,미사용" legend="약정 여부 선택"></include>
+          </div>
+          <select id="p1Type2" class="formControl">
+            <option value="">전체</option>
+            <option value="1">국내/미국 주식</option>
+            <option value="2"></option>
+          </select>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">예수금 <span class="required">*</span></label></th>
+      <td>
+        <div class="formRow gapLg">
+          <div class="formControlWrap">
+            <include src="../../partials/checkGroup.html" name="Deposit" options="사용,미사용" legend="예수금 선택"></include>
+          </div>
+          <div class="formControlWrap hasUnit">
+            <input type="text" id="idTargetAmount5" class="formControl" placeholder="0" value="10,000,000">
+            <span class="inputUnit">원</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">신용융자 잔고금 <span class="required">*</span></label></th>
+      <td>
+        <div class="formRow gapLg">
+          <div class="formControlWrap">
+            <include src="../../partials/checkGroup.html" name="CreditBalance" options="사용,미사용" legend="신용융자 잔고금 선택"></include>
+          </div>
+          <div class="formControlWrap hasUnit">
+            <input type="text" id="idTargetAmount6" class="formControl" placeholder="0" value="10,000,000">
+            <span class="inputUnit">원</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </include>
+  <include src="../../partials/viewSection.html" title="" cols="2">
+    <tr>
+      <th><label class="formLabel">신용융자거래<br />약정 여부 <span class="required">*</span></label></th>
+      <td>
+        <div class="formControlWrap">
+          <include src="../../partials/checkGroup.html" name="CreditContract" options="사용,미사용" legend="신용융자거래 약정 여부 선택"></include>
+        </div>
+      </td>
+      <th><label class="formLabel">연금저축계좌<br />보유 여부 <span class="required">*</span></label></th>
+      <td>
+        <div class="formControlWrap">
+          <include src="../../partials/checkGroup.html" name="PensionAccount" options="사용,미사용" legend="연금저축계좌 보유 여부 선택"></include>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">정기구매 등록 여부 <span class="required">*</span></label></th>
+      <td>
+        <div class="formControlWrap">
+          <include src="../../partials/checkGroup.html" name="RegularPurchase" options="사용,미사용" legend="정기구매 등록 여부 선택"></include>
+        </div>
+      </td>
+      <th><label class="formLabel">ISA계좌 보유 여부 <span class="required">*</span></label></th>
+      <td>
+        <div class="formControlWrap">
+          <include src="../../partials/checkGroup.html" name="IsaAccount" options="사용,미사용" legend="ISA계좌 보유 여부 선택"></include>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">CMA 계좌 보유 여부 <span class="required">*</span></label></th>
+      <td>
+        <div class="formControlWrap">
+          <include src="../../partials/checkGroup.html" name="CmaAccount" options="사용,미사용" legend="CMA 계좌 보유 여부 선택"></include>
+        </div>
+      </td>
+      <th><label class="formLabel">개인(신용)정보 및<br />마케팅 동의 여부 <span class="required">*</span></label></th>
+      <td>
+        <div class="formControlWrap">
+          <include src="../../partials/checkGroup.html" name="MarketingAgree" options="사용,미사용" legend="마케팅 동의 여부 선택"></include>
+        </div>
+      </td>
+    </tr>
+  </include>
+
+  <include src="../../partials/viewSection.html" title="" cols="2">
+    <tr>
+      <th><label class="formLabel">참여 고객</label></th>
+      <td>15,000</td>
+      <th><label class="formLabel">예산 소진율</label></th>
+      <td>50%</td>
+    </tr>
+    <tr>
+      <th><label class="formLabel">총 누적 지급금</label></th>
+      <td colspan="3">500,000</td>
+    </tr>
+  </include>
+</div>
+
+<!-- 하얀 박스 영역 -->
+<div class="section sectionBox">
+  <include src="../../partials/viewSection.html" title="운영정보">
+    
+  </include>
+</div>
+
+
+<!-- 페이지 하단 버튼 영역 -->
+<div class="btnArea pageBottom">
+  <div class="btnGroup">
+    <button type="button" class="btn outline">목록</button>
+  </div>
+  <div class="btnGroup btnGroupRight">
+    <button type="button" class="btn outline">미션 복사</button>
+    <button type="button" class="btn primary">저장</button>
+  </div>
+</div>
+
+
+</include>

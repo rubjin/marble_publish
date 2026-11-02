@@ -7,6 +7,7 @@
 
 
 <!-- 검색 조건 컨트롤 박스 -->
+<!-- [style] 아래 고객정보 나오는 경우 narrow 추가 -->
 <section class="section searchBox narrow">
   <div class="searchRow">
     <div class="searchItem full">
@@ -34,6 +35,7 @@
       <div class="infoMetaItem"><dt>휴대폰번호</dt><dd>010-12**-45**</dd></div>
       <div class="infoMetaItem"><dt>가입일</dt><dd>2024.01.01</dd></div>
       <div class="infoMetaItem"><dt>마케팅동의</dt><dd class="textInfo">동의<span class="infoSub">(2026.05.30)</span></dd></div>
+      <div class="infoMetaItem"><dt>이벤트/혜택앱푸시</dt><dd class="textInfo">동의</dd></div>
     </dl>
   </div>
 </section>
@@ -45,7 +47,6 @@
       <button type="button" class="item">고객현황</button>
       <button type="button" class="item isActive">참여내역</button>
       <button type="button" class="item">리워드내역</button>
-      <button type="button" class="item">알림내역</button>
     </nav>
   </div>
   
@@ -85,8 +86,8 @@
           <col style="width: 110px;">
           <col style="width: 90px;">
           <col style="width: 130px;">
-          <col style="width: 90px;">
-          <col style="width: 160px;">
+          <!-- <col style="width: 90px;">
+          <col style="width: 160px;"> -->
         </colgroup>
         <thead>
           <tr>
@@ -96,8 +97,8 @@
             <th>종료일</th>
             <th>참여상태</th>
             <th>누적 리워드(P/원)</th>
-            <th>지급상태</th>
-            <th>최근지급일시</th>
+            <!-- <th>지급상태</th>
+            <th>최근지급일시</th> -->
           </tr>
         </thead>
         <tbody>
@@ -108,8 +109,13 @@
             <td>2026.08.09</td>
             <td><span class="textIng">참여중</span></td>
             <td class="textRight">1,000원</td>
-            <td><span class="textDanger">지급오류</span></td>
-            <td>2026.07.11 12:00:00</td>
+            <!-- <td><span class="textDanger">지급오류</span></td>
+            <td>2026.07.11 12:00:00</td> -->
+          </tr>
+          <tr>
+            <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+            <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
+            <td class="tblEmpty" colspan="6">조회 조건 입력 후 조회하세요.</td>
           </tr>
         </tbody>
       </table>

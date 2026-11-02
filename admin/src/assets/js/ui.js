@@ -58,7 +58,7 @@
           '<span class="fileName">' + file.name + '</span>' +
           '<span class="fileSize">(' + formatFileSize(file.size) + ')</span>' +
         '</div>' +
-        '<button type="button" class="fileDelete" aria-label="삭제">' +
+        '<button type="button" class="fileDelete">' +
           '<svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>' +
         '</button>';
       fileList.appendChild(li);
@@ -280,6 +280,17 @@
     var toggle = e.target.closest('.treeView .treeToggle:not(.isLeaf)');
     if (toggle) {
       toggle.closest('.treeItem').classList.toggle('isOpen');
+    }
+  });
+
+  // ==========================================
+  // 섹션 박스 접기 / 펼치기 : .btnFoldToggle 클릭 시 .foldBox.isOpen 토글
+  // ==========================================
+  document.addEventListener('click', function(e) {
+    var foldToggle = e.target.closest('.foldBox .btnFoldToggle');
+    if (foldToggle) {
+      var isOpen = foldToggle.closest('.foldBox').classList.toggle('isOpen');
+      foldToggle.setAttribute('aria-expanded', isOpen);
     }
   });
 

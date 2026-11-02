@@ -1,0 +1,520 @@
+<include src="../../layout/layoutDefault.html" title="고객분석">
+
+<!-- 실제 콘텐츠 영역 -->
+
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="고객분석" breadcrumb=""></include>
+
+<!-- 검색 조건 컨트롤 박스 -->
+<section class="section searchBox singleLine">
+  <div class="searchRow">
+    <div class="searchItem">
+      <span class="searchLabel">기준일자</span>
+      <div class="searchField">
+        <div class="formRow">
+          <include src="../../partials/dateRange.html" start="2026.08.30" single></include>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include src="../../partials/searchBtnArea.html" noReset></include>
+</section>
+
+<section class="section">
+  <!-- 고객경험분석 비교 -->
+  <div class="sectionBox">
+    <include src="../../partials/tblTop.html" title="고객경험분석 비교">
+      <div class="tooltipGroup">
+        <p class="tblGuide">(기준일자: 2026.08.30 누적)</p>
+        <div class="tooltipWrap left">
+          <button type="button" class="tooltipBtn">?</button>
+          <div class="tooltipContent multiLine textLeft">
+            <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+            툴팁내용
+          </div>
+        </div>
+      </div>
+    </include>
+
+    <div class="chartGrid col2">
+      <!-- 막대 차트 : 경험 단계별 고객수 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">경험 단계별 고객수<span class="chartUnit">(단위: 명)</span></h3>
+          </div>
+        </div>
+
+        <div class="chartArea" id="stageCustomerChart">
+          <!-- [D] 툴팁 내용 / 위치는 아래 스크립트에서 막대 그룹 hover 시 갱신 -->
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 그룹 막대 차트 : 경험단계별 자산 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">경험단계별 자산<span class="chartUnit">(단위: 만원)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>총자산 평가금합계</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>자산 평균</span></li>
+        </ul>
+
+        <div class="chartArea" id="stageAssetChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 참여/달성 미션수별 분석 -->
+  <div class="sectionBox">
+    <include src="../../partials/tblTop.html" title="참여/달성 미션수별 분석">
+      <div class="tooltipGroup">
+        <p class="tblGuide">(기준일자: 2026.08.30)</p>
+        <div class="tooltipWrap left">
+          <button type="button" class="tooltipBtn">?</button>
+          <div class="tooltipContent multiLine textLeft">
+            <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+            툴팁내용
+          </div>
+        </div>
+      </div>
+    </include>
+
+    <div class="chartGrid col2">
+      <!-- 그룹 막대 차트 : 참여/달성 미션수 고객수 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">참여/달성 미션수 고객수<span class="chartUnit">(단위: 명)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>미션 참여고객</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>미션 달성고객</span></li>
+        </ul>
+
+        <div class="chartArea" id="missionCountCustomerChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 그룹 막대 차트 : 참여/달성 미션수 고객수별 총 자산 평가금 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">참여/달성 미션수 고객수별 총 자산 평가금<span class="chartUnit">(단위: 만원)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>미션 참여고객</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>미션 달성고객</span></li>
+        </ul>
+
+        <div class="chartArea" id="missionCountAssetChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 참여미션 자산추이 -->
+  <div class="sectionBox">
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">참여미션 자산추이</h3>
+        <!-- [D] 선택된 항목에 .isActive 클래스 바인딩 -->
+        <div class="segment">
+          <button type="button" class="segmentItem isActive">참여고객</button>
+          <button type="button" class="segmentItem">달성고객</button>
+        </div>
+        <select class="formControl wSm">
+          <option value="">전체</option>
+          <option value="">주식쭈꾸미</option>
+          <option value="">오늘의 콕</option>
+          <option value="">스탁뷰</option>
+          <option value="">자산성장트레킹</option>
+          <option value="">CMA행운룰렛</option>
+          <option value="">연금습관성장하기</option>
+        </select>
+      </div>
+      <div class="tblRight">
+        <div class="tooltipGroup">
+          <p class="tblGuide">(기준일자: 2026.08.30)</p>
+          <div class="tooltipWrap left">
+            <button type="button" class="tooltipBtn">?</button>
+            <div class="tooltipContent multiLine textLeft">
+              <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+              툴팁내용
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chartGrid">
+      <!-- 라인 차트 : 미션수 별 총 자산추이 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">미션수 별 총 자산추이<span class="chartUnit">(단위: 만원)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>참여미션 1개</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>참여미션 2개</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>참여미션 3개</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker line"></span>참여미션 4개</span></li>
+          <li><span class="legendItem series5"><span class="legendMarker line"></span>참여미션 5개</span></li>
+          <li><span class="legendItem series6"><span class="legendMarker line"></span>참여미션 6개</span></li>
+        </ul>
+
+        <div class="chartArea" id="missionCountAssetTrendChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 자산규모별 성과 -->
+  <div class="sectionBox">
+    <div class="tblTop">
+      <div class="tblLeft">
+        <h3 class="tblTitle">자산규모별 성과</h3>
+        <select class="formControl wSm">
+          <option value="">전체</option>
+          <option value="">주식쭈꾸미</option>
+          <option value="">오늘의 콕</option>
+          <option value="">스탁뷰</option>
+          <option value="">자산성장트레킹</option>
+          <option value="">CMA행운룰렛</option>
+          <option value="">연금습관성장하기</option>
+        </select>
+      </div>
+      <div class="tblRight">
+        <div class="tooltipGroup">
+          <p class="tblGuide">(기준일자: 2026.08.30)</p>
+          <div class="tooltipWrap left">
+            <button type="button" class="tooltipBtn">?</button>
+            <div class="tooltipContent multiLine textLeft">
+              <span class="tooltipTitle"><span class="icoNotice">!</span>안내</span>
+              툴팁내용
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chartGrid col2">
+      <!-- 그룹 막대 차트 : 당월 성과비교 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">당월 성과비교<span class="chartUnit">(단위: 만원)</span></h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>참여미션 1개</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>참여미션 2개</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker"></span>참여미션 3개</span></li>
+          <li><span class="legendItem series4"><span class="legendMarker"></span>참여미션 4개</span></li>
+          <li><span class="legendItem series5"><span class="legendMarker"></span>참여미션 5개</span></li>
+          <li><span class="legendItem series6"><span class="legendMarker"></span>참여미션 6개</span></li>
+        </ul>
+
+        <div class="chartArea" id="monthPerformanceChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 라인 차트 : 시점별 성과추이 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">시점별 성과추이</h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>0~100만원</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>100~1,000만원</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>1,000~10,000만원</span></li>
+        </ul>
+
+        <div class="chartArea" id="periodPerformanceChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 그룹 막대 차트 : 단기/장기 효과비교 -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap">
+            <h3 class="chartTitle">단기/장기 효과비교</h3>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker"></span>단기효과(당월~사전)</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker"></span>장기효과(사후~사전)</span></li>
+        </ul>
+
+        <div class="chartArea" id="effectCompareChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+
+      <!-- 라인 차트 : 월별 성과비교 (효과 선택) -->
+      <div class="chartBox">
+        <div class="chartHeader">
+          <div class="chartTitleWrap inline">
+            <h3 class="chartTitle">월별 성과비교</h3>
+            <!-- [D] 선택된 항목에 .isActive 클래스 바인딩 -->
+            <div class="segment">
+              <button type="button" class="segmentItem isActive">단기효과</button>
+              <button type="button" class="segmentItem">장기효과</button>
+            </div>
+          </div>
+        </div>
+
+        <ul class="chartLegend">
+          <li><span class="legendItem series1"><span class="legendMarker line"></span>0~100만원</span></li>
+          <li><span class="legendItem series2"><span class="legendMarker line"></span>100~1,000만원</span></li>
+          <li><span class="legendItem series3"><span class="legendMarker line"></span>1,000~10,000만원</span></li>
+        </ul>
+
+        <div class="chartArea" id="monthlyPerformanceChart">
+          <div class="chartTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 고객분석 차트 (카테고리형 가로축 막대 / 라인 - HTML·SVG 렌더링 + 공통 차트 테마 클래스) -->
+<script type="module">
+  import { formatNumber } from '../../assets/js/chartTheme.js';
+
+  /**
+   * 카테고리형 차트 렌더링 (그룹 막대 / 라인)
+   * @param {HTMLElement} el      .chartArea 컨테이너
+   * @param {object} opt
+   *   - type       : 'bar' | 'line' (기본 'bar')
+   *   - categories : 가로축 항목
+   *   - names      : 시리즈명 (범례 순서와 동일, 막대 1개면 굵은 막대 .single)
+   *   - values     : [시리즈][항목] 값
+   *   - max, step  : 세로축 최대값 / 눈금 간격
+   *   - format     : 값 표기 함수 (세로축 라벨 / 툴팁)
+   */
+  function renderCategoryChart(el, opt) {
+    var isLine = opt.type === 'line';
+    var count = opt.categories.length;
+    var ticks = [];
+    for (var t = 0; t <= opt.max; t += opt.step) ticks.push(t);
+    var ratio = function (v) { return Math.min(v / opt.max * 100, 100); };
+    var pct = function (v) { return ratio(v) + '%'; };
+    var centerX = function (ci) { return (ci + 0.5) / count * 100; };
+
+    // 라인 : 카테고리 중앙에 점을 찍고 SVG 로 연결
+    var lineHtml = !isLine ? '' :
+      '<svg class="lineSvg" viewBox="0 0 100 100" preserveAspectRatio="none">' +
+      opt.names.map(function (n, si) {
+        var points = opt.values[si].map(function (v, ci) { return centerX(ci) + ',' + (100 - ratio(v)); }).join(' ');
+        return '<polyline class="series' + (si + 1) + '" points="' + points + '"></polyline>';
+      }).join('') + '</svg>' +
+      opt.names.map(function (n, si) {
+        return opt.values[si].map(function (v, ci) {
+          return '<span class="lineDot series' + (si + 1) + '" style="left: ' + centerX(ci) + '%; bottom: ' + pct(v) + ';"></span>';
+        }).join('');
+      }).join('');
+
+    // 가로축 라벨에 <br> 이 있으면 2줄 라벨 영역 확보 (.labelLines2)
+    var chartClass = 'categoryChart' +
+      (opt.names.length === 1 ? ' single' : '') +
+      (opt.categories.join('').indexOf('<br') > -1 ? ' labelLines2' : '');
+
+    var html = '<div class="' + chartClass + '"><ul class="axisY">' +
+      ticks.map(function (v) { return '<li style="bottom: ' + pct(v) + ';">' + opt.format(v) + '</li>'; }).join('') +
+      '</ul><div class="plot">' +
+      ticks.map(function (v) { return v ? '<span class="gridLine" style="bottom: ' + pct(v) + ';"></span>' : ''; }).join('') +
+      lineHtml +
+      opt.categories.map(function (c, ci) {
+        var bars = isLine ? '' : opt.names.map(function (n, si) {
+          return '<span class="barItem series' + (si + 1) + '" style="height: ' + pct(opt.values[si][ci]) + ';"></span>';
+        }).join('');
+        return '<div class="group" data-index="' + ci + '">' + bars + '<span class="label">' + c + '</span></div>';
+      }).join('') +
+      '</div></div>';
+
+    var tooltip = el.querySelector('.chartTooltip');
+    el.insertAdjacentHTML('afterbegin', html);
+
+    // 툴팁 (카테고리 영역 hover)
+    el.querySelectorAll('.group').forEach(function (group) {
+      group.addEventListener('mousemove', function (e) {
+        var ci = Number(group.dataset.index);
+        var rows = opt.names.map(function (n, si) {
+          return '<li class="tooltipItem series' + (si + 1) + '"><span class="legendMarker"></span>' + n +
+                 '<span class="tooltipValue">' + opt.format(opt.values[si][ci]) + '</span></li>';
+        }).join('');
+        tooltip.innerHTML = '<span class="tooltipDate">' + opt.categories[ci] + '</span><ul class="tooltipList">' + rows + '</ul>';
+
+        var rect = el.getBoundingClientRect();
+        var px = e.clientX - rect.left, py = e.clientY - rect.top;
+        var w = tooltip.offsetWidth, h = tooltip.offsetHeight;
+        var x = px + 16;
+        if (x + w > el.clientWidth) x = px - w - 16;
+        var y = Math.max(0, Math.min(py - h / 2, el.clientHeight - h));
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+        tooltip.classList.add('isOpen');
+      });
+      group.addEventListener('mouseleave', function () {
+        tooltip.classList.remove('isOpen');
+      });
+    });
+  }
+
+  // [D] 퍼블 확인용 데모 데이터 - 실제 데이터로 교체
+
+  // 고객경험분석 비교
+  var stages = ['미진입', '오퍼링진입', '미션진입', '미션참여', '미션달성'];
+
+  renderCategoryChart(document.getElementById('stageCustomerChart'), {
+    categories: stages,
+    names: ['고객수'],
+    values: [
+      [92000, 76000, 54000, 38000, 21000]
+    ],
+    max: 100000,
+    step: 20000,
+    format: formatNumber
+  });
+
+  renderCategoryChart(document.getElementById('stageAssetChart'), {
+    categories: stages,
+    names: ['총자산 평가금합계', '자산 평균'],
+    values: [
+      [72000, 64000, 51000, 43000, 30000],
+      [18000, 22000, 26000, 31000, 37000]
+    ],
+    max: 80000,
+    step: 20000,
+    format: formatNumber
+  });
+
+  // 참여/달성 미션수별 분석
+  var missionCounts = ['참여미션 1개', '참여미션 2개', '참여미션 3개', '참여미션 4개', '참여미션 5개', '참여미션 6개'];
+
+  renderCategoryChart(document.getElementById('missionCountCustomerChart'), {
+    categories: missionCounts,
+    names: ['미션 참여고객', '미션 달성고객'],
+    values: [
+      [68000, 52000, 37000, 24000, 15000, 8000],
+      [41000, 33000, 25000, 17000, 11000, 6000]
+    ],
+    max: 80000,
+    step: 20000,
+    format: formatNumber
+  });
+
+  renderCategoryChart(document.getElementById('missionCountAssetChart'), {
+    categories: missionCounts,
+    names: ['미션 참여고객', '미션 달성고객'],
+    values: [
+      [86000, 74000, 61000, 48000, 35000, 22000],
+      [58000, 51000, 44000, 36000, 27000, 18000]
+    ],
+    max: 100000,
+    step: 50000,
+    format: formatNumber
+  });
+
+  // 참여미션 자산추이
+  renderCategoryChart(document.getElementById('missionCountAssetTrendChart'), {
+    type: 'line',
+    categories: ['2026.02', '2026.03', '2026.04', '2026.05', '2026.06', '2026.07', '2026.08'],
+    names: missionCounts,
+    values: [
+      [52000, 54000, 57000, 55000, 59000, 62000, 65000],
+      [45000, 47000, 49000, 48000, 52000, 54000, 57000],
+      [37000, 39000, 41000, 40000, 43000, 45000, 48000],
+      [28000, 30000, 32000, 31000, 34000, 36000, 38000],
+      [19000, 21000, 22000, 22000, 24000, 26000, 28000],
+      [11000, 12000, 13000, 13000, 15000, 16000, 18000]
+    ],
+    max: 80000,
+    step: 20000,
+    format: formatNumber
+  });
+
+  // 자산규모별 성과
+  var assetRanges = ['0~100만원', '100~1,000만원', '1,000~10,000만원'];
+
+  renderCategoryChart(document.getElementById('monthPerformanceChart'), {
+    categories: assetRanges.map(function (r) { return '자산 ' + r; }),
+    names: missionCounts,
+    values: [
+      [1200, 2600, 4300],
+      [1500, 2900, 4700],
+      [1700, 3200, 5000],
+      [1900, 3500, 5300],
+      [2100, 3700, 5600],
+      [2300, 3900, 5800]
+    ],
+    max: 6000,
+    step: 2000,
+    format: formatNumber
+  });
+
+  renderCategoryChart(document.getElementById('periodPerformanceChart'), {
+    type: 'line',
+    categories: ['사전변동<br>(M-3~M-1월 평균)', '당월변동<br>(M월 평균)', '사후변동<br>(M+1~M+3월 평균)'],
+    names: assetRanges,
+    values: [
+      [900, 1400, 1700],
+      [2100, 3000, 3500],
+      [3600, 4900, 5500]
+    ],
+    max: 6000,
+    step: 2000,
+    format: formatNumber
+  });
+
+  renderCategoryChart(document.getElementById('effectCompareChart'), {
+    categories: assetRanges.map(function (r) { return '자산 ' + r; }),
+    names: ['단기효과(당월~사전)', '장기효과(사후~사전)'],
+    values: [
+      [500, 900, 1300],
+      [800, 1400, 1900]
+    ],
+    max: 6000,
+    step: 2000,
+    format: formatNumber
+  });
+
+  renderCategoryChart(document.getElementById('monthlyPerformanceChart'), {
+    type: 'line',
+    categories: ['2026.01', '2026.02', '2026.03', '2026.04', '2026.05', '2026.06', '2026.07', '2026.08'],
+    names: assetRanges,
+    values: [
+      [3200, 3500, 3900, 3700, 4200, 4600, 5000, 5400],
+      [7600, 8100, 8800, 8500, 9300, 9900, 10600, 11200],
+      [12400, 13100, 14000, 13600, 14900, 15800, 16700, 17500]
+    ],
+    max: 20000,
+    step: 10000,
+    format: formatNumber
+  });
+</script>
+
+</include>

@@ -836,8 +836,53 @@
     gap: 12px;
   }
 }
+// .sectionBox + .sectionBox {
+//   margin-top: 24px;
+// }
 // .popupBody .section {
 //   gap: 12px;
 // }
 .section .tblTop { margin-bottom: -8px;} //section 간격 16 - 8 = 8px
 .sectionBox .tblTop { margin-bottom: -4px;} //sectionBox 간격 12 - 4 = 8px
+
+// 접기/펼치기 섹션 박스 : .sectionBox.foldBox(.isOpen) + 타이틀 우측 .btnFoldToggle (+ / -)
+.btnFoldToggle {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid $line-default;
+  border-radius: 4px;
+  background-color: $bg-white;
+  cursor: pointer;
+
+  // 가로선 (- / + 공통)
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 1.5px;
+    background-color: $text-secondary;
+    transform: translate(-50%, -50%);
+  }
+
+  // 세로선 (+ 일 때만 노출)
+  &::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+.foldBox {
+  &.isOpen .btnFoldToggle::after { display: none; }
+
+  &:not(.isOpen) {
+    > .section:not(:first-child),
+    > .section:first-child > .tblWrap { display: none; }
+    > .section:first-child > .tblTop { margin-bottom: 0; }
+  }
+}
+
+
+

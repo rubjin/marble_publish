@@ -1,0 +1,168 @@
+<include src="../../layout/layoutDefault.html" title="연금습관 성장하기 미션 고객 참여내역">
+
+<!-- 실제 콘텐츠 영역 -->
+<!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+<include src="../../partials/pageHeader.html" title="연금습관 성장하기 미션 고객 참여내역" breadcrumb=""></include>
+
+<!-- 하얀 박스 영역 -->
+<section class="section sectionBox">
+  <include src="../../partials/infoSection.html" title="">
+    <tr>
+      <th>고객명</th>
+      <td>김*민</td>
+      <th>고객번호</th>
+      <td>9012345678</td>
+      <th>앱푸시 여부</th>
+      <td>동의</td>
+    </tr>
+    <tr>
+      <th>회차</th>
+      <td>
+        <select class="formControl wSm">
+          <option value="1">1차</option>
+          <option value="2">2차</option>
+        </select>
+      </td>
+      <th>신청일시</th>
+      <td>2026.07.01 09:12:30</td>
+      <th>해지일시</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>신청계좌</th>
+      <td>123-***-*89 00</td>
+      <th>누적 포인트/쿠폰</th>
+      <td>1,500P / 50장</td>
+      <th>참여상태</th>
+      <td>참여</td>
+    </tr>
+  </include>
+</section>
+
+<section class="section">
+  <!-- 검색 조건 컨트롤 박스 -->
+  <div class="searchBox">
+    <div class="searchRow">
+      <div class="searchItem">
+        <span class="searchLabel">달성일자</span>
+        <div class="searchField">
+          <div class="formRow">
+            <include src="../../partials/dateRange.html" start="2026.07.01" end="2026.08.31" name="p1Date"></include>
+          </div>
+        </div>
+      </div>
+
+      <div class="searchItem">
+        <span class="searchLabel">실적상태</span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl wSm">
+              <option value="">달성</option>
+              <option value=""></option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="searchItem">
+        <span class="searchLabel">미션구분</span>
+        <div class="searchField">
+          <div class="formRow">
+            <select class="formControl wSm">
+              <option value="">전체</option>
+              <option value="co">미션코드</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <include src="../../partials/searchBtnArea.html"></include>
+  </div>
+
+  <!-- 실시간 요약 인라인 바 -->
+  <include src="../../partials/summaryStat.html" items="미션달성|4|회; 미달성|2|회; 누적포인트|350|P;"></include>
+
+  <!-- 하얀 박스 영역 -->
+  <div class="sectionBox">
+    <!-- 테이블 상단 건수 및 액션 바 : 건수가 있을때 .point 추가 -->
+    <include src="../../partials/tblTop.html" count="128" pageSize></include>
+
+    <!-- 데이터 그리드 테이블 -->
+    <div class="tblWrap">
+      <table class="tbl tblBordered">
+        <colgroup>
+          <col style="width: 120px;">
+          <col style="width: 90px;">
+          <col style="width: 120px;">
+          <col style="width: auto;">
+          <col style="width: 110px;">
+          <col style="width: 80px;">
+          <col style="width: 100px;">
+          <col style="width: 100px;">
+          <col style="width: 160px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th rowspan="2">일자</th>
+            <th colspan="4">
+              <div class="tooltipGroup">
+                <span>미션</span>
+                <div class="tooltipWrap top">
+                  <button type="button" class="tooltipBtn">?</button>
+                  <div class="tooltipContent">미션 안내 문구</div>
+                </div>
+              </div>
+            </th>
+            <th rowspan="2">실적</th>
+            <th rowspan="2">지급포인트</th>
+            <th rowspan="2">지급상태</th>
+            <th rowspan="2">지급일시</th>
+          </tr>
+          <tr>
+            <th>미션구분</th>
+            <th>전월말잔고</th>
+            <th colspan="2">미션상세</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3">2026.10.01<br />(09월 실적)</td>
+            <td rowspan="2">매월</td>
+            <td rowspan="2" class="textRight">1,500,000원</td>
+            <td class="textLeft">연금자산 성장</td>
+            <td class="textRight">600,000원</td>
+            <td><span class="textSuccess">달성</span></td>
+            <td class="textRight">-</td>
+            <td><span class="textIng">지급중</span></td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="textLeft">ETF 적립식매수</td>
+            <td class="textRight">설정</td>
+            <td><span class="textSuccess">달성</span></td>
+            <td class="textRight">-</td>
+            <td><span class="textIng">지급중</span></td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>매일</td>
+            <td class="textRight">1,500,000원</td>
+            <td class="textLeft">연금저축 펀드 매수</td>
+            <td class="textRight"><a href="#" class="link">5건</a></td>
+            <td><span class="textSuccess">달성</span></td>
+            <td class="textRight">100P</td>
+            <td><span class="textSuccess">지급완료</span></td>
+            <td>2026.10.01 10:00:00</td>
+          </tr>
+          <tr>
+            <!-- 데이터 그리드 테이블 - 검색결과 없음 -->
+            <!-- [D] data.length === 0 시 <tr><td class="tblEmpty" colSpan={columns.length}>...</td></tr> -->
+            <td class="tblEmpty" colspan="9">조회 내역이 없습니다.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <include src="../../partials/pagination.html"></include>
+  </div>
+  
+</section>
+</include>

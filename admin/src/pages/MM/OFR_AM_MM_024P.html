@@ -1,0 +1,62 @@
+<include src="../../layout/layoutDefault.html" title="CMA 행운룰렛 미션 고객 참여내역">
+
+  <!-- 페이지 상단 헤더 (좌측: 타이틀 / 우측: 브래드크럼) -->
+  <include src="../../partials/pageHeader.html" title="CMA 행운룰렛 미션 고객 참여내역" breadcrumb=""></include>
+
+
+  <!-- [팝업] -->
+  <!-- [D] 퍼블 확인용 .isOpen 상태로 노출 -->
+  <div id="" class="popupDimmed isOpen">
+    <div class="popupWrap md">
+      <div class="popupHeader">
+        <h2 class="popupTitle">연금저축 펀드 매수 상세 내역</h2>
+        <button type="button" class="btnClose" aria-label="닫기"></button>
+      </div>
+      <div class="popupBody">
+        <div class="section">
+          <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
+          <include src="../../partials/tblTop.html" guide="일자: 2026.09.03"></include>
+
+          <!-- 종목조회 내역 테이블 -->
+          <div class="tblWrap">
+            <table class="tbl tblBordered">
+              <colgroup>
+                <col style="width: 160px;">
+                <col style="width: auto;">
+                <col style="width: 100px;">
+                <col style="width: 80px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>매수완료일시</th>
+                  <th>상품명</th>
+                  <th>매수금액</th>
+                  <th>달성여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2026.09.02 10:00:00</td>
+                  <td class="textLeft">미래에셋 미국배당 커버드콜 액티브증권자투자신탁(주식)(H)종류C-PE</td>
+                  <td class="textRight">50,000</td>
+                  <td><span class="">미달성</span></td>
+                </tr>
+                <tr>
+                  <td>2026.09.02 10:00:00</td>
+                  <td class="textLeft">미래에셋 미국배당 커버드콜 액티브증권자투자신탁(주식)(H)종류C-PE</td>
+                  <td class="textRight">150,000</td>
+                  <td><span class="textSuccess">달성</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="formGuideText">※ 당일 1회 10만원 이상 매수 건 중 최초 1건만 미션 실적으로 인정됩니다.</p>
+        </div>
+      </div>
+      <div class="popupFooter">
+        <button type="button" class="btn primary btnClose">확인</button>
+      </div>
+    </div>
+  </div>
+
+</include>

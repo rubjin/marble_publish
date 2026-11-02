@@ -23,21 +23,36 @@
           <div class="searchBox">
             <div class="searchRow">
               <div class="searchItem">
-                <span class="searchLabel">포인트리</span>
-                <div class="searchField"><strong class="price">1,500</strong><span class="unit">원</span></div>
+                <span class="searchLabel">총 리워드지급금</span>
+                <div class="searchField"><strong class="price">100,500</strong><span class="unit">원</span></div>
               </div>
-              <div class="searchItem">
+              <!-- <div class="searchItem">
                 <span class="searchLabel">Able포인트</span>
                 <div class="searchField"><strong class="price">1,500</strong><span class="unit">원</span></div>
               </div>
               <div class="searchItem">
                 <span class="searchLabel">금융상품쿠폰</span>
                 <div class="searchField"><strong class="price">0</strong><span class="unit">원</span></div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
         <div class="section">
+          <div class="searchBox singleLine">
+            <!-- [D] cols2 : 2분할  -->
+            <div class="searchRow">
+              <div class="searchItem">
+                <label class="searchLabel" for="staffDept">고객번호</label>
+                <div class="searchField">
+                  <div class="formControlWrap">
+                    <input type="text" id="staffDept" class="formControl full" placeholder="고객번호 입력">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <include src="../../partials/searchBtnArea.html"></include>
+          </div>
+
           <!-- 테이블 상단 건수 : 건수가 있을때 .point 추가 -->
           <include src="../../partials/tblTop.html" count="20" pageSize></include>
 
@@ -46,14 +61,14 @@
             <table class="tbl tblBordered">
               <colgroup>
                 <col style="width: auto;">
-                <col style="width: 25%;">
+                <!-- <col style="width: 25%;"> -->
                 <col style="width: 25%;">
                 <col style="width: 25%;">
               </colgroup>
               <thead>
                 <tr>
                   <th>고객명</th>
-                  <th>계좌번호</th>
+                  <!-- <th>계좌번호</th> -->
                   <th>리워드 유형</th>
                   <th>리워드지급금(원)</th>
                 </tr>
@@ -61,13 +76,13 @@
               <tbody>
                 <tr>
                   <td><a href="#" class="link">김*아(12345678)</a></td>
-                  <td>20384756-01</td>
+                  <!-- <td>20384756-01</td> -->
                   <td>포인트리(10)</td>
                   <td class="textRight">500</td>
                 </tr>
                 <!-- [D] 조회 결과가 없을 때 -->
                 <tr>
-                  <td class="tblEmpty" colspan="4">조회 내역이 없습니다.</td>
+                  <td class="tblEmpty" colspan="3">조회 내역이 없습니다.</td>
                 </tr>
               </tbody>
             </table>
