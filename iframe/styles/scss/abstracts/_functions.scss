@@ -1,0 +1,10 @@
+@use 'variables' as *;
+
+// Functions
+@function imgUrl($path) {
+  @return url('#{$path-images}/#{$path}');
+}
+
+@function fontUrl($name) {
+  @return url('#{$path-fonts}/#{$name}');
+}

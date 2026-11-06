@@ -1,0 +1,149 @@
+// ==========================================================================
+// Primitive Colors (Palette)
+// ==========================================================================
+$color-yellow-400: #FFDC00;
+$color-yellow-500: #FFC72B;
+
+$color-gray-50: #F3F5F6;
+$color-gray-100: #EFF4FB;
+$color-gray-150: #F0F0F3;
+$color-gray-200: #E7E9ED;
+$color-gray-300: #D5D7DE;
+$color-gray-400: #8D919B;
+$color-gray-500: #656565;
+$color-gray-600: #4F535A;
+$color-gray-800: #2F3034;
+$color-gray-900: #1F192F;
+
+$color-red-400: #F23F3F;
+$color-red-alpha: rgba(239, 68, 68, 0.2);
+$color-blue-500: #287EFF;
+$color-blue-alpha: rgba(40, 126, 255, 0.15);
+
+$color-white: #FFFFFF;
+$color-transparent: transparent;
+
+// ==========================================================================
+// Semantic Tokens
+// ==========================================================================
+// Backgrounds
+$bg-white: $color-white;
+$bg-light: $color-gray-100;
+$bg-dark: $color-gray-600;
+$bg-disabled: $color-gray-150;
+
+// Text
+$text-basic: $color-gray-800;
+$text-secondary: $color-gray-600;
+$text-off: $color-gray-400;
+$text-inverse: $color-white;
+$text-danger: $color-red-400;
+$text-title: $color-gray-900;
+
+// Borders
+$line-light: $color-gray-150;
+$line-disabled: $color-gray-200;
+$line-default: $color-gray-300;
+$line-hover: $color-gray-400;
+
+// Focus Rings
+$ring-primary: $color-blue-alpha;
+$ring-danger: $color-red-alpha;
+$focus-ring: 0 0 0 3px $ring-primary;
+
+// ==========================================================================
+// Typography
+// ==========================================================================
+$font-family-base: 'KBFG Text', sans-serif;
+$font-weight-light: 300;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// ==========================================================================
+// Box Shadows
+// ==========================================================================
+$shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.04);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15); // 떠 있는 레이어: 데이트피커
+
+// ==========================================================================
+// Z-Index Layering
+// ==========================================================================
+$z-dropdown: 100; // 데이트피커 레이어
+
+// ==========================================================================
+// Component Tokens
+// ==========================================================================
+// Buttons
+$btn-radius: 6px;
+$btn-height-md: 34px;
+$btn-padding-x-md: 12px;
+$btn-font-size-md: 14px;
+
+$btn-primary-bg: $color-yellow-500;
+$btn-primary-bg-hover: $color-yellow-400;
+$btn-primary-text: $text-basic;
+
+$btn-outline-bg: $bg-white;
+$btn-outline-bg-hover: $color-gray-50;
+$btn-outline-border: $line-default;
+$btn-outline-border-hover: $line-hover;
+$btn-outline-text: $text-basic;
+
+$btn-dark-bg: $bg-dark;
+$btn-dark-bg-hover: $color-gray-500;
+$btn-dark-text: $text-inverse;
+
+$btn-ghost-bg-hover: $color-gray-100;
+
+$btn-height-sm: 24px;
+$btn-padding-x-sm: 12px;
+$btn-font-size-sm: 12px;
+
+// Form Controls
+$form-radius: 6px;
+$form-height: 34px;
+$form-font-size: 14px;
+$form-bg: $bg-white;
+$form-text: $text-basic;
+$form-placeholder: $text-off;
+$form-border: $line-default;
+$form-border-hover: $line-hover;
+$form-border-focus: $color-blue-500;
+$form-ring-focus: $ring-primary;
+$form-border-error: $text-danger;
+$form-ring-error: $ring-danger;
+$form-bg-disabled: $bg-disabled;
+$form-text-disabled: $text-off;
+$form-border-disabled: $line-disabled;
+
+// Checkbox / Radio
+$check-bg: $bg-white;
+$check-border: $color-gray-300;
+$check-checked-bg: $color-gray-600;
+$check-mark: $bg-white;
+$check-disabled-bg: $bg-disabled;
+$check-disabled-border: $line-light;
+$check-checked-disabled-bg: $color-gray-300;
+
+// Calendar (react-day-picker 와 같은 .rdp-* 마크업)
+$cal-day-size: 36px;
+$cal-btn-size: 32px;
+$cal-radius: $btn-radius;
+$cal-selected-bg: $bg-dark;
+$cal-range-bg: $color-gray-150;
+$cal-today-dot: $color-yellow-500;
+$cal-sunday: $color-red-400;
+$cal-saturday: $color-blue-500;
+
+// Box
+$box-bg: $color-white;
+$box-radius: 12px;
+$box-shadow: $shadow-xs;
+$box-padding: 24px 28px;
+
+// ==========================================================================
+// Asset Paths
+// ==========================================================================
+// 컴파일된 styles/css/searchBox.css 기준 상대경로
+$path-images: '../../assets/images' !default;
+$path-fonts: '../../assets/fonts' !default;

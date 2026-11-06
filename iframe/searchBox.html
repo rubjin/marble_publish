@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>조회 컨트롤 박스</title>
+  <link rel="stylesheet" href="./styles/css/searchBox.css" />
+</head>
+<body>
+  <!--
+    [iframe 단독 사용용 조회 컨트롤 박스]
+    - 레이아웃 구조:
+      * .searchBox > .searchRow > .searchItem (.full 또는 2열 배치) > .searchLabel + .searchField
+      * .searchBtnArea > 초기화 (.btn.outline) + 조회 (.btn.primary)
+    - 다열 그리드 배치 (행이 달라도 같은 열 위치에 정렬):
+      * .searchRow.cols2 / .cols3 / .cols4 : 2분할 / 3분할 / 4분할
+      * .searchItem.span2 : 2칸 차지
+    - 변형: .searchBox.narrow (상하 여백 축소) / .searchBox.singleLine (버튼 우측 한 줄 배치)
+  -->
+  <form class="searchBox" id="searchBox" autocomplete="off">
+    <!-- 1줄: 조회일자 (데이트피커 범위 + 기간 숏컷 세그먼트) -->
+    <div class="searchRow">
+      <div class="searchItem full">
+        <span class="searchLabel">조회일자</span>
+        <div class="searchField">
+          <div class="formRow">
+            <!--
+              [D] data-datepicker="range" : 기간 선택 캘린더 레이어 (assets/js/datePicker.js)
+                  data-max-date="today | yyyy.MM.dd" : 이후 날짜 선택 불가 (생략 시 제한 없음)
+                  열림 상태: .formDateRange.isOpen / 입력 중인 쪽 .formDatepicker.isActive
+            -->
+            <div class="formDateRange" data-datepicker="range" data-max-date="today">
+              <div class="formDatepicker">
+                <input type="text" name="startDate" class="formControl" value="2026.07.01" readonly aria-label="시작일" />
+                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+              </div>
+              <span class="dateSeparator">~</span>
+              <div class="formDatepicker">
+                <input type="text" name="endDate" class="formControl" value="2026.08.31" readonly aria-label="종료일" />
+                <button type="button" class="btnCalendar" aria-label="달력 열기"></button>
+              </div>
+            </div>
+            <div class="segment">
+              <!-- [D] 선택된 항목: isActive 클래스 추가 -->
+              <button type="button" class="segmentItem isActive" data-period="today">오늘</button>
+              <button type="button" class="segmentItem" data-period="1w">1주일</button>
+              <button type="button" class="segmentItem" data-period="1m">1개월</button>
+              <button type="button" class="segmentItem" data-period="3m">3개월</button>
+              <button type="button" class="segmentItem" data-period="all">전체</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2줄: 유형(셀렉트) 및 상태(라디오) 2열 구성 -->
+    <div class="searchRow">
+      <div class="searchItem">
+        <label class="searchLabel" for="searchType">유형</label>
+        <div class="searchField">
+          <select id="searchType" name="type" class="formControl wSm">
+            <option value="">전체</option>
+            <option value="1">OX퀴즈</option>
+            <option value="2">출석체크</option>
+            <option value="3">설문조사</option>
+            <option value="4">챌린지</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="searchItem">
+        <span class="searchLabel">상태</span>
+        <div class="searchField">
+          <div class="formCheckGroup">
+            <label class="formCheck">
+              <input type="radio" name="status" value="" checked />
+              <span class="checkIcon"></span>
+              <span class="checkLabel">전체</span>
+            </label>
+            <label class="formCheck">
+              <input type="radio" name="status" value="ing" />
+              <span class="checkIcon"></span>
+              <span class="checkLabel">운영중</span>
+            </label>
+            <label class="formCheck">
+              <input type="radio" name="status" value="pause" />
+              <span class="checkIcon"></span>
+              <span class="checkLabel">일시중단</span>
+            </label>
+            <label class="formCheck">
+              <input type="radio" name="status" value="end" />
+              <span class="checkIcon"></span>
+              <span class="checkLabel">종료</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3줄: 검색어 구분 셀렉트 + 인풋 콤보 -->
+    <div class="searchRow">
+      <div class="searchItem full">
+        <label class="searchLabel" for="searchKeyword">검색어</label>
+        <div class="searchField">
+          <div class="formRow">
+            <select name="keywordType" class="formControl wSm" aria-label="검색어 구분">
+              <option value="all">전체</option>
+              <option value="title">미션명</option>
+              <option value="id">미션ID</option>
+              <option value="author">등록자</option>
+            </select>
+            <!-- [D] hasSearch : 인풋 우측 검색 아이콘 버튼 (클릭 시 조회) -->
+            <div class="formControlWrap hasSearch">
+              <input type="text" id="searchKeyword" name="keyword" class="formControl full" placeholder="검색어를 입력해주세요" />
+              <button type="submit" class="btnSearch" aria-label="검색"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 박스 하단 초기화 / 조회 버튼 -->
+    <div class="searchBtnArea">
+      <button type="reset" class="btn outline">초기화</button>
+      <button type="submit" class="btn primary">조회</button>
+    </div>
+  </form>
+
+  <script src="./assets/js/datePicker.js"></script>
+  <script src="./assets/js/searchBox.js"></script>
+</body>
+</html>

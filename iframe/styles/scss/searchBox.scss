@@ -1,0 +1,18 @@
+// ==========================================================================
+// [Standalone Bundle: searchBox.scss]
+// iframe 단독 사용 조회 컨트롤 박스 스타일 진입 파일
+//
+// Build:
+//   sass styles/scss/searchBox.scss styles/css/searchBox.css --no-source-map
+//   (이미지 경로는 컴파일된 styles/css/searchBox.css 기준 ../../assets/images)
+// ==========================================================================
+
+// Common Base (리셋, 폰트, body 기본)
+@use 'common';
+
+// Components
+@use 'components/button';
+@use 'components/segment';
+@use 'components/form';
+@use 'components/calendar';
+@use 'components/searchbox';

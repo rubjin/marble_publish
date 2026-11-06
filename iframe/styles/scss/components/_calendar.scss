@@ -1,0 +1,409 @@
+@use '../abstracts' as *;
+
+/* ==========================================================================
+   Calendar Component (데이트피커 레이어)
+   - admin 의 _calendar.scss (react-day-picker v9) 와 같은 .rdp-* 클래스 사용
+   - iframe 에서는 React 없이 assets/js/datePicker.js 가 같은 마크업을 그림
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   데이트피커 레이어 (입력창 하단 팝오버)
+   [D] 열림: .formDatepicker 또는 .formDateRange 에 .isOpen 추가
+       기간 선택 시 현재 입력 중인 쪽 .formDatepicker 에 .isActive (포커스 표시)
+   -------------------------------------------------------------------------- */
+.formDatepicker,
+.formDateRange {
+  position: relative;
+
+  &.isOpen > .datePickerLayer {
+    display: flex;
+  }
+}
+
+// 데이트피커 입력창은 직접 입력 방지를 위해 readonly 를 쓰므로 비활성 스타일에서 제외
+.formDatepicker .formControl[readonly]:not(:disabled):not(.isDisabled) {
+  background-color: $bg-white;
+  color: $text-basic;
+  border-color: $line-default;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $text-off;
+  }
+}
+
+.formDatepicker.isOpen,
+.formDatepicker.isActive {
+  .formControl,
+  .formControl[readonly]:not(:disabled):not(.isDisabled) {
+    border-color: $color-blue-500;
+    box-shadow: $focus-ring;
+  }
+}
+
+.datePickerLayer {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: $z-dropdown;
+  // 부모(입력창) 너비에 맞춰 줄어들지 않도록 내용 기준 너비
+  width: max-content;
+  background-color: $bg-white;
+  border: 1px solid $line-default;
+  border-radius: 8px;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+
+  // 우측 기준 정렬 (화면 우측 끝에 있는 입력창)
+  &.alignRight {
+    left: auto;
+    right: 0;
+  }
+
+  // 상단으로 열기
+  &.alignTop {
+    top: auto;
+    bottom: calc(100% + 4px);
+  }
+}
+
+.datePickerBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.datePickerMain {
+  padding: 16px 16px 12px;
+}
+
+// 기간 빠른 선택 (좌측 프리셋)
+.datePickerPreset {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 112px;
+  padding: 12px 8px;
+  border-right: 1px solid $line-light;
+  background-color: $color-gray-50;
+
+  .presetBtn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    border: none;
+    border-radius: $cal-radius;
+    background: none;
+    font-size: 13px;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+
+    &:hover {
+      background-color: $color-gray-150;
+      color: $text-basic;
+    }
+
+    &.isActive {
+      background-color: $bg-dark;
+      color: $text-inverse;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+// 하단 (선택값 요약 + 버튼)
+.datePickerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid $line-light;
+
+  .datePickerValue {
+    font-size: 13px;
+    color: $text-secondary;
+
+    strong {
+      color: $text-title;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  .btnGroup {
+    margin-left: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   달력 (.rdp-*)
+   -------------------------------------------------------------------------- */
+.rdp-root {
+  position: relative;
+  font-family: $font-family-base;
+  font-size: 14px;
+  color: $text-basic;
+}
+
+.rdp-months {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: fit-content;
+}
+
+.rdp-month {
+  position: relative;
+}
+
+// 여러 달 표시 시 구분선
+.rdp-month + .rdp-month {
+  padding-left: 24px;
+  border-left: 1px solid $line-light;
+}
+
+.rdp-month_caption {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+.rdp-caption_label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 15px;
+  font-weight: $font-weight-bold;
+  color: $text-title;
+  white-space: nowrap;
+}
+
+/* 이전/다음 버튼 */
+.rdp-button_previous,
+.rdp-button_next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid $line-default;
+  border-radius: $cal-radius;
+  background-color: $bg-white;
+  color: $text-secondary;
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 0.15s, border-color 0.15s;
+
+  &:hover {
+    background-color: $color-gray-50;
+    border-color: $line-hover;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background-color: $bg-white;
+    border-color: $line-default;
+  }
+}
+
+.rdp-chevron {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  fill: $text-secondary;
+}
+
+// navLayout="around" : [<]  2026년 9월  [>]
+.rdp-root[data-nav-layout="around"] {
+  .rdp-month_caption {
+    justify-content: center;
+    margin-inline: 32px;
+  }
+
+  .rdp-button_previous,
+  .rdp-button_next {
+    position: absolute;
+    top: 2px;
+  }
+
+  .rdp-button_previous {
+    left: 0;
+  }
+
+  .rdp-button_next {
+    right: 0;
+  }
+}
+
+/* 요일 / 날짜 그리드 */
+.rdp-month_grid {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.rdp-weekday {
+  width: $cal-day-size;
+  height: 28px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  color: $text-off;
+  text-align: center;
+}
+
+.rdp-week {
+  // 행 간 간격 (border-collapse 상태에서 td padding 대신 사용)
+  border-top: 2px solid transparent;
+}
+
+.rdp-day {
+  width: $cal-day-size;
+  height: $cal-day-size;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.rdp-day_button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $cal-btn-size;
+  height: $cal-btn-size;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: $cal-radius;
+  background: none;
+  font-size: 14px;
+  font-weight: $font-weight-light;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+
+  &:hover {
+    background-color: $color-gray-100;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// 주말 색상 (일요일 시작 기준)
+.rdp-weekday:first-child,
+.rdp-week .rdp-day:first-child {
+  color: $cal-sunday;
+}
+
+.rdp-weekday:last-child,
+.rdp-week .rdp-day:last-child {
+  color: $cal-saturday;
+}
+
+/* 날짜 상태 */
+
+// 오늘: 하단 포인트 닷
+.rdp-today:not(.rdp-outside) .rdp-day_button {
+  font-weight: $font-weight-bold;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background-color: $cal-today-dot;
+  }
+}
+
+// 이전/다음 달 날짜
+.rdp-outside {
+  color: $line-default !important;
+}
+
+// 선택 불가 날짜
+.rdp-disabled:not(.rdp-selected) {
+  color: $line-default !important;
+
+  .rdp-day_button {
+    text-decoration: line-through;
+
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.rdp-hidden {
+  visibility: hidden;
+}
+
+// 선택된 날짜
+.rdp-selected .rdp-day_button,
+.rdp-selected .rdp-day_button:hover {
+  background-color: $cal-selected-bg;
+  color: $text-inverse;
+  font-weight: $font-weight-bold;
+}
+
+.rdp-selected {
+  color: $text-inverse;
+}
+
+// 기간 선택
+.rdp-range_middle {
+  background-color: $cal-range-bg;
+  color: $text-basic !important;
+
+  .rdp-day_button,
+  .rdp-day_button:hover {
+    background-color: transparent;
+    color: inherit;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.rdp-range_start {
+  background: linear-gradient(90deg, transparent 50%, $cal-range-bg 50%);
+}
+
+.rdp-range_end {
+  background: linear-gradient(90deg, $cal-range-bg 50%, transparent 50%);
+}
+
+.rdp-range_start.rdp-range_end {
+  background: none;
+}
+
+// 선택/기간 상태 날짜 위의 오늘 표시 닷 가독성 유지
+.rdp-selected.rdp-today:not(.rdp-range_middle) .rdp-day_button::after {
+  background-color: $cal-today-dot;
+}

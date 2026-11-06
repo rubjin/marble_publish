@@ -1,0 +1,60 @@
+@use '../abstracts' as *;
+
+/* ==========================================================================
+   Segment Component (기간 숏컷)
+   ========================================================================== */
+.segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background-color: $color-gray-50;
+  border-radius: 6px;
+  user-select: none;
+
+  .segmentItem {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: $font-weight-medium;
+    line-height: 1;
+    color: $color-gray-500;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    &:hover {
+      color: $color-gray-800;
+    }
+
+    // Active (Button & Radio)
+    &.isActive,
+    &:has(input[type="radio"]:checked) {
+      color: $color-white;
+      background: $bg-dark;
+      font-weight: $font-weight-bold;
+    }
+
+    &:disabled,
+    &.isDisabled,
+    &:has(input[type="radio"]:disabled) {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}

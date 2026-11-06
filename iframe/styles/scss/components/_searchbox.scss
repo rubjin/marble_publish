@@ -1,0 +1,144 @@
+@use '../abstracts' as *;
+
+/* ==========================================================================
+   Search / Filter Box Component
+   ========================================================================== */
+@mixin searchBoxSingleLine {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  .searchRow {
+    grid-column: 1;
+  }
+
+  .searchBtnArea {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+}
+
+.searchBox {
+  width: 100%;
+  padding: $box-padding;
+  background-color: $box-bg;
+  border-radius: $box-radius;
+  box-shadow: $box-shadow;
+
+  // 상하 여백 축소
+  &.narrow {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  // 조건 1줄 + 버튼 우측 배치
+  &.singleLine {
+    @include searchBoxSingleLine;
+  }
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 64px;
+  min-height: 40px;
+  padding: 6px 0;
+
+  // 다열 정렬 배치: 행이 달라도 항목이 같은 열 위치에 맞춰지도록 그리드 사용
+  &.cols2,
+  &.cols3,
+  &.cols4 {
+    display: grid;
+    gap: 12px 40px;
+
+    .searchItem {
+      min-width: 0;
+
+      // 2칸 차지 (예: 기간 선택처럼 요소가 여러 개인 항목)
+      &.span2 {
+        grid-column: span 2;
+
+        .formControl.wSm {
+          width: 140px;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    // 셀 너비에 맞춰 입력 요소를 채워 우측 끝선 정렬
+    .formRow {
+      flex: 1;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .formControlWrap {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .formControl {
+      width: 100%;
+    }
+  }
+
+  &.cols2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  &.cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  &.cols4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.searchItem {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto; // 2열 배치 시 우측 항목이 좌측 입력창 바로 뒤에 붙도록
+
+  &.full {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+.searchLabel {
+  flex-shrink: 0;
+  min-width: 80px;
+  padding-right: 20px;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  line-height: 1.4;
+  color: $text-basic;
+}
+
+.searchField {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  // 키워드 입력창 최소 너비 확보
+  .formControlWrap {
+    min-width: 316px;
+  }
+}
+
+.searchBtnArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 18px;
+  border-top: 1px solid $line-light;
+
+  .btn {
+    min-width: 84px;
+    height: 38px;
+  }
+}

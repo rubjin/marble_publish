@@ -1,0 +1,919 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+@font-face {
+  font-family: "KBFG Text";
+  src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff") format("woff");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "KBFG Text";
+  src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Medium.woff") format("woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "KBFG Text";
+  src: url("https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff") format("woff");
+  font-weight: 700;
+}
+html,
+body {
+  background-color: transparent;
+}
+
+body {
+  padding: 4px;
+  font-family: "KBFG Text", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #2F3034;
+  letter-spacing: -0.02em;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Button Component (.btn.primary / .outline / .dark / .ghost / .sm, .btnGroup)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 90px;
+  height: 34px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+.btn.primary {
+  background-color: #FFC72B;
+  color: #2F3034;
+}
+.btn.primary:hover {
+  background-color: #FFDC00;
+}
+.btn.outline {
+  border: 1px solid #D5D7DE;
+  background-color: #FFFFFF;
+  color: #2F3034;
+}
+.btn.outline:hover {
+  background-color: #F3F5F6;
+  border-color: #8D919B;
+}
+.btn.dark {
+  background-color: #4F535A;
+  color: #FFFFFF;
+}
+.btn.dark:hover {
+  background-color: #656565;
+}
+.btn.ghost {
+  background-color: transparent;
+}
+.btn.ghost:hover {
+  background-color: #EFF4FB;
+}
+.btn.sm {
+  min-width: 46px;
+  height: 24px;
+  padding: 0 12px;
+  font-size: 12px;
+}
+.btn:disabled, .btn.isDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btnGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.btnGroup.sm {
+  gap: 4px;
+}
+.btnGroup.sm .btn {
+  min-width: 46px;
+  height: 24px;
+  padding: 0 12px;
+  font-size: 12px;
+}
+
+/* ==========================================================================
+   Segment Component (기간 숏컷)
+   ========================================================================== */
+.segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background-color: #F3F5F6;
+  border-radius: 6px;
+  user-select: none;
+}
+.segment .segmentItem {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  color: #656565;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.segment .segmentItem input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.segment .segmentItem:hover {
+  color: #2F3034;
+}
+.segment .segmentItem.isActive, .segment .segmentItem:has(input[type=radio]:checked) {
+  color: #FFFFFF;
+  background: #4F535A;
+  font-weight: 700;
+}
+.segment .segmentItem:disabled, .segment .segmentItem.isDisabled, .segment .segmentItem:has(input[type=radio]:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Form Component (input / select / radio·checkbox / datepicker)
+   ========================================================================== */
+.required {
+  color: #F23F3F;
+  margin-left: 4px;
+}
+
+.formRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.formRow.full {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+.formRow.full .formControlWrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.formControlWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.formControlWrap.full {
+  width: 100%;
+  flex: 1;
+  min-width: 0;
+}
+.formControlWrap.full .formControl {
+  width: 100%;
+  min-width: 0;
+}
+.formControlWrap.hasSearch .formControl {
+  padding-right: 36px;
+}
+.formControlWrap.hasSearch .btnSearch {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: transparent url("../../assets/images/i_search_24.svg") no-repeat center/contain;
+  border: none;
+  opacity: 0.7;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.formControlWrap.hasSearch .btnSearch:hover {
+  opacity: 1;
+}
+
+.formControl {
+  width: 200px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #2F3034;
+  background-color: #FFFFFF;
+  border: 1px solid #D5D7DE;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+.formControl.wXs {
+  width: 100px;
+}
+.formControl.wSm {
+  width: 140px;
+}
+.formControl.wMd {
+  width: 260px;
+}
+.formControl.full {
+  width: 100%;
+}
+.formControl::placeholder {
+  color: #8D919B;
+}
+.formControl:hover {
+  border-color: #8D919B;
+}
+.formControl:focus {
+  border-color: #287EFF;
+  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
+}
+.formControl[readonly], .formControl:disabled, .formControl.isDisabled {
+  background-color: #F0F0F3;
+  color: #8D919B;
+  border-color: #E7E9ED;
+  cursor: not-allowed;
+}
+.formControl.isError {
+  border-color: #F23F3F;
+}
+.formControl.isError:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+select.formControl {
+  appearance: none;
+  padding-right: 40px;
+  background-image: url("../../assets/images/select_20.svg");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+select.formControl.wAuto {
+  width: auto;
+}
+
+/* Checkbox & Radio */
+.formCheckGroup {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.formCheck {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.formCheck input[type=checkbox],
+.formCheck input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.formCheck .checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-color: #FFFFFF;
+  border: 1px solid #D5D7DE;
+  transition: all 0.2s;
+}
+.formCheck .checkIcon:last-child {
+  margin-right: 0;
+}
+.formCheck .checkIcon::after {
+  content: "";
+  display: none;
+}
+.formCheck input[type=checkbox] + .checkIcon {
+  border-radius: 4px;
+}
+.formCheck input[type=checkbox] + .checkIcon::after {
+  width: 10px;
+  height: 10px;
+  background-color: #FFFFFF;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+.formCheck input[type=radio] + .checkIcon {
+  border-radius: 50%;
+}
+.formCheck input[type=radio] + .checkIcon::after {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+.formCheck input:checked + .checkIcon {
+  background-color: #4F535A;
+  border-color: #4F535A;
+}
+.formCheck input:checked + .checkIcon::after {
+  display: block;
+}
+.formCheck input:focus-visible + .checkIcon {
+  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
+}
+.formCheck input:disabled + .checkIcon {
+  background-color: #F0F0F3;
+  border-color: #F0F0F3;
+  cursor: not-allowed;
+}
+.formCheck input:checked:disabled + .checkIcon {
+  background-color: #D5D7DE;
+  border-color: #D5D7DE;
+}
+.formCheck .checkLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2F3034;
+}
+.formCheck input:disabled ~ .checkLabel {
+  color: #8D919B;
+  cursor: not-allowed;
+}
+
+/* Datepicker & Date Range */
+.formDatepicker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.formDatepicker .formControl {
+  width: 140px;
+  min-width: 140px;
+  padding-right: 36px;
+}
+.formDatepicker .btnCalendar {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: transparent url("../../assets/images/i_calendar_16.svg") no-repeat center/contain;
+  border: none;
+  opacity: 0.7;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.formDatepicker .btnCalendar:hover {
+  opacity: 1;
+}
+
+.formDateRange {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.formDateRange .dateSeparator {
+  font-size: 14px;
+  color: #8D919B;
+}
+
+/* ==========================================================================
+   Calendar Component (데이트피커 레이어)
+   - admin 의 _calendar.scss (react-day-picker v9) 와 같은 .rdp-* 클래스 사용
+   - iframe 에서는 React 없이 assets/js/datePicker.js 가 같은 마크업을 그림
+   ========================================================================== */
+/* --------------------------------------------------------------------------
+   데이트피커 레이어 (입력창 하단 팝오버)
+   [D] 열림: .formDatepicker 또는 .formDateRange 에 .isOpen 추가
+       기간 선택 시 현재 입력 중인 쪽 .formDatepicker 에 .isActive (포커스 표시)
+   -------------------------------------------------------------------------- */
+.formDatepicker,
+.formDateRange {
+  position: relative;
+}
+.formDatepicker.isOpen > .datePickerLayer,
+.formDateRange.isOpen > .datePickerLayer {
+  display: flex;
+}
+
+.formDatepicker .formControl[readonly]:not(:disabled):not(.isDisabled) {
+  background-color: #FFFFFF;
+  color: #2F3034;
+  border-color: #D5D7DE;
+  cursor: pointer;
+}
+.formDatepicker .formControl[readonly]:not(:disabled):not(.isDisabled):hover {
+  border-color: #8D919B;
+}
+
+.formDatepicker.isOpen .formControl,
+.formDatepicker.isOpen .formControl[readonly]:not(:disabled):not(.isDisabled),
+.formDatepicker.isActive .formControl,
+.formDatepicker.isActive .formControl[readonly]:not(:disabled):not(.isDisabled) {
+  border-color: #287EFF;
+  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
+}
+
+.datePickerLayer {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 100;
+  width: max-content;
+  background-color: #FFFFFF;
+  border: 1px solid #D5D7DE;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.datePickerLayer.alignRight {
+  left: auto;
+  right: 0;
+}
+.datePickerLayer.alignTop {
+  top: auto;
+  bottom: calc(100% + 4px);
+}
+
+.datePickerBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.datePickerMain {
+  padding: 16px 16px 12px;
+}
+
+.datePickerPreset {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 112px;
+  padding: 12px 8px;
+  border-right: 1px solid #F0F0F3;
+  background-color: #F3F5F6;
+}
+.datePickerPreset .presetBtn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4F535A;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+.datePickerPreset .presetBtn:hover {
+  background-color: #F0F0F3;
+  color: #2F3034;
+}
+.datePickerPreset .presetBtn.isActive {
+  background-color: #4F535A;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.datePickerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid #F0F0F3;
+}
+.datePickerFooter .datePickerValue {
+  font-size: 13px;
+  color: #4F535A;
+}
+.datePickerFooter .datePickerValue strong {
+  color: #1F192F;
+  font-weight: 500;
+}
+.datePickerFooter .btnGroup {
+  margin-left: auto;
+}
+
+/* --------------------------------------------------------------------------
+   달력 (.rdp-*)
+   -------------------------------------------------------------------------- */
+.rdp-root {
+  position: relative;
+  font-family: "KBFG Text", sans-serif;
+  font-size: 14px;
+  color: #2F3034;
+}
+
+.rdp-months {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: fit-content;
+}
+
+.rdp-month {
+  position: relative;
+}
+
+.rdp-month + .rdp-month {
+  padding-left: 24px;
+  border-left: 1px solid #F0F0F3;
+}
+
+.rdp-month_caption {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+.rdp-caption_label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1F192F;
+  white-space: nowrap;
+}
+
+/* 이전/다음 버튼 */
+.rdp-button_previous,
+.rdp-button_next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #D5D7DE;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  color: #4F535A;
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.rdp-button_previous:hover,
+.rdp-button_next:hover {
+  background-color: #F3F5F6;
+  border-color: #8D919B;
+}
+.rdp-button_previous:focus-visible,
+.rdp-button_next:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
+}
+.rdp-button_previous:disabled, .rdp-button_previous[aria-disabled=true],
+.rdp-button_next:disabled,
+.rdp-button_next[aria-disabled=true] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background-color: #FFFFFF;
+  border-color: #D5D7DE;
+}
+
+.rdp-chevron {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  fill: #4F535A;
+}
+
+.rdp-root[data-nav-layout=around] .rdp-month_caption {
+  justify-content: center;
+  margin-inline: 32px;
+}
+.rdp-root[data-nav-layout=around] .rdp-button_previous,
+.rdp-root[data-nav-layout=around] .rdp-button_next {
+  position: absolute;
+  top: 2px;
+}
+.rdp-root[data-nav-layout=around] .rdp-button_previous {
+  left: 0;
+}
+.rdp-root[data-nav-layout=around] .rdp-button_next {
+  right: 0;
+}
+
+/* 요일 / 날짜 그리드 */
+.rdp-month_grid {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.rdp-weekday {
+  width: 36px;
+  height: 28px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #8D919B;
+  text-align: center;
+}
+
+.rdp-week {
+  border-top: 2px solid transparent;
+}
+
+.rdp-day {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.rdp-day_button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  font-size: 14px;
+  font-weight: 300;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+.rdp-day_button:hover {
+  background-color: #EFF4FB;
+}
+.rdp-day_button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 126, 255, 0.15);
+}
+.rdp-day_button:disabled {
+  cursor: not-allowed;
+}
+
+.rdp-weekday:first-child,
+.rdp-week .rdp-day:first-child {
+  color: #F23F3F;
+}
+
+.rdp-weekday:last-child,
+.rdp-week .rdp-day:last-child {
+  color: #287EFF;
+}
+
+/* 날짜 상태 */
+.rdp-today:not(.rdp-outside) .rdp-day_button {
+  font-weight: 700;
+}
+.rdp-today:not(.rdp-outside) .rdp-day_button::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background-color: #FFC72B;
+}
+
+.rdp-outside {
+  color: #D5D7DE !important;
+}
+
+.rdp-disabled:not(.rdp-selected) {
+  color: #D5D7DE !important;
+}
+.rdp-disabled:not(.rdp-selected) .rdp-day_button {
+  text-decoration: line-through;
+}
+.rdp-disabled:not(.rdp-selected) .rdp-day_button:hover {
+  background: none;
+}
+
+.rdp-hidden {
+  visibility: hidden;
+}
+
+.rdp-selected .rdp-day_button,
+.rdp-selected .rdp-day_button:hover {
+  background-color: #4F535A;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.rdp-selected {
+  color: #FFFFFF;
+}
+
+.rdp-range_middle {
+  background-color: #F0F0F3;
+  color: #2F3034 !important;
+}
+.rdp-range_middle .rdp-day_button,
+.rdp-range_middle .rdp-day_button:hover {
+  background-color: transparent;
+  color: inherit;
+  font-weight: 500;
+}
+
+.rdp-range_start {
+  background: linear-gradient(90deg, transparent 50%, #F0F0F3 50%);
+}
+
+.rdp-range_end {
+  background: linear-gradient(90deg, #F0F0F3 50%, transparent 50%);
+}
+
+.rdp-range_start.rdp-range_end {
+  background: none;
+}
+
+.rdp-selected.rdp-today:not(.rdp-range_middle) .rdp-day_button::after {
+  background-color: #FFC72B;
+}
+
+/* ==========================================================================
+   Search / Filter Box Component
+   ========================================================================== */
+.searchBox {
+  width: 100%;
+  padding: 24px 28px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.searchBox.narrow {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.searchBox.singleLine {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.searchBox.singleLine .searchRow {
+  grid-column: 1;
+}
+.searchBox.singleLine .searchBtnArea {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 64px;
+  min-height: 40px;
+  padding: 6px 0;
+}
+.searchRow.cols2, .searchRow.cols3, .searchRow.cols4 {
+  display: grid;
+  gap: 12px 40px;
+}
+.searchRow.cols2 .searchItem, .searchRow.cols3 .searchItem, .searchRow.cols4 .searchItem {
+  min-width: 0;
+}
+.searchRow.cols2 .searchItem.span2, .searchRow.cols3 .searchItem.span2, .searchRow.cols4 .searchItem.span2 {
+  grid-column: span 2;
+}
+.searchRow.cols2 .searchItem.span2 .formControl.wSm, .searchRow.cols3 .searchItem.span2 .formControl.wSm, .searchRow.cols4 .searchItem.span2 .formControl.wSm {
+  width: 140px;
+  flex-shrink: 0;
+}
+.searchRow.cols2 .formRow, .searchRow.cols3 .formRow, .searchRow.cols4 .formRow {
+  flex: 1;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+.searchRow.cols2 .formControlWrap, .searchRow.cols3 .formControlWrap, .searchRow.cols4 .formControlWrap {
+  flex: 1;
+  min-width: 0;
+}
+.searchRow.cols2 .formControl, .searchRow.cols3 .formControl, .searchRow.cols4 .formControl {
+  width: 100%;
+}
+.searchRow.cols2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.searchRow.cols3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.searchRow.cols4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.searchItem {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+}
+.searchItem.full {
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+.searchLabel {
+  flex-shrink: 0;
+  min-width: 80px;
+  padding-right: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #2F3034;
+}
+
+.searchField {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.searchField .formControlWrap {
+  min-width: 316px;
+}
+
+.searchBtnArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 18px;
+  border-top: 1px solid #F0F0F3;
+}
+.searchBtnArea .btn {
+  min-width: 84px;
+  height: 38px;
+}

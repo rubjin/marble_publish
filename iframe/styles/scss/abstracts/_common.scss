@@ -1,0 +1,52 @@
+@use 'variables' as *;
+@use 'functions' as *;
+
+// Font
+// [D] 로컬 폰트 사용 시 assets/fonts 에 파일을 넣고 아래 url 을 fontUrl() 로 교체
+//     예) src: fontUrl('KBFGText-Light.woff2') format('woff2');
+@font-face {
+  font-family: 'KBFG Text';
+  src: url('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Light.woff') format('woff');
+  font-weight: $font-weight-light;
+}
+
+@font-face {
+  font-family: 'KBFG Text';
+  src: url('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Medium.woff') format('woff');
+  font-weight: $font-weight-medium;
+}
+
+@font-face {
+  font-family: 'KBFG Text';
+  src: url('https://www.kbfg.com/templets/kbfg/web/kor/font/KBFG/KBFGText-Bold.woff') format('woff');
+  font-weight: $font-weight-bold;
+}
+
+// Common
+// iframe 문서: 투명 배경 (부모 화면 배경 노출) + 박스 그림자가 잘리지 않도록 최소 여백
+html,
+body {
+  background-color: transparent;
+}
+
+body {
+  padding: 4px;
+  font-family: $font-family-base;
+  font-size: 14px;
+  font-weight: $font-weight-light;
+  line-height: 1.5;
+  color: $text-basic;
+  letter-spacing: -0.02em;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
